@@ -1,0 +1,44 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch",
+            "type": "lua",
+            "request": "attach",
+            "stopOnEntry": false,
+            "ip": "127.0.0.1",
+            "port": 4278,
+            "preLaunchTask": "运行",
+            "sourceMaps": [
+                [
+                    "scripts\\",
+                    "${workspaceRoot}\\scripts\\"
+                ],
+                [
+                    "lua\\",
+                    "${workspaceRoot}\\map\\lua\\"
+                ]
+            ]
+        },
+        {
+            "name": "Attach",
+            "type": "lua",
+            "request": "attach",
+            "stopOnEntry": false,
+            "sourceCoding": "utf8",
+            "processName": "War3.exe",
+            "debugServer" : 4278,
+            "sourceMaps": [
+                [
+                    "scripts\\",
+                    "${workspaceRoot}\\scripts\\"
+                ],
+                [
+                    "lua\\",
+                    "${workspaceRoot}\\map\\lua\\"
+                ]
+            ]
+        }
+        
+    ]
+}

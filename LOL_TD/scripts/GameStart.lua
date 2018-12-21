@@ -21,9 +21,9 @@ function GameStart.AnyUnitAttack()
     end
     --迭代技能
     attactUnit:IterateSkills(
-    function(skill)
-        skill:OnBeginAttack(attactUnit, defUnit)
-    end
+        function(skill)
+            skill:OnBeginAttack(attactUnit, defUnit)
+        end
     )
 end
 
@@ -32,8 +32,8 @@ function GameStart.AnyDummyDamaged(attactUnit, defUnit)
     local mDamages1
     local mDamages2
     if GetUnitAbilityLevel(attactUnit.Entity, GetId("AQ02")) > 0 then
-        mDamages1 = { 10, 15, 20, 25, 30, 40 }
-        mDamages2 = { 0.4, 0.4, 0.4, 0.4, 0.4, 0.4 }
+        mDamages1 = {10, 15, 20, 25, 30, 40}
+        mDamages2 = {0.4, 0.4, 0.4, 0.4, 0.4, 0.4}
         local spellUnit = attactUnit.Owner
         local self = attactUnit.Skill
         defUnit:AddBuff("枪林弹雨", self:GetCurLevel())
@@ -43,8 +43,8 @@ function GameStart.AnyDummyDamaged(attactUnit, defUnit)
     end
 
     if GetUnitTypeId(attactUnit.Entity) == GetId("uq05") then
-        mDamages1 = { 80, 120, 180, 240, 300, 360 }
-        mDamages2 = { 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 }
+        mDamages1 = {80, 120, 180, 240, 300, 360}
+        mDamages2 = {0.3, 0.4, 0.5, 0.6, 0.7, 0.8}
         local spellUnit = attactUnit.Owner
         local self = attactUnit.Skill
         defUnit:AddBuff("海克斯爆破雷区", self:GetCurLevel())
@@ -91,29 +91,29 @@ function GameStart.AnyUnitDamaged()
         --      UnitRemoveAbility(defUnit.Entity, GetId("B000"))
         --迭代技能
         attactUnit:IterateSkills(
-        function(skill)
-            skill:OnAttack(attactUnit, defUnit, isCritDamage)
-        end
+            function(skill)
+                skill:OnAttack(attactUnit, defUnit, isCritDamage)
+            end
         )
         --迭代物品
         attactUnit:IterateItems(
-        function(item)
-            item:OnAttack(attactUnit, defUnit, isCritDamage)
-        end
+            function(item)
+                item:OnAttack(attactUnit, defUnit, isCritDamage)
+            end
         )
         --迭代Buff
         attactUnit:IterateBuffs(
-        function(buff)
-            buff:OnAttack(attactUnit, defUnit, isCritDamage)
-        end
+            function(buff)
+                buff:OnAttack(attactUnit, defUnit, isCritDamage)
+            end
         )
         --迭代Buff
         defUnit:IterateBuffs(
-        function(buff)
-            buff:OnHurt(attactUnit, defUnit)
-        end
+            function(buff)
+                buff:OnHurt(attactUnit, defUnit)
+            end
         )
-        --  end
+    --  end
     end
 
     --重新计算伤害
@@ -158,17 +158,17 @@ function GameStart.AnyUnitDamaged()
                 local ad = attactUnit.Attribute:get("物理攻击") + attactUnit.Attribute:get("物理攻击加成")
                 local ap = attactUnit.Attribute:get("法术攻击")
                 AssetsManager.OverlapCircle(
-                defUnit:X(),
-                defUnit:Y(),
-                300,
-                function(unit)
-                    --buff
-                    local buff = unit:AddBuff("幽冥冷火")
-                    if (buff ~= nil) then
-                        buff.AttactUnit = attactUnit
-                        buff.values = { 10 + 0.4 * ad + 0.4 * ap }
+                    defUnit:X(),
+                    defUnit:Y(),
+                    300,
+                    function(unit)
+                        --buff
+                        local buff = unit:AddBuff("幽冥冷火")
+                        if (buff ~= nil) then
+                            buff.AttactUnit = attactUnit
+                            buff.values = {10 + 0.4 * ad + 0.4 * ap}
+                        end
                     end
-                end
                 )
             end
         end
@@ -178,28 +178,28 @@ function GameStart.AnyUnitDamaged()
     --智能施法
     if (GetUnitAbilityLevel(attactUnit.Entity, GetId("B007")) > 0) then
         attactUnit:IterateSkills(
-        function(skill)
-            --   -1被动 0无目标 1单位目标 2点目标 3点范围
-            if (skill.Order == nil or skill.SkillType == -1 or skill:IsCD()) then
-                return
-            end
-            if (skill.SkillType == 0) then
-                IssueImmediateOrder(attactUnit.Entity, skill.Order)
-            else
-                AssetsManager.OverlapCircle(
-                attactUnit:X(),
-                attactUnit:Y(),
-                skill:GetCurRange(),
-                function(enemy)
-                    if (skill.SkillType == 1) then
-                        IssueTargetOrder(attactUnit.Entity, skill.Order, enemy.Entity)
-                    elseif (skill.SkillType == 2 or skill.SkillType == 3) then
-                        IssuePointOrder(attactUnit.Entity, skill.Order, enemy:X(), enemy:Y())
-                    end
+            function(skill)
+                --   -1被动 0无目标 1单位目标 2点目标 3点范围
+                if (skill.Order == nil or skill.SkillType == -1 or skill:IsCD()) then
+                    return
                 end
-                )
+                if (skill.SkillType == 0) then
+                    IssueImmediateOrder(attactUnit.Entity, skill.Order)
+                else
+                    AssetsManager.OverlapCircle(
+                        attactUnit:X(),
+                        attactUnit:Y(),
+                        skill:GetCurRange(),
+                        function(enemy)
+                            if (skill.SkillType == 1) then
+                                IssueTargetOrder(attactUnit.Entity, skill.Order, enemy.Entity)
+                            elseif (skill.SkillType == 2 or skill.SkillType == 3) then
+                                IssuePointOrder(attactUnit.Entity, skill.Order, enemy:X(), enemy:Y())
+                            end
+                        end
+                    )
+                end
             end
-        end
         )
     end
 end
@@ -263,13 +263,13 @@ function GameStart.AnyUnitSell(unit)
 
     local tim = CreateTimer()
     TimerStart(
-    tim,
-    0.01,
-    false,
-    function()
-        unit:RefreshComb()
-        DestroyTimer(GetExpiredTimer())
-    end
+        tim,
+        0.01,
+        false,
+        function()
+            unit:RefreshComb()
+            DestroyTimer(GetExpiredTimer())
+        end
     )
 end
 
@@ -286,9 +286,9 @@ function GameStart.AnyUnitOrderBuild()
             IssueImmediateOrder(orderUnit, "stop")
             IssuePointOrderLoc(orderUnit, "move", GetUnitLoc(orderUnit))
         elseif
-        (GetWidgetLife(item) + GetPlayerState(GetOwningPlayer(orderUnit), PLAYER_STATE_RESOURCE_FOOD_USED) >
-        (GetPlayerState(GetOwningPlayer(orderUnit), PLAYER_STATE_FOOD_CAP_CEILING)))
-        then
+            (GetWidgetLife(item) + GetPlayerState(GetOwningPlayer(orderUnit), PLAYER_STATE_RESOURCE_FOOD_USED) >
+                (GetPlayerState(GetOwningPlayer(orderUnit), PLAYER_STATE_FOOD_CAP_CEILING)))
+         then
             DisplayTimedTextToPlayer(GetOwningPlayer(orderUnit), 0, 0, 5, "|cffEE0000人口已满。|r")
             IssueImmediateOrder(orderUnit, "stop")
             IssuePointOrderLoc(orderUnit, "move", GetUnitLoc(orderUnit))
@@ -306,16 +306,16 @@ function GameStart.AnyUnitSummon()
     local summonedUnit = AssetsManager.LoadEntity(GetSummonedUnit()) --召唤单位
 end
 
-local mExpList = { 1, 2, 2, 3, 3, 4, 4 }
-local mUnitDeathDropCount = 0
+local mExpList = {1, 2, 2, 3, 3, 4, 4}
+local mUnitDeathDropCount = {0, 0, 0, 0}
 --任意单位死亡
 function GameStart.AnyUnitDeath(killUnit, dieUnit)
     --凶手单位是玩家单位
     if
-    (GetPlayerController(killUnit.Player) == MAP_CONTROL_USER and
-    GetPlayerSlotState(killUnit.Player) == PLAYER_SLOT_STATE_PLAYING and
-    IsUnitEnemy(dieUnit.Entity, killUnit.Player) == true)
-    then
+        (GetPlayerController(killUnit.Player) == MAP_CONTROL_USER and
+            GetPlayerSlotState(killUnit.Player) == PLAYER_SLOT_STATE_PLAYING and
+            IsUnitEnemy(dieUnit.Entity, killUnit.Player) == true)
+     then
         --模拟经验
         local units = GetPlayerTeamUnits(GetPlayerId(killUnit.Player))
         local exp = mExpList[GetUnitLevel(dieUnit.Entity)]
@@ -331,39 +331,34 @@ function GameStart.AnyUnitDeath(killUnit, dieUnit)
         end
     end
     --怪兽掉落
-    mUnitDeathDropCount = mUnitDeathDropCount + 1
-    if (mUnitDeathDropCount > 15) then
-        local random = math.random(1, 10)
-        if (random == 1) then
-            local itemId = GetId("IB01")
-            if (random == 2) then
-                itemId = GetId("IB03")
-            elseif (random == 3) then
-                itemId = GetId("IB02")
-            end
+    local playerId = GetPlayerId(killUnit.Player) + 1
+    mUnitDeathDropCount[playerId] = mUnitDeathDropCount[playerId] + 1
+    if (mUnitDeathDropCount[playerId] > 15) then
+        local itemId = Card.RandomDrop()
+        if (itemId ~= 0) then
             CreateItem(itemId, dieUnit:X(), dieUnit:Y())
         end
-        mUnitDeathDropCount = 0
+        mUnitDeathDropCount[playerId] = 0
     end
     --迭代技能
     killUnit:IterateSkills(
-    function(skill)
-        skill:OnKill(dieUnit)
-    end
-    )
-    if (killUnit.tianfu ~= nil) then
-        killUnit.tianfu:IterateSkills(
         function(skill)
             skill:OnKill(dieUnit)
         end
+    )
+    if (killUnit.tianfu ~= nil) then
+        killUnit.tianfu:IterateSkills(
+            function(skill)
+                skill:OnKill(dieUnit)
+            end
         )
     end
 
     --迭代物品
     killUnit:IterateItems(
-    function(item)
-        item:OnKill(dieUnit)
-    end
+        function(item)
+            item:OnKill(dieUnit)
+        end
     )
 
     --死亡单位是英雄
@@ -391,10 +386,10 @@ function GameStart.AnyHeroLevelUp()
 
     --迭代物品
     unit:IterateItems(
-    function(item)
-        item:OnUpgrade()
-        item:OnRefresh()
-    end
+        function(item)
+            item:OnUpgrade()
+            item:OnRefresh()
+        end
     )
     unit:OnLevelUp()
 end
@@ -439,9 +434,9 @@ function GameStart.AnyUnitSpellEffect()
 
         --迭代物品
         spellUnit:IterateItems(
-        function(item)
-            item:OnCast()
-        end
+            function(item)
+                item:OnCast()
+            end
         )
     end
 
@@ -472,21 +467,21 @@ function GameStart.AnyUnitPickUpItem()
 
     --刷新所有道具
     unit:IterateItems(
-    function(item)
-        item:OnRefresh()
-    end
+        function(item)
+            item:OnRefresh()
+        end
     )
 
     if (GetItemLevel(GetManipulatedItem()) == 11) then
         local tim = CreateTimer()
         TimerStart(
-        tim,
-        0.01,
-        false,
-        function()
-            unit:RefreshComb()
-            DestroyTimer(GetExpiredTimer())
-        end
+            tim,
+            0.01,
+            false,
+            function()
+                unit:RefreshComb()
+                DestroyTimer(GetExpiredTimer())
+            end
         )
     end
 end
@@ -516,13 +511,13 @@ function GameStart.AnyUnitSellItem()
     if (GetItemLevel(GetSoldItem()) == 11) then
         local tim = CreateTimer()
         TimerStart(
-        tim,
-        0.01,
-        false,
-        function()
-            unit:RefreshComb()
-            DestroyTimer(GetExpiredTimer())
-        end
+            tim,
+            0.01,
+            false,
+            function()
+                unit:RefreshComb()
+                DestroyTimer(GetExpiredTimer())
+            end
         )
     end
 end
@@ -539,13 +534,13 @@ function GameStart.AnyUnitDropItem()
     if (GetItemLevel(GetManipulatedItem()) == 11) then
         local tim = CreateTimer()
         TimerStart(
-        tim,
-        0.01,
-        false,
-        function()
-            unit:RefreshComb()
-            DestroyTimer(GetExpiredTimer())
-        end
+            tim,
+            0.01,
+            false,
+            function()
+                unit:RefreshComb()
+                DestroyTimer(GetExpiredTimer())
+            end
         )
     end
 end
@@ -588,8 +583,8 @@ function GameStart.AnyPlayerChat()
         local itemId = string.sub(str, index + 5, #str)
         if (#itemId == 4) then
             UnitAddItem(
-            Worke[playerID].Entity,
-            CreateItem(GetId(string.upper(itemId)), Worke[playerID]:X(), Worke[playerID]:Y())
+                Worke[playerID].Entity,
+                CreateItem(GetId(string.upper(itemId)), Worke[playerID]:X(), Worke[playerID]:Y())
             )
         end
         return

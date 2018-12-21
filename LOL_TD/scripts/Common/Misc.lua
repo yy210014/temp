@@ -41,7 +41,7 @@ function Repick(player, playerID)
     end
     mPlayerRewardFlag[playerID + 1] = 1
     RemoveItem(item.Entity)
-    local itemID = Card.Random3()
+    local itemID = Card.RandomSR()
     UnitAddItem(Worke[playerID].Entity, CreateItem(GetId(itemID), Worke[playerID]:X(), Worke[playerID]:Y()))
 end
 
@@ -128,9 +128,11 @@ end
 
 --判断数组中某个数是否存在
 function IsInTable(value, arr)
-    for i = 1, #arr do
-        if arr[i] == value then
-            return i
+    if (arr ~= nil) then
+        for i = 1, #arr do
+            if arr[i] == value then
+                return i
+            end
         end
     end
     return -1

@@ -34,19 +34,19 @@ function Game.LogError(text)
     end
 end
 
+function DisplayTextToAll(text, color)
+    color = color or Color.white
+    for i = 0, 3 do
+        DisplayTextToPlayer(Player(i), 0, 0, "|c" .. color .. text .. "|r")
+    end
+end
+
 --更新
 function Game.OnGameUpdate(dt)
     if (mIsPause) then
         return
     end
     GameScene.OnGameUpdate(dt)
-end
-
-function DisplayTextToAll(text, color)
-    color = color or Color.white
-    for i = 0, 3 do
-        DisplayTextToPlayer(Player(i), 0, 0, "|c" .. color .. text .. "|r")
-    end
 end
 
 function Game.GetLevel()

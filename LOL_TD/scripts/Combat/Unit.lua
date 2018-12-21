@@ -132,6 +132,8 @@ end
 function Unit:AddItem(entity)
     local item = Item:New(self, entity)
     self.Items[#self.Items + 1] = item
+    Item.ItemUniquenessList(self, item)
+    Item.ItemOverlay(self, item)
     Item.ItemCompound(self)
     item:OnAdd()
     item:OnRefresh()
@@ -263,14 +265,16 @@ function Unit:ContainSkill(abilityid)
     end
     return false
 end
---[[function Unit:ContainItem(entity)
+
+function Unit:ContainItem(entity)
     for i, v in ipairs(self.Items) do
         if (v.Entity == entity) then
             return true
         end
     end
     return false
-end]]
+end
+
 function Unit:GetBuff(name)
     for i = 1, #self.Buffs do
         if (self.Buffs[i].Name == name) then

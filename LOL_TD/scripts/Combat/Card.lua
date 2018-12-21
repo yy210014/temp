@@ -1,16 +1,16 @@
 Card = {}
 
-CardType = {SR, UR, GR}
+CardType = { SR, UR, GR }
 
-local NId = {"30", "31", "32", "33", "34", "35", "36", "37"}
-local RId = {"38", "41", "42", "43", "44"}
+local NId = { "30", "31", "32", "33", "34", "35", "36", "37" }
+local RId = { "38", "41", "42", "43", "44" }
 
 --皇子,赵信,拉克丝,小炮,天使凯尔,艾希 ,丽桑卓,易大师,小法师
-local SRId = {"02", "03", "04", "06", "07", "12", "17", "19", "21"}
+local SRId = { "02", "03", "04", "06", "07", "12", "17", "19", "21" }
 
 --莫甘娜,炸弹人,盖伦 ,蛮王
-local SSRId = {"05", "10", "13", "16"}
-local GRId = {1, 1}
+local SSRId = { "05", "10", "13", "16" }
+local GRId = { 1, 1 }
 
 local mBox1Item = {
     GetId("I001"),
@@ -49,6 +49,15 @@ local mBox3Item = {
     GetId("I062"),
     GetId("I077")
 }
+
+function Card.RandomSR()
+    return "IH" .. SRId[math.random(1, #SRId)]
+end
+
+function Card.RandomSSR()
+    return "IH" .. SSRId[math.random(1, #SSRId)]
+end
+
 function Card.Random1()
     local random = math.random(1, 10)
     if (random <= 4) then
@@ -71,9 +80,6 @@ function Card.Random2()
     end
 end
 
-function Card.Random3()
-    return "IH" .. SRId[math.random(1, #SRId)]
-end
 
 function Card.Random4()
     local random = math.random(1, 10)
@@ -123,4 +129,31 @@ function Card.RandomBox3()
     else
         return GetId("IB05")
     end
+end
+
+local mDropList = {
+    GetId("IB01"),
+    GetId("IB01"),
+    GetId("IB01"),
+    GetId("IB02"),
+    GetId("IB02"),
+    GetId("IB03"),
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+}
+
+function Card.RandomDrop()
+    return mDropList[math.random(1, #mDropList)]
 end

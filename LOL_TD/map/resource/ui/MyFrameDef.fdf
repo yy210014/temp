@@ -1,0 +1,100 @@
+﻿// -- INCLUDE FILES 引用控件模板文件---------------------------------------------------------
+IncludeFile "UI\FrameDef\Glue\StandardTemplates.fdf",
+IncludeFile "UI\FrameDef\Glue\BattleNetTemplates.fdf",
+
+//******************************
+//*
+//* MAIN MENU BUTTONS
+//*
+//******
+Frame "TEXT" "title" {
+    FrameFont "resource\ui\mtp.ttf", 0.016, "",
+    FontJustificationH JUSTIFYCENTER,
+    FontJustificationV JUSTIFYMIDDLE,
+    FontFlags "FIXEDSIZE",
+    FontColor 1.0 1.0 1.0 1.0,
+    FontHighlightColor 0.9 0.9 0.5 1.0,
+    FontDisabledColor 0.5 0.5 0.5 1.0,
+    FontShadowColor 0.0 0.0 0.0 0.9,
+    FontShadowOffset 0.0012 -0.0012,
+    LayerStyle "IGNORETRACKEVENTS",
+}
+
+Frame "TEXT" "cm10" {
+    FrameFont "resource\ui\mtp.ttf", 0.010, "",
+    FontJustificationH JUSTIFYCENTER,
+    FontJustificationV JUSTIFYMIDDLE,
+    FontFlags "FIXEDSIZE",
+    FontColor 1.0 1.0 1.0 1.0,
+    FontHighlightColor 0.9 0.9 0.5 1.0,
+    FontDisabledColor 0.5 0.5 0.5 1.0,
+    FontShadowColor 0.0 0.0 0.0 0.9,
+    FontShadowOffset 0.0012 -0.0012,
+    LayerStyle "IGNORETRACKEVENTS",
+}
+
+Frame "TEXT" "lm10" {
+    FrameFont "resource\ui\mtp.ttf", 0.010, "",
+    FontJustificationH JUSTIFYLEFT,
+    FontJustificationV JUSTIFYMIDDLE,
+    FontFlags "FIXEDSIZE",
+    FontColor 1.0 1.0 1.0 1.0,
+    FontHighlightColor 0.9 0.9 0.5 1.0,
+    FontDisabledColor 0.5 0.5 0.5 1.0,
+    FontShadowColor 0.0 0.0 0.0 0.9,
+    FontShadowOffset 0.0012 -0.0012,
+    LayerStyle "IGNORETRACKEVENTS",
+}
+
+
+Frame "TEXT" "lm12" {
+    FrameFont "resource\ui\mtp.ttf", 0.012, "",
+    FontJustificationH JUSTIFYLEFT,
+    FontJustificationV JUSTIFYMIDDLE,
+    FontFlags "FIXEDSIZE",
+    FontColor 1.0 1.0 1.0 1.0,
+    FontHighlightColor 0.9 0.9 0.5 1.0,
+    FontDisabledColor 0.5 0.5 0.5 1.0,
+    FontShadowColor 0.0 0.0 0.0 0.9,
+    FontShadowOffset 0.0012 -0.0012,
+    LayerStyle "IGNORETRACKEVENTS",
+}
+
+Frame "TEXT" "cm12" {
+    FrameFont "resource\ui\mtp.ttf", 0.012, "",
+    FontJustificationH JUSTIFYCENTER,
+    FontJustificationV JUSTIFYMIDDLE,
+    FontFlags "FIXEDSIZE",
+    FontColor 1.0 1.0 1.0 1.0,
+    FontHighlightColor 0.9 0.9 0.5 1.0,
+    FontDisabledColor 0.5 0.5 0.5 1.0,
+    FontShadowColor 0.0 0.0 0.0 0.9,
+    FontShadowOffset 0.0012 -0.0012,
+    LayerStyle "IGNORETRACKEVENTS",
+}
+
+Frame "TEXT" "lu12" {
+    FrameFont "resource\ui\mtp.ttf", 0.012, "",
+    FontJustificationH JUSTIFYLEFT,
+    FontJustificationV JUSTIFYUP,
+    FontFlags "FIXEDSIZE",
+    FontColor 1.0 1.0 1.0 1.0,
+    FontHighlightColor 0.9 0.9 0.5 1.0,
+    FontDisabledColor 0.5 0.5 0.5 1.0,
+    FontShadowColor 0.0 0.0 0.0 0.9,
+    FontShadowOffset 0.0012 -0.0012,
+    LayerStyle "IGNORETRACKEVENTS",
+}
+
+Frame "BACKDROP" "tiptools1" {
+    BackdropTileBackground,
+    BackdropBackground  "UI\Widgets\ToolTips\Human\human-tooltip-background.blp",
+    BackdropCornerFlags "UL|UR|BL|BR|T|L|B|R",
+    BackdropCornerSize  0.012,
+    BackdropBackgroundSize  0.032,
+    BackdropBackgroundInsets 0.002 0.002 0.002 0.002,
+    BackdropEdgeFile  "UI\Widgets\ToolTips\Human\human-tooltip-border.blp",
+}
+
+
+

@@ -1,0 +1,5953 @@
+﻿IncludeFile "UI\FrameDef\Glue\BattleNetTemplates.fdf",
+IncludeFile "UI\FrameDef\UI\EscMenuTemplates.fdf",
+IncludeFile "UI\FrameDef\Glue\StandardTemplates.fdf",
+
+Frame "BACKDROP" "BAG" {      //父级
+	Width 0.43,
+	Height 0.4,
+	BackdropBackground  "war3mapImported\AASHOP.tga",
+	BackdropBlendAll,
+	
+	Frame "TEXTBUTTON" "AA1" {
+   	  	Height 0.02,
+  		Width 0.05,
+  		ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+  		ButtonPushedTextOffset -0.001f -0.0015f,
+		SetPoint TOP, "BAG", TOP, -0.18, -0.0095,
+    		ControlBackdrop "AA1UP",
+   		Frame "BACKDROP" "AA1UP" {
+   			BackdropBackground  "war3mapImported\AA1.tga",
+     			BackdropBlendAll,
+    	}
+    	ControlMouseOverHighlight "AA1LIGHT",
+    	Frame "HIGHLIGHT" "AA1LIGHT" {
+        	HighlightType "FILETEXTURE",
+        	HighlightAlphaFile "war3mapImported\AA1down.tga",
+        	HighlightAlphaMode "ADD",
+		}
+	}
+
+	//装备标题
+	Frame "TEXT" "AA11" {
+   		FrameFont "font02.TTF", 0.014, "",
+   		FontJustificationH JUSTIFYRIGHT,
+   		FontJustificationV JUSTIFYMIDDLE,
+   		FontFlags "FIXEDSIZE",
+		LayerStyle "IGNORETRACKEVENTS",
+		SetPoint BOTTOM, "AA1", BOTTOM, 0, 0,
+	}
+		
+	Frame "TEXTBUTTON" "AA3" {
+   	  	Height 0.05,
+  		Width 0.02,
+  		ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+  		ButtonPushedTextOffset -0.001f -0.0015f,
+		SetPoint TOP, "BAG", TOP, -0.218, -0.05,
+    		ControlBackdrop "AA3UP",
+   		Frame "BACKDROP" "AA3UP" {
+   			BackdropBackground  "war3mapImported\AA2.tga",
+     			BackdropBlendAll,
+    	}
+
+    	ControlMouseOverHighlight "AA3LIGHT",
+    	Frame "HIGHLIGHT" "AA3LIGHT" {
+        	HighlightType "FILETEXTURE",
+        	HighlightAlphaFile "war3mapImported\AA2down.tga",
+        	HighlightAlphaMode "ADD",
+		}
+	}
+	//物理攻击table
+	Frame "TEXT" "AA33" {
+   		FrameFont "font02.TTF", 0.014, "",
+   		FontJustificationH JUSTIFYRIGHT,
+   		FontJustificationV JUSTIFYMIDDLE,
+   		FontFlags "FIXEDSIZE",
+		LayerStyle "IGNORETRACKEVENTS",
+		SetPoint LEFT, "AA3", LEFT, -0.0095, 0,
+	}
+		
+	Frame "TEXTBUTTON" "AA4" {
+   	  	Height 0.05,
+  		Width 0.02,
+  		ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+  		ButtonPushedTextOffset -0.001f -0.0015f,
+		SetPoint TOP, "BAG", TOP, -0.218, -0.1,
+    	ControlBackdrop "AA4UP",
+   		Frame "BACKDROP" "AA4UP" {
+   			BackdropBackground  "war3mapImported\AA2.tga",
+     		BackdropBlendAll,
+    	}
+
+    	ControlMouseOverHighlight "AA4LIGHT",
+    	Frame "HIGHLIGHT" "AA4LIGHT" {
+        	HighlightType "FILETEXTURE",
+        	HighlightAlphaFile "war3mapImported\AA2down.tga",
+        	HighlightAlphaMode "ADD",
+		}
+	}
+	//攻速暴击table
+	Frame "TEXT" "AA44" {
+   		FrameFont "font02.TTF", 0.014, "",
+   		FontJustificationH JUSTIFYRIGHT,
+   		FontJustificationV JUSTIFYMIDDLE,
+   		FontFlags "FIXEDSIZE",
+		LayerStyle "IGNORETRACKEVENTS",
+		SetPoint LEFT, "AA4", LEFT, -0.0095, 0,
+	}
+
+	Frame "TEXTBUTTON" "AA5" {
+   	  	Height 0.05,
+  		Width 0.02,
+  		ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+  		ButtonPushedTextOffset -0.001f -0.0015f,
+		SetPoint TOP, "BAG", TOP, -0.218, -0.15,
+    	ControlBackdrop "AA5UP",
+   		Frame "BACKDROP" "AA5UP" {
+   			BackdropBackground  "war3mapImported\AA2.tga",
+     		BackdropBlendAll,
+    	}
+
+    	ControlMouseOverHighlight "AA5LIGHT",
+    	Frame "HIGHLIGHT" "AA5LIGHT" {
+        	HighlightType "FILETEXTURE",
+        	HighlightAlphaFile "war3mapImported\AA2down.tga",
+        	HighlightAlphaMode "ADD",
+		}
+	}
+	//法术攻击table
+	Frame "TEXT" "AA55" {
+   		FrameFont "font02.TTF", 0.014, "",
+   		FontJustificationH JUSTIFYRIGHT,
+   		FontJustificationV JUSTIFYMIDDLE,
+   		FontFlags "FIXEDSIZE",
+		LayerStyle "IGNORETRACKEVENTS",
+		SetPoint LEFT, "AA5", LEFT, -0.0095, 0,
+	}		
+
+	Frame "TEXTBUTTON" "AA6" {
+   	  	Height 0.05,
+  		Width 0.02,
+  		ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+  		ButtonPushedTextOffset -0.001f -0.0015f,
+		SetPoint TOP, "BAG", TOP, -0.218, -0.2,
+    	ControlBackdrop "AA6UP",
+   		Frame "BACKDROP" "AA6UP" {
+   			BackdropBackground  "war3mapImported\AA2.tga",
+     		BackdropBlendAll,
+    	}
+ 		ControlMouseOverHighlight "AA6LIGHT",
+ 	    Frame "HIGHLIGHT" "AA6LIGHT" {
+ 		   	HighlightType "FILETEXTURE",
+   		 	HighlightAlphaFile "war3mapImported\AA2down.tga",
+    		HighlightAlphaMode "ADD",
+		}
+	}
+	//冷却缩减
+	Frame "TEXT" "AA66" {
+   		FrameFont "font02.TTF", 0.014, "",
+   		FontJustificationH JUSTIFYRIGHT,
+   		FontJustificationV JUSTIFYMIDDLE,
+   		FontFlags "FIXEDSIZE",
+		LayerStyle "IGNORETRACKEVENTS",
+		SetPoint LEFT, "AA6", LEFT, -0.0095, 0,
+	}
+
+	Frame "TEXTBUTTON" "AA7" {
+   	  	Height 0.05,
+  		Width 0.02,
+  		ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+  		ButtonPushedTextOffset -0.001f -0.0015f,
+		SetPoint TOP, "BAG", TOP, -0.218, -0.25,
+    	ControlBackdrop "AA7UP",
+   		Frame "BACKDROP" "AA7UP" {
+   			BackdropBackground  "war3mapImported\AA2.tga",
+     		BackdropBlendAll,
+    	}
+
+    	ControlMouseOverHighlight "AA7LIGHT",
+    	Frame "HIGHLIGHT" "AA7LIGHT" {
+        	HighlightType "FILETEXTURE",
+        	HighlightAlphaFile "war3mapImported\AA2down.tga",
+        	HighlightAlphaMode "ADD",
+		}
+	}
+	//法力恢复
+	Frame "TEXT" "AA77" {
+   		FrameFont "font02.TTF", 0.014, "",
+   		FontJustificationH JUSTIFYRIGHT,
+   		FontJustificationV JUSTIFYMIDDLE,
+   		FontFlags "FIXEDSIZE",
+		LayerStyle "IGNORETRACKEVENTS",
+		SetPoint LEFT, "AA7", LEFT, -0.0095, 0,
+	}
+	
+	Frame "TEXTBUTTON" "AA2" {
+   	  	Height 0.02,
+  		Width 0.05,
+  		ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+  		ButtonPushedTextOffset -0.001f -0.0015f,
+		SetPoint TOP, "BAG", TOP, -0.12, -0.0095,
+    	ControlBackdrop "AA2UP",
+   		Frame "BACKDROP" "AA2UP" {
+   			BackdropBackground  "war3mapImported\AA1.tga",
+     		BackdropBlendAll,
+    	}
+
+    	ControlMouseOverHighlight "AA2LIGHT",
+    	Frame "HIGHLIGHT" "AA2LIGHT" {
+        	HighlightType "FILETEXTURE",
+        	HighlightAlphaFile "war3mapImported\AA1down.tga",
+        	HighlightAlphaMode "ADD",
+		}
+	}
+	//英雄标题
+	Frame "TEXT" "AA22" {
+   		FrameFont "font02.TTF", 0.014, "",
+   		FontJustificationH JUSTIFYRIGHT,
+   		FontJustificationV JUSTIFYMIDDLE,
+   		FontFlags "FIXEDSIZE",
+		LayerStyle "IGNORETRACKEVENTS",
+		SetPoint BOTTOM, "AA2", BOTTOM, 0, 0,
+	}
+	
+	Frame "FRAME" "ItemCellAds" {      //父级
+		Width 0.43,
+		Height 0.4,
+		LayerStyle "IGNORETRACKEVENTS",
+		SetPoint CENTER, "BAG", CENTER, 0, 0,
+			//多兰戒
+			Frame "TEXTBUTTON" "100" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellAds", TOP, -0.1855, -0.0453,
+				ControlBackdrop "101",
+				Frame "BACKDROP" "101" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+					BackdropBlendAll,
+				}
+
+				ControlMouseOverHighlight "ZB1LIGHT",
+				Frame "HIGHLIGHT" "ZB1LIGHT" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
+			}
+			
+							
+			Frame "TEXT" "102" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "100", TOP, 0, 0,
+			}
+						
+			Frame "TEXT" "103" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "100", BOTTOM, 0, 0,
+			}
+			
+			Frame "TEXTBUTTON" "104" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellAds", TOP, -0.143, -0.0453,
+				ControlBackdrop "105",
+				Frame "BACKDROP" "105" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+					BackdropBlendAll,
+				}
+
+				ControlMouseOverHighlight "ZB2LIGHT",
+				Frame "HIGHLIGHT" "ZB2LIGHT" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
+			}
+
+			Frame "TEXT" "106" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "104", TOP, 0, 0,
+			}
+						
+			Frame "TEXT" "107" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "104", BOTTOM, 0, 0,
+			}
+			
+			Frame "TEXTBUTTON" "108" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellAds", TOP, -0.1005, -0.0453,
+				ControlBackdrop "109",
+				Frame "BACKDROP" "109" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+					BackdropBlendAll,
+				}
+
+				ControlMouseOverHighlight "ZB3LIGHT",
+				Frame "HIGHLIGHT" "ZB3LIGHT" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
+			}
+
+			Frame "TEXT" "110" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "108", TOP, 0, 0,
+			}
+						
+			Frame "TEXT" "111" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "108", BOTTOM, 0, 0,
+			}
+			
+			Frame "TEXTBUTTON" "112" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellAds", TOP, -0.058, -0.0453,
+				ControlBackdrop "113",
+				Frame "BACKDROP" "113" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+					BackdropBlendAll,
+				}
+				ControlMouseOverHighlight "ZB4LIGHT",
+				Frame "HIGHLIGHT" "ZB4LIGHT" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
+			}
+
+			Frame "TEXT" "114" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "112", TOP, 0, 0,
+			}
+					
+			Frame "TEXT" "115" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "112", BOTTOM, 0, 0,
+			}
+			
+			Frame "TEXTBUTTON" "116" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellAds", TOP, -0.0155, -0.0453,
+				ControlBackdrop "117",
+				Frame "BACKDROP" "117" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+					BackdropBlendAll,
+				}
+				ControlMouseOverHighlight "ZB5LIGHT",
+				Frame "HIGHLIGHT" "ZB5LIGHT" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
+			}
+
+			Frame "TEXT" "118" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "116", TOP, 0, 0,
+			}
+						
+			Frame "TEXT" "119" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "116", BOTTOM, 0, 0,
+			}
+			
+			Frame "TEXTBUTTON" "120" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellAds", TOP, -0.1855, -0.097,
+				ControlBackdrop "121",
+				Frame "BACKDROP" "121" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+					BackdropBlendAll,
+				}
+				ControlMouseOverHighlight "ZB6LIGHT",
+				Frame "HIGHLIGHT" "ZB6LIGHT" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
+			}
+			
+			Frame "TEXT" "122" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "120", TOP, 0, 0,
+			}
+						
+			Frame "TEXT" "123" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "120", BOTTOM, 0, 0,
+			}
+			
+			Frame "TEXTBUTTON" "124" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellAds", TOP, -0.143, -0.097,
+				ControlBackdrop "125",
+				Frame "BACKDROP" "125" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+					BackdropBlendAll,
+				}
+				ControlMouseOverHighlight "ZB7LIGHT",
+				Frame "HIGHLIGHT" "ZB7LIGHT" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "126" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "124", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "127" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "124", BOTTOM, 0, 0,
+			}
+			
+			Frame "TEXTBUTTON" "128" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellAds", TOP, -0.1005, -0.097,
+					ControlBackdrop "129",
+				Frame "BACKDROP" "129" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB8LIGHT",
+					Frame "HIGHLIGHT" "ZB8LIGHT" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "130" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "128", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "131" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "128", BOTTOM, 0, 0,
+			}
+			
+			
+			Frame "TEXTBUTTON" "132" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellAds", TOP, -0.058, -0.097,
+					ControlBackdrop "133",
+				Frame "BACKDROP" "133" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB9LIGHT",
+					Frame "HIGHLIGHT" "ZB9LIGHT" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "134" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "132", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "135" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "132", BOTTOM, 0, 0,
+			}
+			
+			Frame "TEXTBUTTON" "136" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellAds", TOP, -0.0155, -0.097,
+					ControlBackdrop "137",
+				Frame "BACKDROP" "137" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB10LIGHT",
+					Frame "HIGHLIGHT" "ZB10LIGHT" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "138" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "136", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "139" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "136", BOTTOM, 0, 0,
+			}
+			
+				
+			Frame "TEXTBUTTON" "140" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellAds", TOP, -0.1855, -0.1487,
+					ControlBackdrop "141",
+				Frame "BACKDROP" "141" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB11LIGHT",
+					Frame "HIGHLIGHT" "ZB11LIGHT" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "142" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "140", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "143" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "140", BOTTOM, 0, 0,
+			}
+					
+			Frame "TEXTBUTTON" "144" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellAds", TOP, -0.143, -0.1487,
+					ControlBackdrop "145",
+				Frame "BACKDROP" "145" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB12LIGHT",
+					Frame "HIGHLIGHT" "ZB12LIGHT" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "146" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "144", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "147" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "144", BOTTOM, 0, 0,
+			}
+						
+			Frame "TEXTBUTTON" "148" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellAds", TOP, -0.1005, -0.1487,
+					ControlBackdrop "149",
+				Frame "BACKDROP" "149" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB13LIGHT",
+					Frame "HIGHLIGHT" "ZB13LIGHT" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "150" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "148", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "151" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "148", BOTTOM, 0, 0,
+			}
+						
+			Frame "TEXTBUTTON" "152" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellAds", TOP, -0.058, -0.1487,
+					ControlBackdrop "153",
+				Frame "BACKDROP" "153" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB14LIGHT",
+					Frame "HIGHLIGHT" "ZB14LIGHT" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "154" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "152", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "155" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "152", BOTTOM, 0, 0,
+			}
+			
+						
+			Frame "TEXTBUTTON" "156" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellAds", TOP, -0.0155, -0.1487,
+					ControlBackdrop "157",
+				Frame "BACKDROP" "157" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB15LIGHT",
+					Frame "HIGHLIGHT" "ZB15LIGHT" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "158" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "156", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "159" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "156", BOTTOM, 0, 0,
+			}
+			
+							
+			Frame "TEXTBUTTON" "160" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellAds", TOP, -0.1855, -0.2004,
+					ControlBackdrop "161",
+				Frame "BACKDROP" "161" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB16LIGHT",
+					Frame "HIGHLIGHT" "ZB16LIGHT" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "162" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "160", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "163" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "160", BOTTOM, 0, 0,
+			}
+			
+								
+			Frame "TEXTBUTTON" "164" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellAds", TOP, -0.143, -0.2004,
+					ControlBackdrop "165",
+				Frame "BACKDROP" "165" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB17LIGHT",
+					Frame "HIGHLIGHT" "ZB17LIGHT" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "166" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "164", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "167" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "164", BOTTOM, 0, 0,
+			}
+			
+								
+			Frame "TEXTBUTTON" "168" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellAds", TOP, -0.1005, -0.2004,
+					ControlBackdrop "169",
+				Frame "BACKDROP" "169" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB18LIGHT",
+					Frame "HIGHLIGHT" "ZB18LIGHT" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "170" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "168", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "171" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "168", BOTTOM, 0, 0,
+			}
+								
+			Frame "TEXTBUTTON" "172" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellAds", TOP, -0.058, -0.2004,
+					ControlBackdrop "173",
+				Frame "BACKDROP" "173" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB19LIGHT",
+					Frame "HIGHLIGHT" "ZB19LIGHT" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "174" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "172", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "175" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "172", BOTTOM, 0, 0,
+			}
+								
+			Frame "TEXTBUTTON" "176" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellAds", TOP, -0.0155, -0.2004,
+					ControlBackdrop "177",
+				Frame "BACKDROP" "177" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB20LIGHT",
+					Frame "HIGHLIGHT" "ZB20LIGHT" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "178" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "176", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "179" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "176", BOTTOM, 0, 0,
+			}
+			
+			
+								
+			Frame "TEXTBUTTON" "180" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellAds", TOP, -0.1855, -0.2521,
+					ControlBackdrop "181",
+				Frame "BACKDROP" "181" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB21LIGHT",
+					Frame "HIGHLIGHT" "ZB21LIGHT" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "182" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "180", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "183" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "180", BOTTOM, 0, 0,
+			}
+			
+									
+			Frame "TEXTBUTTON" "184" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellAds", TOP, -0.143, -0.2521,
+					ControlBackdrop "185",
+				Frame "BACKDROP" "185" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB22LIGHT",
+					Frame "HIGHLIGHT" "ZB22LIGHT" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "186" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "184", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "187" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "184", BOTTOM, 0, 0,
+			}
+			
+									
+			Frame "TEXTBUTTON" "188" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellAds", TOP, -0.1005, -0.2521,
+					ControlBackdrop "189",
+				Frame "BACKDROP" "189" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB23LIGHT",
+					Frame "HIGHLIGHT" "ZB23LIGHT" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "190" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "188", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "191" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "188", BOTTOM, 0, 0,
+			}
+			
+									
+			Frame "TEXTBUTTON" "192" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellAds", TOP, -0.058, -0.2521,
+					ControlBackdrop "193",
+				Frame "BACKDROP" "193" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB24LIGHT",
+					Frame "HIGHLIGHT" "ZB24LIGHT" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "194" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "192", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "195" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "192", BOTTOM, 0, 0,
+			}
+			
+									
+			Frame "TEXTBUTTON" "196" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellAds", TOP, -0.0155, -0.2521,
+					ControlBackdrop "197",
+				Frame "BACKDROP" "197" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB25LIGHT",
+					Frame "HIGHLIGHT" "ZB25LIGHT" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "198" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "196", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "199" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "196", BOTTOM, 0, 0,
+			}
+	}
+	
+	Frame "FRAME" "ItemCellAps" {      //父级
+		Width 0.43,
+		Height 0.4,
+		LayerStyle "IGNORETRACKEVENTS",
+		SetPoint CENTER, "BAG", CENTER, 0, 0,
+			//多兰戒
+			Frame "TEXTBUTTON" "200" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellAps", TOP, -0.1855, -0.0453,
+				ControlBackdrop "201",
+				Frame "BACKDROP" "201" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+					BackdropBlendAll,
+				}
+
+				ControlMouseOverHighlight "ZB1LIGHT2",
+				Frame "HIGHLIGHT" "ZB1LIGHT2" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
+			}
+			
+							
+			Frame "TEXT" "202" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "200", TOP, 0, 0,
+			}
+						
+			Frame "TEXT" "203" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "200", BOTTOM, 0, 0,
+			}
+			
+			Frame "TEXTBUTTON" "204" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellAps", TOP, -0.143, -0.0453,
+				ControlBackdrop "205",
+				Frame "BACKDROP" "205" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+					BackdropBlendAll,
+				}
+
+				ControlMouseOverHighlight "ZB2LIGHT2",
+				Frame "HIGHLIGHT" "ZB2LIGHT2" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
+			}
+
+			Frame "TEXT" "206" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "204", TOP, 0, 0,
+			}
+						
+			Frame "TEXT" "207" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "204", BOTTOM, 0, 0,
+			}
+			
+			Frame "TEXTBUTTON" "208" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellAps", TOP, -0.1005, -0.0453,
+				ControlBackdrop "209",
+				Frame "BACKDROP" "209" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+					BackdropBlendAll,
+				}
+
+				ControlMouseOverHighlight "ZB3LIGHT2",
+				Frame "HIGHLIGHT" "ZB3LIGHT2" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
+			}
+
+			Frame "TEXT" "210" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "208", TOP, 0, 0,
+			}
+						
+			Frame "TEXT" "211" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "208", BOTTOM, 0, 0,
+			}
+			
+			Frame "TEXTBUTTON" "212" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellAps", TOP, -0.058, -0.0453,
+				ControlBackdrop "213",
+				Frame "BACKDROP" "213" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+					BackdropBlendAll,
+				}
+				ControlMouseOverHighlight "ZB4LIGHT2",
+				Frame "HIGHLIGHT" "ZB4LIGHT2" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
+			}
+
+			Frame "TEXT" "214" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "212", TOP, 0, 0,
+			}
+					
+			Frame "TEXT" "215" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "212", BOTTOM, 0, 0,
+			}
+			
+			Frame "TEXTBUTTON" "216" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellAps", TOP, -0.0155, -0.0453,
+				ControlBackdrop "217",
+				Frame "BACKDROP" "217" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+					BackdropBlendAll,
+				}
+				ControlMouseOverHighlight "ZB5LIGHT2",
+				Frame "HIGHLIGHT" "ZB5LIGHT2" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
+			}
+
+			Frame "TEXT" "218" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "216", TOP, 0, 0,
+			}
+						
+			Frame "TEXT" "219" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "216", BOTTOM, 0, 0,
+			}
+			
+			Frame "TEXTBUTTON" "220" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellAps", TOP, -0.1855, -0.097,
+				ControlBackdrop "221",
+				Frame "BACKDROP" "221" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+					BackdropBlendAll,
+				}
+				ControlMouseOverHighlight "ZB6LIGHT2",
+				Frame "HIGHLIGHT" "ZB6LIGHT2" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
+			}
+			
+			Frame "TEXT" "222" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "220", TOP, 0, 0,
+			}
+						
+			Frame "TEXT" "223" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "220", BOTTOM, 0, 0,
+			}
+			
+			Frame "TEXTBUTTON" "224" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellAps", TOP, -0.143, -0.097,
+				ControlBackdrop "225",
+				Frame "BACKDROP" "225" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+					BackdropBlendAll,
+				}
+				ControlMouseOverHighlight "ZB7LIGHT2",
+				Frame "HIGHLIGHT" "ZB7LIGHT2" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "226" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "224", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "227" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "224", BOTTOM, 0, 0,
+			}
+			
+			Frame "TEXTBUTTON" "228" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellAps", TOP, -0.1005, -0.097,
+					ControlBackdrop "229",
+				Frame "BACKDROP" "229" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB8LIGHT2",
+					Frame "HIGHLIGHT" "ZB8LIGHT2" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "230" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "228", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "231" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "228", BOTTOM, 0, 0,
+			}
+			
+			
+			Frame "TEXTBUTTON" "232" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellAps", TOP, -0.058, -0.097,
+					ControlBackdrop "233",
+				Frame "BACKDROP" "233" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB9LIGHT2",
+					Frame "HIGHLIGHT" "ZB9LIGHT2" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "234" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "232", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "235" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "232", BOTTOM, 0, 0,
+			}
+			
+			Frame "TEXTBUTTON" "236" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellAps", TOP, -0.0155, -0.097,
+					ControlBackdrop "237",
+				Frame "BACKDROP" "237" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB10LIGHT2",
+					Frame "HIGHLIGHT" "ZB10LIGHT2" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "238" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "236", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "239" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "236", BOTTOM, 0, 0,
+			}
+			
+				
+			Frame "TEXTBUTTON" "240" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellAps", TOP, -0.1855, -0.1487,
+					ControlBackdrop "241",
+				Frame "BACKDROP" "241" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB11LIGHT2",
+					Frame "HIGHLIGHT" "ZB11LIGHT2" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "242" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "240", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "243" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "240", BOTTOM, 0, 0,
+			}
+					
+			Frame "TEXTBUTTON" "244" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellAps", TOP, -0.143, -0.1487,
+					ControlBackdrop "245",
+				Frame "BACKDROP" "245" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB12LIGHT2",
+					Frame "HIGHLIGHT" "ZB12LIGHT2" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "246" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "244", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "247" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "244", BOTTOM, 0, 0,
+			}
+						
+			Frame "TEXTBUTTON" "248" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellAps", TOP, -0.1005, -0.1487,
+					ControlBackdrop "249",
+				Frame "BACKDROP" "249" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB13LIGHT2",
+					Frame "HIGHLIGHT" "ZB13LIGHT2" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "250" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "248", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "251" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "248", BOTTOM, 0, 0,
+			}
+						
+			Frame "TEXTBUTTON" "252" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellAps", TOP, -0.058, -0.1487,
+					ControlBackdrop "253",
+				Frame "BACKDROP" "253" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB14LIGHT2",
+					Frame "HIGHLIGHT" "ZB14LIGHT2" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "254" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "252", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "255" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "252", BOTTOM, 0, 0,
+			}
+			
+						
+			Frame "TEXTBUTTON" "256" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellAps", TOP, -0.0155, -0.1487,
+					ControlBackdrop "257",
+				Frame "BACKDROP" "257" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB15LIGHT2",
+					Frame "HIGHLIGHT" "ZB15LIGHT2" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "258" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "256", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "259" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "256", BOTTOM, 0, 0,
+			}
+			
+							
+			Frame "TEXTBUTTON" "260" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellAps", TOP, -0.1855, -0.2004,
+					ControlBackdrop "261",
+				Frame "BACKDROP" "261" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB16LIGHT2",
+					Frame "HIGHLIGHT" "ZB16LIGHT2" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "262" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "260", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "263" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "260", BOTTOM, 0, 0,
+			}
+			
+								
+			Frame "TEXTBUTTON" "264" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellAps", TOP, -0.143, -0.2004,
+					ControlBackdrop "265",
+				Frame "BACKDROP" "265" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB17LIGHT2",
+					Frame "HIGHLIGHT" "ZB17LIGHT2" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "266" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "264", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "267" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "264", BOTTOM, 0, 0,
+			}
+			
+								
+			Frame "TEXTBUTTON" "268" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellAps", TOP, -0.1005, -0.2004,
+					ControlBackdrop "269",
+				Frame "BACKDROP" "269" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB18LIGHT2",
+					Frame "HIGHLIGHT" "ZB18LIGHT2" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "270" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "268", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "271" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "268", BOTTOM, 0, 0,
+			}
+								
+			Frame "TEXTBUTTON" "272" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellAps", TOP, -0.058, -0.2004,
+					ControlBackdrop "273",
+				Frame "BACKDROP" "273" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB19LIGHT2",
+					Frame "HIGHLIGHT" "ZB19LIGHT2" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "274" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "272", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "275" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "272", BOTTOM, 0, 0,
+			}
+								
+			Frame "TEXTBUTTON" "276" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellAps", TOP, -0.0155, -0.2004,
+					ControlBackdrop "277",
+				Frame "BACKDROP" "277" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB20LIGHT2",
+					Frame "HIGHLIGHT" "ZB20LIGHT2" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "278" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "276", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "279" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "276", BOTTOM, 0, 0,
+			}
+			
+			
+								
+			Frame "TEXTBUTTON" "280" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellAps", TOP, -0.1855, -0.2521,
+					ControlBackdrop "281",
+				Frame "BACKDROP" "281" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB21LIGHT2",
+					Frame "HIGHLIGHT" "ZB21LIGHT2" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "282" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "280", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "283" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "280", BOTTOM, 0, 0,
+			}
+			
+									
+			Frame "TEXTBUTTON" "284" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellAps", TOP, -0.143, -0.2521,
+					ControlBackdrop "285",
+				Frame "BACKDROP" "285" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB22LIGHT2",
+					Frame "HIGHLIGHT" "ZB22LIGHT2" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "286" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "284", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "287" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "284", BOTTOM, 0, 0,
+			}
+			
+									
+			Frame "TEXTBUTTON" "288" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellAps", TOP, -0.1005, -0.2521,
+					ControlBackdrop "289",
+				Frame "BACKDROP" "289" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB23LIGHT2",
+					Frame "HIGHLIGHT" "ZB23LIGHT2" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "290" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "288", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "291" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "288", BOTTOM, 0, 0,
+			}
+			
+									
+			Frame "TEXTBUTTON" "292" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellAps", TOP, -0.058, -0.2521,
+					ControlBackdrop "293",
+				Frame "BACKDROP" "293" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB24LIGHT2",
+					Frame "HIGHLIGHT" "ZB24LIGHT2" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "294" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "292", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "295" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "292", BOTTOM, 0, 0,
+			}
+			
+									
+			Frame "TEXTBUTTON" "296" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellAps", TOP, -0.0155, -0.2521,
+					ControlBackdrop "297",
+				Frame "BACKDROP" "297" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB25LIGHT2",
+					Frame "HIGHLIGHT" "ZB25LIGHT2" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "298" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "296", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "299" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "296", BOTTOM, 0, 0,
+			}
+	}
+
+	Frame "FRAME" "ItemCellCrits" {      //父级
+		Width 0.43,
+		Height 0.4,
+		LayerStyle "IGNORETRACKEVENTS",
+		SetPoint CENTER, "BAG", CENTER, 0, 0,
+			//多兰戒
+			Frame "TEXTBUTTON" "300" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellCrits", TOP, -0.1855, -0.0453,
+				ControlBackdrop "301",
+				Frame "BACKDROP" "301" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+					BackdropBlendAll,
+				}
+
+				ControlMouseOverHighlight "ZB1LIGHT3",
+				Frame "HIGHLIGHT" "ZB1LIGHT3" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
+			}
+			
+							
+			Frame "TEXT" "302" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "300", TOP, 0, 0,
+			}
+						
+			Frame "TEXT" "303" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "300", BOTTOM, 0, 0,
+			}
+			
+			Frame "TEXTBUTTON" "304" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellCrits", TOP, -0.143, -0.0453,
+				ControlBackdrop "305",
+				Frame "BACKDROP" "305" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+					BackdropBlendAll,
+				}
+
+				ControlMouseOverHighlight "ZB2LIGHT3",
+				Frame "HIGHLIGHT" "ZB2LIGHT3" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
+			}
+
+			Frame "TEXT" "306" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "304", TOP, 0, 0,
+			}
+						
+			Frame "TEXT" "307" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "304", BOTTOM, 0, 0,
+			}
+			
+			Frame "TEXTBUTTON" "308" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellCrits", TOP, -0.1005, -0.0453,
+				ControlBackdrop "309",
+				Frame "BACKDROP" "309" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+					BackdropBlendAll,
+				}
+
+				ControlMouseOverHighlight "ZB3LIGHT3",
+				Frame "HIGHLIGHT" "ZB3LIGHT3" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
+			}
+
+			Frame "TEXT" "310" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "308", TOP, 0, 0,
+			}
+						
+			Frame "TEXT" "311" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "308", BOTTOM, 0, 0,
+			}
+			
+			Frame "TEXTBUTTON" "312" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellCrits", TOP, -0.058, -0.0453,
+				ControlBackdrop "313",
+				Frame "BACKDROP" "313" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+					BackdropBlendAll,
+				}
+				ControlMouseOverHighlight "ZB4LIGHT3",
+				Frame "HIGHLIGHT" "ZB4LIGHT3" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
+			}
+
+			Frame "TEXT" "314" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "312", TOP, 0, 0,
+			}
+					
+			Frame "TEXT" "315" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "312", BOTTOM, 0, 0,
+			}
+			
+			Frame "TEXTBUTTON" "316" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellCrits", TOP, -0.0155, -0.0453,
+				ControlBackdrop "317",
+				Frame "BACKDROP" "317" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+					BackdropBlendAll,
+				}
+				ControlMouseOverHighlight "ZB5LIGHT3",
+				Frame "HIGHLIGHT" "ZB5LIGHT3" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
+			}
+
+			Frame "TEXT" "318" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "316", TOP, 0, 0,
+			}
+						
+			Frame "TEXT" "319" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "316", BOTTOM, 0, 0,
+			}
+			
+			Frame "TEXTBUTTON" "320" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellCrits", TOP, -0.1855, -0.097,
+				ControlBackdrop "321",
+				Frame "BACKDROP" "321" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+					BackdropBlendAll,
+				}
+				ControlMouseOverHighlight "ZB6LIGHT3",
+				Frame "HIGHLIGHT" "ZB6LIGHT3" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
+			}
+			
+			Frame "TEXT" "322" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "320", TOP, 0, 0,
+			}
+						
+			Frame "TEXT" "323" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "320", BOTTOM, 0, 0,
+			}
+			
+			Frame "TEXTBUTTON" "324" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellCrits", TOP, -0.143, -0.097,
+				ControlBackdrop "325",
+				Frame "BACKDROP" "325" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+					BackdropBlendAll,
+				}
+				ControlMouseOverHighlight "ZB7LIGHT3",
+				Frame "HIGHLIGHT" "ZB7LIGHT3" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "326" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "324", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "327" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "324", BOTTOM, 0, 0,
+			}
+			
+			Frame "TEXTBUTTON" "328" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellCrits", TOP, -0.1005, -0.097,
+					ControlBackdrop "329",
+				Frame "BACKDROP" "329" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB8LIGHT3",
+					Frame "HIGHLIGHT" "ZB8LIGHT3" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "330" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "328", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "331" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "328", BOTTOM, 0, 0,
+			}
+			
+			
+			Frame "TEXTBUTTON" "332" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellCrits", TOP, -0.058, -0.097,
+					ControlBackdrop "333",
+				Frame "BACKDROP" "333" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB9LIGHT3",
+					Frame "HIGHLIGHT" "ZB9LIGHT3" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "334" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "332", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "335" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "332", BOTTOM, 0, 0,
+			}
+			
+			Frame "TEXTBUTTON" "336" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellCrits", TOP, -0.0155, -0.097,
+					ControlBackdrop "337",
+				Frame "BACKDROP" "337" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB10LIGHT3",
+					Frame "HIGHLIGHT" "ZB10LIGHT3" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "338" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "336", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "339" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "336", BOTTOM, 0, 0,
+			}
+			
+				
+			Frame "TEXTBUTTON" "340" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellCrits", TOP, -0.1855, -0.1487,
+					ControlBackdrop "341",
+				Frame "BACKDROP" "341" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB11LIGHT3",
+					Frame "HIGHLIGHT" "ZB11LIGHT3" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "342" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "340", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "343" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "340", BOTTOM, 0, 0,
+			}
+					
+			Frame "TEXTBUTTON" "344" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellCrits", TOP, -0.143, -0.1487,
+					ControlBackdrop "345",
+				Frame "BACKDROP" "345" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB12LIGHT3",
+					Frame "HIGHLIGHT" "ZB12LIGHT3" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "346" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "344", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "347" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "344", BOTTOM, 0, 0,
+			}
+						
+			Frame "TEXTBUTTON" "348" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellCrits", TOP, -0.1005, -0.1487,
+					ControlBackdrop "349",
+				Frame "BACKDROP" "349" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB13LIGHT3",
+					Frame "HIGHLIGHT" "ZB13LIGHT3" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "350" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "348", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "351" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "348", BOTTOM, 0, 0,
+			}
+						
+			Frame "TEXTBUTTON" "352" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellCrits", TOP, -0.058, -0.1487,
+					ControlBackdrop "353",
+				Frame "BACKDROP" "353" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB14LIGHT3",
+					Frame "HIGHLIGHT" "ZB14LIGHT3" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "354" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "352", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "355" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "352", BOTTOM, 0, 0,
+			}
+			
+						
+			Frame "TEXTBUTTON" "356" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellCrits", TOP, -0.0155, -0.1487,
+					ControlBackdrop "357",
+				Frame "BACKDROP" "357" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB15LIGHT3",
+					Frame "HIGHLIGHT" "ZB15LIGHT3" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "358" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "356", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "359" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "356", BOTTOM, 0, 0,
+			}
+			
+							
+			Frame "TEXTBUTTON" "360" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellCrits", TOP, -0.1855, -0.2004,
+					ControlBackdrop "361",
+				Frame "BACKDROP" "361" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB16LIGHT3",
+					Frame "HIGHLIGHT" "ZB16LIGHT3" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "362" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "360", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "363" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "360", BOTTOM, 0, 0,
+			}
+			
+								
+			Frame "TEXTBUTTON" "364" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellCrits", TOP, -0.143, -0.2004,
+					ControlBackdrop "365",
+				Frame "BACKDROP" "365" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB17LIGHT3",
+					Frame "HIGHLIGHT" "ZB17LIGHT3" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "366" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "364", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "367" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "364", BOTTOM, 0, 0,
+			}
+			
+								
+			Frame "TEXTBUTTON" "368" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellCrits", TOP, -0.1005, -0.2004,
+					ControlBackdrop "369",
+				Frame "BACKDROP" "369" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB18LIGHT3",
+					Frame "HIGHLIGHT" "ZB18LIGHT3" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "370" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "368", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "371" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "368", BOTTOM, 0, 0,
+			}
+								
+			Frame "TEXTBUTTON" "372" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellCrits", TOP, -0.058, -0.2004,
+					ControlBackdrop "373",
+				Frame "BACKDROP" "373" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB19LIGHT3",
+					Frame "HIGHLIGHT" "ZB19LIGHT3" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "374" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "372", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "375" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "372", BOTTOM, 0, 0,
+			}
+								
+			Frame "TEXTBUTTON" "376" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellCrits", TOP, -0.0155, -0.2004,
+					ControlBackdrop "377",
+				Frame "BACKDROP" "377" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB20LIGHT3",
+					Frame "HIGHLIGHT" "ZB20LIGHT3" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "378" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "376", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "379" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "376", BOTTOM, 0, 0,
+			}
+			
+			
+								
+			Frame "TEXTBUTTON" "380" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellCrits", TOP, -0.1855, -0.2521,
+					ControlBackdrop "381",
+				Frame "BACKDROP" "381" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB21LIGHT3",
+					Frame "HIGHLIGHT" "ZB21LIGHT3" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "382" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "380", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "383" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "380", BOTTOM, 0, 0,
+			}
+			
+									
+			Frame "TEXTBUTTON" "384" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellCrits", TOP, -0.143, -0.2521,
+					ControlBackdrop "385",
+				Frame "BACKDROP" "385" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB22LIGHT3",
+					Frame "HIGHLIGHT" "ZB22LIGHT3" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "386" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "384", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "387" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "384", BOTTOM, 0, 0,
+			}
+			
+									
+			Frame "TEXTBUTTON" "388" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellCrits", TOP, -0.1005, -0.2521,
+					ControlBackdrop "389",
+				Frame "BACKDROP" "389" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB23LIGHT3",
+					Frame "HIGHLIGHT" "ZB23LIGHT3" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "390" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "388", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "391" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "388", BOTTOM, 0, 0,
+			}
+			
+									
+			Frame "TEXTBUTTON" "392" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellCrits", TOP, -0.058, -0.2521,
+					ControlBackdrop "393",
+				Frame "BACKDROP" "393" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB24LIGHT3",
+					Frame "HIGHLIGHT" "ZB24LIGHT3" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "394" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "392", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "395" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "392", BOTTOM, 0, 0,
+			}
+			
+									
+			Frame "TEXTBUTTON" "396" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellCrits", TOP, -0.0155, -0.2521,
+					ControlBackdrop "397",
+				Frame "BACKDROP" "397" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB25LIGHT3",
+					Frame "HIGHLIGHT" "ZB25LIGHT3" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "398" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "396", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "399" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "396", BOTTOM, 0, 0,
+			}
+	}
+
+	Frame "FRAME" "ItemCellCooldowns" {      //父级
+		Width 0.43,
+		Height 0.4,
+		LayerStyle "IGNORETRACKEVENTS",
+		SetPoint CENTER, "BAG", CENTER, 0, 0,
+			//多兰戒
+			Frame "TEXTBUTTON" "400" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellCooldowns", TOP, -0.1855, -0.0453,
+				ControlBackdrop "401",
+				Frame "BACKDROP" "401" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+					BackdropBlendAll,
+				}
+
+				ControlMouseOverHighlight "ZB1LIGHT4",
+				Frame "HIGHLIGHT" "ZB1LIGHT4" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
+			}
+			
+							
+			Frame "TEXT" "402" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "400", TOP, 0, 0,
+			}
+						
+			Frame "TEXT" "403" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "400", BOTTOM, 0, 0,
+			}
+			
+			Frame "TEXTBUTTON" "404" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellCooldowns", TOP, -0.143, -0.0453,
+				ControlBackdrop "405",
+				Frame "BACKDROP" "405" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+					BackdropBlendAll,
+				}
+
+				ControlMouseOverHighlight "ZB2LIGHT4",
+				Frame "HIGHLIGHT" "ZB2LIGHT4" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
+			}
+
+			Frame "TEXT" "406" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "404", TOP, 0, 0,
+			}
+						
+			Frame "TEXT" "407" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "404", BOTTOM, 0, 0,
+			}
+			
+			Frame "TEXTBUTTON" "408" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellCooldowns", TOP, -0.1005, -0.0453,
+				ControlBackdrop "409",
+				Frame "BACKDROP" "409" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+					BackdropBlendAll,
+				}
+
+				ControlMouseOverHighlight "ZB3LIGHT4",
+				Frame "HIGHLIGHT" "ZB3LIGHT4" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
+			}
+
+			Frame "TEXT" "410" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "408", TOP, 0, 0,
+			}
+						
+			Frame "TEXT" "411" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "408", BOTTOM, 0, 0,
+			}
+			
+			Frame "TEXTBUTTON" "412" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellCooldowns", TOP, -0.058, -0.0453,
+				ControlBackdrop "413",
+				Frame "BACKDROP" "413" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+					BackdropBlendAll,
+				}
+				ControlMouseOverHighlight "ZB4LIGHT4",
+				Frame "HIGHLIGHT" "ZB4LIGHT4" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
+			}
+
+			Frame "TEXT" "414" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "412", TOP, 0, 0,
+			}
+					
+			Frame "TEXT" "415" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "412", BOTTOM, 0, 0,
+			}
+			
+			Frame "TEXTBUTTON" "416" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellCooldowns", TOP, -0.0155, -0.0453,
+				ControlBackdrop "417",
+				Frame "BACKDROP" "417" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+					BackdropBlendAll,
+				}
+				ControlMouseOverHighlight "ZB5LIGHT4",
+				Frame "HIGHLIGHT" "ZB5LIGHT4" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
+			}
+
+			Frame "TEXT" "418" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "416", TOP, 0, 0,
+			}
+						
+			Frame "TEXT" "419" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "416", BOTTOM, 0, 0,
+			}
+			
+			Frame "TEXTBUTTON" "420" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellCooldowns", TOP, -0.1855, -0.097,
+				ControlBackdrop "421",
+				Frame "BACKDROP" "421" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+					BackdropBlendAll,
+				}
+				ControlMouseOverHighlight "ZB6LIGHT4",
+				Frame "HIGHLIGHT" "ZB6LIGHT4" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
+			}
+			
+			Frame "TEXT" "422" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "420", TOP, 0, 0,
+			}
+						
+			Frame "TEXT" "423" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "420", BOTTOM, 0, 0,
+			}
+			
+			Frame "TEXTBUTTON" "424" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellCooldowns", TOP, -0.143, -0.097,
+				ControlBackdrop "425",
+				Frame "BACKDROP" "425" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+					BackdropBlendAll,
+				}
+				ControlMouseOverHighlight "ZB7LIGHT4",
+				Frame "HIGHLIGHT" "ZB7LIGHT4" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "426" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "424", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "427" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "424", BOTTOM, 0, 0,
+			}
+			
+			Frame "TEXTBUTTON" "428" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellCooldowns", TOP, -0.1005, -0.097,
+					ControlBackdrop "429",
+				Frame "BACKDROP" "429" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB8LIGHT4",
+					Frame "HIGHLIGHT" "ZB8LIGHT4" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "430" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "428", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "431" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "428", BOTTOM, 0, 0,
+			}
+			
+			
+			Frame "TEXTBUTTON" "432" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellCooldowns", TOP, -0.058, -0.097,
+					ControlBackdrop "433",
+				Frame "BACKDROP" "433" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB9LIGHT4",
+					Frame "HIGHLIGHT" "ZB9LIGHT4" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "434" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "432", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "435" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "432", BOTTOM, 0, 0,
+			}
+			
+			Frame "TEXTBUTTON" "436" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellCooldowns", TOP, -0.0155, -0.097,
+					ControlBackdrop "437",
+				Frame "BACKDROP" "437" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB10LIGHT4",
+					Frame "HIGHLIGHT" "ZB10LIGHT4" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "438" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "436", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "439" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "436", BOTTOM, 0, 0,
+			}
+			
+				
+			Frame "TEXTBUTTON" "440" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellCooldowns", TOP, -0.1855, -0.1487,
+					ControlBackdrop "441",
+				Frame "BACKDROP" "441" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB11LIGHT4",
+					Frame "HIGHLIGHT" "ZB11LIGHT4" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "442" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "440", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "443" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "440", BOTTOM, 0, 0,
+			}
+					
+			Frame "TEXTBUTTON" "444" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellCooldowns", TOP, -0.143, -0.1487,
+					ControlBackdrop "445",
+				Frame "BACKDROP" "445" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB12LIGHT4",
+					Frame "HIGHLIGHT" "ZB12LIGHT4" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "446" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "444", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "447" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "444", BOTTOM, 0, 0,
+			}
+						
+			Frame "TEXTBUTTON" "448" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellCooldowns", TOP, -0.1005, -0.1487,
+					ControlBackdrop "449",
+				Frame "BACKDROP" "449" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB13LIGHT4",
+					Frame "HIGHLIGHT" "ZB13LIGHT4" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "450" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "448", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "451" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "448", BOTTOM, 0, 0,
+			}
+						
+			Frame "TEXTBUTTON" "452" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellCooldowns", TOP, -0.058, -0.1487,
+					ControlBackdrop "453",
+				Frame "BACKDROP" "453" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB14LIGHT4",
+					Frame "HIGHLIGHT" "ZB14LIGHT4" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "454" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "452", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "455" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "452", BOTTOM, 0, 0,
+			}
+			
+						
+			Frame "TEXTBUTTON" "456" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellCooldowns", TOP, -0.0155, -0.1487,
+					ControlBackdrop "457",
+				Frame "BACKDROP" "457" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB15LIGHT4",
+					Frame "HIGHLIGHT" "ZB15LIGHT4" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "458" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "456", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "459" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "456", BOTTOM, 0, 0,
+			}
+			
+							
+			Frame "TEXTBUTTON" "460" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellCooldowns", TOP, -0.1855, -0.2004,
+					ControlBackdrop "461",
+				Frame "BACKDROP" "461" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB16LIGHT4",
+					Frame "HIGHLIGHT" "ZB16LIGHT4" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "462" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "460", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "463" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "460", BOTTOM, 0, 0,
+			}
+			
+								
+			Frame "TEXTBUTTON" "464" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellCooldowns", TOP, -0.143, -0.2004,
+					ControlBackdrop "465",
+				Frame "BACKDROP" "465" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB17LIGHT4",
+					Frame "HIGHLIGHT" "ZB17LIGHT4" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "466" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "464", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "467" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "464", BOTTOM, 0, 0,
+			}
+			
+								
+			Frame "TEXTBUTTON" "468" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellCooldowns", TOP, -0.1005, -0.2004,
+					ControlBackdrop "469",
+				Frame "BACKDROP" "469" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB18LIGHT4",
+					Frame "HIGHLIGHT" "ZB18LIGHT4" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "470" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "468", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "471" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "468", BOTTOM, 0, 0,
+			}
+								
+			Frame "TEXTBUTTON" "472" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellCooldowns", TOP, -0.058, -0.2004,
+					ControlBackdrop "473",
+				Frame "BACKDROP" "473" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB19LIGHT4",
+					Frame "HIGHLIGHT" "ZB19LIGHT4" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "474" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "472", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "475" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "472", BOTTOM, 0, 0,
+			}
+								
+			Frame "TEXTBUTTON" "476" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellCooldowns", TOP, -0.0155, -0.2004,
+					ControlBackdrop "477",
+				Frame "BACKDROP" "477" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB20LIGHT4",
+					Frame "HIGHLIGHT" "ZB20LIGHT4" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "478" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "476", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "479" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "476", BOTTOM, 0, 0,
+			}
+			
+			
+								
+			Frame "TEXTBUTTON" "480" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellCooldowns", TOP, -0.1855, -0.2521,
+					ControlBackdrop "481",
+				Frame "BACKDROP" "481" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB21LIGHT4",
+					Frame "HIGHLIGHT" "ZB21LIGHT4" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "482" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "480", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "483" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "480", BOTTOM, 0, 0,
+			}
+			
+									
+			Frame "TEXTBUTTON" "484" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellCooldowns", TOP, -0.143, -0.2521,
+					ControlBackdrop "485",
+				Frame "BACKDROP" "485" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB22LIGHT4",
+					Frame "HIGHLIGHT" "ZB22LIGHT4" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "486" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "484", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "487" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "484", BOTTOM, 0, 0,
+			}
+			
+									
+			Frame "TEXTBUTTON" "488" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellCooldowns", TOP, -0.1005, -0.2521,
+					ControlBackdrop "489",
+				Frame "BACKDROP" "489" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB23LIGHT4",
+					Frame "HIGHLIGHT" "ZB23LIGHT4" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "490" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "488", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "491" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "488", BOTTOM, 0, 0,
+			}
+			
+									
+			Frame "TEXTBUTTON" "492" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellCooldowns", TOP, -0.058, -0.2521,
+					ControlBackdrop "493",
+				Frame "BACKDROP" "493" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB24LIGHT4",
+					Frame "HIGHLIGHT" "ZB24LIGHT4" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "494" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "492", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "495" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "492", BOTTOM, 0, 0,
+			}
+			
+									
+			Frame "TEXTBUTTON" "496" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellCooldowns", TOP, -0.0155, -0.2521,
+					ControlBackdrop "497",
+				Frame "BACKDROP" "497" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB25LIGHT4",
+					Frame "HIGHLIGHT" "ZB25LIGHT4" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "498" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "496", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "499" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "496", BOTTOM, 0, 0,
+			}
+	}
+
+	Frame "FRAME" "ItemCellManas" {      //父级
+		Width 0.43,
+		Height 0.4,
+		LayerStyle "IGNORETRACKEVENTS",
+		SetPoint CENTER, "BAG", CENTER, 0, 0,
+			//多兰戒
+			Frame "TEXTBUTTON" "500" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellManas", TOP, -0.1855, -0.0453,
+				ControlBackdrop "501",
+				Frame "BACKDROP" "501" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+					BackdropBlendAll,
+				}
+
+				ControlMouseOverHighlight "ZB1LIGHT5",
+				Frame "HIGHLIGHT" "ZB1LIGHT5" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
+			}
+			
+							
+			Frame "TEXT" "502" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "500", TOP, 0, 0,
+			}
+						
+			Frame "TEXT" "503" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "500", BOTTOM, 0, 0,
+			}
+			
+			Frame "TEXTBUTTON" "504" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellManas", TOP, -0.143, -0.0453,
+				ControlBackdrop "505",
+				Frame "BACKDROP" "505" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+					BackdropBlendAll,
+				}
+
+				ControlMouseOverHighlight "ZB2LIGHT5",
+				Frame "HIGHLIGHT" "ZB2LIGHT5" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
+			}
+
+			Frame "TEXT" "506" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "504", TOP, 0, 0,
+			}
+						
+			Frame "TEXT" "507" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "504", BOTTOM, 0, 0,
+			}
+			
+			Frame "TEXTBUTTON" "508" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellManas", TOP, -0.1005, -0.0453,
+				ControlBackdrop "509",
+				Frame "BACKDROP" "509" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+					BackdropBlendAll,
+				}
+
+				ControlMouseOverHighlight "ZB3LIGHT5",
+				Frame "HIGHLIGHT" "ZB3LIGHT5" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
+			}
+
+			Frame "TEXT" "510" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "508", TOP, 0, 0,
+			}
+						
+			Frame "TEXT" "511" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "508", BOTTOM, 0, 0,
+			}
+			
+			Frame "TEXTBUTTON" "512" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellManas", TOP, -0.058, -0.0453,
+				ControlBackdrop "513",
+				Frame "BACKDROP" "513" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+					BackdropBlendAll,
+				}
+				ControlMouseOverHighlight "ZB4LIGHT5",
+				Frame "HIGHLIGHT" "ZB4LIGHT5" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
+			}
+
+			Frame "TEXT" "514" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "512", TOP, 0, 0,
+			}
+					
+			Frame "TEXT" "515" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "512", BOTTOM, 0, 0,
+			}
+			
+			Frame "TEXTBUTTON" "516" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellManas", TOP, -0.0155, -0.0453,
+				ControlBackdrop "517",
+				Frame "BACKDROP" "517" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+					BackdropBlendAll,
+				}
+				ControlMouseOverHighlight "ZB5LIGHT5",
+				Frame "HIGHLIGHT" "ZB5LIGHT5" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
+			}
+
+			Frame "TEXT" "518" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "516", TOP, 0, 0,
+			}
+						
+			Frame "TEXT" "519" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "516", BOTTOM, 0, 0,
+			}
+			
+			Frame "TEXTBUTTON" "520" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellManas", TOP, -0.1855, -0.097,
+				ControlBackdrop "521",
+				Frame "BACKDROP" "521" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+					BackdropBlendAll,
+				}
+				ControlMouseOverHighlight "ZB6LIGHT5",
+				Frame "HIGHLIGHT" "ZB6LIGHT5" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
+			}
+			
+			Frame "TEXT" "522" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "520", TOP, 0, 0,
+			}
+						
+			Frame "TEXT" "523" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "520", BOTTOM, 0, 0,
+			}
+			
+			Frame "TEXTBUTTON" "524" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellManas", TOP, -0.143, -0.097,
+				ControlBackdrop "525",
+				Frame "BACKDROP" "525" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+					BackdropBlendAll,
+				}
+				ControlMouseOverHighlight "ZB7LIGHT5",
+				Frame "HIGHLIGHT" "ZB7LIGHT5" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "526" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "524", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "527" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "524", BOTTOM, 0, 0,
+			}
+			
+			Frame "TEXTBUTTON" "528" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellManas", TOP, -0.1005, -0.097,
+					ControlBackdrop "529",
+				Frame "BACKDROP" "529" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB8LIGHT5",
+					Frame "HIGHLIGHT" "ZB8LIGHT5" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "530" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "528", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "531" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "528", BOTTOM, 0, 0,
+			}
+			
+			
+			Frame "TEXTBUTTON" "532" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellManas", TOP, -0.058, -0.097,
+					ControlBackdrop "533",
+				Frame "BACKDROP" "533" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB9LIGHT5",
+					Frame "HIGHLIGHT" "ZB9LIGHT5" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "534" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "532", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "535" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "532", BOTTOM, 0, 0,
+			}
+			
+			Frame "TEXTBUTTON" "536" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellManas", TOP, -0.0155, -0.097,
+					ControlBackdrop "537",
+				Frame "BACKDROP" "537" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB10LIGHT5",
+					Frame "HIGHLIGHT" "ZB10LIGHT5" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "538" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "536", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "539" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "536", BOTTOM, 0, 0,
+			}
+			
+				
+			Frame "TEXTBUTTON" "540" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellManas", TOP, -0.1855, -0.1487,
+					ControlBackdrop "541",
+				Frame "BACKDROP" "541" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB11LIGHT5",
+					Frame "HIGHLIGHT" "ZB11LIGHT5" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "542" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "540", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "543" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "540", BOTTOM, 0, 0,
+			}
+					
+			Frame "TEXTBUTTON" "544" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellManas", TOP, -0.143, -0.1487,
+					ControlBackdrop "545",
+				Frame "BACKDROP" "545" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB12LIGHT5",
+					Frame "HIGHLIGHT" "ZB12LIGHT5" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "546" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "544", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "547" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "544", BOTTOM, 0, 0,
+			}
+						
+			Frame "TEXTBUTTON" "548" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellManas", TOP, -0.1005, -0.1487,
+					ControlBackdrop "549",
+				Frame "BACKDROP" "549" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB13LIGHT5",
+					Frame "HIGHLIGHT" "ZB13LIGHT5" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "550" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "548", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "551" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "548", BOTTOM, 0, 0,
+			}
+						
+			Frame "TEXTBUTTON" "552" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellManas", TOP, -0.058, -0.1487,
+					ControlBackdrop "553",
+				Frame "BACKDROP" "553" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB14LIGHT5",
+					Frame "HIGHLIGHT" "ZB14LIGHT5" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "554" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "552", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "555" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "552", BOTTOM, 0, 0,
+			}
+			
+						
+			Frame "TEXTBUTTON" "556" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellManas", TOP, -0.0155, -0.1487,
+					ControlBackdrop "557",
+				Frame "BACKDROP" "557" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB15LIGHT5",
+					Frame "HIGHLIGHT" "ZB15LIGHT5" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "558" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "556", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "559" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "556", BOTTOM, 0, 0,
+			}
+			
+							
+			Frame "TEXTBUTTON" "560" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellManas", TOP, -0.1855, -0.2004,
+					ControlBackdrop "561",
+				Frame "BACKDROP" "561" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB16LIGHT5",
+					Frame "HIGHLIGHT" "ZB16LIGHT5" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "562" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "560", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "563" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "560", BOTTOM, 0, 0,
+			}
+			
+								
+			Frame "TEXTBUTTON" "564" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellManas", TOP, -0.143, -0.2004,
+					ControlBackdrop "565",
+				Frame "BACKDROP" "565" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB17LIGHT5",
+					Frame "HIGHLIGHT" "ZB17LIGHT5" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "566" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "564", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "567" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "564", BOTTOM, 0, 0,
+			}
+			
+								
+			Frame "TEXTBUTTON" "568" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellManas", TOP, -0.1005, -0.2004,
+					ControlBackdrop "569",
+				Frame "BACKDROP" "569" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB18LIGHT5",
+					Frame "HIGHLIGHT" "ZB18LIGHT5" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "570" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "568", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "571" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "568", BOTTOM, 0, 0,
+			}
+								
+			Frame "TEXTBUTTON" "572" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellManas", TOP, -0.058, -0.2004,
+					ControlBackdrop "573",
+				Frame "BACKDROP" "573" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB19LIGHT5",
+					Frame "HIGHLIGHT" "ZB19LIGHT5" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "574" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "572", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "575" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "572", BOTTOM, 0, 0,
+			}
+								
+			Frame "TEXTBUTTON" "576" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellManas", TOP, -0.0155, -0.2004,
+					ControlBackdrop "577",
+				Frame "BACKDROP" "577" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB20LIGHT5",
+					Frame "HIGHLIGHT" "ZB20LIGHT5" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "578" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "576", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "579" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "576", BOTTOM, 0, 0,
+			}
+			
+			
+								
+			Frame "TEXTBUTTON" "580" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellManas", TOP, -0.1855, -0.2521,
+					ControlBackdrop "581",
+				Frame "BACKDROP" "581" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB21LIGHT5",
+					Frame "HIGHLIGHT" "ZB21LIGHT5" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "582" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "580", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "583" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "580", BOTTOM, 0, 0,
+			}
+			
+									
+			Frame "TEXTBUTTON" "584" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellManas", TOP, -0.143, -0.2521,
+					ControlBackdrop "585",
+				Frame "BACKDROP" "585" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB22LIGHT5",
+					Frame "HIGHLIGHT" "ZB22LIGHT5" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "586" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "584", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "587" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "584", BOTTOM, 0, 0,
+			}
+			
+									
+			Frame "TEXTBUTTON" "588" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellManas", TOP, -0.1005, -0.2521,
+					ControlBackdrop "589",
+				Frame "BACKDROP" "589" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB23LIGHT5",
+					Frame "HIGHLIGHT" "ZB23LIGHT5" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "590" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "588", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "591" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "588", BOTTOM, 0, 0,
+			}
+			
+									
+			Frame "TEXTBUTTON" "592" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellManas", TOP, -0.058, -0.2521,
+					ControlBackdrop "593",
+				Frame "BACKDROP" "593" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB24LIGHT5",
+					Frame "HIGHLIGHT" "ZB24LIGHT5" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "594" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "592", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "595" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "592", BOTTOM, 0, 0,
+			}
+			
+									
+			Frame "TEXTBUTTON" "596" {
+				Height 0.025,
+				Width 0.025,
+				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ButtonPushedTextOffset -0.001f -0.0015f,
+				SetPoint TOP, "ItemCellManas", TOP, -0.0155, -0.2521,
+					ControlBackdrop "597",
+				Frame "BACKDROP" "597" {
+					BackdropBackground  "war3mapImported\ZB1.tga",
+						BackdropBlendAll,
+					}
+
+					ControlMouseOverHighlight "ZB25LIGHT5",
+					Frame "HIGHLIGHT" "ZB25LIGHT5" {
+						HighlightType "FILETEXTURE",
+						HighlightAlphaFile "war3mapImported\Adown.tga",
+						HighlightAlphaMode "ADD",
+						}
+			}
+			
+			Frame "TEXT" "598" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint BOTTOM, "596", TOP, 0, 0,
+			}
+			
+						
+			Frame "TEXT" "599" {
+				FrameFont "font02.TTF", 0.010, "",
+				FontJustificationH JUSTIFYRIGHT,
+				FontJustificationV JUSTIFYMIDDLE,
+				FontFlags "FIXEDSIZE",
+				LayerStyle "IGNORETRACKEVENTS",
+				SetPoint TOP, "596", BOTTOM, 0, 0,
+			}
+	}
+	
+	//合成				
+	Frame "TEXTBUTTON" "HC" {
+   	  	Height 0.025,
+  		Width 0.025,
+  		ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+  		ButtonPushedTextOffset -0.001f -0.0015f,
+		SetPoint TOP, "BAG", TOP, 0.116, -0.0258,
+    		ControlBackdrop "HCUP",
+   		Frame "BACKDROP" "HCUP" {
+   			BackdropBackground  "war3mapImported\ZB1.tga",
+     			BackdropBlendAll,
+    		}
+
+    		ControlMouseOverHighlight "HCLIGHT",
+    		Frame "HIGHLIGHT" "HCLIGHT" {
+        		HighlightType "FILETEXTURE",
+        		HighlightAlphaFile "war3mapImported\Adown.tga",
+        		HighlightAlphaMode "ADD",
+				}
+	}
+				
+	Frame "TEXT" "HCA1" {
+   		FrameFont "font02.TTF", 0.010, "",
+   		FontJustificationH JUSTIFYRIGHT,
+   		FontJustificationV JUSTIFYMIDDLE,
+   		FontFlags "FIXEDSIZE",
+		LayerStyle "IGNORETRACKEVENTS",
+		SetPoint TOP, "HC", BOTTOM, 0, -0.002,
+	}
+	
+		
+							Frame "TEXTBUTTON" "HC1" {
+   	  	Height 0.025,
+  		Width 0.025,
+  		ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+  		ButtonPushedTextOffset -0.001f -0.0015f,
+		SetPoint TOP, "BAG", TOP, 0.06, -0.0835,
+    		ControlBackdrop "HC1UP",
+   		Frame "BACKDROP" "HC1UP" {
+   			BackdropBackground  "war3mapImported\ZB1.tga",
+     			BackdropBlendAll,
+    		}
+
+    		ControlMouseOverHighlight "HC1LIGHT",
+    		Frame "HIGHLIGHT" "HC1LIGHT" {
+        		HighlightType "FILETEXTURE",
+        		HighlightAlphaFile "war3mapImported\Adown.tga",
+        		HighlightAlphaMode "ADD",
+				}
+	}
+	
+
+				
+	Frame "TEXT" "HC1A1" {
+   		FrameFont "font02.TTF", 0.010, "",
+   		FontJustificationH JUSTIFYRIGHT,
+   		FontJustificationV JUSTIFYMIDDLE,
+   		FontFlags "FIXEDSIZE",
+		LayerStyle "IGNORETRACKEVENTS",
+		SetPoint TOP, "HC1", BOTTOM, 0, -0.002,
+	}
+	
+	
+	
+							Frame "TEXTBUTTON" "HC2" {
+   	  	Height 0.025,
+  		Width 0.025,
+  		ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+  		ButtonPushedTextOffset -0.001f -0.0015f,
+		SetPoint TOP, "BAG", TOP, 0.116, -0.0835,
+    		ControlBackdrop "HC2UP",
+   		Frame "BACKDROP" "HC2UP" {
+   			BackdropBackground  "war3mapImported\ZB1.tga",
+     			BackdropBlendAll,
+    		}
+
+    		ControlMouseOverHighlight "HC2LIGHT",
+    		Frame "HIGHLIGHT" "HC2LIGHT" {
+        		HighlightType "FILETEXTURE",
+        		HighlightAlphaFile "war3mapImported\Adown.tga",
+        		HighlightAlphaMode "ADD",
+				}
+	}
+				
+	Frame "TEXT" "HC1A2" {
+   		FrameFont "font02.TTF", 0.010, "",
+   		FontJustificationH JUSTIFYRIGHT,
+   		FontJustificationV JUSTIFYMIDDLE,
+   		FontFlags "FIXEDSIZE",
+		LayerStyle "IGNORETRACKEVENTS",
+		SetPoint TOP, "HC2", BOTTOM, 0, -0.002,
+	}
+	
+	
+		
+							Frame "TEXTBUTTON" "HC3" {
+   	  	Height 0.025,
+  		Width 0.025,
+  		ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+  		ButtonPushedTextOffset -0.001f -0.0015f,
+		SetPoint TOP, "BAG", TOP, 0.175, -0.0835,
+    		ControlBackdrop "HC3UP",
+   		Frame "BACKDROP" "HC3UP" {
+   			BackdropBackground  "war3mapImported\ZB1.tga",
+     			BackdropBlendAll,
+    		}
+
+    		ControlMouseOverHighlight "HC3LIGHT",
+    		Frame "HIGHLIGHT" "HC3LIGHT" {
+        		HighlightType "FILETEXTURE",
+        		HighlightAlphaFile "war3mapImported\Adown.tga",
+        		HighlightAlphaMode "ADD",
+				}
+	}
+	
+
+				
+	Frame "TEXT" "HC1A3" {
+   		FrameFont "font02.TTF", 0.010, "",
+   		FontJustificationH JUSTIFYRIGHT,
+   		FontJustificationV JUSTIFYMIDDLE,
+   		FontFlags "FIXEDSIZE",
+		LayerStyle "IGNORETRACKEVENTS",
+		SetPoint TOP, "HC3", BOTTOM, 0, -0.002,
+	}
+	
+		
+							Frame "TEXTBUTTON" "HCC" {
+   	  	Height 0.025,
+  		Width 0.025,
+  		ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+  		ButtonPushedTextOffset -0.000f -0.000f,
+		SetPoint TOP, "BAG", TOP, 0.041, -0.22,
+    		ControlBackdrop "HCCUP",
+   		Frame "BACKDROP" "HCCUP" {
+   			BackdropBackground  "war3mapImported\ZB1.tga",
+     			BackdropBlendAll,
+    		}
+    		ControlMouseOverHighlight "HCCLIGHT",
+    		Frame "HIGHLIGHT" "HCCLIGHT" {
+        		HighlightType "FILETEXTURE",
+        		HighlightAlphaFile "war3mapImported\Adown.tga",
+        		HighlightAlphaMode "ADD",
+				}
+	}
+	
+
+				
+	Frame "TEXT" "HC2A1" {
+   		FrameFont "font02.TTF", 0.012, "",
+   		FontJustificationH JUSTIFYRIGHT,
+   		FontJustificationV JUSTIFYMIDDLE,
+   		FontFlags "FIXEDSIZE",
+		LayerStyle "IGNORETRACKEVENTS",
+		SetPoint TOPLEFT, "HCC", TOPRIGHT, 0.005, 0,
+	}
+	
+		Frame "TEXT" "HC2A2" {
+   		FrameFont "font02.TTF", 0.012, "",
+   		FontJustificationH JUSTIFYRIGHT,
+   		FontJustificationV JUSTIFYMIDDLE,
+   		FontFlags "FIXEDSIZE",
+		LayerStyle "IGNORETRACKEVENTS",
+		SetPoint TOPLEFT, "HCC", TOPRIGHT, 0.015, -0.015,
+	}
+	Frame "TEXT" "HC2A3" {
+  		Width 0.177,
+   		FrameFont "font02.TTF", 0.0125, "",
+   		FontJustificationH JUSTIFYLEFT,
+   		FontJustificationV JUSTIFYMIDDLE,
+   		FontFlags "FIXEDSIZE",
+		LayerStyle "IGNORETRACKEVENTS",
+		SetPoint TOPLEFT, "HCC", BOTTOMLEFT, 0.0, -0.003,
+	}
+				Frame "TEXT" "HC2A4" {
+   		FrameFont "font02.TTF", 0.014, "",
+   		FontJustificationH JUSTIFYRIGHT,
+   		FontJustificationV JUSTIFYMIDDLE,
+   		FontFlags "FIXEDSIZE",
+		LayerStyle "IGNORETRACKEVENTS",
+		SetPoint TOPLEFT, "HC2A3", BOTTOMLEFT, 0.0, -0.003,
+	}
+				Frame "TEXT" "HC2A5" {
+   		FrameFont "font02.TTF", 0.014, "",
+   		FontJustificationH JUSTIFYRIGHT,
+   		FontJustificationV JUSTIFYMIDDLE,
+   		FontFlags "FIXEDSIZE",
+		LayerStyle "IGNORETRACKEVENTS",
+		SetPoint TOPLEFT, "HC2A4", BOTTOMLEFT, 0.0, -0.003,
+	}
+	
+					Frame "TEXT" "HeroGold" {
+   		FrameFont "font02.TTF", 0.014, "",
+   		FontJustificationH JUSTIFYRIGHT,
+   		FontJustificationV JUSTIFYMIDDLE,
+   		FontFlags "FIXEDSIZE",
+		LayerStyle "IGNORETRACKEVENTS",
+		SetPoint LEFT, "BAG", TOP, -0.095, -0.37,
+	}
+	
+	
+								Frame "TEXTBUTTON" "Hero1" {
+   	  	Height 0.017,
+  		Width 0.0165,
+  		ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+  		ButtonPushedTextOffset -0.000f -0.000f,
+		SetPoint TOP, "BAG", TOP, -0.1955, -0.351,
+    		ControlBackdrop "Hero1UP",
+   		Frame "BACKDROP" "Hero1UP" {
+   			BackdropBackground  "war3mapImported\ZB1.tga",
+     			BackdropBlendAll,
+    		}
+    		ControlMouseOverHighlight "Hero1LIGHT",
+    		Frame "HIGHLIGHT" "Hero1LIGHT" {
+        		HighlightType "FILETEXTURE",
+        		HighlightAlphaFile "war3mapImported\Adown.tga",
+        		HighlightAlphaMode "ADD",
+				}
+	}
+	
+		
+	
+								Frame "TEXTBUTTON" "Hero2" {
+   	  	Height 0.017,
+  		Width 0.0165,
+  		ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+  		ButtonPushedTextOffset -0.000f -0.000f,
+		SetPoint TOP, "BAG", TOP, -0.1745, -0.351,
+    		ControlBackdrop "Hero2UP",
+   		Frame "BACKDROP" "Hero2UP" {
+   			BackdropBackground  "war3mapImported\ZB1.tga",
+     			BackdropBlendAll,
+    		}
+    		ControlMouseOverHighlight "Hero2LIGHT",
+    		Frame "HIGHLIGHT" "Hero2LIGHT" {
+        		HighlightType "FILETEXTURE",
+        		HighlightAlphaFile "war3mapImported\Adown.tga",
+        		HighlightAlphaMode "ADD",
+				}
+	}
+	
+		
+	
+								Frame "TEXTBUTTON" "Hero3" {
+   	  	Height 0.017,
+  		Width 0.0165,
+  		ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+  		ButtonPushedTextOffset -0.000f -0.000f,
+		SetPoint TOP, "BAG", TOP, -0.1539, -0.351,
+    		ControlBackdrop "Hero3UP",
+   		Frame "BACKDROP" "Hero3UP" {
+   			BackdropBackground  "war3mapImported\ZB1.tga",
+     			BackdropBlendAll,
+    		}
+    		ControlMouseOverHighlight "Hero3LIGHT",
+    		Frame "HIGHLIGHT" "Hero3LIGHT" {
+        		HighlightType "FILETEXTURE",
+        		HighlightAlphaFile "war3mapImported\Adown.tga",
+        		HighlightAlphaMode "ADD",
+				}
+	}
+	
+		
+	
+								Frame "TEXTBUTTON" "Hero4" {
+   	  	Height 0.017,
+  		Width 0.0165,
+  		ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+  		ButtonPushedTextOffset -0.000f -0.000f,
+		SetPoint TOP, "BAG", TOP, -0.1955, -0.372,
+    		ControlBackdrop "Hero4UP",
+   		Frame "BACKDROP" "Hero4UP" {
+   			BackdropBackground  "war3mapImported\ZB1.tga",
+     			BackdropBlendAll,
+    		}
+    		ControlMouseOverHighlight "Hero4LIGHT",
+    		Frame "HIGHLIGHT" "Hero4LIGHT" {
+        		HighlightType "FILETEXTURE",
+        		HighlightAlphaFile "war3mapImported\Adown.tga",
+        		HighlightAlphaMode "ADD",
+				}
+	}
+		
+								Frame "TEXTBUTTON" "Hero5" {
+   	  	Height 0.017,
+  		Width 0.0165,
+  		ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+  		ButtonPushedTextOffset -0.000f -0.000f,
+		SetPoint TOP, "BAG", TOP, -0.1745, -0.372,
+    		ControlBackdrop "Hero5UP",
+   		Frame "BACKDROP" "Hero5UP" {
+   			BackdropBackground  "war3mapImported\ZB1.tga",
+     			BackdropBlendAll,
+    		}
+    		ControlMouseOverHighlight "Hero5LIGHT",
+    		Frame "HIGHLIGHT" "Hero5LIGHT" {
+        		HighlightType "FILETEXTURE",
+        		HighlightAlphaFile "war3mapImported\Adown.tga",
+        		HighlightAlphaMode "ADD",
+				}
+	}
+	
+		
+								Frame "TEXTBUTTON" "Hero6" {
+   	  	Height 0.017,
+  		Width 0.0165,
+  		ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+  		ButtonPushedTextOffset -0.000f -0.000f,
+		SetPoint TOP, "BAG", TOP, -0.1539, -0.372,
+    		ControlBackdrop "Hero6UP",
+   		Frame "BACKDROP" "Hero6UP" {
+   			BackdropBackground  "war3mapImported\ZB1.tga",
+     			BackdropBlendAll,
+    		}
+    		ControlMouseOverHighlight "Hero6LIGHT",
+    		Frame "HIGHLIGHT" "Hero6LIGHT" {
+        		HighlightType "FILETEXTURE",
+        		HighlightAlphaFile "war3mapImported\Adown.tga",
+        		HighlightAlphaMode "ADD",
+				}
+	}
+
+	Frame "TEXTBUTTON" "ABB1" {
+   	  	Height 0.023,
+  		Width 0.05,
+  		ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+  		ButtonPushedTextOffset -0.001f -0.0015f,
+		SetPoint LEFT, "BAG", TOP, -0.05, -0.37,
+    		ControlBackdrop "ABB1UP",
+   		Frame "BACKDROP" "ABB1UP" {
+   			BackdropBackground  "war3mapImported\AA3.tga",
+     			BackdropBlendAll,
+    		}
+			ControlPushedBackdrop "ABB1DOWN",
+    		Frame "BACKDROP" "ABB1DOWN" {
+        		BackdropBackground  "war3mapImported\AA1down.tga",
+        		BackdropBlendAll,
+    		}
+
+    		ControlMouseOverHighlight "ABB1LIGHT",
+    		Frame "HIGHLIGHT" "ABB1LIGHT" {
+        		HighlightType "FILETEXTURE",
+        		HighlightAlphaFile "war3mapImported\AA1down.tga",
+        		HighlightAlphaMode "ADD",
+				}
+	}
+
+				//英雄
+	Frame "TEXT" "ABBB1" {
+   		FrameFont "font02.TTF", 0.014, "",
+   		FontJustificationH JUSTIFYRIGHT,
+   		FontJustificationV JUSTIFYMIDDLE,
+   		FontFlags "FIXEDSIZE",
+		LayerStyle "IGNORETRACKEVENTS",
+		SetPoint BOTTOM, "ABB1", BOTTOM, 0, 0.005,
+	}
+	
+				Frame "TEXTBUTTON" "ABB2" {
+   	  	Height 0.023,
+  		Width 0.05,
+  		ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+  		ButtonPushedTextOffset -0.001f -0.0015f,
+		SetPoint TOP, "BAG", TOP, 0.16, -0.225,
+    		ControlBackdrop "ABB2UP",
+   		Frame "BACKDROP" "ABB2UP" {
+   			BackdropBackground  "war3mapImported\AA3.tga",
+     			BackdropBlendAll,
+    		}
+			ControlPushedBackdrop "ABB2DOWN",
+    		Frame "BACKDROP" "ABB2DOWN" {
+        		BackdropBackground  "war3mapImported\AA1down.tga",
+        		BackdropBlendAll,
+    		}
+
+    		ControlMouseOverHighlight "ABB2LIGHT",
+    		Frame "HIGHLIGHT" "ABB2LIGHT" {
+        		HighlightType "FILETEXTURE",
+        		HighlightAlphaFile "war3mapImported\AA1down.tga",
+        		HighlightAlphaMode "ADD",
+				}
+	}
+
+				//英雄
+	Frame "TEXT" "ABBB2" {
+   		FrameFont "font02.TTF", 0.014, "",
+   		FontJustificationH JUSTIFYRIGHT,
+   		FontJustificationV JUSTIFYMIDDLE,
+   		FontFlags "FIXEDSIZE",
+		LayerStyle "IGNORETRACKEVENTS",
+		SetPoint BOTTOM, "ABB2", BOTTOM, 0, 0.005,
+	}
+	
+	//关闭
+	Frame "TEXTBUTTON" "ABB3" {
+   	  	Height 0.023,
+  		Width 0.05,
+  		ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+  		ButtonPushedTextOffset -0.001f -0.0015f,
+		SetPoint TOP, "BAG", TOP, 0.182, -0.365,
+    		ControlBackdrop "ABB3UP",
+   		Frame "BACKDROP" "ABB3UP" {
+   			BackdropBackground  "war3mapImported\AA3.tga",
+     			BackdropBlendAll,
+    		}
+		ControlPushedBackdrop "ABB3DOWN",
+    	Frame "BACKDROP" "ABB3DOWN" {
+        		BackdropBackground  "war3mapImported\AA1down.tga",
+        		BackdropBlendAll,
+    	}
+    	ControlMouseOverHighlight "ABB3LIGHT",
+    	Frame "HIGHLIGHT" "ABB3LIGHT" {
+        		HighlightType "FILETEXTURE",
+        		HighlightAlphaFile "war3mapImported\AA1down.tga",
+        		HighlightAlphaMode "ADD",
+		}
+	}
+
+	//英雄
+	Frame "TEXT" "ABBB3" {
+   		FrameFont "font02.TTF", 0.014, "",
+   		FontJustificationH JUSTIFYRIGHT,
+   		FontJustificationV JUSTIFYMIDDLE,
+   		FontFlags "FIXEDSIZE",
+		LayerStyle "IGNORETRACKEVENTS",
+		SetPoint BOTTOM, "ABB3", BOTTOM, 0, 0.005,
+	}
+}
+
+Frame "BACKDROP" "BAG1" {     
+	Width 0.001,
+	Height 0.001,
+	BackdropBackground  "war3mapImported\touming.tga",
+	BackdropBlendAll,
+	
+	Frame "TEXTBUTTON" "AA" {
+   	  	Height 0.03,
+  		Width 0.05,
+  		ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+  		ButtonPushedTextOffset -0.001f -0.0015f,
+		SetPoint TOP, "BAG1", TOP, 0, 0,
+    		ControlBackdrop "AAUP",
+   		Frame "BACKDROP" "AAUP" {
+   			BackdropBackground  "war3mapImported\AA.tga",
+     			BackdropBlendAll,
+    		}
+    		ControlPushedBackdrop "AADOWN",
+    		Frame "BACKDROP" "AADOWN" {
+        		BackdropBackground  "war3mapImported\AAdown.tga",
+        		BackdropBlendAll,
+    		}
+    		ControlMouseOverHighlight "AALIGHT",
+    		Frame "HIGHLIGHT" "AALIGHT" {
+        		HighlightType "FILETEXTURE",
+        		HighlightAlphaFile "war3mapImported\AAdown.tga",
+        		HighlightAlphaMode "ADD",
+    		}
+	}
+}
+Frame "BACKDROP" "BAG2" {      //父级
+	Width 0.43,
+	Height 0.4,
+	BackdropBackground  "war3mapImported\AASHOP1.tga",
+	BackdropBlendAll,
+	
+	Frame "TEXTBUTTON" "AB1" {
+   	  	Height 0.02,
+  		Width 0.05,
+  		ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+  		ButtonPushedTextOffset -0.001f -0.0015f,
+		SetPoint TOP, "BAG2", TOP, -0.18, -0.0095,
+    		ControlBackdrop "AB1UP",
+   		Frame "BACKDROP" "AB1UP" {
+   			BackdropBackground  "war3mapImported\AA1.tga",
+     			BackdropBlendAll,
+    		}
+
+    		ControlMouseOverHighlight "AB1LIGHT",
+    		Frame "HIGHLIGHT" "AB1LIGHT" {
+        		HighlightType "FILETEXTURE",
+        		HighlightAlphaFile "war3mapImported\AA1down.tga",
+        		HighlightAlphaMode "ADD",
+				}
+	}
+				//英雄
+	Frame "TEXT" "AB11" {
+   		FrameFont "font02.TTF", 0.014, "",
+   		FontJustificationH JUSTIFYRIGHT,
+   		FontJustificationV JUSTIFYMIDDLE,
+   		FontFlags "FIXEDSIZE",
+		LayerStyle "IGNORETRACKEVENTS",
+		SetPoint BOTTOM, "AB1", BOTTOM, 0, 0,
+	}
+
+	Frame "TEXTBUTTON" "AB2" {
+   	  	Height 0.02,
+  		Width 0.05,
+  		ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+  		ButtonPushedTextOffset -0.001f -0.0015f,
+		SetPoint TOP, "BAG2", TOP, -0.12, -0.0095,
+    		ControlBackdrop "AB2UP",
+   		Frame "BACKDROP" "AB2UP" {
+   			BackdropBackground  "war3mapImported\AA1.tga",
+     			BackdropBlendAll,
+    		}
+
+    		ControlMouseOverHighlight "AB2LIGHT",
+    		Frame "HIGHLIGHT" "AB2LIGHT" {
+        		HighlightType "FILETEXTURE",
+        		HighlightAlphaFile "war3mapImported\AA1down.tga",
+        		HighlightAlphaMode "ADD",
+				}
+	}
+	
+				//英雄
+	Frame "TEXT" "AB22" {
+   		FrameFont "font02.TTF", 0.014, "",
+   		FontJustificationH JUSTIFYRIGHT,
+   		FontJustificationV JUSTIFYMIDDLE,
+   		FontFlags "FIXEDSIZE",
+		LayerStyle "IGNORETRACKEVENTS",
+		SetPoint BOTTOM, "AB2", BOTTOM, 0, 0,
+	}
+	Frame "TEXTBUTTON" "HeroCard" {
+   	  	Height 0.15,
+  		Width 0.08,
+  		ButtonPushedTextOffset -0.001f -0.0015f,
+  		ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+		SetPoint TOP, "BAG", TOP, -0.12, -0.11,
+    	ControlBackdrop "HeroCardUP",
+   		Frame "BACKDROP" "HeroCardUP" {
+   			BackdropBackground  "war3mapImported\HeroCard.tga",
+     			BackdropBlendAll,
+    	}
+    	//按下
+    	ControlPushedBackdrop "HeroCardDOWN",
+    	Frame "BACKDROP" "HeroCardDOWN" {
+        	BackdropBackground  "war3mapImported\HeroCarddown.tga",
+        	BackdropBlendAll,
+    	}
+    	ControlMouseOverHighlight "HeroCardLIGHT",
+    	Frame "HIGHLIGHT" "HeroCardLIGHT" {
+        	HighlightType "FILETEXTURE",
+			HighlightAlphaFile "UI\Widgets\BattleNet\bnet-button01-highlight-mouse.blp",    
+        	HighlightAlphaMode "ADD",
+		}
+		
+		//标题
+		Frame "TEXTBUTTON" "HeroCardshow" {
+   	  	Height 0.04,
+  		Width 0.09,
+		SetPoint BOTTOM, "HeroCard", TOP, 0.0, 0.01,
+    		ControlBackdrop "HeroCardshowUP",
+   		Frame "BACKDROP" "HeroCardshowUP" {
+   			BackdropBackground  "war3mapImported\TF1.tga",
+     			BackdropBlendAll,
+    		}
+		}
+
+		//金币
+		Frame "TEXTBUTTON" "HeroCardtext" {
+   	  	Height 0.028,
+  		Width 0.08,
+		SetPoint TOP, "HeroCard", BOTTOM, 0.0, -0.008,
+    		ControlBackdrop "HeroCardtextUP",
+   		Frame "BACKDROP" "HeroCardtextUP" {
+   			BackdropBackground  "war3mapImported\KKGoldText.tga",
+     			BackdropBlendAll,
+    		}
+		}	
+			
+		Frame "TEXT" "HeroCardshowtext" {
+   		FrameFont "font02.TTF", 0.015, "",
+   		FontJustificationH JUSTIFYRIGHT,
+   		FontJustificationV JUSTIFYMIDDLE,
+   		FontFlags "FIXEDSIZE",
+		LayerStyle "IGNORETRACKEVENTS",
+		SetPoint TOP, "HeroCardtext", TOP, 0, -0.008,
+	}
+
+	Frame "TEXTBUTTON" "HeroCard1" {
+   	  	Height 0.15,
+  		Width 0.08,
+  		ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+  		ButtonPushedTextOffset -0.001f -0.0015f,
+		SetPoint TOP, "BAG", TOP, 0, -0.11,
+    	ControlBackdrop "HeroCard1UP",
+   		Frame "BACKDROP" "HeroCard1UP" {
+   			BackdropBackground  "war3mapImported\HeroCard1.tga",
+     		BackdropBlendAll,
+    	}
+    	//按下
+    	ControlPushedBackdrop "HeroCard1DOWN",
+    	Frame "BACKDROP" "HeroCard1DOWN" {
+        	BackdropBackground  "war3mapImported\HeroCard1down.tga",
+        	BackdropBlendAll,
+    	}
+    	ControlMouseOverHighlight "HeroCard1LIGHT",
+    	Frame "HIGHLIGHT" "HeroCard1LIGHT" {
+        	HighlightType "FILETEXTURE",
+			HighlightAlphaFile "UI\Widgets\BattleNet\bnet-button01-highlight-mouse.blp",    
+        	HighlightAlphaMode "ADD",
+		}
+		
+	}
+	
+	Frame "TEXTBUTTON" "HeroCardshow1" {
+   	  	Height 0.04,
+  		Width 0.09,
+		SetPoint BOTTOM, "HeroCard1", TOP, 0.0, 0.01,
+    		ControlBackdrop "HeroCardshow1UP",
+   		Frame "BACKDROP" "HeroCardshow1UP" {
+   			BackdropBackground  "war3mapImported\TF2.tga",
+     			BackdropBlendAll,
+    		}
+			}
+						
+				Frame "TEXTBUTTON" "HeroCardtext1" {
+   	  	Height 0.028,
+  		Width 0.08,
+		SetPoint TOP, "HeroCard1", BOTTOM, 0.0, -0.008,
+    		ControlBackdrop "HeroCardtext1UP",
+   		Frame "BACKDROP" "HeroCardtext1UP" {
+   			BackdropBackground  "war3mapImported\KKGoldText.tga",
+     			BackdropBlendAll,
+    		}
+			}	
+					Frame "TEXT" "HeroCardshowtext1" {
+   		FrameFont "font02.TTF", 0.015, "",
+   		FontJustificationH JUSTIFYRIGHT,
+   		FontJustificationV JUSTIFYMIDDLE,
+   		FontFlags "FIXEDSIZE",
+		LayerStyle "IGNORETRACKEVENTS",
+		SetPoint TOP, "HeroCardtext1", TOP, 0, -0.008,
+		
+	}
+	Frame "TEXTBUTTON" "HeroCard2" {
+   	  	Height 0.15,
+  		Width 0.08,
+  		ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+  		ButtonPushedTextOffset -0.001f -0.0015f,
+		SetPoint TOP, "BAG", TOP, 0.12, -0.11,
+    	ControlBackdrop "HeroCard2UP",
+   		Frame "BACKDROP" "HeroCard2UP" {
+   			BackdropBackground  "war3mapImported\HeroCard2.tga",
+     			BackdropBlendAll,
+    	}
+    	//按下
+    	ControlPushedBackdrop "HeroCard2DOWN",
+    	Frame "BACKDROP" "HeroCard2DOWN" {
+        	BackdropBackground  "war3mapImported\HeroCard2down.tga",
+        	BackdropBlendAll,
+    	}
+    	ControlMouseOverHighlight "HeroCard2LIGHT",
+    	Frame "HIGHLIGHT" "HeroCard2LIGHT" {
+        	HighlightType "FILETEXTURE",
+			HighlightAlphaFile "UI\Widgets\BattleNet\bnet-button01-highlight-mouse.blp",    
+        	HighlightAlphaMode "ADD",
+		}
+	}
+	
+	Frame "TEXTBUTTON" "HeroCardshow2" {
+   	  	Height 0.04,
+  		Width 0.09,
+		SetPoint BOTTOM, "HeroCard2", TOP, 0.0, 0.01,
+    		ControlBackdrop "HeroCardshow2UP",
+   		Frame "BACKDROP" "HeroCardshow2UP" {
+   			BackdropBackground  "war3mapImported\TF3.tga",
+     			BackdropBlendAll,
+    		}
+		}
+						
+		Frame "TEXTBUTTON" "HeroCardtext2" {
+   	  	Height 0.028,
+  		Width 0.08,
+		SetPoint TOP, "HeroCard2", BOTTOM, 0.0, -0.008,
+    	ControlBackdrop "HeroCardtext2UP",
+   		Frame "BACKDROP" "HeroCardtext2UP" {
+   			BackdropBackground  "war3mapImported\KKGoldText.tga",
+     			BackdropBlendAll,
+    		}
+		}	
+		Frame "TEXT" "HeroCardshowtext2" {
+   		FrameFont "font02.TTF", 0.015, "",
+   		FontJustificationH JUSTIFYRIGHT,
+   		FontJustificationV JUSTIFYMIDDLE,
+   		FontFlags "FIXEDSIZE",
+		LayerStyle "IGNORETRACKEVENTS",
+		SetPoint TOP, "HeroCardtext2", TOP, 0, -0.008,
+	}
+
+	//关闭
+	Frame "TEXTBUTTON" "CBB3" {
+   	  	Height 0.023,
+  		Width 0.05,
+  		ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+  		ButtonPushedTextOffset -0.001f -0.0015f,
+		SetPoint TOP, "BAG2", TOP, 0.182, -0.365,
+    		ControlBackdrop "CBB3UP",
+   		Frame "BACKDROP" "CBB3UP" {
+   			BackdropBackground  "war3mapImported\AA3.tga",
+     			BackdropBlendAll,
+    		}
+		ControlPushedBackdrop "CBB3DOWN",
+    	Frame "BACKDROP" "CBB3DOWN" {
+        		BackdropBackground  "war3mapImported\AA1down.tga",
+        		BackdropBlendAll,
+    	}
+    	ControlMouseOverHighlight "CBB3LIGHT",
+    	Frame "HIGHLIGHT" "CBB3LIGHT" {
+        		HighlightType "FILETEXTURE",
+        		HighlightAlphaFile "war3mapImported\AA1down.tga",
+        		HighlightAlphaMode "ADD",
+		}
+	}
+
+	Frame "TEXT" "CBBB3" {
+   		FrameFont "font02.TTF", 0.014, "",
+   		FontJustificationH JUSTIFYRIGHT,
+   		FontJustificationV JUSTIFYMIDDLE,
+   		FontFlags "FIXEDSIZE",
+		LayerStyle "IGNORETRACKEVENTS",
+		Text "关闭",
+		SetPoint BOTTOM, "CBB3", BOTTOM, 0, 0.005,
+	}
+
+	Frame "TEXTBUTTON" "ABBLACK" {
+		Width 0.43,
+		Height 0.4,	
+		SetPoint TOP, "BAG2", TOP, 0, 0,
+    		ControlBackdrop "ABBLACKUP",
+   		Frame "BACKDROP" "ABBLACKUP" {
+   			BackdropBackground  "war3mapImported\ABBLACK.tga",
+     			BackdropBlendAll,
+    	}
+
+
+	Frame "BACKDROP" "BAG3" {      //父级
+		Height 0.168,
+		Width 0.21,
+		BackdropBackground  "war3mapImported\ZT_BACKDROP.tga",
+		SetPoint CENTER, "BAG", CENTER, 0, 0,
+     	BackdropBlendAll,
+		//卡片头像
+		Frame "TEXTBUTTON" "ZTTouX1" {
+    Height 0.058,
+    Width 0.046,
+
+		SetPoint TOPLEFT, "BAG3", TOPLEFT, 0.021, -0.02,
+    		ControlBackdrop "ZTTouX1UP",
+   		Frame "BACKDROP" "ZTTouX1UP" {
+   			BackdropBackground  "war3mapImported\AAheroArt1.tga",
+     			BackdropBlendAll,
+    		}
+			}
+			
+				Frame "TEXTBUTTON" "ZTTouX" {
+    Height 0.06,
+    Width 0.048,
+
+		SetPoint TOPLEFT, "BAG3", TOPLEFT, 0.02, -0.02,
+    		ControlBackdrop "ZTTouXUP",
+   		Frame "BACKDROP" "ZTTouXUP" {
+   			BackdropBackground  "war3mapImported\ZT_TouX.tga",
+     			BackdropBlendAll,
+    		}
+			}
+			
+							
+	Frame "TEXT" "ZTTEXT" {
+   		FrameFont "war3mapImported\font02.TTF", 0.2, "",
+   		FontJustificationH JUSTIFYRIGHT,
+   		FontJustificationV JUSTIFYMIDDLE,
+   		FontFlags "FIXEDSIZE",
+		LayerStyle "IGNORETRACKEVENTS",
+		SetPoint LEFT, "ZTTouX", RIGHT, 0.025, 0,
+	}
+	
+
+				Frame "TEXTBUTTON" "ZTJIN" {
+    Height 0.04,
+    Width 0.035,
+
+		SetPoint TOPLEFT, "BAG3", TOPLEFT, 0.03, -0.11,
+    		ControlBackdrop "ZTJINUP",
+   		Frame "BACKDROP" "ZTJINUP" {
+   			BackdropBackground  "war3mapImported\ZT_JiN1.tga",
+     			BackdropBlendAll,
+    		}
+			}	
+			
+							Frame "TEXTBUTTON" "ZTJIN1" {
+    Height 0.04,
+    Width 0.035,
+
+		SetPoint TOPLEFT, "BAG3", TOPLEFT, 0.075, -0.11,
+    		ControlBackdrop "ZTJIN1UP",
+   		Frame "BACKDROP" "ZTJIN1UP" {
+   			BackdropBackground  "war3mapImported\ZT_JiN2.tga",
+     			BackdropBlendAll,
+    		}
+			}	
+			
+		Frame "TEXTBUTTON" "ZTJIN2" {
+    Height 0.04,
+    Width 0.035,
+
+		SetPoint TOPLEFT, "BAG3", TOPLEFT, 0.12, -0.11,
+    		ControlBackdrop "ZTJIN2UP",
+   		Frame "BACKDROP" "ZTJIN2UP" {
+   			BackdropBackground  "war3mapImported\ZT_JiN2.tga",
+     			BackdropBlendAll,
+    		}
+			}		
+					
+}
+

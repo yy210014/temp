@@ -1,0 +1,10895 @@
+globals
+//globals from BzAPI:
+constant boolean LIBRARY_BzAPI=true
+trigger array BzAPI___DamageEventQueue
+integer BzAPI___DamageEventNumber= 0
+//endglobals from BzAPI
+//globals from YDTriggerSaveLoadSystem:
+constant boolean LIBRARY_YDTriggerSaveLoadSystem=true
+hashtable YDHT
+hashtable YDLOC
+//endglobals from YDTriggerSaveLoadSystem
+//globals from YDWEBase:
+constant boolean LIBRARY_YDWEBase=true
+//ȫ�ֹ�ϣ�� 
+string bj_AllString=".................................!.#$%&'()*+,-./0123456789:;<=>.@ABCDEFGHIJKLMNOPQRSTUVWXYZ[.]^_`abcdefghijklmnopqrstuvwxyz{|}~................................................................................................................................"
+//全局系统变量
+unit bj_lastAbilityCastingUnit=null
+unit bj_lastAbilityTargetUnit=null
+unit bj_lastPoolAbstractedUnit=null
+unitpool bj_lastCreatedUnitPool=null
+item bj_lastPoolAbstractedItem=null
+itempool bj_lastCreatedItemPool=null
+attacktype bj_lastSetAttackType= ATTACK_TYPE_NORMAL
+damagetype bj_lastSetDamageType= DAMAGE_TYPE_NORMAL
+weapontype bj_lastSetWeaponType= WEAPON_TYPE_WHOKNOWS
+real yd_MapMaxX= 0
+real yd_MapMinX= 0
+real yd_MapMaxY= 0
+real yd_MapMinY= 0
+string array YDWEBase___yd_PlayerColor
+trigger array YDWEBase___AbilityCastingOverEventQueue
+integer array YDWEBase___AbilityCastingOverEventType
+integer YDWEBase___AbilityCastingOverEventNumber= 0
+//endglobals from YDWEBase
+//globals from YDWEGetInventoryIndexOfItemTypeBJNull:
+constant boolean LIBRARY_YDWEGetInventoryIndexOfItemTypeBJNull=true
+//endglobals from YDWEGetInventoryIndexOfItemTypeBJNull
+//globals from YDWEGetItemOfTypeFromUnitBJNull:
+constant boolean LIBRARY_YDWEGetItemOfTypeFromUnitBJNull=true
+item yd_NullTempItem
+//endglobals from YDWEGetItemOfTypeFromUnitBJNull
+//globals from YDWEYDWEJapiScript:
+constant boolean LIBRARY_YDWEYDWEJapiScript=true
+constant integer YDWE_OBJECT_TYPE_ABILITY= 0
+constant integer YDWE_OBJECT_TYPE_BUFF= 1
+constant integer YDWE_OBJECT_TYPE_UNIT= 2
+constant integer YDWE_OBJECT_TYPE_ITEM= 3
+constant integer YDWE_OBJECT_TYPE_UPGRADE= 4
+constant integer YDWE_OBJECT_TYPE_DOODAD= 5
+constant integer YDWE_OBJECT_TYPE_DESTRUCTABLE= 6
+//endglobals from YDWEYDWEJapiScript
+    // User-defined
+integer array udg_SAVEYXZH
+boolean array udg_sysCharIsSyn
+integer array udg_sysEQHCId
+integer array udg_sysEQHCNeedBZ
+integer array udg_sysEQHCIdCurr
+integer array udg_sysEQHCNeedLH
+integer array udg_ui
+boolean array udg_ui_isHEOpen
+integer array udg_Frames
+unit array udg_SelectedHeros
+item array udg_SellItems
+integer udg_SellCount= 0
+boolean array udg_CellHasItem
+item array udg_RemoveItems
+integer array udg_UI_ab
+integer array udg_SelectedItemId
+trigger array udg_Trigs
+integer array udg_SelectedItemIndex
+integer array udg_NCards
+integer array udg_SRCards
+integer array udg_RCards
+integer array udg_SSRCards
+    // Generated
+rect gg_rct_chuguaikou1= null
+rect gg_rct_chuguaikou2= null
+rect gg_rct_chuguaikou3= null
+rect gg_rct_chuguaikou4= null
+rect gg_rct_rect006= null
+rect gg_rct_rect005= null
+rect gg_rct_rect007= null
+rect gg_rct_rect001= null
+rect gg_rct_rect002= null
+rect gg_rct_rect004= null
+rect gg_rct_rect003= null
+rect gg_rct_rect011= null
+rect gg_rct_rect012= null
+rect gg_rct_rect010= null
+rect gg_rct_rect009= null
+rect gg_rct_rect008= null
+rect gg_rct_effect001= null
+rect gg_rct_effect002= null
+rect gg_rct_effect003= null
+rect gg_rct_effect004= null
+rect gg_rct_rect013= null
+rect gg_rct_rect014= null
+rect gg_rct_rect015= null
+rect gg_rct_rect016= null
+trigger gg_trg______________________u= null
+trigger gg_trg_initButton= null
+trigger gg_trg_Trig0= null
+trigger gg_trg_Trig1= null
+trigger gg_trg_Trig2= null
+trigger gg_trg_Trig3= null
+trigger gg_trg_Trig4= null
+trigger gg_trg_Trig5= null
+trigger gg_trg_Trig6= null
+trigger gg_trg_Trig7_1= null
+trigger gg_trg_Trig7_2= null
+trigger gg_trg_Trig7_3= null
+trigger gg_trg_Trig8= null
+trigger gg_trg_Trig9= null
+trigger gg_trg____________________001= null
+trigger gg_trg____________________002= null
+trigger gg_trg_InitItemCell= null
+trigger gg_trg___________________u= null
+trigger gg_trg__________________________u= null
+trigger gg_trg_ESC= null
+trigger gg_trg_P= null
+trigger gg_trg_InitUi= null
+trigger gg_trg_Fram2Action= null
+trigger gg_trg_Fram6Action= null
+trigger gg_trg_Fram10Action= null
+trigger gg_trg_Fram14Action= null
+trigger gg_trg_Fram18Action= null
+trigger gg_trg_Fram22Action= null
+trigger gg_trg_Fram45Action= null
+trigger gg_trg_Fram60Action= null
+trigger gg_trg_Fram104Action= null
+trigger gg_trg_Fram105Action= null
+trigger gg_trg_Fram202Action= null
+trigger gg_trg_SelectedHero= null
+trigger gg_trg_AddItem= null
+trigger gg_trg_BuyItem= null
+trigger gg_trg_RemoveItem2= null
+trigger gg_trg_SellItem= null
+trigger gg_trg_SelectedItem2= null
+trigger gg_trg_RefrshItemCell= null
+
+trigger l__library_init
+
+//JASSHelper struct globals:
+
+endglobals
+    native DzGetMouseTerrainX takes nothing returns real
+    native DzGetMouseTerrainY takes nothing returns real
+    native DzGetMouseTerrainZ takes nothing returns real
+    native DzIsMouseOverUI takes nothing returns boolean
+    native DzGetMouseX takes nothing returns integer
+    native DzGetMouseY takes nothing returns integer
+    native DzGetMouseXRelative takes nothing returns integer
+    native DzGetMouseYRelative takes nothing returns integer
+    native DzSetMousePos takes integer x, integer y returns nothing
+    native DzTriggerRegisterMouseEvent takes trigger trig, integer btn, integer status, boolean sync, string func returns nothing
+    native DzTriggerRegisterMouseEventByCode takes trigger trig, integer btn, integer status, boolean sync, code funcHandle returns nothing
+    native DzTriggerRegisterKeyEvent takes trigger trig, integer key, integer status, boolean sync, string func returns nothing
+    native DzTriggerRegisterKeyEventByCode takes trigger trig, integer key, integer status, boolean sync, code funcHandle returns nothing
+    native DzTriggerRegisterMouseWheelEvent takes trigger trig, boolean sync, string func returns nothing
+    native DzTriggerRegisterMouseWheelEventByCode takes trigger trig, boolean sync, code funcHandle returns nothing
+    native DzTriggerRegisterMouseMoveEvent takes trigger trig, boolean sync, string func returns nothing
+    native DzTriggerRegisterMouseMoveEventByCode takes trigger trig, boolean sync, code funcHandle returns nothing
+    native DzGetTriggerKey takes nothing returns integer
+    native DzGetWheelDelta takes nothing returns integer
+    native DzIsKeyDown takes integer iKey returns boolean
+    native DzGetTriggerKeyPlayer takes nothing returns player
+    native DzGetWindowWidth takes nothing returns integer
+    native DzGetWindowHeight takes nothing returns integer
+    native DzGetWindowX takes nothing returns integer
+    native DzGetWindowY takes nothing returns integer
+    native DzTriggerRegisterWindowResizeEvent takes trigger trig, boolean sync, string func returns nothing
+    native DzTriggerRegisterWindowResizeEventByCode takes trigger trig, boolean sync, code funcHandle returns nothing
+    native DzIsWindowActive takes nothing returns boolean
+    native DzDestructablePosition takes destructable d, real x, real y returns nothing
+    native DzSetUnitPosition takes unit whichUnit, real x, real y returns nothing
+    native DzExecuteFunc takes string funcName returns nothing
+    native DzGetUnitUnderMouse takes nothing returns unit
+    native DzSetUnitTexture takes unit whichUnit, string path, integer texId returns nothing
+    native DzSetMemory takes integer address, real value returns nothing
+    native DzSetUnitID takes unit whichUnit, integer id returns nothing
+    native DzSetUnitModel takes unit whichUnit, string path returns nothing
+    native DzSetWar3MapMap takes string map returns nothing
+    native DzTriggerRegisterSyncData takes trigger trig, string prefix, boolean server returns nothing
+    native DzSyncData takes string prefix, string data returns nothing
+    native DzGetTriggerSyncData takes nothing returns string
+    native DzGetTriggerSyncPlayer takes nothing returns player
+    native DzFrameHideInterface takes nothing returns nothing
+    native DzFrameEditBlackBorders takes real upperHeight, real bottomHeight returns nothing
+    native DzFrameGetPortrait takes nothing returns integer
+    native DzFrameGetMinimap takes nothing returns integer
+    native DzFrameGetCommandBarButton takes integer row, integer column returns integer
+    native DzFrameGetHeroBarButton takes integer buttonId returns integer
+    native DzFrameGetHeroHPBar takes integer buttonId returns integer
+    native DzFrameGetHeroManaBar takes integer buttonId returns integer
+    native DzFrameGetItemBarButton takes integer buttonId returns integer
+    native DzFrameGetMinimapButton takes integer buttonId returns integer
+    native DzFrameGetUpperButtonBarButton takes integer buttonId returns integer
+    native DzFrameGetTooltip takes nothing returns integer
+    native DzFrameGetChatMessage takes nothing returns integer
+    native DzFrameGetUnitMessage takes nothing returns integer
+    native DzFrameGetTopMessage takes nothing returns integer
+    native DzGetColor takes integer r, integer g, integer b, integer a returns integer
+    native DzFrameSetUpdateCallback takes string func returns nothing
+    native DzFrameSetUpdateCallbackByCode takes code funcHandle returns nothing
+    native DzFrameShow takes integer frame, boolean enable returns nothing
+    native DzCreateFrame takes string frame, integer parent, integer id returns integer
+    native DzCreateSimpleFrame takes string frame, integer parent, integer id returns integer
+    native DzDestroyFrame takes integer frame returns nothing
+    native DzLoadToc takes string fileName returns nothing
+    native DzFrameSetPoint takes integer frame, integer point, integer relativeFrame, integer relativePoint, real x, real y returns nothing
+    native DzFrameSetAbsolutePoint takes integer frame, integer point, real x, real y returns nothing
+    native DzFrameClearAllPoints takes integer frame returns nothing
+    native DzFrameSetEnable takes integer name, boolean enable returns nothing
+    native DzFrameSetScript takes integer frame, integer eventId, string func, boolean sync returns nothing
+    native DzFrameSetScriptByCode takes integer frame, integer eventId, code funcHandle, boolean sync returns nothing
+    native DzGetTriggerUIEventPlayer takes nothing returns player
+    native DzGetTriggerUIEventFrame takes nothing returns integer
+    native DzFrameFindByName takes string name, integer id returns integer
+    native DzSimpleFrameFindByName takes string name, integer id returns integer
+    native DzSimpleFontStringFindByName takes string name, integer id returns integer
+    native DzSimpleTextureFindByName takes string name, integer id returns integer
+    native DzGetGameUI takes nothing returns integer
+    native DzClickFrame takes integer frame returns nothing
+    native DzSetCustomFovFix takes real value returns nothing
+    native DzEnableWideScreen takes boolean enable returns nothing
+    native DzFrameSetText takes integer frame, string text returns nothing
+    native DzFrameGetText takes integer frame returns string
+    native DzFrameSetTextSizeLimit takes integer frame, integer size returns nothing
+    native DzFrameGetTextSizeLimit takes integer frame returns integer
+    native DzFrameSetTextColor takes integer frame, integer color returns nothing
+    native DzGetMouseFocus takes nothing returns integer
+    native DzFrameSetAllPoints takes integer frame, integer relativeFrame returns boolean
+    native DzFrameSetFocus takes integer frame, boolean enable returns boolean
+    native DzFrameSetModel takes integer frame, string modelFile, integer modelType, integer flag returns nothing
+    native DzFrameGetEnable takes integer frame returns boolean
+    native DzFrameSetAlpha takes integer frame, integer alpha returns nothing
+    native DzFrameGetAlpha takes integer frame returns integer
+    native DzFrameSetAnimate takes integer frame, integer animId, boolean autocast returns nothing
+    native DzFrameSetAnimateOffset takes integer frame, real offset returns nothing
+    native DzFrameSetTexture takes integer frame, string texture, integer flag returns nothing
+    native DzFrameSetScale takes integer frame, real scale returns nothing
+    native DzFrameSetTooltip takes integer frame, integer tooltip returns nothing
+    native DzFrameCageMouse takes integer frame, boolean enable returns nothing
+    native DzFrameGetValue takes integer frame returns real
+    native DzFrameSetMinMaxValue takes integer frame, real minValue, real maxValue returns nothing
+    native DzFrameSetStepValue takes integer frame, real step returns nothing
+    native DzFrameSetValue takes integer frame, real value returns nothing
+    native DzFrameSetSize takes integer frame, real w, real h returns nothing
+    native DzCreateFrameByTagName takes string frameType, string name, integer parent, string template, integer id returns integer
+    native DzFrameSetVertexColor takes integer frame, integer color returns nothing
+	native EXExecuteScript takes string script returns string
+native EXBlendButtonIcon takes string a, string b, string c returns boolean
+
+
+//library BzAPI:
+    //hardware
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //plus
+
+
+
+
+
+
+
+
+
+    //sync
+
+
+
+
+    //gui
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    function DzTriggerRegisterMouseEventTrg takes trigger trg,integer status,integer btn returns nothing
+        if trg == null then
+            return
+        endif
+        call DzTriggerRegisterMouseEvent(trg, btn, status, true, null)
+    endfunction
+    function DzTriggerRegisterKeyEventTrg takes trigger trg,integer status,integer btn returns nothing
+        if trg == null then
+            return
+        endif
+        call DzTriggerRegisterKeyEvent(trg, btn, status, true, null)
+    endfunction
+    function DzTriggerRegisterMouseMoveEventTrg takes trigger trg returns nothing
+        if trg == null then
+            return
+        endif
+        call DzTriggerRegisterMouseMoveEvent(trg, true, null)
+    endfunction
+    function DzTriggerRegisterMouseWheelEventTrg takes trigger trg returns nothing
+        if trg == null then
+            return
+        endif
+        call DzTriggerRegisterMouseWheelEvent(trg, true, null)
+    endfunction
+    function DzTriggerRegisterWindowResizeEventTrg takes trigger trg returns nothing
+        if trg == null then
+            return
+        endif
+        call DzTriggerRegisterWindowResizeEvent(trg, true, null)
+    endfunction
+    function DzF2I takes integer i returns integer
+        return i
+    endfunction
+    function DzI2F takes integer i returns integer
+        return i
+    endfunction
+    function DzK2I takes integer i returns integer
+        return i
+    endfunction
+    function DzI2K takes integer i returns integer
+        return i
+    endfunction
+
+//library BzAPI ends
+//library YDTriggerSaveLoadSystem:
+    function YDTriggerSaveLoadSystem__Init takes nothing returns nothing
+            set YDHT=InitHashtable()
+        set YDLOC=InitHashtable()
+    endfunction
+
+//library YDTriggerSaveLoadSystem ends
+//library YDWEBase:
+//===========================================================================
+//HashTable
+//===========================================================================
+//===========================================================================
+//Return bug
+//===========================================================================
+function YDWEH2I takes handle h returns integer
+    return GetHandleId(h)
+endfunction
+//����
+function YDWEFlushAllData takes nothing returns nothing
+    call FlushParentHashtable(YDHT)
+endfunction
+function YDWEFlushMissionByInteger takes integer i returns nothing
+    call FlushChildHashtable(YDHT, i)
+endfunction
+function YDWEFlushMissionByString takes string s returns nothing
+    call FlushChildHashtable(YDHT, StringHash(s))
+endfunction
+function YDWEFlushStoredIntegerByInteger takes integer i,integer j returns nothing
+    call RemoveSavedInteger(YDHT, i, j)
+endfunction
+function YDWEFlushStoredIntegerByString takes string s1,string s2 returns nothing
+    call RemoveSavedInteger(YDHT, StringHash(s1), StringHash(s2))
+endfunction
+function YDWEHaveSavedIntegerByInteger takes integer i,integer j returns boolean
+    return HaveSavedInteger(YDHT, i, j)
+endfunction
+function YDWEHaveSavedIntegerByString takes string s1,string s2 returns boolean
+    return HaveSavedInteger(YDHT, StringHash(s1), StringHash(s2))
+endfunction
+//store and get integer
+function YDWESaveIntegerByInteger takes integer pTable,integer pKey,integer i returns nothing
+    call SaveInteger(YDHT, pTable, pKey, i)
+endfunction
+function YDWESaveIntegerByString takes string pTable,string pKey,integer i returns nothing
+    call SaveInteger(YDHT, StringHash(pTable), StringHash(pKey), i)
+endfunction
+function YDWEGetIntegerByInteger takes integer pTable,integer pKey returns integer
+    return LoadInteger(YDHT, pTable, pKey)
+endfunction
+function YDWEGetIntegerByString takes string pTable,string pKey returns integer
+    return LoadInteger(YDHT, StringHash(pTable), StringHash(pKey))
+endfunction
+//store and get real
+function YDWESaveRealByInteger takes integer pTable,integer pKey,real r returns nothing
+    call SaveReal(YDHT, pTable, pKey, r)
+endfunction
+function YDWESaveRealByString takes string pTable,string pKey,real r returns nothing
+    call SaveReal(YDHT, StringHash(pTable), StringHash(pKey), r)
+endfunction
+function YDWEGetRealByInteger takes integer pTable,integer pKey returns real
+    return LoadReal(YDHT, pTable, pKey)
+endfunction
+function YDWEGetRealByString takes string pTable,string pKey returns real
+    return LoadReal(YDHT, StringHash(pTable), StringHash(pKey))
+endfunction
+//store and get string
+function YDWESaveStringByInteger takes integer pTable,integer pKey,string s returns nothing
+    call SaveStr(YDHT, pTable, pKey, s)
+endfunction
+function YDWESaveStringByString takes string pTable,string pKey,string s returns nothing
+    call SaveStr(YDHT, StringHash(pTable), StringHash(pKey), s)
+endfunction
+function YDWEGetStringByInteger takes integer pTable,integer pKey returns string
+    return LoadStr(YDHT, pTable, pKey)
+endfunction
+function YDWEGetStringByString takes string pTable,string pKey returns string
+    return LoadStr(YDHT, StringHash(pTable), StringHash(pKey))
+endfunction
+//store and get boolean
+function YDWESaveBooleanByInteger takes integer pTable,integer pKey,boolean b returns nothing
+    call SaveBoolean(YDHT, pTable, pKey, b)
+endfunction
+function YDWESaveBooleanByString takes string pTable,string pKey,boolean b returns nothing
+    call SaveBoolean(YDHT, StringHash(pTable), StringHash(pKey), b)
+endfunction
+function YDWEGetBooleanByInteger takes integer pTable,integer pKey returns boolean
+    return LoadBoolean(YDHT, pTable, pKey)
+endfunction
+function YDWEGetBooleanByString takes string pTable,string pKey returns boolean
+    return LoadBoolean(YDHT, StringHash(pTable), StringHash(pKey))
+endfunction
+//Covert Unit
+function YDWESaveUnitByInteger takes integer pTable,integer pKey,unit u returns nothing
+    call SaveUnitHandle(YDHT, pTable, pKey, u)
+endfunction
+function YDWESaveUnitByString takes string pTable,string pKey,unit u returns nothing
+    call SaveUnitHandle(YDHT, StringHash(pTable), StringHash(pKey), u)
+endfunction
+function YDWEGetUnitByInteger takes integer pTable,integer pKey returns unit
+    return LoadUnitHandle(YDHT, pTable, pKey)
+endfunction
+function YDWEGetUnitByString takes string pTable,string pKey returns unit
+    return LoadUnitHandle(YDHT, StringHash(pTable), StringHash(pKey))
+endfunction
+//Covert UnitID
+function YDWESaveUnitIDByInteger takes integer pTable,integer pKey,integer uid returns nothing
+    call SaveInteger(YDHT, pTable, pKey, uid)
+endfunction
+function YDWESaveUnitIDByString takes string pTable,string pKey,integer uid returns nothing
+    call SaveInteger(YDHT, StringHash(pTable), StringHash(pKey), uid)
+endfunction
+function YDWEGetUnitIDByInteger takes integer pTable,integer pKey returns integer
+    return LoadInteger(YDHT, pTable, pKey)
+endfunction
+function YDWEGetUnitIDByString takes string pTable,string pKey returns integer
+    return LoadInteger(YDHT, StringHash(pTable), StringHash(pKey))
+endfunction
+//Covert AbilityID
+function YDWESaveAbilityIDByInteger takes integer pTable,integer pKey,integer abid returns nothing
+    call SaveInteger(YDHT, pTable, pKey, abid)
+endfunction
+function YDWESaveAbilityIDByString takes string pTable,string pKey,integer abid returns nothing
+    call SaveInteger(YDHT, StringHash(pTable), StringHash(pKey), abid)
+endfunction
+function YDWEGetAbilityIDByInteger takes integer pTable,integer pKey returns integer
+    return LoadInteger(YDHT, pTable, pKey)
+endfunction
+function YDWEGetAbilityIDByString takes string pTable,string pKey returns integer
+    return LoadInteger(YDHT, StringHash(pTable), StringHash(pKey))
+endfunction
+//Covert Player
+function YDWESavePlayerByInteger takes integer pTable,integer pKey,player p returns nothing
+    call SavePlayerHandle(YDHT, pTable, pKey, p)
+endfunction
+function YDWESavePlayerByString takes string pTable,string pKey,player p returns nothing
+    call SavePlayerHandle(YDHT, StringHash(pTable), StringHash(pKey), p)
+endfunction
+function YDWEGetPlayerByInteger takes integer pTable,integer pKey returns player
+    return LoadPlayerHandle(YDHT, pTable, pKey)
+endfunction
+function YDWEGetPlayerByString takes string pTable,string pKey returns player
+    return LoadPlayerHandle(YDHT, StringHash(pTable), StringHash(pKey))
+endfunction
+//Covert Item
+function YDWESaveItemByInteger takes integer pTable,integer pKey,item it returns nothing
+    call SaveItemHandle(YDHT, pTable, pKey, it)
+endfunction
+function YDWESaveItemByString takes string pTable,string pKey,item it returns nothing
+    call SaveItemHandle(YDHT, StringHash(pTable), StringHash(pKey), it)
+endfunction
+function YDWEGetItemByInteger takes integer pTable,integer pKey returns item
+    return LoadItemHandle(YDHT, pTable, pKey)
+endfunction
+function YDWEGetItemByString takes string pTable,string pKey returns item
+    return LoadItemHandle(YDHT, StringHash(pTable), StringHash(pKey))
+endfunction
+//Covert ItemID
+function YDWESaveItemIDByInteger takes integer pTable,integer pKey,integer itid returns nothing
+    call SaveInteger(YDHT, pTable, pKey, itid)
+endfunction
+function YDWESaveItemIDByString takes string pTable,string pKey,integer itid returns nothing
+    call SaveInteger(YDHT, StringHash(pTable), StringHash(pKey), itid)
+endfunction
+function YDWEGetItemIDByInteger takes integer pTable,integer pKey returns integer
+    return LoadInteger(YDHT, pTable, pKey)
+endfunction
+function YDWEGetItemIDByString takes string pTable,string pKey returns integer
+    return LoadInteger(YDHT, StringHash(pTable), StringHash(pKey))
+endfunction
+//Covert Timer
+function YDWESaveTimerByInteger takes integer pTable,integer pKey,timer t returns nothing
+    call SaveTimerHandle(YDHT, pTable, pKey, t)
+endfunction
+function YDWESaveTimerByString takes string pTable,string pKey,timer t returns nothing
+    call SaveTimerHandle(YDHT, StringHash(pTable), StringHash(pKey), t)
+endfunction
+function YDWEGetTimerByInteger takes integer pTable,integer pKey returns timer
+    return LoadTimerHandle(YDHT, pTable, pKey)
+endfunction
+function YDWEGetTimerByString takes string pTable,string pKey returns timer
+    return LoadTimerHandle(YDHT, StringHash(pTable), StringHash(pKey))
+endfunction
+//Covert Trigger
+function YDWESaveTriggerByInteger takes integer pTable,integer pKey,trigger trg returns nothing
+    call SaveTriggerHandle(YDHT, pTable, pKey, trg)
+endfunction
+function YDWESaveTriggerByString takes string pTable,string pKey,trigger trg returns nothing
+    call SaveTriggerHandle(YDHT, StringHash(pTable), StringHash(pKey), trg)
+endfunction
+function YDWEGetTriggerByInteger takes integer pTable,integer pKey returns trigger
+    return LoadTriggerHandle(YDHT, pTable, pKey)
+endfunction
+function YDWEGetTriggerByString takes string pTable,string pKey returns trigger
+    return LoadTriggerHandle(YDHT, StringHash(pTable), StringHash(pKey))
+endfunction
+//Covert Location
+function YDWESaveLocationByInteger takes integer pTable,integer pKey,location pt returns nothing
+    call SaveLocationHandle(YDHT, pTable, pKey, pt)
+endfunction
+function YDWESaveLocationByString takes string pTable,string pKey,location pt returns nothing
+    call SaveLocationHandle(YDHT, StringHash(pTable), StringHash(pKey), pt)
+endfunction
+function YDWEGetLocationByInteger takes integer pTable,integer pKey returns location
+    return LoadLocationHandle(YDHT, pTable, pKey)
+endfunction
+function YDWEGetLocationByString takes string pTable,string pKey returns location
+    return LoadLocationHandle(YDHT, StringHash(pTable), StringHash(pKey))
+endfunction
+//Covert Group
+function YDWESaveGroupByInteger takes integer pTable,integer pKey,group g returns nothing
+    call SaveGroupHandle(YDHT, pTable, pKey, g)
+endfunction
+function YDWESaveGroupByString takes string pTable,string pKey,group g returns nothing
+    call SaveGroupHandle(YDHT, StringHash(pTable), StringHash(pKey), g)
+endfunction
+function YDWEGetGroupByInteger takes integer pTable,integer pKey returns group
+    return LoadGroupHandle(YDHT, pTable, pKey)
+endfunction
+function YDWEGetGroupByString takes string pTable,string pKey returns group
+    return LoadGroupHandle(YDHT, StringHash(pTable), StringHash(pKey))
+endfunction
+//Covert Multiboard
+function YDWESaveMultiboardByInteger takes integer pTable,integer pKey,multiboard m returns nothing
+    call SaveMultiboardHandle(YDHT, pTable, pKey, m)
+endfunction
+function YDWESaveMultiboardByString takes string pTable,string pKey,multiboard m returns nothing
+    call SaveMultiboardHandle(YDHT, StringHash(pTable), StringHash(pKey), m)
+endfunction
+function YDWEGetMultiboardByInteger takes integer pTable,integer pKey returns multiboard
+    return LoadMultiboardHandle(YDHT, pTable, pKey)
+endfunction
+function YDWEGetMultiboardByString takes string pTable,string pKey returns multiboard
+    return LoadMultiboardHandle(YDHT, StringHash(pTable), StringHash(pKey))
+endfunction
+//Covert MultiboardItem
+function YDWESaveMultiboardItemByInteger takes integer pTable,integer pKey,multiboarditem mt returns nothing
+    call SaveMultiboardItemHandle(YDHT, pTable, pKey, mt)
+endfunction
+function YDWESaveMultiboardItemByString takes string pTable,string pKey,multiboarditem mt returns nothing
+    call SaveMultiboardItemHandle(YDHT, StringHash(pTable), StringHash(pKey), mt)
+endfunction
+function YDWEGetMultiboardItemByInteger takes integer pTable,integer pKey returns multiboarditem
+    return LoadMultiboardItemHandle(YDHT, pTable, pKey)
+endfunction
+function YDWEGetMultiboardItemByString takes string pTable,string pKey returns multiboarditem
+    return LoadMultiboardItemHandle(YDHT, StringHash(pTable), StringHash(pKey))
+endfunction
+//Covert TextTag
+function YDWESaveTextTagByInteger takes integer pTable,integer pKey,texttag tt returns nothing
+    call SaveTextTagHandle(YDHT, pTable, pKey, tt)
+endfunction
+function YDWESaveTextTagByString takes string pTable,string pKey,texttag tt returns nothing
+    call SaveTextTagHandle(YDHT, StringHash(pTable), StringHash(pKey), tt)
+endfunction
+function YDWEGetTextTagByInteger takes integer pTable,integer pKey returns texttag
+    return LoadTextTagHandle(YDHT, pTable, pKey)
+endfunction
+function YDWEGetTextTagByString takes string pTable,string pKey returns texttag
+    return LoadTextTagHandle(YDHT, StringHash(pTable), StringHash(pKey))
+endfunction
+//Covert Lightning
+function YDWESaveLightningByInteger takes integer pTable,integer pKey,lightning ln returns nothing
+    call SaveLightningHandle(YDHT, pTable, pKey, ln)
+endfunction
+function YDWESaveLightningByString takes string pTable,string pKey,lightning ln returns nothing
+    call SaveLightningHandle(YDHT, StringHash(pTable), StringHash(pKey), ln)
+endfunction
+function YDWEGetLightningByInteger takes integer pTable,integer pKey returns lightning
+    return LoadLightningHandle(YDHT, pTable, pKey)
+endfunction
+function YDWEGetLightningByString takes string pTable,string pKey returns lightning
+    return LoadLightningHandle(YDHT, StringHash(pTable), StringHash(pKey))
+endfunction
+//Covert Region
+function YDWESaveRegionByInteger takes integer pTable,integer pKey,region rn returns nothing
+    call SaveRegionHandle(YDHT, pTable, pKey, rn)
+endfunction
+function YDWESaveRegionByString takes string pTable,string pKey,region rt returns nothing
+    call SaveRegionHandle(YDHT, StringHash(pTable), StringHash(pKey), rt)
+endfunction
+function YDWEGetRegionByInteger takes integer pTable,integer pKey returns region
+    return LoadRegionHandle(YDHT, pTable, pKey)
+endfunction
+function YDWEGetRegionByString takes string pTable,string pKey returns region
+    return LoadRegionHandle(YDHT, StringHash(pTable), StringHash(pKey))
+endfunction
+//Covert Rect
+function YDWESaveRectByInteger takes integer pTable,integer pKey,rect rn returns nothing
+    call SaveRectHandle(YDHT, pTable, pKey, rn)
+endfunction
+function YDWESaveRectByString takes string pTable,string pKey,rect rt returns nothing
+    call SaveRectHandle(YDHT, StringHash(pTable), StringHash(pKey), rt)
+endfunction
+function YDWEGetRectByInteger takes integer pTable,integer pKey returns rect
+    return LoadRectHandle(YDHT, pTable, pKey)
+endfunction
+function YDWEGetRectByString takes string pTable,string pKey returns rect
+    return LoadRectHandle(YDHT, StringHash(pTable), StringHash(pKey))
+endfunction
+//Covert Leaderboard
+function YDWESaveLeaderboardByInteger takes integer pTable,integer pKey,leaderboard lb returns nothing
+    call SaveLeaderboardHandle(YDHT, pTable, pKey, lb)
+endfunction
+function YDWESaveLeaderboardByString takes string pTable,string pKey,leaderboard lb returns nothing
+    call SaveLeaderboardHandle(YDHT, StringHash(pTable), StringHash(pKey), lb)
+endfunction
+function YDWEGetLeaderboardByInteger takes integer pTable,integer pKey returns leaderboard
+    return LoadLeaderboardHandle(YDHT, pTable, pKey)
+endfunction
+function YDWEGetLeaderboardByString takes string pTable,string pKey returns leaderboard
+    return LoadLeaderboardHandle(YDHT, StringHash(pTable), StringHash(pKey))
+endfunction
+//Covert Effect
+function YDWESaveEffectByInteger takes integer pTable,integer pKey,effect e returns nothing
+    call SaveEffectHandle(YDHT, pTable, pKey, e)
+endfunction
+function YDWESaveEffectByString takes string pTable,string pKey,effect e returns nothing
+    call SaveEffectHandle(YDHT, StringHash(pTable), StringHash(pKey), e)
+endfunction
+function YDWEGetEffectByInteger takes integer pTable,integer pKey returns effect
+    return LoadEffectHandle(YDHT, pTable, pKey)
+endfunction
+function YDWEGetEffectByString takes string pTable,string pKey returns effect
+    return LoadEffectHandle(YDHT, StringHash(pTable), StringHash(pKey))
+endfunction
+//Covert Destructable
+function YDWESaveDestructableByInteger takes integer pTable,integer pKey,destructable da returns nothing
+    call SaveDestructableHandle(YDHT, pTable, pKey, da)
+endfunction
+function YDWESaveDestructableByString takes string pTable,string pKey,destructable da returns nothing
+    call SaveDestructableHandle(YDHT, StringHash(pTable), StringHash(pKey), da)
+endfunction
+function YDWEGetDestructableByInteger takes integer pTable,integer pKey returns destructable
+    return LoadDestructableHandle(YDHT, pTable, pKey)
+endfunction
+function YDWEGetDestructableByString takes string pTable,string pKey returns destructable
+    return LoadDestructableHandle(YDHT, StringHash(pTable), StringHash(pKey))
+endfunction
+//Covert triggercondition
+function YDWESaveTriggerConditionByInteger takes integer pTable,integer pKey,triggercondition tc returns nothing
+    call SaveTriggerConditionHandle(YDHT, pTable, pKey, tc)
+endfunction
+function YDWESaveTriggerConditionByString takes string pTable,string pKey,triggercondition tc returns nothing
+    call SaveTriggerConditionHandle(YDHT, StringHash(pTable), StringHash(pKey), tc)
+endfunction
+function YDWEGetTriggerConditionByInteger takes integer pTable,integer pKey returns triggercondition
+    return LoadTriggerConditionHandle(YDHT, pTable, pKey)
+endfunction
+function YDWEGetTriggerConditionByString takes string pTable,string pKey returns triggercondition
+    return LoadTriggerConditionHandle(YDHT, StringHash(pTable), StringHash(pKey))
+endfunction
+//Covert triggeraction
+function YDWESaveTriggerActionByInteger takes integer pTable,integer pKey,triggeraction ta returns nothing
+    call SaveTriggerActionHandle(YDHT, pTable, pKey, ta)
+endfunction
+function YDWESaveTriggerActionByString takes string pTable,string pKey,triggeraction ta returns nothing
+    call SaveTriggerActionHandle(YDHT, StringHash(pTable), StringHash(pKey), ta)
+endfunction
+function YDWEGetTriggerActionByInteger takes integer pTable,integer pKey returns triggeraction
+    return LoadTriggerActionHandle(YDHT, pTable, pKey)
+endfunction
+function YDWEGetTriggerActionByString takes string pTable,string pKey returns triggeraction
+    return LoadTriggerActionHandle(YDHT, StringHash(pTable), StringHash(pKey))
+endfunction
+//Covert event
+function YDWESaveTriggerEventByInteger takes integer pTable,integer pKey,event et returns nothing
+    call SaveTriggerEventHandle(YDHT, pTable, pKey, et)
+endfunction
+function YDWESaveTriggerEventByString takes string pTable,string pKey,event et returns nothing
+    call SaveTriggerEventHandle(YDHT, StringHash(pTable), StringHash(pKey), et)
+endfunction
+function YDWEGetTriggerEventByInteger takes integer pTable,integer pKey returns event
+    return LoadTriggerEventHandle(YDHT, pTable, pKey)
+endfunction
+function YDWEGetTriggerEventByString takes string pTable,string pKey returns event
+    return LoadTriggerEventHandle(YDHT, StringHash(pTable), StringHash(pKey))
+endfunction
+//Covert force
+function YDWESaveForceByInteger takes integer pTable,integer pKey,force fc returns nothing
+    call SaveForceHandle(YDHT, pTable, pKey, fc)
+endfunction
+function YDWESaveForceByString takes string pTable,string pKey,force fc returns nothing
+    call SaveForceHandle(YDHT, StringHash(pTable), StringHash(pKey), fc)
+endfunction
+function YDWEGetForceByInteger takes integer pTable,integer pKey returns force
+    return LoadForceHandle(YDHT, pTable, pKey)
+endfunction
+function YDWEGetForceByString takes string pTable,string pKey returns force
+    return LoadForceHandle(YDHT, StringHash(pTable), StringHash(pKey))
+endfunction
+//Covert boolexpr
+function YDWESaveBoolexprByInteger takes integer pTable,integer pKey,boolexpr be returns nothing
+    call SaveBooleanExprHandle(YDHT, pTable, pKey, be)
+endfunction
+function YDWESaveBoolexprByString takes string pTable,string pKey,boolexpr be returns nothing
+    call SaveBooleanExprHandle(YDHT, StringHash(pTable), StringHash(pKey), be)
+endfunction
+function YDWEGetBoolexprByInteger takes integer pTable,integer pKey returns boolexpr
+    return LoadBooleanExprHandle(YDHT, pTable, pKey)
+endfunction
+function YDWEGetBoolexprByString takes string pTable,string pKey returns boolexpr
+    return LoadBooleanExprHandle(YDHT, StringHash(pTable), StringHash(pKey))
+endfunction
+//Covert sound
+function YDWESaveSoundByInteger takes integer pTable,integer pKey,sound sd returns nothing
+    call SaveSoundHandle(YDHT, pTable, pKey, sd)
+endfunction
+function YDWESaveSoundByString takes string pTable,string pKey,sound sd returns nothing
+    call SaveSoundHandle(YDHT, StringHash(pTable), StringHash(pKey), sd)
+endfunction
+function YDWEGetSoundByInteger takes integer pTable,integer pKey returns sound
+    return LoadSoundHandle(YDHT, pTable, pKey)
+endfunction
+function YDWEGetSoundByString takes string pTable,string pKey returns sound
+    return LoadSoundHandle(YDHT, StringHash(pTable), StringHash(pKey))
+endfunction
+//Covert timerdialog
+function YDWESaveTimerDialogByInteger takes integer pTable,integer pKey,timerdialog td returns nothing
+    call SaveTimerDialogHandle(YDHT, pTable, pKey, td)
+endfunction
+function YDWESaveTimerDialogByString takes string pTable,string pKey,timerdialog td returns nothing
+    call SaveTimerDialogHandle(YDHT, StringHash(pTable), StringHash(pKey), td)
+endfunction
+function YDWEGetTimerDialogByInteger takes integer pTable,integer pKey returns timerdialog
+    return LoadTimerDialogHandle(YDHT, pTable, pKey)
+endfunction
+function YDWEGetTimerDialogByString takes string pTable,string pKey returns timerdialog
+    return LoadTimerDialogHandle(YDHT, StringHash(pTable), StringHash(pKey))
+endfunction
+//Covert trackable
+function YDWESaveTrackableByInteger takes integer pTable,integer pKey,trackable ta returns nothing
+    call SaveTrackableHandle(YDHT, pTable, pKey, ta)
+endfunction
+function YDWESaveTrackableByString takes string pTable,string pKey,trackable ta returns nothing
+    call SaveTrackableHandle(YDHT, StringHash(pTable), StringHash(pKey), ta)
+endfunction
+function YDWEGetTrackableByInteger takes integer pTable,integer pKey returns trackable
+    return LoadTrackableHandle(YDHT, pTable, pKey)
+endfunction
+function YDWEGetTrackableByString takes string pTable,string pKey returns trackable
+    return LoadTrackableHandle(YDHT, StringHash(pTable), StringHash(pKey))
+endfunction
+//Covert dialog
+function YDWESaveDialogByInteger takes integer pTable,integer pKey,dialog d returns nothing
+    call SaveDialogHandle(YDHT, pTable, pKey, d)
+endfunction
+function YDWESaveDialogByString takes string pTable,string pKey,dialog d returns nothing
+    call SaveDialogHandle(YDHT, StringHash(pTable), StringHash(pKey), d)
+endfunction
+function YDWEGetDialogByInteger takes integer pTable,integer pKey returns dialog
+    return LoadDialogHandle(YDHT, pTable, pKey)
+endfunction
+function YDWEGetDialogByString takes string pTable,string pKey returns dialog
+    return LoadDialogHandle(YDHT, StringHash(pTable), StringHash(pKey))
+endfunction
+//Covert button
+function YDWESaveButtonByInteger takes integer pTable,integer pKey,button bt returns nothing
+    call SaveButtonHandle(YDHT, pTable, pKey, bt)
+endfunction
+function YDWESaveButtonByString takes string pTable,string pKey,button bt returns nothing
+    call SaveButtonHandle(YDHT, StringHash(pTable), StringHash(pKey), bt)
+endfunction
+function YDWEGetButtonByInteger takes integer pTable,integer pKey returns button
+    return LoadButtonHandle(YDHT, pTable, pKey)
+endfunction
+function YDWEGetButtonByString takes string pTable,string pKey returns button
+    return LoadButtonHandle(YDHT, StringHash(pTable), StringHash(pKey))
+endfunction
+//Covert quest
+function YDWESaveQuestByInteger takes integer pTable,integer pKey,quest qt returns nothing
+    call SaveQuestHandle(YDHT, pTable, pKey, qt)
+endfunction
+function YDWESaveQuestByString takes string pTable,string pKey,quest qt returns nothing
+    call SaveQuestHandle(YDHT, StringHash(pTable), StringHash(pKey), qt)
+endfunction
+function YDWEGetQuestByInteger takes integer pTable,integer pKey returns quest
+    return LoadQuestHandle(YDHT, pTable, pKey)
+endfunction
+function YDWEGetQuestByString takes string pTable,string pKey returns quest
+    return LoadQuestHandle(YDHT, StringHash(pTable), StringHash(pKey))
+endfunction
+//Covert questitem
+function YDWESaveQuestItemByInteger takes integer pTable,integer pKey,questitem qi returns nothing
+    call SaveQuestItemHandle(YDHT, pTable, pKey, qi)
+endfunction
+function YDWESaveQuestItemByString takes string pTable,string pKey,questitem qi returns nothing
+    call SaveQuestItemHandle(YDHT, StringHash(pTable), StringHash(pKey), qi)
+endfunction
+function YDWEGetQuestItemByInteger takes integer pTable,integer pKey returns questitem
+    return LoadQuestItemHandle(YDHT, pTable, pKey)
+endfunction
+function YDWEGetQuestItemByString takes string pTable,string pKey returns questitem
+    return LoadQuestItemHandle(YDHT, StringHash(pTable), StringHash(pKey))
+endfunction
+function YDWES2I takes string s returns integer
+    return StringHash(s)
+endfunction
+function YDWESaveAbilityHandleBJ takes integer AbilityID,integer key,integer missionKey,hashtable table returns nothing
+    call SaveInteger(table, missionKey, key, AbilityID)
+endfunction
+function YDWESaveAbilityHandle takes hashtable table,integer parentKey,integer childKey,integer AbilityID returns nothing
+    call SaveInteger(table, parentKey, childKey, AbilityID)
+endfunction
+function YDWELoadAbilityHandleBJ takes integer key,integer missionKey,hashtable table returns integer
+    return LoadInteger(table, missionKey, key)
+endfunction
+function YDWELoadAbilityHandle takes hashtable table,integer parentKey,integer childKey returns integer
+    return LoadInteger(table, parentKey, childKey)
+endfunction
+//===========================================================================
+//返回参数
+//===========================================================================
+//地图边界判断
+function YDWECoordinateX takes real x returns real
+    return RMinBJ(RMaxBJ(x, yd_MapMinX), yd_MapMaxX)
+endfunction
+function YDWECoordinateY takes real y returns real
+    return RMinBJ(RMaxBJ(y, yd_MapMinY), yd_MapMaxY)
+endfunction
+//两个单位之间的距离
+function YDWEDistanceBetweenUnits takes unit a,unit b returns real
+    return SquareRoot(( GetUnitX(a) - GetUnitX(b) ) * ( GetUnitX(a) - GetUnitX(b) ) + ( GetUnitY(a) - GetUnitY(b) ) * ( GetUnitY(a) - GetUnitY(b) ))
+endfunction
+//两个单位之间的角度
+function YDWEAngleBetweenUnits takes unit fromUnit,unit toUnit returns real
+    return bj_RADTODEG * Atan2(GetUnitY(toUnit) - GetUnitY(fromUnit), GetUnitX(toUnit) - GetUnitX(fromUnit))
+endfunction
+//生成区域
+function YDWEGetRect takes real x,real y,real width,real height returns rect
+    return Rect(x - width * 0.5, y - height * 0.5, x + width * 0.5, y + height * 0.5)
+endfunction
+//===========================================================================
+//设置单位可以飞行
+//===========================================================================
+function YDWEFlyEnable takes unit u returns nothing
+    call UnitAddAbility(u, 'Amrf')
+    call UnitRemoveAbility(u, 'Amrf')
+endfunction
+//===========================================================================
+//字符窜与ID转换
+//===========================================================================
+function YDWEId2S takes integer value returns string
+    local string charMap=bj_AllString
+    local string result= ""
+    local integer remainingValue= value
+    local integer charValue
+    local integer byteno
+    set byteno=0
+    loop
+        set charValue=ModuloInteger(remainingValue, 256)
+        set remainingValue=remainingValue / 256
+        set result=SubString(charMap, charValue, charValue + 1) + result
+        set byteno=byteno + 1
+        exitwhen byteno == 4
+    endloop
+    return result
+endfunction
+function YDWES2Id takes string targetstr returns integer
+    local string originstr=bj_AllString
+    local integer strlength=StringLength(targetstr)
+    local integer a=0
+local integer b=0
+local integer numx=1
+local integer result=0
+    loop
+    exitwhen b > strlength - 1
+        set numx=R2I(Pow(256, strlength - 1 - b))
+        set a=1
+        loop
+            exitwhen a > 255
+            if SubString(targetstr, b, b + 1) == SubString(originstr, a, a + 1) then
+                set result=result + a * numx
+                set a=256
+            endif
+            set a=a + 1
+        endloop
+        set b=b + 1
+    endloop
+    return result
+endfunction
+function YDWES2UnitId takes string targetstr returns integer
+    return YDWES2Id(targetstr)
+endfunction
+function YDWES2ItemId takes string targetstr returns integer
+    return YDWES2Id(targetstr)
+endfunction
+function GetLastAbilityCastingUnit takes nothing returns unit
+    return bj_lastAbilityCastingUnit
+endfunction
+function GetLastAbilityTargetUnit takes nothing returns unit
+    return bj_lastAbilityTargetUnit
+endfunction
+function YDWESetMapLimitCoordinate takes real MinX,real MaxX,real MinY,real MaxY returns nothing
+    set yd_MapMaxX=MaxX
+    set yd_MapMinX=MinX
+    set yd_MapMaxY=MaxY
+    set yd_MapMinY=MinY
+endfunction
+//===========================================================================
+//===========================================================================
+//地图初始化
+//===========================================================================
+//YDWE特殊技能结束事件 
+function YDWESyStemAbilityCastingOverTriggerAction takes unit hero,integer index returns nothing
+ local integer i= 0
+    loop
+        exitwhen i >= YDWEBase___AbilityCastingOverEventNumber
+        if YDWEBase___AbilityCastingOverEventType[i] == index then
+            set bj_lastAbilityCastingUnit=hero
+			if YDWEBase___AbilityCastingOverEventQueue[i] != null and TriggerEvaluate(YDWEBase___AbilityCastingOverEventQueue[i]) and IsTriggerEnabled(YDWEBase___AbilityCastingOverEventQueue[i]) then
+				call TriggerExecute(YDWEBase___AbilityCastingOverEventQueue[i])
+			endif
+		endif
+        set i=i + 1
+    endloop
+endfunction
+//===========================================================================  
+//YDWE技能捕捉事件 
+//===========================================================================  
+function YDWESyStemAbilityCastingOverRegistTrigger takes trigger trg,integer index returns nothing
+	set YDWEBase___AbilityCastingOverEventQueue[YDWEBase___AbilityCastingOverEventNumber]=trg
+	set YDWEBase___AbilityCastingOverEventType[YDWEBase___AbilityCastingOverEventNumber]=index
+	set YDWEBase___AbilityCastingOverEventNumber=YDWEBase___AbilityCastingOverEventNumber + 1
+endfunction 
+//===========================================================================
+//系统函数完善
+//===========================================================================
+function YDWECreateUnitPool takes nothing returns nothing
+    set bj_lastCreatedUnitPool=CreateUnitPool()
+endfunction
+function YDWEPlaceRandomUnit takes unitpool up,player p,real x,real y,real face returns nothing
+set bj_lastPoolAbstractedUnit=PlaceRandomUnit(up, p, x, y, face)
+endfunction
+function YDWEGetLastUnitPool takes nothing returns unitpool
+    return bj_lastCreatedUnitPool
+endfunction
+function YDWEGetLastPoolAbstractedUnit takes nothing returns unit
+    return bj_lastPoolAbstractedUnit
+endfunction
+function YDWECreateItemPool takes nothing returns nothing
+    set bj_lastCreatedItemPool=CreateItemPool()
+endfunction
+function YDWEPlaceRandomItem takes itempool ip,real x,real y returns nothing
+set bj_lastPoolAbstractedItem=PlaceRandomItem(ip, x, y)
+endfunction
+function YDWEGetLastItemPool takes nothing returns itempool
+    return bj_lastCreatedItemPool
+endfunction
+function YDWEGetLastPoolAbstractedItem takes nothing returns item
+    return bj_lastPoolAbstractedItem
+endfunction
+function YDWESetAttackDamageWeaponType takes attacktype at,damagetype dt,weapontype wt returns nothing
+    set bj_lastSetAttackType=at
+    set bj_lastSetDamageType=dt
+    set bj_lastSetWeaponType=wt
+endfunction
+//unitpool bj_lastCreatedPool=null
+//unit bj_lastPoolAbstractedUnit=null
+function YDWEGetPlayerColorString takes player p,string s returns string
+    return YDWEBase___yd_PlayerColor[GetHandleId(GetPlayerColor(p))] + s + "|r"
+endfunction
+//===========================================================================
+//===========================================================================
+//系统函数补充
+//===========================================================================
+//===========================================================================
+function YDWEGetUnitItemSoftId takes unit hero,item it returns integer
+    local integer i= 0
+    loop
+         exitwhen i > 5
+         if UnitItemInSlot(hero, i) == it then
+            return i + 1
+         endif
+         set i=i + 1
+    endloop
+    return 0
+endfunction
+//===========================================================================
+//===========================================================================
+//地图初始化
+//===========================================================================
+//===========================================================================
+//显示版本
+function YDWEVersion_Display takes nothing returns boolean
+    call DisplayTimedTextToPlayer(GetTriggerPlayer(), 0, 0, 30, "|cFF1E90FF当前编辑器版本为： |r|cFF00FF00YDWE 1.31.8.1850")
+    return false
+endfunction
+function YDWEVersion_Init takes nothing returns nothing
+    local trigger t= CreateTrigger()
+    local integer i= 0
+    loop
+        exitwhen i == 12
+        call TriggerRegisterPlayerChatEvent(t, Player(i), "YDWE Version", true)
+        set i=i + 1
+    endloop
+    call TriggerAddCondition(t, Condition(function YDWEVersion_Display))
+    set t=null
+endfunction
+function InitializeYD takes nothing returns nothing
+     set YDHT=InitHashtable()
+	//=================设置变量=====================
+	set yd_MapMinX=GetCameraBoundMinX() - GetCameraMargin(CAMERA_MARGIN_LEFT)
+	set yd_MapMinY=GetCameraBoundMinY() - GetCameraMargin(CAMERA_MARGIN_BOTTOM)
+	set yd_MapMaxX=GetCameraBoundMaxX() + GetCameraMargin(CAMERA_MARGIN_RIGHT)
+	set yd_MapMaxY=GetCameraBoundMaxY() + GetCameraMargin(CAMERA_MARGIN_TOP)
+	
+    set YDWEBase___yd_PlayerColor[0]="|cFFFF0303"
+    set YDWEBase___yd_PlayerColor[1]="|cFF0042FF"
+    set YDWEBase___yd_PlayerColor[2]="|cFF1CE6B9"
+    set YDWEBase___yd_PlayerColor[3]="|cFF540081"
+    set YDWEBase___yd_PlayerColor[4]="|cFFFFFC01"
+    set YDWEBase___yd_PlayerColor[5]="|cFFFE8A0E"
+    set YDWEBase___yd_PlayerColor[6]="|cFF20C000"
+    set YDWEBase___yd_PlayerColor[7]="|cFFE55BB0"
+    set YDWEBase___yd_PlayerColor[8]="|cFF959697"
+    set YDWEBase___yd_PlayerColor[9]="|cFF7EBFF1"
+    set YDWEBase___yd_PlayerColor[10]="|cFF106246"
+    set YDWEBase___yd_PlayerColor[11]="|cFF4E2A04"
+    set YDWEBase___yd_PlayerColor[12]="|cFF282828"
+    set YDWEBase___yd_PlayerColor[13]="|cFF282828"
+    set YDWEBase___yd_PlayerColor[14]="|cFF282828"
+    set YDWEBase___yd_PlayerColor[15]="|cFF282828"
+    //=================显示版本=====================
+    call YDWEVersion_Init()
+endfunction
+
+//library YDWEBase ends
+//library YDWEGetInventoryIndexOfItemTypeBJNull:
+function YDWEGetInventoryIndexOfItemTypeBJNull takes unit whichUnit,integer itemId returns integer
+    local integer index= 0
+	if itemId != 0 then
+		loop
+			if GetItemTypeId(UnitItemInSlot(whichUnit, index)) == itemId then
+				return index + 1
+			endif
+			set index=index + 1
+			exitwhen index >= bj_MAX_INVENTORY
+		endloop
+	endif
+    return 0
+endfunction
+
+//library YDWEGetInventoryIndexOfItemTypeBJNull ends
+//library YDWEGetItemOfTypeFromUnitBJNull:
+function YDWEGetItemOfTypeFromUnitBJNull takes unit whichUnit,integer itemId returns item
+    local integer index= 0
+    loop
+        set yd_NullTempItem=UnitItemInSlot(whichUnit, index)
+        if GetItemTypeId(yd_NullTempItem) == itemId then
+            return yd_NullTempItem
+        endif
+        set index=index + 1
+        exitwhen index >= bj_MAX_INVENTORY
+    endloop
+    return null
+endfunction
+
+//library YDWEGetItemOfTypeFromUnitBJNull ends
+//library YDWEYDWEJapiScript:
+
+
+//library YDWEYDWEJapiScript ends
+//===========================================================================
+// 
+// lol循环圈
+// 
+//   Warcraft III map script
+//   Generated by the Warcraft III World Editor
+//   Date: Fri Dec 07 19:21:48 2018
+//   Map Author: fSociety
+// 
+//===========================================================================
+//***************************************************************************
+//*
+//*  Global Variables
+//*
+//***************************************************************************
+function InitGlobals takes nothing returns nothing
+    local integer i= 0
+    set i=0
+    loop
+        exitwhen ( i > 1 )
+        set udg_SAVEYXZH[i]=0
+        set i=i + 1
+    endloop
+    set i=0
+    loop
+        exitwhen ( i > 1 )
+        set udg_sysCharIsSyn[i]=false
+        set i=i + 1
+    endloop
+    set i=0
+    loop
+        exitwhen ( i > 1 )
+        set udg_sysEQHCId[i]=0
+        set i=i + 1
+    endloop
+    set i=0
+    loop
+        exitwhen ( i > 1 )
+        set udg_sysEQHCNeedBZ[i]=0
+        set i=i + 1
+    endloop
+    set i=0
+    loop
+        exitwhen ( i > 1 )
+        set udg_sysEQHCIdCurr[i]=0
+        set i=i + 1
+    endloop
+    set i=0
+    loop
+        exitwhen ( i > 1 )
+        set udg_sysEQHCNeedLH[i]=0
+        set i=i + 1
+    endloop
+    set i=0
+    loop
+        exitwhen ( i > 1 )
+        set udg_ui[i]=0
+        set i=i + 1
+    endloop
+    set i=0
+    loop
+        exitwhen ( i > 1 )
+        set udg_ui_isHEOpen[i]=false
+        set i=i + 1
+    endloop
+    set udg_SellCount=0
+    set i=0
+    loop
+        exitwhen ( i > 1 )
+        set udg_CellHasItem[i]=false
+        set i=i + 1
+    endloop
+    set i=0
+    loop
+        exitwhen ( i > 1 )
+        set udg_SelectedItemId[i]=0
+        set i=i + 1
+    endloop
+    set i=0
+    loop
+        exitwhen ( i > 1 )
+        set udg_SelectedItemIndex[i]=0
+        set i=i + 1
+    endloop
+    set i=0
+    loop
+        exitwhen ( i > 1 )
+        set udg_NCards[i]=0
+        set i=i + 1
+    endloop
+    set i=0
+    loop
+        exitwhen ( i > 1 )
+        set udg_SRCards[i]=0
+        set i=i + 1
+    endloop
+    set i=0
+    loop
+        exitwhen ( i > 1 )
+        set udg_RCards[i]=0
+        set i=i + 1
+    endloop
+    set i=0
+    loop
+        exitwhen ( i > 1 )
+        set udg_SSRCards[i]=0
+        set i=i + 1
+    endloop
+endfunction
+//***************************************************************************
+//*
+//*  Unit Creation
+//*
+//***************************************************************************
+//===========================================================================
+function CreateUnitsForPlayer0 takes nothing returns nothing
+    local player p= Player(0)
+    local unit u
+    local integer unitID
+    local trigger t
+    local real life
+    set u=CreateUnit(p, 'nvlw', - 831.6, - 149.2, 18.540)
+endfunction
+//===========================================================================
+function CreateNeutralPassiveBuildings takes nothing returns nothing
+    local player p= Player(PLAYER_NEUTRAL_PASSIVE)
+    local unit u
+    local integer unitID
+    local trigger t
+    local real life
+    set u=CreateUnit(p, 'uw10', - 828.5, - 390.9, 31.926)
+    set u=CreateUnit(p, 'uw02', - 821.7, 408.1, 341.064)
+    set u=CreateUnit(p, 'uw04', 839.1, - 382.3, 157.384)
+    set u=CreateUnit(p, 'uw01', 29.4, 1047.0, 270.669)
+    set u=CreateUnit(p, 'uw05', 54.3, - 884.4, 91.704)
+    set u=CreateUnit(p, 'uw03', 843.6, 455.6, 182.015)
+endfunction
+//===========================================================================
+function CreatePlayerBuildings takes nothing returns nothing
+endfunction
+//===========================================================================
+function CreatePlayerUnits takes nothing returns nothing
+    call CreateUnitsForPlayer0()
+endfunction
+//===========================================================================
+function CreateAllUnits takes nothing returns nothing
+    call CreateNeutralPassiveBuildings()
+    call CreatePlayerBuildings()
+    call CreateUnitsForPlayer0() // INLINED!!
+endfunction
+//***************************************************************************
+//*
+//*  Regions
+//*
+//***************************************************************************
+function CreateRegions takes nothing returns nothing
+    local weathereffect we
+    set gg_rct_chuguaikou1=Rect(- 1600.0, 768.0, - 928.0, 1408.0)
+    set gg_rct_chuguaikou2=Rect(864.0, 1024.0, 1344.0, 1664.0)
+    set gg_rct_chuguaikou3=Rect(1024.0, - 1280.0, 1504.0, - 832.0)
+    set gg_rct_chuguaikou4=Rect(- 1312.0, - 1536.0, - 832.0, - 1088.0)
+    set gg_rct_rect006=Rect(4320.0, - 128.0, 4608.0, 192.0)
+    set gg_rct_rect005=Rect(- 192.0, 4288.0, 96.0, 4640.0)
+    set gg_rct_rect007=Rect(- 96.0, - 4640.0, 224.0, - 4288.0)
+    set gg_rct_rect001=Rect(- 3616.0, 4384.0, - 3424.0, 4544.0)
+    set gg_rct_rect002=Rect(4416.0, 3456.0, 4544.0, 3648.0)
+    set gg_rct_rect004=Rect(- 4512.0, - 3648.0, - 4384.0, - 3424.0)
+    set gg_rct_rect003=Rect(3424.0, - 4512.0, 3648.0, - 4320.0)
+    set gg_rct_rect011=Rect(- 96.0, - 5472.0, 192.0, - 5120.0)
+    set gg_rct_rect012=Rect(- 5472.0, - 224.0, - 5216.0, 96.0)
+    set gg_rct_rect010=Rect(5184.0, - 64.0, 5440.0, 192.0)
+    set gg_rct_rect009=Rect(- 160.0, 5152.0, 96.0, 5408.0)
+    set gg_rct_rect008=Rect(- 4576.0, - 320.0, - 4288.0, 160.0)
+    set gg_rct_effect001=Rect(- 4256.0, - 6816.0, - 2336.0, - 6080.0)
+    set we=AddWeatherEffect(gg_rct_effect001, 'FDbh')
+    call EnableWeatherEffect(we, true)
+    set gg_rct_effect002=Rect(- 6560.0, - 6464.0, - 5984.0, - 5312.0)
+    set we=AddWeatherEffect(gg_rct_effect002, 'FDbh')
+    call EnableWeatherEffect(we, true)
+    set gg_rct_effect003=Rect(- 6784.0, - 6688.0, - 6208.0, - 5536.0)
+    set we=AddWeatherEffect(gg_rct_effect003, 'FDbh')
+    call EnableWeatherEffect(we, true)
+    set gg_rct_effect004=Rect(- 6368.0, - 7200.0, - 5504.0, - 6240.0)
+    set we=AddWeatherEffect(gg_rct_effect004, 'FDbh')
+    call EnableWeatherEffect(we, true)
+    set gg_rct_rect013=Rect(- 5408.0, 5280.0, - 5280.0, 5376.0)
+    set gg_rct_rect014=Rect(5280.0, 5280.0, 5376.0, 5376.0)
+    set gg_rct_rect015=Rect(5280.0, - 5376.0, 5376.0, - 5280.0)
+    set gg_rct_rect016=Rect(- 5440.0, - 5376.0, - 5312.0, - 5248.0)
+endfunction
+//***************************************************************************
+//*
+//*  Custom Script Code
+//*
+//***************************************************************************
+//TESH.scrollpos=203
+//TESH.alwaysfold=0
+
+
+//异步处理
+function SetHeroSkillIcon takes integer id,integer goldcost returns nothing
+    call DzFrameSetText(DzFrameFindByName("ZTTEXT", 0), ( EXExecuteScript("(require'jass.slk').item[" + I2S(id) + "].Name") ))
+    call DzFrameSetTexture(DzFrameFindByName("ZTTouX1UP", 0), ( EXExecuteScript("(require'jass.slk').item[" + I2S(id) + "].Art") ), 0)
+    call DzFrameSetAlpha(DzFrameFindByName("ABBLACK", 0), 188)
+    call DzFrameShow(DzFrameFindByName("ABBLACK", 0), true)
+    call DzFrameShow(DzFrameFindByName("BAG3", 0), true)
+    call DzFrameShow(DzFrameFindByName("ZTJIN1UP", 0), false)
+    call DzFrameShow(DzFrameFindByName("ZTJIN2UP", 0), false)
+    
+    call DzSyncData("AddItem", I2S(id))
+    call DzSyncData("BuyItem", I2S(goldcost))
+     
+        if ( id == 1229467958 ) then
+            call DzFrameSetTexture(DzFrameFindByName("ZTJINUP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1095251249) + "].Art") ), 0)
+            if ( 1095251250 != 0 ) then
+                call DzFrameSetTexture(DzFrameFindByName("ZTJIN1UP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1095251250) + "].Art") ), 0)
+                call DzFrameShow(DzFrameFindByName("ZTJIN1UP", 0), true)
+            endif
+            if ( 1095251251 != 0 ) then
+                call DzFrameSetTexture(DzFrameFindByName("ZTJIN2UP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1095251251) + "].Art") ), 0)
+                call DzFrameShow(DzFrameFindByName("ZTJIN2UP", 0), true)
+            endif
+        endif
+     
+        if ( id == 1229467955 ) then
+            call DzFrameSetTexture(DzFrameFindByName("ZTJINUP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1095250997) + "].Art") ), 0)
+            if ( 1095250998 != 0 ) then
+                call DzFrameSetTexture(DzFrameFindByName("ZTJIN1UP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1095250998) + "].Art") ), 0)
+                call DzFrameShow(DzFrameFindByName("ZTJIN1UP", 0), true)
+            endif
+            if ( 1095250999 != 0 ) then
+                call DzFrameSetTexture(DzFrameFindByName("ZTJIN2UP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1095250999) + "].Art") ), 0)
+                call DzFrameShow(DzFrameFindByName("ZTJIN2UP", 0), true)
+            endif
+        endif
+     
+        if ( id == 1229467952 ) then
+            call DzFrameSetTexture(DzFrameFindByName("ZTJINUP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1095250740) + "].Art") ), 0)
+            if ( 1095250742 != 0 ) then
+                call DzFrameSetTexture(DzFrameFindByName("ZTJIN1UP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1095250742) + "].Art") ), 0)
+                call DzFrameShow(DzFrameFindByName("ZTJIN1UP", 0), true)
+            endif
+            if ( 1095250743 != 0 ) then
+                call DzFrameSetTexture(DzFrameFindByName("ZTJIN2UP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1095250743) + "].Art") ), 0)
+                call DzFrameShow(DzFrameFindByName("ZTJIN2UP", 0), true)
+            endif
+        endif
+     
+        if ( id == 1229467701 ) then
+            call DzFrameSetTexture(DzFrameFindByName("ZTJINUP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1095250228) + "].Art") ), 0)
+            if ( 1095250229 != 0 ) then
+                call DzFrameSetTexture(DzFrameFindByName("ZTJIN1UP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1095250229) + "].Art") ), 0)
+                call DzFrameShow(DzFrameFindByName("ZTJIN1UP", 0), true)
+            endif
+            if ( 1095250230 != 0 ) then
+                call DzFrameSetTexture(DzFrameFindByName("ZTJIN2UP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1095250230) + "].Art") ), 0)
+                call DzFrameShow(DzFrameFindByName("ZTJIN2UP", 0), true)
+            endif
+        endif
+     
+        if ( id == 1229468209 ) then
+            call DzFrameSetTexture(DzFrameFindByName("ZTJINUP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1095251504) + "].Art") ), 0)
+            if ( 1095251505 != 0 ) then
+                call DzFrameSetTexture(DzFrameFindByName("ZTJIN1UP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1095251505) + "].Art") ), 0)
+                call DzFrameShow(DzFrameFindByName("ZTJIN1UP", 0), true)
+            endif
+            if ( 1095251506 != 0 ) then
+                call DzFrameSetTexture(DzFrameFindByName("ZTJIN2UP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1095251506) + "].Art") ), 0)
+                call DzFrameShow(DzFrameFindByName("ZTJIN2UP", 0), true)
+            endif
+        endif
+     
+        if ( id == 1229467700 ) then
+            call DzFrameSetTexture(DzFrameFindByName("ZTJINUP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1095250225) + "].Art") ), 0)
+            if ( 1095250226 != 0 ) then
+                call DzFrameSetTexture(DzFrameFindByName("ZTJIN1UP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1095250226) + "].Art") ), 0)
+                call DzFrameShow(DzFrameFindByName("ZTJIN1UP", 0), true)
+            endif
+            if ( 1095250227 != 0 ) then
+                call DzFrameSetTexture(DzFrameFindByName("ZTJIN2UP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1095250227) + "].Art") ), 0)
+                call DzFrameShow(DzFrameFindByName("ZTJIN2UP", 0), true)
+            endif
+        endif
+     
+        if ( id == 1229467959 ) then
+            call DzFrameSetTexture(DzFrameFindByName("ZTJINUP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1095251507) + "].Art") ), 0)
+            if ( 1095251508 != 0 ) then
+                call DzFrameSetTexture(DzFrameFindByName("ZTJIN1UP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1095251508) + "].Art") ), 0)
+                call DzFrameShow(DzFrameFindByName("ZTJIN1UP", 0), true)
+            endif
+            if ( 1095251509 != 0 ) then
+                call DzFrameSetTexture(DzFrameFindByName("ZTJIN2UP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1095251509) + "].Art") ), 0)
+                call DzFrameShow(DzFrameFindByName("ZTJIN2UP", 0), true)
+            endif
+        endif
+     
+        if ( id == 1229467954 ) then
+            call DzFrameSetTexture(DzFrameFindByName("ZTJINUP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1095250994) + "].Art") ), 0)
+            if ( 1095250995 != 0 ) then
+                call DzFrameSetTexture(DzFrameFindByName("ZTJIN1UP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1095250995) + "].Art") ), 0)
+                call DzFrameShow(DzFrameFindByName("ZTJIN1UP", 0), true)
+            endif
+            if ( 1095250996 != 0 ) then
+                call DzFrameSetTexture(DzFrameFindByName("ZTJIN2UP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1095250996) + "].Art") ), 0)
+                call DzFrameShow(DzFrameFindByName("ZTJIN2UP", 0), true)
+            endif
+        endif
+     
+        if ( id == 1229467703 ) then
+            call DzFrameSetTexture(DzFrameFindByName("ZTJINUP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1095250480) + "].Art") ), 0)
+            if ( 1095250481 != 0 ) then
+                call DzFrameSetTexture(DzFrameFindByName("ZTJIN1UP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1095250481) + "].Art") ), 0)
+                call DzFrameShow(DzFrameFindByName("ZTJIN1UP", 0), true)
+            endif
+            if ( 1095250482 != 0 ) then
+                call DzFrameSetTexture(DzFrameFindByName("ZTJIN2UP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1095250482) + "].Art") ), 0)
+                call DzFrameShow(DzFrameFindByName("ZTJIN2UP", 0), true)
+            endif
+        endif
+     
+        if ( id == 1229467702 ) then
+            call DzFrameSetTexture(DzFrameFindByName("ZTJINUP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1095250231) + "].Art") ), 0)
+            if ( 1095250232 != 0 ) then
+                call DzFrameSetTexture(DzFrameFindByName("ZTJIN1UP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1095250232) + "].Art") ), 0)
+                call DzFrameShow(DzFrameFindByName("ZTJIN1UP", 0), true)
+            endif
+            if ( 1095250233 != 0 ) then
+                call DzFrameSetTexture(DzFrameFindByName("ZTJIN2UP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1095250233) + "].Art") ), 0)
+                call DzFrameShow(DzFrameFindByName("ZTJIN2UP", 0), true)
+            endif
+        endif
+     
+        if ( id == 1229468464 ) then
+            call DzFrameSetTexture(DzFrameFindByName("ZTJINUP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1096101936) + "].Art") ), 0)
+            if ( 0 != 0 ) then
+                call DzFrameSetTexture(DzFrameFindByName("ZTJIN1UP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(0) + "].Art") ), 0)
+                call DzFrameShow(DzFrameFindByName("ZTJIN1UP", 0), true)
+            endif
+            if ( 0 != 0 ) then
+                call DzFrameSetTexture(DzFrameFindByName("ZTJIN2UP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(0) + "].Art") ), 0)
+                call DzFrameShow(DzFrameFindByName("ZTJIN2UP", 0), true)
+            endif
+        endif
+     
+        if ( id == 1229468465 ) then
+            call DzFrameSetTexture(DzFrameFindByName("ZTJINUP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1096101937) + "].Art") ), 0)
+            if ( 0 != 0 ) then
+                call DzFrameSetTexture(DzFrameFindByName("ZTJIN1UP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(0) + "].Art") ), 0)
+                call DzFrameShow(DzFrameFindByName("ZTJIN1UP", 0), true)
+            endif
+            if ( 0 != 0 ) then
+                call DzFrameSetTexture(DzFrameFindByName("ZTJIN2UP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(0) + "].Art") ), 0)
+                call DzFrameShow(DzFrameFindByName("ZTJIN2UP", 0), true)
+            endif
+        endif
+     
+        if ( id == 1229468466 ) then
+            call DzFrameSetTexture(DzFrameFindByName("ZTJINUP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1096101939) + "].Art") ), 0)
+            if ( 0 != 0 ) then
+                call DzFrameSetTexture(DzFrameFindByName("ZTJIN1UP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(0) + "].Art") ), 0)
+                call DzFrameShow(DzFrameFindByName("ZTJIN1UP", 0), true)
+            endif
+            if ( 0 != 0 ) then
+                call DzFrameSetTexture(DzFrameFindByName("ZTJIN2UP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(0) + "].Art") ), 0)
+                call DzFrameShow(DzFrameFindByName("ZTJIN2UP", 0), true)
+            endif
+        endif
+     
+        if ( id == 1229468467 ) then
+            call DzFrameSetTexture(DzFrameFindByName("ZTJINUP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1096101940) + "].Art") ), 0)
+            if ( 0 != 0 ) then
+                call DzFrameSetTexture(DzFrameFindByName("ZTJIN1UP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(0) + "].Art") ), 0)
+                call DzFrameShow(DzFrameFindByName("ZTJIN1UP", 0), true)
+            endif
+            if ( 0 != 0 ) then
+                call DzFrameSetTexture(DzFrameFindByName("ZTJIN2UP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(0) + "].Art") ), 0)
+                call DzFrameShow(DzFrameFindByName("ZTJIN2UP", 0), true)
+            endif
+        endif
+     
+        if ( id == 1229468468 ) then
+            call DzFrameSetTexture(DzFrameFindByName("ZTJINUP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1096101941) + "].Art") ), 0)
+            if ( 0 != 0 ) then
+                call DzFrameSetTexture(DzFrameFindByName("ZTJIN1UP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(0) + "].Art") ), 0)
+                call DzFrameShow(DzFrameFindByName("ZTJIN1UP", 0), true)
+            endif
+            if ( 0 != 0 ) then
+                call DzFrameSetTexture(DzFrameFindByName("ZTJIN2UP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(0) + "].Art") ), 0)
+                call DzFrameShow(DzFrameFindByName("ZTJIN2UP", 0), true)
+            endif
+        endif
+     
+        if ( id == 1229468469 ) then
+            call DzFrameSetTexture(DzFrameFindByName("ZTJINUP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1096101943) + "].Art") ), 0)
+            if ( 0 != 0 ) then
+                call DzFrameSetTexture(DzFrameFindByName("ZTJIN1UP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(0) + "].Art") ), 0)
+                call DzFrameShow(DzFrameFindByName("ZTJIN1UP", 0), true)
+            endif
+            if ( 0 != 0 ) then
+                call DzFrameSetTexture(DzFrameFindByName("ZTJIN2UP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(0) + "].Art") ), 0)
+                call DzFrameShow(DzFrameFindByName("ZTJIN2UP", 0), true)
+            endif
+        endif
+     
+        if ( id == 1229468470 ) then
+            call DzFrameSetTexture(DzFrameFindByName("ZTJINUP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1096101944) + "].Art") ), 0)
+            if ( 0 != 0 ) then
+                call DzFrameSetTexture(DzFrameFindByName("ZTJIN1UP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(0) + "].Art") ), 0)
+                call DzFrameShow(DzFrameFindByName("ZTJIN1UP", 0), true)
+            endif
+            if ( 0 != 0 ) then
+                call DzFrameSetTexture(DzFrameFindByName("ZTJIN2UP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(0) + "].Art") ), 0)
+                call DzFrameShow(DzFrameFindByName("ZTJIN2UP", 0), true)
+            endif
+        endif
+     
+        if ( id == 1229468471 ) then
+            call DzFrameSetTexture(DzFrameFindByName("ZTJINUP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1096101945) + "].Art") ), 0)
+            if ( 0 != 0 ) then
+                call DzFrameSetTexture(DzFrameFindByName("ZTJIN1UP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(0) + "].Art") ), 0)
+                call DzFrameShow(DzFrameFindByName("ZTJIN1UP", 0), true)
+            endif
+            if ( 0 != 0 ) then
+                call DzFrameSetTexture(DzFrameFindByName("ZTJIN2UP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(0) + "].Art") ), 0)
+                call DzFrameShow(DzFrameFindByName("ZTJIN2UP", 0), true)
+            endif
+        endif
+     
+        if ( id == 1229468472 ) then
+            call DzFrameSetTexture(DzFrameFindByName("ZTJINUP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1095252016) + "].Art") ), 0)
+            if ( 1095252017 != 0 ) then
+                call DzFrameSetTexture(DzFrameFindByName("ZTJIN1UP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1095252017) + "].Art") ), 0)
+                call DzFrameShow(DzFrameFindByName("ZTJIN1UP", 0), true)
+            endif
+            if ( 0 != 0 ) then
+                call DzFrameSetTexture(DzFrameFindByName("ZTJIN2UP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(0) + "].Art") ), 0)
+                call DzFrameShow(DzFrameFindByName("ZTJIN2UP", 0), true)
+            endif
+        endif
+     
+        if ( id == 1229467961 ) then
+            call DzFrameSetTexture(DzFrameFindByName("ZTJINUP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1095250483) + "].Art") ), 0)
+            if ( 1095250484 != 0 ) then
+                call DzFrameSetTexture(DzFrameFindByName("ZTJIN1UP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1095250484) + "].Art") ), 0)
+                call DzFrameShow(DzFrameFindByName("ZTJIN1UP", 0), true)
+            endif
+            if ( 1095250485 != 0 ) then
+                call DzFrameSetTexture(DzFrameFindByName("ZTJIN2UP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1095250485) + "].Art") ), 0)
+                call DzFrameShow(DzFrameFindByName("ZTJIN2UP", 0), true)
+            endif
+        endif
+     
+        if ( id == 1229467699 ) then
+            call DzFrameSetTexture(DzFrameFindByName("ZTJINUP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1095249977) + "].Art") ), 0)
+            if ( 1095249974 != 0 ) then
+                call DzFrameSetTexture(DzFrameFindByName("ZTJIN1UP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1095249974) + "].Art") ), 0)
+                call DzFrameShow(DzFrameFindByName("ZTJIN1UP", 0), true)
+            endif
+            if ( 1095250224 != 0 ) then
+                call DzFrameSetTexture(DzFrameFindByName("ZTJIN2UP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1095250224) + "].Art") ), 0)
+                call DzFrameShow(DzFrameFindByName("ZTJIN2UP", 0), true)
+            endif
+        endif
+     
+        if ( id == 1229467698 ) then
+            call DzFrameSetTexture(DzFrameFindByName("ZTJINUP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1095249973) + "].Art") ), 0)
+            if ( 1095249976 != 0 ) then
+                call DzFrameSetTexture(DzFrameFindByName("ZTJIN1UP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1095249976) + "].Art") ), 0)
+                call DzFrameShow(DzFrameFindByName("ZTJIN1UP", 0), true)
+            endif
+            if ( 1095249975 != 0 ) then
+                call DzFrameSetTexture(DzFrameFindByName("ZTJIN2UP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1095249975) + "].Art") ), 0)
+                call DzFrameShow(DzFrameFindByName("ZTJIN2UP", 0), true)
+            endif
+        endif
+     
+        if ( id == 1229468724 ) then
+            call DzFrameSetTexture(DzFrameFindByName("ZTJINUP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1095252024) + "].Art") ), 0)
+            if ( 1095252025 != 0 ) then
+                call DzFrameSetTexture(DzFrameFindByName("ZTJIN1UP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1095252025) + "].Art") ), 0)
+                call DzFrameShow(DzFrameFindByName("ZTJIN1UP", 0), true)
+            endif
+            if ( 0 != 0 ) then
+                call DzFrameSetTexture(DzFrameFindByName("ZTJIN2UP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(0) + "].Art") ), 0)
+                call DzFrameShow(DzFrameFindByName("ZTJIN2UP", 0), true)
+            endif
+        endif
+     
+        if ( id == 1229468723 ) then
+            call DzFrameSetTexture(DzFrameFindByName("ZTJINUP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1095252022) + "].Art") ), 0)
+            if ( 1095252023 != 0 ) then
+                call DzFrameSetTexture(DzFrameFindByName("ZTJIN1UP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1095252023) + "].Art") ), 0)
+                call DzFrameShow(DzFrameFindByName("ZTJIN1UP", 0), true)
+            endif
+            if ( 0 != 0 ) then
+                call DzFrameSetTexture(DzFrameFindByName("ZTJIN2UP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(0) + "].Art") ), 0)
+                call DzFrameShow(DzFrameFindByName("ZTJIN2UP", 0), true)
+            endif
+        endif
+     
+        if ( id == 1229468722 ) then
+            call DzFrameSetTexture(DzFrameFindByName("ZTJINUP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1095252020) + "].Art") ), 0)
+            if ( 1095252021 != 0 ) then
+                call DzFrameSetTexture(DzFrameFindByName("ZTJIN1UP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1095252021) + "].Art") ), 0)
+                call DzFrameShow(DzFrameFindByName("ZTJIN1UP", 0), true)
+            endif
+            if ( 0 != 0 ) then
+                call DzFrameSetTexture(DzFrameFindByName("ZTJIN2UP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(0) + "].Art") ), 0)
+                call DzFrameShow(DzFrameFindByName("ZTJIN2UP", 0), true)
+            endif
+        endif
+     
+        if ( id == 1229468721 ) then
+            call DzFrameSetTexture(DzFrameFindByName("ZTJINUP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1095252018) + "].Art") ), 0)
+            if ( 1095252019 != 0 ) then
+                call DzFrameSetTexture(DzFrameFindByName("ZTJIN1UP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(1095252019) + "].Art") ), 0)
+                call DzFrameShow(DzFrameFindByName("ZTJIN1UP", 0), true)
+            endif
+            if ( 0 != 0 ) then
+                call DzFrameSetTexture(DzFrameFindByName("ZTJIN2UP", 0), ( EXExecuteScript("(require'jass.slk').ability[" + I2S(0) + "].Art") ), 0)
+                call DzFrameShow(DzFrameFindByName("ZTJIN2UP", 0), true)
+            endif
+        endif
+     
+endfunction
+function ClearUI takes nothing returns nothing
+    //隐藏所有界面
+    call DzFrameShow(udg_Frames[0], false)
+    call DzFrameShow(udg_Frames[3], false)
+    call DzFrameShow(udg_Frames[6], false)
+    
+         set udg_CellHasItem[0]=false
+    
+         set udg_CellHasItem[1]=false
+    
+         set udg_CellHasItem[2]=false
+    
+         set udg_CellHasItem[3]=false
+    
+         set udg_CellHasItem[4]=false
+    
+         set udg_CellHasItem[5]=false
+    
+endfunction
+//异步处理
+function BtnSelect takes nothing returns nothing
+    local integer index= 0
+    local integer itemIndex= 0
+    local integer goldcost= 0
+    local string newArt
+    local unit selectedUnit= udg_SelectedHeros[GetPlayerId(DzGetTriggerUIEventPlayer())]
+    local integer id= (LoadInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(DzGetTriggerUIEventFrame()))))) // INLINED!!
+    local boolean hasItem
+    local item it
+    
+    call ClearUI()
+    
+ //   call DzSyncData( "SelectedItem", I2S(id) )
+    
+    set udg_SelectedItemId[GetPlayerId(DzGetTriggerUIEventPlayer())]=id
+    
+    call DzFrameShow(DzFrameFindByName("HCUP", 0), true)
+    call DzFrameShow(DzFrameFindByName("HCCUP", 0), true)
+    call DzFrameSetTexture(DzFrameFindByName("HCUP", 0), ( EXExecuteScript("(require'jass.slk').item[" + I2S(id) + "].Art") ), 0)
+    call DzFrameSetTexture(DzFrameFindByName("HCCUP", 0), ( EXExecuteScript("(require'jass.slk').item[" + I2S(id) + "].Art") ), 0)
+    call DzFrameSetText(DzFrameFindByName("HCA1", 0), "|cfff5fcb9" + ( EXExecuteScript("(require'jass.slk').item[" + I2S(id) + "].goldcost") ) + "|r")
+    call DzFrameSetText(DzFrameFindByName("HC1A1", 0), "")
+    call DzFrameSetText(DzFrameFindByName("HC1A2", 0), "")
+    call DzFrameSetText(DzFrameFindByName("HC1A3", 0), "")
+    call DzFrameSetText(DzFrameFindByName("HC2A1", 0), ( EXExecuteScript("(require'jass.slk').item[" + I2S(id) + "].Name") ))
+    call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + ( EXExecuteScript("(require'jass.slk').item[" + I2S(id) + "].goldcost") ) + "|r")
+    call DzFrameSetText(DzFrameFindByName("HC2A3", 0), ( EXExecuteScript("(require'jass.slk').item[" + I2S(id) + "].Description") ))
+   // call DzFrameSetText( DzFrameFindByName("HC2A4", 0), "+ 500法强" )
+   // call DzFrameSetText( DzFrameFindByName("HC2A5", 0), "+ 500智力" )
+    //合成列表
+    set goldcost=S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(id) + "].goldcost") ))
+    
+     
+        if ( id == 1227896631 ) then
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227894834 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894834) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227894834) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894834) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894834) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227894834 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894834) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+            
+        endif
+     
+        if ( id == 1227896370 ) then
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227894833 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894833) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227894833) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894833) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894833) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227894833 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894833) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+            
+        endif
+     
+        if ( id == 1227896629 ) then
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227895607 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895607) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227895607) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895607) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895607) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227895607 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895607) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227895857 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895857) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227895857) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895857) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895857) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227895857 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895857) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227895609 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895609) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227895609) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895609) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895609) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227895609 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895609) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+            
+        endif
+     
+        if ( id == 1227896627 ) then
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227895353 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895353) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227895353) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895353) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895353) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227895353 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895353) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227895352 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895352) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227895352) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895352) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895352) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227895352 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895352) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227894841 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894841) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227894841) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894841) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894841) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227894841 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894841) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+            
+        endif
+     
+        if ( id == 1227896625 ) then
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227895605 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895605) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227895605) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895605) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895605) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227895605 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895605) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227895607 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895607) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227895607) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895607) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895607) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227895607 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895607) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227895609 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895609) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227895609) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895609) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895609) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227895609 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895609) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+            
+        endif
+     
+        if ( id == 1227896377 ) then
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227894841 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894841) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227894841) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894841) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894841) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227894841 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894841) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227895352 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895352) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227895352) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895352) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895352) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227895352 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895352) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+            
+        endif
+     
+        if ( id == 1227896374 ) then
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227895601 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895601) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227895601) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895601) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895601) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227895601 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895601) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227895353 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895353) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227895353) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895353) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895353) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227895353 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895353) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+            
+        endif
+     
+        if ( id == 1227896372 ) then
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227895603 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895603) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227895603) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895603) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895603) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227895603 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895603) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227895352 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895352) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227895352) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895352) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895352) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227895352 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895352) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+            
+        endif
+     
+        if ( id == 1227896368 ) then
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227895347 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895347) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227895347) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895347) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895347) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227895347 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895347) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227895088 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895088) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227895088) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895088) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895088) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227895088 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895088) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+            
+        endif
+     
+        if ( id == 1227895607 ) then
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227894841 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894841) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227894841) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894841) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894841) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227894841 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894841) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+            
+        endif
+     
+        if ( id == 1227895609 ) then
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227894840 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894840) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227894840) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894840) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894840) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227894840 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894840) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227894840 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894840) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227894840) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894840) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894840) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227894840 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894840) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+            
+        endif
+     
+        if ( id == 1227895857 ) then
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227894841 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894841) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227894841) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894841) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894841) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227894841 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894841) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227894839 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894839) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227894839) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894839) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894839) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227894839 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894839) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+            
+        endif
+     
+        if ( id == 1227895859 ) then
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227895089 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895089) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227895089) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895089) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895089) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227895089 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895089) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227895089 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895089) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227895089) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895089) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895089) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227895089 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895089) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+            
+        endif
+     
+        if ( id == 1227895861 ) then
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227895347 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895347) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227895347) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895347) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895347) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227895347 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895347) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227895603 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895603) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227895603) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895603) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895603) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227895603 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895603) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227895093 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895093) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227895093) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895093) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895093) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227895093 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895093) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+            
+        endif
+     
+        if ( id == 1227895863 ) then
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227895601 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895601) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227895601) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895601) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895601) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227895601 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895601) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227895088 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895088) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227895088) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895088) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895088) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227895088 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895088) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+            
+        endif
+     
+        if ( id == 1227896112 ) then
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227895347 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895347) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227895347) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895347) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895347) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227895347 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895347) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227895345 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895345) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227895345) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895345) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895345) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227895345 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895345) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+            
+        endif
+     
+        if ( id == 1227895345 ) then
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227894837 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894837) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227894837) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894837) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894837) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227894837 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894837) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227894837 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894837) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227894837) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894837) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894837) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227894837 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894837) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+            
+        endif
+     
+        if ( id == 1227896114 ) then
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227895349 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895349) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227895349) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895349) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895349) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227895349 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895349) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227895088 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895088) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227895088) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895088) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895088) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227895088 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895088) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+            
+        endif
+     
+        if ( id == 1227895091 ) then
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227894836 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894836) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227894836) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894836) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894836) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227894836 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894836) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227894836 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894836) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227894836) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894836) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894836) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227894836 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894836) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+            
+        endif
+     
+        if ( id == 1227896116 ) then
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227895345 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895345) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227895345) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895345) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895345) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227895345 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895345) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227895097 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895097) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227895097) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895097) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895097) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227895097 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895097) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+            
+        endif
+     
+        if ( id == 1227895093 ) then
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227894836 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894836) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227894836) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894836) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894836) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227894836 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894836) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227894838 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894838) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227894838) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894838) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894838) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227894838 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894838) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+            
+        endif
+     
+        if ( id == 1227896118 ) then
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227895093 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895093) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227895093) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895093) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895093) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227895093 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895093) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227894836 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894836) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227894836) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894836) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894836) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227894836 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894836) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227894836 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894836) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227894836) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894836) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894836) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227894836 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894836) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+            
+        endif
+     
+        if ( id == 1227895095 ) then
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227894837 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894837) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227894837) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894837) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894837) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227894837 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894837) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+            
+        endif
+     
+        if ( id == 1227896120 ) then
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227895093 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895093) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227895093) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895093) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895093) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227895093 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895093) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227895091 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895091) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227895091) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895091) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895091) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227895091 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895091) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+            
+        endif
+     
+        if ( id == 1227895097 ) then
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227894837 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894837) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227894837) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894837) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894837) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227894837 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894837) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227894837 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894837) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227894837) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894837) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894837) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227894837 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894837) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+            
+        endif
+     
+        if ( id == 1227895605 ) then
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227894841 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894841) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227894841) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894841) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894841) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227894841 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894841) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227894840 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894840) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227894840) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894840) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894840) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227894840 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894840) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227894840 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894840) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227894840) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894840) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894840) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227894840 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894840) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+            
+        endif
+     
+        if ( id == 1227895603 ) then
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227894839 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894839) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227894839) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894839) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894839) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227894839 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894839) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+            
+        endif
+     
+        if ( id == 1227895601 ) then
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227894839 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894839) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227894839) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894839) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894839) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227894839 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894839) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227894840 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894840) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227894840) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894840) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894840) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227894840 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894840) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+            
+        endif
+     
+        if ( id == 1227895351 ) then
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227895093 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895093) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227895093) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895093) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895093) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227895093 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895093) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227894836 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894836) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227894836) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894836) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894836) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227894836 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894836) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+            
+        endif
+     
+        if ( id == 1227895349 ) then
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227894837 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894837) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227894837) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894837) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894837) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227894837 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894837) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227894837 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894837) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227894837) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894837) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894837) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227894837 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894837) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+            
+        endif
+     
+        if ( id == 1227895347 ) then
+             
+                set hasItem=false
+                set bj_forLoopAIndex=itemIndex
+                loop
+                    exitwhen bj_forLoopAIndex > 5
+                    set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                    if it != null and GetItemTypeId(it) == 1227894837 then
+                        set hasItem=true
+                      //  set udg_CellHasItem[bj_forLoopAIndex] = true 
+                        set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894837) + "].goldcost") ))
+                        call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "|cfff5fcb9" + I2S(goldcost) + "|r")
+                       // set udg_SellItems[udg_SellCount] = it
+                     //  set udg_SellItems[bj_forLoopAIndex] = it
+                        set udg_SellCount=udg_SellCount + 1
+                        set itemIndex=bj_forLoopAIndex + 1
+                        set bj_forLoopAIndex=5
+                    endif
+                    set bj_forLoopAIndex=bj_forLoopAIndex + 1
+                endloop
+                if hasItem == true then
+                    set newArt=I2S(1227894837) + "newArt.blp"
+                    call EXBlendButtonIcon("ui\\ItemSelected_red.blp", ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894837) + "].Art") ), newArt)
+                else
+                    set newArt=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894837) + "].Art") )
+                endif
+           //     call YDWESaveIntegerByString( "ItemCell", I2S(udg_Frames[index]), 1227894837 )       
+           //     call DzFrameSetScript(udg_Frames[index], 1, "BtnSelect", false)
+                call DzFrameShow(udg_Frames[index], true)
+                set index=index + 1
+                call DzFrameSetTexture(udg_Frames[index], newArt, 0)
+                set index=index + 1
+                call DzFrameSetText(udg_Frames[index], ( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894837) + "].Name") ))
+                set index=index + 1
+              //  call DzFrameSetScript(udg_Frames[index], 2, "BtnTipsOn" , false )
+              //  call DzFrameSetScript(udg_Frames[index], 3, "BtnTipsOff", false)       
+            
+        endif
+    
+endfunction
+function InitItemAds takes nothing returns nothing
+    local integer framesId=100
+    local string str=""
+    
+    
+        
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+            
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+    
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227894833)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894833) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894833) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894833) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+       
+    
+        
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+            
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+    
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227894835)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894835) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894835) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894835) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+       
+    
+        
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+            
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+    
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227894837)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894837) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894837) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894837) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+       
+    
+        
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+            
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+    
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227895088)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895088) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895088) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895088) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+       
+    
+        
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+            
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+    
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227895089)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895089) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895089) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895089) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+       
+    
+        
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+            
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+    
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227895095)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895095) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895095) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895095) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+       
+    
+        
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+            
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+    
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227895097)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895097) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895097) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895097) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+       
+    
+        
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+            
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+    
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227895345)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895345) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895345) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895345) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+       
+    
+        
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+            
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+    
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227895347)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895347) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895347) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895347) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+       
+    
+        
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+            
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+    
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227895349)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895349) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895349) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895349) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+       
+    
+        
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+            
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+    
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227895859)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895859) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895859) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895859) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+       
+    
+        
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+            
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+    
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227895861)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895861) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895861) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895861) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+       
+    
+        
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+            
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+    
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227895863)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895863) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895863) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895863) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+       
+    
+        
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+            
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+    
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227896112)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896112) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896112) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896112) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+       
+    
+        
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+            
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+    
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227896114)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896114) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896114) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896114) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+       
+    
+        
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+            
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+    
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227896116)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896116) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896116) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896116) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+       
+    
+        
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+            
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+    
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227896368)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896368) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896368) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896368) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+       
+    
+        
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+            
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+    
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227896370)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896370) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896370) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896370) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+       
+    
+        
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+        
+    
+        
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+        
+    
+        
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+        
+    
+        
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+        
+    
+        
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+        
+    
+        
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+        
+    
+        
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+        
+    
+endfunction
+function InitItemAps takes nothing returns nothing
+    local integer framesId=200
+    local string str=""
+    
+    set udg_Frames[framesId]=DzFrameFindByName("ItemCellAds", 0)
+    call DzFrameShow(udg_Frames[framesId], false)
+    set udg_Frames[framesId]=DzFrameFindByName("ItemCellAps", 0)
+    call DzFrameShow(udg_Frames[framesId], true)
+    set udg_Frames[framesId]=DzFrameFindByName("ItemCellCrits", 0)
+    call DzFrameShow(udg_Frames[framesId], false)
+    set udg_Frames[framesId]=DzFrameFindByName("ItemCellCooldowns", 0)
+    call DzFrameShow(udg_Frames[framesId], false)
+    set udg_Frames[framesId]=DzFrameFindByName("ItemCellManas", 0)
+    call DzFrameShow(udg_Frames[framesId], false)
+    
+    
+     
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+            
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227894834)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894834) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894834) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894834) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+      
+    
+     
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+            
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227894841)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894841) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894841) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894841) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+      
+    
+     
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+            
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227895352)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895352) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895352) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895352) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+      
+    
+     
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+            
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227895353)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895353) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895353) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895353) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+      
+    
+     
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+            
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227895605)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895605) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895605) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895605) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+      
+    
+     
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+            
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227895607)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895607) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895607) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895607) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+      
+    
+     
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+            
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227895857)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895857) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895857) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895857) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+      
+    
+     
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+            
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227896372)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896372) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896372) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896372) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+      
+    
+     
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+            
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227896374)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896374) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896374) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896374) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+      
+    
+     
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+            
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227896377)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896377) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896377) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896377) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+      
+    
+     
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+            
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227896625)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896625) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896625) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896625) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+      
+    
+     
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+            
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227896627)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896627) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896627) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896627) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+      
+    
+     
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+            
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227896629)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896629) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896629) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896629) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+      
+    
+     
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+            
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227896631)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896631) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896631) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896631) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+      
+    
+     
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+       
+    
+     
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+       
+    
+     
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+       
+    
+     
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+       
+    
+     
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+       
+    
+     
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+       
+    
+     
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+       
+    
+     
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+       
+    
+     
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+       
+    
+     
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+       
+    
+     
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+       
+    
+endfunction
+function InitItemCrits takes nothing returns nothing
+    local integer framesId=300
+    local string str=""
+    
+    set udg_Frames[framesId]=DzFrameFindByName("ItemCellAds", 0)
+    call DzFrameShow(udg_Frames[framesId], false)
+    set udg_Frames[framesId]=DzFrameFindByName("ItemCellAps", 0)
+    call DzFrameShow(udg_Frames[framesId], false)
+    set udg_Frames[framesId]=DzFrameFindByName("ItemCellCrits", 0)
+    call DzFrameShow(udg_Frames[framesId], true)
+    set udg_Frames[framesId]=DzFrameFindByName("ItemCellCooldowns", 0)
+    call DzFrameShow(udg_Frames[framesId], false)
+    set udg_Frames[framesId]=DzFrameFindByName("ItemCellManas", 0)
+    call DzFrameShow(udg_Frames[framesId], false)
+    
+    
+     
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+            
+            //call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227894833)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894833) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894833) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894833) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+      
+    
+     
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+            
+            //call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227894836)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894836) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894836) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894836) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+      
+    
+     
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+            
+            //call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227894838)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894838) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894838) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894838) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+      
+    
+     
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+            
+            //call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227895091)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895091) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895091) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895091) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+      
+    
+     
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+            
+            //call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227895093)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895093) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895093) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895093) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+      
+    
+     
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+            
+            //call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227895351)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895351) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895351) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895351) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+      
+    
+     
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+            
+            //call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227895859)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895859) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895859) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895859) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+      
+    
+     
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+            
+            //call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227895861)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895861) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895861) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895861) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+      
+    
+     
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+            
+            //call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227896118)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896118) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896118) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896118) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+      
+    
+     
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+            
+            //call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227896120)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896120) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896120) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896120) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+      
+    
+     
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+       
+    
+     
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+       
+    
+     
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+       
+    
+     
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+       
+    
+     
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+       
+    
+     
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+       
+    
+     
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+       
+    
+     
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+       
+    
+     
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+       
+    
+     
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+       
+    
+     
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+       
+    
+     
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+       
+    
+     
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+       
+    
+     
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+       
+    
+     
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+       
+    
+endfunction
+function InitItemCooldowns takes nothing returns nothing
+    local integer framesId=400
+    local string str
+    
+    set udg_Frames[framesId]=DzFrameFindByName("ItemCellAds", 0)
+    call DzFrameShow(udg_Frames[framesId], false)
+    set udg_Frames[framesId]=DzFrameFindByName("ItemCellAps", 0)
+    call DzFrameShow(udg_Frames[framesId], false)
+    set udg_Frames[framesId]=DzFrameFindByName("ItemCellCrits", 0)
+    call DzFrameShow(udg_Frames[framesId], false)
+    set udg_Frames[framesId]=DzFrameFindByName("ItemCellCooldowns", 0)
+    call DzFrameShow(udg_Frames[framesId], true)
+    set udg_Frames[framesId]=DzFrameFindByName("ItemCellManas", 0)
+    call DzFrameShow(udg_Frames[framesId], false)
+    
+    
+     
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+            
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227895345)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895345) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895345) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895345) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+      
+    
+     
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+            
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227895603)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895603) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895603) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895603) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+      
+    
+     
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+            
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227895607)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895607) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895607) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895607) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+      
+    
+     
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+            
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227895609)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895609) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895609) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895609) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+      
+    
+     
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+            
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227895861)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895861) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895861) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895861) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+      
+    
+     
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+            
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227896112)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896112) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896112) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896112) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+      
+    
+     
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+            
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227896116)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896116) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896116) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896116) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+      
+    
+     
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+            
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227896372)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896372) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896372) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896372) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+      
+    
+     
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+            
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227896625)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896625) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896625) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896625) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+      
+    
+     
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+       
+    
+     
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+       
+    
+     
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+       
+    
+     
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+       
+    
+     
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+       
+    
+     
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+       
+    
+     
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+       
+    
+     
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+       
+    
+     
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+       
+    
+     
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+       
+    
+     
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+       
+    
+     
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+       
+    
+     
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+       
+    
+     
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+       
+    
+     
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+       
+    
+     
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+       
+    
+endfunction
+function InitItemManas takes nothing returns nothing
+    local integer framesId=500
+    local string str
+    
+    set udg_Frames[framesId]=DzFrameFindByName("ItemCellAds", 0)
+    call DzFrameShow(udg_Frames[framesId], false)
+    set udg_Frames[framesId]=DzFrameFindByName("ItemCellAps", 0)
+    call DzFrameShow(udg_Frames[framesId], false)
+    set udg_Frames[framesId]=DzFrameFindByName("ItemCellCrits", 0)
+    call DzFrameShow(udg_Frames[framesId], false)
+    set udg_Frames[framesId]=DzFrameFindByName("ItemCellCooldowns", 0)
+    call DzFrameShow(udg_Frames[framesId], false)
+    set udg_Frames[framesId]=DzFrameFindByName("ItemCellManas", 0)
+    call DzFrameShow(udg_Frames[framesId], true)
+    
+    
+     
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+            
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227894834)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894834) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894834) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894834) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+      
+    
+     
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+            
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227894839)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894839) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894839) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894839) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+      
+    
+     
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+            
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227894840)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894840) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894840) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894840) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+      
+    
+     
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+            
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227895601)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895601) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895601) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895601) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+      
+    
+     
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+            
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227895603)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895603) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895603) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895603) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+      
+    
+     
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+            
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227895605)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895605) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895605) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895605) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+      
+    
+     
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+            
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227895609)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895609) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895609) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895609) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+      
+    
+     
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+            
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227895857)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895857) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895857) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895857) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+      
+    
+     
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+            
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227895861)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895861) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895861) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895861) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+      
+    
+     
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+            
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227895863)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895863) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895863) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895863) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+      
+    
+     
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+            
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227895864)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895864) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895864) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895864) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+      
+    
+     
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+            
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227896372)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896372) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896372) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896372) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+      
+    
+     
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+            
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227896374)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896374) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896374) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896374) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+      
+    
+     
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+            
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227896625)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896625) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896625) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896625) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+      
+    
+     
+            //按钮
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            
+            set bj_forLoopAIndex=1
+            set bj_forLoopAIndexEnd=4
+            loop
+                exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+                if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+                    call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect", false)
+                endif
+                set bj_forLoopAIndex=bj_forLoopAIndex + 1
+            endloop
+            
+            //      call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //      call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+            call SaveInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(udg_Frames[framesId]) )), ( 1227896629)) // INLINED!!
+            call DzFrameShow(udg_Frames[framesId], true)
+            //图片
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896629) + "].Art") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetTexture(udg_Frames[framesId], str, 0)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //名字
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896629) + "].Name") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], str)
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            //  call DzFrameSetText( udg_Frames[framesId], "|cfff5fcb9" + str + "|r" )
+            //价格
+            set framesId=framesId + 1
+            set str=( EXExecuteScript("(require'jass.slk').item[" + I2S(1227896629) + "].goldcost") )
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameSetText(udg_Frames[framesId], "|cfff5fcb9" + str + "|r")
+            call DzFrameSetScale(udg_Frames[framesId], 0.8)
+            call DzFrameShow(udg_Frames[framesId], true)
+            set framesId=framesId + 1
+      
+    
+     
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+       
+    
+     
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+       
+    
+     
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+       
+    
+     
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+       
+    
+     
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+       
+    
+     
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+       
+    
+     
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+       
+    
+     
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+       
+    
+     
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+       
+    
+     
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+            set udg_Frames[framesId]=DzFrameFindByName(I2S(framesId), 0)
+            call DzFrameShow(udg_Frames[framesId], false)
+            set framesId=framesId + 1
+       
+    
+endfunction
+function InitItemCell takes nothing returns nothing
+    call InitItemAds()
+    call InitItemAps()
+    call InitItemCrits()
+    call InitItemCooldowns()
+    call InitItemManas()
+    call DzFrameShow(DzFrameFindByName("ItemCellAds", 0), false)
+    call DzFrameShow(DzFrameFindByName("ItemCellAps", 0), false)
+    call DzFrameShow(DzFrameFindByName("ItemCellCrits", 0), false)
+    call DzFrameShow(DzFrameFindByName("ItemCellCooldowns", 0), false)
+    call DzFrameShow(DzFrameFindByName("ItemCellManas", 0), false)
+endfunction
+function GetIndexOfItem takes unit whichUnit,item it returns integer
+    local integer index
+    local item indexItem
+    set index=0
+    loop
+        set indexItem=UnitItemInSlot(whichUnit, index)
+        if ( indexItem != null ) and ( indexItem == it ) then
+            return index
+        endif
+        set index=index + 1
+        exitwhen index >= bj_MAX_INVENTORY
+    endloop
+    return - 1
+endfunction
+function BtnTipsOn takes nothing returns nothing
+    local integer id
+    local string tip
+    if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
+        set id=(LoadInteger(YDHT, StringHash(("ItemCell" )), StringHash(( I2S(DzGetTriggerUIEventFrame()))))) // INLINED!!
+        if id != 0 then
+            set tip=( EXExecuteScript("(require'jass.slk').item[" + I2S(id) + "].Name") ) + "|n|n" + ( EXExecuteScript("(require'jass.slk').item[" + I2S(id) + "].Description") )
+            call DzFrameClearAllPoints(udg_Frames[100])
+            call DzFrameSetPoint(udg_Frames[100], 0, DzGetTriggerUIEventFrame(), 8, 0.0, 0.0)
+            call DzFrameShow(udg_Frames[100], true)
+            call DzFrameSetText(udg_Frames[101], tip)
+        endif
+    endif
+endfunction
+function BtnTipsOff takes nothing returns nothing
+    call DzFrameShow(udg_Frames[100], false)
+endfunction
+function BtnSelect2 takes nothing returns nothing
+    local integer index
+    if ( udg_Frames[10] == DzGetTriggerUIEventFrame() ) then
+        set index=1
+    endif
+    if ( udg_Frames[12] == DzGetTriggerUIEventFrame() ) then
+        set index=2
+    endif
+    if ( udg_Frames[14] == DzGetTriggerUIEventFrame() ) then
+        set index=3
+    endif
+    if ( udg_Frames[16] == DzGetTriggerUIEventFrame() ) then
+        set index=4
+    endif
+    if ( udg_Frames[18] == DzGetTriggerUIEventFrame() ) then
+        set index=5
+    endif
+    if ( udg_Frames[20] == DzGetTriggerUIEventFrame() ) then
+        set index=6
+    endif
+    call DzSyncData("AddItem3", I2S(index))
+endfunction
+function RefreshItemCell takes player play returns nothing
+    local unit selectedUnit
+    local item it
+    local integer id= 0
+    local integer framesId=10
+    if ( ( udg_ui_isHEOpen[GetPlayerId(play)] == false ) ) then
+        return
+    endif
+    return
+    call DzFrameSetText(DzFrameFindByName("HeroGold", 0), I2S(GetPlayerState(play, PLAYER_STATE_RESOURCE_GOLD)))
+    set selectedUnit=udg_SelectedHeros[GetPlayerId(play)]
+    if selectedUnit != null then
+        
+            set it=UnitItemInSlot(selectedUnit, 0)
+            set id=GetItemTypeId(it)
+            if it != null then
+                call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect2", false)
+            //    call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //    call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+             //   call YDWESaveIntegerByString("ItemCell", I2S(udg_Frames[framesId]), id  )  
+                call DzFrameShow(udg_Frames[framesId], true)
+            else
+                call DzFrameShow(udg_Frames[framesId], false)
+            endif
+            set framesId=framesId + 1
+            if it != null then
+                call DzFrameSetTexture(udg_Frames[framesId], ( EXExecuteScript("(require'jass.slk').item[" + I2S(id) + "].Art") ), 0)
+                call DzFrameShow(udg_Frames[framesId], true)
+            else
+                call DzFrameShow(udg_Frames[framesId], false)
+            endif
+            set framesId=framesId + 1
+        
+            set it=UnitItemInSlot(selectedUnit, 1)
+            set id=GetItemTypeId(it)
+            if it != null then
+                call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect2", false)
+            //    call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //    call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+             //   call YDWESaveIntegerByString("ItemCell", I2S(udg_Frames[framesId]), id  )  
+                call DzFrameShow(udg_Frames[framesId], true)
+            else
+                call DzFrameShow(udg_Frames[framesId], false)
+            endif
+            set framesId=framesId + 1
+            if it != null then
+                call DzFrameSetTexture(udg_Frames[framesId], ( EXExecuteScript("(require'jass.slk').item[" + I2S(id) + "].Art") ), 0)
+                call DzFrameShow(udg_Frames[framesId], true)
+            else
+                call DzFrameShow(udg_Frames[framesId], false)
+            endif
+            set framesId=framesId + 1
+        
+            set it=UnitItemInSlot(selectedUnit, 2)
+            set id=GetItemTypeId(it)
+            if it != null then
+                call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect2", false)
+            //    call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //    call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+             //   call YDWESaveIntegerByString("ItemCell", I2S(udg_Frames[framesId]), id  )  
+                call DzFrameShow(udg_Frames[framesId], true)
+            else
+                call DzFrameShow(udg_Frames[framesId], false)
+            endif
+            set framesId=framesId + 1
+            if it != null then
+                call DzFrameSetTexture(udg_Frames[framesId], ( EXExecuteScript("(require'jass.slk').item[" + I2S(id) + "].Art") ), 0)
+                call DzFrameShow(udg_Frames[framesId], true)
+            else
+                call DzFrameShow(udg_Frames[framesId], false)
+            endif
+            set framesId=framesId + 1
+        
+            set it=UnitItemInSlot(selectedUnit, 3)
+            set id=GetItemTypeId(it)
+            if it != null then
+                call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect2", false)
+            //    call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //    call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+             //   call YDWESaveIntegerByString("ItemCell", I2S(udg_Frames[framesId]), id  )  
+                call DzFrameShow(udg_Frames[framesId], true)
+            else
+                call DzFrameShow(udg_Frames[framesId], false)
+            endif
+            set framesId=framesId + 1
+            if it != null then
+                call DzFrameSetTexture(udg_Frames[framesId], ( EXExecuteScript("(require'jass.slk').item[" + I2S(id) + "].Art") ), 0)
+                call DzFrameShow(udg_Frames[framesId], true)
+            else
+                call DzFrameShow(udg_Frames[framesId], false)
+            endif
+            set framesId=framesId + 1
+        
+            set it=UnitItemInSlot(selectedUnit, 4)
+            set id=GetItemTypeId(it)
+            if it != null then
+                call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect2", false)
+            //    call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //    call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+             //   call YDWESaveIntegerByString("ItemCell", I2S(udg_Frames[framesId]), id  )  
+                call DzFrameShow(udg_Frames[framesId], true)
+            else
+                call DzFrameShow(udg_Frames[framesId], false)
+            endif
+            set framesId=framesId + 1
+            if it != null then
+                call DzFrameSetTexture(udg_Frames[framesId], ( EXExecuteScript("(require'jass.slk').item[" + I2S(id) + "].Art") ), 0)
+                call DzFrameShow(udg_Frames[framesId], true)
+            else
+                call DzFrameShow(udg_Frames[framesId], false)
+            endif
+            set framesId=framesId + 1
+        
+            set it=UnitItemInSlot(selectedUnit, 5)
+            set id=GetItemTypeId(it)
+            if it != null then
+                call DzFrameSetScript(udg_Frames[framesId], 1, "BtnSelect2", false)
+            //    call DzFrameSetScript(udg_Frames[framesId], 2, "BtnTipsOn" , false )
+            //    call DzFrameSetScript(udg_Frames[framesId], 3, "BtnTipsOff", false)
+             //   call YDWESaveIntegerByString("ItemCell", I2S(udg_Frames[framesId]), id  )  
+                call DzFrameShow(udg_Frames[framesId], true)
+            else
+                call DzFrameShow(udg_Frames[framesId], false)
+            endif
+            set framesId=framesId + 1
+            if it != null then
+                call DzFrameSetTexture(udg_Frames[framesId], ( EXExecuteScript("(require'jass.slk').item[" + I2S(id) + "].Art") ), 0)
+                call DzFrameShow(udg_Frames[framesId], true)
+            else
+                call DzFrameShow(udg_Frames[framesId], false)
+            endif
+            set framesId=framesId + 1
+        
+    endif
+endfunction
+//***************************************************************************
+//*
+//*  Triggers
+//*
+//***************************************************************************
+//===========================================================================
+// Trigger: 初始化装备列表
+//
+// 
+//     call DzFrameSetTexture( DzFrameFindByName("HCUP", 0), YDWEGetObjectPropertyString(YDWE_OBJECT_TYPE_ITEM, id, "Art"), 0 )
+//     call DzFrameSetTexture( DzFrameFindByName("HCCUP", 0), YDWEGetObjectPropertyString(YDWE_OBJECT_TYPE_ITEM, id, "Art"), 0 )
+//===========================================================================
+function Trig______________________uActions takes nothing returns nothing
+    local integer playerCount = 0
+    call SetTimeOfDay(12)
+    call FogEnable(false)
+    call FogMaskEnableOff()
+    call Cheat("exec-lua:scripts.runtime")
+    call Cheat("exec-lua:scripts.main")
+
+    set bj_forLoopAIndex = 0
+    set bj_forLoopAIndexEnd = 3
+    loop
+        exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+        if ((GetPlayerController(Player(bj_forLoopAIndex)) == MAP_CONTROL_USER) and (GetPlayerSlotState(Player(bj_forLoopAIndex)) == PLAYER_SLOT_STATE_PLAYING)) then
+            set playerCount = playerCount + 1
+        endif
+        set bj_forLoopAIndex = bj_forLoopAIndex + 1
+    endloop
+    if(playerCount > 1 )then
+        return
+    endif
+
+    call DzLoadToc("custom2.toc")
+    // 装备商店
+    set udg_UI_ab[0]=DzCreateFrame("BAG", DzGetGameUI(), 0)
+    call DzFrameSetPoint(udg_UI_ab[0], 4, DzGetGameUI(), 4, 0, 0.06)
+    call DzFrameShow(udg_UI_ab[0], false)
+    // 商店按钮
+    set udg_UI_ab[1]=DzCreateFrame("BAG1", DzGetGameUI(), 0)
+    call DzFrameSetPoint(udg_UI_ab  [1], 5, DzGetGameUI(), 5, 0, - 0.10)
+    call DzFrameShow(udg_UI_ab[1], true)
+    // 英雄商店
+    set udg_UI_ab[2]=DzCreateFrame("BAG2", DzGetGameUI(), 0)
+    call DzFrameSetPoint(udg_UI_ab[2], 4, DzGetGameUI(), 4, 0, 0.06)
+    call DzFrameShow(udg_UI_ab[2], false)
+    // 英雄商店购买成功界面
+    call DzFrameShow(DzFrameFindByName("ABBLACK", 0), false)
+    call DzFrameShow(DzFrameFindByName("BAG3", 0), false)
+    call DzFrameSetText(DzFrameFindByName("AA11", 0), "|cff00ffff装 备|r")
+    call DzFrameSetText(DzFrameFindByName("AA22", 0), "|cFFFCC403英 雄|r")
+    call DzFrameSetText(DzFrameFindByName("AA33", 0), "|cff00ffff物理|r|n|cff00ffff攻击|r")
+    call DzFrameSetText(DzFrameFindByName("AA44", 0), "|cFFFCC403攻速|r|n|cFFFCC403暴击|r")
+    call DzFrameSetText(DzFrameFindByName("AA55", 0), "|cFFFCC403法术|r|n|cFFFCC403攻击|r")
+    call DzFrameSetText(DzFrameFindByName("AA66", 0), "|cFFFCC403冷却|r|n|cFFFCC403缩减|r")
+    call DzFrameSetText(DzFrameFindByName("AA77", 0), "|cFFFCC403法力|r|n|cFFFCC403回复|r")
+    call DzFrameSetText(DzFrameFindByName("AB11", 0), "|cFFFCC403装 备|r")
+    call DzFrameSetText(DzFrameFindByName("AB22", 0), "|cFFFCC403英 雄|r")
+    call DzFrameSetText(DzFrameFindByName("ABBB1", 0), "|cfff5fcb9出售|r")
+    call DzFrameSetText(DzFrameFindByName("ABBB2", 0), "|cfff5fcb9购买|r")
+    call DzFrameSetText(DzFrameFindByName("ABBB3", 0), "|cfff5fcb9关闭|r")
+    call DzFrameSetText(DzFrameFindByName("HeroCardshowtext", 0), "|cfff5fcb92000|r")
+    call DzFrameSetText(DzFrameFindByName("HeroCardshowtext1", 0), "|cfff5fcb94000|r")
+    call DzFrameSetText(DzFrameFindByName("HeroCardshowtext2", 0), "|cfff5fcb98000|r")
+    call DzFrameShow(DzFrameFindByName("HCUP", 0), false)
+    set udg_Frames[0]=DzFrameFindByName("HC1", 0)
+    call DzFrameShow(udg_Frames[0], false)
+    set udg_Frames[1]=DzFrameFindByName("HC1UP", 0)
+    set udg_Frames[2]=DzFrameFindByName("HC1A1", 0)
+    set udg_Frames[3]=DzFrameFindByName("HC2", 0)
+    call DzFrameShow(udg_Frames[3], false)
+    set udg_Frames[4]=DzFrameFindByName("HC2UP", 0)
+    set udg_Frames[5]=DzFrameFindByName("HC1A2", 0)
+    set udg_Frames[6]=DzFrameFindByName("HC3", 0)
+    call DzFrameShow(udg_Frames[6], false)
+    set udg_Frames[7]=DzFrameFindByName("HC3UP", 0)
+    set udg_Frames[8]=DzFrameFindByName("HC1A3", 0)
+    call DzFrameShow(DzFrameFindByName("HCCUP", 0), false)
+    call DzFrameSetText(DzFrameFindByName("HCA1", 0), "")
+    call DzFrameSetText(DzFrameFindByName("HC1A1", 0), "")
+    call DzFrameSetText(DzFrameFindByName("HC1A2", 0), "")
+    call DzFrameSetText(DzFrameFindByName("HC1A3", 0), "")
+    call DzFrameSetText(DzFrameFindByName("HC2A1", 0), "")
+    call DzFrameSetText(DzFrameFindByName("HC2A2", 0), "")
+    call DzFrameSetText(DzFrameFindByName("HC2A3", 0), "")
+    call DzFrameSetText(DzFrameFindByName("HC2A4", 0), "")
+    call DzFrameSetText(DzFrameFindByName("HC2A5", 0), "")
+    set udg_Frames[10]=DzFrameFindByName("Hero1", 0)
+    set udg_Frames[11]=DzFrameFindByName("Hero1UP", 0)
+    call DzFrameShow(udg_Frames[10], false)
+    set udg_Frames[12]=DzFrameFindByName("Hero2", 0)
+    set udg_Frames[13]=DzFrameFindByName("Hero2UP", 0)
+    call DzFrameShow(udg_Frames[12], false)
+    set udg_Frames[14]=DzFrameFindByName("Hero3", 0)
+    set udg_Frames[15]=DzFrameFindByName("Hero3UP", 0)
+    call DzFrameShow(udg_Frames[14], false)
+    set udg_Frames[16]=DzFrameFindByName("Hero4", 0)
+    set udg_Frames[17]=DzFrameFindByName("Hero4UP", 0)
+    call DzFrameShow(udg_Frames[16], false)
+    set udg_Frames[18]=DzFrameFindByName("Hero5", 0)
+    set udg_Frames[19]=DzFrameFindByName("Hero5UP", 0)
+    call DzFrameShow(udg_Frames[18], false)
+    set udg_Frames[20]=DzFrameFindByName("Hero6", 0)
+    set udg_Frames[21]=DzFrameFindByName("Hero6UP", 0)
+    call DzFrameShow(udg_Frames[20], false)
+    call TriggerExecute(gg_trg_initButton)
+endfunction
+//===========================================================================
+function InitTrig______________________u takes nothing returns nothing
+    set gg_trg______________________u=CreateTrigger()
+    call TriggerAddAction(gg_trg______________________u, function Trig______________________uActions)
+endfunction
+//===========================================================================
+// Trigger: initButton
+//===========================================================================
+function Trig_initButtonFunc002Func001FT takes nothing returns nothing
+    call DzFrameSetText(DzFrameFindByName("AB22", 0), "|cff00ffff英 雄|r")
+    call DzFrameSetText(DzFrameFindByName("AA11", 0), "|cFFFCC403装 备|r")
+    call DzFrameShow(udg_UI_ab[2], true)
+    call DzFrameShow(udg_UI_ab[0], false)
+endfunction
+function Trig_initButtonFunc002Func002FT takes nothing returns nothing
+    call DzFrameShow(udg_UI_ab[0], true)
+    call DzFrameShow(udg_UI_ab[2], false)
+    call DzFrameSetText(DzFrameFindByName("AA11", 0), "|cff00ffff装 备|r")
+    call DzFrameSetText(DzFrameFindByName("AA22", 0), "|cFFFCC403英 雄|r")
+endfunction
+function Trig_initButtonFunc004003 takes nothing returns nothing
+    call TriggerExecute(gg_trg_Trig0)
+endfunction
+function Trig_initButtonFunc006003 takes nothing returns nothing
+    call TriggerExecute(gg_trg_Trig1)
+endfunction
+function Trig_initButtonFunc008003 takes nothing returns nothing
+    call TriggerExecute(gg_trg_Trig2)
+endfunction
+function Trig_initButtonFunc010003 takes nothing returns nothing
+    call TriggerExecute(gg_trg_Trig3)
+endfunction
+function Trig_initButtonFunc012003 takes nothing returns nothing
+    call TriggerExecute(gg_trg_Trig4)
+endfunction
+function Trig_initButtonFunc014003 takes nothing returns nothing
+    call TriggerExecute(gg_trg_Trig5)
+endfunction
+function Trig_initButtonFunc016003 takes nothing returns nothing
+    call TriggerExecute(gg_trg_Trig6)
+endfunction
+function Trig_initButtonFunc018003 takes nothing returns nothing
+    call TriggerExecute(gg_trg_Trig6)
+endfunction
+function Trig_initButtonFunc021003 takes nothing returns nothing
+    call TriggerExecute(gg_trg_Trig7_1)
+endfunction
+function Trig_initButtonFunc022003 takes nothing returns nothing
+    call TriggerExecute(gg_trg_Trig7_2)
+endfunction
+function Trig_initButtonFunc023003 takes nothing returns nothing
+    call TriggerExecute(gg_trg_Trig7_3)
+endfunction
+function Trig_initButtonFunc025003 takes nothing returns nothing
+    call TriggerExecute(gg_trg_Trig8)
+endfunction
+function Trig_initButtonFunc027003 takes nothing returns nothing
+    call TriggerExecute(gg_trg_Fram60Action)
+endfunction
+function Trig_initButtonFunc029003 takes nothing returns nothing
+    call TriggerExecute(gg_trg_Trig9)
+endfunction
+function Trig_initButtonActions takes nothing returns nothing
+    local integer ydl_localvar_step= LoadInteger(YDLOC, GetHandleId(GetTriggeringTrigger()), 0xCFDE6C76)
+ set ydl_localvar_step=ydl_localvar_step + 3
+ call SaveInteger(YDLOC, GetHandleId(GetTriggeringTrigger()), 0xCFDE6C76, ydl_localvar_step)
+ call SaveInteger(YDLOC, GetHandleId(GetTriggeringTrigger()), 0xECE825E7, ydl_localvar_step)
+    call InitItemCell()
+    set bj_forLoopAIndex=1
+    set bj_forLoopAIndexEnd=4
+    loop
+        exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+        if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+        	call DzFrameSetScriptByCode(DzFrameFindByName("AA2", 0), 1, function Trig_initButtonFunc002Func001FT, false)
+        endif
+        if GetLocalPlayer() == ConvertedPlayer(bj_forLoopAIndex) then
+        	call DzFrameSetScriptByCode(DzFrameFindByName("AB1", 0), 1, function Trig_initButtonFunc002Func002FT, false)
+        endif
+        set bj_forLoopAIndex=bj_forLoopAIndex + 1
+    endloop
+    // 商店按钮
+    call DzFrameSetScriptByCode(DzFrameFindByName("AA", 0), 1, function Trig_initButtonFunc004003, true)
+    // 物理攻击按钮
+    call DzFrameSetScriptByCode(DzFrameFindByName("AA3", 0), 1, function Trig_initButtonFunc006003, true)
+    // 攻速暴击按钮
+    call DzFrameSetScriptByCode(DzFrameFindByName("AA4", 0), 1, function Trig_initButtonFunc008003, true)
+    // 法术攻击按钮
+    call DzFrameSetScriptByCode(DzFrameFindByName("AA5", 0), 1, function Trig_initButtonFunc010003, true)
+    // 冷却缩减按钮
+    call DzFrameSetScriptByCode(DzFrameFindByName("AA6", 0), 1, function Trig_initButtonFunc012003, true)
+    // 法力回复按钮
+    call DzFrameSetScriptByCode(DzFrameFindByName("AA7", 0), 1, function Trig_initButtonFunc014003, true)
+    // 关闭按钮
+    call DzFrameSetScriptByCode(DzFrameFindByName("ABB3", 0), 1, function Trig_initButtonFunc016003, true)
+    // 关闭按钮2
+    call DzFrameSetScriptByCode(DzFrameFindByName("CBB3", 0), 1, function Trig_initButtonFunc018003, true)
+    // 英雄卡牌
+    set udg_NCards[0]='IH30'
+    set udg_NCards[1]='IH31'
+    set udg_NCards[2]='IH32'
+    set udg_NCards[3]='IH33'
+    set udg_NCards[4]='IH34'
+    set udg_NCards[5]='IH35'
+    set udg_NCards[6]='IH36'
+    set udg_NCards[7]='IH37'
+    set udg_RCards[0]='IH38'
+    set udg_RCards[1]='IH41'
+    set udg_RCards[2]='IH42'
+    set udg_RCards[3]='IH43'
+    set udg_RCards[4]='IH44'
+    set udg_SRCards[0]='IH02'
+    set udg_SRCards[1]='IH03'
+    set udg_SRCards[2]='IH04'
+    set udg_SRCards[3]='IH06'
+    set udg_SRCards[4]='IH07'
+    set udg_SRCards[5]='IH12'
+    set udg_SRCards[6]='IH17'
+    set udg_SRCards[7]='IH19'
+    set udg_SRCards[8]='IH21'
+    set udg_SSRCards[0]='IH05'
+    set udg_SSRCards[1]='IH10'
+    set udg_SSRCards[2]='IH13'
+    set udg_SSRCards[3]='IH16'
+    call DzFrameSetScriptByCode(DzFrameFindByName("HeroCard", 0), 1, function Trig_initButtonFunc021003, true)
+    call DzFrameSetScriptByCode(DzFrameFindByName("HeroCard1", 0), 1, function Trig_initButtonFunc022003, true)
+    call DzFrameSetScriptByCode(DzFrameFindByName("HeroCard2", 0), 1, function Trig_initButtonFunc023003, true)
+    // 购买按钮
+    call DzFrameSetScriptByCode(DzFrameFindByName("ABB2", 0), 1, function Trig_initButtonFunc025003, true)
+    // 出售按钮
+    call DzFrameSetScriptByCode(DzFrameFindByName("ABB1", 0), 1, function Trig_initButtonFunc027003, true)
+    // 关闭卡片召唤界面
+    call DzFrameSetScriptByCode(DzFrameFindByName("ABBLACK", 0), 1, function Trig_initButtonFunc029003, true)
+    call FlushChildHashtable(YDLOC, GetHandleId(GetTriggeringTrigger()) * ydl_localvar_step)
+endfunction
+//===========================================================================
+function InitTrig_initButton takes nothing returns nothing
+    set gg_trg_initButton=CreateTrigger()
+    call TriggerAddAction(gg_trg_initButton, function Trig_initButtonActions)
+endfunction
+//===========================================================================
+// Trigger: Trig0
+//
+//     set udg_Frames[framesId]=DzFrameFindByName("ItemCellAds", 0)
+//     call DzFrameShow(udg_Frames[framesId], false)
+//     set udg_Frames[framesId]=DzFrameFindByName("ItemCellAps", 0)
+//     call DzFrameShow(udg_Frames[framesId], false)
+//     set udg_Frames[framesId]=DzFrameFindByName("ItemCellCrits", 0)
+//     call DzFrameShow(udg_Frames[framesId], false)
+//     set udg_Frames[framesId]=DzFrameFindByName("ItemCellCooldowns", 0)
+//     call DzFrameShow(udg_Frames[framesId], false)
+//     set udg_Frames[framesId]=DzFrameFindByName("ItemCellManas", 0)
+//     call DzFrameShow(udg_Frames[framesId], false)
+//===========================================================================
+function Trig_Trig0Actions takes nothing returns nothing
+    if ( ( udg_ui_isHEOpen[GetPlayerId(DzGetTriggerUIEventPlayer())] == false ) ) then
+        set udg_ui_isHEOpen[GetPlayerId(DzGetTriggerUIEventPlayer())]=true
+        if ( ( DzGetTriggerUIEventPlayer() == GetLocalPlayer() ) ) then
+            call DzFrameShow(udg_UI_ab[0], true)
+            call DzFrameShow(DzFrameFindByName("ItemCellAds", 0), true)
+            call DzFrameShow(DzFrameFindByName("ItemCellAps", 0), false)
+            call DzFrameShow(DzFrameFindByName("ItemCellCrits", 0), false)
+            call DzFrameShow(DzFrameFindByName("ItemCellCooldowns", 0), false)
+            call DzFrameShow(DzFrameFindByName("ItemCellManas", 0), false)
+            call RefreshItemCell(GetLocalPlayer())
+        else
+        endif
+    else
+        set udg_ui_isHEOpen[GetPlayerId(DzGetTriggerUIEventPlayer())]=false
+        if ( ( DzGetTriggerUIEventPlayer() == GetLocalPlayer() ) ) then
+            call DzFrameShow(udg_UI_ab[0], false)
+            call DzFrameShow(udg_UI_ab[2], false)
+        else
+        endif
+    endif
+endfunction
+//===========================================================================
+function InitTrig_Trig0 takes nothing returns nothing
+    set gg_trg_Trig0=CreateTrigger()
+    call TriggerAddAction(gg_trg_Trig0, function Trig_Trig0Actions)
+endfunction
+//===========================================================================
+// Trigger: Trig1
+//===========================================================================
+function Trig_Trig1Actions takes nothing returns nothing
+    if ( ( DzGetTriggerUIEventPlayer() == GetLocalPlayer() ) ) then
+        call DzFrameSetText(DzFrameFindByName("AA33", 0), "|cff00ffff物理|r|n|cff00ffff攻击|r")
+        call DzFrameSetText(DzFrameFindByName("AA44", 0), "|cFFFCC403攻速|r|n|cFFFCC403暴击|r")
+        call DzFrameSetText(DzFrameFindByName("AA55", 0), "|cFFFCC403法术|r|n|cFFFCC403攻击|r")
+        call DzFrameSetText(DzFrameFindByName("AA66", 0), "|cFFFCC403冷却|r|n|cFFFCC403缩减|r")
+        call DzFrameSetText(DzFrameFindByName("AA77", 0), "|cFFFCC403法力|r|n|cFFFCC403回复|r")
+        call DzFrameShow(DzFrameFindByName("ItemCellAds", 0), true)
+        call DzFrameShow(DzFrameFindByName("ItemCellAps", 0), false)
+        call DzFrameShow(DzFrameFindByName("ItemCellCrits", 0), false)
+        call DzFrameShow(DzFrameFindByName("ItemCellCooldowns", 0), false)
+        call DzFrameShow(DzFrameFindByName("ItemCellManas", 0), false)
+    else
+    endif
+endfunction
+//===========================================================================
+function InitTrig_Trig1 takes nothing returns nothing
+    set gg_trg_Trig1=CreateTrigger()
+    call TriggerAddAction(gg_trg_Trig1, function Trig_Trig1Actions)
+endfunction
+//===========================================================================
+// Trigger: Trig2
+//===========================================================================
+function Trig_Trig2Actions takes nothing returns nothing
+    if ( ( DzGetTriggerUIEventPlayer() == GetLocalPlayer() ) ) then
+        call DzFrameSetText(DzFrameFindByName("AA33", 0), "|cFFFCC403物理|r|n|cFFFCC403攻击|r")
+        call DzFrameSetText(DzFrameFindByName("AA44", 0), "|cff00ffff攻速|r|n|cff00ffff暴击|r")
+        call DzFrameSetText(DzFrameFindByName("AA55", 0), "|cFFFCC403法术|r|n|cFFFCC403攻击|r")
+        call DzFrameSetText(DzFrameFindByName("AA66", 0), "|cFFFCC403冷却|r|n|cFFFCC403缩减|r")
+        call DzFrameSetText(DzFrameFindByName("AA77", 0), "|cFFFCC403法力|r|n|cFFFCC403回复|r")
+        call DzFrameShow(DzFrameFindByName("ItemCellAds", 0), false)
+        call DzFrameShow(DzFrameFindByName("ItemCellAps", 0), false)
+        call DzFrameShow(DzFrameFindByName("ItemCellCrits", 0), true)
+        call DzFrameShow(DzFrameFindByName("ItemCellCooldowns", 0), false)
+        call DzFrameShow(DzFrameFindByName("ItemCellManas", 0), false)
+    else
+    endif
+endfunction
+//===========================================================================
+function InitTrig_Trig2 takes nothing returns nothing
+    set gg_trg_Trig2=CreateTrigger()
+    call TriggerAddAction(gg_trg_Trig2, function Trig_Trig2Actions)
+endfunction
+//===========================================================================
+// Trigger: Trig3
+//===========================================================================
+function Trig_Trig3Actions takes nothing returns nothing
+    if ( ( DzGetTriggerUIEventPlayer() == GetLocalPlayer() ) ) then
+        call DzFrameSetText(DzFrameFindByName("AA33", 0), "|cFFFCC403物理|r|n|cFFFCC403攻击|r")
+        call DzFrameSetText(DzFrameFindByName("AA44", 0), "|cFFFCC403攻速|r|n|cFFFCC403暴击|r")
+        call DzFrameSetText(DzFrameFindByName("AA55", 0), "|cff00ffff法术|r|n|cff00ffff攻击|r")
+        call DzFrameSetText(DzFrameFindByName("AA66", 0), "|cFFFCC403冷却|r|n|cFFFCC403缩减|r")
+        call DzFrameSetText(DzFrameFindByName("AA77", 0), "|cFFFCC403法力|r|n|cFFFCC403回复|r")
+        call DzFrameShow(DzFrameFindByName("ItemCellAds", 0), false)
+        call DzFrameShow(DzFrameFindByName("ItemCellAps", 0), true)
+        call DzFrameShow(DzFrameFindByName("ItemCellCrits", 0), false)
+        call DzFrameShow(DzFrameFindByName("ItemCellCooldowns", 0), false)
+        call DzFrameShow(DzFrameFindByName("ItemCellManas", 0), false)
+    else
+    endif
+endfunction
+//===========================================================================
+function InitTrig_Trig3 takes nothing returns nothing
+    set gg_trg_Trig3=CreateTrigger()
+    call TriggerAddAction(gg_trg_Trig3, function Trig_Trig3Actions)
+endfunction
+//===========================================================================
+// Trigger: Trig4
+//===========================================================================
+function Trig_Trig4Actions takes nothing returns nothing
+    if ( ( DzGetTriggerUIEventPlayer() == GetLocalPlayer() ) ) then
+        call DzFrameSetText(DzFrameFindByName("AA33", 0), "|cFFFCC403物理|r|n|cFFFCC403攻击|r")
+        call DzFrameSetText(DzFrameFindByName("AA44", 0), "|cFFFCC403攻速|r|n|cFFFCC403暴击|r")
+        call DzFrameSetText(DzFrameFindByName("AA55", 0), "|cFFFCC403法术|r|n|cFFFCC403攻击|r")
+        call DzFrameSetText(DzFrameFindByName("AA66", 0), "|cff00ffff冷却|r|n|cff00ffff缩减|r")
+        call DzFrameSetText(DzFrameFindByName("AA77", 0), "|cFFFCC403法力|r|n|cFFFCC403回复|r")
+        call DzFrameShow(DzFrameFindByName("ItemCellAds", 0), false)
+        call DzFrameShow(DzFrameFindByName("ItemCellAps", 0), false)
+        call DzFrameShow(DzFrameFindByName("ItemCellCrits", 0), false)
+        call DzFrameShow(DzFrameFindByName("ItemCellCooldowns", 0), true)
+        call DzFrameShow(DzFrameFindByName("ItemCellManas", 0), false)
+    else
+    endif
+endfunction
+//===========================================================================
+function InitTrig_Trig4 takes nothing returns nothing
+    set gg_trg_Trig4=CreateTrigger()
+    call TriggerAddAction(gg_trg_Trig4, function Trig_Trig4Actions)
+endfunction
+//===========================================================================
+// Trigger: Trig5
+//===========================================================================
+function Trig_Trig5Actions takes nothing returns nothing
+    if ( ( DzGetTriggerUIEventPlayer() == GetLocalPlayer() ) ) then
+        call DzFrameSetText(DzFrameFindByName("AA33", 0), "|cFFFCC403物理|r|n|cFFFCC403攻击|r")
+        call DzFrameSetText(DzFrameFindByName("AA44", 0), "|cFFFCC403攻速|r|n|cFFFCC403暴击|r")
+        call DzFrameSetText(DzFrameFindByName("AA55", 0), "|cFFFCC403法术|r|n|cFFFCC403攻击|r")
+        call DzFrameSetText(DzFrameFindByName("AA66", 0), "|cFFFCC403冷却|r|n|cFFFCC403缩减|r")
+        call DzFrameSetText(DzFrameFindByName("AA77", 0), "|cff00ffff法力|r|n|cff00ffff回复|r")
+        call DzFrameShow(DzFrameFindByName("ItemCellAds", 0), false)
+        call DzFrameShow(DzFrameFindByName("ItemCellAps", 0), false)
+        call DzFrameShow(DzFrameFindByName("ItemCellCrits", 0), false)
+        call DzFrameShow(DzFrameFindByName("ItemCellCooldowns", 0), false)
+        call DzFrameShow(DzFrameFindByName("ItemCellManas", 0), true)
+    else
+    endif
+endfunction
+//===========================================================================
+function InitTrig_Trig5 takes nothing returns nothing
+    set gg_trg_Trig5=CreateTrigger()
+    call TriggerAddAction(gg_trg_Trig5, function Trig_Trig5Actions)
+endfunction
+//===========================================================================
+// Trigger: Trig6
+//===========================================================================
+function Trig_Trig6Actions takes nothing returns nothing
+    if ( ( udg_ui_isHEOpen[GetPlayerId(DzGetTriggerUIEventPlayer())] == true ) ) then
+        set udg_ui_isHEOpen[GetPlayerId(DzGetTriggerUIEventPlayer())]=false
+        if ( ( DzGetTriggerUIEventPlayer() == GetLocalPlayer() ) ) then
+            call DzFrameShow(udg_UI_ab[0], false)
+            call DzFrameShow(udg_UI_ab[2], false)
+        else
+        endif
+    else
+    endif
+endfunction
+//===========================================================================
+function InitTrig_Trig6 takes nothing returns nothing
+    set gg_trg_Trig6=CreateTrigger()
+    call TriggerAddAction(gg_trg_Trig6, function Trig_Trig6Actions)
+endfunction
+//===========================================================================
+// Trigger: Trig7_1
+//
+// 随机数不能异步处理 只能在同步环境处理
+//===========================================================================
+function Trig_Trig7_1Actions takes nothing returns nothing
+    local unit selectedUnit=udg_SelectedHeros[GetPlayerId(DzGetTriggerUIEventPlayer())]
+    local integer random= GetRandomInt(1, 100)
+    local integer card= 0
+    if ( ( GetPlayerState(DzGetTriggerUIEventPlayer(), PLAYER_STATE_RESOURCE_GOLD) < 2000 ) ) then
+        call DisplayTextToPlayer(DzGetTriggerUIEventPlayer(), 0, 0, "|cffff0000金币不足，卡片召唤失败！|r")
+        return
+    else
+    endif
+    if ( ( selectedUnit == null ) ) then
+        call DisplayTextToPlayer(DzGetTriggerUIEventPlayer(), 0, 0, "|cffff0000请确认您当前选择的单位拥有道具栏！|r")
+        return
+    else
+    endif
+    if ( ( random <= 40 ) ) then
+        set card=udg_NCards[GetRandomInt(0, 7)]
+    else
+        if ( ( ( random >= 40 ) and ( random <= 80 ) ) ) then
+            set card=udg_RCards[GetRandomInt(0, 4)]
+        else
+            if ( ( random > 40 ) ) then
+                set card=udg_SRCards[GetRandomInt(0, 8)]
+            else
+            endif
+        endif
+    endif
+    if ( ( DzGetTriggerUIEventPlayer() == GetLocalPlayer() ) ) then
+        call SetHeroSkillIcon(card , 2000)
+    else
+    endif
+endfunction
+//===========================================================================
+function InitTrig_Trig7_1 takes nothing returns nothing
+    set gg_trg_Trig7_1=CreateTrigger()
+    call TriggerAddAction(gg_trg_Trig7_1, function Trig_Trig7_1Actions)
+endfunction
+//===========================================================================
+// Trigger: Trig7_2
+//===========================================================================
+function Trig_Trig7_2Actions takes nothing returns nothing
+    local unit selectedUnit=udg_SelectedHeros[GetPlayerId(DzGetTriggerUIEventPlayer())]
+    local integer random= GetRandomInt(1, 100)
+    local integer card= 0
+    if ( ( GetPlayerState(DzGetTriggerUIEventPlayer(), PLAYER_STATE_RESOURCE_GOLD) < 4000 ) ) then
+        call DisplayTextToPlayer(DzGetTriggerUIEventPlayer(), 0, 0, "|cffff0000金币不足，卡片召唤失败！|r")
+        return
+    else
+    endif
+    if ( ( selectedUnit == null ) ) then
+        call DisplayTextToPlayer(DzGetTriggerUIEventPlayer(), 0, 0, "|cffff0000请确认您当前选择的单位拥有道具栏！|r")
+        return
+    else
+    endif
+    if ( ( random <= 30 ) ) then
+        set card=udg_RCards[GetRandomInt(0, 4)]
+    else
+        if ( ( ( random >= 30 ) and ( random <= 90 ) ) ) then
+            set card=udg_SRCards[GetRandomInt(0, 8)]
+        else
+            if ( ( random > 90 ) ) then
+                set card=udg_SSRCards[GetRandomInt(0, 3)]
+            else
+            endif
+        endif
+    endif
+    if ( ( DzGetTriggerUIEventPlayer() == GetLocalPlayer() ) ) then
+        call SetHeroSkillIcon(card , 4000)
+    else
+    endif
+endfunction
+//===========================================================================
+function InitTrig_Trig7_2 takes nothing returns nothing
+    set gg_trg_Trig7_2=CreateTrigger()
+    call TriggerAddAction(gg_trg_Trig7_2, function Trig_Trig7_2Actions)
+endfunction
+//===========================================================================
+// Trigger: Trig7_3
+//===========================================================================
+function Trig_Trig7_3Actions takes nothing returns nothing
+    local unit selectedUnit=udg_SelectedHeros[GetPlayerId(DzGetTriggerUIEventPlayer())]
+    local integer random= GetRandomInt(1, 100)
+    local integer card= 0
+    if ( ( GetPlayerState(DzGetTriggerUIEventPlayer(), PLAYER_STATE_RESOURCE_GOLD) < 8000 ) ) then
+        call DisplayTextToPlayer(DzGetTriggerUIEventPlayer(), 0, 0, "|cffff0000金币不足，卡片召唤失败！|r")
+        return
+    else
+    endif
+    if ( ( selectedUnit == null ) ) then
+        call DisplayTextToPlayer(DzGetTriggerUIEventPlayer(), 0, 0, "|cffff0000请确认您当前选择的单位拥有道具栏！|r")
+        return
+    else
+    endif
+    if ( ( random <= 70 ) ) then
+        set card=udg_SRCards[GetRandomInt(0, 8)]
+    else
+        if ( ( random > 70 ) ) then
+            set card=udg_SSRCards[GetRandomInt(0, 3)]
+        else
+        endif
+    endif
+    if ( ( DzGetTriggerUIEventPlayer() == GetLocalPlayer() ) ) then
+        call SetHeroSkillIcon(card , 8000)
+    else
+    endif
+endfunction
+//===========================================================================
+function InitTrig_Trig7_3 takes nothing returns nothing
+    set gg_trg_Trig7_3=CreateTrigger()
+    call TriggerAddAction(gg_trg_Trig7_3, function Trig_Trig7_3Actions)
+endfunction
+//===========================================================================
+// Trigger: Trig8
+//
+//     if ((selectedUnit  == null)) then
+//         call DisplayTextToPlayer( DzGetTriggerUIEventPlayer(), 0, 0, "TRIGSTR_3239" )
+//         return
+//     else
+//     endif
+//===========================================================================
+//TESH.scrollpos=15
+//TESH.alwaysfold=0
+function Trig_Trig8Actions takes nothing returns nothing
+    local unit selectedUnit
+    local item it
+    local integer goldcost
+    local integer id
+    local integer index= 0
+    local integer itemIndex= 5
+    local string newArt
+    if ( ( DzGetTriggerUIEventPlayer() == GetLocalPlayer() ) ) then
+        set selectedUnit=udg_SelectedHeros[GetPlayerId(DzGetTriggerUIEventPlayer())]
+        set id=udg_SelectedItemId[GetPlayerId(DzGetTriggerUIEventPlayer())]
+        set goldcost=S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(id) + "].goldcost") ))
+        if ( selectedUnit == null or id == 0 ) then
+            call DisplayTextToPlayer(DzGetTriggerUIEventPlayer(), 0, 0, "|cffff0000请确认您当前选择的单位拥有道具栏！|r")
+            return
+        endif
+         if ( ( UnitInventoryCount(selectedUnit) >= 6 ) ) then
+            call DisplayTextToPlayer(DzGetTriggerUIEventPlayer(), 0, 0, "道具栏已满，购买失败！")
+         else
+             //一重循环
+if ( id == 1227896631 ) then
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227894834 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894834) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                    
+                endif
+             //一重循环
+if ( id == 1227896370 ) then
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227894833 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894833) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                    
+                endif
+             //一重循环
+if ( id == 1227896629 ) then
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227895607 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895607) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227895857 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895857) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227895609 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895609) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                    
+                endif
+             //一重循环
+if ( id == 1227896627 ) then
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227895353 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895353) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227895352 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895352) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227894841 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894841) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                    
+                endif
+             //一重循环
+if ( id == 1227896625 ) then
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227895605 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895605) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227895607 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895607) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227895609 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895609) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                    
+                endif
+             //一重循环
+if ( id == 1227896377 ) then
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227894841 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894841) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227895352 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895352) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                    
+                endif
+             //一重循环
+if ( id == 1227896374 ) then
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227895601 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895601) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227895353 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895353) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                    
+                endif
+             //一重循环
+if ( id == 1227896372 ) then
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227895603 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895603) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227895352 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895352) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                    
+                endif
+             //一重循环
+if ( id == 1227896368 ) then
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227895347 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895347) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227895088 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895088) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                    
+                endif
+             //一重循环
+if ( id == 1227895607 ) then
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227894841 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894841) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                    
+                endif
+             //一重循环
+if ( id == 1227895609 ) then
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227894840 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894840) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227894840 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894840) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                    
+                endif
+             //一重循环
+if ( id == 1227895857 ) then
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227894841 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894841) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227894839 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894839) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                    
+                endif
+             //一重循环
+if ( id == 1227895859 ) then
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227895089 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895089) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227895089 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895089) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                    
+                endif
+             //一重循环
+if ( id == 1227895861 ) then
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227895347 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895347) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227895603 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895603) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227895093 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895093) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                    
+                endif
+             //一重循环
+if ( id == 1227895863 ) then
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227895601 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895601) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227895088 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895088) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                    
+                endif
+             //一重循环
+if ( id == 1227896112 ) then
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227895347 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895347) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227895345 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895345) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                    
+                endif
+             //一重循环
+if ( id == 1227895345 ) then
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227894837 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894837) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227894837 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894837) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                    
+                endif
+             //一重循环
+if ( id == 1227896114 ) then
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227895349 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895349) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227895088 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895088) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                    
+                endif
+             //一重循环
+if ( id == 1227895091 ) then
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227894836 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894836) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227894836 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894836) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                    
+                endif
+             //一重循环
+if ( id == 1227896116 ) then
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227895345 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895345) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227895097 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895097) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                    
+                endif
+             //一重循环
+if ( id == 1227895093 ) then
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227894836 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894836) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227894838 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894838) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                    
+                endif
+             //一重循环
+if ( id == 1227896118 ) then
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227895093 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895093) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227894836 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894836) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227894836 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894836) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                    
+                endif
+             //一重循环
+if ( id == 1227895095 ) then
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227894837 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894837) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                    
+                endif
+             //一重循环
+if ( id == 1227896120 ) then
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227895093 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895093) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227895091 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895091) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                    
+                endif
+             //一重循环
+if ( id == 1227895097 ) then
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227894837 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894837) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227894837 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894837) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                    
+                endif
+             //一重循环
+if ( id == 1227895605 ) then
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227894841 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894841) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227894840 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894840) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227894840 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894840) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                    
+                endif
+             //一重循环
+if ( id == 1227895603 ) then
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227894839 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894839) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                    
+                endif
+             //一重循环
+if ( id == 1227895601 ) then
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227894839 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894839) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227894840 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894840) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                    
+                endif
+             //一重循环
+if ( id == 1227895351 ) then
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227895093 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227895093) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227894836 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894836) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                    
+                endif
+             //一重循环
+if ( id == 1227895349 ) then
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227894837 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894837) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227894837 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894837) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                    
+                endif
+             //一重循环
+if ( id == 1227895347 ) then
+                     //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                        loop
+                            exitwhen bj_forLoopAIndex < 0
+                            set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                            if it != null and GetItemTypeId(it) == 1227894837 then
+                                set goldcost=goldcost - S2I(( EXExecuteScript("(require'jass.slk').item[" + I2S(1227894837) + "].goldcost") ))
+                                set itemIndex=bj_forLoopAIndex - 1
+                                set bj_forLoopAIndex=0
+                            endif
+                            set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                        endloop
+                    
+                endif
+            
+            if ( ( goldcost <= GetPlayerState(DzGetTriggerUIEventPlayer(), PLAYER_STATE_RESOURCE_GOLD) ) ) then
+                call DisplayTextToPlayer(DzGetTriggerUIEventPlayer(), 0, 0, "购买道具成功！")
+                set itemIndex=5
+                 //一重循环
+if ( id == 1227896631 ) then
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227894834 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                        
+                    endif
+                 //一重循环
+if ( id == 1227896370 ) then
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227894833 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                        
+                    endif
+                 //一重循环
+if ( id == 1227896629 ) then
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227895607 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227895857 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227895609 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                        
+                    endif
+                 //一重循环
+if ( id == 1227896627 ) then
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227895353 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227895352 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227894841 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                        
+                    endif
+                 //一重循环
+if ( id == 1227896625 ) then
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227895605 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227895607 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227895609 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                        
+                    endif
+                 //一重循环
+if ( id == 1227896377 ) then
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227894841 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227895352 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                        
+                    endif
+                 //一重循环
+if ( id == 1227896374 ) then
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227895601 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227895353 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                        
+                    endif
+                 //一重循环
+if ( id == 1227896372 ) then
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227895603 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227895352 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                        
+                    endif
+                 //一重循环
+if ( id == 1227896368 ) then
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227895347 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227895088 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                        
+                    endif
+                 //一重循环
+if ( id == 1227895607 ) then
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227894841 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                        
+                    endif
+                 //一重循环
+if ( id == 1227895609 ) then
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227894840 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227894840 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                        
+                    endif
+                 //一重循环
+if ( id == 1227895857 ) then
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227894841 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227894839 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                        
+                    endif
+                 //一重循环
+if ( id == 1227895859 ) then
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227895089 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227895089 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                        
+                    endif
+                 //一重循环
+if ( id == 1227895861 ) then
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227895347 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227895603 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227895093 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                        
+                    endif
+                 //一重循环
+if ( id == 1227895863 ) then
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227895601 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227895088 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                        
+                    endif
+                 //一重循环
+if ( id == 1227896112 ) then
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227895347 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227895345 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                        
+                    endif
+                 //一重循环
+if ( id == 1227895345 ) then
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227894837 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227894837 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                        
+                    endif
+                 //一重循环
+if ( id == 1227896114 ) then
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227895349 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227895088 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                        
+                    endif
+                 //一重循环
+if ( id == 1227895091 ) then
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227894836 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227894836 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                        
+                    endif
+                 //一重循环
+if ( id == 1227896116 ) then
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227895345 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227895097 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                        
+                    endif
+                 //一重循环
+if ( id == 1227895093 ) then
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227894836 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227894838 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                        
+                    endif
+                 //一重循环
+if ( id == 1227896118 ) then
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227895093 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227894836 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227894836 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                        
+                    endif
+                 //一重循环
+if ( id == 1227895095 ) then
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227894837 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                        
+                    endif
+                 //一重循环
+if ( id == 1227896120 ) then
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227895093 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227895091 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                        
+                    endif
+                 //一重循环
+if ( id == 1227895097 ) then
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227894837 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227894837 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                        
+                    endif
+                 //一重循环
+if ( id == 1227895605 ) then
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227894841 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227894840 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227894840 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                        
+                    endif
+                 //一重循环
+if ( id == 1227895603 ) then
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227894839 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                        
+                    endif
+                 //一重循环
+if ( id == 1227895601 ) then
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227894839 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227894840 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                        
+                    endif
+                 //一重循环
+if ( id == 1227895351 ) then
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227895093 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227894836 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                        
+                    endif
+                 //一重循环
+if ( id == 1227895349 ) then
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227894837 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227894837 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                        
+                    endif
+                 //一重循环
+if ( id == 1227895347 ) then
+                         //二重循环
+//三重循环
+set bj_forLoopAIndex=itemIndex
+                            loop
+                                exitwhen bj_forLoopAIndex < 0
+                                set it=UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+                                if it != null and GetItemTypeId(it) == 1227894837 then
+                                    call DzSyncData("AddItem2", I2S(bj_forLoopAIndex))
+                                    set itemIndex=bj_forLoopAIndex - 1
+                                    set bj_forLoopAIndex=0
+                                endif
+                                set bj_forLoopAIndex=bj_forLoopAIndex - 1
+                            endloop
+                        
+                    endif
+                
+                call DzSyncData("AddItem", I2S(id))
+                call DzSyncData("BuyItem", I2S(goldcost))
+            else
+                call DisplayTextToPlayer(DzGetTriggerUIEventPlayer(), 0, 0, "金币不足，购买失败！")
+            endif
+         endif
+    endif
+endfunction
+//===========================================================================
+function InitTrig_Trig8 takes nothing returns nothing
+    set gg_trg_Trig8=CreateTrigger()
+    call TriggerAddAction(gg_trg_Trig8, function Trig_Trig8Actions)
+endfunction
+//===========================================================================
+// Trigger: Trig9
+//===========================================================================
+function Trig_Trig9Actions takes nothing returns nothing
+    if ( ( DzGetTriggerUIEventPlayer() == GetLocalPlayer() ) ) then
+        call DzFrameShow(DzFrameFindByName("BAG3", 0), false)
+        call DzFrameShow(DzFrameFindByName("ABBLACK", 0), false)
+    else
+    endif
+endfunction
+//===========================================================================
+function InitTrig_Trig9 takes nothing returns nothing
+    set gg_trg_Trig9=CreateTrigger()
+    call TriggerAddAction(gg_trg_Trig9, function Trig_Trig9Actions)
+endfunction
+//===========================================================================
+// Trigger: ESC
+//===========================================================================
+function Trig_ESCActions takes nothing returns nothing
+    if ( ( udg_ui_isHEOpen[GetPlayerId(GetTriggerPlayer())] == true ) ) then
+        set udg_ui_isHEOpen[GetPlayerId(GetTriggerPlayer())]=false
+        if ( ( GetTriggerPlayer() == GetLocalPlayer() ) ) then
+            call DzFrameShow(udg_UI_ab[0], false)
+            call DzFrameShow(udg_UI_ab[2], false)
+        else
+        endif
+    else
+    endif
+endfunction
+//===========================================================================
+function InitTrig_ESC takes nothing returns nothing
+    set gg_trg_ESC=CreateTrigger()
+
+        call TriggerRegisterPlayerEventEndCinematic(gg_trg_ESC, Player(0))
+        call TriggerRegisterPlayerEventEndCinematic(gg_trg_ESC, Player(1))
+        call TriggerRegisterPlayerEventEndCinematic(gg_trg_ESC, Player(2))
+        call TriggerRegisterPlayerEventEndCinematic(gg_trg_ESC, Player(3))
+        call TriggerRegisterPlayerEventEndCinematic(gg_trg_ESC, Player(4))
+        call TriggerRegisterPlayerEventEndCinematic(gg_trg_ESC, Player(5))
+        call TriggerRegisterPlayerEventEndCinematic(gg_trg_ESC, Player(6))
+        call TriggerRegisterPlayerEventEndCinematic(gg_trg_ESC, Player(7))
+        call TriggerRegisterPlayerEventEndCinematic(gg_trg_ESC, Player(8))
+        call TriggerRegisterPlayerEventEndCinematic(gg_trg_ESC, Player(9))
+        call TriggerRegisterPlayerEventEndCinematic(gg_trg_ESC, Player(10))
+        call TriggerRegisterPlayerEventEndCinematic(gg_trg_ESC, Player(11))
+        call TriggerRegisterPlayerEventEndCinematic(gg_trg_ESC, Player(12))
+        call TriggerRegisterPlayerEventEndCinematic(gg_trg_ESC, Player(13))
+        call TriggerRegisterPlayerEventEndCinematic(gg_trg_ESC, Player(14))
+        call TriggerRegisterPlayerEventEndCinematic(gg_trg_ESC, Player(15))
+    call TriggerAddAction(gg_trg_ESC, function Trig_ESCActions)
+endfunction
+//===========================================================================
+// Trigger: Fram60Action
+//===========================================================================
+//TESH.scrollpos=0
+//TESH.alwaysfold=0
+function Trig_Fram60ActionActions takes nothing returns nothing
+    local unit selectedUnit
+    local item it
+    local integer id
+    local integer goldcost
+    if DzGetTriggerUIEventPlayer() != GetLocalPlayer() or udg_ui_isHEOpen[GetPlayerId(DzGetTriggerUIEventPlayer())] == false then
+        return
+    endif
+    
+    set selectedUnit=udg_SelectedHeros[GetPlayerId(DzGetTriggerUIEventPlayer())]
+    set id=udg_SelectedItemId[GetPlayerId(DzGetTriggerUIEventPlayer())]
+    if id != 0 then
+        call DzSyncData("SellItem", I2S(id))
+        set udg_SelectedItemId[GetPlayerId(DzGetTriggerUIEventPlayer())]=0
+    endif
+endfunction
+//===========================================================================
+function InitTrig_Fram60Action takes nothing returns nothing
+    set gg_trg_Fram60Action=CreateTrigger()
+    call TriggerAddAction(gg_trg_Fram60Action, function Trig_Fram60ActionActions)
+endfunction
+//===========================================================================
+// Trigger: SelectedHero
+//
+// udg_ui_isHEOpen[GetPlayerId(DzGetTriggerUIEventPlayer())] == false 
+//===========================================================================
+function Trig_SelectedHeroActions takes nothing returns nothing
+    if ( ( GetUnitAbilityLevel(GetTriggerUnit(), 'AInv') > 0 ) and ( IsUnitOwnedByPlayer(GetTriggerUnit(), GetTriggerPlayer()) == true ) ) then
+        set udg_SelectedHeros[GetPlayerId(GetTriggerPlayer())]=GetTriggerUnit()
+    else
+        set udg_SelectedHeros[GetPlayerId(GetTriggerPlayer())]=null
+    endif
+endfunction
+//===========================================================================
+function InitTrig_SelectedHero takes nothing returns nothing
+    set gg_trg_SelectedHero=CreateTrigger()
+    call TriggerRegisterPlayerSelectionEventBJ(gg_trg_SelectedHero, Player(0), true)
+    call TriggerRegisterPlayerSelectionEventBJ(gg_trg_SelectedHero, Player(1), true)
+    call TriggerRegisterPlayerSelectionEventBJ(gg_trg_SelectedHero, Player(2), true)
+    call TriggerRegisterPlayerSelectionEventBJ(gg_trg_SelectedHero, Player(3), true)
+    call TriggerAddAction(gg_trg_SelectedHero, function Trig_SelectedHeroActions)
+endfunction
+//===========================================================================
+// Trigger: AddItem
+//
+// //     call DisableTrigger( gg_trg_RefrshItemCell )
+//             
+//             set bj_forLoopAIndex = 0
+//             loop
+//                 exitwhen bj_forLoopAIndex > 5
+//                 set it = UnitItemInSlot(selectedUnit, bj_forLoopAIndex)
+//                 if udg_CellHasItem[bj_forLoopAIndex] == true then
+//                     set udg_CellHasItem[bj_forLoopAIndex] = false 
+//                   //  call RemoveItem(udg_SellItems[bj_forLoopAIndex])
+//                     call DzSyncData( "RemoveItem", I2S(bj_forLoopAIndex) )
+//                 endif
+//                 set bj_forLoopAIndex = bj_forLoopAIndex + 1
+//             endloop  
+//                 
+//             call SetPlayerState(DzGetTriggerUIEventPlayer(), PLAYER_STATE_RESOURCE_GOLD, GetPlayerState(DzGetTriggerUIEventPlayer(), PLAYER_STATE_RESOURCE_GOLD) - goldcost)
+//             //创建道具
+//          //   set it = CreateItem(id, GetUnitX(selectedUnit), GetUnitY(selectedUnit))
+//         //    call UnitAddItem(selectedUnit, it)
+//             call DzSyncData( "AddItem", I2S(id))
+//         //    call RefreshItemCell(DzGetTriggerUIEventPlayer())
+//       //      set indexItem = GetIndexOfItem(selectedUnit,it)
+//             call DzClickFrame(udg_Frames[47+indexItem*2] )
+//      //       call EnableTrigger( gg_trg_RefrshItemCell )
+//===========================================================================
+//TESH.scrollpos=0
+//TESH.alwaysfold=0
+function Trig_AddItemActions takes nothing returns nothing
+   // local integer indexItem
+    local integer itemId= S2I(DzGetTriggerSyncData())
+    local unit selectedUnit= udg_SelectedHeros[GetPlayerId(DzGetTriggerSyncPlayer())]
+    local item it= CreateItem(itemId, GetUnitX(selectedUnit), GetUnitY(selectedUnit))
+    call UnitAddItem(selectedUnit, it)
+    //set indexItem = GetIndexOfItem(selectedUnit,it)
+   // call DzClickFrame(udg_Frames[47+indexItem*2] )
+  //  call DisplayTextToPlayer( Player(0), 0, 0, ( "AddItem:" + DzGetTriggerSyncData() ) )
+endfunction
+//===========================================================================
+function InitTrig_AddItem takes nothing returns nothing
+    set gg_trg_AddItem=CreateTrigger()
+    call DzTriggerRegisterSyncData(gg_trg_AddItem, "AddItem", false)
+    call TriggerAddAction(gg_trg_AddItem, function Trig_AddItemActions)
+endfunction
+//===========================================================================
+// Trigger: BuyItem
+//===========================================================================
+//TESH.scrollpos=0
+//TESH.alwaysfold=0
+function Trig_BuyItemActions takes nothing returns nothing
+    local integer goldcost= S2I(DzGetTriggerSyncData())
+    call SetPlayerStateBJ(DzGetTriggerSyncPlayer(), PLAYER_STATE_RESOURCE_GOLD, GetPlayerState(DzGetTriggerSyncPlayer(), PLAYER_STATE_RESOURCE_GOLD) - goldcost)
+endfunction
+//===========================================================================
+function InitTrig_BuyItem takes nothing returns nothing
+    set gg_trg_BuyItem=CreateTrigger()
+    call DzTriggerRegisterSyncData(gg_trg_BuyItem, "BuyItem", false)
+    call TriggerAddAction(gg_trg_BuyItem, function Trig_BuyItemActions)
+endfunction
+//===========================================================================
+// Trigger: RemoveItem2
+//===========================================================================
+//TESH.scrollpos=0
+//TESH.alwaysfold=0
+function Trig____________________002Actions takes nothing returns nothing
+    local unit selectedUnit= udg_SelectedHeros[GetPlayerId(DzGetTriggerSyncPlayer())]
+    call RemoveItem(UnitItemInSlot(selectedUnit, S2I(DzGetTriggerSyncData())))
+  //  set udg_CellHasItem[S2I(DzGetTriggerSyncData())] = false
+endfunction
+//===========================================================================
+function InitTrig_RemoveItem2 takes nothing returns nothing
+    set gg_trg_RemoveItem2=CreateTrigger()
+    call DzTriggerRegisterSyncData(gg_trg_RemoveItem2, "AddItem2", false)
+    call TriggerAddAction(gg_trg_RemoveItem2, function Trig____________________002Actions)
+endfunction
+//===========================================================================
+// Trigger: SellItem
+//
+// GetInventoryIndexOfItemTypeBJ
+//===========================================================================
+//TESH.scrollpos=0
+//TESH.alwaysfold=0
+function Trig_SellItemActions takes nothing returns nothing
+    local unit selectedUnit= udg_SelectedHeros[GetPlayerId(DzGetTriggerSyncPlayer())]
+    local item it= YDWEGetItemOfTypeFromUnitBJNull(selectedUnit , S2I(DzGetTriggerSyncData()))
+    local integer id= GetItemTypeId(it)
+    local integer goldcost= S2I(EXExecuteScript("(require'jass.slk').item[" + I2S(id) + "].goldcost"))
+    call DisplayTextToPlayer(DzGetTriggerSyncPlayer(), 0, 0, "出售" + ( EXExecuteScript("(require'jass.slk').item[" + I2S(id) + "].Name") ) + "成功！")
+    call SetPlayerState(DzGetTriggerSyncPlayer(), PLAYER_STATE_RESOURCE_GOLD, GetPlayerState(DzGetTriggerSyncPlayer(), PLAYER_STATE_RESOURCE_GOLD) + R2I(goldcost * 0.5))
+    call RemoveItem(it)
+    
+    if DzGetTriggerSyncPlayer() == GetLocalPlayer() then
+        call DisableTrigger(gg_trg_RefrshItemCell)
+        call RefreshItemCell(DzGetTriggerSyncPlayer())
+        call EnableTrigger(gg_trg_RefrshItemCell)
+    endif
+endfunction
+//===========================================================================
+function InitTrig_SellItem takes nothing returns nothing
+    set gg_trg_SellItem=CreateTrigger()
+    call DzTriggerRegisterSyncData(gg_trg_SellItem, "SellItem", false)
+    call TriggerAddAction(gg_trg_SellItem, function Trig_SellItemActions)
+endfunction
+//===========================================================================
+// Trigger: SelectedItem2
+//===========================================================================
+//TESH.scrollpos=0
+//TESH.alwaysfold=0
+function Trig_SelectedItemActions takes nothing returns nothing
+    set udg_SelectedItemIndex[GetPlayerId(DzGetTriggerSyncPlayer())]=S2I(DzGetTriggerSyncData())
+endfunction
+//===========================================================================
+function InitTrig_SelectedItem2 takes nothing returns nothing
+    set gg_trg_SelectedItem2=CreateTrigger()
+    call DzTriggerRegisterSyncData(gg_trg_SelectedItem2, "AddItem3", false)
+    call TriggerAddAction(gg_trg_SelectedItem2, function Trig_SelectedItemActions)
+endfunction
+//===========================================================================
+function InitCustomTriggers takes nothing returns nothing
+    call InitTrig______________________u()
+    call InitTrig_initButton()
+    call InitTrig_Trig0()
+    call InitTrig_Trig1()
+    call InitTrig_Trig2()
+    call InitTrig_Trig3()
+    call InitTrig_Trig4()
+    call InitTrig_Trig5()
+    call InitTrig_Trig6()
+    call InitTrig_Trig7_1()
+    call InitTrig_Trig7_2()
+    call InitTrig_Trig7_3()
+    call InitTrig_Trig8()
+    call InitTrig_Trig9()
+    call InitTrig_ESC()
+    call InitTrig_Fram60Action()
+    call InitTrig_SelectedHero()
+    call InitTrig_AddItem()
+    call InitTrig_BuyItem()
+    call InitTrig_RemoveItem2()
+    call InitTrig_SellItem()
+    call InitTrig_SelectedItem2()
+endfunction
+//===========================================================================
+function RunInitializationTriggers takes nothing returns nothing
+    call ConditionalTriggerExecute(gg_trg______________________u)
+endfunction
+//***************************************************************************
+//*
+//*  Players
+//*
+//***************************************************************************
+function InitCustomPlayerSlots takes nothing returns nothing
+    // Player 0
+    call SetPlayerStartLocation(Player(0), 0)
+    call ForcePlayerStartLocation(Player(0), 0)
+    call SetPlayerColor(Player(0), ConvertPlayerColor(0))
+    call SetPlayerRacePreference(Player(0), RACE_PREF_HUMAN)
+    call SetPlayerRaceSelectable(Player(0), true)
+    call SetPlayerController(Player(0), MAP_CONTROL_USER)
+    // Player 1
+    call SetPlayerStartLocation(Player(1), 1)
+    call ForcePlayerStartLocation(Player(1), 1)
+    call SetPlayerColor(Player(1), ConvertPlayerColor(1))
+    call SetPlayerRacePreference(Player(1), RACE_PREF_HUMAN)
+    call SetPlayerRaceSelectable(Player(1), true)
+    call SetPlayerController(Player(1), MAP_CONTROL_USER)
+    // Player 2
+    call SetPlayerStartLocation(Player(2), 2)
+    call ForcePlayerStartLocation(Player(2), 2)
+    call SetPlayerColor(Player(2), ConvertPlayerColor(2))
+    call SetPlayerRacePreference(Player(2), RACE_PREF_HUMAN)
+    call SetPlayerRaceSelectable(Player(2), true)
+    call SetPlayerController(Player(2), MAP_CONTROL_USER)
+    // Player 3
+    call SetPlayerStartLocation(Player(3), 3)
+    call ForcePlayerStartLocation(Player(3), 3)
+    call SetPlayerColor(Player(3), ConvertPlayerColor(3))
+    call SetPlayerRacePreference(Player(3), RACE_PREF_HUMAN)
+    call SetPlayerRaceSelectable(Player(3), true)
+    call SetPlayerController(Player(3), MAP_CONTROL_USER)
+    // Player 8
+    call SetPlayerStartLocation(Player(8), 4)
+    call SetPlayerColor(Player(8), ConvertPlayerColor(11))
+    call SetPlayerRacePreference(Player(8), RACE_PREF_UNDEAD)
+    call SetPlayerRaceSelectable(Player(8), false)
+    call SetPlayerController(Player(8), MAP_CONTROL_CREEP)
+    // Player 9
+    call SetPlayerStartLocation(Player(9), 5)
+    call SetPlayerColor(Player(9), ConvertPlayerColor(11))
+    call SetPlayerRacePreference(Player(9), RACE_PREF_UNDEAD)
+    call SetPlayerRaceSelectable(Player(9), false)
+    call SetPlayerController(Player(9), MAP_CONTROL_CREEP)
+    // Player 10
+    call SetPlayerStartLocation(Player(10), 6)
+    call SetPlayerColor(Player(10), ConvertPlayerColor(11))
+    call SetPlayerRacePreference(Player(10), RACE_PREF_UNDEAD)
+    call SetPlayerRaceSelectable(Player(10), false)
+    call SetPlayerController(Player(10), MAP_CONTROL_CREEP)
+    // Player 11
+    call SetPlayerStartLocation(Player(11), 7)
+    call SetPlayerColor(Player(11), ConvertPlayerColor(11))
+    call SetPlayerRacePreference(Player(11), RACE_PREF_UNDEAD)
+    call SetPlayerRaceSelectable(Player(11), true)
+    call SetPlayerController(Player(11), MAP_CONTROL_COMPUTER)
+endfunction
+function InitCustomTeams takes nothing returns nothing
+    // Force: TRIGSTR_015
+    call SetPlayerTeam(Player(0), 0)
+    call SetPlayerState(Player(0), PLAYER_STATE_ALLIED_VICTORY, 1)
+    call SetPlayerTeam(Player(1), 0)
+    call SetPlayerState(Player(1), PLAYER_STATE_ALLIED_VICTORY, 1)
+    call SetPlayerTeam(Player(2), 0)
+    call SetPlayerState(Player(2), PLAYER_STATE_ALLIED_VICTORY, 1)
+    call SetPlayerTeam(Player(3), 0)
+    call SetPlayerState(Player(3), PLAYER_STATE_ALLIED_VICTORY, 1)
+    //   Allied
+    call SetPlayerAllianceStateAllyBJ(Player(0), Player(1), true)
+    call SetPlayerAllianceStateAllyBJ(Player(0), Player(2), true)
+    call SetPlayerAllianceStateAllyBJ(Player(0), Player(3), true)
+    call SetPlayerAllianceStateAllyBJ(Player(1), Player(0), true)
+    call SetPlayerAllianceStateAllyBJ(Player(1), Player(2), true)
+    call SetPlayerAllianceStateAllyBJ(Player(1), Player(3), true)
+    call SetPlayerAllianceStateAllyBJ(Player(2), Player(0), true)
+    call SetPlayerAllianceStateAllyBJ(Player(2), Player(1), true)
+    call SetPlayerAllianceStateAllyBJ(Player(2), Player(3), true)
+    call SetPlayerAllianceStateAllyBJ(Player(3), Player(0), true)
+    call SetPlayerAllianceStateAllyBJ(Player(3), Player(1), true)
+    call SetPlayerAllianceStateAllyBJ(Player(3), Player(2), true)
+    //   Shared Vision
+    call SetPlayerAllianceStateVisionBJ(Player(0), Player(1), true)
+    call SetPlayerAllianceStateVisionBJ(Player(0), Player(2), true)
+    call SetPlayerAllianceStateVisionBJ(Player(0), Player(3), true)
+    call SetPlayerAllianceStateVisionBJ(Player(1), Player(0), true)
+    call SetPlayerAllianceStateVisionBJ(Player(1), Player(2), true)
+    call SetPlayerAllianceStateVisionBJ(Player(1), Player(3), true)
+    call SetPlayerAllianceStateVisionBJ(Player(2), Player(0), true)
+    call SetPlayerAllianceStateVisionBJ(Player(2), Player(1), true)
+    call SetPlayerAllianceStateVisionBJ(Player(2), Player(3), true)
+    call SetPlayerAllianceStateVisionBJ(Player(3), Player(0), true)
+    call SetPlayerAllianceStateVisionBJ(Player(3), Player(1), true)
+    call SetPlayerAllianceStateVisionBJ(Player(3), Player(2), true)
+    // Force: TRIGSTR_016
+    call SetPlayerTeam(Player(8), 1)
+    call SetPlayerState(Player(8), PLAYER_STATE_ALLIED_VICTORY, 1)
+    call SetPlayerTeam(Player(9), 1)
+    call SetPlayerState(Player(9), PLAYER_STATE_ALLIED_VICTORY, 1)
+    call SetPlayerTeam(Player(10), 1)
+    call SetPlayerState(Player(10), PLAYER_STATE_ALLIED_VICTORY, 1)
+    call SetPlayerTeam(Player(11), 1)
+    call SetPlayerState(Player(11), PLAYER_STATE_ALLIED_VICTORY, 1)
+    //   Allied
+    call SetPlayerAllianceStateAllyBJ(Player(8), Player(9), true)
+    call SetPlayerAllianceStateAllyBJ(Player(8), Player(10), true)
+    call SetPlayerAllianceStateAllyBJ(Player(8), Player(11), true)
+    call SetPlayerAllianceStateAllyBJ(Player(9), Player(8), true)
+    call SetPlayerAllianceStateAllyBJ(Player(9), Player(10), true)
+    call SetPlayerAllianceStateAllyBJ(Player(9), Player(11), true)
+    call SetPlayerAllianceStateAllyBJ(Player(10), Player(8), true)
+    call SetPlayerAllianceStateAllyBJ(Player(10), Player(9), true)
+    call SetPlayerAllianceStateAllyBJ(Player(10), Player(11), true)
+    call SetPlayerAllianceStateAllyBJ(Player(11), Player(8), true)
+    call SetPlayerAllianceStateAllyBJ(Player(11), Player(9), true)
+    call SetPlayerAllianceStateAllyBJ(Player(11), Player(10), true)
+    //   Shared Vision
+    call SetPlayerAllianceStateVisionBJ(Player(8), Player(9), true)
+    call SetPlayerAllianceStateVisionBJ(Player(8), Player(10), true)
+    call SetPlayerAllianceStateVisionBJ(Player(8), Player(11), true)
+    call SetPlayerAllianceStateVisionBJ(Player(9), Player(8), true)
+    call SetPlayerAllianceStateVisionBJ(Player(9), Player(10), true)
+    call SetPlayerAllianceStateVisionBJ(Player(9), Player(11), true)
+    call SetPlayerAllianceStateVisionBJ(Player(10), Player(8), true)
+    call SetPlayerAllianceStateVisionBJ(Player(10), Player(9), true)
+    call SetPlayerAllianceStateVisionBJ(Player(10), Player(11), true)
+    call SetPlayerAllianceStateVisionBJ(Player(11), Player(8), true)
+    call SetPlayerAllianceStateVisionBJ(Player(11), Player(9), true)
+    call SetPlayerAllianceStateVisionBJ(Player(11), Player(10), true)
+endfunction
+function InitAllyPriorities takes nothing returns nothing
+    call SetStartLocPrioCount(0, 3)
+    call SetStartLocPrio(0, 0, 1, MAP_LOC_PRIO_HIGH)
+    call SetStartLocPrio(0, 1, 2, MAP_LOC_PRIO_LOW)
+    call SetStartLocPrio(0, 2, 3, MAP_LOC_PRIO_HIGH)
+    call SetStartLocPrioCount(1, 3)
+    call SetStartLocPrio(1, 0, 0, MAP_LOC_PRIO_HIGH)
+    call SetStartLocPrio(1, 1, 2, MAP_LOC_PRIO_HIGH)
+    call SetStartLocPrio(1, 2, 3, MAP_LOC_PRIO_LOW)
+    call SetStartLocPrioCount(2, 3)
+    call SetStartLocPrio(2, 0, 0, MAP_LOC_PRIO_LOW)
+    call SetStartLocPrio(2, 1, 1, MAP_LOC_PRIO_HIGH)
+    call SetStartLocPrio(2, 2, 3, MAP_LOC_PRIO_HIGH)
+    call SetStartLocPrioCount(3, 3)
+    call SetStartLocPrio(3, 0, 0, MAP_LOC_PRIO_HIGH)
+    call SetStartLocPrio(3, 1, 1, MAP_LOC_PRIO_LOW)
+    call SetStartLocPrio(3, 2, 2, MAP_LOC_PRIO_HIGH)
+endfunction
+//***************************************************************************
+//*
+//*  Main Initialization
+//*
+//***************************************************************************
+//===========================================================================
+function main takes nothing returns nothing
+    local weathereffect we
+    call SetCameraBounds(- 7552.0 + GetCameraMargin(CAMERA_MARGIN_LEFT), - 7552.0 + GetCameraMargin(CAMERA_MARGIN_BOTTOM), 7552.0 - GetCameraMargin(CAMERA_MARGIN_RIGHT), 7552.0 - GetCameraMargin(CAMERA_MARGIN_TOP), - 7552.0 + GetCameraMargin(CAMERA_MARGIN_LEFT), 7552.0 - GetCameraMargin(CAMERA_MARGIN_TOP), 7552.0 - GetCameraMargin(CAMERA_MARGIN_RIGHT), - 7552.0 + GetCameraMargin(CAMERA_MARGIN_BOTTOM))
+    call SetDayNightModels("Environment\\DNC\\DNCAshenvale\\DNCAshenvaleTerrain\\DNCAshenvaleTerrain.mdl", "Environment\\DNC\\DNCAshenvale\\DNCAshenvaleUnit\\DNCAshenvaleUnit.mdl")
+    call SetTerrainFogEx(0, 1200.0, 7000.0, 0.500, 0.784, 0.471, 0.314)
+    set we=AddWeatherEffect(Rect(- 8192.0, - 8192.0, 8192.0, 8192.0), 'RLlr')
+    call EnableWeatherEffect(we, true)
+    call NewSoundEnvironment("Default")
+    call SetAmbientDaySound("LordaeronSummerDay")
+    call SetAmbientNightSound("LordaeronSummerNight")
+    call SetMapMusic("Music", true, 0)
+    call CreateRegions()
+    call CreateAllUnits()
+    call InitBlizzard()
+
+call ExecuteFunc("YDTriggerSaveLoadSystem__Init")
+call ExecuteFunc("InitializeYD")
+    call InitGlobals()
+
+
+  //  call SetTimeOfDay(12)
+  //  call FogEnable(false)
+  //  call FogMaskEnableOff()
+  //  call Cheat("exec-lua:scripts.runtime")
+   // call Cheat("exec-lua:scripts.main")
+    
+    call InitCustomTriggers()
+    call ConditionalTriggerExecute(gg_trg______________________u) // INLINED!!
+endfunction
+//***************************************************************************
+//*
+//*  Map Configuration
+//*
+//***************************************************************************
+function config takes nothing returns nothing
+    call SetMapName("lol循环圈")
+    call SetMapDescription("没有说明")
+    call SetPlayers(8)
+    call SetTeams(8)
+    call SetGamePlacement(MAP_PLACEMENT_TEAMS_TOGETHER)
+    call DefineStartLocation(0, - 3072.0, 1600.0)
+    call DefineStartLocation(1, 1600.0, 3008.0)
+    call DefineStartLocation(2, 3008.0, - 1600.0)
+    call DefineStartLocation(3, - 1664.0, - 2944.0)
+    call DefineStartLocation(4, 0.0, 128.0)
+    call DefineStartLocation(5, 0.0, 128.0)
+    call DefineStartLocation(6, 0.0, 128.0)
+    call DefineStartLocation(7, 0.0, 128.0)
+    // Player setup
+    call InitCustomPlayerSlots()
+    call InitCustomTeams()
+    call InitAllyPriorities()
+endfunction
+
+
+
+
+//Struct method generated initializers/callers:
+

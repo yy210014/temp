@@ -224,14 +224,14 @@ function GameStart.AnyUnitConstructFinish()
         --开启AI
         IssueImmediateOrder(unit.Entity, "manashieldon")
 
-        --[[  unit.Attribute:add("物理攻击", 10000)
-        unit.Attribute:add("法术攻击", 1000000)
         unit.Attribute:add("魔法恢复", 100)
-
-        --unit.Attribute:add("攻击速度", 2)
-        unit.Attribute:add("暴击", 1)
+        unit.Attribute:add("攻击速度", 2)
+        unit.Attribute:add("暴击", 0.5)
         unit.Attribute:add("冷却缩减上限", 0.5)
         unit.Attribute:add("冷却缩减", 0.5)
+        --[[  unit.Attribute:add("物理攻击", 10000)
+        unit.Attribute:add("法术攻击", 1000000)
+
         SetPlayerState(Player(0), PLAYER_STATE_RESOURCE_GOLD, 200000)]]
         --辅助英雄写死
         if (unit.Id == GetId("UH35")) then
@@ -335,7 +335,7 @@ function GameStart.AnyUnitDeath(killUnit, dieUnit)
     --怪兽掉落
     local playerId = GetPlayerId(killUnit.Player) + 1
     mUnitDeathDropCount[playerId] = mUnitDeathDropCount[playerId] + 1
-    if (mUnitDeathDropCount[playerId] > 15) then
+    if (mUnitDeathDropCount[playerId] > 20) then
         local itemId = Card.RandomDrop()
         if (itemId ~= 0) then
             CreateItem(itemId, dieUnit:X(), dieUnit:Y())

@@ -51,6 +51,7 @@ local mItemOverlayList = {
     ["IB04"] = 0,
     ["IB05"] = 0
 }
+--唯一列表
 local mItemUniquenessList = {
     ["I003"] = 0
 }
@@ -100,8 +101,8 @@ function Item.ItemOverlay(unit, item)
                         RemoveItem(v)
                     end
                     UnitAddItem(unit.Entity, CreateItem(GetId(Card.RandomSSR()), unit:X(), unit:Y()))
-                    return
                 end
+                return
             end
         end
     end
@@ -113,18 +114,20 @@ function Item.ItemCompound(unit)
     local deleteList = {}
     for i = 5, 0, -1 do
         item = UnitItemInSlot(unit.Entity, i)
-        local list = mItemComList[ID2Str(GetItemTypeId(item))]
-        if (list ~= nil) then
-            deleteList[#deleteList + 1] = item
-            for j = 2, #list do
-                local delfItem = Item.HasItem(unit, list[j], deleteList)
-                if (delfItem == nil) then
-                    return false
+        if (item ~= nil) then
+            local list = mItemComList[ID2Str(GetItemTypeId(item))]
+            if (list ~= nil) then
+                deleteList[#deleteList + 1] = item
+                for j = 2, #list do
+                    local delfItem = Item.HasItem(unit, list[j], deleteList)
+                    if (delfItem == nil) then
+                        return false
+                    end
+                    deleteList[#deleteList + 1] = delfItem
                 end
-                deleteList[#deleteList + 1] = delfItem
+                falg = true
+                break
             end
-            falg = true
-            break
         end
     end
 

@@ -1,0 +1,47 @@
+事件
+条件
+动作
+    DzFrameSetText
+        函数: DzFrameFindByName
+            常量: ZTTEXT
+            常量: 0
+        常量: 盖伦
+    DzFrameSetTexture
+        函数: DzFrameFindByName
+            常量: ZTTouX1UP
+            常量: 0
+        常量: Icon\Hero\Hero_IH13.blp
+        常量: 0
+    DzFrameSetTexture
+        函数: DzFrameFindByName
+            常量: ZTJINUP
+            常量: 0
+        常量: Icon\Ability\Ability_AH45.blp
+        常量: 0
+    DzFrameSetTexture
+        函数: DzFrameFindByName
+            常量: ZTJIN1UP
+            常量: 0
+        常量: Icon\Ability\Ability_AH46.blp
+        常量: 0
+    DzFrameSetTexture
+        函数: DzFrameFindByName
+            常量: ZTJIN2UP
+            常量: 0
+        常量: Icon\Ability\Ability_AH47.blp
+        常量: 0
+    DzFrameSetAlpha
+        函数: DzFrameFindByName
+            常量: ABBLACK
+            常量: 0
+        常量: 188
+    DzFrameShow
+        函数: DzFrameFindByName
+            常量: ABBLACK
+            常量: 0
+        常量: true
+    DzFrameShow
+        函数: DzFrameFindByName
+            常量: BAG3
+            常量: 0
+        常量: true

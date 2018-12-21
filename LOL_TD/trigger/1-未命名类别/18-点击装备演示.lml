@@ -1,0 +1,165 @@
+事件
+    TriggerRegisterTimerEventSingle
+        常量: 0.01
+条件
+动作
+    CommentString
+        常量: 右侧图标、价格、介绍初始化
+    DzFrameSetTexture
+        函数: DzFrameFindByName
+            常量: HCUP
+            常量: 0
+        常量: war3mapImported\Akonggezi.tga
+        常量: 0
+    DzFrameSetTexture
+        函数: DzFrameFindByName
+            常量: HC1UP
+            常量: 0
+        常量: war3mapImported\Akonggezi.tga
+        常量: 0
+    DzFrameSetTexture
+        函数: DzFrameFindByName
+            常量: HC2UP
+            常量: 0
+        常量: war3mapImported\Akonggezi.tga
+        常量: 0
+    DzFrameSetTexture
+        函数: DzFrameFindByName
+            常量: HC3UP
+            常量: 0
+        常量: war3mapImported\Akonggezi.tga
+        常量: 0
+    DzFrameSetTexture
+        函数: DzFrameFindByName
+            常量: HCCUP
+            常量: 0
+        常量: war3mapImported\Akonggezi.tga
+        常量: 0
+    CommentString
+        常量: 英雄装备格子初始化
+    DzFrameSetTexture
+        函数: DzFrameFindByName
+            常量: Hero1UP
+            常量: 0
+        常量: war3mapImported\Akonggezi.tga
+        常量: 0
+    DzFrameSetTexture
+        函数: DzFrameFindByName
+            常量: Hero2UP
+            常量: 0
+        常量: war3mapImported\Akonggezi.tga
+        常量: 0
+    DzFrameSetTexture
+        函数: DzFrameFindByName
+            常量: Hero3UP
+            常量: 0
+        常量: war3mapImported\Akonggezi.tga
+        常量: 0
+    DzFrameSetTexture
+        函数: DzFrameFindByName
+            常量: Hero4UP
+            常量: 0
+        常量: war3mapImported\Akonggezi.tga
+        常量: 0
+    DzFrameSetTexture
+        函数: DzFrameFindByName
+            常量: Hero5UP
+            常量: 0
+        常量: war3mapImported\Akonggezi.tga
+        常量: 0
+    DzFrameSetTexture
+        函数: DzFrameFindByName
+            常量: Hero6UP
+            常量: 0
+        常量: war3mapImported\Akonggezi.tga
+        常量: 0
+    禁用: YDWEForLoopLocVarMultiple
+        常量: p
+        常量: 1
+        常量: 12
+        动作
+            DzFrameSetScriptMultiple
+                函数: ConvertedPlayer
+                    函数: YDWEForLoopLocVarIndex
+                        常量: p
+                预设: FrameEvent_Evenr_Pressed
+                函数: DzFrameFindByName
+                    常量: ZB1
+                    常量: 0
+                列表
+                动作
+                    DzFrameSetTexture
+                        函数: DzFrameFindByName
+                            常量: HCUP
+                            常量: 0
+                        常量: war3mapImported\ZB1.tga
+                        常量: 0
+                    DzFrameSetTexture
+                        函数: DzFrameFindByName
+                            常量: HC1UP
+                            常量: 0
+                        常量: war3mapImported\Akonggezi.tga
+                        常量: 0
+                    DzFrameSetTexture
+                        函数: DzFrameFindByName
+                            常量: HC2UP
+                            常量: 0
+                        常量: war3mapImported\Akonggezi.tga
+                        常量: 0
+                    DzFrameSetTexture
+                        函数: DzFrameFindByName
+                            常量: HC3UP
+                            常量: 0
+                        常量: war3mapImported\Akonggezi.tga
+                        常量: 0
+                    DzFrameSetTexture
+                        函数: DzFrameFindByName
+                            常量: HCCUP
+                            常量: 0
+                        常量: war3mapImported\ZB1.tga
+                        常量: 0
+                    DzFrameSetText
+                        函数: DzFrameFindByName
+                            常量: HCA1
+                            常量: 0
+                        常量: |cfff5fcb9400|r
+                    DzFrameSetText
+                        函数: DzFrameFindByName
+                            常量: HC1A1
+                            常量: 0
+                        常量: 
+                    DzFrameSetText
+                        函数: DzFrameFindByName
+                            常量: HC1A2
+                            常量: 0
+                        常量: 
+                    DzFrameSetText
+                        函数: DzFrameFindByName
+                            常量: HC1A3
+                            常量: 0
+                        常量: 
+                    DzFrameSetText
+                        函数: DzFrameFindByName
+                            常量: HC2A1
+                            常量: 0
+                        常量: |cfff5fcb9多兰戒|r
+                    DzFrameSetText
+                        函数: DzFrameFindByName
+                            常量: HC2A2
+                            常量: 0
+                        常量: |cfff5fcb9400|r
+                    DzFrameSetText
+                        函数: DzFrameFindByName
+                            常量: HC2A3
+                            常量: 0
+                        常量: '+ 500生命值'
+                    DzFrameSetText
+                        函数: DzFrameFindByName
+                            常量: HC2A4
+                            常量: 0
+                        常量: '+ 500法强'
+                    DzFrameSetText
+                        函数: DzFrameFindByName
+                            常量: HC2A5
+                            常量: 0
+                        常量: '+ 500智力'

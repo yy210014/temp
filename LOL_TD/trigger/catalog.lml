@@ -1,0 +1,62 @@
+未命名类别: 1-未命名类别
+    初始化装备列表: 01-初始化装备列表
+        运行
+    initButton: 02-initButton
+    Trig0: 03-Trig0
+    Trig1: 04-Trig1
+    Trig2: 05-Trig2
+    Trig3: 06-Trig3
+    Trig4: 07-Trig4
+    Trig5: 08-Trig5
+    Trig6: 09-Trig6
+    Trig7_1: 10-Trig7_1
+    Trig7_2: 11-Trig7_2
+    Trig7_3: 12-Trig7_3
+    Trig8: 13-Trig8
+    Trig9: 14-Trig9
+    '未命名触发器 001': '15-未命名触发器 001'
+        禁用
+    '未命名触发器 002': '16-未命名触发器 002'
+        禁用
+    InitItemCell: 17-InitItemCell
+        禁用
+    点击装备演示: 18-点击装备演示
+        禁用
+    '右键购买装备 演示': '19-右键购买装备 演示'
+        禁用
+    ESC: 20-ESC
+    P: 21-P
+        禁用
+UI: 2-UI
+    InitUi: 01-InitUi
+        禁用
+    Fram2Action: 02-Fram2Action
+        禁用
+    Fram6Action: 03-Fram6Action
+        禁用
+    Fram10Action: 04-Fram10Action
+        禁用
+    Fram14Action: 05-Fram14Action
+        禁用
+    Fram18Action: 06-Fram18Action
+        禁用
+    Fram22Action: 07-Fram22Action
+        禁用
+    Fram45Action: 08-Fram45Action
+        禁用
+    Fram60Action: 09-Fram60Action
+    Fram104Action: 10-Fram104Action
+        禁用
+    Fram105Action: 11-Fram105Action
+        禁用
+    Fram202Action: 12-Fram202Action
+        禁用
+    SelectedHero: 13-SelectedHero
+同步: 3-同步
+    AddItem: 1-AddItem
+    BuyItem: 2-BuyItem
+    RemoveItem2: 3-RemoveItem2
+    SellItem: 4-SellItem
+    SelectedItem2: 5-SelectedItem2
+    RefrshItemCell: 6-RefrshItemCell
+        禁用

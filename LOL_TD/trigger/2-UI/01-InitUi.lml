@@ -1,0 +1,2297 @@
+事件
+    TriggerRegisterTimerEventSingle
+        常量: 0.13
+条件
+动作
+    CommentString
+        常量: 商店面按钮
+    SetVariable
+        数组: Frames
+            常量: 0
+        函数: DzCreateFrame
+            常量: BAG1
+            函数: DzGetGameUI
+            常量: 0
+    DzFrameSetPoint
+        数组: Frames
+            常量: 0
+        预设: FramePoints_Left
+        函数: DzGetGameUI
+        预设: FramePoints_Left
+        常量: 0.07
+        常量: -0.07
+    SetVariable
+        数组: Frames
+            常量: 1
+        函数: DzFrameFindByName
+            常量: AA1
+            常量: 0
+    禁用: DzFrameSetScriptByCode
+        数组: Frames
+            常量: 1
+        预设: FrameEvent_Evenr_Pressed
+        动作: ConditionalTriggerExecute
+            变量: gg_trg_Fram2Action
+        常量: true
+    禁用: SetVariable
+        数组: Frames
+            常量: 0
+        函数: DzCreateFrameByTagName
+            常量: BACKDROP
+            常量: 0
+            函数: DzGetGameUI
+            常量: template
+            常量: 0
+    禁用: DzFrameSetTexture
+        数组: Frames
+            常量: 0
+        常量: ReplaceableTextures\CommandButtons\BTNMGExchange.blp
+        常量: 0
+    禁用: DzFrameSetSize
+        数组: Frames
+            常量: 0
+        常量: 0.03
+        常量: 0.03
+    禁用: DzFrameSetPoint
+        数组: Frames
+            常量: 0
+        预设: FramePoints_Bottom
+        函数: DzGetGameUI
+        预设: FramePoints_Bottom
+        常量: 0.35
+        常量: 0.18
+    禁用: SetVariable
+        数组: Frames
+            常量: 1
+        函数: DzCreateFrame
+            常量: cm12
+            数组: Frames
+                常量: 0
+            常量: 1
+    禁用: DzFrameSetText
+        数组: Frames
+            常量: 1
+        常量: 商店
+    禁用: DzFrameSetSize
+        数组: Frames
+            常量: 1
+        常量: 0.03
+        常量: 0.01
+    禁用: DzFrameSetPoint
+        数组: Frames
+            常量: 1
+        预设: FramePoints_Bottom
+        数组: Frames
+            常量: 0
+        预设: FramePoints_Bottom
+        常量: 0.00
+        常量: 0.00
+    禁用: SetVariable
+        数组: Frames
+            常量: 2
+        函数: DzCreateFrameByTagName
+            常量: GLUETEXTBUTTON
+            常量: 2
+            数组: Frames
+                常量: 0
+            常量: template
+            常量: 2
+    禁用: DzFrameSetSize
+        数组: Frames
+            常量: 2
+        常量: 0.03
+        常量: 0.03
+    禁用: DzFrameSetPoint
+        数组: Frames
+            常量: 2
+        预设: FramePoints_Center
+        数组: Frames
+            常量: 0
+        预设: FramePoints_Center
+        常量: 0.00
+        常量: 0.00
+    禁用: DzFrameSetScriptByCode
+        数组: Frames
+            常量: 2
+        预设: FrameEvent_Evenr_Pressed
+        动作: ConditionalTriggerExecute
+            变量: gg_trg_Fram2Action
+        常量: true
+    CommentString
+        常量: 界面
+    SetVariable
+        数组: Frames
+            常量: 3
+        函数: DzCreateFrameByTagName
+            常量: BACKDROP
+            常量: 3
+            函数: DzGetGameUI
+            常量: template
+            常量: 3
+    DzFrameSetTexture
+        数组: Frames
+            常量: 3
+        常量: ui\store.tga
+        常量: 0
+    DzFrameSetSize
+        数组: Frames
+            常量: 3
+        常量: 0.56
+        常量: 0.40
+    DzFrameSetPoint
+        数组: Frames
+            常量: 3
+        预设: FramePoints_Bottom
+        函数: DzGetGameUI
+        预设: FramePoints_BottomLeft
+        常量: 0.40
+        常量: 0.16
+    DzFrameShow
+        数组: Frames
+            常量: 3
+        常量: false
+    SetVariable
+        数组: Frames
+            常量: 2
+        函数: DzCreateFrame
+            常量: BAG
+            数组: Frames
+                常量: 3
+            常量: 0
+    DzFrameSetPoint
+        数组: Frames
+            常量: 2
+        预设: 'FramePoints_Top '
+        数组: Frames
+            常量: 3
+        预设: 'FramePoints_Top '
+        常量: 0.00
+        常量: 0.00
+    CommentString
+        常量: 物理攻击栏按钮
+    SetVariable
+        数组: Frames
+            常量: 6
+        函数: DzFrameFindByName
+            常量: B1
+            常量: 0
+    禁用: DzFrameSetScriptByCode
+        数组: Frames
+            常量: 6
+        预设: FrameEvent_Evenr_Pressed
+        动作: TriggerExecute
+            变量: gg_trg_Fram6Action
+        常量: true
+    禁用: SetVariable
+        数组: Frames
+            常量: 4
+        函数: DzCreateFrameByTagName
+            常量: BACKDROP
+            常量: 4
+            数组: Frames
+                常量: 3
+            常量: template
+            常量: 4
+    禁用: DzFrameSetTexture
+        数组: Frames
+            常量: 4
+        常量: ui\btnbig.blp
+        常量: 0
+    禁用: DzFrameSetSize
+        数组: Frames
+            常量: 4
+        常量: 0.07
+        常量: 0.02
+    禁用: CustomScriptCode
+        常量: 'call DzFrameSetPoint(udg_Frames[4], 4, udg_Frames[3], 3, 0.0535, 0.096)'
+    禁用: SetVariable
+        数组: Frames
+            常量: 5
+        函数: DzCreateFrame
+            常量: cm10
+            数组: Frames
+                常量: 4
+            常量: 5
+    禁用: DzFrameSetText
+        数组: Frames
+            常量: 5
+        常量: 物理攻击
+    禁用: DzFrameSetSize
+        数组: Frames
+            常量: 5
+        常量: 0.05
+        常量: 0.01
+    禁用: DzFrameSetPoint
+        数组: Frames
+            常量: 5
+        预设: FramePoints_Center
+        数组: Frames
+            常量: 4
+        预设: FramePoints_Center
+        常量: 0.00
+        常量: 0.00
+    禁用: SetVariable
+        数组: Frames
+            常量: 6
+        函数: DzCreateFrameByTagName
+            常量: GLUETEXTBUTTON
+            常量: 2
+            数组: Frames
+                常量: 4
+            常量: template
+            常量: 6
+    禁用: DzFrameSetSize
+        数组: Frames
+            常量: 6
+        常量: 0.07
+        常量: 0.02
+    禁用: DzFrameSetPoint
+        数组: Frames
+            常量: 6
+        预设: FramePoints_Center
+        数组: Frames
+            常量: 4
+        预设: FramePoints_Center
+        常量: 0.00
+        常量: 0.00
+    禁用: DzFrameSetScriptByCode
+        数组: Frames
+            常量: 6
+        预设: FrameEvent_Evenr_Pressed
+        动作: TriggerExecute
+            变量: gg_trg_Fram6Action
+        常量: true
+    CommentString
+        常量: 物理攻击栏物品格子
+    SetVariable
+        数组: Frames
+            常量: 7
+        函数: DzCreateFrameByTagName
+            常量: BACKDROP
+            常量: 7
+            数组: Frames
+                常量: 3
+            常量: template
+            常量: 7
+    DzFrameSetTexture
+        数组: Frames
+            常量: 7
+        常量: ui\ItemCell.tga
+        常量: 0
+    DzFrameSetSize
+        数组: Frames
+            常量: 7
+        常量: 0.25
+        常量: 0.28
+    CustomScriptCode
+        常量: 'call DzFrameSetPoint( udg_Frames[7], 4, udg_Frames[3], 4, -0.029, 0.0066 )'
+    CommentString
+        常量: 攻速暴击按钮
+    SetVariable
+        数组: Frames
+            常量: 10
+        函数: DzFrameFindByName
+            常量: B2
+            常量: 0
+    禁用: DzFrameSetScriptByCode
+        数组: Frames
+            常量: 10
+        预设: FrameEvent_Evenr_Pressed
+        动作: TriggerExecute
+            变量: gg_trg_Fram10Action
+        常量: true
+    禁用: SetVariable
+        数组: Frames
+            常量: 8
+        函数: DzCreateFrameByTagName
+            常量: BACKDROP
+            常量: 8
+            数组: Frames
+                常量: 3
+            常量: template
+            常量: 8
+    禁用: DzFrameSetTexture
+        数组: Frames
+            常量: 8
+        常量: ui\btnbig.blp
+        常量: 0
+    禁用: DzFrameSetSize
+        数组: Frames
+            常量: 8
+        常量: 0.07
+        常量: 0.02
+    禁用: CustomScriptCode
+        常量: 'call DzFrameSetPoint(udg_Frames[8], 4, udg_Frames[3], 3, 0.0535, 0.069)'
+    禁用: SetVariable
+        数组: Frames
+            常量: 9
+        函数: DzCreateFrame
+            常量: cm10
+            数组: Frames
+                常量: 8
+            常量: 5
+    禁用: DzFrameSetText
+        数组: Frames
+            常量: 9
+        常量: 攻速暴击
+    禁用: DzFrameSetSize
+        数组: Frames
+            常量: 9
+        常量: 0.05
+        常量: 0.01
+    禁用: DzFrameSetPoint
+        数组: Frames
+            常量: 9
+        预设: FramePoints_Center
+        数组: Frames
+            常量: 8
+        预设: FramePoints_Center
+        常量: 0.00
+        常量: 0.00
+    禁用: SetVariable
+        数组: Frames
+            常量: 10
+        函数: DzCreateFrameByTagName
+            常量: GLUETEXTBUTTON
+            常量: 10
+            数组: Frames
+                常量: 8
+            常量: template
+            常量: 10
+    禁用: DzFrameSetSize
+        数组: Frames
+            常量: 10
+        常量: 0.07
+        常量: 0.02
+    禁用: DzFrameSetPoint
+        数组: Frames
+            常量: 10
+        预设: FramePoints_Center
+        数组: Frames
+            常量: 8
+        预设: FramePoints_Center
+        常量: 0.00
+        常量: 0.00
+    禁用: DzFrameSetScriptByCode
+        数组: Frames
+            常量: 10
+        预设: FrameEvent_Evenr_Pressed
+        动作: TriggerExecute
+            变量: gg_trg_Fram10Action
+        常量: true
+    CommentString
+        常量: 攻速暴击物品格子
+    SetVariable
+        数组: Frames
+            常量: 11
+        函数: DzCreateFrameByTagName
+            常量: BACKDROP
+            常量: 11
+            数组: Frames
+                常量: 3
+            常量: template
+            常量: 11
+    DzFrameSetTexture
+        数组: Frames
+            常量: 11
+        常量: ui\ItemCell.tga
+        常量: 0
+    DzFrameSetSize
+        数组: Frames
+            常量: 11
+        常量: 0.25
+        常量: 0.28
+    CustomScriptCode
+        常量: 'call DzFrameSetPoint( udg_Frames[11], 4, udg_Frames[3], 4, -0.029, 0.0066 )'
+    DzFrameShow
+        数组: Frames
+            常量: 11
+        常量: false
+    CommentString
+        常量: 法术攻击栏按钮
+    SetVariable
+        数组: Frames
+            常量: 14
+        函数: DzFrameFindByName
+            常量: B3
+            常量: 0
+    禁用: DzFrameSetScriptByCode
+        数组: Frames
+            常量: 14
+        预设: FrameEvent_Evenr_Pressed
+        动作: TriggerExecute
+            变量: gg_trg_Fram14Action
+        常量: true
+    禁用: SetVariable
+        数组: Frames
+            常量: 12
+        函数: DzCreateFrameByTagName
+            常量: BACKDROP
+            常量: 12
+            数组: Frames
+                常量: 3
+            常量: template
+            常量: 12
+    禁用: DzFrameSetTexture
+        数组: Frames
+            常量: 12
+        常量: ui\btnbig.blp
+        常量: 0
+    禁用: DzFrameSetSize
+        数组: Frames
+            常量: 12
+        常量: 0.07
+        常量: 0.02
+    禁用: CustomScriptCode
+        常量: 'call DzFrameSetPoint(udg_Frames[12], 4, udg_Frames[3], 3, 0.0535, 0.042)'
+    禁用: SetVariable
+        数组: Frames
+            常量: 13
+        函数: DzCreateFrame
+            常量: cm10
+            数组: Frames
+                常量: 12
+            常量: 5
+    禁用: DzFrameSetText
+        数组: Frames
+            常量: 13
+        常量: 法术攻击
+    禁用: DzFrameSetSize
+        数组: Frames
+            常量: 13
+        常量: 0.05
+        常量: 0.01
+    禁用: DzFrameSetPoint
+        数组: Frames
+            常量: 13
+        预设: FramePoints_Center
+        数组: Frames
+            常量: 12
+        预设: FramePoints_Center
+        常量: 0.00
+        常量: 0.00
+    禁用: SetVariable
+        数组: Frames
+            常量: 14
+        函数: DzCreateFrameByTagName
+            常量: GLUETEXTBUTTON
+            常量: 14
+            数组: Frames
+                常量: 12
+            常量: template
+            常量: 14
+    禁用: DzFrameSetSize
+        数组: Frames
+            常量: 14
+        常量: 0.07
+        常量: 0.02
+    禁用: DzFrameSetPoint
+        数组: Frames
+            常量: 14
+        预设: FramePoints_Center
+        数组: Frames
+            常量: 12
+        预设: FramePoints_Center
+        常量: 0.00
+        常量: 0.00
+    禁用: DzFrameSetScriptByCode
+        数组: Frames
+            常量: 14
+        预设: FrameEvent_Evenr_Pressed
+        动作: TriggerExecute
+            变量: gg_trg_Fram14Action
+        常量: true
+    CommentString
+        常量: 法术攻击栏物品格子
+    SetVariable
+        数组: Frames
+            常量: 15
+        函数: DzCreateFrameByTagName
+            常量: BACKDROP
+            常量: 15
+            数组: Frames
+                常量: 3
+            常量: template
+            常量: 15
+    DzFrameSetTexture
+        数组: Frames
+            常量: 15
+        常量: ui\ItemCell.tga
+        常量: 0
+    DzFrameSetSize
+        数组: Frames
+            常量: 15
+        常量: 0.25
+        常量: 0.28
+    CustomScriptCode
+        常量: 'call DzFrameSetPoint( udg_Frames[15], 4, udg_Frames[3], 4, -0.029, 0.0066 )'
+    DzFrameShow
+        数组: Frames
+            常量: 15
+        常量: false
+    CommentString
+        常量: 冷却缩减按钮
+    SetVariable
+        数组: Frames
+            常量: 18
+        函数: DzFrameFindByName
+            常量: B4
+            常量: 0
+    禁用: DzFrameSetScriptByCode
+        数组: Frames
+            常量: 18
+        预设: FrameEvent_Evenr_Pressed
+        动作: TriggerExecute
+            变量: gg_trg_Fram18Action
+        常量: true
+    禁用: SetVariable
+        数组: Frames
+            常量: 16
+        函数: DzCreateFrameByTagName
+            常量: BACKDROP
+            常量: 16
+            数组: Frames
+                常量: 3
+            常量: template
+            常量: 16
+    禁用: DzFrameSetTexture
+        数组: Frames
+            常量: 16
+        常量: ui\btnbig.blp
+        常量: 0
+    禁用: DzFrameSetSize
+        数组: Frames
+            常量: 16
+        常量: 0.07
+        常量: 0.02
+    禁用: CustomScriptCode
+        常量: 'call DzFrameSetPoint(udg_Frames[16], 4, udg_Frames[3], 3, 0.0535, 0.015)'
+    禁用: SetVariable
+        数组: Frames
+            常量: 17
+        函数: DzCreateFrame
+            常量: cm10
+            数组: Frames
+                常量: 16
+            常量: 5
+    禁用: DzFrameSetText
+        数组: Frames
+            常量: 17
+        常量: 冷却缩减
+    禁用: DzFrameSetSize
+        数组: Frames
+            常量: 17
+        常量: 0.05
+        常量: 0.01
+    禁用: DzFrameSetPoint
+        数组: Frames
+            常量: 17
+        预设: FramePoints_Center
+        数组: Frames
+            常量: 16
+        预设: FramePoints_Center
+        常量: 0.00
+        常量: 0.00
+    禁用: SetVariable
+        数组: Frames
+            常量: 18
+        函数: DzCreateFrameByTagName
+            常量: GLUETEXTBUTTON
+            常量: 18
+            数组: Frames
+                常量: 16
+            常量: template
+            常量: 18
+    禁用: DzFrameSetSize
+        数组: Frames
+            常量: 18
+        常量: 0.07
+        常量: 0.02
+    禁用: DzFrameSetPoint
+        数组: Frames
+            常量: 18
+        预设: FramePoints_Center
+        数组: Frames
+            常量: 16
+        预设: FramePoints_Center
+        常量: 0.00
+        常量: 0.00
+    禁用: DzFrameSetScriptByCode
+        数组: Frames
+            常量: 18
+        预设: FrameEvent_Evenr_Pressed
+        动作: TriggerExecute
+            变量: gg_trg_Fram18Action
+        常量: true
+    CommentString
+        常量: 冷却缩减物品格子
+    SetVariable
+        数组: Frames
+            常量: 19
+        函数: DzCreateFrameByTagName
+            常量: BACKDROP
+            常量: 19
+            数组: Frames
+                常量: 3
+            常量: template
+            常量: 19
+    DzFrameSetTexture
+        数组: Frames
+            常量: 19
+        常量: ui\ItemCell.tga
+        常量: 0
+    DzFrameSetSize
+        数组: Frames
+            常量: 19
+        常量: 0.25
+        常量: 0.28
+    CustomScriptCode
+        常量: 'call DzFrameSetPoint( udg_Frames[19], 4, udg_Frames[3], 4, -0.029, 0.0066 )'
+    DzFrameShow
+        数组: Frames
+            常量: 19
+        常量: false
+    CommentString
+        常量: 法力值按钮
+    SetVariable
+        数组: Frames
+            常量: 22
+        函数: DzFrameFindByName
+            常量: B5
+            常量: 0
+    禁用: DzFrameSetScriptByCode
+        数组: Frames
+            常量: 22
+        预设: FrameEvent_Evenr_Pressed
+        动作: TriggerExecute
+            变量: gg_trg_Fram22Action
+        常量: true
+    禁用: SetVariable
+        数组: Frames
+            常量: 20
+        函数: DzCreateFrameByTagName
+            常量: BACKDROP
+            常量: 20
+            数组: Frames
+                常量: 3
+            常量: template
+            常量: 20
+    禁用: DzFrameSetTexture
+        数组: Frames
+            常量: 20
+        常量: ui\btnbig.blp
+        常量: 0
+    禁用: DzFrameSetSize
+        数组: Frames
+            常量: 20
+        常量: 0.07
+        常量: 0.02
+    禁用: CustomScriptCode
+        常量: 'call DzFrameSetPoint(udg_Frames[20], 4, udg_Frames[3], 3, 0.0535, -0.012)'
+    禁用: SetVariable
+        数组: Frames
+            常量: 21
+        函数: DzCreateFrame
+            常量: cm10
+            数组: Frames
+                常量: 20
+            常量: 21
+    禁用: DzFrameSetText
+        数组: Frames
+            常量: 21
+        常量: 法力值
+    禁用: DzFrameSetSize
+        数组: Frames
+            常量: 21
+        常量: 0.05
+        常量: 0.01
+    禁用: DzFrameSetPoint
+        数组: Frames
+            常量: 21
+        预设: FramePoints_Center
+        数组: Frames
+            常量: 20
+        预设: FramePoints_Center
+        常量: 0.00
+        常量: 0.00
+    禁用: SetVariable
+        数组: Frames
+            常量: 22
+        函数: DzCreateFrameByTagName
+            常量: GLUETEXTBUTTON
+            常量: 22
+            数组: Frames
+                常量: 20
+            常量: template
+            常量: 22
+    禁用: DzFrameSetSize
+        数组: Frames
+            常量: 22
+        常量: 0.07
+        常量: 0.02
+    禁用: DzFrameSetPoint
+        数组: Frames
+            常量: 22
+        预设: FramePoints_Center
+        数组: Frames
+            常量: 20
+        预设: FramePoints_Center
+        常量: 0.00
+        常量: 0.00
+    禁用: DzFrameSetScriptByCode
+        数组: Frames
+            常量: 22
+        预设: FrameEvent_Evenr_Pressed
+        动作: TriggerExecute
+            变量: gg_trg_Fram22Action
+        常量: true
+    CommentString
+        常量: 法力值物品格子
+    SetVariable
+        数组: Frames
+            常量: 23
+        函数: DzCreateFrameByTagName
+            常量: BACKDROP
+            常量: 23
+            数组: Frames
+                常量: 3
+            常量: template
+            常量: 23
+    DzFrameSetTexture
+        数组: Frames
+            常量: 23
+        常量: ui\ItemCell.tga
+        常量: 0
+    DzFrameSetSize
+        数组: Frames
+            常量: 23
+        常量: 0.25
+        常量: 0.28
+    CustomScriptCode
+        常量: 'call DzFrameSetPoint( udg_Frames[23], 4, udg_Frames[3], 4, -0.029, 0.0066 )'
+    DzFrameShow
+        数组: Frames
+            常量: 23
+        常量: false
+    禁用: TriggerExecute
+        变量: gg_trg_InitItemCell
+    CommentString
+        常量: 当前选中的装备1
+    SetVariable
+        数组: Frames
+            常量: 24
+        函数: DzCreateFrameByTagName
+            常量: BACKDROP
+            常量: 24
+            数组: Frames
+                常量: 3
+            常量: template
+            常量: 24
+    DzFrameSetTexture
+        数组: Frames
+            常量: 24
+        常量: ReplaceableTextures\CommandButtons\BTNGlove.blp
+        常量: 0
+    CustomScriptCode
+        常量: 'call DzFrameSetSize( udg_Frames[24], 0.022, 0.022 )'
+    CustomScriptCode
+        常量: 'call DzFrameSetPoint(udg_Frames[24], 4, udg_Frames[3], 5, -0.145, -0.0271)'
+    DzFrameShow
+        数组: Frames
+            常量: 24
+        常量: false
+    CommentString
+        常量: 价格
+    SetVariable
+        数组: Frames
+            常量: 25
+        函数: DzCreateFrame
+            常量: cm10
+            数组: Frames
+                常量: 24
+            常量: 25
+    DzFrameSetText
+        数组: Frames
+            常量: 25
+        常量: 
+    CustomScriptCode
+        常量: 'call DzFrameSetSize( udg_Frames[25], 0.05, 0.008 )'
+    CustomScriptCode
+        常量: 'call DzFrameSetPoint( udg_Frames[25], 4, udg_Frames[24], 4, 0.00, -0.023 )'
+    CommentString
+        常量: 当前选中的装备2
+    SetVariable
+        数组: Frames
+            常量: 26
+        函数: DzCreateFrameByTagName
+            常量: BACKDROP
+            常量: 26
+            数组: Frames
+                常量: 3
+            常量: template
+            常量: 26
+    DzFrameSetTexture
+        数组: Frames
+            常量: 26
+        常量: ReplaceableTextures\CommandButtons\BTNGlove.blp
+        常量: 0
+    CustomScriptCode
+        常量: 'call DzFrameSetSize( udg_Frames[26], 0.022, 0.022 )'
+    CustomScriptCode
+        常量: 'call DzFrameSetPoint(udg_Frames[26], 4, udg_Frames[3], 5, -0.087, 0.1172)'
+    DzFrameShow
+        数组: Frames
+            常量: 26
+        常量: false
+    CommentString
+        常量: 配件1
+    SetVariable
+        数组: Frames
+            常量: 27
+        函数: DzCreateFrameByTagName
+            常量: BACKDROP
+            常量: 27
+            数组: Frames
+                常量: 3
+            常量: template
+            常量: 27
+    DzFrameSetTexture
+        数组: Frames
+            常量: 27
+        常量: ReplaceableTextures\CommandButtons\BTNGlove.blp
+        常量: 0
+    CustomScriptCode
+        常量: 'call DzFrameSetSize( udg_Frames[27], 0.022, 0.022 )'
+    CustomScriptCode
+        常量: 'call DzFrameSetPoint(udg_Frames[27], 4, udg_Frames[3], 5, -0.14, 0.055)'
+    DzFrameShow
+        数组: Frames
+            常量: 27
+        常量: false
+    SetVariable
+        数组: Frames
+            常量: 28
+        函数: DzCreateFrameByTagName
+            常量: GLUETEXTBUTTON
+            常量: 28
+            数组: Frames
+                常量: 27
+            常量: template
+            常量: 28
+    CustomScriptCode
+        常量: 'call DzFrameSetSize( udg_Frames[28], 0.022, 0.022 )'
+    DzFrameSetPoint
+        数组: Frames
+            常量: 28
+        预设: FramePoints_Center
+        数组: Frames
+            常量: 27
+        预设: FramePoints_Center
+        常量: 0.00
+        常量: 0.00
+    CommentString
+        常量: 配件2
+    SetVariable
+        数组: Frames
+            常量: 29
+        函数: DzCreateFrameByTagName
+            常量: BACKDROP
+            常量: 29
+            数组: Frames
+                常量: 3
+            常量: template
+            常量: 29
+    DzFrameSetTexture
+        数组: Frames
+            常量: 29
+        常量: ReplaceableTextures\CommandButtons\BTNGlove.blp
+        常量: 0
+    CustomScriptCode
+        常量: 'call DzFrameSetSize( udg_Frames[29], 0.022, 0.022 )'
+    CustomScriptCode
+        常量: 'call DzFrameSetPoint(udg_Frames[29], 4, udg_Frames[3], 5, -0.1066, 0.055)'
+    DzFrameShow
+        数组: Frames
+            常量: 29
+        常量: false
+    SetVariable
+        数组: Frames
+            常量: 30
+        函数: DzCreateFrameByTagName
+            常量: GLUETEXTBUTTON
+            常量: 30
+            数组: Frames
+                常量: 29
+            常量: template
+            常量: 30
+    CustomScriptCode
+        常量: 'call DzFrameSetSize( udg_Frames[30], 0.022, 0.022 )'
+    DzFrameSetPoint
+        数组: Frames
+            常量: 30
+        预设: FramePoints_Center
+        数组: Frames
+            常量: 29
+        预设: FramePoints_Center
+        常量: 0.00
+        常量: 0.00
+    CommentString
+        常量: 配件3
+    SetVariable
+        数组: Frames
+            常量: 31
+        函数: DzCreateFrameByTagName
+            常量: BACKDROP
+            常量: 31
+            数组: Frames
+                常量: 3
+            常量: template
+            常量: 31
+    DzFrameSetTexture
+        数组: Frames
+            常量: 31
+        常量: ReplaceableTextures\CommandButtons\BTNGlove.blp
+        常量: 0
+    CustomScriptCode
+        常量: 'call DzFrameSetSize( udg_Frames[31], 0.022, 0.022 )'
+    CustomScriptCode
+        常量: 'call DzFrameSetPoint(udg_Frames[31], 4, udg_Frames[3], 5, -0.0677, 0.055)'
+    DzFrameShow
+        数组: Frames
+            常量: 31
+        常量: false
+    SetVariable
+        数组: Frames
+            常量: 32
+        函数: DzCreateFrameByTagName
+            常量: GLUETEXTBUTTON
+            常量: 32
+            数组: Frames
+                常量: 31
+            常量: template
+            常量: 32
+    CustomScriptCode
+        常量: 'call DzFrameSetSize( udg_Frames[32], 0.022, 0.022 )'
+    DzFrameSetPoint
+        数组: Frames
+            常量: 32
+        预设: FramePoints_Center
+        数组: Frames
+            常量: 31
+        预设: FramePoints_Center
+        常量: 0.00
+        常量: 0.00
+    CommentString
+        常量: 配件4
+    SetVariable
+        数组: Frames
+            常量: 33
+        函数: DzCreateFrameByTagName
+            常量: BACKDROP
+            常量: 33
+            数组: Frames
+                常量: 3
+            常量: template
+            常量: 33
+    DzFrameSetTexture
+        数组: Frames
+            常量: 33
+        常量: ReplaceableTextures\CommandButtons\BTNGlove.blp
+        常量: 0
+    CustomScriptCode
+        常量: 'call DzFrameSetSize( udg_Frames[33], 0.022, 0.022 )'
+    CustomScriptCode
+        常量: 'call DzFrameSetPoint(udg_Frames[33], 4, udg_Frames[3], 5, -0.0336, 0.055)'
+    DzFrameShow
+        数组: Frames
+            常量: 33
+        常量: false
+    SetVariable
+        数组: Frames
+            常量: 34
+        函数: DzCreateFrameByTagName
+            常量: GLUETEXTBUTTON
+            常量: 34
+            数组: Frames
+                常量: 33
+            常量: template
+            常量: 32
+    CustomScriptCode
+        常量: 'call DzFrameSetSize( udg_Frames[34], 0.022, 0.022 )'
+    DzFrameSetPoint
+        数组: Frames
+            常量: 34
+        预设: FramePoints_Center
+        数组: Frames
+            常量: 33
+        预设: FramePoints_Center
+        常量: 0.00
+        常量: 0.00
+    CommentString
+        常量: 升级1
+    SetVariable
+        数组: Frames
+            常量: 35
+        函数: DzCreateFrameByTagName
+            常量: BACKDROP
+            常量: 35
+            数组: Frames
+                常量: 3
+            常量: template
+            常量: 35
+    DzFrameSetTexture
+        数组: Frames
+            常量: 35
+        常量: ReplaceableTextures\CommandButtons\BTNGlove.blp
+        常量: 0
+    CustomScriptCode
+        常量: 'call DzFrameSetSize( udg_Frames[35], 0.022, 0.022 )'
+    CustomScriptCode
+        常量: 'call DzFrameSetPoint(udg_Frames[35], 4, udg_Frames[3], 5, -0.1425, -0.1066)'
+    禁用: CustomScriptCode
+        常量: 'call DzFrameSetPoint(udg_Frames[35], 4, udg_Frames[3], 5, -0.14, -0.1028)'
+    DzFrameShow
+        数组: Frames
+            常量: 35
+        常量: false
+    SetVariable
+        数组: Frames
+            常量: 36
+        函数: DzCreateFrameByTagName
+            常量: GLUETEXTBUTTON
+            常量: 36
+            数组: Frames
+                常量: 35
+            常量: template
+            常量: 36
+    CustomScriptCode
+        常量: 'call DzFrameSetSize( udg_Frames[36], 0.022, 0.022 )'
+    DzFrameSetPoint
+        数组: Frames
+            常量: 36
+        预设: FramePoints_Center
+        数组: Frames
+            常量: 35
+        预设: FramePoints_Center
+        常量: 0.00
+        常量: 0.00
+    CommentString
+        常量: 升级2
+    SetVariable
+        数组: Frames
+            常量: 37
+        函数: DzCreateFrameByTagName
+            常量: BACKDROP
+            常量: 37
+            数组: Frames
+                常量: 35
+            常量: template
+            常量: 37
+    DzFrameSetTexture
+        数组: Frames
+            常量: 37
+        常量: ReplaceableTextures\CommandButtons\BTNGlove.blp
+        常量: 0
+    CustomScriptCode
+        常量: 'call DzFrameSetSize( udg_Frames[37], 0.022, 0.022 )'
+    CustomScriptCode
+        常量: 'call DzFrameSetPoint(udg_Frames[37], 5, udg_Frames[35], 5, 0.0333, 0)'
+    DzFrameShow
+        数组: Frames
+            常量: 37
+        常量: false
+    SetVariable
+        数组: Frames
+            常量: 38
+        函数: DzCreateFrameByTagName
+            常量: GLUETEXTBUTTON
+            常量: 38
+            数组: Frames
+                常量: 37
+            常量: template
+            常量: 38
+    CustomScriptCode
+        常量: 'call DzFrameSetSize( udg_Frames[38], 0.022, 0.022 )'
+    DzFrameSetPoint
+        数组: Frames
+            常量: 38
+        预设: FramePoints_Center
+        数组: Frames
+            常量: 37
+        预设: FramePoints_Center
+        常量: 0.00
+        常量: 0.00
+    CommentString
+        常量: 升级3
+    SetVariable
+        数组: Frames
+            常量: 39
+        函数: DzCreateFrameByTagName
+            常量: BACKDROP
+            常量: 39
+            数组: Frames
+                常量: 35
+            常量: template
+            常量: 39
+    DzFrameSetTexture
+        数组: Frames
+            常量: 39
+        常量: ReplaceableTextures\CommandButtons\BTNGlove.blp
+        常量: 0
+    CustomScriptCode
+        常量: 'call DzFrameSetSize( udg_Frames[39], 0.022, 0.022 )'
+    CustomScriptCode
+        常量: 'call DzFrameSetPoint(udg_Frames[39], 5, udg_Frames[35], 5, 0.0679, 0)'
+    DzFrameShow
+        数组: Frames
+            常量: 39
+        常量: false
+    SetVariable
+        数组: Frames
+            常量: 40
+        函数: DzCreateFrameByTagName
+            常量: GLUETEXTBUTTON
+            常量: 40
+            数组: Frames
+                常量: 39
+            常量: template
+            常量: 40
+    CustomScriptCode
+        常量: 'call DzFrameSetSize( udg_Frames[40], 0.022, 0.022 )'
+    DzFrameSetPoint
+        数组: Frames
+            常量: 40
+        预设: FramePoints_Center
+        数组: Frames
+            常量: 39
+        预设: FramePoints_Center
+        常量: 0.00
+        常量: 0.00
+    CommentString
+        常量: 升级4
+    SetVariable
+        数组: Frames
+            常量: 41
+        函数: DzCreateFrameByTagName
+            常量: BACKDROP
+            常量: 41
+            数组: Frames
+                常量: 35
+            常量: template
+            常量: 41
+    DzFrameSetTexture
+        数组: Frames
+            常量: 41
+        常量: ReplaceableTextures\CommandButtons\BTNGlove.blp
+        常量: 0
+    CustomScriptCode
+        常量: 'call DzFrameSetSize( udg_Frames[41], 0.022, 0.022 )'
+    CustomScriptCode
+        常量: 'call DzFrameSetPoint(udg_Frames[41], 5, udg_Frames[35], 5, 0.103, 0)'
+    DzFrameShow
+        数组: Frames
+            常量: 41
+        常量: false
+    SetVariable
+        数组: Frames
+            常量: 42
+        函数: DzCreateFrameByTagName
+            常量: GLUETEXTBUTTON
+            常量: 42
+            数组: Frames
+                常量: 41
+            常量: template
+            常量: 42
+    CustomScriptCode
+        常量: 'call DzFrameSetSize( udg_Frames[42], 0.022, 0.022 )'
+    DzFrameSetPoint
+        数组: Frames
+            常量: 42
+        预设: FramePoints_Center
+        数组: Frames
+            常量: 41
+        预设: FramePoints_Center
+        常量: 0.00
+        常量: 0.00
+    CommentString
+        常量: 购买按钮
+    SetVariable
+        数组: Frames
+            常量: 45
+        函数: DzFrameFindByName
+            常量: B7
+            常量: 0
+    禁用: DzFrameSetScriptByCode
+        数组: Frames
+            常量: 45
+        预设: FrameEvent_Evenr_Pressed
+        动作: TriggerExecute
+            变量: gg_trg_Fram45Action
+        常量: true
+    禁用: SetVariable
+        数组: Frames
+            常量: 43
+        函数: DzCreateFrameByTagName
+            常量: BACKDROP
+            常量: 43
+            数组: Frames
+                常量: 3
+            常量: template
+            常量: 43
+    禁用: DzFrameSetTexture
+        数组: Frames
+            常量: 43
+        常量: ui\btnbig.blp
+        常量: 0
+    禁用: DzFrameSetSize
+        数组: Frames
+            常量: 43
+        常量: 0.06
+        常量: 0.02
+    禁用: CustomScriptCode
+        常量: 'call DzFrameSetPoint(udg_Frames[43], 4, udg_Frames[3], 5, -0.08, -0.034)'
+    禁用: SetVariable
+        数组: Frames
+            常量: 44
+        函数: DzCreateFrame
+            常量: cm10
+            数组: Frames
+                常量: 43
+            常量: 21
+    禁用: DzFrameSetText
+        数组: Frames
+            常量: 44
+        常量: 购买
+    禁用: DzFrameSetSize
+        数组: Frames
+            常量: 44
+        常量: 0.05
+        常量: 0.01
+    禁用: DzFrameSetPoint
+        数组: Frames
+            常量: 44
+        预设: FramePoints_Center
+        数组: Frames
+            常量: 43
+        预设: FramePoints_Center
+        常量: 0.00
+        常量: 0.00
+    禁用: SetVariable
+        数组: Frames
+            常量: 45
+        函数: DzCreateFrameByTagName
+            常量: GLUETEXTBUTTON
+            常量: 45
+            数组: Frames
+                常量: 43
+            常量: template
+            常量: 45
+    禁用: DzFrameSetSize
+        数组: Frames
+            常量: 45
+        常量: 0.06
+        常量: 0.02
+    禁用: DzFrameSetPoint
+        数组: Frames
+            常量: 45
+        预设: FramePoints_Center
+        数组: Frames
+            常量: 43
+        预设: FramePoints_Center
+        常量: 0.00
+        常量: 0.00
+    禁用: DzFrameSetScriptByCode
+        数组: Frames
+            常量: 45
+        预设: FrameEvent_Evenr_Pressed
+        动作: TriggerExecute
+            变量: gg_trg_Fram45Action
+        常量: true
+    CommentString
+        常量: 物品栏1
+    SetVariable
+        数组: Frames
+            常量: 46
+        函数: DzCreateFrameByTagName
+            常量: BACKDROP
+            常量: 46
+            数组: Frames
+                常量: 3
+            常量: template
+            常量: 46
+    DzFrameSetTexture
+        数组: Frames
+            常量: 46
+        常量: ReplaceableTextures\CommandButtons\BTNCancel.blp
+        常量: 0
+    CustomScriptCode
+        常量: 'call DzFrameSetSize( udg_Frames[46], 0.022, 0.022 )'
+    CustomScriptCode
+        常量: 'call DzFrameSetPoint(udg_Frames[46], 4, udg_Frames[3], 7, -0.1415, 0.0305)'
+    禁用: DzFrameShow
+        数组: Frames
+            常量: 46
+        常量: false
+    SetVariable
+        数组: Frames
+            常量: 47
+        函数: DzCreateFrameByTagName
+            常量: GLUETEXTBUTTON
+            常量: 47
+            数组: Frames
+                常量: 46
+            常量: template
+            常量: 47
+    CustomScriptCode
+        常量: 'call DzFrameSetSize( udg_Frames[47], 0.022, 0.022 )'
+    DzFrameSetPoint
+        数组: Frames
+            常量: 47
+        预设: FramePoints_Center
+        数组: Frames
+            常量: 46
+        预设: FramePoints_Center
+        常量: 0.00
+        常量: 0.00
+    CommentString
+        常量: 物品栏2
+    SetVariable
+        数组: Frames
+            常量: 48
+        函数: DzCreateFrameByTagName
+            常量: BACKDROP
+            常量: 48
+            数组: Frames
+                常量: 3
+            常量: template
+            常量: 48
+    DzFrameSetTexture
+        数组: Frames
+            常量: 48
+        常量: ReplaceableTextures\CommandButtons\BTNCancel.blp
+        常量: 0
+    CustomScriptCode
+        常量: 'call DzFrameSetSize( udg_Frames[48], 0.022, 0.022 )'
+    CustomScriptCode
+        常量: 'call DzFrameSetPoint(udg_Frames[48], 4, udg_Frames[3], 7, -0.1135, 0.0305)'
+    禁用: DzFrameShow
+        数组: Frames
+            常量: 48
+        常量: false
+    SetVariable
+        数组: Frames
+            常量: 49
+        函数: DzCreateFrameByTagName
+            常量: GLUETEXTBUTTON
+            常量: 49
+            数组: Frames
+                常量: 48
+            常量: template
+            常量: 49
+    CustomScriptCode
+        常量: 'call DzFrameSetSize( udg_Frames[49], 0.022, 0.022 )'
+    DzFrameSetPoint
+        数组: Frames
+            常量: 49
+        预设: FramePoints_Center
+        数组: Frames
+            常量: 48
+        预设: FramePoints_Center
+        常量: 0.00
+        常量: 0.00
+    CommentString
+        常量: 物品栏3
+    SetVariable
+        数组: Frames
+            常量: 50
+        函数: DzCreateFrameByTagName
+            常量: BACKDROP
+            常量: 50
+            数组: Frames
+                常量: 3
+            常量: template
+            常量: 50
+    DzFrameSetTexture
+        数组: Frames
+            常量: 50
+        常量: ReplaceableTextures\CommandButtons\BTNCancel.blp
+        常量: 0
+    CustomScriptCode
+        常量: 'call DzFrameSetSize( udg_Frames[50], 0.022, 0.022 )'
+    CustomScriptCode
+        常量: 'call DzFrameSetPoint(udg_Frames[50], 4, udg_Frames[3], 7, -0.085, 0.0305)'
+    禁用: DzFrameShow
+        数组: Frames
+            常量: 50
+        常量: false
+    SetVariable
+        数组: Frames
+            常量: 51
+        函数: DzCreateFrameByTagName
+            常量: GLUETEXTBUTTON
+            常量: 51
+            数组: Frames
+                常量: 50
+            常量: template
+            常量: 51
+    CustomScriptCode
+        常量: 'call DzFrameSetSize( udg_Frames[51], 0.022, 0.022 )'
+    DzFrameSetPoint
+        数组: Frames
+            常量: 51
+        预设: FramePoints_Center
+        数组: Frames
+            常量: 50
+        预设: FramePoints_Center
+        常量: 0.00
+        常量: 0.00
+    CommentString
+        常量: 物品栏4
+    SetVariable
+        数组: Frames
+            常量: 52
+        函数: DzCreateFrameByTagName
+            常量: BACKDROP
+            常量: 52
+            数组: Frames
+                常量: 3
+            常量: template
+            常量: 52
+    DzFrameSetTexture
+        数组: Frames
+            常量: 52
+        常量: ReplaceableTextures\CommandButtons\BTNCancel.blp
+        常量: 0
+    CustomScriptCode
+        常量: 'call DzFrameSetSize( udg_Frames[52], 0.022, 0.022 )'
+    CustomScriptCode
+        常量: 'call DzFrameSetPoint(udg_Frames[52], 4, udg_Frames[3], 7, -0.0565, 0.0305)'
+    禁用: DzFrameShow
+        数组: Frames
+            常量: 52
+        常量: false
+    SetVariable
+        数组: Frames
+            常量: 53
+        函数: DzCreateFrameByTagName
+            常量: GLUETEXTBUTTON
+            常量: 53
+            数组: Frames
+                常量: 52
+            常量: template
+            常量: 53
+    CustomScriptCode
+        常量: 'call DzFrameSetSize( udg_Frames[53], 0.022, 0.022 )'
+    DzFrameSetPoint
+        数组: Frames
+            常量: 53
+        预设: FramePoints_Center
+        数组: Frames
+            常量: 52
+        预设: FramePoints_Center
+        常量: 0.00
+        常量: 0.00
+    CommentString
+        常量: 物品栏5
+    SetVariable
+        数组: Frames
+            常量: 54
+        函数: DzCreateFrameByTagName
+            常量: BACKDROP
+            常量: 54
+            数组: Frames
+                常量: 3
+            常量: template
+            常量: 54
+    DzFrameSetTexture
+        数组: Frames
+            常量: 54
+        常量: ReplaceableTextures\CommandButtons\BTNCancel.blp
+        常量: 0
+    CustomScriptCode
+        常量: 'call DzFrameSetSize( udg_Frames[54], 0.022, 0.022 )'
+    CustomScriptCode
+        常量: 'call DzFrameSetPoint(udg_Frames[54], 4, udg_Frames[3], 7, -0.02845, 0.0305)'
+    禁用: DzFrameShow
+        数组: Frames
+            常量: 54
+        常量: false
+    SetVariable
+        数组: Frames
+            常量: 55
+        函数: DzCreateFrameByTagName
+            常量: GLUETEXTBUTTON
+            常量: 55
+            数组: Frames
+                常量: 54
+            常量: template
+            常量: 55
+    CustomScriptCode
+        常量: 'call DzFrameSetSize( udg_Frames[55], 0.022, 0.022 )'
+    DzFrameSetPoint
+        数组: Frames
+            常量: 55
+        预设: FramePoints_Center
+        数组: Frames
+            常量: 54
+        预设: FramePoints_Center
+        常量: 0.00
+        常量: 0.00
+    CommentString
+        常量: 物品栏6
+    SetVariable
+        数组: Frames
+            常量: 56
+        函数: DzCreateFrameByTagName
+            常量: BACKDROP
+            常量: 56
+            数组: Frames
+                常量: 3
+            常量: template
+            常量: 56
+    DzFrameSetTexture
+        数组: Frames
+            常量: 56
+        常量: ReplaceableTextures\CommandButtons\BTNCancel.blp
+        常量: 0
+    CustomScriptCode
+        常量: 'call DzFrameSetSize( udg_Frames[56], 0.022, 0.022 )'
+    CustomScriptCode
+        常量: 'call DzFrameSetPoint(udg_Frames[56], 4, udg_Frames[3], 7, 0, 0.0305)'
+    禁用: DzFrameShow
+        数组: Frames
+            常量: 56
+        常量: false
+    SetVariable
+        数组: Frames
+            常量: 57
+        函数: DzCreateFrameByTagName
+            常量: GLUETEXTBUTTON
+            常量: 57
+            数组: Frames
+                常量: 56
+            常量: template
+            常量: 57
+    CustomScriptCode
+        常量: 'call DzFrameSetSize( udg_Frames[57], 0.022, 0.022 )'
+    DzFrameSetPoint
+        数组: Frames
+            常量: 57
+        预设: FramePoints_Center
+        数组: Frames
+            常量: 56
+        预设: FramePoints_Center
+        常量: 0.00
+        常量: 0.00
+    CommentString
+        常量: 出售按钮
+    SetVariable
+        数组: Frames
+            常量: 60
+        函数: DzFrameFindByName
+            常量: B6
+            常量: 0
+    禁用: DzFrameSetScriptByCode
+        数组: Frames
+            常量: 60
+        预设: FrameEvent_Evenr_Pressed
+        动作: TriggerExecute
+            变量: gg_trg_Fram60Action
+        常量: true
+    禁用: SetVariable
+        数组: Frames
+            常量: 58
+        函数: DzCreateFrameByTagName
+            常量: BACKDROP
+            常量: 58
+            数组: Frames
+                常量: 3
+            常量: template
+            常量: 58
+    禁用: DzFrameSetTexture
+        数组: Frames
+            常量: 58
+        常量: ui\btnbig.blp
+        常量: 0
+    禁用: DzFrameSetSize
+        数组: Frames
+            常量: 58
+        常量: 0.06
+        常量: 0.02
+    禁用: CustomScriptCode
+        常量: 'call DzFrameSetPoint(udg_Frames[58], 4, udg_Frames[3], 7, 0.068, 0.0303)'
+    禁用: SetVariable
+        数组: Frames
+            常量: 59
+        函数: DzCreateFrame
+            常量: cm10
+            数组: Frames
+                常量: 58
+            常量: 59
+    禁用: DzFrameSetText
+        数组: Frames
+            常量: 59
+        常量: 出售
+    禁用: DzFrameSetSize
+        数组: Frames
+            常量: 59
+        常量: 0.05
+        常量: 0.01
+    禁用: DzFrameSetPoint
+        数组: Frames
+            常量: 59
+        预设: FramePoints_Center
+        数组: Frames
+            常量: 58
+        预设: FramePoints_Center
+        常量: 0.00
+        常量: 0.00
+    禁用: SetVariable
+        数组: Frames
+            常量: 60
+        函数: DzCreateFrameByTagName
+            常量: GLUETEXTBUTTON
+            常量: 60
+            数组: Frames
+                常量: 58
+            常量: template
+            常量: 60
+    禁用: DzFrameSetSize
+        数组: Frames
+            常量: 60
+        常量: 0.06
+        常量: 0.02
+    禁用: DzFrameSetPoint
+        数组: Frames
+            常量: 60
+        预设: FramePoints_Center
+        数组: Frames
+            常量: 58
+        预设: FramePoints_Center
+        常量: 0.00
+        常量: 0.00
+    禁用: DzFrameSetScriptByCode
+        数组: Frames
+            常量: 60
+        预设: FrameEvent_Evenr_Pressed
+        动作: TriggerExecute
+            变量: gg_trg_Fram60Action
+        常量: true
+    CommentString
+        常量: 道具提示
+    SetVariable
+        数组: Frames
+            常量: 100
+        函数: DzCreateFrameByTagName
+            常量: BACKDROP
+            常量: 100
+            函数: DzGetGameUI
+            常量: template
+            常量: 100
+    DzFrameSetTexture
+        数组: Frames
+            常量: 100
+        常量: UI\notice.blp
+        常量: 0
+    DzFrameSetSize
+        数组: Frames
+            常量: 100
+        常量: 0.18
+        常量: 0.13
+    CustomScriptCode
+        常量: 'call DzFrameSetPoint(udg_Frames[100], 0, DzGetGameUI(), 0, 0.0, 0.0)'
+    DzFrameShow
+        数组: Frames
+            常量: 100
+        常量: false
+    SetVariable
+        数组: Frames
+            常量: 101
+        函数: DzCreateFrame
+            常量: lm10
+            数组: Frames
+                常量: 100
+            常量: 101
+    DzFrameSetText
+        数组: Frames
+            常量: 101
+        常量: 装备tips
+    DzFrameSetSize
+        数组: Frames
+            常量: 101
+        常量: 0.15
+        常量: 0.13
+    CustomScriptCode
+        常量: 'call DzFrameSetPoint(udg_Frames[101], 0, udg_Frames[100], 0, 0.01, 0)'
+    CommentString
+        常量: 选择框
+    SetVariable
+        数组: Frames
+            常量: 102
+        函数: DzCreateFrameByTagName
+            常量: BACKDROP
+            常量: 102
+            数组: Frames
+                常量: 3
+            常量: template
+            常量: 102
+    DzFrameSetTexture
+        数组: Frames
+            常量: 102
+        常量: ReplaceableTextures\CommandButtons\BTNSpiritWalkerAdeptTraining.blp
+        常量: 0
+    DzFrameSetSize
+        数组: Frames
+            常量: 102
+        常量: 0.03
+        常量: 0.03
+    CustomScriptCode
+        常量: 'call DzFrameSetPoint(udg_Frames[102], 0, udg_Frames[3], 0, 0, 0)'
+    DzFrameShow
+        数组: Frames
+            常量: 102
+        常量: false
+    CommentString
+        常量: 当前选择装备的提示
+    SetVariable
+        数组: Frames
+            常量: 103
+        函数: DzCreateFrameByTagName
+            常量: GLUETEXTBUTTON
+            常量: 103
+            数组: Frames
+                常量: 24
+            常量: template
+            常量: 103
+    CustomScriptCode
+        常量: 'call DzFrameSetSize( udg_Frames[103], 0.022, 0.022 )'
+    DzFrameSetPoint
+        数组: Frames
+            常量: 103
+        预设: FramePoints_Center
+        数组: Frames
+            常量: 24
+        预设: FramePoints_Center
+        常量: 0.00
+        常量: 0.00
+    CommentString
+        常量: 商店标题
+    SetVariable
+        数组: Frames
+            常量: 104
+        函数: DzFrameFindByName
+            常量: A1
+            常量: 0
+    禁用: DzFrameSetScriptByCode
+        数组: Frames
+            常量: 104
+        预设: FrameEvent_Evenr_Pressed
+        动作: TriggerExecute
+            变量: gg_trg_Fram104Action
+        常量: true
+    DzFrameShow
+        数组: Frames
+            常量: 104
+        常量: false
+    CommentString
+        常量: 英雄商店标题
+    SetVariable
+        数组: Frames
+            常量: 105
+        函数: DzFrameFindByName
+            常量: A2
+            常量: 0
+    禁用: DzFrameSetScriptByCode
+        数组: Frames
+            常量: 105
+        预设: FrameEvent_Evenr_Pressed
+        动作: TriggerExecute
+            变量: gg_trg_Fram105Action
+        常量: true
+    DzFrameShow
+        数组: Frames
+            常量: 105
+        常量: false
+    CommentString
+        常量: 界面
+    禁用: SetVariable
+        数组: Frames
+            常量: 106
+        函数: DzCreateFrameByTagName
+            常量: BACKDROP
+            常量: 106
+            函数: DzGetGameUI
+            常量: template
+            常量: 106
+    禁用: DzFrameSetTexture
+        数组: Frames
+            常量: 106
+        常量: war3mapImported\store2.0.tga
+        常量: 0
+    禁用: DzFrameSetSize
+        数组: Frames
+            常量: 106
+        常量: 0.56
+        常量: 0.40
+    禁用: DzFrameSetPoint
+        数组: Frames
+            常量: 106
+        预设: FramePoints_Bottom
+        函数: DzGetGameUI
+        预设: FramePoints_BottomLeft
+        常量: 0.40
+        常量: 0.16
+    禁用: DzFrameShow
+        数组: Frames
+            常量: 106
+        常量: false
+    禁用: SetVariable
+        数组: Frames
+            常量: 110
+        函数: DzCreateFrame
+            常量: HeroUI
+            数组: Frames
+                常量: 106
+            常量: 0
+    禁用: DzFrameSetPoint
+        数组: Frames
+            常量: 110
+        预设: 'FramePoints_Top '
+        数组: Frames
+            常量: 106
+        预设: 'FramePoints_Top '
+        常量: 0.00
+        常量: 0.00
+    CommentString
+        常量: 商店标题
+    禁用: SetVariable
+        数组: Frames
+            常量: 107
+        函数: DzFrameFindByName
+            常量: HeroA1
+            常量: 0
+    禁用: DzFrameSetScriptByCode
+        数组: Frames
+            常量: 107
+        预设: FrameEvent_Evenr_Pressed
+        动作: TriggerExecute
+            变量: gg_trg_Fram104Action
+        常量: true
+    CommentString
+        常量: 英雄商店标题
+    禁用: SetVariable
+        数组: Frames
+            常量: 108
+        函数: DzFrameFindByName
+            常量: HeroA2
+            常量: 0
+    禁用: DzFrameSetScriptByCode
+        数组: Frames
+            常量: 108
+        预设: FrameEvent_Evenr_Pressed
+        动作: TriggerExecute
+            变量: gg_trg_Fram105Action
+        常量: true
+    禁用: SetVariable
+        数组: Frames
+            常量: 109
+        函数: DzFrameFindByName
+            常量: HeroA4
+            常量: 0
+    禁用: DzFrameSetScriptByCode
+        数组: Frames
+            常量: 109
+        预设: FrameEvent_Evenr_Pressed
+        动作: TriggerExecute
+            变量: gg_trg_Fram105Action
+        常量: true
+    CommentString
+        常量: 卡牌按钮
+    禁用: SetVariable
+        数组: Frames
+            常量: 111
+        函数: DzFrameFindByName
+            常量: Herobaijin
+            常量: 0
+    禁用: DzFrameSetPoint
+        数组: Frames
+            常量: 111
+        预设: FramePoints_Left
+        数组: Frames
+            常量: 110
+        预设: FramePoints_Left
+        常量: 0.40
+        常量: 0.16
+    禁用: DzFrameShow
+        数组: Frames
+            常量: 111
+        常量: true
+    禁用: SetVariable
+        数组: Frames
+            常量: 112
+        函数: DzFrameFindByName
+            常量: Azuanshi
+            常量: 0
+    禁用: DzFrameSetPoint
+        数组: Frames
+            常量: 112
+        预设: FramePoints_Center
+        数组: Frames
+            常量: 110
+        预设: FramePoints_Center
+        常量: 0.10
+        常量: 0.00
+    禁用: DzFrameShow
+        数组: Frames
+            常量: 112
+        常量: true
+    禁用: SetVariable
+        数组: Frames
+            常量: 113
+        函数: DzFrameFindByName
+            常量: Awangzhe
+            常量: 0
+    禁用: DzFrameSetPoint
+        数组: Frames
+            常量: 113
+        预设: FramePoints_Center
+        数组: Frames
+            常量: 110
+        预设: FramePoints_Center
+        常量: 0.30
+        常量: 0.00
+    禁用: DzFrameShow
+        数组: Frames
+            常量: 113
+        常量: true
+    CommentString
+        常量: 商店面按钮
+    禁用: SetVariable
+        数组: Frames
+            常量: 200
+        函数: DzCreateFrameByTagName
+            常量: BACKDROP
+            常量: 200
+            函数: DzGetGameUI
+            常量: template
+            常量: 200
+    禁用: DzFrameSetTexture
+        数组: Frames
+            常量: 200
+        常量: ReplaceableTextures\CommandButtons\BTNMGExchange.blp
+        常量: 0
+    禁用: DzFrameSetSize
+        数组: Frames
+            常量: 200
+        常量: 0.03
+        常量: 0.03
+    禁用: DzFrameSetPoint
+        数组: Frames
+            常量: 200
+        预设: FramePoints_Bottom
+        函数: DzGetGameUI
+        预设: FramePoints_Bottom
+        常量: 0.35
+        常量: 0.24
+    禁用: SetVariable
+        数组: Frames
+            常量: 201
+        函数: DzCreateFrame
+            常量: cm12
+            数组: Frames
+                常量: 200
+            常量: 201
+    禁用: DzFrameSetText
+        数组: Frames
+            常量: 201
+        常量: 英雄
+    禁用: DzFrameSetSize
+        数组: Frames
+            常量: 201
+        常量: 0.03
+        常量: 0.01
+    禁用: DzFrameSetPoint
+        数组: Frames
+            常量: 201
+        预设: FramePoints_Bottom
+        数组: Frames
+            常量: 200
+        预设: FramePoints_Bottom
+        常量: 0.00
+        常量: 0.00
+    禁用: SetVariable
+        数组: Frames
+            常量: 202
+        函数: DzCreateFrameByTagName
+            常量: GLUETEXTBUTTON
+            常量: 202
+            数组: Frames
+                常量: 200
+            常量: template
+            常量: 202
+    禁用: DzFrameSetSize
+        数组: Frames
+            常量: 202
+        常量: 0.03
+        常量: 0.03
+    禁用: DzFrameSetPoint
+        数组: Frames
+            常量: 202
+        预设: FramePoints_Center
+        数组: Frames
+            常量: 200
+        预设: FramePoints_Center
+        常量: 0.00
+        常量: 0.00
+    禁用: DzFrameSetScriptByCode
+        数组: Frames
+            常量: 202
+        预设: FrameEvent_Evenr_Pressed
+        动作: ConditionalTriggerExecute
+            变量: gg_trg_Fram202Action
+        常量: true
+    CommentString
+        常量: 界面
+    禁用: SetVariable
+        数组: Frames
+            常量: 203
+        函数: DzCreateFrameByTagName
+            常量: BACKDROP
+            常量: 203
+            函数: DzGetGameUI
+            常量: template
+            常量: 203
+    禁用: DzFrameSetTexture
+        数组: Frames
+            常量: 203
+        常量: ui\b.tga
+        常量: 0
+    禁用: DzFrameSetSize
+        数组: Frames
+            常量: 203
+        常量: 0.56
+        常量: 0.40
+    禁用: DzFrameSetPoint
+        数组: Frames
+            常量: 203
+        预设: FramePoints_Bottom
+        函数: DzGetGameUI
+        预设: FramePoints_BottomLeft
+        常量: 0.40
+        常量: 0.16
+    禁用: DzFrameShow
+        数组: Frames
+            常量: 203
+        常量: false
+    CommentString
+        常量: 物品栏5
+    禁用: SetVariable
+        数组: Frames
+            常量: 204
+        函数: DzCreateFrameByTagName
+            常量: BACKDROP
+            常量: 204
+            数组: Frames
+                常量: 203
+            常量: template
+            常量: 204
+    禁用: DzFrameSetTexture
+        数组: Frames
+            常量: 204
+        常量: Icon\Item\Item_IU01.blp
+        常量: 0
+    禁用: CustomScriptCode
+        常量: 'call DzFrameSetSize( udg_Frames[204], 0.085, 0.087 )'
+    禁用: CustomScriptCode
+        常量: 'call DzFrameSetPoint(udg_Frames[204], 4, udg_Frames[203], 3, 0.0845, 0.084)'
+    禁用: DzFrameShow
+        数组: Frames
+            常量: 54
+        常量: false
+    禁用: SetVariable
+        数组: Frames
+            常量: 55
+        函数: DzCreateFrameByTagName
+            常量: GLUETEXTBUTTON
+            常量: 55
+            数组: Frames
+                常量: 54
+            常量: template
+            常量: 55
+    禁用: CustomScriptCode
+        常量: 'call DzFrameSetSize( udg_Frames[55], 0.02, 0.02 )'
+    禁用: DzFrameSetPoint
+        数组: Frames
+            常量: 55
+        预设: FramePoints_Center
+        数组: Frames
+            常量: 54
+        预设: FramePoints_Center
+        常量: 0.00
+        常量: 0.00
+    CommentString
+        常量: 物品栏5
+    禁用: SetVariable
+        数组: Frames
+            常量: 204
+        函数: DzCreateFrameByTagName
+            常量: BACKDROP
+            常量: 204
+            数组: Frames
+                常量: 203
+            常量: template
+            常量: 204
+    禁用: DzFrameSetTexture
+        数组: Frames
+            常量: 204
+        常量: ReplaceableTextures\CommandButtons\BTNCancel.blp
+        常量: 0
+    禁用: CustomScriptCode
+        常量: 'call DzFrameSetSize( udg_Frames[204], 0.085, 0.087 )'
+    禁用: CustomScriptCode
+        常量: 'call DzFrameSetPoint(udg_Frames[204], 4, udg_Frames[203], 3, 0.207, 0.084)'
+    CommentString
+        常量: 物品栏5
+    禁用: SetVariable
+        数组: Frames
+            常量: 204
+        函数: DzCreateFrameByTagName
+            常量: BACKDROP
+            常量: 204
+            数组: Frames
+                常量: 203
+            常量: template
+            常量: 204
+    禁用: DzFrameSetTexture
+        数组: Frames
+            常量: 204
+        常量: ReplaceableTextures\CommandButtons\BTNCancel.blp
+        常量: 0
+    禁用: CustomScriptCode
+        常量: 'call DzFrameSetSize( udg_Frames[204], 0.085, 0.087 )'
+    禁用: CustomScriptCode
+        常量: 'call DzFrameSetPoint(udg_Frames[204], 4, udg_Frames[203], 3, 0.348, 0.084)'
+    CommentString
+        常量: 物品栏5
+    禁用: SetVariable
+        数组: Frames
+            常量: 204
+        函数: DzCreateFrameByTagName
+            常量: BACKDROP
+            常量: 204
+            数组: Frames
+                常量: 203
+            常量: template
+            常量: 204
+    禁用: DzFrameSetTexture
+        数组: Frames
+            常量: 204
+        常量: ReplaceableTextures\CommandButtons\BTNCancel.blp
+        常量: 0
+    禁用: CustomScriptCode
+        常量: 'call DzFrameSetSize( udg_Frames[204], 0.085, 0.087 )'
+    禁用: CustomScriptCode
+        常量: 'call DzFrameSetPoint(udg_Frames[204], 4, udg_Frames[203], 3, 0.473, 0.084)'
+    CommentString
+        常量: 确定按钮
+    禁用: SetVariable
+        数组: Frames
+            常量: 58
+        函数: DzCreateFrameByTagName
+            常量: BACKDROP
+            常量: 58
+            数组: Frames
+                常量: 203
+            常量: template
+            常量: 58
+    禁用: DzFrameSetTexture
+        数组: Frames
+            常量: 58
+        常量: ui\btnbig.blp
+        常量: 0
+    禁用: DzFrameSetSize
+        数组: Frames
+            常量: 58
+        常量: 0.06
+        常量: 0.02
+    禁用: CustomScriptCode
+        常量: 'call DzFrameSetPoint(udg_Frames[58], 4, udg_Frames[203], 4, 0, -0.01)'
+    禁用: SetVariable
+        数组: Frames
+            常量: 59
+        函数: DzCreateFrame
+            常量: cm10
+            数组: Frames
+                常量: 58
+            常量: 59
+    禁用: DzFrameSetText
+        数组: Frames
+            常量: 59
+        常量: 确定
+    禁用: DzFrameSetSize
+        数组: Frames
+            常量: 59
+        常量: 0.05
+        常量: 0.01
+    禁用: DzFrameSetPoint
+        数组: Frames
+            常量: 59
+        预设: FramePoints_Center
+        数组: Frames
+            常量: 58
+        预设: FramePoints_Center
+        常量: 0.00
+        常量: 0.00
+    禁用: SetVariable
+        数组: Frames
+            常量: 60
+        函数: DzCreateFrameByTagName
+            常量: GLUETEXTBUTTON
+            常量: 60
+            数组: Frames
+                常量: 58
+            常量: template
+            常量: 60
+    禁用: DzFrameSetSize
+        数组: Frames
+            常量: 60
+        常量: 0.06
+        常量: 0.02
+    禁用: DzFrameSetPoint
+        数组: Frames
+            常量: 60
+        预设: FramePoints_Center
+        数组: Frames
+            常量: 58
+        预设: FramePoints_Center
+        常量: 0.00
+        常量: 0.00
+    禁用: DzFrameSetScriptByCode
+        数组: Frames
+            常量: 60
+        预设: FrameEvent_Evenr_Pressed
+        动作: TriggerExecute
+            变量: gg_trg_Fram60Action
+        常量: false
+    CommentString
+        常量: 物品栏5
+    禁用: SetVariable
+        数组: Frames
+            常量: 204
+        函数: DzCreateFrameByTagName
+            常量: BACKDROP
+            常量: 204
+            数组: Frames
+                常量: 203
+            常量: template
+            常量: 204
+    禁用: DzFrameSetTexture
+        数组: Frames
+            常量: 204
+        常量: ReplaceableTextures\CommandButtons\BTNCancel.blp
+        常量: 0
+    禁用: CustomScriptCode
+        常量: 'call DzFrameSetSize( udg_Frames[204], 0.05, 0.05 )'
+    禁用: CustomScriptCode
+        常量: 'call DzFrameSetPoint(udg_Frames[204], 4, udg_Frames[203], 4, 0, -0.084)'
+    ReturnAction

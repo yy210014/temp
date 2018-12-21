@@ -1,0 +1,60 @@
+事件
+条件
+动作
+    IfThenElseMultiple
+        条件
+            OperatorComparePlayer
+                函数: DzGetTriggerUIEventPlayer
+                预设: OperatorEqualENE
+                函数: GetLocalPlayer
+        动作
+            DzFrameSetText
+                函数: DzFrameFindByName
+                    常量: AA33
+                    常量: 0
+                常量: |cFFFCC403物理|r|n|cFFFCC403攻击|r
+            DzFrameSetText
+                函数: DzFrameFindByName
+                    常量: AA44
+                    常量: 0
+                常量: |cFFFCC403攻速|r|n|cFFFCC403暴击|r
+            DzFrameSetText
+                函数: DzFrameFindByName
+                    常量: AA55
+                    常量: 0
+                常量: |cFFFCC403法术|r|n|cFFFCC403攻击|r
+            DzFrameSetText
+                函数: DzFrameFindByName
+                    常量: AA66
+                    常量: 0
+                常量: |cFFFCC403冷却|r|n|cFFFCC403缩减|r
+            DzFrameSetText
+                函数: DzFrameFindByName
+                    常量: AA77
+                    常量: 0
+                常量: |cff00ffff法力|r|n|cff00ffff回复|r
+            DzFrameShow
+                函数: DzFrameFindByName
+                    常量: ItemCellAds
+                    常量: 0
+                常量: false
+            DzFrameShow
+                函数: DzFrameFindByName
+                    常量: ItemCellAps
+                    常量: 0
+                常量: false
+            DzFrameShow
+                函数: DzFrameFindByName
+                    常量: ItemCellCrits
+                    常量: 0
+                常量: false
+            DzFrameShow
+                函数: DzFrameFindByName
+                    常量: ItemCellCooldowns
+                    常量: 0
+                常量: false
+            DzFrameShow
+                函数: DzFrameFindByName
+                    常量: ItemCellManas
+                    常量: 0
+                常量: true

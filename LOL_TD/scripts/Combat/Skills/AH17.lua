@@ -1,0 +1,16 @@
+local skill = Skills["瞄准"]
+local mDamages = {0.6, 0.8, 1.0, 1.2, 1.4, 1.6}
+local mAttactRange = {100, 50, 50, 50, 50, 100}
+
+function skill:OnCast()
+end
+
+function skill:OnLearned()
+    self.Owner.Attribute:add("攻击范围", mAttactRange[self:GetCurLevel()])
+end
+
+function skill:OnAttack(attactUnit, defUnit)
+    local ad = self.Owner.Attribute:get("物理攻击") + self.Owner.Attribute:get("物理攻击加成")
+    local damage = mDamages[self:GetCurLevel()] * ad
+    EXUnitDamageTarget(self.Owner, defUnit, damage, EXDamageType.Physics)
+end

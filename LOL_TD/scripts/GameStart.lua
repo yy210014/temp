@@ -218,7 +218,7 @@ function GameStart.AnyUnitConstructFinish()
     end
     if (IsUnitType(unit.Entity, UNIT_TYPE_HERO)) then
         --天赋
-        unit:AddTianfu()
+        --unit:AddTianfu()
         --羁绊
         AddComb(unit)
         --开启AI
@@ -229,10 +229,9 @@ function GameStart.AnyUnitConstructFinish()
         unit.Attribute:add("暴击", 0.5)
         unit.Attribute:add("冷却缩减上限", 0.5)
         unit.Attribute:add("冷却缩减", 0.5)
-        --[[  unit.Attribute:add("物理攻击", 10000)
-        unit.Attribute:add("法术攻击", 1000000)
+        unit.Attribute:add("物理攻击", 10000)
+        unit.Attribute:add("法术攻击", 10000)
 
-        SetPlayerState(Player(0), PLAYER_STATE_RESOURCE_GOLD, 200000)]]
         --辅助英雄写死
         if (unit.Id == GetId("UH35")) then
             unit:LearnedSkill(GetId("AH80"))
@@ -335,7 +334,7 @@ function GameStart.AnyUnitDeath(killUnit, dieUnit)
     --怪兽掉落
     local playerId = GetPlayerId(killUnit.Player) + 1
     mUnitDeathDropCount[playerId] = mUnitDeathDropCount[playerId] + 1
-    if (mUnitDeathDropCount[playerId] > 20) then
+    if (mUnitDeathDropCount[playerId] > 30) then
         local itemId = Card.RandomDrop()
         if (itemId ~= 0) then
             CreateItem(itemId, dieUnit:X(), dieUnit:Y())

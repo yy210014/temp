@@ -20,7 +20,7 @@ function MinusCameraFieldForPlayer()
     SetCameraFieldForPlayer(player, CAMERA_FIELD_ZOFFSET, nowCameraField, 0)
 end
 
-local mPlayerRewardFlag = {0, 0, 0, 0}
+local mPlayerRewardFlag = { 0, 0, 0, 0 }
 function Repick(player, playerID)
     if (1 == mPlayerRewardFlag[playerID + 1]) then
         return
@@ -71,37 +71,45 @@ function cheat(playerId)
     local offX = 0
     local offY = 0
     local id = "IH"
-    for i, v in ipairs(mCheatItems) do
+  --[[  for i, v in ipairs(mCheatItems) do
         offX = math.random(0, 600) * math.cos(math.random(0, 360))
         offY = math.random(0, 600) * math.sin(math.random(0, 360))
         CreateItem(GetId(id .. v), x + offX, y + offY)
+    end]]
+    mCheatItems = { "IB06", "IB07" }
+    for i, v in ipairs(mCheatItems) do
+        for j = 1, 20 do
+            offX = math.random(0, 600) * math.cos(math.random(0, 360))
+            offY = math.random(0, 600) * math.sin(math.random(0, 360))
+            CreateItem(GetId(v), x + offX, y + offY)
+        end
     end
     SetPlayerState(
-        Player(playerId),
-        PLAYER_STATE_RESOURCE_GOLD,
-        GetPlayerState(Player(playerId), PLAYER_STATE_RESOURCE_GOLD) + 10000
+    Player(playerId),
+    PLAYER_STATE_RESOURCE_GOLD,
+    GetPlayerState(Player(playerId), PLAYER_STATE_RESOURCE_GOLD) + 10000
     )
     SetPlayerState(
-        Player(playerId),
-        PLAYER_STATE_RESOURCE_LUMBER,
-        GetPlayerState(Player(playerId), PLAYER_STATE_RESOURCE_LUMBER) + 10000
+    Player(playerId),
+    PLAYER_STATE_RESOURCE_LUMBER,
+    GetPlayerState(Player(playerId), PLAYER_STATE_RESOURCE_LUMBER) + 10000
     )
 end
 
 function GetGuid()
-    local seed = {"e", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"}
+    local seed = { "e", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f" }
     local tb = {}
     for i = 1, 32 do
         table.insert(tb, seed[math.random(1, #seed)])
     end
     local sid = table.concat(tb)
     return string.format(
-        "%s-%s-%s-%s-%s",
-        string.sub(sid, 1, 8),
-        string.sub(sid, 9, 12),
-        string.sub(sid, 13, 16),
-        string.sub(sid, 17, 20),
-        string.sub(sid, 21, 32)
+    "%s-%s-%s-%s-%s",
+    string.sub(sid, 1, 8),
+    string.sub(sid, 9, 12),
+    string.sub(sid, 13, 16),
+    string.sub(sid, 17, 20),
+    string.sub(sid, 21, 32)
     )
 end
 

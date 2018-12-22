@@ -98,37 +98,48 @@ SR卡碎片1~15
 SSR 1~20 100个
 
 SR卡需要50碎片 ssr120
+
+开出SR卡碎片箱->开出50个碎片自动合成sr卡
 ]]
-local b = {}
+local mRandomBoxCount = 0
 function Card.RandomBox1()
-    local random = math.random(1, 3)
-    if (random <= 2) then
+    if (mRandomBoxCount > 10) then
+        mRandomBoxCount = 0
+    end
+    if (mRandomBoxCount <= 7) then
         return mBox1Item[math.random(1, #mBox1Item)]
     else
         return GetId("IH" .. NId[math.random(1, #NId)])
     end
+    mRandomBoxCount = mRandomBoxCount + 1
 end
 
 function Card.RandomBox2()
-    local random = math.random(1, 2)
-    if (random == 1) then
-        return mBox2Item[math.random(1, #mBox2Item)]
-    elseif (random == 2) then
+    if (mRandomBoxCount > 10) then
+        mRandomBoxCount = 0
+    end
+    if (mRandomBoxCount <= 5) then
+        return GetId("IB06")
+    elseif (mRandomBoxCount <= 8) then
         return GetId("IH" .. RId[math.random(1, #RId)])
     else
-        return GetId("IB04")
+        return mBox2Item[math.random(1, #mBox2Item)]
     end
+    mRandomBoxCount = mRandomBoxCount + 1
 end
 
 function Card.RandomBox3()
-    local random = math.random(1, 2)
-    if (random == 1) then
-        return mBox3Item[math.random(1, #mBox3Item)]
-    elseif (random == 2) then
-        return GetId("IB04")
-    else
-        return GetId("IB05")
+    if (mRandomBoxCount > 10) then
+        mRandomBoxCount = 0
     end
+    if (mRandomBoxCount <= 5) then
+        return GetId("IB07")
+    elseif (mRandomBoxCount <= 8) then
+        return GetId("IB06")
+    else
+        return mBox3Item[math.random(1, #mBox3Item)]
+    end
+    mRandomBoxCount = mRandomBoxCount + 1
 end
 
 local mDropList = {

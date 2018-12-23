@@ -137,15 +137,6 @@ function MonsterRefresh.InitRegion()
     RegionAddRect(MonsterRefresh.Regions[15], Jglobals.gg_rct_rect015)
     MonsterRefresh.Regions[16] = CreateRegion()
     RegionAddRect(MonsterRefresh.Regions[16], Jglobals.gg_rct_rect016)
-    --[[
-    MonsterRefresh.Regions[13] = CreateRegion()
-    RegionAddRect(MonsterRefresh.Regions[13], Jglobals.gg_rct_newRect001)
-    MonsterRefresh.Regions[14] = CreateRegion()
-    RegionAddRect(MonsterRefresh.Regions[14], Jglobals.gg_rct_newRect002)
-    MonsterRefresh.Regions[15] = CreateRegion()
-    RegionAddRect(MonsterRefresh.Regions[15], Jglobals.gg_rct_newRect003)
-    MonsterRefresh.Regions[16] = CreateRegion()
-    RegionAddRect(MonsterRefresh.Regions[16], Jglobals.gg_rct_newRect004)]]
 
     local trig = nil
     for i = 1, #MonsterRefresh.Regions do
@@ -158,7 +149,7 @@ function MonsterRefresh.InitRegion()
             if (enteringUnit == nil or enteringUnit.FactionId == PlayerTeamFactionId) then
                 return
             end
-            for index, v in ipairs(MonsterRefresh.Regions) do
+            for index = 1, #MonsterRefresh.Regions do
                 if (GetTriggeringRegion() == MonsterRefresh.Regions[index]) then
                     IssuePointOrderLoc(enteringUnit.Entity, "move", GetNextPoint(enteringUnit.PrePoint, index))
                     enteringUnit.PrePoint = MonsterRefresh.RectPoints[index]
@@ -237,7 +228,6 @@ local function Spawn(spawnPoint, index)
     unit.Attribute:add("生命", unit.Attribute:get("生命上限"))
     unit.Attribute:add("魔法值", unit.Attribute:get("魔法上限"))
     unit.PrePoint = spawnPoint
-    --SetUnitPathing(unit.Entity, false)
     EXSetUnitCollisionType(true, unit.Entity, 1)
     RemoveGuardPosition(unit.Entity)
     IssuePointOrderLoc(unit.Entity, "move", MonsterRefresh.RectPoints[index])

@@ -13,213 +13,114 @@ require "scripts.GameStart"
 
 PlayerTeamFactionId = 0
 EnemyTeamFactionId = 1
-AllPlayerTeam = {0, 1, 2, 3, 8, 9, 10, 11}
-PlayerTeam = {0, 1, 2, 3}
-EnemyTeam = {8, 9, 10, 11}
+AllPlayerTeam = { 0, 1, 2, 3, 8, 9, 10, 11 }
+PlayerTeam = { 0, 1, 2, 3 }
+EnemyTeam = { 8, 9, 10, 11 }
 
 function main()
     local PlayerCount = 3
     local trig = CreateTrigger()
     TriggerRegisterTimerEvent(trig, 0, false)
-    TriggerAddAction(
-        trig,
-        function()
-            GameStart.OnGameStart()
-        end
-    )
+    TriggerAddAction(trig, GameStart.OnGameStart)
 
     trig = CreateTrigger()
     TriggerRegisterTimerEvent(trig, 0.02, true)
-    TriggerAddAction(
-        trig,
-        function()
-            Game.OnGameUpdate(GameScene.DeltaTime * Game.GetSpeed())
-        end
-    )
+    TriggerAddAction(trig, Game.OnGameUpdate)
 
     trig = CreateTrigger()
     for i, v in ipairs(PlayerTeam) do
         TriggerRegisterPlayerUnitEvent(trig, Player(v), EVENT_PLAYER_UNIT_ATTACKED, nil)
     end
-    TriggerAddAction(
-        trig,
-        function()
-            GameStart.AnyUnitAttack()
-        end
-    )
+    TriggerAddAction(trig, GameStart.AnyUnitAttack)
 
     trig = CreateTrigger()
     for i, v in ipairs(PlayerTeam) do
         TriggerRegisterPlayerUnitEvent(trig, Player(v), EVENT_PLAYER_UNIT_CONSTRUCT_FINISH, nil)
     end
-    TriggerAddAction(
-        trig,
-        function()
-            GameStart.AnyUnitConstructFinish()
-        end
-    )
+    TriggerAddAction(trig, GameStart.AnyUnitConstructFinish)
 
     trig = CreateTrigger()
     for i, v in ipairs(PlayerTeam) do
         TriggerRegisterPlayerUnitEvent(trig, Player(v), EVENT_PLAYER_UNIT_ISSUED_POINT_ORDER, nil)
     end
-    TriggerAddAction(
-        trig,
-        function()
-            GameStart.AnyUnitOrderBuild()
-        end
-    )
+    TriggerAddAction(trig, GameStart.AnyUnitOrderBuild)
 
     trig = CreateTrigger()
     for i, v in ipairs(PlayerTeam) do
         TriggerRegisterPlayerUnitEvent(trig, Player(v), EVENT_PLAYER_UNIT_SUMMON, nil)
     end
-    TriggerAddAction(
-        trig,
-        function()
-            GameStart.AnyUnitSummon()
-        end
-    )
-
-   --[[ trig = CreateTrigger()
-    for i, v in ipairs(EnemyTeam) do
-        TriggerRegisterPlayerUnitEvent(trig, Player(v), EVENT_PLAYER_UNIT_DEATH, nil)
-    end
-    TriggerAddAction(
-        trig,
-        function()
-            local killUnit = GetJ_Units(GetKillingUnit())
-            local dieUnit = GetJ_Units(GetDyingUnit())
-            if (killUnit == nil or dieUnit == nil) then
-                if dieUnit ~= nil then
-                    AssetsManager.RemoveObject(dieUnit)
-                end
-                return
-            end
-            GameScene.UnitDeath(killUnit, dieUnit)
-        end
-    )]]
+    TriggerAddAction(trig, GameStart.AnyUnitSummon)
 
     trig = CreateTrigger()
     for i, v in ipairs(PlayerTeam) do
         TriggerRegisterPlayerUnitEvent(trig, Player(v), EVENT_PLAYER_HERO_LEVEL, nil)
     end
-    TriggerAddAction(
-        trig,
-        function()
-            GameStart.AnyHeroLevelUp()
-        end
-    )
+    TriggerAddAction(trig, GameStart.AnyHeroLevelUp)
 
     trig = CreateTrigger()
     for i, v in ipairs(PlayerTeam) do
         TriggerRegisterPlayerUnitEvent(trig, Player(v), EVENT_PLAYER_HERO_SKILL, nil)
     end
-    TriggerAddAction(
-        trig,
-        function()
-            GameStart.AnyUnitLearnedSkill()
-        end
-    )
+    TriggerAddAction(trig, GameStart.AnyUnitLearnedSkill)
 
     trig = CreateTrigger()
     for i, v in ipairs(PlayerTeam) do
         TriggerRegisterPlayerUnitEvent(trig, Player(v), EVENT_PLAYER_UNIT_SPELL_CHANNEL, nil)
     end
-    TriggerAddAction(
-        trig,
-        function()
-            GameStart.AnyUnitSpellChannel()
-        end
-    )
+    TriggerAddAction(trig, GameStart.AnyUnitSpellChannel)
 
     trig = CreateTrigger()
     for i, v in ipairs(PlayerTeam) do
         TriggerRegisterPlayerUnitEvent(trig, Player(v), EVENT_PLAYER_UNIT_SPELL_EFFECT, nil)
     end
-    TriggerAddAction(
-        trig,
-        function()
-            GameStart.AnyUnitSpellEffect()
-        end
-    )
+    TriggerAddAction(trig, GameStart.AnyUnitSpellEffect)
 
     trig = CreateTrigger()
     for i, v in ipairs(PlayerTeam) do
         TriggerRegisterPlayerUnitEvent(trig, Player(v), EVENT_PLAYER_UNIT_SPELL_FINISH, nil)
     end
-    TriggerAddAction(
-        trig,
-        function()
-            GameStart.AnyUnitSpellFinish()
-        end
-    )
+    TriggerAddAction(trig, GameStart.AnyUnitSpellFinish)
 
     trig = CreateTrigger()
     for i, v in ipairs(PlayerTeam) do
         TriggerRegisterPlayerUnitEvent(trig, Player(v), EVENT_PLAYER_UNIT_USE_ITEM, nil)
     end
-    TriggerAddAction(
-        trig,
-        function()
-            GameStart.AnyUnitUseItem()
-        end
-    )
+    TriggerAddAction(trig, GameStart.AnyUnitUseItem)
 
     trig = CreateTrigger()
     for i, v in ipairs(PlayerTeam) do
         TriggerRegisterPlayerUnitEvent(trig, Player(v), EVENT_PLAYER_UNIT_PICKUP_ITEM, nil)
     end
-    TriggerAddAction(
-        trig,
-        function()
-            GameStart.AnyUnitPickUpItem()
-        end
-    )
+    TriggerAddAction(trig, GameStart.AnyUnitPickUpItem)
 
     trig = CreateTrigger()
     for i, v in ipairs(PlayerTeam) do
         TriggerRegisterPlayerUnitEvent(trig, Player(v), EVENT_PLAYER_UNIT_SELL_ITEM, nil)
     end
-    TriggerAddAction(
-        trig,
-        function()
-            GameStart.AnyUnitSellItem()
-        end
-    )
+    TriggerAddAction(trig, GameStart.AnyUnitSellItem)
 
     trig = CreateTrigger()
     for i, v in ipairs(PlayerTeam) do
         TriggerRegisterPlayerUnitEvent(trig, Player(v), EVENT_PLAYER_UNIT_DROP_ITEM, nil)
     end
-    TriggerAddAction(
-        trig,
-        function()
-            GameStart.AnyUnitDropItem()
-        end
-    )
+    TriggerAddAction(trig, GameStart.AnyUnitDropItem)
 
     trig = CreateTrigger()
     for i, v in ipairs(PlayerTeam) do
         TriggerRegisterPlayerChatEvent(trig, Player(v), "", true)
     end
-    TriggerAddAction(
-        trig,
-        function()
-            GameStart.AnyPlayerChat()
-        end
-    )
+    TriggerAddAction(trig, GameStart.AnyPlayerChat)
 
     trig = CreateTrigger()
     for i, v in ipairs(PlayerTeam) do
         TriggerRegisterPlayerEvent(trig, Player(v), EVENT_PLAYER_LEAVE)
     end
     TriggerAddAction(
-        trig,
-        function()
-            DisplayTextToAll("提示：有人掉线了，作者暂停了游戏查看bug", Color.red)
-            PauseGame(true)
-        end
+    trig,
+    function()
+        DisplayTextToAll("提示：有人掉线了，作者暂停了游戏查看bug", Color.red)
+        PauseGame(true)
+    end
     )
     trig = nil
 end

@@ -14,8 +14,8 @@ function GameStart.OnGameStart()
 end
 
 function GameStart.AnyUnitAttack()
-    local attactUnit = GetJ_Units(GetAttacker())
-    local defUnit = GetJ_Units(GetTriggerUnit())
+    local attactUnit = GetJ_PlayerUnits(GetAttacker())
+    local defUnit = GetJ_EnemyUnits(GetTriggerUnit())
     if (attactUnit == nil or defUnit == nil) then
         return
     end
@@ -59,8 +59,8 @@ end
 
 --任意单位伤害
 function GameStart.AnyUnitDamaged()
-    local attactUnit = GetJ_Units(GetEventDamageSource())
-    local defUnit = GetJ_Units(GetTriggerUnit())
+    local attactUnit = GetJ_PlayerUnits(GetEventDamageSource())
+    local defUnit = GetJ_EnemyUnits(GetTriggerUnit())
     local damage = GetEventDamage()
     if (attactUnit == nil or defUnit == nil) then
         return
@@ -218,7 +218,7 @@ function GameStart.AnyUnitConstructFinish()
     end
     if (IsUnitType(unit.Entity, UNIT_TYPE_HERO)) then
         --天赋
-        --unit:AddTianfu()
+        unit:AddTianfu()
         --羁绊
         AddComb(unit)
         --开启AI
@@ -299,7 +299,7 @@ end
 
 --任意单位被召唤
 function GameStart.AnyUnitSummon()
-    local summoningUnit = GetJ_Units(GetSummoningUnit())
+    local summoningUnit = GetJ_PlayerUnits(GetSummoningUnit())
     --召唤者
     if (summoningUnit == nil) then
         return
@@ -379,7 +379,7 @@ end
 
 --任意单位提升等级
 function GameStart.AnyHeroLevelUp()
-    local unit = GetJ_Units(GetTriggerUnit())
+    local unit = GetJ_PlayerUnits(GetTriggerUnit())
     if (unit == nil) then
         Game.LogError("任意单位提升等级-丢失单位")
         return
@@ -397,7 +397,7 @@ end
 
 --任意单位学习技能
 function GameStart.AnyUnitLearnedSkill()
-    local learnedUnit = GetJ_Units(GetLearningUnit())
+    local learnedUnit = GetJ_PlayerUnits(GetLearningUnit())
     local abilityId = GetLearnedSkill()
     if (learnedUnit == nil) then
         Game.LogError("任意单位学习技能-丢失单位")
@@ -408,7 +408,7 @@ end
 
 --任意准备施放技能
 function GameStart.AnyUnitSpellChannel()
-    local spellUnit = GetJ_Units(GetSpellAbilityUnit())
+    local spellUnit = GetJ_PlayerUnits(GetSpellAbilityUnit())
     local abilityId = GetSpellAbilityId()
     if (spellUnit == nil) then
         return
@@ -422,7 +422,7 @@ end
 
 --任意单位发动技能效果
 function GameStart.AnyUnitSpellEffect()
-    local spellUnit = GetJ_Units(GetSpellAbilityUnit())
+    local spellUnit = GetJ_PlayerUnits(GetSpellAbilityUnit())
     local abilityId = GetSpellAbilityId()
     if (spellUnit == nil) then
         Game.LogError("任意单位发动技能效果-丢失单位")
@@ -448,7 +448,7 @@ end
 
 --任意单位施放技能结束
 function GameStart.AnyUnitSpellFinish()
-    local spellUnit = GetJ_Units(GetSpellAbilityUnit())
+    local spellUnit = GetJ_PlayerUnits(GetSpellAbilityUnit())
     if (spellUnit == nil) then
         Game.LogError("任意单位施放技能结束-丢失单位")
         return
@@ -458,7 +458,7 @@ end
 
 --任意单位获得物品
 function GameStart.AnyUnitPickUpItem()
-    local unit = GetJ_Units(GetManipulatingUnit())
+    local unit = GetJ_PlayerUnits(GetManipulatingUnit())
     local entity = GetManipulatedItem()
     if (unit == nil) then
         Game.LogError("任意单位获得物品-丢失单位")
@@ -489,7 +489,7 @@ end
 
 --任意单位使用物品
 function GameStart.AnyUnitUseItem()
-    local unit = GetJ_Units(GetManipulatingUnit())
+    local unit = GetJ_PlayerUnits(GetManipulatingUnit())
     if (unit == nil) then
         Game.LogError("任意单位使用物品-丢失单位")
         return
@@ -502,7 +502,7 @@ end
 
 --任意单位出售物品
 function GameStart.AnyUnitSellItem()
-    local unit = GetJ_Units(GetBuyingUnit())
+    local unit = GetJ_PlayerUnits(GetBuyingUnit())
     if (unit == nil) then
         Game.LogError("任意单位出售物品-丢失单位")
         return
@@ -525,7 +525,7 @@ end
 
 --任意单位丢弃物品
 function GameStart.AnyUnitDropItem()
-    local unit = GetJ_Units(GetManipulatingUnit())
+    local unit = GetJ_PlayerUnits(GetManipulatingUnit())
     if (unit == nil) then
         Game.LogError("任意单位丢弃物品-丢失单位")
         return

@@ -1,15 +1,26 @@
 AssetsManager = {}
 
-local mPlayerTeamUnits = {{}, {}, {}, {}}
+local mPlayerTeamUnits = { {}, {}, {}, {} }
 local mEnemyTeamUnits = {}
 local mDefUnitFacing = 270
-local mJ_Units = {}
 local mDyingUnits = {}
 
-function GetJ_Units(unit)
-    for i = #mJ_Units, 1, -1 do
-        if (mJ_Units[i].Entity == unit) then
-            return mJ_Units[i]
+
+function GetJ_PlayerUnits(entity)
+    local playerId = GetPlayerId(GetOwningPlayer(entity))
+    local list = mPlayerTeamUnits[playerId + 1]
+    for i = #list, 1, -1 do
+        if (list[i].Entity == entity) then
+            return list[i]
+        end
+    end
+    return nil
+end
+
+function GetJ_EnemyUnits(entity)
+    for i = #mEnemyTeamUnits, 1, -1 do
+        if (mEnemyTeamUnits[i].Entity == entity) then
+            return mEnemyTeamUnits[i]
         end
     end
     return nil
@@ -35,18 +46,11 @@ function AssetsManager.LoadUnit(player, id, x, y)
     else
         mEnemyTeamUnits[#mEnemyTeamUnits + 1] = unit
     end
-    mJ_Units[#mJ_Units + 1] = unit
 
     local trig = CreateTrigger()
     TriggerRegisterUnitEvent(trig, entity, EVENT_UNIT_DAMAGED)
-    TriggerAddAction(
-        trig,
-        function()
-            GameStart.AnyUnitDamaged()
-        end
-    )
+    TriggerAddAction(trig, GameStart.AnyUnitDamaged)
     unit.Trigger = trig
-    trig = nil
     return unit
 end
 
@@ -58,17 +62,10 @@ function AssetsManager.LoadUnitAtLoc(player, id, point)
     else
         mEnemyTeamUnits[#mEnemyTeamUnits + 1] = unit
     end
-    mJ_Units[#mJ_Units + 1] = unit
     local trig = CreateTrigger()
     TriggerRegisterUnitEvent(trig, entity, EVENT_UNIT_DAMAGED)
-    TriggerAddAction(
-        trig,
-        function()
-            GameStart.AnyUnitDamaged()
-        end
-    )
+    TriggerAddAction(trig, GameStart.AnyUnitDamaged)
     unit.Trigger = trig
-    trig = nil
     return unit
 end
 
@@ -79,17 +76,10 @@ function AssetsManager.LoadEntity(entity)
     else
         mEnemyTeamUnits[#mEnemyTeamUnits + 1] = unit
     end
-    mJ_Units[#mJ_Units + 1] = unit
     local trig = CreateTrigger()
     TriggerRegisterUnitEvent(trig, entity, EVENT_UNIT_DAMAGED)
-    TriggerAddAction(
-        trig,
-        function()
-            GameStart.AnyUnitDamaged()
-        end
-    )
+    TriggerAddAction(trig, GameStart.AnyUnitDamaged)
     unit.Trigger = trig
-    trig = nil
     return unit
 end
 
@@ -101,12 +91,6 @@ local function DestroyPlayerObject(unit, destroy)
     for i = #mPlayerTeamUnits[GetPlayerId(unit.Player) + 1], 1, -1 do
         if (mPlayerTeamUnits[GetPlayerId(unit.Player) + 1][i] == unit) then
             table.remove(mPlayerTeamUnits[GetPlayerId(unit.Player) + 1], i)
-            break
-        end
-    end
-    for i = #mJ_Units, 1, -1 do
-        if (mJ_Units[i] == unit) then
-            table.remove(mJ_Units, i)
             break
         end
     end
@@ -124,12 +108,6 @@ local function DestroyEnemyObject(unit, destroy)
     for i = #mEnemyTeamUnits, 1, -1 do
         if (mEnemyTeamUnits[i] == unit) then
             table.remove(mEnemyTeamUnits, i)
-            break
-        end
-    end
-    for i = #mJ_Units, 1, -1 do
-        if (mJ_Units[i] == unit) then
-            table.remove(mJ_Units, i)
             break
         end
     end
@@ -156,9 +134,18 @@ function AssetsManager.DestroyObject(unit)
 end
 
 function AssetsManager.OnGameUpdate(dt)
-    for i = #mJ_Units, 1, -1 do
-        if (mJ_Units[i] ~= nil) then
-            mJ_Units[i]:OnGameUpdate(dt)
+    for i = 1, #mPlayerTeamUnits do
+        local list = mPlayerTeamUnits[i]
+        for j = #list, 1, -1 do
+            if (list[j] ~= nil) then
+                list[j]:OnGameUpdate(dt)
+            end
+        end
+    end
+
+    for i = #mEnemyTeamUnits, 1, -1 do
+        if (mEnemyTeamUnits[i] ~= nil) then
+            mEnemyTeamUnits[i]:OnGameUpdate(dt)
         end
     end
 
@@ -169,16 +156,6 @@ function AssetsManager.OnGameUpdate(dt)
             if (mDyingUnits[i].LifeDt >= mDyingUnits[i].DieTime) then
                 mDyingUnits[i]:Destroy(true)
                 table.remove(mDyingUnits, i)
-            end
-        end
-    end
-end
-
-function AssetsManager.IterateUnits(call)
-    for i = #mJ_Units, 1, -1 do
-        if (mJ_Units[i] ~= nil) then
-            if (mJ_Units[i].IsDying == false) then
-                call(mJ_Units[i])
             end
         end
     end
@@ -258,7 +235,7 @@ end
 function AssetsManager.OverlapBox()
     for i, v in ipairs(mEnemyTeamUnits) do
         if (v.IsDying == false) then
-        -- call(v)
+            -- call(v)
         end
     end
 end
@@ -266,7 +243,7 @@ end
 function AssetsManager.OverlapSector()
     for i, v in ipairs(mEnemyTeamUnits) do
         if (v.IsDying == false) then
-        -- call(v)
+            -- call(v)
         end
     end
 end

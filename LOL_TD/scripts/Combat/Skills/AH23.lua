@@ -12,7 +12,7 @@ local mArt2 = "AZ_jingzi_jiansheng01_E2.mdl"
 
 function skill:OnCast()
     local spellUnit = self.Owner
-    local spellTargetUnit = GetJ_Units(GetSpellTargetUnit())
+    local spellTargetUnit = GetJ_EnemyUnits(GetSpellTargetUnit())
     if (spellTargetUnit == nil) then
         Game.LogError("阿尔法突袭-丢失单位")
         return

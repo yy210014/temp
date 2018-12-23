@@ -42,11 +42,11 @@ function DisplayTextToAll(text, color)
 end
 
 --更新
-function Game.OnGameUpdate(dt)
+function Game.OnGameUpdate()
     if (mIsPause) then
         return
     end
-    GameScene.OnGameUpdate(dt)
+    GameScene.OnGameUpdate(GameScene.DeltaTime * Game.GetSpeed())
 end
 
 function Game.GetLevel()

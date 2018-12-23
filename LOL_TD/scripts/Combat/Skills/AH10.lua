@@ -34,7 +34,7 @@ end
 
 function skill:OnCast()
     local spellUnit = self.Owner
-    local spellTargetUnit = GetJ_Units(GetSpellTargetUnit())
+    local spellTargetUnit = GetJ_EnemyUnits(GetSpellTargetUnit())
     if (spellTargetUnit == nil) then
         Game.LogError("无畏冲锋-丢失单位")
         return

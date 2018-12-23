@@ -27,22 +27,22 @@ MonsterRefresh.RectPoints = {
 
 MonsterRefresh.Regions = {}
 MonsterRefresh.PathMaps = {
-    [1] = {5, 8},
-    [2] = {5, 6},
-    [3] = {6, 7},
-    [4] = {7, 8},
-    [5] = {1, 2, 9},
-    [6] ={2, 3, 10},
-    [7] = {3, 4, 11},
-    [8] =  {1, 4, 12},
-    [9] =  {5, 13, 14},
-    [10] = {6, 14, 15},
-    [11] = {7, 15,16},
-    [12] = {8, 13, 16},
-    [13] = {9 , 12},
-    [14] = {9 , 10},
-    [15] = {10, 11},
-    [16] = {11,12},
+    [1] = { 5, 8 },
+    [2] = { 5, 6 },
+    [3] = { 6, 7 },
+    [4] = { 7, 8 },
+    [5] = { 1, 2, 9 },
+    [6] = { 2, 3, 10 },
+    [7] = { 3, 4, 11 },
+    [8] = { 1, 4, 12 },
+    [9] = { 5, 13, 14 },
+    [10] = { 6, 14, 15 },
+    [11] = { 7, 15, 16 },
+    [12] = { 8, 13, 16 },
+    [13] = { 9, 12 },
+    [14] = { 9, 10 },
+    [15] = { 10, 11 },
+    [16] = { 11, 12 },
 }
 local mDelayPushTimer = nil
 local mDelayPushTimerDialog = nil
@@ -145,7 +145,7 @@ function MonsterRefresh.InitRegion()
         TriggerAddAction(
         trig,
         function()
-            local enteringUnit = GetJ_Units(GetEnteringUnit())
+            local enteringUnit = GetJ_EnemyUnits(GetEnteringUnit())
             if (enteringUnit == nil or enteringUnit.FactionId == PlayerTeamFactionId) then
                 return
             end
@@ -179,14 +179,7 @@ function MonsterRefresh.OnGameStart()
 end
 
 function DelayPush()
-    TimerStart(
-    mDelayPushTimer,
-    mDelay[mCurWaveIndex],
-    false,
-    function()
-        PushWave()
-    end
-    )
+    TimerStart(mDelayPushTimer, mDelay[mCurWaveIndex], false, PushWave)
     TimerDialogSetTitle(mDelayPushTimerDialog, "第" .. (mCurWaveIndex) .. "波")
     TimerDialogDisplay(mDelayPushTimerDialog, true)
 end
@@ -245,9 +238,9 @@ function MonsterRefresh.OnGameUpdate(dt)
                 mTimeDt3 = 0
                 for i = 0, 3 do
                     if
-                        (GetPlayerController(Player(i)) == MAP_CONTROL_USER and
-                            GetPlayerSlotState(Player(i)) == PLAYER_SLOT_STATE_PLAYING)
-                     then
+                    (GetPlayerController(Player(i)) == MAP_CONTROL_USER and
+                    GetPlayerSlotState(Player(i)) == PLAYER_SLOT_STATE_PLAYING)
+                    then
                         Spawn(MonsterRefresh.ChuGuaiKous[i + 1], i + 1)
                     end
                 end

@@ -38,7 +38,7 @@ local list = {
 
 function skill:OnCast()
     local spellUnit = self.Owner
-    local spellTargetUnit = GetJ_Units(GetSpellTargetUnit())
+    local spellTargetUnit = GetJ_PlayerUnits(GetSpellTargetUnit())
     if (spellTargetUnit == nil) then
         return
     end

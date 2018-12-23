@@ -9,7 +9,7 @@ local mDelay = 4
 
 local mSpecialArt = "Abilities\\Spells\\Other\\Volcano\\VolcanoDeath.mdl"
 function skill:OnCast()
-    local spellTargetUnit = GetJ_Units(GetSpellTargetUnit())
+    local spellTargetUnit = GetJ_EnemyUnits(GetSpellTargetUnit())
     if (spellTargetUnit == nil) then
         Game.LogError("爆炸火花-丢失单位")
         return

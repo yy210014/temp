@@ -13,7 +13,7 @@ Buffs["清算"].values = { -0.2, -0.25, -0.3, -0.35, -0.4, -0.45 }
 Buffs["清算"].Durs = { 3, 3, 3, 3, 3, 3 }
 function skill:OnCast()
     local spellUnit = self.Owner
-    local spellTargetUnit = GetJ_Units(GetSpellTargetUnit())
+    local spellTargetUnit = GetJ_EnemyUnits(GetSpellTargetUnit())
     if (spellTargetUnit == nil) then
         Game.LogError("清算-丢失单位")
         return

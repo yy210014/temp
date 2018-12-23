@@ -16,7 +16,7 @@ Buffs["冰封陵墓减速"].values = {-0.9, -0.2, -0.2, -0.2, -0.2, -0.2}
 
 function skill:OnCast()
     local spellUnit = self.Owner
-    local spellTargetUnit = GetJ_Units(GetSpellTargetUnit())
+    local spellTargetUnit = GetJ_EnemyUnits(GetSpellTargetUnit())
     if (spellTargetUnit == nil) then
         Game.LogError("冰封陵墓-丢失单位")
         return

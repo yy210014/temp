@@ -1,3 +1,0 @@
-
-    call DzFrameSetTexture( DzFrameFindByName("HCUP", 0), YDWEGetObjectPropertyString(YDWE_OBJECT_TYPE_ITEM, id, "Art"), 0 )
-    call DzFrameSetTexture( DzFrameFindByName("HCCUP", 0), YDWEGetObjectPropertyString(YDWE_OBJECT_TYPE_ITEM, id, "Art"), 0 )

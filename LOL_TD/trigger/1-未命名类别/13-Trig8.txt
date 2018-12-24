@@ -1,5 +1,0 @@
-    if ((selectedUnit  == null)) then
-        call DisplayTextToPlayer( DzGetTriggerUIEventPlayer(), 0, 0, "TRIGSTR_3239" )
-        return
-    else
-    endif

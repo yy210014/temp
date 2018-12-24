@@ -1,1 +1,0 @@
-ItemAps ItemCrits ItemCooldowns ItemManas

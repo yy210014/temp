@@ -1,8 +1,0 @@
-
-
-        call DzFrameShow(udg_Frames[46], false)
-        call DzFrameShow(udg_Frames[48], false)
-        call DzFrameShow(udg_Frames[50], false)
-        call DzFrameShow(udg_Frames[52], false)
-        call DzFrameShow(udg_Frames[54], false)
-        call DzFrameShow(udg_Frames[56], false)

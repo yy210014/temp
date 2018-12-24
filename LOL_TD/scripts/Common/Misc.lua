@@ -71,12 +71,12 @@ function cheat(playerId)
     local offX = 0
     local offY = 0
     local id = "IH"
-  --[[  for i, v in ipairs(mCheatItems) do
+    --[[  for i, v in ipairs(mCheatItems) do
         offX = math.random(0, 600) * math.cos(math.random(0, 360))
         offY = math.random(0, 600) * math.sin(math.random(0, 360))
         CreateItem(GetId(id .. v), x + offX, y + offY)
     end]]
-    mCheatItems = { "IB06", "IB07" }
+    mCheatItems = { "IB03" }
     for i, v in ipairs(mCheatItems) do
         for j = 1, 20 do
             offX = math.random(0, 600) * math.cos(math.random(0, 360))

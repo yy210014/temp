@@ -3,7 +3,7 @@ local mMultiboard = nil
 local mMultiboardCurNum = 0
 local mMultiboardMaxNum = 60
 
-local mTimeStrs = {"游戏时间: (", 0, "：", 0, "：", 0, ")"}
+local mTimeStrs = { "游戏时间: (", 0, "：", 0, "：", 0, ")" }
 local mTime1 = 0
 local mTime2 = 0
 local mTime3 = 0
@@ -30,13 +30,13 @@ function Multiboard.CreateMultiboard()
     MultiboardDisplay(mMultiboard, true)
 
     -- 怪物最大数量
-    mMultiboardMaxNum = 20 + (90 - Game.GetLevel() * 15) * PlayerInfo:Count()
+    mMultiboardMaxNum = 40 + PlayerInfo:Count() * (60 - 10 * Game.GetLevel())
 
     for i = 0, 3 do
         if
-            (GetPlayerController(Player(i)) == MAP_CONTROL_USER and
-                GetPlayerSlotState(Player(i)) == PLAYER_SLOT_STATE_PLAYING)
-         then
+        (GetPlayerController(Player(i)) == MAP_CONTROL_USER and
+        GetPlayerSlotState(Player(i)) == PLAYER_SLOT_STATE_PLAYING)
+        then
             MultiboardSetItemValue(MultiboardGetItem(mMultiboard, i + 1, 0), GetPlayerName(Player(i)))
         end
     end
@@ -70,8 +70,8 @@ function Multiboard.ShowMonsterCount(count)
     end
     mMultiboardCurNum = mMultiboardCurNum + count
     MultiboardSetItemValue(
-        MultiboardGetItem(mMultiboard, PlayerInfo:Count() + 1, 1),
-        mMultiboardCurNum .. "/" .. mMultiboardMaxNum
+    MultiboardGetItem(mMultiboard, PlayerInfo:Count() + 1, 1),
+    mMultiboardCurNum .. "/" .. mMultiboardMaxNum
     )
 end
 

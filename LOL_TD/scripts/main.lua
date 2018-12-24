@@ -111,7 +111,7 @@ function main()
     end
     TriggerAddAction(trig, GameStart.AnyPlayerChat)
 
-    trig = CreateTrigger()
+  --[[  trig = CreateTrigger()
     for i, v in ipairs(PlayerTeam) do
         TriggerRegisterPlayerEvent(trig, Player(v), EVENT_PLAYER_LEAVE)
     end
@@ -121,7 +121,7 @@ function main()
         DisplayTextToAll("提示：有人掉线了，作者暂停了游戏查看bug", Color.red)
         PauseGame(true)
     end
-    )
+    )]]
     trig = nil
 end
 

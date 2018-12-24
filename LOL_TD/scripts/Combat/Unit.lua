@@ -307,7 +307,6 @@ function Unit:RemoveSkill(abilityid)
     for i = #self.Skills, 1, -1 do
         if (self.Skills[i].Id == abilityid) then
             UnitRemoveAbility(self.Entity, abilityid)
-            self.Skills[i] = nil
             table.remove(self.Skills, i)
             break
         end
@@ -318,7 +317,6 @@ function Unit:RemoveBuff(name)
     for i = #self.Buffs, 1, -1 do
         if (self.Buffs[i].Name == name) then
             self.Buffs[i]:OnRemove()
-            self.Buffs[i] = nil
             table.remove(self.Buffs, i)
             break
         end
@@ -329,7 +327,6 @@ function Unit:_RemoveItem(entity)
     for i = #self.Items, 1, -1 do
         if (self.Items[i].Entity == entity) then
             self.Items[i]:OnRemove()
-            self.Items[i] = nil
             table.remove(self.Items, i)
             break
         end

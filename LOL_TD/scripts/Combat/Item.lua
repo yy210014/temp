@@ -48,8 +48,13 @@ local mItemComList = {
 }
 --叠加列表
 local mItemOverlayList = {
+    ["IB01"] = 0,
+    ["IB02"] = 0,
+    ["IB03"] = 0,
     ["IB04"] = 0,
-    ["IB05"] = 0
+    ["IB05"] = 0,
+    ["IB06"] = 0,
+    ["IB07"] = 0
 }
 --唯一列表
 local mItemUniquenessList = {
@@ -89,18 +94,24 @@ function Item.ItemOverlay(unit, item)
             if v ~= nil and item.Id == GetItemTypeId(v) and v ~= item.Entity then
                 SetItemCharges(v, GetItemCharges(v) + GetItemCharges(item.Entity))
                 RemoveItem(item.Entity)
-                if (item.Id == GetId("IB04") and GetItemCharges(v) >= 50) then
-                    SetItemCharges(v, GetItemCharges(v) - 50)
+                if (item.Id == GetId("IB04") and GetItemCharges(v) >= 300) then
+                    SetItemCharges(v, GetItemCharges(v) - 300)
                     if GetItemCharges(v) == 0 then
                         RemoveItem(v)
                     end
-                    UnitAddItem(unit.Entity, CreateItem(GetId(Card.RandomSR()), unit:X(), unit:Y()))
-                elseif (item.Id == GetId("IB05") and GetItemCharges(v) >= 120) then
-                    SetItemCharges(v, GetItemCharges(v) - 120)
+                    local itemAXAD = CreateItem(GetId(Card.RandomSR()), unit:X(), unit:Y())
+                    Game.Log("合成卡片： " .. GetItemName(itemAXAD))
+                    DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\Items\\AIlm\\AIlmTarget.mdl", unit.Entity, "origin"))
+                    UnitAddItem(unit.Entity, itemAXAD)
+                elseif (item.Id == GetId("IB05") and GetItemCharges(v) >= 500) then
+                    SetItemCharges(v, GetItemCharges(v) - 500)
                     if GetItemCharges(v) == 0 then
                         RemoveItem(v)
                     end
-                    UnitAddItem(unit.Entity, CreateItem(GetId(Card.RandomSSR()), unit:X(), unit:Y()))
+                    local itemAXAD = CreateItem(GetId(Card.RandomSSR()), unit:X(), unit:Y())
+                    Game.Log("合成卡片： " .. GetItemName(itemAXAD))
+                    DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\Items\\AIlm\\AIlmTarget.mdl", unit.Entity, "origin"))
+                    UnitAddItem(unit.Entity, itemAXAD)
                 end
                 return
             end

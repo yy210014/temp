@@ -34,7 +34,7 @@ function skill:OnKill(dieUnit)
         mRange,
         function(unit)
             DestroyEffect(AddSpecialEffectTarget(mSpecialArt, unit.Entity, "chest"))
-            EXUnitDamageTarget(spellUnit, unit, damage, EXDamageType.Physics)
+            EXUnitDamageTarget(spellUnit, unit, damage, EXDamageType.Magic)
         end
     )
 end
@@ -61,7 +61,7 @@ function skill:OnRemove()
         mRange,
         function(unit)
             DestroyEffect(AddSpecialEffectTarget(mSpecialArt, unit.Entity, "chest"))
-            EXUnitDamageTarget(spellUnit, unit, damage, EXDamageType.Physics)
+            EXUnitDamageTarget(spellUnit, unit, damage, EXDamageType.Magic)
         end
     )
     self.Target = nil

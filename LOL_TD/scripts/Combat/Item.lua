@@ -94,8 +94,8 @@ function Item.ItemOverlay(unit, item)
             if v ~= nil and item.Id == GetItemTypeId(v) and v ~= item.Entity then
                 SetItemCharges(v, GetItemCharges(v) + GetItemCharges(item.Entity))
                 RemoveItem(item.Entity)
-                if (item.Id == GetId("IB04") and GetItemCharges(v) >= 300) then
-                    SetItemCharges(v, GetItemCharges(v) - 300)
+                if (item.Id == GetId("IB04") and GetItemCharges(v) >= 200) then
+                    SetItemCharges(v, GetItemCharges(v) - 200)
                     if GetItemCharges(v) == 0 then
                         RemoveItem(v)
                     end
@@ -103,8 +103,8 @@ function Item.ItemOverlay(unit, item)
                     Game.Log("合成卡片： " .. GetItemName(itemAXAD))
                     DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\Items\\AIlm\\AIlmTarget.mdl", unit.Entity, "origin"))
                     UnitAddItem(unit.Entity, itemAXAD)
-                elseif (item.Id == GetId("IB05") and GetItemCharges(v) >= 500) then
-                    SetItemCharges(v, GetItemCharges(v) - 500)
+                elseif (item.Id == GetId("IB05") and GetItemCharges(v) >= 300) then
+                    SetItemCharges(v, GetItemCharges(v) - 300)
                     if GetItemCharges(v) == 0 then
                         RemoveItem(v)
                     end
@@ -123,21 +123,26 @@ function Item.ItemCompound(unit)
     local item
     local falg = false
     local deleteList = {}
+    local id
     for i = 5, 0, -1 do
         item = UnitItemInSlot(unit.Entity, i)
         if (item ~= nil) then
-            local list = mItemComList[ID2Str(GetItemTypeId(item))]
+            id = ID2Str(GetItemTypeId(item))
+            local list = mItemComList[id]
             if (list ~= nil) then
+                deleteList = {}
                 deleteList[#deleteList + 1] = item
                 for j = 2, #list do
                     local delfItem = Item.HasItem(unit, list[j], deleteList)
                     if (delfItem == nil) then
-                        return false
+                        break
                     end
                     deleteList[#deleteList + 1] = delfItem
                 end
-                falg = true
-                break
+                if (#deleteList == #list) then
+                    falg = true
+                    break
+                end
             end
         end
     end

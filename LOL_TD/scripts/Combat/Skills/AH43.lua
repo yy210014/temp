@@ -27,7 +27,7 @@ skill.OnPathUpdate = function(dummy)
     AssetsManager.OverlapCircle(
         dummy:X(),
         dummy:Y(),
-        50,
+        100,
         function(unit)
             --特效
             DestroyEffect(

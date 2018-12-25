@@ -6,7 +6,7 @@ function skill:OnCast()
     local addMoney = (GetCurWaveIndex() - 1) * 20 + 40
     local content = ""
     local scale = 1
-    if (7 > math.random(1, 10)) then
+    if (5 > math.random(1, 10)) then
         --暴击
         scale = 1 + math.floor((math.random(1, 15))) * 0.1
         addMoney = math.floor(addMoney * scale)

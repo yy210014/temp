@@ -29,7 +29,7 @@ skill.OnPathUpdate = function(dummy)
     AssetsManager.OverlapCircle(
         dummy:X(),
         dummy:Y(),
-        50,
+        100,
         function(u1)
             AssetsManager.OverlapCircle(
                 u1:X(),

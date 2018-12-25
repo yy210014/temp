@@ -470,13 +470,9 @@ function Unit:OnLevelUp()
     if (self.Primary == "INT") then
         self.Attribute:add("物理攻击", 10)
         self.Attribute:add("魔法上限", 80)
-        self.Attribute:add("魔法值", 80)
-        self.Attribute:add("攻击速度", 0.01)
     else
         self.Attribute:add("物理攻击", 18)
         self.Attribute:add("魔法上限", 50)
-        self.Attribute:add("魔法值", 50)
-        self.Attribute:add("攻击速度", 0.025)
     end
     if (self.onLevelUp ~= nil) then
         self.onLevelUp(self)

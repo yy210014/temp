@@ -571,10 +571,6 @@ function GameStart.AnyPlayerChat()
         return
     end
 
-    if (str == "guid") then
-        Game.Log("Guid: " .. GetGuid())
-    end
-
     if (str == "cheat") then
         cheat(playerID)
         return
@@ -640,6 +636,15 @@ function GameStart.AnyPlayerChat()
         local speed = tonumber(string.sub(str, index + 6, #str))
         if (speed ~= nil) then
             Game.SetSpeed(speed)
+        end
+        return
+    end
+
+    index = string.find(str, "wave:")
+    if (index ~= nil) then
+        local waveIndex = tonumber(string.sub(str, index + 5, #str))
+        if (waveIndex ~= nil) then
+            MonsterRefresh.SetWaveIndex(waveIndex)
         end
         return
     end

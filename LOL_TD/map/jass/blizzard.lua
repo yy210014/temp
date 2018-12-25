@@ -804,7 +804,7 @@ end
 -- Examples:  18 mod 5 = 3.  15 mod 5 = 0.  -8 mod 5 = 2.
 --
 function ModuloInteger(dividend, divisor)
-	local modulus = dividend - dividend // divisor * divisor
+	local modulus = dividend - (dividend / divisor) * divisor
 
 	-- If the dividend was negative, the above modulus calculation will
 	-- be negative, but within (-divisor..0).  We can add (divisor) to
@@ -6862,7 +6862,7 @@ end
 -- the campaign missions.
 --
 function SetMissionAvailableBJ(available, missionIndex)
-	local campaignNumber = missionIndex // 1000
+	local campaignNumber = missionIndex / 1000
 	local missionNumber = missionIndex - campaignNumber * 1000
 
 	SetMissionAvailable(campaignNumber, missionNumber, available)
@@ -7604,7 +7604,7 @@ end
 --===========================================================================
 function GetFadeFromSeconds(seconds)
 	if seconds ~= 0 then
-		return 128 // R2I(seconds)
+		return 128 / R2I(seconds)
 	end
 	return 10000
 end

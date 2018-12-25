@@ -10,7 +10,7 @@ Buffs["无畏冲锋加速"].Durs = {5, 5, 5, 5, 5, 5}
 
 setmetatable(Buffs["无畏冲锋减速"], {__index = Buffs["移速"]})
 Buffs["无畏冲锋减速"].values = {-0.3}
-Buffs["无畏冲锋减速"].Durs = {1}
+Buffs["无畏冲锋减速"].Durs = {3}
 
 skill.OnPathEnd = function(dummy)
     local owner = dummy.Owner

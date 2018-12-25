@@ -61,22 +61,22 @@ local mDelay = {
 }
 
 local mDuration = {
-    40.5, 40.5, 40.5, 40.5, 40.5, 40.5, 40.5, 6,
-    40.5, 40.5, 40.5, 40.5, 40.5, 40.5, 40.5, 6,
-    40.5, 40.5, 40.5, 40.5, 40.5, 40.5, 40.5, 6,
-    40.5, 40.5, 40.5, 40.5, 40.5, 40.5, 40.5, 6,
-    40.5, 40.5, 40.5, 40.5, 40.5, 40.5, 40.5, 6,
-    40.5, 40.5, 40.5, 40.5, 40.5, 40.5, 40.5, 6,
-    40.5, 40.5, 40.5, 40.5, 40.5, 40.5, 40.5, 6
+    40, 40, 40, 40, 40, 40, 40, 6,
+    40, 40, 40, 40, 40, 40, 40, 6,
+    40, 40, 40, 40, 40, 40, 40, 6,
+    40, 40, 40, 40, 40, 40, 40, 6,
+    40, 40, 40, 40, 40, 40, 40, 6,
+    40, 40, 40, 40, 40, 40, 40, 6,
+    40, 40, 40, 40, 40, 40, 40, 6
 }
 local mRate = {
-    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 4,
-    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 4,
-    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 4,
-    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 4,
-    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 4,
-    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 4,
-    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 4,
+    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 10,
+    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 10,
+    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 10,
+    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 10,
+    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 10,
+    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 10,
+    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 10,
 }
 
 local mDelayClear = {
@@ -98,6 +98,10 @@ local mTimeDt4 = 0
 
 function GetCurWaveIndex()
     return mCurWaveIndex
+end
+
+function SetWaveIndex(waveIndex)
+    mCurWaveIndex = waveIndex
 end
 
 local function IsBOSS(lv)
@@ -182,12 +186,28 @@ function DelayPush()
     TimerStart(mDelayPushTimer, mDelay[mCurWaveIndex], false, PushWave)
     TimerDialogSetTitle(mDelayPushTimerDialog, "第" .. (mCurWaveIndex) .. "波")
     TimerDialogDisplay(mDelayPushTimerDialog, true)
+    if (IsBOSS(mCurWaveIndex)) then
+        DisplayTextToAll("Warning，Boss即将来袭！", Color.red)
+        --DisplayTextToAll("下一波Boss即将来袭，1分钟之内击杀所有boss可以获得额外奖励并且激活隐藏关!", Color.yellow)
+    end
 end
+
+local mBossKillTimer
+local mBossKillTimerDialog
 
 function PushWave()
     mMonsterId = #tostring(mCurWaveIndex) == 1 and "um0" .. mCurWaveIndex or "um" .. mCurWaveIndex
     if (IsBOSS(mCurWaveIndex)) then
         mMonsterId = #tostring(mCurWaveIndex) == 1 and "UM0" .. mCurWaveIndex or "UM" .. mCurWaveIndex
+      --[[  --Boss击杀倒计时
+        mBossKillTimer = CreateTimer()
+        TimerStart(mBossKillTimer, 60, false, function()
+            DestroyTimer(mBossKillTimer)
+            DestroyTimerDialog(mBossKillTimerDialog)
+        end)
+        mBossKillTimerDialog = CreateTimerDialog(mBossKillTimer)
+        TimerDialogSetTitle(mBossKillTimerDialog, "击杀倒计时")
+        TimerDialogDisplay(mBossKillTimerDialog, true)]]
     end
     mSpawnEnable = true
     --TimerDialogDisplay(mDelayPushTimerDialog, false)
@@ -233,9 +253,9 @@ function MonsterRefresh.OnGameUpdate(dt)
         --持续时间
         if (mTimeDt2 <= mDuration[mCurWaveIndex]) then
             --出兵频率
-            mTimeDt3 = mTimeDt3 + dt
-            if (mTimeDt3 > mRate[mCurWaveIndex]) then
-                mTimeDt3 = 0
+            mTimeDt3 = mTimeDt3 - dt
+            if (mTimeDt3 <= 0) then
+                mTimeDt3 = mRate[mCurWaveIndex]
                 for i = 0, 3 do
                     if
                     (GetPlayerController(Player(i)) == MAP_CONTROL_USER and

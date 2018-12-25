@@ -37,31 +37,31 @@ skill.Action = function(self, dt)
         SetUnitX(self.dummy, self.spellTargetUnit:X())
         SetUnitY(self.dummy, self.spellTargetUnit:Y())
         --特效
-        local dummy =
-            AssetsManager.LoadUnit(self.Owner.Player, "uq00", self.spellTargetUnit:X(), self.spellTargetUnit:Y())
+        local dummy =        AssetsManager.LoadUnit(self.Owner.Player, "uq00", self.spellTargetUnit:X(), self.spellTargetUnit:Y())
         dummy.Effect = AddSpecialEffectTarget(mArt1, dummy.Entity, "origin")
         dummy:SetUnitFacing(GetRandomReal(0, 6.28))
         AssetsManager.RemoveObject(dummy)
 
         local closeUnit = nil
-        AssetsManager.OverlapCircle(
-            GetUnitX(self.dummy),
-            GetUnitY(self.dummy),
-            mRange,
-            function(unit)
-                if (closeUnit == nil and IsInTable(unit, self.DamageList) == -1) then
-                    closeUnit = unit
-                end
-                if (closeUnit ~= nil) then
-                    local dist1 = DistanceBetweenPoint(GetUnitX(self.dummy), unit:X(), GetUnitY(self.dummy), unit:Y())
-                    local dist2 =
-                        DistanceBetweenPoint(GetUnitX(self.dummy), closeUnit:X(), GetUnitY(self.dummy), closeUnit:Y())
-                    if (dist1 < dist2 and unit.IsDying == false and IsInTable(unit, self.DamageList) == -1) then
-                        closeUnit = unit
+
+        local list = GetEnemyTeamUnits()
+        for i = 1, #list do
+            if (list[i] ~= nil) then
+                local dist = DistanceBetweenPoint(GetUnitX(self.dummy), list[i]:X(), GetUnitY(self.dummy), list[i]:Y())
+                if (dist < mRange and list[i].IsDying == false) then
+                    if (closeUnit == nil and IsInTable(list[i], self.DamageList) == -1) then
+                        closeUnit = list[i]
+                    end
+                    if (closeUnit ~= nil) then
+                        local dist1 = DistanceBetweenPoint(GetUnitX(self.dummy), list[i]:X(), GetUnitY(self.dummy), list[i]:Y())
+                        local dist2 = DistanceBetweenPoint(GetUnitX(self.dummy), closeUnit:X(), GetUnitY(self.dummy), closeUnit:Y())
+                        if (dist1 < dist2 and list[i].IsDying == false and IsInTable(list[i], self.DamageList) == -1) then
+                            closeUnit = list[i]
+                        end
                     end
                 end
             end
-        )
+        end
         if (closeUnit ~= nil and #self.DamageList <= mMaxCount) then
             self.spellTargetUnit = closeUnit
             self.DamageList[#self.DamageList + 1] = closeUnit

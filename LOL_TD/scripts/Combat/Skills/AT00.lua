@@ -8,6 +8,7 @@ function skill:OnCast()
         ClearSelection()
         SelectUnit(unit.tianfu.Entity, true)
     end
+    ShowUnit(unit.tianfu.Entity, true)
     mLastSelectUnit = unit.tianfu
     --动态注册esc返回
     if (unit.tianfu.EscTrigger == nil) then
@@ -25,7 +26,8 @@ skill.TrigAction = function()
             ClearSelection()
             SelectUnit(mLastSelectUnit.SelectUnit.Entity, true)
         end
-        DisableTrigger(mLastSelectUnit.EscTrigger)
+         ShowUnit(mLastSelectUnit.Entity, false)
+         DisableTrigger(mLastSelectUnit.EscTrigger)
     end
 end
 

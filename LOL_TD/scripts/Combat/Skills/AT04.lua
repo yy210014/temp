@@ -40,15 +40,12 @@ function skill:OnCast()
     if (SelectUnit.TianFuType == 1) then
         index = math.random(1, #self.AdList)
         id = self.AdList[index][math.random(1, 4)]
-        table.remove(self.AdList, index)
     elseif (SelectUnit.TianFuType == 2) then
         index = math.random(1, #self.ApList)
         id = self.ApList[index][math.random(1, 4)]
-        table.remove(self.ApList, index)
     else
         index = math.random(1, #self.AdNApList)
         id = self.AdNApList[index][math.random(1, 4)]
-        table.remove(self.AdNApList, index)
     end
     owner:AddSkill(id)
     self.Count = self.Count + 1

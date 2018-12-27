@@ -1768,7 +1768,7 @@ GetIntegerGameState = _native_'GetIntegerGameState'
 
 --============================================================================
 -- Campaign API
--- 运动API
+-- 战役API
 SetTutorialCleared = _native_'SetTutorialCleared'
 SetMissionAvailable = _native_'SetMissionAvailable'
 SetCampaignAvailable = _native_'SetCampaignAvailable'

@@ -87,7 +87,10 @@ function GameStart.AnyUnitDamaged()
         if (attactUnit.ManaType == 2) then
             attactUnit.Attribute:add("怒气值", 5)
         end
-
+        --飓风
+        if (attactUnit:ContainItemId(GetId("I058"))) then
+            damage = damage * 0.4
+        end
         --普通攻击击中的第一个目标
         --  if GetUnitAbilityLevel(defUnit.Entity, GetId("B000")) > 0 then
         --      UnitRemoveAbility(defUnit.Entity, GetId("B000"))
@@ -224,14 +227,13 @@ function GameStart.AnyUnitConstructFinish()
         --开启AI
         IssueImmediateOrder(unit.Entity, "manashieldon")
 
-      --[[  unit.Attribute:add("魔法恢复", 100)
+        --[[  unit.Attribute:add("魔法恢复", 100)
         unit.Attribute:add("攻击速度", 2)
         unit.Attribute:add("暴击", 0.5)
         unit.Attribute:add("冷却缩减上限", 0.5)
         unit.Attribute:add("冷却缩减", 0.5)
         unit.Attribute:add("物理攻击", 10000)
         unit.Attribute:add("法术攻击", 10000)]]
-
         --辅助英雄写死
         if (unit.Id == GetId("UH35")) then
             unit:LearnedSkill(GetId("AH80"))

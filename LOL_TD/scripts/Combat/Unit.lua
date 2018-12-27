@@ -216,13 +216,14 @@ end
 function Unit:AddTianfu()
     self:AddSkill("AT00")
     local tianfu = AssetsManager.LoadUnit(self.Player, "ut99", self:X(), self:Y())
-    SetUnitPathing(tianfu.Entity, false)
     self.tianfu = tianfu
     tianfu.SelectUnit = self
     tianfu:LearnedSkill(GetId("AT01"))
     tianfu:LearnedSkill(GetId("AT02"))
     tianfu:LearnedSkill(GetId("AT03"))
     tianfu:LearnedSkill(GetId("AT07"))
+    SetUnitPathing(tianfu.Entity, false)
+    ShowUnit(tianfu.Entity, false)
 end
 
 function Unit:AddDamageText(damage, isCritDamage, color)
@@ -267,8 +268,17 @@ function Unit:ContainSkill(abilityid)
 end
 
 function Unit:ContainItem(entity)
-    for i, v in ipairs(self.Items) do
-        if (v.Entity == entity) then
+    for i = 1, #self.Items do
+        if (self.Items[i].Entity == entity) then
+            return true
+        end
+    end
+    return false
+end
+
+function Unit:ContainItemId(itemId)
+    for i = 1, #self.Items do
+        if (self.Items[i].Id == itemId) then
             return true
         end
     end

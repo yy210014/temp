@@ -36,7 +36,7 @@ local mItemComList = {
     ["I068"] = { GetId("I069"), GetId("I009"), GetId("I028") }, --法穿棒（卷轴）:增幅典籍+爆裂魔杖+法穿棒
     ["I070"] = { GetId("I071"), GetId("I035"), GetId("I037"), GetId("I039") }, --大圣杯（卷轴）:和谐圣杯+恶魔法典+禁忌雕像+大圣杯
     ["I072"] = { GetId("I073"), GetId("I029"), GetId("I028"), GetId("I009") }, --帽子（卷轴）:无用大棒+爆裂魔杖+增幅典籍+帽子
-    ["I074"] = { GetId("I075"), GetId("I037"), GetId("I041"), GetId("I039") }, --莫雷洛秘典（卷轴）:恶魔法典+遗失的章节+禁忌雕像+莫雷洛秘典
+    ["I074"] = { GetId("I075"), GetId("I037"), GetId("I041"), GetId("I039") }, --鬼书（卷轴）:恶魔法典+遗失的章节+禁忌雕像+鬼书
     ["I061"] = { GetId("I062"), GetId("I001") }, --杀人剑（卷轴）:多兰剑+杀人剑
     ["I076"] = { GetId("I077"), GetId("I002") }, --杀人书（卷轴）:多兰戒+杀人书
     ["I078"] = { GetId("I079"), GetId("I017") }, --大轻雨（卷轴）:轻语+大轻语
@@ -100,7 +100,7 @@ function Item.ItemOverlay(unit, item)
                         RemoveItem(v)
                     end
                     local itemAXAD = CreateItem(GetId(Card.RandomSR()), unit:X(), unit:Y())
-                    Game.Log("合成卡片： " .. GetItemName(itemAXAD))
+                    DisplayTextToPlayer(unit.Player, 0, 0, "|cffffcc00合成卡片：" .. GetItemName(itemAXAD) .. "|r")
                     DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\Items\\AIlm\\AIlmTarget.mdl", unit.Entity, "origin"))
                     UnitAddItem(unit.Entity, itemAXAD)
                 elseif (item.Id == GetId("IB05") and GetItemCharges(v) >= 300) then
@@ -109,7 +109,7 @@ function Item.ItemOverlay(unit, item)
                         RemoveItem(v)
                     end
                     local itemAXAD = CreateItem(GetId(Card.RandomSSR()), unit:X(), unit:Y())
-                    Game.Log("合成卡片： " .. GetItemName(itemAXAD))
+                    DisplayTextToPlayer(unit.Player, 0, 0, "|cffffcc00合成卡片：" .. GetItemName(itemAXAD) .. "|r")
                     DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\Items\\AIlm\\AIlmTarget.mdl", unit.Entity, "origin"))
                     UnitAddItem(unit.Entity, itemAXAD)
                 end

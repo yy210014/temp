@@ -219,13 +219,19 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "100" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellAds", TOP, -0.1855, -0.0453,
 				ControlBackdrop "101",
 				Frame "BACKDROP" "101" {
 					BackdropBackground  "war3mapImported\ZB1.tga",
 					BackdropBlendAll,
+				}
+		 	    ControlFocusHighlight "FocusHighlight1",
+				Frame "HIGHLIGHT" "FocusHighlight1" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
 				}
 
 				ControlMouseOverHighlight "ZB1LIGHT",
@@ -258,7 +264,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "104" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellAds", TOP, -0.143, -0.0453,
 				ControlBackdrop "105",
@@ -266,7 +272,12 @@ Frame "BACKDROP" "BAG" {      //父级
 					BackdropBackground  "war3mapImported\ZB1.tga",
 					BackdropBlendAll,
 				}
-
+				ControlFocusHighlight "FocusHighlight2",
+				Frame "HIGHLIGHT" "FocusHighlight2" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 				ControlMouseOverHighlight "ZB2LIGHT",
 				Frame "HIGHLIGHT" "ZB2LIGHT" {
 					HighlightType "FILETEXTURE",
@@ -296,7 +307,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "108" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellAds", TOP, -0.1005, -0.0453,
 				ControlBackdrop "109",
@@ -304,7 +315,12 @@ Frame "BACKDROP" "BAG" {      //父级
 					BackdropBackground  "war3mapImported\ZB1.tga",
 					BackdropBlendAll,
 				}
-
+				ControlFocusHighlight "FocusHighlight3",
+				Frame "HIGHLIGHT" "FocusHighlight3" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 				ControlMouseOverHighlight "ZB3LIGHT",
 				Frame "HIGHLIGHT" "ZB3LIGHT" {
 					HighlightType "FILETEXTURE",
@@ -334,13 +350,19 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "112" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellAds", TOP, -0.058, -0.0453,
 				ControlBackdrop "113",
 				Frame "BACKDROP" "113" {
 					BackdropBackground  "war3mapImported\ZB1.tga",
 					BackdropBlendAll,
+				}
+				ControlFocusHighlight "FocusHighlight4",
+				Frame "HIGHLIGHT" "FocusHighlight4" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
 				}
 				ControlMouseOverHighlight "ZB4LIGHT",
 				Frame "HIGHLIGHT" "ZB4LIGHT" {
@@ -371,13 +393,19 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "116" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellAds", TOP, -0.0155, -0.0453,
 				ControlBackdrop "117",
 				Frame "BACKDROP" "117" {
 					BackdropBackground  "war3mapImported\ZB1.tga",
 					BackdropBlendAll,
+				}
+				ControlFocusHighlight "FocusHighlight5",
+				Frame "HIGHLIGHT" "FocusHighlight5" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
 				}
 				ControlMouseOverHighlight "ZB5LIGHT",
 				Frame "HIGHLIGHT" "ZB5LIGHT" {
@@ -408,13 +436,19 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "120" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellAds", TOP, -0.1855, -0.097,
 				ControlBackdrop "121",
 				Frame "BACKDROP" "121" {
 					BackdropBackground  "war3mapImported\ZB1.tga",
 					BackdropBlendAll,
+				}
+				ControlFocusHighlight "FocusHighlight6",
+				Frame "HIGHLIGHT" "FocusHighlight6" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
 				}
 				ControlMouseOverHighlight "ZB6LIGHT",
 				Frame "HIGHLIGHT" "ZB6LIGHT" {
@@ -445,13 +479,19 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "124" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellAds", TOP, -0.143, -0.097,
 				ControlBackdrop "125",
 				Frame "BACKDROP" "125" {
 					BackdropBackground  "war3mapImported\ZB1.tga",
 					BackdropBlendAll,
+				}
+				ControlFocusHighlight "FocusHighlight7",
+				Frame "HIGHLIGHT" "FocusHighlight7" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
 				}
 				ControlMouseOverHighlight "ZB7LIGHT",
 				Frame "HIGHLIGHT" "ZB7LIGHT" {
@@ -483,21 +523,26 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "128" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellAds", TOP, -0.1005, -0.097,
 					ControlBackdrop "129",
 				Frame "BACKDROP" "129" {
 					BackdropBackground  "war3mapImported\ZB1.tga",
 						BackdropBlendAll,
-					}
-
-					ControlMouseOverHighlight "ZB8LIGHT",
-					Frame "HIGHLIGHT" "ZB8LIGHT" {
-						HighlightType "FILETEXTURE",
-						HighlightAlphaFile "war3mapImported\Adown.tga",
-						HighlightAlphaMode "ADD",
-						}
+				}
+				ControlFocusHighlight "FocusHighlight8",
+				Frame "HIGHLIGHT" "FocusHighlight8" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
+				ControlMouseOverHighlight "ZB8LIGHT",
+				Frame "HIGHLIGHT" "ZB8LIGHT" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 			}
 			
 			Frame "TEXT" "130" {
@@ -523,7 +568,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "132" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellAds", TOP, -0.058, -0.097,
 					ControlBackdrop "133",
@@ -531,13 +576,18 @@ Frame "BACKDROP" "BAG" {      //父级
 					BackdropBackground  "war3mapImported\ZB1.tga",
 						BackdropBlendAll,
 					}
-
-					ControlMouseOverHighlight "ZB9LIGHT",
-					Frame "HIGHLIGHT" "ZB9LIGHT" {
-						HighlightType "FILETEXTURE",
-						HighlightAlphaFile "war3mapImported\Adown.tga",
-						HighlightAlphaMode "ADD",
-						}
+				ControlFocusHighlight "FocusHighlight9",
+				Frame "HIGHLIGHT" "FocusHighlight9" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
+				ControlMouseOverHighlight "ZB9LIGHT",
+				Frame "HIGHLIGHT" "ZB9LIGHT" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 			}
 			
 			Frame "TEXT" "134" {
@@ -562,21 +612,26 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "136" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellAds", TOP, -0.0155, -0.097,
 					ControlBackdrop "137",
 				Frame "BACKDROP" "137" {
 					BackdropBackground  "war3mapImported\ZB1.tga",
-						BackdropBlendAll,
-					}
-
-					ControlMouseOverHighlight "ZB10LIGHT",
-					Frame "HIGHLIGHT" "ZB10LIGHT" {
-						HighlightType "FILETEXTURE",
-						HighlightAlphaFile "war3mapImported\Adown.tga",
-						HighlightAlphaMode "ADD",
-						}
+					BackdropBlendAll,
+				}
+				ControlFocusHighlight "FocusHighlight10",
+				Frame "HIGHLIGHT" "FocusHighlight10" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
+				ControlMouseOverHighlight "ZB10LIGHT",
+				Frame "HIGHLIGHT" "ZB10LIGHT" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 			}
 			
 			Frame "TEXT" "138" {
@@ -602,7 +657,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "140" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellAds", TOP, -0.1855, -0.1487,
 					ControlBackdrop "141",
@@ -611,6 +666,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight11",
+				Frame "HIGHLIGHT" "FocusHighlight11" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB11LIGHT",
 					Frame "HIGHLIGHT" "ZB11LIGHT" {
 						HighlightType "FILETEXTURE",
@@ -641,15 +702,20 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "144" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellAds", TOP, -0.143, -0.1487,
 					ControlBackdrop "145",
 				Frame "BACKDROP" "145" {
 					BackdropBackground  "war3mapImported\ZB1.tga",
 						BackdropBlendAll,
-					}
-
+				}
+				ControlFocusHighlight "FocusHighlight12",
+				Frame "HIGHLIGHT" "FocusHighlight12" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB12LIGHT",
 					Frame "HIGHLIGHT" "ZB12LIGHT" {
 						HighlightType "FILETEXTURE",
@@ -680,7 +746,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "148" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellAds", TOP, -0.1005, -0.1487,
 					ControlBackdrop "149",
@@ -688,7 +754,12 @@ Frame "BACKDROP" "BAG" {      //父级
 					BackdropBackground  "war3mapImported\ZB1.tga",
 						BackdropBlendAll,
 					}
-
+				ControlFocusHighlight "FocusHighlight13",
+				Frame "HIGHLIGHT" "FocusHighlight13" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB13LIGHT",
 					Frame "HIGHLIGHT" "ZB13LIGHT" {
 						HighlightType "FILETEXTURE",
@@ -719,7 +790,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "152" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellAds", TOP, -0.058, -0.1487,
 					ControlBackdrop "153",
@@ -727,7 +798,12 @@ Frame "BACKDROP" "BAG" {      //父级
 					BackdropBackground  "war3mapImported\ZB1.tga",
 						BackdropBlendAll,
 					}
-
+				ControlFocusHighlight "FocusHighlight14",
+				Frame "HIGHLIGHT" "FocusHighlight14" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB14LIGHT",
 					Frame "HIGHLIGHT" "ZB14LIGHT" {
 						HighlightType "FILETEXTURE",
@@ -759,7 +835,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "156" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellAds", TOP, -0.0155, -0.1487,
 					ControlBackdrop "157",
@@ -767,7 +843,12 @@ Frame "BACKDROP" "BAG" {      //父级
 					BackdropBackground  "war3mapImported\ZB1.tga",
 						BackdropBlendAll,
 					}
-
+				ControlFocusHighlight "FocusHighlight15",
+				Frame "HIGHLIGHT" "FocusHighlight15" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB15LIGHT",
 					Frame "HIGHLIGHT" "ZB15LIGHT" {
 						HighlightType "FILETEXTURE",
@@ -799,7 +880,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "160" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellAds", TOP, -0.1855, -0.2004,
 					ControlBackdrop "161",
@@ -807,7 +888,12 @@ Frame "BACKDROP" "BAG" {      //父级
 					BackdropBackground  "war3mapImported\ZB1.tga",
 						BackdropBlendAll,
 					}
-
+				ControlFocusHighlight "FocusHighlight16",
+				Frame "HIGHLIGHT" "FocusHighlight16" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB16LIGHT",
 					Frame "HIGHLIGHT" "ZB16LIGHT" {
 						HighlightType "FILETEXTURE",
@@ -839,7 +925,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "164" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellAds", TOP, -0.143, -0.2004,
 					ControlBackdrop "165",
@@ -847,7 +933,12 @@ Frame "BACKDROP" "BAG" {      //父级
 					BackdropBackground  "war3mapImported\ZB1.tga",
 						BackdropBlendAll,
 					}
-
+				ControlFocusHighlight "FocusHighlight17",
+				Frame "HIGHLIGHT" "FocusHighlight17" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB17LIGHT",
 					Frame "HIGHLIGHT" "ZB17LIGHT" {
 						HighlightType "FILETEXTURE",
@@ -879,7 +970,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "168" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellAds", TOP, -0.1005, -0.2004,
 					ControlBackdrop "169",
@@ -887,7 +978,12 @@ Frame "BACKDROP" "BAG" {      //父级
 					BackdropBackground  "war3mapImported\ZB1.tga",
 						BackdropBlendAll,
 					}
-
+				ControlFocusHighlight "FocusHighlight18",
+				Frame "HIGHLIGHT" "FocusHighlight18" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB18LIGHT",
 					Frame "HIGHLIGHT" "ZB18LIGHT" {
 						HighlightType "FILETEXTURE",
@@ -918,7 +1014,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "172" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellAds", TOP, -0.058, -0.2004,
 					ControlBackdrop "173",
@@ -927,6 +1023,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight19",
+				Frame "HIGHLIGHT" "FocusHighlight19" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB19LIGHT",
 					Frame "HIGHLIGHT" "ZB19LIGHT" {
 						HighlightType "FILETEXTURE",
@@ -957,15 +1059,20 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "176" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellAds", TOP, -0.0155, -0.2004,
 					ControlBackdrop "177",
 				Frame "BACKDROP" "177" {
 					BackdropBackground  "war3mapImported\ZB1.tga",
 						BackdropBlendAll,
-					}
-
+				}
+				ControlFocusHighlight "FocusHighlight20",
+				Frame "HIGHLIGHT" "FocusHighlight20" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB20LIGHT",
 					Frame "HIGHLIGHT" "ZB20LIGHT" {
 						HighlightType "FILETEXTURE",
@@ -998,7 +1105,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "180" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellAds", TOP, -0.1855, -0.2521,
 					ControlBackdrop "181",
@@ -1007,6 +1114,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight21",
+				Frame "HIGHLIGHT" "FocusHighlight21" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB21LIGHT",
 					Frame "HIGHLIGHT" "ZB21LIGHT" {
 						HighlightType "FILETEXTURE",
@@ -1038,7 +1151,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "184" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellAds", TOP, -0.143, -0.2521,
 					ControlBackdrop "185",
@@ -1047,6 +1160,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight22",
+				Frame "HIGHLIGHT" "FocusHighlight22" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB22LIGHT",
 					Frame "HIGHLIGHT" "ZB22LIGHT" {
 						HighlightType "FILETEXTURE",
@@ -1078,7 +1197,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "188" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellAds", TOP, -0.1005, -0.2521,
 					ControlBackdrop "189",
@@ -1087,6 +1206,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight23",
+				Frame "HIGHLIGHT" "FocusHighlight23" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB23LIGHT",
 					Frame "HIGHLIGHT" "ZB23LIGHT" {
 						HighlightType "FILETEXTURE",
@@ -1118,7 +1243,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "192" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellAds", TOP, -0.058, -0.2521,
 					ControlBackdrop "193",
@@ -1127,6 +1252,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight24",
+				Frame "HIGHLIGHT" "FocusHighlight24" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB24LIGHT",
 					Frame "HIGHLIGHT" "ZB24LIGHT" {
 						HighlightType "FILETEXTURE",
@@ -1158,7 +1289,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "196" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellAds", TOP, -0.0155, -0.2521,
 					ControlBackdrop "197",
@@ -1167,6 +1298,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight25",
+				Frame "HIGHLIGHT" "FocusHighlight25" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB25LIGHT",
 					Frame "HIGHLIGHT" "ZB25LIGHT" {
 						HighlightType "FILETEXTURE",
@@ -1204,7 +1341,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "200" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellAps", TOP, -0.1855, -0.0453,
 				ControlBackdrop "201",
@@ -1213,6 +1350,12 @@ Frame "BACKDROP" "BAG" {      //父级
 					BackdropBlendAll,
 				}
 
+				ControlFocusHighlight "FocusHighlight26",
+				Frame "HIGHLIGHT" "FocusHighlight26" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 				ControlMouseOverHighlight "ZB1LIGHT2",
 				Frame "HIGHLIGHT" "ZB1LIGHT2" {
 					HighlightType "FILETEXTURE",
@@ -1243,7 +1386,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "204" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellAps", TOP, -0.143, -0.0453,
 				ControlBackdrop "205",
@@ -1252,6 +1395,12 @@ Frame "BACKDROP" "BAG" {      //父级
 					BackdropBlendAll,
 				}
 
+				ControlFocusHighlight "FocusHighlight27",
+				Frame "HIGHLIGHT" "FocusHighlight27" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 				ControlMouseOverHighlight "ZB2LIGHT2",
 				Frame "HIGHLIGHT" "ZB2LIGHT2" {
 					HighlightType "FILETEXTURE",
@@ -1281,7 +1430,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "208" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellAps", TOP, -0.1005, -0.0453,
 				ControlBackdrop "209",
@@ -1290,6 +1439,12 @@ Frame "BACKDROP" "BAG" {      //父级
 					BackdropBlendAll,
 				}
 
+				ControlFocusHighlight "FocusHighlight28",
+				Frame "HIGHLIGHT" "FocusHighlight28" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 				ControlMouseOverHighlight "ZB3LIGHT2",
 				Frame "HIGHLIGHT" "ZB3LIGHT2" {
 					HighlightType "FILETEXTURE",
@@ -1319,13 +1474,19 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "212" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellAps", TOP, -0.058, -0.0453,
 				ControlBackdrop "213",
 				Frame "BACKDROP" "213" {
 					BackdropBackground  "war3mapImported\ZB1.tga",
 					BackdropBlendAll,
+				}
+				ControlFocusHighlight "FocusHighlight29",
+				Frame "HIGHLIGHT" "FocusHighlight29" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
 				}
 				ControlMouseOverHighlight "ZB4LIGHT2",
 				Frame "HIGHLIGHT" "ZB4LIGHT2" {
@@ -1356,13 +1517,19 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "216" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellAps", TOP, -0.0155, -0.0453,
 				ControlBackdrop "217",
 				Frame "BACKDROP" "217" {
 					BackdropBackground  "war3mapImported\ZB1.tga",
 					BackdropBlendAll,
+				}
+				ControlFocusHighlight "FocusHighlight30",
+				Frame "HIGHLIGHT" "FocusHighlight30" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
 				}
 				ControlMouseOverHighlight "ZB5LIGHT2",
 				Frame "HIGHLIGHT" "ZB5LIGHT2" {
@@ -1393,13 +1560,19 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "220" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellAps", TOP, -0.1855, -0.097,
 				ControlBackdrop "221",
 				Frame "BACKDROP" "221" {
 					BackdropBackground  "war3mapImported\ZB1.tga",
 					BackdropBlendAll,
+				}
+				ControlFocusHighlight "FocusHighlight31",
+				Frame "HIGHLIGHT" "FocusHighlight31" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
 				}
 				ControlMouseOverHighlight "ZB6LIGHT2",
 				Frame "HIGHLIGHT" "ZB6LIGHT2" {
@@ -1430,13 +1603,19 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "224" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellAps", TOP, -0.143, -0.097,
 				ControlBackdrop "225",
 				Frame "BACKDROP" "225" {
 					BackdropBackground  "war3mapImported\ZB1.tga",
 					BackdropBlendAll,
+				}
+				ControlFocusHighlight "FocusHighlight32",
+				Frame "HIGHLIGHT" "FocusHighlight32" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
 				}
 				ControlMouseOverHighlight "ZB7LIGHT2",
 				Frame "HIGHLIGHT" "ZB7LIGHT2" {
@@ -1468,7 +1647,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "228" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellAps", TOP, -0.1005, -0.097,
 					ControlBackdrop "229",
@@ -1476,7 +1655,12 @@ Frame "BACKDROP" "BAG" {      //父级
 					BackdropBackground  "war3mapImported\ZB1.tga",
 						BackdropBlendAll,
 					}
-
+				ControlFocusHighlight "FocusHighlight33",
+				Frame "HIGHLIGHT" "FocusHighlight33" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB8LIGHT2",
 					Frame "HIGHLIGHT" "ZB8LIGHT2" {
 						HighlightType "FILETEXTURE",
@@ -1508,7 +1692,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "232" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellAps", TOP, -0.058, -0.097,
 					ControlBackdrop "233",
@@ -1516,7 +1700,12 @@ Frame "BACKDROP" "BAG" {      //父级
 					BackdropBackground  "war3mapImported\ZB1.tga",
 						BackdropBlendAll,
 					}
-
+				ControlFocusHighlight "FocusHighlight34",
+				Frame "HIGHLIGHT" "FocusHighlight34" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB9LIGHT2",
 					Frame "HIGHLIGHT" "ZB9LIGHT2" {
 						HighlightType "FILETEXTURE",
@@ -1547,7 +1736,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "236" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellAps", TOP, -0.0155, -0.097,
 					ControlBackdrop "237",
@@ -1556,6 +1745,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight35",
+				Frame "HIGHLIGHT" "FocusHighlight35" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB10LIGHT2",
 					Frame "HIGHLIGHT" "ZB10LIGHT2" {
 						HighlightType "FILETEXTURE",
@@ -1587,7 +1782,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "240" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellAps", TOP, -0.1855, -0.1487,
 					ControlBackdrop "241",
@@ -1596,6 +1791,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight36",
+				Frame "HIGHLIGHT" "FocusHighlight36" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB11LIGHT2",
 					Frame "HIGHLIGHT" "ZB11LIGHT2" {
 						HighlightType "FILETEXTURE",
@@ -1626,7 +1827,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "244" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellAps", TOP, -0.143, -0.1487,
 					ControlBackdrop "245",
@@ -1635,6 +1836,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight37",
+				Frame "HIGHLIGHT" "FocusHighlight37" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB12LIGHT2",
 					Frame "HIGHLIGHT" "ZB12LIGHT2" {
 						HighlightType "FILETEXTURE",
@@ -1665,7 +1872,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "248" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellAps", TOP, -0.1005, -0.1487,
 					ControlBackdrop "249",
@@ -1674,6 +1881,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight38",
+				Frame "HIGHLIGHT" "FocusHighlight38" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB13LIGHT2",
 					Frame "HIGHLIGHT" "ZB13LIGHT2" {
 						HighlightType "FILETEXTURE",
@@ -1704,7 +1917,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "252" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellAps", TOP, -0.058, -0.1487,
 					ControlBackdrop "253",
@@ -1713,6 +1926,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight39",
+				Frame "HIGHLIGHT" "FocusHighlight39" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB14LIGHT2",
 					Frame "HIGHLIGHT" "ZB14LIGHT2" {
 						HighlightType "FILETEXTURE",
@@ -1744,15 +1963,20 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "256" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellAps", TOP, -0.0155, -0.1487,
 					ControlBackdrop "257",
 				Frame "BACKDROP" "257" {
 					BackdropBackground  "war3mapImported\ZB1.tga",
 						BackdropBlendAll,
-					}
-
+				}
+				ControlFocusHighlight "FocusHighlight40",
+				Frame "HIGHLIGHT" "FocusHighlight40" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB15LIGHT2",
 					Frame "HIGHLIGHT" "ZB15LIGHT2" {
 						HighlightType "FILETEXTURE",
@@ -1784,7 +2008,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "260" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellAps", TOP, -0.1855, -0.2004,
 					ControlBackdrop "261",
@@ -1793,6 +2017,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight41",
+				Frame "HIGHLIGHT" "FocusHighlight41" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB16LIGHT2",
 					Frame "HIGHLIGHT" "ZB16LIGHT2" {
 						HighlightType "FILETEXTURE",
@@ -1824,7 +2054,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "264" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellAps", TOP, -0.143, -0.2004,
 					ControlBackdrop "265",
@@ -1833,6 +2063,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight42",
+				Frame "HIGHLIGHT" "FocusHighlight42" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB17LIGHT2",
 					Frame "HIGHLIGHT" "ZB17LIGHT2" {
 						HighlightType "FILETEXTURE",
@@ -1864,7 +2100,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "268" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellAps", TOP, -0.1005, -0.2004,
 					ControlBackdrop "269",
@@ -1873,6 +2109,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight43",
+				Frame "HIGHLIGHT" "FocusHighlight43" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB18LIGHT2",
 					Frame "HIGHLIGHT" "ZB18LIGHT2" {
 						HighlightType "FILETEXTURE",
@@ -1903,7 +2145,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "272" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellAps", TOP, -0.058, -0.2004,
 					ControlBackdrop "273",
@@ -1912,6 +2154,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight44",
+				Frame "HIGHLIGHT" "FocusHighlight44" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB19LIGHT2",
 					Frame "HIGHLIGHT" "ZB19LIGHT2" {
 						HighlightType "FILETEXTURE",
@@ -1942,7 +2190,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "276" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellAps", TOP, -0.0155, -0.2004,
 					ControlBackdrop "277",
@@ -1951,6 +2199,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight45",
+				Frame "HIGHLIGHT" "FocusHighlight45" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB20LIGHT2",
 					Frame "HIGHLIGHT" "ZB20LIGHT2" {
 						HighlightType "FILETEXTURE",
@@ -1983,7 +2237,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "280" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellAps", TOP, -0.1855, -0.2521,
 					ControlBackdrop "281",
@@ -1992,6 +2246,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight46",
+				Frame "HIGHLIGHT" "FocusHighlight46" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB21LIGHT2",
 					Frame "HIGHLIGHT" "ZB21LIGHT2" {
 						HighlightType "FILETEXTURE",
@@ -2023,7 +2283,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "284" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellAps", TOP, -0.143, -0.2521,
 					ControlBackdrop "285",
@@ -2032,6 +2292,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight47",
+				Frame "HIGHLIGHT" "FocusHighlight47" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB22LIGHT2",
 					Frame "HIGHLIGHT" "ZB22LIGHT2" {
 						HighlightType "FILETEXTURE",
@@ -2063,7 +2329,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "288" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellAps", TOP, -0.1005, -0.2521,
 					ControlBackdrop "289",
@@ -2072,6 +2338,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight48",
+				Frame "HIGHLIGHT" "FocusHighlight48" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB23LIGHT2",
 					Frame "HIGHLIGHT" "ZB23LIGHT2" {
 						HighlightType "FILETEXTURE",
@@ -2103,7 +2375,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "292" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellAps", TOP, -0.058, -0.2521,
 					ControlBackdrop "293",
@@ -2112,6 +2384,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight49",
+				Frame "HIGHLIGHT" "FocusHighlight49" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB24LIGHT2",
 					Frame "HIGHLIGHT" "ZB24LIGHT2" {
 						HighlightType "FILETEXTURE",
@@ -2143,15 +2421,20 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "296" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellAps", TOP, -0.0155, -0.2521,
 					ControlBackdrop "297",
 				Frame "BACKDROP" "297" {
 					BackdropBackground  "war3mapImported\ZB1.tga",
 						BackdropBlendAll,
-					}
-
+				}
+				ControlFocusHighlight "FocusHighlight50",
+				Frame "HIGHLIGHT" "FocusHighlight50" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB25LIGHT2",
 					Frame "HIGHLIGHT" "ZB25LIGHT2" {
 						HighlightType "FILETEXTURE",
@@ -2189,7 +2472,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "300" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellCrits", TOP, -0.1855, -0.0453,
 				ControlBackdrop "301",
@@ -2198,6 +2481,12 @@ Frame "BACKDROP" "BAG" {      //父级
 					BackdropBlendAll,
 				}
 
+				ControlFocusHighlight "FocusHighlight51",
+				Frame "HIGHLIGHT" "FocusHighlight51" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 				ControlMouseOverHighlight "ZB1LIGHT3",
 				Frame "HIGHLIGHT" "ZB1LIGHT3" {
 					HighlightType "FILETEXTURE",
@@ -2228,7 +2517,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "304" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellCrits", TOP, -0.143, -0.0453,
 				ControlBackdrop "305",
@@ -2237,6 +2526,12 @@ Frame "BACKDROP" "BAG" {      //父级
 					BackdropBlendAll,
 				}
 
+				ControlFocusHighlight "FocusHighlight52",
+				Frame "HIGHLIGHT" "FocusHighlight52" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 				ControlMouseOverHighlight "ZB2LIGHT3",
 				Frame "HIGHLIGHT" "ZB2LIGHT3" {
 					HighlightType "FILETEXTURE",
@@ -2266,7 +2561,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "308" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellCrits", TOP, -0.1005, -0.0453,
 				ControlBackdrop "309",
@@ -2275,6 +2570,12 @@ Frame "BACKDROP" "BAG" {      //父级
 					BackdropBlendAll,
 				}
 
+				ControlFocusHighlight "FocusHighlight53",
+				Frame "HIGHLIGHT" "FocusHighlight53" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 				ControlMouseOverHighlight "ZB3LIGHT3",
 				Frame "HIGHLIGHT" "ZB3LIGHT3" {
 					HighlightType "FILETEXTURE",
@@ -2304,13 +2605,19 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "312" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellCrits", TOP, -0.058, -0.0453,
 				ControlBackdrop "313",
 				Frame "BACKDROP" "313" {
 					BackdropBackground  "war3mapImported\ZB1.tga",
 					BackdropBlendAll,
+				}
+				ControlFocusHighlight "FocusHighlight54",
+				Frame "HIGHLIGHT" "FocusHighlight54" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
 				}
 				ControlMouseOverHighlight "ZB4LIGHT3",
 				Frame "HIGHLIGHT" "ZB4LIGHT3" {
@@ -2341,13 +2648,19 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "316" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellCrits", TOP, -0.0155, -0.0453,
 				ControlBackdrop "317",
 				Frame "BACKDROP" "317" {
 					BackdropBackground  "war3mapImported\ZB1.tga",
 					BackdropBlendAll,
+				}
+				ControlFocusHighlight "FocusHighlight55",
+				Frame "HIGHLIGHT" "FocusHighlight55" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
 				}
 				ControlMouseOverHighlight "ZB5LIGHT3",
 				Frame "HIGHLIGHT" "ZB5LIGHT3" {
@@ -2378,13 +2691,19 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "320" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellCrits", TOP, -0.1855, -0.097,
 				ControlBackdrop "321",
 				Frame "BACKDROP" "321" {
 					BackdropBackground  "war3mapImported\ZB1.tga",
 					BackdropBlendAll,
+				}
+				ControlFocusHighlight "FocusHighlight56",
+				Frame "HIGHLIGHT" "FocusHighlight56" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
 				}
 				ControlMouseOverHighlight "ZB6LIGHT3",
 				Frame "HIGHLIGHT" "ZB6LIGHT3" {
@@ -2415,13 +2734,19 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "324" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellCrits", TOP, -0.143, -0.097,
 				ControlBackdrop "325",
 				Frame "BACKDROP" "325" {
 					BackdropBackground  "war3mapImported\ZB1.tga",
 					BackdropBlendAll,
+				}
+				ControlFocusHighlight "FocusHighlight57",
+				Frame "HIGHLIGHT" "FocusHighlight57" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
 				}
 				ControlMouseOverHighlight "ZB7LIGHT3",
 				Frame "HIGHLIGHT" "ZB7LIGHT3" {
@@ -2453,7 +2778,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "328" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellCrits", TOP, -0.1005, -0.097,
 					ControlBackdrop "329",
@@ -2462,6 +2787,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight58",
+				Frame "HIGHLIGHT" "FocusHighlight58" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB8LIGHT3",
 					Frame "HIGHLIGHT" "ZB8LIGHT3" {
 						HighlightType "FILETEXTURE",
@@ -2493,7 +2824,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "332" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellCrits", TOP, -0.058, -0.097,
 					ControlBackdrop "333",
@@ -2502,6 +2833,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight59",
+				Frame "HIGHLIGHT" "FocusHighlight59" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB9LIGHT3",
 					Frame "HIGHLIGHT" "ZB9LIGHT3" {
 						HighlightType "FILETEXTURE",
@@ -2532,15 +2869,20 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "336" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellCrits", TOP, -0.0155, -0.097,
 					ControlBackdrop "337",
 				Frame "BACKDROP" "337" {
 					BackdropBackground  "war3mapImported\ZB1.tga",
 						BackdropBlendAll,
-					}
-
+				}
+				ControlFocusHighlight "FocusHighlight60",
+				Frame "HIGHLIGHT" "FocusHighlight60" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB10LIGHT3",
 					Frame "HIGHLIGHT" "ZB10LIGHT3" {
 						HighlightType "FILETEXTURE",
@@ -2572,7 +2914,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "340" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellCrits", TOP, -0.1855, -0.1487,
 					ControlBackdrop "341",
@@ -2581,6 +2923,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight61",
+				Frame "HIGHLIGHT" "FocusHighlight61" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB11LIGHT3",
 					Frame "HIGHLIGHT" "ZB11LIGHT3" {
 						HighlightType "FILETEXTURE",
@@ -2611,7 +2959,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "344" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellCrits", TOP, -0.143, -0.1487,
 					ControlBackdrop "345",
@@ -2620,6 +2968,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight62",
+				Frame "HIGHLIGHT" "FocusHighlight62" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB12LIGHT3",
 					Frame "HIGHLIGHT" "ZB12LIGHT3" {
 						HighlightType "FILETEXTURE",
@@ -2650,7 +3004,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "348" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellCrits", TOP, -0.1005, -0.1487,
 					ControlBackdrop "349",
@@ -2659,6 +3013,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight63",
+				Frame "HIGHLIGHT" "FocusHighlight63" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB13LIGHT3",
 					Frame "HIGHLIGHT" "ZB13LIGHT3" {
 						HighlightType "FILETEXTURE",
@@ -2689,7 +3049,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "352" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellCrits", TOP, -0.058, -0.1487,
 					ControlBackdrop "353",
@@ -2698,6 +3058,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight64",
+				Frame "HIGHLIGHT" "FocusHighlight64" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB14LIGHT3",
 					Frame "HIGHLIGHT" "ZB14LIGHT3" {
 						HighlightType "FILETEXTURE",
@@ -2729,7 +3095,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "356" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellCrits", TOP, -0.0155, -0.1487,
 					ControlBackdrop "357",
@@ -2738,6 +3104,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight65",
+				Frame "HIGHLIGHT" "FocusHighlight65" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB15LIGHT3",
 					Frame "HIGHLIGHT" "ZB15LIGHT3" {
 						HighlightType "FILETEXTURE",
@@ -2769,7 +3141,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "360" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellCrits", TOP, -0.1855, -0.2004,
 					ControlBackdrop "361",
@@ -2778,6 +3150,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight66",
+				Frame "HIGHLIGHT" "FocusHighlight66" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB16LIGHT3",
 					Frame "HIGHLIGHT" "ZB16LIGHT3" {
 						HighlightType "FILETEXTURE",
@@ -2809,7 +3187,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "364" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellCrits", TOP, -0.143, -0.2004,
 					ControlBackdrop "365",
@@ -2818,6 +3196,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight67",
+				Frame "HIGHLIGHT" "FocusHighlight67" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB17LIGHT3",
 					Frame "HIGHLIGHT" "ZB17LIGHT3" {
 						HighlightType "FILETEXTURE",
@@ -2849,7 +3233,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "368" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellCrits", TOP, -0.1005, -0.2004,
 					ControlBackdrop "369",
@@ -2858,6 +3242,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight68",
+				Frame "HIGHLIGHT" "FocusHighlight68" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB18LIGHT3",
 					Frame "HIGHLIGHT" "ZB18LIGHT3" {
 						HighlightType "FILETEXTURE",
@@ -2888,7 +3278,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "372" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellCrits", TOP, -0.058, -0.2004,
 					ControlBackdrop "373",
@@ -2897,6 +3287,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight69",
+				Frame "HIGHLIGHT" "FocusHighlight69" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB19LIGHT3",
 					Frame "HIGHLIGHT" "ZB19LIGHT3" {
 						HighlightType "FILETEXTURE",
@@ -2927,15 +3323,20 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "376" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellCrits", TOP, -0.0155, -0.2004,
 					ControlBackdrop "377",
 				Frame "BACKDROP" "377" {
 					BackdropBackground  "war3mapImported\ZB1.tga",
 						BackdropBlendAll,
-					}
-
+				}
+				ControlFocusHighlight "FocusHighlight70",
+				Frame "HIGHLIGHT" "FocusHighlight70" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB20LIGHT3",
 					Frame "HIGHLIGHT" "ZB20LIGHT3" {
 						HighlightType "FILETEXTURE",
@@ -2968,7 +3369,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "380" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellCrits", TOP, -0.1855, -0.2521,
 					ControlBackdrop "381",
@@ -2977,6 +3378,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight71",
+				Frame "HIGHLIGHT" "FocusHighlight71" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB21LIGHT3",
 					Frame "HIGHLIGHT" "ZB21LIGHT3" {
 						HighlightType "FILETEXTURE",
@@ -3008,7 +3415,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "384" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellCrits", TOP, -0.143, -0.2521,
 					ControlBackdrop "385",
@@ -3017,6 +3424,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight7",
+				Frame "HIGHLIGHT" "FocusHighlight72" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB22LIGHT3",
 					Frame "HIGHLIGHT" "ZB22LIGHT3" {
 						HighlightType "FILETEXTURE",
@@ -3048,7 +3461,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "388" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellCrits", TOP, -0.1005, -0.2521,
 					ControlBackdrop "389",
@@ -3057,6 +3470,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight73",
+				Frame "HIGHLIGHT" "FocusHighlight73" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB23LIGHT3",
 					Frame "HIGHLIGHT" "ZB23LIGHT3" {
 						HighlightType "FILETEXTURE",
@@ -3088,7 +3507,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "392" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellCrits", TOP, -0.058, -0.2521,
 					ControlBackdrop "393",
@@ -3097,6 +3516,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight74",
+				Frame "HIGHLIGHT" "FocusHighlight74" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB24LIGHT3",
 					Frame "HIGHLIGHT" "ZB24LIGHT3" {
 						HighlightType "FILETEXTURE",
@@ -3128,7 +3553,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "396" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellCrits", TOP, -0.0155, -0.2521,
 					ControlBackdrop "397",
@@ -3137,6 +3562,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight75",
+				Frame "HIGHLIGHT" "FocusHighlight75" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB25LIGHT3",
 					Frame "HIGHLIGHT" "ZB25LIGHT3" {
 						HighlightType "FILETEXTURE",
@@ -3174,7 +3605,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "400" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellCooldowns", TOP, -0.1855, -0.0453,
 				ControlBackdrop "401",
@@ -3183,6 +3614,12 @@ Frame "BACKDROP" "BAG" {      //父级
 					BackdropBlendAll,
 				}
 
+				ControlFocusHighlight "FocusHighlight76",
+				Frame "HIGHLIGHT" "FocusHighlight76" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 				ControlMouseOverHighlight "ZB1LIGHT4",
 				Frame "HIGHLIGHT" "ZB1LIGHT4" {
 					HighlightType "FILETEXTURE",
@@ -3213,7 +3650,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "404" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellCooldowns", TOP, -0.143, -0.0453,
 				ControlBackdrop "405",
@@ -3222,6 +3659,12 @@ Frame "BACKDROP" "BAG" {      //父级
 					BackdropBlendAll,
 				}
 
+				ControlFocusHighlight "FocusHighlight77",
+				Frame "HIGHLIGHT" "FocusHighlight77" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 				ControlMouseOverHighlight "ZB2LIGHT4",
 				Frame "HIGHLIGHT" "ZB2LIGHT4" {
 					HighlightType "FILETEXTURE",
@@ -3251,7 +3694,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "408" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellCooldowns", TOP, -0.1005, -0.0453,
 				ControlBackdrop "409",
@@ -3260,6 +3703,12 @@ Frame "BACKDROP" "BAG" {      //父级
 					BackdropBlendAll,
 				}
 
+				ControlFocusHighlight "FocusHighlight78",
+				Frame "HIGHLIGHT" "FocusHighlight78" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 				ControlMouseOverHighlight "ZB3LIGHT4",
 				Frame "HIGHLIGHT" "ZB3LIGHT4" {
 					HighlightType "FILETEXTURE",
@@ -3289,13 +3738,19 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "412" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellCooldowns", TOP, -0.058, -0.0453,
 				ControlBackdrop "413",
 				Frame "BACKDROP" "413" {
 					BackdropBackground  "war3mapImported\ZB1.tga",
 					BackdropBlendAll,
+				}
+				ControlFocusHighlight "FocusHighlight79",
+				Frame "HIGHLIGHT" "FocusHighlight79" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
 				}
 				ControlMouseOverHighlight "ZB4LIGHT4",
 				Frame "HIGHLIGHT" "ZB4LIGHT4" {
@@ -3326,13 +3781,19 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "416" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellCooldowns", TOP, -0.0155, -0.0453,
 				ControlBackdrop "417",
 				Frame "BACKDROP" "417" {
 					BackdropBackground  "war3mapImported\ZB1.tga",
 					BackdropBlendAll,
+				}
+				ControlFocusHighlight "FocusHighlight80",
+				Frame "HIGHLIGHT" "FocusHighlight80" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
 				}
 				ControlMouseOverHighlight "ZB5LIGHT4",
 				Frame "HIGHLIGHT" "ZB5LIGHT4" {
@@ -3363,13 +3824,19 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "420" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellCooldowns", TOP, -0.1855, -0.097,
 				ControlBackdrop "421",
 				Frame "BACKDROP" "421" {
 					BackdropBackground  "war3mapImported\ZB1.tga",
 					BackdropBlendAll,
+				}
+				ControlFocusHighlight "FocusHighlight81",
+				Frame "HIGHLIGHT" "FocusHighlight81" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
 				}
 				ControlMouseOverHighlight "ZB6LIGHT4",
 				Frame "HIGHLIGHT" "ZB6LIGHT4" {
@@ -3400,13 +3867,19 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "424" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellCooldowns", TOP, -0.143, -0.097,
 				ControlBackdrop "425",
 				Frame "BACKDROP" "425" {
 					BackdropBackground  "war3mapImported\ZB1.tga",
 					BackdropBlendAll,
+				}
+				ControlFocusHighlight "FocusHighlight82",
+				Frame "HIGHLIGHT" "FocusHighlight82" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
 				}
 				ControlMouseOverHighlight "ZB7LIGHT4",
 				Frame "HIGHLIGHT" "ZB7LIGHT4" {
@@ -3438,7 +3911,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "428" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellCooldowns", TOP, -0.1005, -0.097,
 					ControlBackdrop "429",
@@ -3447,6 +3920,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight83",
+				Frame "HIGHLIGHT" "FocusHighlight83" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB8LIGHT4",
 					Frame "HIGHLIGHT" "ZB8LIGHT4" {
 						HighlightType "FILETEXTURE",
@@ -3478,7 +3957,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "432" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellCooldowns", TOP, -0.058, -0.097,
 					ControlBackdrop "433",
@@ -3487,6 +3966,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight84",
+				Frame "HIGHLIGHT" "FocusHighlight84" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB9LIGHT4",
 					Frame "HIGHLIGHT" "ZB9LIGHT4" {
 						HighlightType "FILETEXTURE",
@@ -3517,7 +4002,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "436" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellCooldowns", TOP, -0.0155, -0.097,
 					ControlBackdrop "437",
@@ -3526,6 +4011,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight85",
+				Frame "HIGHLIGHT" "FocusHighlight85" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB10LIGHT4",
 					Frame "HIGHLIGHT" "ZB10LIGHT4" {
 						HighlightType "FILETEXTURE",
@@ -3557,7 +4048,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "440" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellCooldowns", TOP, -0.1855, -0.1487,
 					ControlBackdrop "441",
@@ -3566,6 +4057,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight86",
+				Frame "HIGHLIGHT" "FocusHighlight86" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB11LIGHT4",
 					Frame "HIGHLIGHT" "ZB11LIGHT4" {
 						HighlightType "FILETEXTURE",
@@ -3596,7 +4093,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "444" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellCooldowns", TOP, -0.143, -0.1487,
 					ControlBackdrop "445",
@@ -3605,6 +4102,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight87",
+				Frame "HIGHLIGHT" "FocusHighlight87" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB12LIGHT4",
 					Frame "HIGHLIGHT" "ZB12LIGHT4" {
 						HighlightType "FILETEXTURE",
@@ -3635,7 +4138,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "448" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellCooldowns", TOP, -0.1005, -0.1487,
 					ControlBackdrop "449",
@@ -3644,6 +4147,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight88",
+				Frame "HIGHLIGHT" "FocusHighlight88" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB13LIGHT4",
 					Frame "HIGHLIGHT" "ZB13LIGHT4" {
 						HighlightType "FILETEXTURE",
@@ -3674,7 +4183,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "452" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellCooldowns", TOP, -0.058, -0.1487,
 					ControlBackdrop "453",
@@ -3683,6 +4192,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight89",
+				Frame "HIGHLIGHT" "FocusHighlight89" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB14LIGHT4",
 					Frame "HIGHLIGHT" "ZB14LIGHT4" {
 						HighlightType "FILETEXTURE",
@@ -3714,7 +4229,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "456" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellCooldowns", TOP, -0.0155, -0.1487,
 					ControlBackdrop "457",
@@ -3723,6 +4238,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight90",
+				Frame "HIGHLIGHT" "FocusHighlight90" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB15LIGHT4",
 					Frame "HIGHLIGHT" "ZB15LIGHT4" {
 						HighlightType "FILETEXTURE",
@@ -3754,7 +4275,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "460" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellCooldowns", TOP, -0.1855, -0.2004,
 					ControlBackdrop "461",
@@ -3763,6 +4284,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight91",
+				Frame "HIGHLIGHT" "FocusHighlight91" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB16LIGHT4",
 					Frame "HIGHLIGHT" "ZB16LIGHT4" {
 						HighlightType "FILETEXTURE",
@@ -3794,7 +4321,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "464" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellCooldowns", TOP, -0.143, -0.2004,
 					ControlBackdrop "465",
@@ -3803,6 +4330,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight92",
+				Frame "HIGHLIGHT" "FocusHighlight92" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB17LIGHT4",
 					Frame "HIGHLIGHT" "ZB17LIGHT4" {
 						HighlightType "FILETEXTURE",
@@ -3834,7 +4367,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "468" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellCooldowns", TOP, -0.1005, -0.2004,
 					ControlBackdrop "469",
@@ -3843,6 +4376,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight93",
+				Frame "HIGHLIGHT" "FocusHighlight93" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB18LIGHT4",
 					Frame "HIGHLIGHT" "ZB18LIGHT4" {
 						HighlightType "FILETEXTURE",
@@ -3873,7 +4412,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "472" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellCooldowns", TOP, -0.058, -0.2004,
 					ControlBackdrop "473",
@@ -3882,6 +4421,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight94",
+				Frame "HIGHLIGHT" "FocusHighlight94" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB19LIGHT4",
 					Frame "HIGHLIGHT" "ZB19LIGHT4" {
 						HighlightType "FILETEXTURE",
@@ -3912,7 +4457,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "476" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellCooldowns", TOP, -0.0155, -0.2004,
 					ControlBackdrop "477",
@@ -3921,6 +4466,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight95",
+				Frame "HIGHLIGHT" "FocusHighlight95" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB20LIGHT4",
 					Frame "HIGHLIGHT" "ZB20LIGHT4" {
 						HighlightType "FILETEXTURE",
@@ -3953,7 +4504,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "480" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellCooldowns", TOP, -0.1855, -0.2521,
 					ControlBackdrop "481",
@@ -3962,6 +4513,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight96",
+				Frame "HIGHLIGHT" "FocusHighlight96" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB21LIGHT4",
 					Frame "HIGHLIGHT" "ZB21LIGHT4" {
 						HighlightType "FILETEXTURE",
@@ -3993,7 +4550,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "484" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellCooldowns", TOP, -0.143, -0.2521,
 					ControlBackdrop "485",
@@ -4002,6 +4559,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight97",
+				Frame "HIGHLIGHT" "FocusHighlight97" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB22LIGHT4",
 					Frame "HIGHLIGHT" "ZB22LIGHT4" {
 						HighlightType "FILETEXTURE",
@@ -4033,7 +4596,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "488" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellCooldowns", TOP, -0.1005, -0.2521,
 					ControlBackdrop "489",
@@ -4042,6 +4605,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight98",
+				Frame "HIGHLIGHT" "FocusHighlight98" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB23LIGHT4",
 					Frame "HIGHLIGHT" "ZB23LIGHT4" {
 						HighlightType "FILETEXTURE",
@@ -4073,7 +4642,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "492" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellCooldowns", TOP, -0.058, -0.2521,
 					ControlBackdrop "493",
@@ -4082,6 +4651,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight99",
+				Frame "HIGHLIGHT" "FocusHighlight99" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB24LIGHT4",
 					Frame "HIGHLIGHT" "ZB24LIGHT4" {
 						HighlightType "FILETEXTURE",
@@ -4113,7 +4688,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "496" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellCooldowns", TOP, -0.0155, -0.2521,
 					ControlBackdrop "497",
@@ -4122,6 +4697,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight100",
+				Frame "HIGHLIGHT" "FocusHighlight100" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB25LIGHT4",
 					Frame "HIGHLIGHT" "ZB25LIGHT4" {
 						HighlightType "FILETEXTURE",
@@ -4159,7 +4740,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "500" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellManas", TOP, -0.1855, -0.0453,
 				ControlBackdrop "501",
@@ -4168,6 +4749,12 @@ Frame "BACKDROP" "BAG" {      //父级
 					BackdropBlendAll,
 				}
 
+				ControlFocusHighlight "FocusHighlight101",
+				Frame "HIGHLIGHT" "FocusHighlight101" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 				ControlMouseOverHighlight "ZB1LIGHT5",
 				Frame "HIGHLIGHT" "ZB1LIGHT5" {
 					HighlightType "FILETEXTURE",
@@ -4198,7 +4785,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "504" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellManas", TOP, -0.143, -0.0453,
 				ControlBackdrop "505",
@@ -4207,6 +4794,12 @@ Frame "BACKDROP" "BAG" {      //父级
 					BackdropBlendAll,
 				}
 
+				ControlFocusHighlight "FocusHighlight102",
+				Frame "HIGHLIGHT" "FocusHighlight102" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 				ControlMouseOverHighlight "ZB2LIGHT5",
 				Frame "HIGHLIGHT" "ZB2LIGHT5" {
 					HighlightType "FILETEXTURE",
@@ -4236,7 +4829,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "508" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellManas", TOP, -0.1005, -0.0453,
 				ControlBackdrop "509",
@@ -4245,6 +4838,12 @@ Frame "BACKDROP" "BAG" {      //父级
 					BackdropBlendAll,
 				}
 
+				ControlFocusHighlight "FocusHighlight103",
+				Frame "HIGHLIGHT" "FocusHighlight103" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 				ControlMouseOverHighlight "ZB3LIGHT5",
 				Frame "HIGHLIGHT" "ZB3LIGHT5" {
 					HighlightType "FILETEXTURE",
@@ -4274,13 +4873,19 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "512" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellManas", TOP, -0.058, -0.0453,
 				ControlBackdrop "513",
 				Frame "BACKDROP" "513" {
 					BackdropBackground  "war3mapImported\ZB1.tga",
 					BackdropBlendAll,
+				}
+				ControlFocusHighlight "FocusHighlight104",
+				Frame "HIGHLIGHT" "FocusHighlight104" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
 				}
 				ControlMouseOverHighlight "ZB4LIGHT5",
 				Frame "HIGHLIGHT" "ZB4LIGHT5" {
@@ -4311,13 +4916,19 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "516" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellManas", TOP, -0.0155, -0.0453,
 				ControlBackdrop "517",
 				Frame "BACKDROP" "517" {
 					BackdropBackground  "war3mapImported\ZB1.tga",
 					BackdropBlendAll,
+				}
+				ControlFocusHighlight "FocusHighlight105",
+				Frame "HIGHLIGHT" "FocusHighlight105" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
 				}
 				ControlMouseOverHighlight "ZB5LIGHT5",
 				Frame "HIGHLIGHT" "ZB5LIGHT5" {
@@ -4348,13 +4959,19 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "520" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellManas", TOP, -0.1855, -0.097,
 				ControlBackdrop "521",
 				Frame "BACKDROP" "521" {
 					BackdropBackground  "war3mapImported\ZB1.tga",
 					BackdropBlendAll,
+				}
+				ControlFocusHighlight "FocusHighlight106",
+				Frame "HIGHLIGHT" "FocusHighlight106" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
 				}
 				ControlMouseOverHighlight "ZB6LIGHT5",
 				Frame "HIGHLIGHT" "ZB6LIGHT5" {
@@ -4385,13 +5002,19 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "524" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellManas", TOP, -0.143, -0.097,
 				ControlBackdrop "525",
 				Frame "BACKDROP" "525" {
 					BackdropBackground  "war3mapImported\ZB1.tga",
 					BackdropBlendAll,
+				}
+				ControlFocusHighlight "FocusHighlight107",
+				Frame "HIGHLIGHT" "FocusHighlight107" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
 				}
 				ControlMouseOverHighlight "ZB7LIGHT5",
 				Frame "HIGHLIGHT" "ZB7LIGHT5" {
@@ -4423,7 +5046,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "528" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellManas", TOP, -0.1005, -0.097,
 					ControlBackdrop "529",
@@ -4432,6 +5055,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight108",
+				Frame "HIGHLIGHT" "FocusHighlight108" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB8LIGHT5",
 					Frame "HIGHLIGHT" "ZB8LIGHT5" {
 						HighlightType "FILETEXTURE",
@@ -4463,7 +5092,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "532" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellManas", TOP, -0.058, -0.097,
 					ControlBackdrop "533",
@@ -4472,6 +5101,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight109",
+				Frame "HIGHLIGHT" "FocusHighlight109" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB9LIGHT5",
 					Frame "HIGHLIGHT" "ZB9LIGHT5" {
 						HighlightType "FILETEXTURE",
@@ -4502,7 +5137,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "536" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellManas", TOP, -0.0155, -0.097,
 					ControlBackdrop "537",
@@ -4511,6 +5146,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight110",
+				Frame "HIGHLIGHT" "FocusHighlight110" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB10LIGHT5",
 					Frame "HIGHLIGHT" "ZB10LIGHT5" {
 						HighlightType "FILETEXTURE",
@@ -4542,15 +5183,20 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "540" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellManas", TOP, -0.1855, -0.1487,
 					ControlBackdrop "541",
 				Frame "BACKDROP" "541" {
 					BackdropBackground  "war3mapImported\ZB1.tga",
 						BackdropBlendAll,
-					}
-
+				}
+				ControlFocusHighlight "FocusHighlight111",
+				Frame "HIGHLIGHT" "FocusHighlight111" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB11LIGHT5",
 					Frame "HIGHLIGHT" "ZB11LIGHT5" {
 						HighlightType "FILETEXTURE",
@@ -4581,7 +5227,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "544" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellManas", TOP, -0.143, -0.1487,
 					ControlBackdrop "545",
@@ -4590,6 +5236,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight112",
+				Frame "HIGHLIGHT" "FocusHighlight112" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB12LIGHT5",
 					Frame "HIGHLIGHT" "ZB12LIGHT5" {
 						HighlightType "FILETEXTURE",
@@ -4620,7 +5272,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "548" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellManas", TOP, -0.1005, -0.1487,
 					ControlBackdrop "549",
@@ -4629,6 +5281,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight113",
+				Frame "HIGHLIGHT" "FocusHighlight113" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB13LIGHT5",
 					Frame "HIGHLIGHT" "ZB13LIGHT5" {
 						HighlightType "FILETEXTURE",
@@ -4659,7 +5317,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "552" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellManas", TOP, -0.058, -0.1487,
 					ControlBackdrop "553",
@@ -4668,6 +5326,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight114",
+				Frame "HIGHLIGHT" "FocusHighlight114" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB14LIGHT5",
 					Frame "HIGHLIGHT" "ZB14LIGHT5" {
 						HighlightType "FILETEXTURE",
@@ -4699,7 +5363,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "556" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellManas", TOP, -0.0155, -0.1487,
 					ControlBackdrop "557",
@@ -4708,6 +5372,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight115",
+				Frame "HIGHLIGHT" "FocusHighlight115" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB15LIGHT5",
 					Frame "HIGHLIGHT" "ZB15LIGHT5" {
 						HighlightType "FILETEXTURE",
@@ -4739,7 +5409,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "560" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellManas", TOP, -0.1855, -0.2004,
 					ControlBackdrop "561",
@@ -4748,6 +5418,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight116",
+				Frame "HIGHLIGHT" "FocusHighlight116" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB16LIGHT5",
 					Frame "HIGHLIGHT" "ZB16LIGHT5" {
 						HighlightType "FILETEXTURE",
@@ -4779,7 +5455,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "564" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellManas", TOP, -0.143, -0.2004,
 					ControlBackdrop "565",
@@ -4788,6 +5464,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight117",
+				Frame "HIGHLIGHT" "FocusHighlight117" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB17LIGHT5",
 					Frame "HIGHLIGHT" "ZB17LIGHT5" {
 						HighlightType "FILETEXTURE",
@@ -4819,7 +5501,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "568" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellManas", TOP, -0.1005, -0.2004,
 					ControlBackdrop "569",
@@ -4828,6 +5510,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight118",
+				Frame "HIGHLIGHT" "FocusHighlight118" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB18LIGHT5",
 					Frame "HIGHLIGHT" "ZB18LIGHT5" {
 						HighlightType "FILETEXTURE",
@@ -4858,7 +5546,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "572" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellManas", TOP, -0.058, -0.2004,
 					ControlBackdrop "573",
@@ -4867,6 +5555,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight119",
+				Frame "HIGHLIGHT" "FocusHighlight119" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB19LIGHT5",
 					Frame "HIGHLIGHT" "ZB19LIGHT5" {
 						HighlightType "FILETEXTURE",
@@ -4897,7 +5591,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "576" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellManas", TOP, -0.0155, -0.2004,
 					ControlBackdrop "577",
@@ -4906,6 +5600,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight120",
+				Frame "HIGHLIGHT" "FocusHighlight120" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB20LIGHT5",
 					Frame "HIGHLIGHT" "ZB20LIGHT5" {
 						HighlightType "FILETEXTURE",
@@ -4938,15 +5638,20 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "580" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellManas", TOP, -0.1855, -0.2521,
 					ControlBackdrop "581",
 				Frame "BACKDROP" "581" {
 					BackdropBackground  "war3mapImported\ZB1.tga",
 						BackdropBlendAll,
-					}
-
+				}
+				ControlFocusHighlight "FocusHighlight121",
+				Frame "HIGHLIGHT" "FocusHighlight121" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB21LIGHT5",
 					Frame "HIGHLIGHT" "ZB21LIGHT5" {
 						HighlightType "FILETEXTURE",
@@ -4978,7 +5683,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "584" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellManas", TOP, -0.143, -0.2521,
 					ControlBackdrop "585",
@@ -4987,6 +5692,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight122",
+				Frame "HIGHLIGHT" "FocusHighlight122" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB22LIGHT5",
 					Frame "HIGHLIGHT" "ZB22LIGHT5" {
 						HighlightType "FILETEXTURE",
@@ -5018,7 +5729,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "588" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellManas", TOP, -0.1005, -0.2521,
 					ControlBackdrop "589",
@@ -5027,6 +5738,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight123",
+				Frame "HIGHLIGHT" "FocusHighlight123" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB23LIGHT5",
 					Frame "HIGHLIGHT" "ZB23LIGHT5" {
 						HighlightType "FILETEXTURE",
@@ -5058,7 +5775,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "592" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellManas", TOP, -0.058, -0.2521,
 					ControlBackdrop "593",
@@ -5067,6 +5784,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight124",
+				Frame "HIGHLIGHT" "FocusHighlight124" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB24LIGHT5",
 					Frame "HIGHLIGHT" "ZB24LIGHT5" {
 						HighlightType "FILETEXTURE",
@@ -5098,7 +5821,7 @@ Frame "BACKDROP" "BAG" {      //父级
 			Frame "TEXTBUTTON" "596" {
 				Height 0.025,
 				Width 0.025,
-				ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+				ControlStyle "AUTOTRACK|HIGHLIGHTONFOCUS|HIGHLIGHTONMOUSEOVER",
 				ButtonPushedTextOffset -0.001f -0.0015f,
 				SetPoint TOP, "ItemCellManas", TOP, -0.0155, -0.2521,
 					ControlBackdrop "597",
@@ -5107,6 +5830,12 @@ Frame "BACKDROP" "BAG" {      //父级
 						BackdropBlendAll,
 					}
 
+				ControlFocusHighlight "FocusHighlight125",
+				Frame "HIGHLIGHT" "FocusHighlight125" {
+					HighlightType "FILETEXTURE",
+					HighlightAlphaFile "war3mapImported\Adown.tga",
+					HighlightAlphaMode "ADD",
+				}
 					ControlMouseOverHighlight "ZB25LIGHT5",
 					Frame "HIGHLIGHT" "ZB25LIGHT5" {
 						HighlightType "FILETEXTURE",
@@ -5166,7 +5895,7 @@ Frame "BACKDROP" "BAG" {      //父级
 	}
 	
 		
-							Frame "TEXTBUTTON" "HC1" {
+	Frame "TEXTBUTTON" "HC1" {
    	  	Height 0.025,
   		Width 0.025,
   		ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
@@ -5185,9 +5914,7 @@ Frame "BACKDROP" "BAG" {      //父级
         		HighlightAlphaMode "ADD",
 				}
 	}
-	
-
-				
+			
 	Frame "TEXT" "HC1A1" {
    		FrameFont "font02.TTF", 0.010, "",
    		FontJustificationH JUSTIFYRIGHT,
@@ -5197,9 +5924,7 @@ Frame "BACKDROP" "BAG" {      //父级
 		SetPoint TOP, "HC1", BOTTOM, 0, -0.002,
 	}
 	
-	
-	
-							Frame "TEXTBUTTON" "HC2" {
+	Frame "TEXTBUTTON" "HC2" {
    	  	Height 0.025,
   		Width 0.025,
   		ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
@@ -5228,9 +5953,7 @@ Frame "BACKDROP" "BAG" {      //父级
 		SetPoint TOP, "HC2", BOTTOM, 0, -0.002,
 	}
 	
-	
-		
-							Frame "TEXTBUTTON" "HC3" {
+	Frame "TEXTBUTTON" "HC3" {
    	  	Height 0.025,
   		Width 0.025,
   		ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
@@ -5250,8 +5973,6 @@ Frame "BACKDROP" "BAG" {      //父级
 				}
 	}
 	
-
-				
 	Frame "TEXT" "HC1A3" {
    		FrameFont "font02.TTF", 0.010, "",
    		FontJustificationH JUSTIFYRIGHT,
@@ -5261,8 +5982,7 @@ Frame "BACKDROP" "BAG" {      //父级
 		SetPoint TOP, "HC3", BOTTOM, 0, -0.002,
 	}
 	
-		
-							Frame "TEXTBUTTON" "HCC" {
+	Frame "TEXTBUTTON" "HCC" {
    	  	Height 0.025,
   		Width 0.025,
   		ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
@@ -5280,9 +6000,7 @@ Frame "BACKDROP" "BAG" {      //父级
         		HighlightAlphaMode "ADD",
 				}
 	}
-	
-
-				
+		
 	Frame "TEXT" "HC2A1" {
    		FrameFont "font02.TTF", 0.012, "",
    		FontJustificationH JUSTIFYRIGHT,

@@ -1,7 +1,7 @@
 local skill = Skills["终极闪光"]
 skill.SkillType = 2
 skill.KillCount = 0
-local mDamages1 = {200, 400, 600, 800, 1000, 1200}
+local mDamages1 = {300, 550, 800, 1000, 1250, 1500}
 local mDamages2 = {0.5, 1, 1.5, 2, 2.5, 3}
 local mDistance = 2100
 local mDamageRange = 250

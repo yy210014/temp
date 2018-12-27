@@ -1,6 +1,6 @@
 local skill = Skills["科学家的地狱火炮"]
 skill.SkillType = 3
-local mDamages1 = {250, 400, 550, 700, 850, 1000}
+local mDamages1 = {500, 750, 1000, 1250, 1500, 1800}
 local mDamages2 = {1., 1.4, 1.8, 2.2, 2.6, 3}
 local mDamageRange = 1200
 

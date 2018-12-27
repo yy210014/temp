@@ -2,7 +2,7 @@ local skill = Skills["冰封陵墓"]
 skill.SkillType = 1
 
 local mRange = 400
-local mDamages1 = {200, 320, 440, 560, 680, 800}
+local mDamages1 = {200, 400, 600, 800, 1000, 1200}
 local mDamages2 = {1.5, 1.8, 2.1, 2.4, 2.7, 3}
 
 setmetatable(Buffs["冰封陵墓眩晕"], {__index = Buffs["眩晕"]})

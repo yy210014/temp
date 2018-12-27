@@ -4,8 +4,8 @@ skill.DamageList = nil
 local mArt = "xiaofa2.mdl"
 local mSpeed = 15
 local mMaxDistance = 800
-local mDamages1 = {200, 300, 400, 500, 600, 700}
-local mDamages2 = {1, 1.1, 1.2, 1.3, 1.4, 1.5}
+local mDamages1 = {150, 300, 450, 600, 750, 900}
+local mDamages2 = {1, 1.2, 1.4, 1.6, 1.8, 2}
 
 function skill:OnCast()
     local spellUnit = self.Owner

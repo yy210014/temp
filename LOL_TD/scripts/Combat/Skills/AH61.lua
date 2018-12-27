@@ -3,8 +3,8 @@ skill.SkillType = 3
 skill.LastCastTime = 0
 skill.SpellTargetX = 0
 skill.SpellTargetY = 0
-local mDamages1 = {150, 300, 450, 600, 750, 900}
-local mDamages2 = {1, 1.2, 1.4, 1.6, 1.8, 2}
+local mDamages1 = {200, 400, 600, 800, 1000, 1200}
+local mDamages2 = {1.5, 1.7, 1.9, 2.1, 2.3, 2.5}
 local mArt = "AZ_Tian.mdl"
 local mDelayTime = 0.4
 

@@ -106,18 +106,19 @@ function Card.RandomBox1()
     if (mRandomBoxCount <= 0) then
         mRandomBoxCount = math.random(0, 3)
     end
+    mRandomBoxCount = mRandomBoxCount - 1
     if (mRandomBoxCount <= 2) then
         return mBox1Item[math.random(1, #mBox1Item)]
     else
         return GetId("IH" .. NId[math.random(1, #NId)])
     end
-    mRandomBoxCount = mRandomBoxCount - 1
 end
 
 function Card.RandomBox2()
     if (mRandomBoxCount <= 0) then
         mRandomBoxCount = math.random(0, 3)
     end
+    mRandomBoxCount = mRandomBoxCount - 1
     if (mRandomBoxCount <= 1) then
         return GetId("IB06")
     elseif (mRandomBoxCount <= 2) then
@@ -125,13 +126,13 @@ function Card.RandomBox2()
     else
         return mBox2Item[math.random(1, #mBox2Item)]
     end
-    mRandomBoxCount = mRandomBoxCount - 1
 end
 
 function Card.RandomBox3()
     if (mRandomBoxCount <= 0) then
         mRandomBoxCount = math.random(0, 3)
     end
+    mRandomBoxCount = mRandomBoxCount - 1
     if (mRandomBoxCount <= 1) then
         return GetId("IB07")
     elseif (mRandomBoxCount <= 2) then
@@ -139,7 +140,6 @@ function Card.RandomBox3()
     else
         return mBox3Item[math.random(1, #mBox3Item)]
     end
-    mRandomBoxCount = mRandomBoxCount - 1
 end
 
 local mDropList = {

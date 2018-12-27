@@ -59,7 +59,7 @@ local get = {}
 
 function Attribute:New(owner)
     local newAtt = {}
-    setmetatable(newAtt, {__index = Attribute})
+    setmetatable(newAtt, { __index = Attribute })
     newAtt.Owner = owner
     return newAtt
 end
@@ -201,7 +201,7 @@ get["魔法值"] = function(self)
 end
 
 set["魔法值"] = function(self, value)
-    if (self.Owner.ManaType ~= 0 or value - get["魔法值"](self) <= 0) then
+    if (self.Owner.ManaType ~= 0 or value < 0) then
         return
     end
     SetUnitState(self.Owner.Entity, UNIT_STATE_MANA, Clamp(value, 0, value))
@@ -215,8 +215,9 @@ set["魔法上限"] = function(self, value)
     if (self.Owner.ManaType ~= 0) then
         return
     end
+    local mana = value - get["魔法上限"](self) + get["魔法值"](self)
     SetUnitState(self.Owner.Entity, UNIT_STATE_MAX_MANA, Clamp(value, 0, value))
-    set["魔法值"](self, value)
+    self:set("魔法值", mana)
 end
 
 get["魔法恢复"] = function(self)

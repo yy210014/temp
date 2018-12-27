@@ -16,24 +16,24 @@ mt.LastFightTime = 0
 
 local mHeroRegenManaList = {
     --ad
-    [GetId("UH12")] = {1.6, 0.1}, --赵信
-    [GetId("UH11")] = {1.6, 0.1}, --皇子
-    [GetId("UH19")] = {1.6, 0.1}, --易大师
-    [GetId("UH25")] = {2.4, 0.1}, --寒冰
-    [GetId("UH23")] = {2.4, 0.1}, --小炮
-    [GetId("UH13")] = {1.6, 0.2}, --天使
+    [GetId("UH12")] = { 1.6, 0.1 }, --赵信
+    [GetId("UH11")] = { 1.6, 0.1 }, --皇子
+    [GetId("UH19")] = { 1.6, 0.1 }, --易大师
+    [GetId("UH25")] = { 2.4, 0.1 }, --寒冰
+    [GetId("UH23")] = { 2.4, 0.1 }, --小炮
+    [GetId("UH13")] = { 1.6, 0.2 }, --天使
     --ap
-    [GetId("UH02")] = {3, 0.2}, --莫甘娜
-    [GetId("UH08")] = {3, 0.2}, --小法
-    [GetId("UH03")] = {3, 0.2}, --炸弹人
-    [GetId("UH06")] = {3, 0.2}, --丽桑卓
-    [GetId("UH01")] = {3, 0.2}, --拉克丝
+    [GetId("UH02")] = { 3, 0.2 }, --莫甘娜
+    [GetId("UH08")] = { 3, 0.2 }, --小法
+    [GetId("UH03")] = { 3, 0.2 }, --炸弹人
+    [GetId("UH06")] = { 3, 0.2 }, --丽桑卓
+    [GetId("UH01")] = { 3, 0.2 }, --拉克丝
     --辅助
-    [GetId("UH35")] = {3, 0.2}, --风女
-    [GetId("UH36")] = {3, 0.2}, --琴女
-    [GetId("UH37")] = {3, 0.2}, --日女
-    [GetId("UH38")] = {3, 0.2}, --时光老头
-    [GetId("UH39")] = {3, 0.2} --牛头
+    [GetId("UH35")] = { 3, 0.2 }, --风女
+    [GetId("UH36")] = { 3, 0.2 }, --琴女
+    [GetId("UH37")] = { 3, 0.2 }, --日女
+    [GetId("UH38")] = { 3, 0.2 }, --时光老头
+    [GetId("UH39")] = { 3, 0.2 } --牛头
 }
 
 function Unit:New(entity)
@@ -42,7 +42,7 @@ function Unit:New(entity)
         return nil
     end
     local newUnit = {}
-    setmetatable(newUnit, {__index = Unit})
+    setmetatable(newUnit, { __index = Unit })
     newUnit.Entity = entity
     newUnit.Attribute = Attribute:New(newUnit)
     newUnit.Player = GetOwningPlayer(entity)
@@ -96,7 +96,7 @@ function Unit:CreateDummy(modelName, x, y)
 end
 
 function Unit:OnKill(killer)
-    --[[   local tim = CreateTimer()
+--[[   local tim = CreateTimer()
     TimerStart(
         tim,
         0.01,
@@ -227,7 +227,7 @@ function Unit:AddTianfu()
 end
 
 function Unit:AddDamageText(damage, isCritDamage, color)
-    self.Texts[#self.Texts + 1] = {damage, isCritDamage, color}
+    self.Texts[#self.Texts + 1] = { damage, isCritDamage, color }
 end
 
 function Unit:AddBuff(name, level)
@@ -418,7 +418,7 @@ function Unit:UpdateSkillCD()
 end
 
 function Unit:Fighting()
-    return GameScene.Elapsed - self.LastFightTime <= 2
+    return GameScene.Elapsed - self.LastFightTime <= 5
 end
 
 function Unit:X()
@@ -505,7 +505,7 @@ function Unit:OnGameUpdate(dt)
         end
 
         if (self:Fighting() == false and self.ManaType == 2) then
-            self.Attribute:add("怒气值", -10 * dt)
+            self.Attribute:add("怒气值", -5)
         end
     end
 

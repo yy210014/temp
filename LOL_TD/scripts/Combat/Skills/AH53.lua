@@ -67,4 +67,4 @@ skill.OnPathEnd = function(dummy)
     AssetsManager.RemoveObject(dummy)
 end
 
---GameEventProc.RegisterEventHandler("任意单位暴击", skill.OnCrit)
+GameEventProc.RegisterEventHandler("任意单位暴击", skill.OnCrit)

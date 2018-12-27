@@ -91,19 +91,19 @@ function Attribute:get(name)
 end
 
 get["物理攻击"] = function(self)
-    return GetUnitState(self.Owner.Entity, ConvertUnitState(0x12))
+    return GetUnitState(self.Owner.Entity, ConvertUnitState(18))
 end
 
 set["物理攻击"] = function(self, value)
-    SetUnitState(self.Owner.Entity, ConvertUnitState(0x12), Clamp(value, 0, value))
+    SetUnitState(self.Owner.Entity, ConvertUnitState(18), Clamp(value, 0, value))
 end
 
 get["物理攻击加成"] = function(self)
-    return GetUnitState(self.Owner.Entity, ConvertUnitState(0x13))
+    return GetUnitState(self.Owner.Entity, ConvertUnitState(19))
 end
 
 set["物理攻击加成"] = function(self, value)
-    SetUnitState(self.Owner.Entity, ConvertUnitState(0x13), Clamp(value, 0, value))
+    SetUnitState(self.Owner.Entity, ConvertUnitState(19), Clamp(value, 0, value))
 end
 
 get["物理伤害加成"] = function(self)
@@ -148,27 +148,27 @@ set["法术穿透"] = function(self, value)
 end
 
 get["攻击范围"] = function(self)
-    return GetUnitState(self.Owner.Entity, ConvertUnitState(0x16))
+    return GetUnitState(self.Owner.Entity, ConvertUnitState(22))
 end
 
 set["攻击范围"] = function(self, value)
-    SetUnitState(self.Owner.Entity, ConvertUnitState(0x16), Clamp(value, 0, value))
+    SetUnitState(self.Owner.Entity, ConvertUnitState(22), Clamp(value, 0, value))
 end
 
 get["护甲"] = function(self)
-    return GetUnitState(self.Owner.Entity, ConvertUnitState(0x20))
+    return GetUnitState(self.Owner.Entity, ConvertUnitState(32))
 end
 
 set["护甲"] = function(self, value)
-    SetUnitState(self.Owner.Entity, ConvertUnitState(0x20), value)
+    SetUnitState(self.Owner.Entity, ConvertUnitState(32), value)
 end
 
 get["攻击速度"] = function(self)
-    return GetUnitState(self.Owner.Entity, ConvertUnitState(0x51))
+    return GetUnitState(self.Owner.Entity, ConvertUnitState(81))
 end
 
 set["攻击速度"] = function(self, value)
-    SetUnitState(self.Owner.Entity, ConvertUnitState(0x51), Clamp(value, 0, value))
+    SetUnitState(self.Owner.Entity, ConvertUnitState(81), Clamp(value, 0, value))
 end
 
 get["移动速度加成"] = function(self)
@@ -248,7 +248,7 @@ set["怒气值"] = function(self, value)
     if (self.Owner.ManaType ~= 2 or value == get["怒气值"](self)) then
         return
     end
-    --GameEventProc.SendEvent("任意单位怒气值改变", self.Owner, value - get["怒气值"](self))
+    GameEventProc.SendEvent("任意单位怒气值改变", self.Owner, value - get["怒气值"](self))
     SetUnitState(self.Owner.Entity, UNIT_STATE_MANA, value)
 end
 
@@ -276,7 +276,7 @@ end
 
 set["暴击"] = function(self, value)
     self.Crit = Clamp(value, 0, 1)
-    SetHeroAgi(self.Owner.Entity, math.ceil(self.Crit * 100), true)
+    SetHeroAgi(self.Owner.Entity, math.floor(self.Crit * 100), true)
 end
 
 get["暴击伤害"] = function(self)

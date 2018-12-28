@@ -33,9 +33,9 @@ end
 local function InitPlayerUnit()
     for i = 0, 3 do
         if
-            (GetPlayerController(Player(i)) == MAP_CONTROL_USER and
-                GetPlayerSlotState(Player(i)) == PLAYER_SLOT_STATE_PLAYING)
-         then
+        (GetPlayerController(Player(i)) == MAP_CONTROL_USER and
+        GetPlayerSlotState(Player(i)) == PLAYER_SLOT_STATE_PLAYING)
+        then
             PlayerInfo:New(Player(i))
             local p = GetStartLocationLoc(GetPlayerStartLocation(Player(i)))
             Worke[i] = AssetsManager.LoadUnitAtLoc(Player(i), "ug00", p)
@@ -45,11 +45,11 @@ local function InitPlayerUnit()
             RemoveLocation(p)
             RemoveGuardPosition(Worke[i].Entity)
             SuspendHeroXP(Worke[i].Entity, true)
-        --    UnitAddItem(Worke[i].Entity, CreateItem(GetId("IH06"), Worke[i]:X(), Worke[i]:Y()))
-        --   cheat(i)
-        -- UnitAddItem(Worke[i].Entity, CreateItem(GetId("I087"), Worke[i]:X(), Worke[i]:Y()))
-        --   UnitAddItem(Worke[i].Entity, CreateItem(GetId("IH42"), Worke[i]:X(), Worke[i]:Y()))
-        --   UnitAddItem(Worke[i].Entity, CreateItem(GetId("IH43"), Worke[i]:X(), Worke[i]:Y()))
+            --    UnitAddItem(Worke[i].Entity, CreateItem(GetId("IH06"), Worke[i]:X(), Worke[i]:Y()))
+            --   cheat(i)
+            -- UnitAddItem(Worke[i].Entity, CreateItem(GetId("I087"), Worke[i]:X(), Worke[i]:Y()))
+            --   UnitAddItem(Worke[i].Entity, CreateItem(GetId("IH42"), Worke[i]:X(), Worke[i]:Y()))
+            --   UnitAddItem(Worke[i].Entity, CreateItem(GetId("IH43"), Worke[i]:X(), Worke[i]:Y()))
         end
     end
 end
@@ -60,6 +60,10 @@ function GameScene.OnGameStart()
     Multiboard.CreateMultiboard()
     MonsterRefresh.OnGameStart()
     DisplayTextToAll("温馨提示：输入‘-repick’可以重新随机一次英雄。", Color.yellow)
+    CreateQuestBJ(bj_QUESTTYPE_REQ_DISCOVERED, "新手必看", "工人头像旁边有UI商店，每个英雄都有个羁绊技能，不知道出装的优先把人物的装备羁绊做出来；", "ReplaceableTextures\\CommandButtons\\BTNSelectHeroOn.blp")
+    CreateQuestBJ(bj_QUESTTYPE_OPT_DISCOVERED, "天赋系统", "开局赠送1天赋点，每击杀100个小兵可以获得1点天赋点，天赋点用于给英雄学习天赋技能。游戏内共有十几种不同的天赋，每个天赋分为C,B,A,S四种等级，强力的天赋能更好的强化你的英雄。", "Icon\\TianFu.blp")
+    CreateQuestBJ(bj_QUESTTYPE_OPT_DISCOVERED, "羁绊系统", "每个英雄都有个羁绊技能，羁绊可以和人物点亮也可以和装备点亮，点亮的羁绊可以为英雄提供额外属性。", "ReplaceableTextures\\CommandButtons\\BTNMetamorphosis.blp")
+
     --UIManager:Init()
     --Game.Log(os.date("%c"))
     --Game.Log(os.time())
@@ -81,7 +85,7 @@ function GameScene.OnGameUpdate(dt)
     MonsterRefresh.OnGameUpdate(dt)
     Multiboard.OnGameUpdate(dt)
 
-   --[[ if (mDeathUnitList ~= nil and #mDeathUnitList > 0) then
+--[[ if (mDeathUnitList ~= nil and #mDeathUnitList > 0) then
         local list = mDeathUnitList[1]
         if (list[2].IsDying == false) then
             list[2].IsDying = true

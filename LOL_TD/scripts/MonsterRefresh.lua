@@ -96,12 +96,13 @@ local mTimeDt2 = 0
 local mTimeDt3 = 0
 local mTimeDt4 = 0
 
-function GetCurWaveIndex()
+function MonsterRefresh.GetCurWaveIndex()
     return mCurWaveIndex
 end
 
-function SetWaveIndex(waveIndex)
+function MonsterRefresh.SetWaveIndex(waveIndex)
     mCurWaveIndex = waveIndex
+    Game.Log("设置波数：" .. waveIndex)
 end
 
 local function IsBOSS(lv)
@@ -178,6 +179,7 @@ end
 function MonsterRefresh.OnGameStart()
     mDelayPushTimer = CreateTimer()
     mDelayPushTimerDialog = CreateTimerDialog(mDelayPushTimer)
+    mMaxWaveIndex = Game.GetLevel() == 1 and 40 or 56
     MonsterRefresh.InitRegion()
     DelayPush()
 end
@@ -187,19 +189,21 @@ function DelayPush()
     TimerDialogSetTitle(mDelayPushTimerDialog, "第" .. (mCurWaveIndex) .. "波")
     TimerDialogDisplay(mDelayPushTimerDialog, true)
     if (IsBOSS(mCurWaveIndex)) then
-        DisplayTextToAll("Warning，Boss即将来袭！", Color.red)
-        --DisplayTextToAll("下一波Boss即将来袭，1分钟之内击杀所有boss可以获得额外奖励并且激活隐藏关!", Color.yellow)
+        for i = 0, 3 do
+            DisplayTextToPlayer(Player(i), 0, 0, "|cFFFF0000Warning|r" .. " - Boss即将来袭！")
+        end
     end
 end
 
 local mBossKillTimer
 local mBossKillTimerDialog
-
+local mBossIds = {["um55"] = "UB55", ["um54"] = "UB54", ["um39"] = "UB39", ["um38"] = "UB38" }
+local mFirstBoss = false
 function PushWave()
     mMonsterId = #tostring(mCurWaveIndex) == 1 and "um0" .. mCurWaveIndex or "um" .. mCurWaveIndex
     if (IsBOSS(mCurWaveIndex)) then
         mMonsterId = #tostring(mCurWaveIndex) == 1 and "UM0" .. mCurWaveIndex or "UM" .. mCurWaveIndex
-      --[[  --Boss击杀倒计时
+    --[[  --Boss击杀倒计时
         mBossKillTimer = CreateTimer()
         TimerStart(mBossKillTimer, 60, false, function()
             DestroyTimer(mBossKillTimer)
@@ -208,6 +212,11 @@ function PushWave()
         mBossKillTimerDialog = CreateTimerDialog(mBossKillTimer)
         TimerDialogSetTitle(mBossKillTimerDialog, "击杀倒计时")
         TimerDialogDisplay(mBossKillTimerDialog, true)]]
+    end
+    if (mBossIds[mMonsterId] ~= nil) then
+        mMonsterId = mBossIds[mMonsterId]
+        table.remove(mBossIds, #mBossIds)
+        mFirstBoss = true
     end
     mSpawnEnable = true
     --TimerDialogDisplay(mDelayPushTimerDialog, false)
@@ -237,7 +246,7 @@ end
 local function Spawn(spawnPoint, index)
     local unit = AssetsManager.LoadUnitAtLoc(Player(index + 7), mMonsterId, spawnPoint)
     unit.Attribute:add("护甲", unit.Attribute:get("护甲") * (0.1 * Game.GetLevel() - 0.1))
-    unit.Attribute:add("生命上限", unit.Attribute:get("生命上限") * (0.4 * Game.GetLevel() - 0.4))
+    unit.Attribute:add("生命上限", unit.Attribute:get("生命上限") * (0.3 * Game.GetLevel() - 0.3))
     unit.Attribute:add("生命", unit.Attribute:get("生命上限"))
     unit.Attribute:add("魔法值", unit.Attribute:get("魔法上限"))
     unit.PrePoint = spawnPoint
@@ -245,6 +254,10 @@ local function Spawn(spawnPoint, index)
     RemoveGuardPosition(unit.Entity)
     IssuePointOrderLoc(unit.Entity, "move", MonsterRefresh.RectPoints[index])
     Multiboard.ShowMonsterCount(1)
+    if (mFirstBoss) then
+        mMonsterId = "um" .. mCurWaveIndex
+        mFirstBoss = false
+    end
 end
 
 function MonsterRefresh.OnGameUpdate(dt)

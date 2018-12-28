@@ -23,10 +23,10 @@ function skill:OnAttack(attactUnit, defUnit)
         (IsUnitAlly(attactUnit.Entity, GetOwningPlayer(defUnit.Entity)) == false and
             defUnit:ContainBuff("战阵律动") == false)
      then
+        DestroyEffect(AddSpecialEffectTarget(mArt, defUnit.Entity, "chest"))
         defUnit:AddBuff("战阵律动")
         local ad = attactUnit.Attribute:get("物理攻击") + attactUnit.Attribute:get("物理攻击加成")
         local damage = mDamages1[self:GetCurLevel()] + (ad * mDamages2[self:GetCurLevel()])
-        DestroyEffect(AddSpecialEffectTarget(mArt, defUnit.Entity, "chest"))
         EXUnitDamageTarget(attactUnit, defUnit, damage, EXDamageType.Physics)
     end
 end

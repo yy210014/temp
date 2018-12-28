@@ -5,7 +5,7 @@ local gchash = 0
 function Skill:New(owner, id)
     local newSkill = {}
     local name = FilterStringColor(GetObjectName(id))
-    setmetatable(newSkill, {__index = Skills[name]})
+    setmetatable(newSkill, { __index = Skills[name] })
 
     gchash = gchash + 1
     dbg.gchash(newSkill, gchash)
@@ -85,10 +85,10 @@ function Skill:UpdateCD()
     for i = 1, self.MaxLevel do
         if (self.Cools[i] ~= nil and self.Cools[i] > 0) then
             EXSetAbilityDataReal(
-                EXGetUnitAbility(self.Owner.Entity, self.Id),
-                i,
-                ABILITY_DATA_COOL,
-                self.Cools[i] - self.Cools[i] * self.Owner.Attribute:get("冷却缩减")
+            EXGetUnitAbility(self.Owner.Entity, self.Id),
+            i,
+            ABILITY_DATA_COOL,
+            self.Cools[i] - self.Cools[i] * self.Owner.Attribute:get("冷却缩减")
             )
         end
     end
@@ -99,7 +99,9 @@ function Skill:IsCD()
 end
 
 function Skill:GetBeginCD()
-    return self.Cools[self:GetCurLevel()] - self.Cools[self:GetCurLevel()] * self.Owner.Attribute:get("冷却缩减")
+    local cool = self.Cools[self:GetCurLevel()]
+    local cooldown = self.Owner.Attribute:get("冷却缩减")
+    return cool - cool * cooldown
 end
 
 function Skill:GetCurCd()
@@ -138,25 +140,24 @@ function Skill:GetCurRange()
     return 500
 end
 
-Skills =
-    setmetatable(
-    {},
-    {
-        __index = function(self, name)
-            self[name] = {}
-            setmetatable(self[name], {__index = Skill})
-            self[name].Name = name
-            self[name].SkillType = -1 -- -1被动 0无目标 1单位目标 2点目标 3点范围
-            self[name].Stack = -1 --库存
-            self[name].Cools = {} --冷却时间
-            self[name].Rngs = {} --施法距离
-            self[name].Areas = {} --影响区域
-            self[name].Durs = {} --持续时间
-            self[name].HeroDurs = {} --持续时间
-            self[name].IsSpell = false
-            self[name].TimeDt = 0
-            self[name].SpellTime = 0
-            return self[name]
-        end
-    }
+Skills = setmetatable(
+{},
+{
+    __index = function(self, name)
+        self[name] = {}
+        setmetatable(self[name], { __index = Skill })
+        self[name].Name = name
+        self[name].SkillType = -1 -- -1被动 0无目标 1单位目标 2点目标 3点范围
+        self[name].Stack = -1 --库存
+        self[name].Cools = {} --冷却时间
+        self[name].Rngs = {} --施法距离
+        self[name].Areas = {} --影响区域
+        self[name].Durs = {} --持续时间
+        self[name].HeroDurs = {} --持续时间
+        self[name].IsSpell = false
+        self[name].TimeDt = 0
+        self[name].SpellTime = 0
+        return self[name]
+    end
+}
 )

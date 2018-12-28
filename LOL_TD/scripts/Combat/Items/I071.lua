@@ -4,14 +4,14 @@ function item:OnAdd()
     local unit = self.Owner
     unit.Attribute:add("法术攻击", 120)
     unit.Attribute:add("冷却缩减", 0.15)
-    unit.Attribute:add("魔法恢复", 8)
+    unit.Attribute:add("魔法恢复", 15)
 end
 
 function item:OnRemove()
     local unit = self.Owner
     unit.Attribute:add("法术攻击", -120)
     unit.Attribute:add("冷却缩减", -0.15)
-    unit.Attribute:add("魔法恢复", -8)
+    unit.Attribute:add("魔法恢复", -15)
 end
 
 function item:OnKill(dieUnit)

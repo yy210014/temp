@@ -63,6 +63,7 @@ end
 
 function Game.SetSpeed(speed)
     mGameSpeed = speed
+    Game.Log("设置游戏速度：" .. speed)
 end
 
 local mChooseTimer, mChooseTimerDialog, mChooseTriggers, mDialog

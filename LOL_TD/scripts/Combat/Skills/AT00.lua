@@ -4,11 +4,11 @@ local mLastSelectUnit
 function skill:OnCast()
     local unit = self.Owner
     --  unit.tianfu:SetActive(true)
+    ShowUnit(unit.tianfu.Entity, true)
     if GetLocalPlayer() == unit.Player then
         ClearSelection()
         SelectUnit(unit.tianfu.Entity, true)
     end
-    ShowUnit(unit.tianfu.Entity, true)
     mLastSelectUnit = unit.tianfu
     --动态注册esc返回
     if (unit.tianfu.EscTrigger == nil) then

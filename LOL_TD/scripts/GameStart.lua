@@ -194,7 +194,7 @@ function GameStart.AnyUnitDamaged()
                 AssetsManager.OverlapCircle(
                 attactUnit:X(),
                 attactUnit:Y(),
-                skill:GetCurRange(),
+                skill:GetCurRange() - 100,
                 function(enemy)
                     if (skill.SkillType == 1) then
                         IssueTargetOrder(attactUnit.Entity, skill.Order, enemy.Entity)

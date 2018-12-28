@@ -1,4 +1,5 @@
 local skill = Skills["时间沙漏"]
+skill.SkillType = 1
 function skill:OnCast()
 
 end

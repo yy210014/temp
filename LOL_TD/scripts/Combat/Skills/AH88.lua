@@ -1,4 +1,5 @@
 local skill = Skills["大地震撼"]
+skill.SkillType = 0
 function skill:OnCast()
 
 end

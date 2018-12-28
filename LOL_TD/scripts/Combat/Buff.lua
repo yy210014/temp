@@ -30,14 +30,18 @@ function Buff:OnHurt(attactUnit, defUnit)
 end
 
 function Buff:OnGameUpdate(dt)
-    if (self.Durs[self.Level] <= 0) then
+    local dur = self.Durs[self.Level]
+    if (dur <= 0) then
         return
+    end
+    if (GetUnitAbilityLevel(self.Owner.Entity, GetId("B009")) > 0) then
+        dur = dur * 0.5
     end
     if (self.CurAction ~= nil) then
         self.CurAction(self, dt)
     end
     self.TimeDt = self.TimeDt + dt
-    if (self.TimeDt > self.Durs[self.Level]) then
+    if (self.TimeDt > dur) then
         self.Owner:RemoveBuff(self.Name)
     end
 end

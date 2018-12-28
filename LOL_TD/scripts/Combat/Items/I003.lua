@@ -1,5 +1,4 @@
 local item = Items["萃取"]
-item.Count = 0
 
 function item:OnAdd()
     local unit = self.Owner
@@ -12,17 +11,17 @@ function item:OnRemove()
 end
 
 function item:OnKill(dieUnit)
-    if (self.Count > 100) then
+    if (self:GetCharges() > 100) then
         return
     end
-    self.Count = self.Count + 1
     local gold = GetPlayerState(self.Owner.Player, PLAYER_STATE_RESOURCE_GOLD)
     local unit = self.Owner
-    if (self.Count < 100) then
+    local count = self:GetCharges() + 1
+    if (count < 100) then
         SetPlayerState(unit.Player, PLAYER_STATE_RESOURCE_GOLD, gold + 1)
-        self:SetCharges(self.Count)
-    elseif (self.Count == 100) then
+        self:SetCharges(count)
+    elseif (count == 100) then
         SetPlayerState(unit.Player, PLAYER_STATE_RESOURCE_GOLD, gold + 300)
-        self:SetCharges(self.Count)
+        self:SetCharges(count)
     end
 end

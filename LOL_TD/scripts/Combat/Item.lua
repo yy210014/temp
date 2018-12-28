@@ -179,7 +179,6 @@ function Item:New(owner, entity)
     newItem.Entity = entity
     newItem.Id = GetItemTypeId(entity)
     newItem.Guid = GetGuid()
-    newItem.Charges = 0
     return newItem
 end
 
@@ -212,14 +211,13 @@ function Item:SetIcon(art)
 end
 
 function Item:GetCharges()
-    return self.Charges
+    return GetItemCharges(self.Entity)
 end
 
 function Item:SetCharges(value)
     if (value <= 0) then
         return
     end
-    self.Charges = value
     SetItemCharges(self.Entity, value)
 end
 

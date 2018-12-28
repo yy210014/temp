@@ -444,7 +444,7 @@ function GameStart.AnyUnitSpellEffect()
     end
 
     if (abilityId == GetId("AI47")) then
-        spellUnit:SetPosition(GetSpellTargetX(), GetSpellTargetY())
+        SetUnitPosition(spellUnit.Entity, GetSpellTargetX(), GetSpellTargetY())
     end
 end
 

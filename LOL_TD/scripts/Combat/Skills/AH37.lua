@@ -2,11 +2,11 @@ local skill = Skills["科学家的地狱火炮"]
 skill.SkillType = 3
 local mDamages1 = {500, 750, 1000, 1250, 1500, 1800}
 local mDamages2 = {1., 1.4, 1.8, 2.2, 2.6, 3}
-local mDamageRange = 1200
+local mDamageRange = 1000
 
 local mArt = "BombMissile.mdl"
 
-local mExplosion = "Abilities\\Spells\\Other\\Incinerate\\FireLordDeathExplode.mdl"
+local mExplosion = "GoblinTech_R.mdl"
 function skill:OnCast()
     local spellUnit = self.Owner
     local dummy = AssetsManager.LoadUnit(spellUnit.Player, "uq00", spellUnit:X(), spellUnit:Y())

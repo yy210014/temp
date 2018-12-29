@@ -2,7 +2,7 @@ local skill = Skills["德玛西亚正义"]
 skill.SkillType = 1
 local mDamages1 = {150, 300, 450, 600, 750, 900}
 local mDamages2 = {0.2, 0.24, 0.28, 0.32, 0.36, 0.4}
-local mArt = "Abilities\\Spells\\Human\\Resurrect\\ResurrectTarget.mdl"
+local mArt = "Garen_R.mdl"
 
 function skill:OnCast()
     local spellUnit = self.Owner

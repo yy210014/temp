@@ -59,7 +59,7 @@ require "scripts.Combat.Items.IU02"
 require "scripts.Combat.Items.IU03"
 require "scripts.Combat.Items.IU04"
 
---宝箱
+--宝藏
 require "scripts.Combat.Items.IB01"
 require "scripts.Combat.Items.IB02"
 require "scripts.Combat.Items.IB03"

@@ -188,6 +188,29 @@ function DelayPush()
     TimerStart(mDelayPushTimer, mDelay[mCurWaveIndex], false, PushWave)
     TimerDialogSetTitle(mDelayPushTimerDialog, "第" .. (mCurWaveIndex) .. "波")
     TimerDialogDisplay(mDelayPushTimerDialog, true)
+    if (mCurWaveIndex == 40 and Game.GetLevel() == 1) then
+        TimerDialogSetTitle(mDelayPushTimerDialog, "最终BOSS")
+        for i = 0, 3 do
+            DisplayTextToPlayer(Player(i), 0, 0, "|cFFFF0000Warning|r" .. " - 最终BOSS即将来袭，击杀全部Boss即可通关！")
+        end
+        return
+    end
+    if (mCurWaveIndex == 56) then
+        if (Game.GetLevel() == 2) then
+            TimerDialogSetTitle(mDelayPushTimerDialog, "最终BOSS")
+            for i = 0, 3 do
+                DisplayTextToPlayer(Player(i), 0, 0, "|cFFFF0000Warning|r" .. " - 最终BOSS即将来袭，击杀全部Boss即可通关！")
+            end
+            return
+        else
+            TimerDialogSetTitle(mDelayPushTimerDialog, "最终BOSS")
+            for i = 0, 3 do
+                DisplayTextToPlayer(Player(i), 0, 0, "|cFFFF0000Warning|r" .. " - 最终BOSS即将来袭，杀死至少一个BOSS即可解锁无尽关卡！")
+            end
+            DisplayTextToAll("BOSS结算奖励：所有玩家获得杀死BOSS数量x5000的金币。|r", Color.yellow)
+            return
+        end
+    end
     if (IsBOSS(mCurWaveIndex)) then
         for i = 0, 3 do
             DisplayTextToPlayer(Player(i), 0, 0, "|cFFFF0000Warning|r" .. " - Boss即将来袭！")
@@ -222,6 +245,20 @@ function PushWave()
     --TimerDialogDisplay(mDelayPushTimerDialog, false)
 end
 
+function TimeToStopBOSS()
+    local BossStopTimer = CreateTimer()
+    local _BossDialog = CreateTimerDialog(BossStopTimer)
+    TimerDialogSetTitle(_BossDialog, "剩余时间")
+    TimerDialogDisplay(_BossDialog, true)
+    TimerStart(BossStopTimer, 480, false, function()
+
+    end)
+end
+
+function EndLessComing()
+    DisplayTextToAll("恭喜你们开启了无尽关卡！无尽关卡即将来袭..", Color.yellow)
+end
+
 function WavesClear()
     mTimeDt1 = 0
     mTimeDt2 = 0
@@ -240,7 +277,18 @@ function WavesClear()
 end
 
 function AllWavesDie()
-    Game.Win()
+    local win = true
+    AssetsManager.IterateEnemyUnits(
+    function(unit)
+        if (IsUnitType(unit.Entity, UNIT_TYPE_HERO)) then
+            win = false
+            return
+        end
+    end)
+    if (win) then
+        Game.Win()
+        return
+    end
 end
 
 local function Spawn(spawnPoint, index)

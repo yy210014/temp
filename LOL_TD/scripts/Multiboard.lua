@@ -17,13 +17,12 @@ function Multiboard.CreateMultiboard()
     mMultiboard = CreateMultiboard()
     MultiboardMinimize(mMultiboard, false)
     MultiboardSetRowCount(mMultiboard, PlayerInfo:Count() + 2)
-    MultiboardSetColumnCount(mMultiboard, 5)
+    MultiboardSetColumnCount(mMultiboard, 4)
     MultiboardSetItemsWidth(mMultiboard, 0.03)
     MultiboardSetItemValue(MultiboardGetItem(mMultiboard, 0, 0), "|cffFF6633玩家：|r")
     MultiboardSetItemValue(MultiboardGetItem(mMultiboard, 0, 1), "|cffFF6633杀敌数：|r")
     MultiboardSetItemValue(MultiboardGetItem(mMultiboard, 0, 2), "XX")
     MultiboardSetItemValue(MultiboardGetItem(mMultiboard, 0, 3), "XX")
-    MultiboardSetItemValue(MultiboardGetItem(mMultiboard, 0, 4), "XX")
     MultiboardSetItemValue(MultiboardGetItem(mMultiboard, PlayerInfo:Count() + 1, 0), "圈内/最大")
 
     MultiboardSetItemsStyle(mMultiboard, true, false)
@@ -46,32 +45,27 @@ function Multiboard.ShowKillCount(i, killCount)
     MultiboardSetItemValue(MultiboardGetItem(mMultiboard, i, 1), killCount)
 end
 
+function Multiboard.ShowLevel(level)
+    MultiboardSetItemValue(MultiboardGetItem(mMultiboard, PlayerInfo:Count() + 1, 2), "|cffffcc00难度" .. level .. "|r")
+    if (Game.GetLevel() > 2) then
+        MultiboardSetItemValue(MultiboardGetItem(mMultiboard, PlayerInfo:Count() + 1, 3), "|cffffcc00无尽|r")
+    end
+end
+
 function Multiboard.ShowMonsterCount(count)
     local colorSTR = ""
-    local subNum = mMultiboardMaxNum - count
-    if (0 > subNum) then
-        colorSTR = "EE0000"
-    elseif (20 > subNum) then
-        colorSTR = "EE7621"
-    else
-        colorSTR = "66CD00"
-    end
-    local titleStr = ""
-    if (1 == Game.GetLevel()) then
-        titleStr = titleStr .. "|cffffcc00简单|r"
-    elseif (2 == Game.GetLevel()) then
-        titleStr = titleStr .. "|cffffcc00普通|r"
-    elseif (3 == Game.GetLevel()) then
-        titleStr = titleStr .. "|cffffcc00困难|r"
-    elseif (4 == Game.GetLevel()) then
-        titleStr = titleStr .. "|cffffcc00噩梦|r"
-    else
-        titleStr = titleStr .. "|cffffcc00地狱|r"
-    end
     mMultiboardCurNum = mMultiboardCurNum + count
+    local subNum = mMultiboardMaxNum - mMultiboardCurNum
+    if (0 >= subNum) then
+        colorSTR = "|cffEE0000"
+    elseif (20 >= subNum) then
+        colorSTR = "|cffEE7621"
+    else
+        colorSTR = "|cff66CD00"
+    end
     MultiboardSetItemValue(
     MultiboardGetItem(mMultiboard, PlayerInfo:Count() + 1, 1),
-    mMultiboardCurNum .. "/" .. mMultiboardMaxNum
+    colorSTR .. mMultiboardCurNum .. "|r|cffFFFFFF/" .. mMultiboardMaxNum.. "|r" 
     )
 end
 

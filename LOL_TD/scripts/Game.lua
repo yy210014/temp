@@ -67,6 +67,7 @@ function Game.SetSpeed(speed)
 end
 
 local mChooseTimer, mChooseTimerDialog, mChooseTriggers, mDialog
+local mDifficultyTest = { "难一(40波)", "难二(56波)", "难三(开启无尽)", "难四(开启无尽)" }
 function Game.ChooseLevel()
     mChooseTimer = CreateTimer()
     mChooseTimerDialog = CreateTimerDialog(mChooseTimer)
@@ -74,31 +75,32 @@ function Game.ChooseLevel()
     local chooseLevel = true
     for i = 0, 3, 1 do
         if
-            (chooseLevel and GetPlayerController(Player(i)) == MAP_CONTROL_USER and
-                GetPlayerSlotState(Player(i)) == PLAYER_SLOT_STATE_PLAYING)
-         then
+        (chooseLevel and GetPlayerController(Player(i)) == MAP_CONTROL_USER and
+        GetPlayerSlotState(Player(i)) == PLAYER_SLOT_STATE_PLAYING)
+        then
             mDialog = DialogCreate()
             DialogSetMessage(mDialog, "难度选择")
             DisplayTextToPlayer(Player(i), 0, 0, "|cffffcc00请选择难度...|r")
             for j = 1, 4 do
                 mChooseTriggers[j] = CreateTrigger()
-                TriggerRegisterDialogButtonEvent(mChooseTriggers[j], DialogAddButton(mDialog, "难度" .. j, 0))
+                TriggerRegisterDialogButtonEvent(mChooseTriggers[j], DialogAddButton(mDialog, mDifficultyTest[j], 0))
                 TriggerAddAction(
-                    mChooseTriggers[j],
-                    function()
-                        DisplayTextToAll("当前难度等级" .. j, Color.yellow)
-                        Game.SetLevel(j)
-                        GameScene.OnGameStart()
-                        DialogDestroy(mDialog)
-                        DestroyTimer(mChooseTimer)
-                        DestroyTimerDialog(mChooseTimerDialog)
-                        for i, v in ipairs(mChooseTriggers) do
-                            DestroyTrigger(v)
-                        end
-                        mChooseTimer = nil
-                        mChooseTimerDialog = nil
-                        mChooseTriggers = nil
+                mChooseTriggers[j],
+                function()
+                    DisplayTextToAll("当前难度等级" .. j, Color.yellow)
+                    Game.SetLevel(j)
+                    GameScene.OnGameStart()
+                    Multiboard.ShowLevel(j)
+                    DialogDestroy(mDialog)
+                    DestroyTimer(mChooseTimer)
+                    DestroyTimerDialog(mChooseTimerDialog)
+                    for i, v in ipairs(mChooseTriggers) do
+                        DestroyTrigger(v)
                     end
+                    mChooseTimer = nil
+                    mChooseTimerDialog = nil
+                    mChooseTriggers = nil
+                end
                 )
             end
             DialogDisplay(Player(i), mDialog, true)
@@ -111,37 +113,37 @@ function Game.ChooseLevel()
     TimerDialogSetTitle(mChooseTimerDialog, "选择难度时间")
     TimerDialogDisplay(mChooseTimerDialog, true)
     TimerStart(
-        mChooseTimer,
-        20,
-        false,
-        function()
-            DisplayTextToAll("当前难度等级" .. (1), Color.yellow)
-            for i = 0, 3, 1 do
-                DialogDisplay(Player(i), mDialog, false)
-            end
-            if (nil == mChooseTimerDialog) then
-                return
-            end
-            Game.SetLevel(1)
-            GameScene.OnGameStart()
-            DialogDestroy(mDialog)
-            DestroyTimer(mChooseTimer)
-            DestroyTimerDialog(mChooseTimerDialog)
-            for i, v in ipairs(mChooseTriggers) do
-                DestroyTrigger(v)
-            end
+    mChooseTimer,
+    20,
+    false,
+    function()
+        DisplayTextToAll("当前难度等级" .. (1), Color.yellow)
+        for i = 0, 3, 1 do
+            DialogDisplay(Player(i), mDialog, false)
         end
+        if (nil == mChooseTimerDialog) then
+            return
+        end
+        Game.SetLevel(1)
+        GameScene.OnGameStart()
+        DialogDestroy(mDialog)
+        DestroyTimer(mChooseTimer)
+        DestroyTimerDialog(mChooseTimerDialog)
+        for i, v in ipairs(mChooseTriggers) do
+            DestroyTrigger(v)
+        end
+    end
     )
 end
 
 function Game.Pause(pause)
     mIsPause = pause
     AssetsManager.IterateEnemyUnits(
-        function(unit)
-            unit:SetActive(pause)
-            --PauseUnit(unit.Entity, mIsPause)
-            -- body
-        end
+    function(unit)
+        unit:SetActive(pause)
+        --PauseUnit(unit.Entity, mIsPause)
+        -- body
+    end
     )
 end
 
@@ -163,10 +165,10 @@ function VictoryHandler()
     local trig = CreateTrigger()
     TriggerRegisterDialogButtonEvent(trig, DialogAddButton(dialog, "确定", 81))
     TriggerAddAction(
-        trig,
-        function()
-            EndGame(true)
-        end
+    trig,
+    function()
+        EndGame(true)
+    end
     )
     for i = 0, 3, 1 do
         DialogDisplay(Player(i), dialog, true)
@@ -179,10 +181,10 @@ function DefeatHandler()
     local trig = CreateTrigger()
     TriggerRegisterDialogButtonEvent(trig, DialogAddButton(dialog, "退出", 81))
     TriggerAddAction(
-        trig,
-        function()
-            EndGame(true)
-        end
+    trig,
+    function()
+        EndGame(true)
+    end
     )
     for i = 0, 3, 1 do
         DialogDisplay(Player(i), dialog, true)

@@ -50,6 +50,14 @@ local mBox3Item = {
     GetId("I077")
 }
 
+function Card.RandomN()
+    return "IH" .. NId[math.random(1, #NId)]
+end
+
+function Card.RandomR()
+    return "IH" .. RId[math.random(1, #RId)]
+end
+
 function Card.RandomSR()
     return "IH" .. SRId[math.random(1, #SRId)]
 end
@@ -61,11 +69,11 @@ end
 function Card.Random1()
     local random = math.random(1, 10)
     if (random <= 6) then
-        return "IH" .. NId[math.random(1, #NId)]
+        return Card.RandomN()
     elseif (random > 6 and random <= 9) then
-        return "IH" .. RId[math.random(1, #RId)]
+        return Card.RandomR()
     elseif (random > 9) then
-        return "IH" .. SRId[math.random(1, #SRId)]
+        return Card.RandomSR()
     end
 end
 
@@ -84,9 +92,9 @@ end
 function Card.Random4()
     local random = math.random(1, 10)
     if (random <= 7) then
-        return "IH" .. SRId[math.random(1, #SRId)]
+        return Card.RandomSR()
     elseif (random > 7) then
-        return "IH" .. SSRId[math.random(1, #SSRId)]
+        return Card.RandomSSR()
     end
 end
 

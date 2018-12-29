@@ -1,7 +1,7 @@
 local skill = Skills["飓风龙卷"]
 skill.SkillType = 2
-local mArt = "Abilities\\Spells\\NightElf\\Cyclone\\CycloneTarget.mdl"
-local mSpeed = 6
+local mArt = "AZ_Goods_Eul's Scepter of Divinity(3).mdl"
+local mSpeed = 10
 local mMaxDistance = 1000
 local mDelayTime = 1
 
@@ -66,5 +66,3 @@ skill.OnPathEnd = function(dummy)
     dummy.Skill.DamageList = nil
     AssetsManager.RemoveObject(dummy)
 end
-
-Researchubertip = "风女聚集一股强力的旋风，对支线上的敌人造成100+1*法术攻击的法术伤害，并击飞目标1s。|nCD5s。消耗20点蓝量。"

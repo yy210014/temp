@@ -6,7 +6,7 @@ local mMaxDistance = 800
 local mDamages1 = { 150, 250, 3400, 550, 750, 950 }
 local mDamages2 = { 0.5, 0.6, 0.7, 0.8, 0.9, 1 }
 local mDamages3 = { 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 }
-local mDummyArt = "Abilities\\Weapons\\FrostWyrmMissile\\FrostWyrmMissile.mdl"
+local mDummyArt = "AZ_RedDragonpf_Missile.mdl"
 
 setmetatable(Buffs["清算"], { __index = Buffs["移速"] })
 Buffs["清算"].values = { -0.2, -0.25, -0.3, -0.35, -0.4, -0.45 }
@@ -23,6 +23,7 @@ function skill:OnCast()
     dummy.Effect = AddSpecialEffectTarget(mDummyArt, dummy.Entity, "origin")
     local angle = AngleBetweenPoint(dummy:X(), spellTargetUnit:X(), dummy:Y(), spellTargetUnit:Y())
     dummy:SetUnitFacing(angle)
+    SetUnitFlyHeight(dummy.Entity, 80, 0.00)
     dummy.Owner = spellUnit
     dummy.Target = spellTargetUnit
     dummy.Skill = self

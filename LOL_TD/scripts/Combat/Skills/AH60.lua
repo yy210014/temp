@@ -1,7 +1,7 @@
 local skill = Skills["超凡邪力"]
 skill.SkillType = 2
 skill.DamageList = nil
-local mArt = "xiaofa2.mdl"
+local mArt = "Shadow_Frost_Weapon_Effect.mdl"
 local mSpeed = 15
 local mMaxDistance = 800
 local mDamages1 = {150, 300, 450, 600, 750, 900}

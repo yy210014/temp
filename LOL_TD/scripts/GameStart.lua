@@ -336,7 +336,7 @@ function GameStart.AnyUnitDeath(killUnit, dieUnit)
     --怪兽掉落
     local playerId = GetPlayerId(killUnit.Player) + 1
     mUnitDeathDropCount[playerId] = mUnitDeathDropCount[playerId] + 1
-    if (mUnitDeathDropCount[playerId] > 30) then
+    if (mUnitDeathDropCount[playerId] > 15) then
         local itemId = Card.RandomDrop()
         if (itemId ~= 0) then
             CreateItem(itemId, dieUnit:X(), dieUnit:Y())
@@ -365,14 +365,17 @@ function GameStart.AnyUnitDeath(killUnit, dieUnit)
     )
 
     --死亡单位是英雄
-    if (IsUnitType(dieUnit.Entity, UNIT_TYPE_HERO) == true) then
-        if (Game.GetLevel() == 1) then
-            if (dieUnit.Id == GetId("UM40")) then
+    if (IsUnitType(dieUnit.Entity, UNIT_TYPE_HERO)) then
+        if (MonsterRefresh.GetCurWaveIndex() == 41 and Game.GetLevel() == 1) then
+            AllWavesDie()
+        end
+        if (MonsterRefresh.GetCurWaveIndex() == 57) then
+            if (Game.GetLevel() <= 2) then
                 AllWavesDie()
-            end
-        else
-            if (dieUnit.Id == GetId("UM56")) then
-                AllWavesDie()
+            else
+                if (dieUnit.Id == GetId("UM56")) then
+                    EndLessComing()
+                end
             end
         end
     end

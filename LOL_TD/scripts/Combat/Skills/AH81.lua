@@ -1,7 +1,7 @@
 local skill = Skills["飓风龙卷"]
 skill.SkillType = 2
 local mArt = "AZ_Goods_Eul's Scepter of Divinity(3).mdl"
-local mSpeed = 10
+local mSpeed = 12
 local mMaxDistance = 1000
 local mDelayTime = 1
 

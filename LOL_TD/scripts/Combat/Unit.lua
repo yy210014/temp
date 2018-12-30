@@ -71,7 +71,6 @@ function Unit:New(entity)
         newUnit.ManaType = 1
     elseif GetUnitAbilityLevel(entity, GetId("AHZ5")) > 0 then
         SetUnitState(entity, UNIT_STATE_MAX_MANA, 100)
-
         SetUnitState(entity, UNIT_STATE_MANA, 0)
         newUnit.ManaType = 2
     end
@@ -512,7 +511,7 @@ function Unit:OnGameUpdate(dt)
     if (self.Texts ~= nil and #self.Texts > 0) then
         self.TextDt = self.TextDt - dt
         if (self.TextDt <= 0) then
-            self.TextDt = 0.16
+            self.TextDt = 0.016
             local text = self.Texts[#self.Texts]
             CreateDamageText(text[1], self.Entity, text[2], text[3])
             table.remove(self.Texts, #self.Texts)
@@ -550,7 +549,7 @@ function Unit:OnDyingUpdate(dt)
     if (self.Texts ~= nil and #self.Texts > 0) then
         self.TextDt = self.TextDt - dt
         if (self.TextDt <= 0) then
-            self.TextDt = 0.16
+            self.TextDt = 0.016
             local text = self.Texts[#self.Texts]
             CreateDamageText(text[1], self.Entity, text[2], text[3])
             table.remove(self.Texts, #self.Texts)

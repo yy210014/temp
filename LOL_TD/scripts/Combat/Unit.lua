@@ -369,29 +369,29 @@ function Unit:Destroy(destroy)
         --释放内存
         for i = #self.Buffs, 1, -1 do
             self.Buffs[i]:OnRemove()
-            self.Buffs[i] = nil
+            table.remove(self.Buffs, i)
         end
         self.Buffs = nil
         for i = #self.Skills, 1, -1 do
             self.Skills[i]:OnRemove()
-            self.Skills[i] = nil
+            table.remove(self.Skills, i)
         end
         self.Skills = nil
         for i = #self.Items, 1, -1 do
             self.Items[i]:OnRemove()
-            self.Items[i] = nil
+            table.remove(self.Items, i)
         end
         self.Items = nil
         for i = #self.Texts, 1, -1 do
-            self.Texts[i] = nil
+            table.remove(self.Texts, i)
         end
         self.Texts = nil
         for i = #self.Combs, 1, -1 do
-            self.Combs[i] = nil
+            table.remove(self.Combs, i)
         end
         self.Combs = nil
         for i = #self.Attribute, 1, -1 do
-            self.Attribute[i] = nil
+            table.remove(self.Attribute, i)
         end
         self.Locomotion = nil
         self.Attribute = nil
@@ -511,7 +511,7 @@ function Unit:OnGameUpdate(dt)
     if (self.Texts ~= nil and #self.Texts > 0) then
         self.TextDt = self.TextDt - dt
         if (self.TextDt <= 0) then
-            self.TextDt = 0.016
+            self.TextDt = #self.Texts >= 5 and 0.08 or 0.16
             local text = self.Texts[#self.Texts]
             CreateDamageText(text[1], self.Entity, text[2], text[3])
             table.remove(self.Texts, #self.Texts)
@@ -549,7 +549,7 @@ function Unit:OnDyingUpdate(dt)
     if (self.Texts ~= nil and #self.Texts > 0) then
         self.TextDt = self.TextDt - dt
         if (self.TextDt <= 0) then
-            self.TextDt = 0.016
+            self.TextDt = #self.Texts >= 5 and 0.08 or 0.16
             local text = self.Texts[#self.Texts]
             CreateDamageText(text[1], self.Entity, text[2], text[3])
             table.remove(self.Texts, #self.Texts)

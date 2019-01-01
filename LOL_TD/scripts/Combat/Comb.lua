@@ -363,7 +363,7 @@ comb = Combs["皇子-黑切"]
 comb.Ubertip = [[
 -黑切
  羁绊需求：皇子+黑切
- 羁绊效果：增加皇子“巨龙撞击”技能伤害30%|n
+ 羁绊效果：额外增加皇子“巨龙撞击”10点减甲效果|n
 ]]
 
 function comb:HerosId()
@@ -543,7 +543,7 @@ comb = Combs["小炮-无尽"]
 comb.Ubertip = [[
 -无尽
  羁绊需求：小炮+无尽
- 羁绊效果：增加小炮50%的额外暴击伤害|n
+ 羁绊效果：增加小炮20%的额外暴击伤害|n
 ]]
 
 function comb:HerosId()
@@ -555,11 +555,11 @@ function comb:Conditions()
 end
 
 function comb:OnEnable()
-    self.Owner.Attribute:add("暴击伤害", 0.5)
+    self.Owner.Attribute:add("暴击伤害", 0.2)
 end
 
 function comb:OnDisable()
-    self.Owner.Attribute:add("暴击伤害", -0.5)
+    self.Owner.Attribute:add("暴击伤害", -0.2)
 end
 
 comb = Combs["天使-羊刀"]
@@ -679,7 +679,7 @@ comb = Combs["艾希-无尽"]
 comb.Ubertip = [[
 -无尽
  羁绊需求：艾希+无尽
- 羁绊效果：增加艾希50%的额外暴击伤害|n
+ 羁绊效果：增加艾希20%的额外暴击伤害|n
 ]]
 
 function comb:HerosId()
@@ -691,11 +691,11 @@ function comb:Conditions()
 end
 
 function comb:OnEnable()
-    self.Owner.Attribute:add("暴击伤害", 0.5)
+    self.Owner.Attribute:add("暴击伤害", 0.2)
 end
 
 function comb:OnDisable()
-    self.Owner.Attribute:add("暴击伤害", -0.5)
+    self.Owner.Attribute:add("暴击伤害", -0.2)
 end
 
 comb = Combs["盖伦-黑切"]
@@ -746,7 +746,7 @@ comb = Combs["蛮王-无尽"]
 comb.Ubertip = [[
 -无尽
  羁绊需求：蛮王+无尽
- 羁绊效果：增加蛮王50%的额外暴击伤害|n
+ 羁绊效果：增加蛮王20%的额外暴击伤害|n
 ]]
 
 function comb:HerosId()
@@ -758,11 +758,11 @@ function comb:Conditions()
 end
 
 function comb:OnEnable()
-    self.Owner.Attribute:add("暴击伤害", 0.5)
+    self.Owner.Attribute:add("暴击伤害", 0.2)
 end
 
 function comb:OnDisable()
-    self.Owner.Attribute:add("暴击伤害", -0.5)
+    self.Owner.Attribute:add("暴击伤害", -0.2)
 end
 
 comb = Combs["蛮王-红叉"]
@@ -836,7 +836,7 @@ comb = Combs["易大师-无尽"]
 comb.Ubertip = [[
 -无尽
  羁绊需求：易大师+无尽
- 羁绊效果：增加易50%额外暴击伤害|n
+ 羁绊效果：增加易20%额外暴击伤害|n
 ]]
 
 function comb:HerosId()
@@ -848,11 +848,11 @@ function comb:Conditions()
 end
 
 function comb:OnEnable()
-    self.Owner.Attribute:add("暴击伤害", 0.5)
+    self.Owner.Attribute:add("暴击伤害", 0.2)
 end
 
 function comb:OnDisable()
-    self.Owner.Attribute:add("暴击伤害", -0.5)
+    self.Owner.Attribute:add("暴击伤害", -0.2)
 end
 
 comb = Combs["易大师-电刀"]

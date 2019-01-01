@@ -94,8 +94,8 @@ function Item.ItemOverlay(unit, item)
             if v ~= nil and item.Id == GetItemTypeId(v) and v ~= item.Entity then
                 SetItemCharges(v, GetItemCharges(v) + GetItemCharges(item.Entity))
                 RemoveItem(item.Entity)
-                if (item.Id == GetId("IB04") and GetItemCharges(v) >= 200) then
-                    SetItemCharges(v, GetItemCharges(v) - 200)
+                if (item.Id == GetId("IB04") and GetItemCharges(v) >= 150) then
+                    SetItemCharges(v, GetItemCharges(v) - 150)
                     if GetItemCharges(v) == 0 then
                         RemoveItem(v)
                     end
@@ -103,8 +103,8 @@ function Item.ItemOverlay(unit, item)
                     DisplayTextToPlayer(unit.Player, 0, 0, "|cffffcc00合成卡片：" .. GetItemName(itemAXAD) .. "|r")
                     DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\Items\\AIlm\\AIlmTarget.mdl", unit.Entity, "origin"))
                     UnitAddItem(unit.Entity, itemAXAD)
-                elseif (item.Id == GetId("IB05") and GetItemCharges(v) >= 300) then
-                    SetItemCharges(v, GetItemCharges(v) - 300)
+                elseif (item.Id == GetId("IB05") and GetItemCharges(v) >= 150) then
+                    SetItemCharges(v, GetItemCharges(v) - 150)
                     if GetItemCharges(v) == 0 then
                         RemoveItem(v)
                     end

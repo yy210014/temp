@@ -14,5 +14,5 @@ end
 
 function item:OnKill(dieUnit)
     local unit = self.Owner
-    unit.Attribute:add("魔法值", 10)
+    unit.Attribute:add("魔法值", 2)
 end

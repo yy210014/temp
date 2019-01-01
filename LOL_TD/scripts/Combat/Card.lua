@@ -88,12 +88,11 @@ function Card.Random2()
     end
 end
 
-
 function Card.Random4()
     local random = math.random(1, 10)
-    if (random <= 7) then
+    if (random <= 2) then
         return Card.RandomSR()
-    elseif (random > 7) then
+    elseif (random > 2) then
         return Card.RandomSSR()
     end
 end

@@ -29,7 +29,7 @@ function item:OnAttack(attactUnit, defUnit)
             function(unit)
                 if (self.Count2 <= mMaxNum) then
                     self.Count2 = self.Count2 + 1
-                    EXUnitDamageTarget(attactUnit, unit, 750, EXDamageType.Magic)
+                    EXUnitDamageTarget(attactUnit, unit, 1000, EXDamageType.Magic)
                     DestroyEffect(
                         AddSpecialEffectTarget(
                             "Abilities\\Spells\\Items\\AIlb\\AIlbSpecialArt.mdl",

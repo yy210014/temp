@@ -1351,4 +1351,4 @@ Ubertip = "|cffffff00效果：每次造成伤害时，会使第一个伤害目�
 setmetatable(Buffs["幽冥冷火"], { __index = Buffs["灼烧"] })
 Buffs["幽冥冷火"].values = { 0 }
 Buffs["幽冥冷火"].Durs = { 3 }
-Buffs["幽冥冷火"].MaxStack = 99
+Buffs["幽冥冷火"].MaxStack = 1

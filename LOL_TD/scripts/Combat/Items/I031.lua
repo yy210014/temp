@@ -16,6 +16,10 @@ end
 
 function item:OnCast()
     local unit = self.Owner
+    local charges = self:GetCharges() + 4
+    if (charges > mMaxCount) then
+        return
+    end
     unit.Attribute:add("魔法上限", 4)
-    self:SetCharges(Clamp(self:GetCharges() + 4, 0, mMaxCount))
+    self:SetCharges(charges)
 end

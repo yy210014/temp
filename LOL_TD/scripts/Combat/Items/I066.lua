@@ -19,8 +19,12 @@ end
 
 function item:OnCast()
     local unit = self.Owner
+    local charges = self:GetCharges() + 8
+    if (charges > mMaxCount) then
+        return
+    end
     unit.Attribute:add("魔法上限", 8)
-    self:SetCharges(Clamp(self:GetCharges() + 8, 0, mMaxCount))
+    self:SetCharges(charges)
     if (self:GetCharges() >= mMaxCount) then
         RemoveItem(self.Entity)
         local newItem = CreateItem(GetId("I067"), unit:X(), unit:Y())

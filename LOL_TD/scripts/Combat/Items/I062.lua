@@ -17,7 +17,11 @@ end
 function item:OnKill(dieUnit)
     --每次击杀小怪增加一点能量值，最多累计1500点，每2点能量增加1AD。
     local unit = self.Owner
-    self.Count = Clamp(self.Count + 1, 0, self.MaxCount)
+    self.Count = self.Count + 1
+    if (self.Count > self.MaxCount) then
+        self.Count = self.MaxCount
+        return
+    end
     if (self.Count % 5 == 0) then
         unit.Attribute:add("物理攻击加成", 1)
     end

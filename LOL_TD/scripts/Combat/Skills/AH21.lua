@@ -3,7 +3,7 @@ skill.SkillType = 1
 
 local mSpeed = 10
 local mMaxDistance = 800
-local mDamages1 = { 150, 250, 3400, 550, 750, 950 }
+local mDamages1 = { 300, 600, 900, 1200, 1500, 1800 }
 local mDamages2 = { 0.5, 0.6, 0.7, 0.8, 0.9, 1 }
 local mDamages3 = { 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 }
 local mDummyArt = "AZ_RedDragonpf_Missile.mdl"

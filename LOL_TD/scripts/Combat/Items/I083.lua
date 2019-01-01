@@ -16,6 +16,6 @@ end
 
 function item:OnAttack(attactUnit, defUnit)
     local ap = attactUnit.Attribute:get("法术攻击")
-    local damage = 30 + ap * 0.2
+    local damage = 50 + ap * 0.2
     EXUnitDamageTarget(attactUnit, defUnit, damage, EXDamageType.Magic)
 end

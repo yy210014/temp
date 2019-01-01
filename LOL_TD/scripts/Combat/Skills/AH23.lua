@@ -5,8 +5,8 @@ skill.Interval = 0.1
 skill.IntervalDt = 0
 local mRange = 400
 local mMaxCount = 6
-local mDamages1 = {100, 200, 300, 500, 800, 1000}
-local mDamages2 = {1, 1.2, 1.4, 1.6, 1.8, 2}
+local mDamages1 = { 200, 400, 600, 800, 1000, 1200 }
+local mDamages2 = { 1, 1.2, 1.4, 1.6, 1.8, 2 }
 local mArt1 = "AZ_jingzi_jiansheng01_E1.mdl"
 local mArt2 = "AZ_jingzi_jiansheng01_E2.mdl"
 
@@ -17,11 +17,10 @@ function skill:OnCast()
         Game.LogError("阿尔法突袭-丢失单位")
         return
     end
-    self.dummy =
-        spellUnit:CreateDummy(
-        "Abilities\\Weapons\\PhoenixMissile\\Phoenix_Missile_mini.mdl",
-        spellUnit:X(),
-        spellUnit:Y()
+    self.dummy =     spellUnit:CreateDummy(
+    "Abilities\\Weapons\\PhoenixMissile\\Phoenix_Missile_mini.mdl",
+    spellUnit:X(),
+    spellUnit:Y()
     )
     self.spellTargetUnit = spellTargetUnit
     self.DamageList = {}

@@ -2,7 +2,7 @@ local skill = Skills["疾风斩击"]
 skill.SkillType = 2
 
 local mArt = "AZ_Hengsao.mdl"
-local mDamages1 = {100, 200, 300, 500, 800, 1000}
+local mDamages1 = {200, 400, 600, 800, 1000, 1200}
 local mDamages2 = {0.25, 0.5, 0.75, 1, 1.25, 1.5}
 
 function skill:OnCast()

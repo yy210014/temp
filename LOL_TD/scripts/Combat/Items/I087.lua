@@ -3,6 +3,7 @@ item.Timer = nil
 
 function item:OnAdd()
     local owner = self.Owner
+    owner.Attribute:add("冷却缩减", 0.1)
 
     self.Timer = CreateTimer()
     TimerStart(
@@ -28,5 +29,6 @@ function item:OnAdd()
 end
 
 function item:OnRemove()
+    self.Owner.Attribute:add("冷却缩减", -0.1)
     DestroyTimer(self.Timer)
 end

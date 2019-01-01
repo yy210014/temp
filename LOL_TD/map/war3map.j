@@ -1,8 +1,8 @@
 globals
 //globals from BzAPI:
 constant boolean LIBRARY_BzAPI=true
-trigger array BzAPI__DamageEventQueue
-integer BzAPI__DamageEventNumber= 0
+trigger array BzAPI___DamageEventQueue
+integer BzAPI___DamageEventNumber= 0
 //endglobals from BzAPI
 //globals from YDTriggerSaveLoadSystem:
 constant boolean LIBRARY_YDTriggerSaveLoadSystem=true
@@ -27,10 +27,10 @@ real yd_MapMaxX= 0
 real yd_MapMinX= 0
 real yd_MapMaxY= 0
 real yd_MapMinY= 0
-string array YDWEBase__yd_PlayerColor
-trigger array YDWEBase__AbilityCastingOverEventQueue
-integer array YDWEBase__AbilityCastingOverEventType
-integer YDWEBase__AbilityCastingOverEventNumber= 0
+string array YDWEBase___yd_PlayerColor
+trigger array YDWEBase___AbilityCastingOverEventQueue
+integer array YDWEBase___AbilityCastingOverEventType
+integer YDWEBase___AbilityCastingOverEventNumber= 0
 //endglobals from YDWEBase
 //globals from YDWEGetItemOfTypeFromUnitBJNull:
 constant boolean LIBRARY_YDWEGetItemOfTypeFromUnitBJNull=true
@@ -413,7 +413,7 @@ native EXBlendButtonIcon takes string a, string b, string c returns boolean
 
 //library BzAPI ends
 //library YDTriggerSaveLoadSystem:
-    function YDTriggerSaveLoadSystem__Init takes nothing returns nothing
+    function YDTriggerSaveLoadSystem___Init takes nothing returns nothing
             set YDHT=InitHashtable()
         set YDLOC=InitHashtable()
     endfunction
@@ -1018,11 +1018,11 @@ endfunction
 function YDWESyStemAbilityCastingOverTriggerAction takes unit hero,integer index returns nothing
  local integer i= 0
     loop
-        exitwhen i >= YDWEBase__AbilityCastingOverEventNumber
-        if YDWEBase__AbilityCastingOverEventType[i] == index then
+        exitwhen i >= YDWEBase___AbilityCastingOverEventNumber
+        if YDWEBase___AbilityCastingOverEventType[i] == index then
             set bj_lastAbilityCastingUnit=hero
-			if YDWEBase__AbilityCastingOverEventQueue[i] != null and TriggerEvaluate(YDWEBase__AbilityCastingOverEventQueue[i]) and IsTriggerEnabled(YDWEBase__AbilityCastingOverEventQueue[i]) then
-				call TriggerExecute(YDWEBase__AbilityCastingOverEventQueue[i])
+			if YDWEBase___AbilityCastingOverEventQueue[i] != null and TriggerEvaluate(YDWEBase___AbilityCastingOverEventQueue[i]) and IsTriggerEnabled(YDWEBase___AbilityCastingOverEventQueue[i]) then
+				call TriggerExecute(YDWEBase___AbilityCastingOverEventQueue[i])
 			endif
 		endif
         set i=i + 1
@@ -1032,9 +1032,9 @@ endfunction
 //YDWE技能捕捉事件 
 //===========================================================================  
 function YDWESyStemAbilityCastingOverRegistTrigger takes trigger trg,integer index returns nothing
-	set YDWEBase__AbilityCastingOverEventQueue[YDWEBase__AbilityCastingOverEventNumber]=trg
-	set YDWEBase__AbilityCastingOverEventType[YDWEBase__AbilityCastingOverEventNumber]=index
-	set YDWEBase__AbilityCastingOverEventNumber=YDWEBase__AbilityCastingOverEventNumber + 1
+	set YDWEBase___AbilityCastingOverEventQueue[YDWEBase___AbilityCastingOverEventNumber]=trg
+	set YDWEBase___AbilityCastingOverEventType[YDWEBase___AbilityCastingOverEventNumber]=index
+	set YDWEBase___AbilityCastingOverEventNumber=YDWEBase___AbilityCastingOverEventNumber + 1
 endfunction 
 //===========================================================================
 //系统函数完善
@@ -1071,7 +1071,7 @@ endfunction
 //unitpool bj_lastCreatedPool=null
 //unit bj_lastPoolAbstractedUnit=null
 function YDWEGetPlayerColorString takes player p,string s returns string
-    return YDWEBase__yd_PlayerColor[GetHandleId(GetPlayerColor(p))] + s + "|r"
+    return YDWEBase___yd_PlayerColor[GetHandleId(GetPlayerColor(p))] + s + "|r"
 endfunction
 //===========================================================================
 //===========================================================================
@@ -1118,22 +1118,22 @@ function InitializeYD takes nothing returns nothing
 	set yd_MapMaxX=GetCameraBoundMaxX() + GetCameraMargin(CAMERA_MARGIN_RIGHT)
 	set yd_MapMaxY=GetCameraBoundMaxY() + GetCameraMargin(CAMERA_MARGIN_TOP)
 	
-    set YDWEBase__yd_PlayerColor[0]="|cFFFF0303"
-    set YDWEBase__yd_PlayerColor[1]="|cFF0042FF"
-    set YDWEBase__yd_PlayerColor[2]="|cFF1CE6B9"
-    set YDWEBase__yd_PlayerColor[3]="|cFF540081"
-    set YDWEBase__yd_PlayerColor[4]="|cFFFFFC01"
-    set YDWEBase__yd_PlayerColor[5]="|cFFFE8A0E"
-    set YDWEBase__yd_PlayerColor[6]="|cFF20C000"
-    set YDWEBase__yd_PlayerColor[7]="|cFFE55BB0"
-    set YDWEBase__yd_PlayerColor[8]="|cFF959697"
-    set YDWEBase__yd_PlayerColor[9]="|cFF7EBFF1"
-    set YDWEBase__yd_PlayerColor[10]="|cFF106246"
-    set YDWEBase__yd_PlayerColor[11]="|cFF4E2A04"
-    set YDWEBase__yd_PlayerColor[12]="|cFF282828"
-    set YDWEBase__yd_PlayerColor[13]="|cFF282828"
-    set YDWEBase__yd_PlayerColor[14]="|cFF282828"
-    set YDWEBase__yd_PlayerColor[15]="|cFF282828"
+    set YDWEBase___yd_PlayerColor[0]="|cFFFF0303"
+    set YDWEBase___yd_PlayerColor[1]="|cFF0042FF"
+    set YDWEBase___yd_PlayerColor[2]="|cFF1CE6B9"
+    set YDWEBase___yd_PlayerColor[3]="|cFF540081"
+    set YDWEBase___yd_PlayerColor[4]="|cFFFFFC01"
+    set YDWEBase___yd_PlayerColor[5]="|cFFFE8A0E"
+    set YDWEBase___yd_PlayerColor[6]="|cFF20C000"
+    set YDWEBase___yd_PlayerColor[7]="|cFFE55BB0"
+    set YDWEBase___yd_PlayerColor[8]="|cFF959697"
+    set YDWEBase___yd_PlayerColor[9]="|cFF7EBFF1"
+    set YDWEBase___yd_PlayerColor[10]="|cFF106246"
+    set YDWEBase___yd_PlayerColor[11]="|cFF4E2A04"
+    set YDWEBase___yd_PlayerColor[12]="|cFF282828"
+    set YDWEBase___yd_PlayerColor[13]="|cFF282828"
+    set YDWEBase___yd_PlayerColor[14]="|cFF282828"
+    set YDWEBase___yd_PlayerColor[15]="|cFF282828"
     //=================显示版本=====================
     call YDWEVersion_Init()
 endfunction
@@ -1176,12 +1176,13 @@ endfunction
 //library YDWEYDWEJapiScript ends
 //===========================================================================
 // 
-// lol循环圈1.09
+// lol循环圈1.11
 // 
 //   Warcraft III map script
 //   Generated by the Warcraft III World Editor
-//   Date: Sat Dec 29 00:19:54 2018
+//   Date: Wed Jan 02 06:03:01 2019
 //   Map Author: 渣康传奇
+//   Author QQ: 627903843(fsociety)
 // 
 //===========================================================================
 //***************************************************************************
@@ -1376,7 +1377,7 @@ endfunction
 //*  Custom Script Code
 //*
 //***************************************************************************
-//TESH.scrollpos=179
+//TESH.scrollpos=80
 //TESH.alwaysfold=0
 
 
@@ -1852,9 +1853,9 @@ function Trig______________________uActions takes nothing returns nothing
     call DzFrameSetText(DzFrameFindByName("ABBB1", 0), "|cfff5fcb9出售|r")
     call DzFrameSetText(DzFrameFindByName("ABBB2", 0), "|cfff5fcb9购买|r")
     call DzFrameSetText(DzFrameFindByName("ABBB3", 0), "|cfff5fcb9关闭|r")
-    call DzFrameSetText(DzFrameFindByName("HeroCardshowtext", 0), "|cfff5fcb92000|r")
-    call DzFrameSetText(DzFrameFindByName("HeroCardshowtext1", 0), "|cfff5fcb94000|r")
-    call DzFrameSetText(DzFrameFindByName("HeroCardshowtext2", 0), "|cfff5fcb98000|r")
+    call DzFrameSetText(DzFrameFindByName("HeroCardshowtext", 0), "|cfff5fcb91000|r")
+    call DzFrameSetText(DzFrameFindByName("HeroCardshowtext1", 0), "|cfff5fcb93000|r")
+    call DzFrameSetText(DzFrameFindByName("HeroCardshowtext2", 0), "|cfff5fcb96000|r")
     call DzFrameShow(DzFrameFindByName("HCUP", 0), false)
     set udg_Frames[0]=DzFrameFindByName("HC1", 0)
     call DzFrameShow(udg_Frames[0], false)
@@ -2055,8 +2056,8 @@ function Trig_InitItemCellActions takes nothing returns nothing
     set udg_ItemAds[12]='I052'
     set udg_ItemAds[13]='I085'
     set udg_ItemAds[14]='I054'
-    set udg_ItemAds[15]='I050'
-    set udg_ItemAds[16]='I079'
+    set udg_ItemAds[15]='I079'
+    set udg_ItemAds[16]='I050'
     set udg_ItemAds[17]='I090'
     set udg_ItemAds[18]='I045'
     set udg_ItemAds[19]='I043'
@@ -2199,18 +2200,20 @@ function Trig_InitItemCellActions takes nothing returns nothing
     call DzFrameShow(DzFrameFindByName("ItemCellCrits", 0), false)
     set framesId=400
     set udg_ItemCooldowns[0]='I039'
-    set udg_ItemCooldowns[1]='I037'
-    set udg_ItemCooldowns[2]='I081'
-    set udg_ItemCooldowns[3]='I033'
-    set udg_ItemCooldowns[4]='I021'
-    set udg_ItemCooldowns[5]='I054'
-    set udg_ItemCooldowns[6]='I050'
-    set udg_ItemCooldowns[7]='I071'
-    set udg_ItemCooldowns[8]='I075'
-    set udg_ItemCooldowns[9]='I083'
-    set udg_ItemCooldowns[10]='I064'
-    set udg_ItemCooldowns[11]='I085'
-    set udg_ItemCooldowns[12]='I045'
+    set udg_ItemCooldowns[1]='I092'
+    set udg_ItemCooldowns[2]='I037'
+    set udg_ItemCooldowns[3]='I081'
+    set udg_ItemCooldowns[4]='I033'
+    set udg_ItemCooldowns[5]='I021'
+    set udg_ItemCooldowns[6]='I087'
+    set udg_ItemCooldowns[7]='I054'
+    set udg_ItemCooldowns[8]='I050'
+    set udg_ItemCooldowns[9]='I071'
+    set udg_ItemCooldowns[10]='I075'
+    set udg_ItemCooldowns[11]='I083'
+    set udg_ItemCooldowns[12]='I064'
+    set udg_ItemCooldowns[13]='I085'
+    set udg_ItemCooldowns[14]='I045'
     set bj_forLoopAIndex=0
     set bj_forLoopAIndexEnd=24
     loop
@@ -2304,7 +2307,8 @@ function Trig_InitItemCellActions takes nothing returns nothing
     call SaveInteger(YDHT, 'I015', 0x437E2A40, 'I004')
     call SaveInteger(YDHT, 'I015', 0xD963A09F, 'I006')
     call SaveInteger(YDHT, 'I017', 0x437E2A40, 'I005')
-    call SaveInteger(YDHT, 'I079', 0x437E2A40, 'I017')
+    call SaveInteger(YDHT, 'I079', 0x437E2A40, 'I010')
+    call SaveInteger(YDHT, 'I079', 0xD963A09F, 'I017')
     call SaveInteger(YDHT, 'I019', 0x437E2A40, 'I005')
     call SaveInteger(YDHT, 'I019', 0xD963A09F, 'I005')
     call SaveInteger(YDHT, 'I021', 0x437E2A40, 'I005')
@@ -2325,7 +2329,7 @@ function Trig_InitItemCellActions takes nothing returns nothing
     call SaveInteger(YDHT, 'I050', 0x437E2A40, 'I023')
     call SaveInteger(YDHT, 'I050', 0xD963A09F, 'I021')
     call SaveInteger(YDHT, 'I054', 0x437E2A40, 'I021')
-    call SaveInteger(YDHT, 'I054', 0x437E2A40, 'I019')
+    call SaveInteger(YDHT, 'I054', 0xD963A09F, 'I019')
     call SaveInteger(YDHT, 'I056', 0x437E2A40, 'I004')
     call SaveInteger(YDHT, 'I056', 0xD963A09F, 'I004')
     call SaveInteger(YDHT, 'I056', 0xCD1043F3, 'I015')
@@ -2370,6 +2374,8 @@ function Trig_InitItemCellActions takes nothing returns nothing
     call SaveInteger(YDHT, 'I085', 0x437E2A40, 'I007')
     call SaveInteger(YDHT, 'I085', 0xD963A09F, 'I021')
     call SaveInteger(YDHT, 'I085', 0xCD1043F3, 'I011')
+    call SaveInteger(YDHT, 'I087', 0x437E2A40, 'I092')
+    call SaveInteger(YDHT, 'I087', 0xD963A09F, 'I088')
 endfunction
 //===========================================================================
 function InitTrig_InitItemCell takes nothing returns nothing
@@ -2850,7 +2856,7 @@ function Trig_Trig7_1Actions takes nothing returns nothing
     local unit selectedUnit=udg_SelectedHeros[GetPlayerId(DzGetTriggerUIEventPlayer())]
     local integer random= GetRandomInt(1, 100)
     local integer card= 0
-    if ( ( GetPlayerState(DzGetTriggerUIEventPlayer(), PLAYER_STATE_RESOURCE_GOLD) < 2000 ) ) then
+    if ( ( GetPlayerState(DzGetTriggerUIEventPlayer(), PLAYER_STATE_RESOURCE_GOLD) < 1000 ) ) then
         call DisplayTextToPlayer(DzGetTriggerUIEventPlayer(), 0, 0, "|cffff0000金币不足，卡片召唤失败！|r")
         return
     else
@@ -2873,7 +2879,7 @@ function Trig_Trig7_1Actions takes nothing returns nothing
         endif
     endif
     if ( ( DzGetTriggerUIEventPlayer() == GetLocalPlayer() ) ) then
-        call SetHeroSkillIcon(card , 2000)
+        call SetHeroSkillIcon(card , 1000)
     else
     endif
 endfunction
@@ -2889,7 +2895,7 @@ function Trig_Trig7_2Actions takes nothing returns nothing
     local unit selectedUnit=udg_SelectedHeros[GetPlayerId(DzGetTriggerUIEventPlayer())]
     local integer random= GetRandomInt(1, 100)
     local integer card= 0
-    if ( ( GetPlayerState(DzGetTriggerUIEventPlayer(), PLAYER_STATE_RESOURCE_GOLD) < 4000 ) ) then
+    if ( ( GetPlayerState(DzGetTriggerUIEventPlayer(), PLAYER_STATE_RESOURCE_GOLD) < 3000 ) ) then
         call DisplayTextToPlayer(DzGetTriggerUIEventPlayer(), 0, 0, "|cffff0000金币不足，卡片召唤失败！|r")
         return
     else
@@ -2912,7 +2918,7 @@ function Trig_Trig7_2Actions takes nothing returns nothing
         endif
     endif
     if ( ( DzGetTriggerUIEventPlayer() == GetLocalPlayer() ) ) then
-        call SetHeroSkillIcon(card , 4000)
+        call SetHeroSkillIcon(card , 3000)
     else
     endif
 endfunction
@@ -2928,7 +2934,7 @@ function Trig_Trig7_3Actions takes nothing returns nothing
     local unit selectedUnit=udg_SelectedHeros[GetPlayerId(DzGetTriggerUIEventPlayer())]
     local integer random= GetRandomInt(1, 100)
     local integer card= 0
-    if ( ( GetPlayerState(DzGetTriggerUIEventPlayer(), PLAYER_STATE_RESOURCE_GOLD) < 8000 ) ) then
+    if ( ( GetPlayerState(DzGetTriggerUIEventPlayer(), PLAYER_STATE_RESOURCE_GOLD) < 6000 ) ) then
         call DisplayTextToPlayer(DzGetTriggerUIEventPlayer(), 0, 0, "|cffff0000金币不足，卡片召唤失败！|r")
         return
     else
@@ -2947,7 +2953,7 @@ function Trig_Trig7_3Actions takes nothing returns nothing
         endif
     endif
     if ( ( DzGetTriggerUIEventPlayer() == GetLocalPlayer() ) ) then
-        call SetHeroSkillIcon(card , 8000)
+        call SetHeroSkillIcon(card , 6000)
     else
     endif
 endfunction
@@ -3275,7 +3281,7 @@ function InitCustomPlayerSlots takes nothing returns nothing
     call SetPlayerController(Player(11), MAP_CONTROL_COMPUTER)
 endfunction
 function InitCustomTeams takes nothing returns nothing
-    // Force: TRIGSTR_015
+    // Force: TRIGSTR_020
     call SetPlayerTeam(Player(0), 0)
     call SetPlayerState(Player(0), PLAYER_STATE_ALLIED_VICTORY, 1)
     call SetPlayerTeam(Player(1), 0)
@@ -3310,7 +3316,7 @@ function InitCustomTeams takes nothing returns nothing
     call SetPlayerAllianceStateVisionBJ(Player(3), Player(0), true)
     call SetPlayerAllianceStateVisionBJ(Player(3), Player(1), true)
     call SetPlayerAllianceStateVisionBJ(Player(3), Player(2), true)
-    // Force: TRIGSTR_016
+    // Force: TRIGSTR_021
     call SetPlayerTeam(Player(8), 1)
     call SetPlayerState(Player(8), PLAYER_STATE_ALLIED_VICTORY, 1)
     call SetPlayerTeam(Player(9), 1)
@@ -3385,7 +3391,7 @@ function main takes nothing returns nothing
     call CreateAllUnits()
     call InitBlizzard()
 
-call ExecuteFunc("YDTriggerSaveLoadSystem__Init")
+call ExecuteFunc("YDTriggerSaveLoadSystem___Init")
 call ExecuteFunc("InitializeYD")
 
     call InitGlobals()
@@ -3398,7 +3404,7 @@ endfunction
 //*
 //***************************************************************************
 function config takes nothing returns nothing
-    call SetMapName("lol循环圈1.09")
+    call SetMapName("lol循环圈1.11")
     call SetMapDescription("没有说明")
     call SetPlayers(8)
     call SetTeams(8)

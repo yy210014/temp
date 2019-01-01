@@ -1,15 +1,9 @@
 Skill = {}
 Skill.__index = Skill
-local dbg = require "jass.debug"
-local gchash = 0
 function Skill:New(owner, id)
     local newSkill = {}
     local name = FilterStringColor(GetObjectName(id))
     setmetatable(newSkill, { __index = Skills[name] })
-
-    gchash = gchash + 1
-    dbg.gchash(newSkill, gchash)
-    newSkill.gchash = gchash
 
     newSkill.Owner = owner
     newSkill.Id = id

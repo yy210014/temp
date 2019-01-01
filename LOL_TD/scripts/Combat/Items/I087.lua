@@ -16,7 +16,7 @@ function item:OnAdd()
                 owner:Y(),
                 900,
                 function(unit)
-                    local damage = 50 + 10* GetUnitLevel(owner.Entity)
+                    local damage = 100 + 20* GetUnitLevel(owner.Entity)
                     if (comb ~= nil and comb.Enable) then
                         damage = damage + damage * 0.5
                     end

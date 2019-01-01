@@ -1,15 +1,8 @@
 Buff = {}
 Buff.__index = Buff
 
-local dbg = require 'jass.debug'
-local gchash = 0
-
 function Buff:New(owner, name, level)
     local newbuff = {}
-    
-    gchash = gchash + 1
-    dbg.gchash(newbuff, gchash)
-    newbuff.gchash = gchash
 
     setmetatable(newbuff, {__index = Buffs[name]})
     newbuff.Owner = owner

@@ -163,22 +163,15 @@ function Item.ItemCompound(unit)
     return true
 end
 
-local dbg = require "jass.debug"
-local gchash = 0
 
 function Item:New(owner, entity)
     local newItem = {}
     local name = FilterStringColor(GetItemName(entity))
 
-    gchash = gchash + 1
-    dbg.gchash(newItem, gchash)
-    newItem.gchash = gchash
-
     setmetatable(newItem, { __index = Items[name] })
     newItem.Owner = owner
     newItem.Entity = entity
     newItem.Id = GetItemTypeId(entity)
-    newItem.Guid = GetGuid()
     return newItem
 end
 

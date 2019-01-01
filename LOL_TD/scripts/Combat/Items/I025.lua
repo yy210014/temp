@@ -16,17 +16,17 @@ function item:OnAttack(attactUnit, defUnit)
         return
     end
     DestroyEffect(
-        AddSpecialEffectTarget("Abilities\\Spells\\Orc\\WarStomp\\WarStompCaster.mdl", attactUnit.Entity, "origin")
+    AddSpecialEffectTarget("Abilities\\Spells\\Orc\\WarStomp\\WarStompCaster.mdl", attactUnit.Entity, "origin")
     )
     AssetsManager.OverlapCircle(
-        attactUnit:X(),
-        attactUnit:Y(),
-        mRange,
-        function(unit)
-            if (unit ~= defUnit) then
-                local damage = (attactUnit.Attribute:get("物理攻击") + attactUnit.Attribute:get("物理攻击加成")) * 0.5
-                EXUnitDamageTarget(attactUnit, unit, damage, EXDamageType.Physics)
-            end
+    attactUnit:X(),
+    attactUnit:Y(),
+    mRange,
+    function(unit)
+        if (unit ~= defUnit) then
+            local damage = attactUnit.Attribute:get("物理攻击") + attactUnit.Attribute:get("物理攻击加成")
+            EXUnitDamageTarget(attactUnit, unit, damage * 0.8, EXDamageType.Physics)
         end
+    end
     )
 end

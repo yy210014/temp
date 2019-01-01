@@ -71,8 +71,45 @@ function GameStart.AnyUnitDamaged()
     attactUnit.LastFightTime = GameScene.Elapsed
 
     local isCritDamage = false
+
     --普通攻击
     if (0 ~= EXGetEventDamageData(EVENT_DAMAGE_DATA_IS_ATTACK)) then
+        if (0 ~= EXGetEventDamageData(EVENT_DAMAGE_DATA_IS_PHYSICAL)) then
+            --攻击主目标
+            --怒气
+            if (attactUnit.ManaType == 2) then
+                attactUnit.Attribute:add("怒气值", 5)
+            end
+            --迭代技能
+            attactUnit:IterateSkills(
+            function(skill)
+                skill:OnAttack(attactUnit, defUnit, isCritDamage)
+            end
+            )
+            --迭代物品
+            attactUnit:IterateItems(
+            function(item)
+                item:OnAttack(attactUnit, defUnit, isCritDamage)
+            end
+            )
+            --迭代Buff
+            attactUnit:IterateBuffs(
+            function(buff)
+                buff:OnAttack(attactUnit, defUnit, isCritDamage)
+            end
+            )
+            --迭代Buff
+            defUnit:IterateBuffs(
+            function(buff)
+                buff:OnHurt(attactUnit, defUnit)
+            end
+            )
+        else
+            --飓风
+            if (attactUnit:ContainItemId(GetId("I058"))) then
+                damage = damage * 0.4
+            end
+        end
         --模拟暴击
         if (attactUnit.Attribute.Crit > 0) then
             local crit = attactUnit.Attribute.Crit * 100
@@ -83,42 +120,6 @@ function GameStart.AnyUnitDamaged()
                 --GameEventProc.SendEvent("任意单位暴击", attactUnit, defUnit)
             end
         end
-        --怒气
-        if (attactUnit.ManaType == 2) then
-            attactUnit.Attribute:add("怒气值", 5)
-        end
-        --飓风
-        if (attactUnit:ContainItemId(GetId("I058"))) then
-            damage = damage * 0.3
-        end
-        --普通攻击击中的第一个目标
-        --  if GetUnitAbilityLevel(defUnit.Entity, GetId("B000")) > 0 then
-        --      UnitRemoveAbility(defUnit.Entity, GetId("B000"))
-        --迭代技能
-        attactUnit:IterateSkills(
-        function(skill)
-            skill:OnAttack(attactUnit, defUnit, isCritDamage)
-        end
-        )
-        --迭代物品
-        attactUnit:IterateItems(
-        function(item)
-            item:OnAttack(attactUnit, defUnit, isCritDamage)
-        end
-        )
-        --迭代Buff
-        attactUnit:IterateBuffs(
-        function(buff)
-            buff:OnAttack(attactUnit, defUnit, isCritDamage)
-        end
-        )
-        --迭代Buff
-        defUnit:IterateBuffs(
-        function(buff)
-            buff:OnHurt(attactUnit, defUnit)
-        end
-        )
-        --  end
     else
         --幽冥冷火
         local skil = attactUnit:GetSkill(GetId("AX5Z"))

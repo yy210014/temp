@@ -23,7 +23,7 @@ function main()
     TriggerRegisterTimerEvent(trig, 0, false)
     TriggerAddAction(trig, GameStart.OnGameStart)
 
-    trig = CreateTrigger()
+    trig = CreateTrigger() 
     TriggerRegisterTimerEvent(trig, 0.02, true)
     TriggerAddAction(trig, Game.OnGameUpdate)
 
@@ -50,6 +50,22 @@ function main()
         TriggerRegisterPlayerUnitEvent(trig, Player(v), EVENT_PLAYER_UNIT_SUMMON, nil)
     end
     TriggerAddAction(trig, GameStart.AnyUnitSummon)
+
+    trig = CreateTrigger()
+    for i, v in ipairs(EnemyTeam) do
+        TriggerRegisterPlayerUnitEvent(trig, Player(v), EVENT_PLAYER_UNIT_DEATH, nil)
+    end
+    TriggerAddAction(
+    trig,
+    function()
+        local killUnit = GetJ_PlayerUnits(GetKillingUnit())
+        local dieUnit = GetJ_EnemyUnits(GetDyingUnit())
+        if (killUnit == nil or dieUnit == nil) then
+            return
+        end
+        GameStart.AnyUnitDeath(killUnit, dieUnit)
+    end
+    )
 
     trig = CreateTrigger()
     for i, v in ipairs(PlayerTeam) do
@@ -111,15 +127,23 @@ function main()
     end
     TriggerAddAction(trig, GameStart.AnyPlayerChat)
 
-  --[[  trig = CreateTrigger()
+ --[[   trig = CreateTrigger()
     for i, v in ipairs(PlayerTeam) do
         TriggerRegisterPlayerEvent(trig, Player(v), EVENT_PLAYER_LEAVE)
     end
     TriggerAddAction(
     trig,
     function()
-        DisplayTextToAll("提示：有人掉线了，作者暂停了游戏查看bug", Color.red)
-        PauseGame(true)
+        DisplayTextToAll(GetPlayerName(GetTriggerPlayer()) .. "离开了游戏", Color.red)
+        AssetsManager.IteratePlayerUnits(GetPlayerId(GetTriggerPlayer()), function(u)
+            if (IsUnitType(u.Entity, UNIT_TYPE_HERO)) then
+                u:IterateItems(
+                function(item)
+                    UnitRemoveItem(u.Entity, item.Entity)
+                end
+                )
+            end
+        end)
     end
     )]]
     trig = nil

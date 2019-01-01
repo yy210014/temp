@@ -89,7 +89,7 @@ function GameStart.AnyUnitDamaged()
         end
         --飓风
         if (attactUnit:ContainItemId(GetId("I058"))) then
-            damage = damage * 0.4
+            damage = damage * 0.3
         end
         --普通攻击击中的第一个目标
         --  if GetUnitAbilityLevel(defUnit.Entity, GetId("B000")) > 0 then
@@ -119,6 +119,19 @@ function GameStart.AnyUnitDamaged()
         end
         )
         --  end
+    else
+        --幽冥冷火
+        local skil = attactUnit:GetSkill(GetId("AX5Z"))
+        if (skil ~= nil) then
+            local ad = attactUnit.Attribute:get("物理攻击") + attactUnit.Attribute:get("物理攻击加成")
+            local ap = attactUnit.Attribute:get("法术攻击")
+            local buff = defUnit:AddBuff("幽冥冷火")
+            --buff
+            if (buff ~= nil) then
+                buff.AttactUnit = attactUnit
+                buff.values = { 10 + 0.4 * ad + 0.4 * ap }
+            end
+        end
     end
 
     --重新计算伤害
@@ -151,32 +164,6 @@ function GameStart.AnyUnitDamaged()
         EXSetEventDamage(0)
         GameStart.AnyDummyDamaged(attactUnit, defUnit)
     else
-        if (defUnit.Attribute:get("生命") <= damage and defUnit.IsDying == false) then
-            --defUnit:OnKill(attactUnit)
-            GameScene.UnitDeath(attactUnit, defUnit)
-        else
-            --幽冥冷火
-            local skil = attactUnit:GetSkill(GetId("AX5Z"))
-            if (skil ~= nil and GameScene.Elapsed - skil.LastTime > 10) then
-                --Game.Log("幽冥冷火[被动]")
-                skil.LastTime = GameScene.Elapsed
-                local ad = attactUnit.Attribute:get("物理攻击") + attactUnit.Attribute:get("物理攻击加成")
-                local ap = attactUnit.Attribute:get("法术攻击")
-                AssetsManager.OverlapCircle(
-                defUnit:X(),
-                defUnit:Y(),
-                300,
-                function(unit)
-                    --buff
-                    local buff = unit:AddBuff("幽冥冷火")
-                    if (buff ~= nil) then
-                        buff.AttactUnit = attactUnit
-                        buff.values = { 10 + 0.4 * ad + 0.4 * ap }
-                    end
-                end
-                )
-            end
-        end
         defUnit:AddDamageText(damage, isCritDamage, EXGetDamageColor())
         EXSetEventDamage(damage)
     end
@@ -207,6 +194,106 @@ function GameStart.AnyUnitDamaged()
         end
         )
     end
+end
+
+local mExpList = { 1, 2, 2, 3, 3, 4, 4 }
+local mUnitDeathDropCount = { 0, 0, 0, 0 }
+--任意单位死亡
+function GameStart.AnyUnitDeath(killUnit, dieUnit)
+    if (dieUnit.IsDying == false) then
+        dieUnit.IsDying = true
+        PlayerInfo:Kill(killUnit.Player)
+    end
+    --凶手单位是玩家单位
+    if
+    (GetPlayerController(killUnit.Player) == MAP_CONTROL_USER and
+    GetPlayerSlotState(killUnit.Player) == PLAYER_SLOT_STATE_PLAYING and
+    IsUnitEnemy(dieUnit.Entity, killUnit.Player) == true)
+    then
+        --模拟经验
+        local units = GetPlayerTeamUnits(GetPlayerId(killUnit.Player))
+        local exp = mExpList[GetUnitLevel(dieUnit.Entity)]
+        if (exp ~= nil) then
+            if IsUnitType(dieUnit.Entity, UNIT_TYPE_HERO) then
+                exp = exp * 50
+            end
+            for i = 1, #units do
+                if IsUnitType(units[i].Entity, UNIT_TYPE_HERO) then
+                    AddHeroXP(units[i].Entity, exp, false)
+                end
+            end
+        end
+    end
+    --怪兽掉落
+    local playerId = GetPlayerId(killUnit.Player) + 1
+    mUnitDeathDropCount[playerId] = mUnitDeathDropCount[playerId] + 1
+    if (mUnitDeathDropCount[playerId] > 15) then
+        local itemId = Card.RandomDrop()
+        if (itemId ~= 0) then
+            CreateItem(itemId, dieUnit:X(), dieUnit:Y())
+        end
+        mUnitDeathDropCount[playerId] = 0
+    end
+    --迭代技能
+    killUnit:IterateSkills(
+    function(skill)
+        skill:OnKill(dieUnit)
+    end
+    )
+    if (killUnit.tianfu ~= nil) then
+        killUnit.tianfu:IterateSkills(
+        function(skill)
+            skill:OnKill(dieUnit)
+        end
+        )
+    end
+
+    --迭代物品
+    killUnit:IterateItems(
+    function(item)
+        item:OnKill(dieUnit)
+    end
+    )
+
+    --死亡单位是英雄
+    if (IsUnitType(dieUnit.Entity, UNIT_TYPE_HERO)) then
+        if (MonsterRefresh.GetCurWaveIndex() == 41 and Game.GetLevel() == 1) then
+            AllWavesDie()
+        end
+        if (MonsterRefresh.GetCurWaveIndex() == 57) then
+            if (Game.GetLevel() <= 2) then
+                AllWavesDie()
+            else
+                if (dieUnit.Id == GetId("UM56")) then
+                    EndLessComing()
+                end
+            end
+        end
+        if (IsChallenge()) then
+            --[[for i = 0, 3 do
+                if (GetPlayerController(Player(i)) == MAP_CONTROL_USER and GetPlayerSlotState(Player(i)) == PLAYER_SLOT_STATE_PLAYING)    then
+                    SetPlayerState(Player(i), PLAYER_STATE_RESOURCE_LUMBER, GetPlayerState(Player(i), PLAYER_STATE_RESOURCE_LUMBER) + 1)
+                end
+            SetPlayerState(killUnit.Player, PLAYER_STATE_RESOURCE_LUMBER, GetPlayerState(killUnit.Player, PLAYER_STATE_RESOURCE_LUMBER) + 1)
+            DisplayTextToAll(GetPlayerName(killUnit.Player) .. "击杀了Boss:" .. dieUnit.Name .. ",获得1点天赋点奖励!", Color.yellow)
+            --DisplayTextToAll(dieUnit.Name .. "已被" .. GetPlayerName(killUnit.Player) .. "击杀,所有玩家获得1点天赋点奖励!(击杀者翻倍)", Color.yellow)
+            end]]
+            MonsterRefresh.KillBossCount = MonsterRefresh.KillBossCount + 1
+            --检查是否还有boss
+            local clear = true
+            AssetsManager.IterateEnemyUnits(
+            function(unit)
+                if (IsUnitType(unit.Entity, UNIT_TYPE_HERO) and unit.Id == GetId("UM" .. MonsterRefresh.GetCurWaveIndex())) then
+                    clear = false
+                    return
+                end
+            end)
+            if (clear) then
+                MonsterRefresh.BossChallengeOver()
+            end
+        end
+    end
+    AssetsManager.RemoveObject(dieUnit)
 end
 
 --任意单位完成建造
@@ -307,79 +394,6 @@ function GameStart.AnyUnitSummon()
         return
     end
     local summonedUnit = AssetsManager.LoadEntity(GetSummonedUnit()) --召唤单位
-end
-
-local mExpList = { 1, 2, 2, 3, 3, 4, 4 }
-local mUnitDeathDropCount = { 0, 0, 0, 0 }
---任意单位死亡
-function GameStart.AnyUnitDeath(killUnit, dieUnit)
-    --凶手单位是玩家单位
-    if
-    (GetPlayerController(killUnit.Player) == MAP_CONTROL_USER and
-    GetPlayerSlotState(killUnit.Player) == PLAYER_SLOT_STATE_PLAYING and
-    IsUnitEnemy(dieUnit.Entity, killUnit.Player) == true)
-    then
-        --模拟经验
-        local units = GetPlayerTeamUnits(GetPlayerId(killUnit.Player))
-        local exp = mExpList[GetUnitLevel(dieUnit.Entity)]
-        if (exp ~= nil) then
-            if IsUnitType(dieUnit.Entity, UNIT_TYPE_HERO) then
-                exp = exp * 50
-            end
-            for i = 1, #units do
-                if IsUnitType(units[i].Entity, UNIT_TYPE_HERO) then
-                    AddHeroXP(units[i].Entity, exp, false)
-                end
-            end
-        end
-    end
-    --怪兽掉落
-    local playerId = GetPlayerId(killUnit.Player) + 1
-    mUnitDeathDropCount[playerId] = mUnitDeathDropCount[playerId] + 1
-    if (mUnitDeathDropCount[playerId] > 15) then
-        local itemId = Card.RandomDrop()
-        if (itemId ~= 0) then
-            CreateItem(itemId, dieUnit:X(), dieUnit:Y())
-        end
-        mUnitDeathDropCount[playerId] = 0
-    end
-    --迭代技能
-    killUnit:IterateSkills(
-    function(skill)
-        skill:OnKill(dieUnit)
-    end
-    )
-    if (killUnit.tianfu ~= nil) then
-        killUnit.tianfu:IterateSkills(
-        function(skill)
-            skill:OnKill(dieUnit)
-        end
-        )
-    end
-
-    --迭代物品
-    killUnit:IterateItems(
-    function(item)
-        item:OnKill(dieUnit)
-    end
-    )
-
-    --死亡单位是英雄
-    if (IsUnitType(dieUnit.Entity, UNIT_TYPE_HERO)) then
-        if (MonsterRefresh.GetCurWaveIndex() == 41 and Game.GetLevel() == 1) then
-            AllWavesDie()
-        end
-        if (MonsterRefresh.GetCurWaveIndex() == 57) then
-            if (Game.GetLevel() <= 2) then
-                AllWavesDie()
-            else
-                if (dieUnit.Id == GetId("UM56")) then
-                    EndLessComing()
-                end
-            end
-        end
-    end
-    AssetsManager.RemoveObject(dieUnit)
 end
 
 --任意单位提升等级

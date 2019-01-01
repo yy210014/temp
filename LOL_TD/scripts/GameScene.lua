@@ -69,30 +69,10 @@ function GameScene.OnGameStart()
     --Game.Log(os.time())
 end
 
-local mDeathUnitList = {}
-function GameScene.UnitDeath(killUnit, dieUnit)
-    if (dieUnit.IsDying == false) then
-        dieUnit.IsDying = true
-        PlayerInfo:Kill(killUnit.Player)
-        GameStart.AnyUnitDeath(killUnit, dieUnit)
-    end
-    --mDeathUnitList[#mDeathUnitList + 1] = {killUnit, dieUnit}
-end
 
 function GameScene.OnGameUpdate(dt)
     GameScene.Elapsed = GameScene.Elapsed + dt
     AssetsManager.OnGameUpdate(dt)
     MonsterRefresh.OnGameUpdate(dt)
     Multiboard.OnGameUpdate(dt)
-
---[[ if (mDeathUnitList ~= nil and #mDeathUnitList > 0) then
-        local list = mDeathUnitList[1]
-        if (list[2].IsDying == false) then
-            list[2].IsDying = true
-            PlayerInfo:Kill(list[1].Player)
-            GameStart.AnyUnitDeath(list[1], list[2])
-        end
-        table.remove(mDeathUnitList, 1)
-        list = nil
-    end]]
 end

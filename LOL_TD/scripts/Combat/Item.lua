@@ -58,7 +58,9 @@ local mItemOverlayList = {
 }
 --唯一列表
 local mItemUniquenessList = {
-    ["I003"] = 0
+    ["I003"] = 0,
+    ["I062"] = 0,
+    ["I077"] = 0,
 }
 
 function Item.HasItem(unit, itemId, list)

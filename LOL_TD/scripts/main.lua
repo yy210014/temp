@@ -23,7 +23,7 @@ function main()
     TriggerRegisterTimerEvent(trig, 0, false)
     TriggerAddAction(trig, GameStart.OnGameStart)
 
-    trig = CreateTrigger() 
+    trig = CreateTrigger()
     TriggerRegisterTimerEvent(trig, 0.02, true)
     TriggerAddAction(trig, Game.OnGameUpdate)
 
@@ -127,25 +127,24 @@ function main()
     end
     TriggerAddAction(trig, GameStart.AnyPlayerChat)
 
- --[[   trig = CreateTrigger()
+    trig = CreateTrigger()
     for i, v in ipairs(PlayerTeam) do
         TriggerRegisterPlayerEvent(trig, Player(v), EVENT_PLAYER_LEAVE)
     end
     TriggerAddAction(
     trig,
     function()
-        DisplayTextToAll(GetPlayerName(GetTriggerPlayer()) .. "离开了游戏", Color.red)
+        DisplayTextToAll(GetPlayerName(GetTriggerPlayer()) .. "离开了游戏，系统把他所有的装备都仍在了地上。", Color.red)
         AssetsManager.IteratePlayerUnits(GetPlayerId(GetTriggerPlayer()), function(u)
-            if (IsUnitType(u.Entity, UNIT_TYPE_HERO)) then
-                u:IterateItems(
-                function(item)
-                    UnitRemoveItem(u.Entity, item.Entity)
-                end
-                )
+            u:IterateItems(
+            function(item)
+                UnitRemoveItem(u.Entity, item.Entity)
             end
+            )
+            AssetsManager.DestroyObject(u)
         end)
     end
-    )]]
+    )
     trig = nil
 end
 

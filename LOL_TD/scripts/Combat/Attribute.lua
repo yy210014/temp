@@ -119,6 +119,9 @@ get["法术攻击"] = function(self)
 end
 
 set["法术攻击"] = function(self, value)
+    if (IsUnitType(self.Owner.Entity, UNIT_TYPE_HERO) == false) then
+        return
+    end
     self.Ap = Clamp(value, 0, value)
     SetHeroStr(self.Owner.Entity, self.Ap, true)
 end
@@ -257,6 +260,9 @@ get["冷却缩减"] = function(self)
 end
 
 set["冷却缩减"] = function(self, value)
+    if (IsUnitType(self.Owner.Entity, UNIT_TYPE_HERO) == false) then
+        return
+    end
     self.Cooldown = Clamp(value, 0, self.CooldownMax)
     SetHeroInt(self.Owner.Entity, self.Cooldown * 100, true)
     self.Owner:UpdateSkillCD()
@@ -275,6 +281,9 @@ get["暴击"] = function(self)
 end
 
 set["暴击"] = function(self, value)
+    if (IsUnitType(self.Owner.Entity, UNIT_TYPE_HERO) == false) then
+        return
+    end
     self.Crit = Clamp(value, 0, 1)
     SetHeroAgi(self.Owner.Entity, math.floor(self.Crit * 100), true)
 end

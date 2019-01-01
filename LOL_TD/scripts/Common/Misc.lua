@@ -84,7 +84,7 @@ function cheat(playerId)
     SetPlayerState(
     Player(playerId),
     PLAYER_STATE_RESOURCE_GOLD,
-    GetPlayerState(Player(playerId), PLAYER_STATE_RESOURCE_GOLD) + 10000
+    GetPlayerState(Player(playerId), PLAYER_STATE_RESOURCE_GOLD) + 100000
     )
     SetPlayerState(
     Player(playerId),

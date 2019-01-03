@@ -167,6 +167,12 @@ function GameStart.AnyUnitDamaged()
     else
         defUnit:AddDamageText(damage, isCritDamage, EXGetDamageColor())
         EXSetEventDamage(damage)
+        if (defUnit.Id == GetId("End0")) then
+            if (defUnit.DamageSum == nil) then
+                defUnit.DamageSum = 0
+            end
+            defUnit.DamageSum = defUnit.DamageSum + damage
+        end
     end
     --智能施法
     if (GetUnitAbilityLevel(attactUnit.Entity, GetId("B007")) > 0) then
@@ -270,28 +276,25 @@ function GameStart.AnyUnitDeath(killUnit, dieUnit)
                 end
             end
         end
-        if (IsChallenge()) then
-            --[[for i = 0, 3 do
-                if (GetPlayerController(Player(i)) == MAP_CONTROL_USER and GetPlayerSlotState(Player(i)) == PLAYER_SLOT_STATE_PLAYING)    then
-                    SetPlayerState(Player(i), PLAYER_STATE_RESOURCE_LUMBER, GetPlayerState(Player(i), PLAYER_STATE_RESOURCE_LUMBER) + 1)
-                end
-            SetPlayerState(killUnit.Player, PLAYER_STATE_RESOURCE_LUMBER, GetPlayerState(killUnit.Player, PLAYER_STATE_RESOURCE_LUMBER) + 1)
-            DisplayTextToAll(GetPlayerName(killUnit.Player) .. "击杀了Boss:" .. dieUnit.Name .. ",获得1点天赋点奖励!", Color.yellow)
-            --DisplayTextToAll(dieUnit.Name .. "已被" .. GetPlayerName(killUnit.Player) .. "击杀,所有玩家获得1点天赋点奖励!(击杀者翻倍)", Color.yellow)
-            end]]
-            MonsterRefresh.KillBossCount = MonsterRefresh.KillBossCount + 1
-            --检查是否还有boss
-            local clear = true
-            AssetsManager.IterateEnemyUnits(
-            function(unit)
-                if (IsUnitType(unit.Entity, UNIT_TYPE_HERO) and unit.Id == GetId("UM" .. MonsterRefresh.GetCurWaveIndex())) then
-                    clear = false
-                    return
+        local abilityId
+        if (dieUnit.Id == GetId("UA08") or dieUnit.Id == GetId("UA16") or dieUnit.Id == GetId("UA24") or dieUnit.Id == GetId("UA32") or dieUnit.Id == GetId("UA40") or dieUnit.Id == GetId("UA48")) then
+            abilityId = "A004"
+        elseif (dieUnit.Id == GetId("UB08") or dieUnit.Id == GetId("UB16") or dieUnit.Id == GetId("UB24") or dieUnit.Id == GetId("UB32") or dieUnit.Id == GetId("UB40") or dieUnit.Id == GetId("UB48")) then
+            abilityId = "A005"
+        elseif (dieUnit.Id == GetId("UC08") or dieUnit.Id == GetId("UC16") or dieUnit.Id == GetId("UC24") or dieUnit.Id == GetId("UC32") or dieUnit.Id == GetId("UC40") or dieUnit.Id == GetId("UC48")) then
+            abilityId = "A006"
+        elseif (dieUnit.Id == GetId("UD08") or dieUnit.Id == GetId("UD16") or dieUnit.Id == GetId("UD24") or dieUnit.Id == GetId("UD32") or dieUnit.Id == GetId("UD40") or dieUnit.Id == GetId("UD48")) then
+            abilityId = "A007"
+        end
+        if (abilityId ~= nil) then
+            AssetsManager.IteratePlayerUnits(GetPlayerId(killUnit.Player), function(hero)
+                if (IsUnitType(hero.Entity, UNIT_TYPE_HERO)) then
+                    local dummy = AssetsManager.LoadUnit(hero.Player, "uq00", hero:X(), hero:Y())
+                    local skill = dummy:AddSkill(abilityId)
+                    IssueTargetOrder(dummy.Entity, skill.Order, hero.Entity)
+                    UnitApplyTimedLife(dummy.Entity, "BHwe", 1)
                 end
             end)
-            if (clear) then
-                MonsterRefresh.BossChallengeOver()
-            end
         end
     end
     AssetsManager.RemoveObject(dieUnit)
@@ -310,18 +313,20 @@ function GameStart.AnyUnitConstructFinish()
     if (IsUnitType(unit.Entity, UNIT_TYPE_HERO)) then
         --天赋
         unit:AddTianfu()
+
+        --AddSpecialEffectTarget("blazingwind.mdl", unit.Entity, "origin")
         --羁绊
         AddComb(unit)
         --开启AI
         IssueImmediateOrder(unit.Entity, "manashieldon")
 
-        --[[  unit.Attribute:add("魔法恢复", 100)
+        unit.Attribute:add("魔法恢复", 100)
         unit.Attribute:add("攻击速度", 2)
         unit.Attribute:add("暴击", 0.5)
         unit.Attribute:add("冷却缩减上限", 0.5)
         unit.Attribute:add("冷却缩减", 0.5)
-        unit.Attribute:add("物理攻击", 10000)
-        unit.Attribute:add("法术攻击", 10000)]]
+        unit.Attribute:add("物理攻击", 300)
+        unit.Attribute:add("法术攻击", 10000)
         --辅助英雄写死
         if (unit.Id == GetId("UH35")) then
             unit:LearnedSkill(GetId("AH80"))
@@ -374,13 +379,6 @@ function GameStart.AnyUnitOrderBuild()
         local item = UnitItemInSlot(orderUnit, orderID - 852008)
         if (IsTerrainPathable(GetLocationX(orderPos), GetLocationY(orderPos), PATHING_TYPE_BUILDABILITY)) then
             DisplayTimedTextToPlayer(GetOwningPlayer(orderUnit), 0, 0, 5, "|cffEE0000该地表不能进行建造。|r")
-            IssueImmediateOrder(orderUnit, "stop")
-            IssuePointOrderLoc(orderUnit, "move", GetUnitLoc(orderUnit))
-        elseif
-        (GetWidgetLife(item) + GetPlayerState(GetOwningPlayer(orderUnit), PLAYER_STATE_RESOURCE_FOOD_USED) >
-        (GetPlayerState(GetOwningPlayer(orderUnit), PLAYER_STATE_FOOD_CAP_CEILING)))
-        then
-            DisplayTimedTextToPlayer(GetOwningPlayer(orderUnit), 0, 0, 5, "|cffEE0000人口已满。|r")
             IssueImmediateOrder(orderUnit, "stop")
             IssuePointOrderLoc(orderUnit, "move", GetUnitLoc(orderUnit))
         end

@@ -33,7 +33,7 @@ function _native_(name)
 end
 
 function _array_(default)
-    return setmetatable({_default = default}, mt)
+    return setmetatable({ _default = default }, mt)
 end
 
 function _loop_()
@@ -82,8 +82,8 @@ function CreateDamageText(str, whichUnit, isCritDamage, color)
     SetTextTagText(tt, text)
     SetTextTagPosUnit(tt, whichUnit, -5)
     SetTextTagColor(tt, color.r, color.g, color.b, color.a)
-    local xvel = 0.05 * Cos(290 * (math.pi / 180.0))
-    local yvel = 0.05 * Sin(290 * (math.pi / 180.0))
+    local xvel = 0.05 * Cos(290 * (math.pi / 180))
+    local yvel = 0.05 * Sin(290 * (math.pi / 180))
     SetTextTagVelocity(tt, xvel, yvel)
     SetTextTagPermanent(tt, false)
     SetTextTagFadepoint(tt, 0.6)
@@ -91,25 +91,24 @@ function CreateDamageText(str, whichUnit, isCritDamage, color)
     local ydl_timer = CreateTimer()
     local index = 0
     TimerStart(
-        ydl_timer,
-        0.02,
-        true,
-        function()
-            index = index + 1
-            if (index > 30) then
-                DestroyTextTag(tt)
-                DestroyTimer(GetExpiredTimer())
+    ydl_timer,
+    0.02,
+    true,
+    function()
+        index = index + 1
+        if (index > 30) then
+            DestroyTextTag(tt)
+            DestroyTimer(GetExpiredTimer())
+        else
+            if (index <= 15) then
+                SetTextTagTextBJ(tt, text, 10 + index)
             else
-                if (index <= 15) then
-                    SetTextTagTextBJ(tt, text, 10 + index)
-                else
-                    SetTextTagTextBJ(tt, text, 25 - (index - 15))
-                end
+                SetTextTagTextBJ(tt, text, 25 - (index - 15))
             end
         end
+    end
     )
-    --[[
-    local xvel = 0.18 * Cos(90 * (math.pi / 180.0))
+--[[    local xvel = 0.18 * Cos(90 * (math.pi / 180.0))
     local yvel = 0.18 * Sin(90 * (math.pi / 180.0))
     SetTextTagVelocity(tt, xvel, yvel)
     SetTextTagPermanent(tt, false)
@@ -123,13 +122,24 @@ function CreateText(text, whichUnit, color)
     SetTextTagPosUnit(tt, whichUnit, 10)
     SetTextTagColor(tt, color.r, color.g, color.b, color.a)
 
-    local xvel = 0.18 * Cos(90 * (math.pi / 180.0))
-    local yvel = 0.18 * Sin(90 * (math.pi / 180.0))
+    local xvel = 0.18 * Cos(90 * (math.pi / 180))
+    local yvel = 0.18 * Sin(90 * (math.pi / 180))
     SetTextTagVelocity(tt, xvel, yvel)
     SetTextTagPermanent(tt, false)
     SetTextTagLifespan(tt, 1)
     SetTextTagFadepoint(tt, 1)
     tt = nil
+end
+
+function CreateGoldText(text, whichUnit)
+    local tt = CreateTextTag()
+    SetTextTagPosUnit(tt, whichUnit, -150)
+    SetTextTagLifespan(tt, 2)
+    SetTextTagFadepoint(tt, 1)
+    SetTextTagColor(tt, 255, 220, 0, 255)
+    SetTextTagVelocity(tt, 0, 0.03)
+    SetTextTagText(tt, "+" .. math.modf(text), 0.024)
+    SetTextTagPermanent(tt, false)
 end
 
 EXDamageType = {
@@ -166,36 +176,36 @@ function EXUnitDamageTarget(damageSource, target, damage, damageType)
     end
     if (damageType == EXDamageType.Physics) then
         UnitDamageTarget(
-            damageSource.Entity,
-            target.Entity,
-            damage,
-            false,
-            false,
-            ATTACK_TYPE_HERO,
-            DAMAGE_TYPE_NORMAL,
-            WEAPON_TYPE_WHOKNOWS
+        damageSource.Entity,
+        target.Entity,
+        damage,
+        false,
+        false,
+        ATTACK_TYPE_HERO,
+        DAMAGE_TYPE_NORMAL,
+        WEAPON_TYPE_WHOKNOWS
         )
     elseif (damageType == EXDamageType.Magic) then
         UnitDamageTarget(
-            damageSource.Entity,
-            target.Entity,
-            damage,
-            false,
-            false,
-            ATTACK_TYPE_MAGIC,
-            DAMAGE_TYPE_NORMAL,
-            WEAPON_TYPE_WHOKNOWS
+        damageSource.Entity,
+        target.Entity,
+        damage,
+        false,
+        false,
+        ATTACK_TYPE_MAGIC,
+        DAMAGE_TYPE_NORMAL,
+        WEAPON_TYPE_WHOKNOWS
         )
     elseif (damageType == EXDamageType.Real) then
         UnitDamageTarget(
-            damageSource.Entity,
-            target.Entity,
-            damage,
-            false,
-            false,
-            ATTACK_TYPE_CHAOS,
-            DAMAGE_TYPE_UNIVERSAL,
-            WEAPON_TYPE_WHOKNOWS
+        damageSource.Entity,
+        target.Entity,
+        damage,
+        false,
+        false,
+        ATTACK_TYPE_CHAOS,
+        DAMAGE_TYPE_UNIVERSAL,
+        WEAPON_TYPE_WHOKNOWS
         )
     end
 end

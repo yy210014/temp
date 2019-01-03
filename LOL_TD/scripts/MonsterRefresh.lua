@@ -44,7 +44,6 @@ MonsterRefresh.PathMaps = {
     [15] = { 10, 11 },
     [16] = { 11, 12 },
 }
-MonsterRefresh.KillBossCount = 0
 local mDelayPushTimer = nil
 local mDelayPushTimerDialog = nil
 local mSpawnEnable = false
@@ -53,31 +52,31 @@ local mCurWaveIndex = 1
 local mMaxWaveIndex = 56
 local mDelay = {
     60, 10, 10, 10, 10, 10, 10, 10,
-    10, 10, 10, 10, 10, 10, 10, 10,
-    10, 10, 10, 10, 10, 10, 10, 10,
-    10, 10, 10, 10, 10, 10, 10, 10,
-    10, 10, 10, 10, 10, 10, 10, 10,
-    10, 10, 10, 10, 10, 10, 10, 10,
-    10, 10, 10, 10, 10, 10, 10, 10,
+    20, 10, 10, 10, 10, 10, 10, 10,
+    20, 10, 10, 10, 10, 10, 10, 10,
+    20, 10, 10, 10, 10, 10, 10, 10,
+    20, 10, 10, 10, 10, 10, 10, 10,
+    20, 10, 10, 10, 10, 10, 10, 10,
+    20, 10, 10, 10, 10, 10, 10, 10,
 }
 
 local mDuration = {
-    40, 40, 40, 40, 40, 40, 40, 6,
-    40, 40, 40, 40, 40, 40, 40, 6,
-    40, 40, 40, 40, 40, 40, 40, 6,
-    40, 40, 40, 40, 40, 40, 40, 6,
-    40, 40, 40, 40, 40, 40, 40, 6,
-    40, 40, 40, 40, 40, 40, 40, 6,
-    40, 40, 40, 40, 40, 40, 40, 6
+    40, 40, 40, 40, 40, 40, 40, 20,
+    40, 40, 40, 40, 40, 40, 40, 20,
+    40, 40, 40, 40, 40, 40, 40, 20,
+    40, 40, 40, 40, 40, 40, 40, 20,
+    40, 40, 40, 40, 40, 40, 40, 20,
+    40, 40, 40, 40, 40, 40, 40, 20,
+    40, 40, 40, 40, 40, 40, 40, 20
 }
 local mRate = {
-    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 10,
-    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 10,
-    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 10,
-    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 10,
-    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 10,
-    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 10,
-    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 10,
+    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 5,
+    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 5,
+    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 5,
+    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 5,
+    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 5,
+    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 5,
+    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 5,
 }
 
 local mDelayClear = {
@@ -96,13 +95,8 @@ local mTimeDt1 = 0
 local mTimeDt2 = 0
 local mTimeDt3 = 0
 local mTimeDt4 = 0
-local mBossKillTimer
-local mBossKillTimerDialog
 local mMonTimerTimer
 local mMonTimerTimerDialog
-
-local mBossIds = {["um55"] = "UB55", ["um54"] = "UB54", ["um39"] = "UB39", ["um38"] = "UB38" }
-local mFirstBoss = false
 
 function MonsterRefresh.GetCurWaveIndex()
     return mCurWaveIndex
@@ -115,10 +109,6 @@ end
 
 function IsBOSS()
     return 0 == math.floor(mCurWaveIndex % 8 * 10)
-end
-
-function IsChallenge()
-    return mBossKillTimer ~= nil
 end
 
 function MonsterRefresh.InitRegion()
@@ -196,21 +186,6 @@ function MonsterRefresh.OnGameStart()
     DelayPush()
 end
 
-function MonsterRefresh.BossChallengeOver()
-    DisplayTextToAll("BOSS结算奖励：所有玩家获得杀死BOSS数量x500的金币和杀死BOSS数量x1的天赋。|r", Color.yellow)
-    for i = 0, 3 do
-        if (GetPlayerController(Player(i)) == MAP_CONTROL_USER and GetPlayerSlotState(Player(i)) == PLAYER_SLOT_STATE_PLAYING)    then
-            SetPlayerState(Player(i), PLAYER_STATE_RESOURCE_GOLD, GetPlayerState(Player(i), PLAYER_STATE_RESOURCE_GOLD) + MonsterRefresh.KillBossCount * 500)
-            SetPlayerState(Player(i), PLAYER_STATE_RESOURCE_LUMBER, GetPlayerState(Player(i), PLAYER_STATE_RESOURCE_LUMBER) + MonsterRefresh.KillBossCount)
-        end
-    end
-    DestroyTimer(mBossKillTimer)
-    DestroyTimerDialog(mBossKillTimerDialog)
-    mBossKillTimer = nil
-    MonsterRefresh.KillBossCount = 0
-    WavesClear()
-end
-
 function DelayPush()
     TimerStart(mDelayPushTimer, mDelay[mCurWaveIndex], false, PushWave)
     TimerDialogSetTitle(mDelayPushTimerDialog, "第" .. (mCurWaveIndex) .. "波")
@@ -245,66 +220,85 @@ function DelayPush()
         local timer = CreateTimer()
         TimerStart(timer, 3, false, function()
             DestroyTimer(GetExpiredTimer())
-            DisplayTextToAll("所有玩家将有50秒时间挑战boss，挑战时间内击杀的Boss越多获得的奖励越丰富！", Color.white)
+            DisplayTextToAll("击杀Boss除了金币奖励外还会额外获得1点天赋点和buff奖励。", Color.yellow)
         end)
-    --[[    timer = CreateTimer()
-        TimerStart(timer, 7, false, function()
-            DestroyTimer(GetExpiredTimer())
-            DisplayTextToAll("挑战时间内Boss不会走外圈，每击杀一个boss所有玩家获得1天赋点奖励，击杀者翻倍！", Color.white)
-        end)
-         timer = CreateTimer()
-        TimerStart(timer, 13, false, function()
-            DestroyTimer(GetExpiredTimer())
-            DisplayTextToAll("如果挑战时间之内击杀了所有boss下一关将解锁福利关卡！祝你好运！", Color.white)
-        end)]]
     end
 end
+
+local mBossIds = {}
 
 --boss出现 弹出击杀倒计时计时器窗口
 function PushWave()
     mMonsterId = #tostring(mCurWaveIndex) == 1 and "um0" .. mCurWaveIndex or "um" .. mCurWaveIndex
     if (IsBOSS()) then
-        mMonsterId = #tostring(mCurWaveIndex) == 1 and "UM0" .. mCurWaveIndex or "UM" .. mCurWaveIndex
         --Boss击杀倒计时
-        mBossKillTimer = CreateTimer()
-        TimerStart(mBossKillTimer, 50, false, MonsterRefresh.BossChallengeOver)
-        mBossKillTimerDialog = CreateTimerDialog(mBossKillTimer)
-        TimerDialogSetTitle(mBossKillTimerDialog, "击杀倒计时")
-        TimerDialogDisplay(mBossKillTimerDialog, true)
-    else
-        if (mBossIds[mMonsterId] ~= nil) then
-            mMonsterId = mBossIds[mMonsterId]
-            table.remove(mBossIds, #mBossIds)
-            mFirstBoss = true
-        end
+        mBossIds[#mBossIds + 1] = #tostring(mCurWaveIndex) == 1 and "UD0" .. mCurWaveIndex or "UD" .. mCurWaveIndex
+        mBossIds[#mBossIds + 1] = #tostring(mCurWaveIndex) == 1 and "UC0" .. mCurWaveIndex or "UC" .. mCurWaveIndex
+        mBossIds[#mBossIds + 1] = #tostring(mCurWaveIndex) == 1 and "UB0" .. mCurWaveIndex or "UB" .. mCurWaveIndex
+        mBossIds[#mBossIds + 1] = #tostring(mCurWaveIndex) == 1 and "UA0" .. mCurWaveIndex or "UA" .. mCurWaveIndex
     end
     mSpawnEnable = true
     --TimerDialogDisplay(mDelayPushTimerDialog, false)
 end
---[[function MoneyComing()
-    DestroyTimer(mBossKillTimer)
-    DestroyTimerDialog(mBossKillTimerDialog)
-    mBossKillTimer = nil
 
+local fuliguai = {}
+local moneys = { { 10000, 840 }, { 20000, 1010 }, { 40000, 1180 }, { 80000, 1350 }, { 160000, 1520 }, { 320000, 1690 }, { 640000, 1860 }, { 1280000, 2000 } }
+function MoneyShow_showDialog()
+    local monTimer = CreateTimer()
+    local _timerMoney = CreateTimerDialog(monTimer)
+    TimerDialogSetTitle(_timerMoney, "远古巨龙挑战")
+    TimerDialogDisplay(_timerMoney, true)
+    TimerStart(monTimer, 10, false, function()
+        mMonsterId = "End0"
+        for i = 0, 3 do
+            if
+            (GetPlayerController(Player(i)) == MAP_CONTROL_USER and
+            GetPlayerSlotState(Player(i)) == PLAYER_SLOT_STATE_PLAYING)
+            then
+                fuliguai[#fuliguai + 1] = Spawn(MonsterRefresh.ChuGuaiKous[i + 1], i + 1)
+            end
+        end
+        DisplayTextToAll("远古巨龙来啦！请玩家尽情输出，伤害越高，奖励越多！", "ffffcc00")
 
-    local timer = CreateTimer()
-    TimerStart(timer, 2, false, function()
-        DisplayTextToAll("Boss挑战结束,恭喜你们开启了福利关卡！", Color.yellow)
-        local monTimer = CreateTimer()
-        TimerStart(monTimer, 10, false, function()
-            DestroyTimer(monTimer)
-            DestroyTimerDialog(mMonTimerTimerDialog)
-            monTimer = nil
-            mMonsterId = "um01"
-            mSpawnEnable = true
+        DestroyTimer(monTimer)
+        DestroyTimerDialog(_timerMoney)
+        local monTimer2 = CreateTimer()
+        local _timerMoney2 = CreateTimerDialog(monTimer2)
+        TimerDialogSetTitle(_timerMoney2, "奖励结算")
+        TimerDialogDisplay(_timerMoney2, true)
+        TimerStart(monTimer2, 25, false, function()
+            DestroyTimer(monTimer2)
+            DestroyTimerDialog(_timerMoney2)
+            for i = 0, 3 do
+                DisplayTextToPlayer(Player(i), 0, 0, "|cffffcc00本次挑战结束：|r")
+            end
+            for i = 0, 3 do
+                if
+                (GetPlayerController(Player(i)) == MAP_CONTROL_USER and
+                GetPlayerSlotState(Player(i)) == PLAYER_SLOT_STATE_PLAYING)
+                then
+                    local money = 0
+                    for j = #moneys, 1, -1 do
+                        if (fuliguai[i + 1].DamageSum ~= nil and fuliguai[i + 1].DamageSum >= moneys[j][1]) then
+                            money = moneys[j][2]
+                            break
+                        end
+                    end
+                    for j = 0, 3 do
+                        DisplayTextToPlayer(Player(j), 0, 0, "|cffffcc00" .. GetPlayerName(Player(j)) .. "|r对远古巨龙造成的伤害：|cFF00FF00" .. math.modf(fuliguai[i + 1].DamageSum) .. "|r 奖励金币数量：|cffffcc00" .. money .. "|r")
+                    end
+                    SetPlayerState(Player(i), PLAYER_STATE_RESOURCE_GOLD, GetPlayerState(Player(i), PLAYER_STATE_RESOURCE_GOLD) + money)
+                end
+            end
+            for i = #fuliguai, 1, -1 do
+                AssetsManager.RemoveObject(fuliguai[i])
+                table.remove(fuliguai, i)
+            end
+            DelayPush()
         end)
-        mMonTimerTimerDialog = CreateTimerDialog(monTimer)
-        TimerDialogSetTitle(mMonTimerTimerDialog, "福利波开启")
-        TimerDialogDisplay(mMonTimerTimerDialog, true)
-        MoneyShow_time_start(monTimer)
     end)
 end
-]]
+
 function TimeToStopBOSS()
     local BossStopTimer = CreateTimer()
     local _BossDialog = CreateTimerDialog(BossStopTimer)
@@ -332,7 +326,9 @@ function WavesClear()
     if (MonsterNumOut()) then
         Game.Fail()
     else
-        if (IsChallenge() == false) then
+        if (0 == math.floor(mCurWaveIndex % 9 * 10)) then
+            MoneyShow_showDialog()
+        else
             DelayPush()
         end
     end
@@ -353,7 +349,7 @@ function AllWavesDie()
     end
 end
 
-local function Spawn(spawnPoint, index)
+function Spawn(spawnPoint, index)
     local unit = AssetsManager.LoadUnitAtLoc(Player(index + 7), mMonsterId, spawnPoint)
     unit.Attribute:add("护甲", unit.Attribute:get("护甲") * (0.1 * Game.GetLevel() - 0.1))
     unit.Attribute:add("生命上限", unit.Attribute:get("生命上限") * (0.3 * Game.GetLevel() - 0.3))
@@ -364,10 +360,7 @@ local function Spawn(spawnPoint, index)
     RemoveGuardPosition(unit.Entity)
     IssuePointOrderLoc(unit.Entity, "move", MonsterRefresh.RectPoints[index])
     Multiboard.ShowMonsterCount(1)
-    if (mFirstBoss) then
-        mMonsterId = "um" .. mCurWaveIndex
-        mFirstBoss = false
-    end
+    return unit
 end
 
 function MonsterRefresh.OnGameUpdate(dt)
@@ -379,6 +372,10 @@ function MonsterRefresh.OnGameUpdate(dt)
             mTimeDt3 = mTimeDt3 - dt
             if (mTimeDt3 <= 0) then
                 mTimeDt3 = mRate[mCurWaveIndex]
+                if (IsBOSS()) then
+                    mMonsterId = mBossIds[#mBossIds]
+                    table.remove(mBossIds, #mBossIds)
+                end
                 for i = 0, 3 do
                     if
                     (GetPlayerController(Player(i)) == MAP_CONTROL_USER and

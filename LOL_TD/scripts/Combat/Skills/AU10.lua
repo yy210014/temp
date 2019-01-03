@@ -19,17 +19,18 @@ function skill:OnSell()
     local spellUnit = self.Owner
     --特效
     DestroyEffect(AddSpecialEffect(mArt, spellUnit:X(), spellUnit:Y()))
-    local sellGold = 100
+    local sellGold = Slk.unit[spellUnit.Id]["goldcost"] * 0.5
     SetPlayerState(
-        spellUnit.Player,
-        PLAYER_STATE_RESOURCE_GOLD,
-        GetPlayerState(spellUnit.Player, PLAYER_STATE_RESOURCE_GOLD) + sellGold
+    spellUnit.Player,
+    PLAYER_STATE_RESOURCE_GOLD,
+    GetPlayerState(spellUnit.Player, PLAYER_STATE_RESOURCE_GOLD) + sellGold
     )
+    CreateGoldText(sellGold, spellUnit.Entity)
+
     spellUnit:IterateItems(
-        function(item)
-            UnitRemoveItem(spellUnit.Entity, item.Entity)
-        end
+    function(item)
+        UnitRemoveItem(spellUnit.Entity, item.Entity)
+    end
     )
     GameStart.AnyUnitSell(spellUnit)
 end
-

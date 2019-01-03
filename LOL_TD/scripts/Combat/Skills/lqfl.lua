@@ -12,6 +12,7 @@ function skill:OnCast()
         addMoney = math.floor(addMoney * scale)
         content = "（暴击x" .. math.floor(scale * 100) .. "%）"
     end
+    CreateGoldText(addMoney, spellUnit.Entity)
     SetPlayerState(player, PLAYER_STATE_RESOURCE_GOLD, GetPlayerState(player, PLAYER_STATE_RESOURCE_GOLD) + addMoney)
     DestroyEffect(AddSpecialEffect(mArt, spellUnit:X(), spellUnit:Y()))
     DisplayTextToAll(GetPlayerName(player) .. "领取福利获得金币" .. addMoney .. content, Color.yellow)

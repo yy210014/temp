@@ -123,7 +123,7 @@ end
 
 function Card.RandomBox2()
     if (mRandomBoxCount <= 0) then
-        mRandomBoxCount = math.random(0, 3)
+        mRandomBoxCount = math.random(1, 4)
     end
     mRandomBoxCount = mRandomBoxCount - 1
     if (mRandomBoxCount <= 1) then
@@ -137,15 +137,13 @@ end
 
 function Card.RandomBox3()
     if (mRandomBoxCount <= 0) then
-        mRandomBoxCount = math.random(0, 3)
+        mRandomBoxCount = math.random(1, 4)
     end
     mRandomBoxCount = mRandomBoxCount - 1
-    if (mRandomBoxCount <= 1) then
-        return GetId("IB07")
-    elseif (mRandomBoxCount <= 2) then
-        return GetId("IB06")
-    else
+    if (mRandomBoxCount == 3) then
         return mBox3Item[math.random(1, #mBox3Item)]
+    else
+        return GetId("IB07")
     end
 end
 

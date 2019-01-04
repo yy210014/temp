@@ -5,6 +5,10 @@ locomotion.Speed = 10
 locomotion.MaxDistance = 100
 
 locomotion.OnFoward = function(self, dt)
+    if (self.Target == nil or self.Target.Entity == nil) then
+        self:PathEnded()
+        return
+    end
     local angle = AngleBetweenUnits(self.Owner.Entity, self.Target.Entity)
     local offX = self.Speed * math.cos(angle)
     local offY = self.Speed * math.sin(angle)
@@ -29,7 +33,7 @@ locomotion.OnFoward2 = function(self, dt)
 end
 
 function locomotion:Start(...)
-    local arg = {...}
+    local arg = { ... }
     self.Target = arg[1]
     self.Speed = arg[2]
     self.OnPathEnd = arg[3]
@@ -40,7 +44,7 @@ function locomotion:Start(...)
 end
 
 function locomotion:Start2(...)
-    local arg = {...}
+    local arg = { ... }
     self.Angle = arg[1]
     self.Speed = arg[2]
     self.MaxDistance = arg[3]

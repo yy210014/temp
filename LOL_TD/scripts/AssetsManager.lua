@@ -56,6 +56,9 @@ end
 
 function AssetsManager.LoadUnitAtLoc(player, id, point)
     local entity = CreateUnitAtLoc(player, GetId(id), point, mDefUnitFacing)
+    if (entity == nil) then
+        Game.Log("LoadUnitAtLoc id: "..id)
+    end
     local unit = Unit:New(entity)
     if (unit.FactionId == PlayerTeamFactionId) then
         mPlayerTeamUnits[GetPlayerId(player) + 1][#mPlayerTeamUnits[GetPlayerId(player) + 1] + 1] = unit
@@ -97,6 +100,8 @@ local function DestroyPlayerObject(unit, destroy)
     unit:Destroy(destroy)
     if (destroy == false) then
         mDyingUnits[#mDyingUnits + 1] = unit
+    else
+        unit = nil
     end
 end
 
@@ -114,6 +119,8 @@ local function DestroyEnemyObject(unit, destroy)
     unit:Destroy(destroy)
     if (destroy == false) then
         mDyingUnits[#mDyingUnits + 1] = unit
+    else
+        unit = nil
     end
 end
 

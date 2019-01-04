@@ -9,7 +9,7 @@ local mDamages3 = { 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 }
 local mDummyArt = "AZ_RedDragonpf_Missile.mdl"
 
 setmetatable(Buffs["清算"], { __index = Buffs["移速"] })
-Buffs["清算"].values = { -0.2, -0.25, -0.3, -0.35, -0.4, -0.45 }
+Buffs["清算"].values = {-0.2, -0.25, -0.3, -0.35, -0.4, -0.45 }
 Buffs["清算"].Durs = { 3, 3, 3, 3, 3, 3 }
 function skill:OnCast()
     local spellUnit = self.Owner
@@ -23,7 +23,7 @@ function skill:OnCast()
     dummy.Effect = AddSpecialEffectTarget(mDummyArt, dummy.Entity, "origin")
     local angle = AngleBetweenPoint(dummy:X(), spellTargetUnit:X(), dummy:Y(), spellTargetUnit:Y())
     dummy:SetUnitFacing(angle)
-    SetUnitFlyHeight(dummy.Entity, 80, 0.00)
+    SetUnitFlyHeight(dummy.Entity, 80, 0)
     dummy.Owner = spellUnit
     dummy.Target = spellTargetUnit
     dummy.Skill = self
@@ -38,10 +38,14 @@ skill.OnPathEnd = function(dummy)
     --伤害
     local owner = dummy.Owner
     local spellTargetUnit = dummy.Target
+    if (spellTargetUnit == nil or spellTargetUnit.Entity == nil) then
+        AssetsManager.RemoveObject(dummy)
+        return
+    end
     local self = dummy.Skill
     local ad = owner.Attribute:get("物理攻击") + owner.Attribute:get("物理攻击加成")
     local ap = owner.Attribute:get("法术攻击")
-    local damage =     mDamages1[self:GetCurLevel()] + ap * mDamages2[self:GetCurLevel()] + ad * mDamages3[self:GetCurLevel()]
+    local damage =    mDamages1[self:GetCurLevel()] + ap * mDamages2[self:GetCurLevel()] + ad * mDamages3[self:GetCurLevel()]
     EXUnitDamageTarget(owner, spellTargetUnit, damage, EXDamageType.Magic)
     spellTargetUnit:AddBuff("清算", self:GetCurLevel())
     spellTargetUnit:AddBuff("圣焰", self:GetCurLevel())

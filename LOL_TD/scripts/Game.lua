@@ -19,6 +19,13 @@ function Game.Log(text)
     end
 end
 
+GameMode = {
+    NORMAL = 0,
+    ENDLESS = 1
+}
+
+local mGameMode = GameMode.NORMAL
+
 function Game.LogError(text)
     if (IsDebug) then
         console.write("---------------------------------------")
@@ -27,7 +34,7 @@ function Game.LogError(text)
         console.write(tostring(text) .. "\n")
         console.write(tostring(debug.traceback()) .. "\n")
         console.write("---------------------------------------")
-        Game.Pause(true)
+        --Game.Pause(true)
         for i = 0, 3, 1 do
             --DisplayTextToPlayer(Player(i), 0, 0, "|cffff0000" .. text .. "|r")
         end
@@ -47,6 +54,14 @@ function Game.OnGameUpdate()
         return
     end
     GameScene.OnGameUpdate(GameScene.DeltaTime * Game.GetSpeed())
+end
+
+function Game.GetMode()
+    return mGameMode
+end
+
+function Game.SetMode(mode)
+    mGameMode = mode
 end
 
 function Game.GetLevel()

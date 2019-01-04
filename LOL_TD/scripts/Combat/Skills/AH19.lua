@@ -46,7 +46,7 @@ function skill:OnRemove()
     self.LastTime = GameScene.Elapsed
 
     if (self.Target == nil) then
-        Game.LogError("爆炸火花-丢失单位")
+        --Game.LogError("爆炸火花-丢失单位") --如果怪兽被删除了技能还没引爆会报错，不管
         return
     end
     local spellUnit = self.Owner

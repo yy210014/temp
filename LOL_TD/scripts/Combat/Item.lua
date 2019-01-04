@@ -54,7 +54,8 @@ local mItemOverlayList = {
     ["IB04"] = 0,
     ["IB05"] = 0,
     ["IB06"] = 0,
-    ["IB07"] = 0
+    ["IB07"] = 0,
+    ["I089"] = 0
 }
 --唯一列表
 local mItemUniquenessList = {

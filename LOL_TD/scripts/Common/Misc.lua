@@ -111,6 +111,10 @@ function GetGuid()
 end
 
 function GetId(strName)
+    if (strName == nil) then
+        Game.LogError("字符串为空")
+        return
+    end
     local i = string.byte(strName, 1)
     i = i * 256 + string.byte(strName, 2)
     i = i * 256 + string.byte(strName, 3)

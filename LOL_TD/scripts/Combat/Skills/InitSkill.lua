@@ -120,3 +120,5 @@ require "scripts.Combat.Skills.lqfl"
 require "scripts.Combat.Skills.AU10"
 --回收
 --require "scripts.Combat.Skills.AU12"
+--变强
+require "scripts.Combat.Skills.A008"

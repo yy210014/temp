@@ -95,6 +95,11 @@ end
 function Skill:GetBeginCD()
     local cool = self.Cools[self:GetCurLevel()]
     local cooldown = self.Owner.Attribute:get("冷却缩减")
+    if (cool == nil) then
+        Game.Log("self: " .. tostring(self.Name))
+        Game.Log("Cools: " .. tostring(#self.Cools))
+        Game.LogError("CurLevel: " .. tostring(self:GetCurLevel()))
+    end
     return cool - cool * cooldown
 end
 

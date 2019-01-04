@@ -31,6 +31,10 @@ skill.OnPathEnd = function(dummy)
     --伤害
     local owner = dummy.Owner
     local spellTargetUnit = dummy.Target
+    if (spellTargetUnit == nil or spellTargetUnit.Entity == nil) then
+        AssetsManager.RemoveObject(dummy)
+        return
+    end
     local self = dummy.Skill
     local ap = owner.Attribute:get("法术攻击")
     local damage = mDamages1[self:GetCurLevel()] + (ap * mDamages2[self:GetCurLevel()])

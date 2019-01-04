@@ -185,6 +185,7 @@ function Unit:RefreshCombInfo()
     for k, v in ipairs(self.Combs) do
         art = art .. "|c" .. (v.Enable and Color.yellow or Color.gray) .. v.Ubertip .. "|r"
     end
+    art = art .. "|cFF808080(解锁任意两个羁绊可以学习超能天赋，解锁任意三个羁绊可以突破18级等级限制。)|r"
     EXSetAbilityDataString(EXGetUnitAbility(self.Entity, self.CombId), 1, ABILITY_DATA_UBERTIP, art)
 end
 
@@ -401,6 +402,7 @@ function Unit:Destroy(destroy)
             RemoveUnit(self.Entity)
         end
         self.Entity = nil
+        self = nil
     end
 end
 

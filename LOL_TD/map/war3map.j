@@ -3404,7 +3404,7 @@ endfunction
 //*
 //***************************************************************************
 function config takes nothing returns nothing
-    call SetMapName("lol循环圈1.11")
+    call SetMapName("lol循环圈1.15")
     call SetMapDescription("没有说明")
     call SetPlayers(8)
     call SetTeams(8)

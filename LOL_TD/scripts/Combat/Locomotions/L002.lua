@@ -6,6 +6,10 @@ locomotion.High = 100
 locomotion.TimeDt = 0
 
 locomotion.OnUp = function(self, dt)
+    if (self.Target == nil or self.Target.Entity == nil) then
+        self:PathEnded()
+        return
+    end
     self.TimeDt = self.TimeDt + dt
     local targetUnit = self.Target.Entity
     local h = Lerp(self.InitHigh, self.InitHigh + self.High, self.TimeDt / self.Duration)
@@ -17,6 +21,10 @@ locomotion.OnUp = function(self, dt)
 end
 
 locomotion.OnDown = function(self, dt)
+    if (self.Target == nil or self.Target.Entity == nil) then
+        self:PathEnded()
+        return
+    end
     self.TimeDt = self.TimeDt + dt
     local targetUnit = self.Target.Entity
     local h = Lerp(self.Target:Z(), self.InitHigh, self.TimeDt / self.Duration * 0.5)

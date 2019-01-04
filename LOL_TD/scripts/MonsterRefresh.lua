@@ -49,6 +49,7 @@ local mDelayPushTimerDialog = nil
 local mSpawnEnable = false
 --当前波数
 local mCurWaveIndex = 1
+local mEndlessWaveIndex = 1
 local mMaxWaveIndex = 56
 local mDelay = {
     60, 10, 10, 10, 10, 10, 10, 10,
@@ -67,7 +68,7 @@ local mDuration = {
     40, 40, 40, 40, 40, 40, 40, 20,
     40, 40, 40, 40, 40, 40, 40, 20,
     40, 40, 40, 40, 40, 40, 40, 20,
-    40, 40, 40, 40, 40, 40, 40, 20
+    40, 40, 40, 40, 40, 40, 40, 5
 }
 local mRate = {
     0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 5,
@@ -210,6 +211,7 @@ function DelayPush()
                 DisplayTextToPlayer(Player(i), 0, 0, "|cFFFF0000Warning|r" .. " - 最终BOSS即将来袭，杀死至少一个BOSS即可解锁无尽关卡！")
             end
             DisplayTextToAll("BOSS结算奖励：所有玩家获得杀死BOSS数量x5000的金币。|r", Color.yellow)
+            TimeToStopBOSS()
             return
         end
     end
@@ -229,20 +231,40 @@ local mBossIds = {}
 
 --boss出现 弹出击杀倒计时计时器窗口
 function PushWave()
-    mMonsterId = #tostring(mCurWaveIndex) == 1 and "um0" .. mCurWaveIndex or "um" .. mCurWaveIndex
-    if (IsBOSS()) then
-        --Boss击杀倒计时
-        mBossIds[#mBossIds + 1] = #tostring(mCurWaveIndex) == 1 and "UD0" .. mCurWaveIndex or "UD" .. mCurWaveIndex
-        mBossIds[#mBossIds + 1] = #tostring(mCurWaveIndex) == 1 and "UC0" .. mCurWaveIndex or "UC" .. mCurWaveIndex
-        mBossIds[#mBossIds + 1] = #tostring(mCurWaveIndex) == 1 and "UB0" .. mCurWaveIndex or "UB" .. mCurWaveIndex
-        mBossIds[#mBossIds + 1] = #tostring(mCurWaveIndex) == 1 and "UA0" .. mCurWaveIndex or "UA" .. mCurWaveIndex
+    if (Game.GetMode() == GameMode.NORMAL) then
+        mMonsterId = #tostring(mCurWaveIndex) == 1 and "um0" .. mCurWaveIndex or "um" .. mCurWaveIndex
+        if (IsBOSS()) then
+            if (mCurWaveIndex ~= 56) then
+                --Boss击杀倒计时
+                mBossIds[#mBossIds + 1] = #tostring(mCurWaveIndex) == 1 and "UD0" .. mCurWaveIndex or "UD" .. mCurWaveIndex
+                mBossIds[#mBossIds + 1] = #tostring(mCurWaveIndex) == 1 and "UC0" .. mCurWaveIndex or "UC" .. mCurWaveIndex
+                mBossIds[#mBossIds + 1] = #tostring(mCurWaveIndex) == 1 and "UB0" .. mCurWaveIndex or "UB" .. mCurWaveIndex
+                mBossIds[#mBossIds + 1] = #tostring(mCurWaveIndex) == 1 and "UA0" .. mCurWaveIndex or "UA" .. mCurWaveIndex
+            else
+                mBossIds[#mBossIds + 1] = "UM56"
+            end
+        end
+    elseif (Game.GetMode() == GameMode.ENDLESS) then
+        mMonsterId = "End" .. mCurWaveIndex
     end
     mSpawnEnable = true
     --TimerDialogDisplay(mDelayPushTimerDialog, false)
 end
 
+function DelayEndLessPush()
+    TimerStart(mDelayPushTimer, 10, false, PushWave)
+    TimerDialogSetTitle(mDelayPushTimerDialog, "下一波即将到来")
+    TimerDialogDisplay(mDelayPushTimerDialog, true)
+end
+
+function Damage2Money(damage, base, money, count) --1000, 200, 1
+    if (damage >= base) then
+        return Damage2Money(damage, base * 2, money + (count - 1) * 100, count + 1)
+    end
+    return money
+end
+
 local fuliguai = {}
-local moneys = { { 10000, 840 }, { 20000, 1010 }, { 40000, 1180 }, { 80000, 1350 }, { 160000, 1520 }, { 320000, 1690 }, { 640000, 1860 }, { 1280000, 2000 } }
 function MoneyShow_showDialog()
     local monTimer = CreateTimer()
     local _timerMoney = CreateTimerDialog(monTimer)
@@ -251,14 +273,12 @@ function MoneyShow_showDialog()
     TimerStart(monTimer, 10, false, function()
         mMonsterId = "End0"
         for i = 0, 3 do
-            if
-            (GetPlayerController(Player(i)) == MAP_CONTROL_USER and
-            GetPlayerSlotState(Player(i)) == PLAYER_SLOT_STATE_PLAYING)
-            then
+            if (GetPlayerController(Player(i)) == MAP_CONTROL_USER and
+            GetPlayerSlotState(Player(i)) == PLAYER_SLOT_STATE_PLAYING) then
                 fuliguai[#fuliguai + 1] = Spawn(MonsterRefresh.ChuGuaiKous[i + 1], i + 1)
             end
         end
-        DisplayTextToAll("远古巨龙来啦！请玩家尽情输出，伤害越高，奖励越多！", "ffffcc00")
+        DisplayTextToAll("远古巨龙出现！对远古巨龙造成的伤害越高，奖励的金币就越多！", "ffffcc00")
 
         DestroyTimer(monTimer)
         DestroyTimerDialog(_timerMoney)
@@ -273,44 +293,58 @@ function MoneyShow_showDialog()
                 DisplayTextToPlayer(Player(i), 0, 0, "|cffffcc00本次挑战结束：|r")
             end
             for i = 0, 3 do
-                if
-                (GetPlayerController(Player(i)) == MAP_CONTROL_USER and
-                GetPlayerSlotState(Player(i)) == PLAYER_SLOT_STATE_PLAYING)
-                then
-                    local money = 0
-                    for j = #moneys, 1, -1 do
-                        if (fuliguai[i + 1].DamageSum ~= nil and fuliguai[i + 1].DamageSum >= moneys[j][1]) then
-                            money = moneys[j][2]
-                            break
-                        end
-                    end
+                if (GetPlayerController(Player(i)) == MAP_CONTROL_USER and
+                GetPlayerSlotState(Player(i)) == PLAYER_SLOT_STATE_PLAYING) then
+                    local money = Damage2Money(fuliguai[i + 1].DamageSum, 1000, 200, 1)
                     for j = 0, 3 do
-                        DisplayTextToPlayer(Player(j), 0, 0, "|cffffcc00" .. GetPlayerName(Player(j)) .. "|r对远古巨龙造成的伤害：|cFF00FF00" .. math.modf(fuliguai[i + 1].DamageSum) .. "|r 奖励金币数量：|cffffcc00" .. money .. "|r")
+                        DisplayTextToPlayer(Player(j), 0, 0, "|cffffcc00" .. GetPlayerName(Player(i)) .. "|r对远古巨龙造成的伤害：|cFF00FF00" .. math.modf(fuliguai[i + 1].DamageSum) .. "|r 奖励金币数量：|cffffcc00" .. money .. "|r")
                     end
                     SetPlayerState(Player(i), PLAYER_STATE_RESOURCE_GOLD, GetPlayerState(Player(i), PLAYER_STATE_RESOURCE_GOLD) + money)
                 end
             end
             for i = #fuliguai, 1, -1 do
-                AssetsManager.RemoveObject(fuliguai[i])
+                AssetsManager.DestroyObject(fuliguai[i])
                 table.remove(fuliguai, i)
+                Multiboard.ShowMonsterCount(-1)
             end
             DelayPush()
         end)
     end)
 end
 
+local mKillBossCount = 0
+function AddKillBossCount()
+    mKillBossCount = mKillBossCount + 1
+    return mKillBossCount
+end
+
+local BossStopTimer
+local _BossDialog
 function TimeToStopBOSS()
-    local BossStopTimer = CreateTimer()
-    local _BossDialog = CreateTimerDialog(BossStopTimer)
+    BossStopTimer = CreateTimer()
+    _BossDialog = CreateTimerDialog(BossStopTimer)
     TimerDialogSetTitle(_BossDialog, "剩余时间")
     TimerDialogDisplay(_BossDialog, true)
-    TimerStart(BossStopTimer, 480, false, function()
-
-    end)
+    TimerStart(BossStopTimer, 480, false, EndLessComing)
 end
 
 function EndLessComing()
+    DestroyTimer(BossStopTimer)
+    DestroyTimerDialog(_BossDialog)
+    local money = mKillBossCount * 5000
+    DisplayTextToAll("你们一共杀死了" .. mKillBossCount .. "只男爵，每个玩家奖励" .. money .. "金币", Color.yellow)
+    if (mKillBossCount <= 0) then
+        Game.Win()
+        return
+    end 
     DisplayTextToAll("恭喜你们开启了无尽关卡！无尽关卡即将来袭..", Color.yellow)
+    for i = #GetEnemyTeamUnits(), 1, -1 do
+        AssetsManager.DestroyObject(GetEnemyTeamUnits()[i])
+    end
+    mCurWaveIndex = 1
+    Game.SetMode(GameMode.ENDLESS)
+    Multiboard.UpdateEndLessInfo()
+    DelayEndLessPush()
 end
 
 function WavesClear()
@@ -323,13 +357,33 @@ function WavesClear()
     if (mCurWaveIndex > mMaxWaveIndex) then
         return
     end
-    if (MonsterNumOut()) then
-        Game.Fail()
-    else
-        if (0 == math.floor(mCurWaveIndex % 9 * 10)) then
-            MoneyShow_showDialog()
+    if (Game.GetMode() == GameMode.NORMAL) then
+        if (MonsterNumOut()) then
+            Game.Fail()
         else
-            DelayPush()
+            if (0 == (mCurWaveIndex - 1) % 8) then
+                MoneyShow_showDialog()
+            else
+                DelayPush()
+            end
+        end
+    elseif (Game.GetMode() == GameMode.ENDLESS) then
+        if (mCurWaveIndex > 5) then
+            mCurWaveIndex = 1
+            mEndlessWaveIndex = mEndlessWaveIndex + 1
+            PlayerInfo:IteratePlayer(
+            function(player)
+                DisplayTextToPlayer(player.Entity, 0, 0, "|cffffcc00成功守住了一轮无尽，奖励3点积分|r")
+                PlayerInfo.AddScore(player.Entity, 3)
+            end)
+        end
+        PlayerInfo:IteratePlayer(
+        function(player)
+            PlayerInfo.AddScore(player.Entity, 1)
+        end)
+        if (false) then
+        else
+            DelayEndLessPush()
         end
     end
 end
@@ -351,15 +405,20 @@ end
 
 function Spawn(spawnPoint, index)
     local unit = AssetsManager.LoadUnitAtLoc(Player(index + 7), mMonsterId, spawnPoint)
-    unit.Attribute:add("护甲", unit.Attribute:get("护甲") * (0.1 * Game.GetLevel() - 0.1))
-    unit.Attribute:add("生命上限", unit.Attribute:get("生命上限") * (0.3 * Game.GetLevel() - 0.3))
-    unit.Attribute:add("生命", unit.Attribute:get("生命上限"))
-    unit.Attribute:add("魔法值", unit.Attribute:get("魔法上限"))
     unit.PrePoint = spawnPoint
     EXSetUnitCollisionType(true, unit.Entity, 1)
     RemoveGuardPosition(unit.Entity)
     IssuePointOrderLoc(unit.Entity, "move", MonsterRefresh.RectPoints[index])
-    Multiboard.ShowMonsterCount(1)
+    if (Game.GetMode() == GameMode.NORMAL) then
+        unit.Attribute:add("护甲", unit.Attribute:get("护甲") * (0.1 * Game.GetLevel() - 0.1))
+        unit.Attribute:add("生命上限", unit.Attribute:get("生命上限") * (0.3 * Game.GetLevel() - 0.3))
+        Multiboard.ShowMonsterCount(1, index)
+    elseif (Game.GetMode() == GameMode.ENDLESS) then
+        unit.Attribute:add("生命上限", unit.Attribute:get("生命上限") * (0.15 * Game.GetLevel() - 0.15))
+        PlayerInfo:AddMonsterCount(Player(index - 1))
+    end
+    unit.Attribute:add("生命", unit.Attribute:get("生命上限"))
+    unit.Attribute:add("魔法值", unit.Attribute:get("魔法上限"))
     return unit
 end
 
@@ -373,8 +432,10 @@ function MonsterRefresh.OnGameUpdate(dt)
             if (mTimeDt3 <= 0) then
                 mTimeDt3 = mRate[mCurWaveIndex]
                 if (IsBOSS()) then
-                    mMonsterId = mBossIds[#mBossIds]
-                    table.remove(mBossIds, #mBossIds)
+                    if (#mBossIds > 0) then
+                        mMonsterId = mBossIds[#mBossIds]
+                        table.remove(mBossIds, #mBossIds)
+                    end
                 end
                 for i = 0, 3 do
                     if

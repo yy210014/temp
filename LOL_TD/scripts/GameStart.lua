@@ -226,7 +226,9 @@ function GameStart.AnyUnitDeath(killUnit, dieUnit)
             end
             for i = 1, #units do
                 if IsUnitType(units[i].Entity, UNIT_TYPE_HERO) then
-                    AddHeroXP(units[i].Entity, exp, false)
+                    if (GetUnitLevel(units[i].Entity) < 18 or units[i].CombEnableCount >= 3) then
+                        AddHeroXP(units[i].Entity, exp, false)
+                    end
                 end
             end
         end
@@ -272,7 +274,11 @@ function GameStart.AnyUnitDeath(killUnit, dieUnit)
                 AllWavesDie()
             else
                 if (dieUnit.Id == GetId("UM56")) then
-                    EndLessComing()
+                    if (AddKillBossCount() >= PlayerInfo:Count()) then
+                        AssetsManager.RemoveObject(dieUnit)
+                        EndLessComing()
+                        return
+                    end
                 end
             end
         end
@@ -320,13 +326,13 @@ function GameStart.AnyUnitConstructFinish()
         --开启AI
         IssueImmediateOrder(unit.Entity, "manashieldon")
 
-        unit.Attribute:add("魔法恢复", 100)
+      --[[     unit.Attribute:add("魔法恢复", 100)
         unit.Attribute:add("攻击速度", 2)
         unit.Attribute:add("暴击", 0.5)
         unit.Attribute:add("冷却缩减上限", 0.5)
         unit.Attribute:add("冷却缩减", 0.5)
-        unit.Attribute:add("物理攻击", 300)
-        unit.Attribute:add("法术攻击", 10000)
+        unit.Attribute:add("物理攻击", 3000000)
+        unit.Attribute:add("法术攻击", 100000)]]
         --辅助英雄写死
         if (unit.Id == GetId("UH35")) then
             unit:LearnedSkill(GetId("AH80"))
@@ -379,6 +385,13 @@ function GameStart.AnyUnitOrderBuild()
         local item = UnitItemInSlot(orderUnit, orderID - 852008)
         if (IsTerrainPathable(GetLocationX(orderPos), GetLocationY(orderPos), PATHING_TYPE_BUILDABILITY)) then
             DisplayTimedTextToPlayer(GetOwningPlayer(orderUnit), 0, 0, 5, "|cffEE0000该地表不能进行建造。|r")
+            IssueImmediateOrder(orderUnit, "stop")
+            IssuePointOrderLoc(orderUnit, "move", GetUnitLoc(orderUnit))
+        elseif
+        (GetWidgetLife(item) + GetPlayerState(GetOwningPlayer(orderUnit), PLAYER_STATE_RESOURCE_FOOD_USED) >
+        (GetPlayerState(GetOwningPlayer(orderUnit), PLAYER_STATE_FOOD_CAP_CEILING)))
+        then
+            DisplayTimedTextToPlayer(GetOwningPlayer(orderUnit), 0, 0, 5, "|cffEE0000人口已满。|r")
             IssueImmediateOrder(orderUnit, "stop")
             IssuePointOrderLoc(orderUnit, "move", GetUnitLoc(orderUnit))
         end
@@ -617,9 +630,9 @@ function GameStart.AnyPlayerChat()
         return
     end
     if (str == "kill") then
-        -- for i = #GetEnemyTeamUnits(), 1, -1 do
-        --      KillUnit(GetEnemyTeamUnits()[i].Entity)
-        --  end
+        for i = #GetEnemyTeamUnits(), 1, -1 do
+            AssetsManager.DestroyObject(GetEnemyTeamUnits()[i])
+        end
         return
     end
 

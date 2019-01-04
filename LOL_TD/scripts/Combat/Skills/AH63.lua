@@ -91,6 +91,10 @@ end
 
 skill.OnPathEnd2 = function(dummy)
     --伤害
+    if (dummy.Target == nil or dummy.Target.Entity == nil) then
+        AssetsManager.RemoveObject(dummy)
+        return
+    end
     local owner = dummy.Owner
     local self = dummy.Skill
     local ap = owner.Attribute:get("法术攻击")

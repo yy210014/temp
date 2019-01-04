@@ -134,7 +134,7 @@ function main()
     TriggerAddAction(
     trig,
     function()
-        DisplayTextToAll(GetPlayerName(GetTriggerPlayer()) .. "离开了游戏，系统把他所有的装备都仍在了地上。", Color.red)
+        --DisplayTextToAll(GetPlayerName(GetTriggerPlayer()) .. "离开了游戏，系统把他所有的装备都仍在了地上。", Color.red)
         AssetsManager.IteratePlayerUnits(GetPlayerId(GetTriggerPlayer()), function(u)
             u:IterateItems(
             function(item)

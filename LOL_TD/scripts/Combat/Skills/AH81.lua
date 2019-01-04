@@ -47,10 +47,11 @@ skill.OnPathUpdate = function(dummy)
             if (IsInTable(unit, dummy.Skill.DamageList) == -1) then
                 local owner = dummy.Owner
                 local self = dummy.Skill
-
-                local loc = unit:AddLocomotion("击飞")
-                if (loc ~= nil) then
-                    loc:Start(unit, 0.6, 300, nil)
+                if (unit.Id ~= GetId("End0")) then
+                    local loc = unit:AddLocomotion("击飞")
+                    if (loc ~= nil) then
+                        loc:Start(unit, 0.6, 300, nil)
+                    end
                 end
                 --伤害
                 local ap = owner.Attribute:get("法术攻击")

@@ -1,5 +1,5 @@
 local skill = Skills["三重爪击"]
-local mDamages = {1, 1.4, 1.8, 2.2, 2.6, 3}
+local mDamages = { 1, 1.4, 1.8, 2.2, 2.6, 3 }
 skill.Count = 1
 
 function skill:OnCast()
@@ -17,15 +17,17 @@ function skill:OnAttack(attactUnit, defUnit)
         local ad = attactUnit.Attribute:get("物理攻击") + attactUnit.Attribute:get("物理攻击加成")
         local damage = ad * mDamages[self:GetCurLevel()]
         DestroyEffect(
-            AddSpecialEffectTarget(
-                "Abilities\\Spells\\Other\\Stampede\\StampedeMissileDeath.mdl",
-                defUnit.Entity,
-                "chest"
-            )
+        AddSpecialEffectTarget(
+        "Abilities\\Spells\\Other\\Stampede\\StampedeMissileDeath.mdl",
+        defUnit.Entity,
+        "chest"
         )
-        local loc = defUnit:AddLocomotion("击飞")
-        if (loc ~= nil) then
-            loc:Start(defUnit, 0.4, 150, nil)
+        )
+        if (defUnit.Id ~= GetId("End0")) then
+            local loc = defUnit:AddLocomotion("击飞")
+            if (loc ~= nil) then
+                loc:Start(defUnit, 0.4, 150, nil)
+            end
         end
         EXUnitDamageTarget(attactUnit, defUnit, damage, EXDamageType.Physics)
     else

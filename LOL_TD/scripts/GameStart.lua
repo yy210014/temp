@@ -327,13 +327,13 @@ function GameStart.AnyUnitConstructFinish()
         --开启AI
         IssueImmediateOrder(unit.Entity, "manashieldon")
 
-      --[[     unit.Attribute:add("魔法恢复", 100)
+          unit.Attribute:add("魔法恢复", 100)
         unit.Attribute:add("攻击速度", 2)
         unit.Attribute:add("暴击", 0.5)
         unit.Attribute:add("冷却缩减上限", 0.5)
         unit.Attribute:add("冷却缩减", 0.5)
         unit.Attribute:add("物理攻击", 3000000)
-        unit.Attribute:add("法术攻击", 100000)]]
+        unit.Attribute:add("法术攻击", 100000)
         --辅助英雄写死
         if (unit.Id == GetId("UH35")) then
             unit:LearnedSkill(GetId("AH80"))

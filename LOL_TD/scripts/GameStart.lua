@@ -316,6 +316,7 @@ function GameStart.AnyUnitConstructFinish()
         --  UnitAddAbility(unit.Entity, GetId("AHZ2"))
         --  UnitMakeAbilityPermanent(unit.Entity, true, GetId("AHZ2"))
     end
+    EXSetUnitCollisionType(true, unit.Entity, 1)
     if (IsUnitType(unit.Entity, UNIT_TYPE_HERO)) then
         --天赋
         unit:AddTianfu()

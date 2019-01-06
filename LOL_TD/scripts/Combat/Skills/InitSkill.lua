@@ -122,3 +122,5 @@ require "scripts.Combat.Skills.AU10"
 --require "scripts.Combat.Skills.AU12"
 --变强
 require "scripts.Combat.Skills.A008"
+--闪现
+require "scripts.Combat.Skills.A009"

@@ -118,7 +118,7 @@ function comb:OnEnable()
 end
 
 function comb:OnDisable()
-    self.Owner:RemoveSkill("AH74")
+    self.Owner:RemoveSkill(GetId("AH74"))
 end
 
 comb = Combs["蛮易信"]
@@ -190,7 +190,7 @@ function comb:OnEnable()
 end
 
 function comb:OnDisable()
-    self.Owner:RemoveSkill("AH76")
+    self.Owner:RemoveSkill(GetId("AH76"))
 end
 
 comb = Combs["冰雪之冠-丽桑卓"]
@@ -214,7 +214,7 @@ function comb:OnEnable()
 end
 
 function comb:OnDisable()
-    self.Owner:RemoveSkill("AH75")
+    self.Owner:RemoveSkill(GetId("AH75"))
 end
 
 comb = Combs["炮火联盟-小炮"]

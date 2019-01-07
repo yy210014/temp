@@ -46,6 +46,9 @@ function Multiboard.UpdateEndLessInfo()
     MultiboardSetItemValue(MultiboardGetItem(mMultiboard, PlayerInfo:Count() + 1, 0), "|cffffcc00无尽模式|r")
     MultiboardSetItemValue(MultiboardGetItem(mMultiboard, PlayerInfo:Count() + 1, 1), "")
     MultiboardSetItemValue(MultiboardGetItem(mMultiboard, PlayerInfo:Count() + 1, 2), "")
+    for i = 1, PlayerInfo:Count() do
+        MultiboardSetItemValue(MultiboardGetItem(mMultiboard, i, 1), 0)
+    end
 end
 
 function Multiboard.ShowScore(i, score)
@@ -57,9 +60,10 @@ function Multiboard.ShowKillCount(i, killCount)
 end
 
 function Multiboard.ShowLevel(level)
-    MultiboardSetItemValue(MultiboardGetItem(mMultiboard, PlayerInfo:Count() + 1, 1), "|cffffcc00难度" .. level .. "|r")
     if (Game.GetLevel() > 2) then
-        MultiboardSetItemValue(MultiboardGetItem(mMultiboard, PlayerInfo:Count() + 1, 2), "|cffffcc00无尽|r")
+        MultiboardSetItemValue(MultiboardGetItem(mMultiboard, PlayerInfo:Count() + 1, 2), "|cffffcc00难度" .. level .. "|r/" .. "|cffffcc00无尽|r")
+    else
+        MultiboardSetItemValue(MultiboardGetItem(mMultiboard, PlayerInfo:Count() + 1, 2), "|cffffcc00难度" .. level .. "|r")
     end
 end
 
@@ -80,7 +84,7 @@ function Multiboard.ShowMonsterCount(count, i)
         colorSTR .. mMultiboardCurNum .. "|r|cffFFFFFF/" .. mMultiboardMaxNum .. "|r"
         )
     elseif (Game.GetMode() == GameMode.ENDLESS) then
-        MultiboardSetItemValue(MultiboardGetItem(mMultiboard, i, 2), count.. "|cffFFFFFF/30|r")
+        MultiboardSetItemValue(MultiboardGetItem(mMultiboard, i, 2), count .. "|cffFFFFFF/30|r")
     end
 
 end

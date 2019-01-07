@@ -26,14 +26,18 @@ skill.TrigAction = function()
             ClearSelection()
             SelectUnit(mLastSelectUnit.SelectUnit.Entity, true)
         end
-         ShowUnit(mLastSelectUnit.Entity, false)
-         DisableTrigger(mLastSelectUnit.EscTrigger)
+        ShowUnit(mLastSelectUnit.Entity, false)
+        DisableTrigger(mLastSelectUnit.EscTrigger)
     end
 end
 
 function Tianfu_Condition(self, num)
     local p = self.Owner.Player
     if GetPlayerState(p, PLAYER_STATE_RESOURCE_LUMBER) >= num then
+        if (self.Owner.SelectUnit.UseNum == nil) then
+            self.Owner.SelectUnit.UseNum = 0
+        end
+        self.Owner.SelectUnit.UseNum = self.Owner.SelectUnit.UseNum + 1
         SetPlayerState(p, PLAYER_STATE_RESOURCE_LUMBER, GetPlayerState(p, PLAYER_STATE_RESOURCE_LUMBER) - num)
         DestroyEffect(AddSpecialEffectTarget(mEffectArt, self.Owner.SelectUnit.Entity, "origin"))
         DisplayTextToPlayer(p, 0, 0, "|c" .. Color.yellow .. "升级天赋成功" .. "|r")
@@ -48,7 +52,7 @@ function Tianfu_Action(self)
     local p = self.Owner.Player
     if (GetUnitAbilityLevel(self.Owner.Entity, self.Id) == 5) then
         local skillId = ID2Str(self.Id)
-        self.Owner:RemoveSkill(skillId)
+        self.Owner:RemoveSkill(self.Id)
         self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
     else
         SetUnitAbilityLevel(self.Owner.Entity, self.Id, GetUnitAbilityLevel(self.Owner.Entity, self.Id) + 1)
@@ -61,7 +65,7 @@ function Tianfu_Action2(self, num)
     if GetPlayerState(p, PLAYER_STATE_RESOURCE_LUMBER) >= num then
         SetPlayerState(p, PLAYER_STATE_RESOURCE_LUMBER, GetPlayerState(p, PLAYER_STATE_RESOURCE_LUMBER) - num)
         local skillId = ID2Str(self.Id)
-        self.Owner:RemoveSkill(skillId)
+        self.Owner:RemoveSkill(self.Id)
         self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         self.Owner.SelectUnit:AddSkill(string.gsub(skillId, "T", "X"))
         DestroyEffect(AddSpecialEffectTarget(mEffectArt, self.Owner.SelectUnit.Entity, "origin"))
@@ -86,7 +90,7 @@ function skill:OnCast()
         selectUnit.Attribute:add("物理攻击加成", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -105,7 +109,7 @@ function skill:OnCast()
         selectUnit.Attribute:add("物理攻击加成", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -125,7 +129,7 @@ function skill:OnCast()
         selectUnit.Attribute:add("物理攻击加成", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -144,7 +148,7 @@ function skill:OnCast()
         selectUnit.Attribute:add("物理攻击加成", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -163,7 +167,7 @@ function skill:OnCast()
         selectUnit.Attribute:add("法术攻击", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -182,7 +186,7 @@ function skill:OnCast()
         selectUnit.Attribute:add("法术攻击", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -201,7 +205,7 @@ function skill:OnCast()
         selectUnit.Attribute:add("法术攻击", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -220,7 +224,7 @@ function skill:OnCast()
         selectUnit.Attribute:add("法术攻击", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -239,7 +243,7 @@ function skill:OnCast()
         selectUnit.Attribute:add("攻击速度", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -258,7 +262,7 @@ function skill:OnCast()
         selectUnit.Attribute:add("攻击速度", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -277,7 +281,7 @@ function skill:OnCast()
         selectUnit.Attribute:add("攻击速度", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -296,7 +300,7 @@ function skill:OnCast()
         selectUnit.Attribute:add("攻击速度", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -315,7 +319,7 @@ function skill:OnCast()
         selectUnit.Attribute:add("魔法上限", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -334,7 +338,7 @@ function skill:OnCast()
         selectUnit.Attribute:add("魔法上限", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -353,7 +357,7 @@ function skill:OnCast()
         selectUnit.Attribute:add("魔法上限", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -372,7 +376,7 @@ function skill:OnCast()
         selectUnit.Attribute:add("魔法上限", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -391,7 +395,7 @@ function skill:OnCast()
         selectUnit.Attribute:add("魔法恢复", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -410,7 +414,7 @@ function skill:OnCast()
         selectUnit.Attribute:add("魔法恢复", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -429,7 +433,7 @@ function skill:OnCast()
         selectUnit.Attribute:add("魔法恢复", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -448,7 +452,7 @@ function skill:OnCast()
         selectUnit.Attribute:add("魔法恢复", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -467,7 +471,7 @@ function skill:OnCast()
         selectUnit.Attribute:add("攻击范围", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -486,7 +490,7 @@ function skill:OnCast()
         selectUnit.Attribute:add("攻击范围", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -505,7 +509,7 @@ function skill:OnCast()
         selectUnit.Attribute:add("攻击范围", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -524,7 +528,7 @@ function skill:OnCast()
         selectUnit.Attribute:add("攻击范围", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -565,7 +569,7 @@ function skill:OnCast()
         selectUnit.Attribute:add("法术攻击", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -586,7 +590,7 @@ function skill:OnCast()
         selectUnit.Attribute:add("法术攻击", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -607,7 +611,7 @@ function skill:OnCast()
         selectUnit.Attribute:add("法术攻击", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -628,7 +632,7 @@ function skill:OnCast()
         selectUnit.Attribute:add("法术攻击", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -647,7 +651,7 @@ function skill:OnCast()
         selectUnit.Attribute:add("物理穿透", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -666,7 +670,7 @@ function skill:OnCast()
         selectUnit.Attribute:add("物理穿透", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -685,7 +689,7 @@ function skill:OnCast()
         selectUnit.Attribute:add("物理穿透", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -704,7 +708,7 @@ function skill:OnCast()
         selectUnit.Attribute:add("物理穿透", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -723,7 +727,7 @@ function skill:OnCast()
         selectUnit.Attribute:add("法术穿透", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -742,7 +746,7 @@ function skill:OnCast()
         selectUnit.Attribute:add("法术穿透", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -761,7 +765,7 @@ function skill:OnCast()
         selectUnit.Attribute:add("法术穿透", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -780,7 +784,7 @@ function skill:OnCast()
         selectUnit.Attribute:add("法术穿透", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -799,7 +803,7 @@ function skill:OnCast()
         selectUnit.Attribute:add("暴击伤害", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -818,7 +822,7 @@ function skill:OnCast()
         selectUnit.Attribute:add("暴击伤害", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -837,7 +841,7 @@ function skill:OnCast()
         selectUnit.Attribute:add("暴击伤害", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -856,7 +860,7 @@ function skill:OnCast()
         selectUnit.Attribute:add("暴击伤害", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -877,7 +881,7 @@ function skill:OnCast()
         selectUnit.Attribute:add("冷却缩减上限", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -898,7 +902,7 @@ function skill:OnCast()
         selectUnit.Attribute:add("冷却缩减上限", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -919,7 +923,7 @@ function skill:OnCast()
         selectUnit.Attribute:add("冷却缩减上限", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -940,7 +944,7 @@ function skill:OnCast()
         selectUnit.Attribute:add("冷却缩减上限", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -976,7 +980,7 @@ function skill:OnCast()
         end
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -1001,7 +1005,7 @@ function skill:OnCast()
         end
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -1026,7 +1030,7 @@ function skill:OnCast()
         end
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -1051,7 +1055,7 @@ function skill:OnCast()
         end
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -1076,7 +1080,7 @@ function skill:OnCast()
         end
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -1101,7 +1105,7 @@ function skill:OnCast()
         end
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -1126,7 +1130,7 @@ function skill:OnCast()
         end
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -1151,7 +1155,7 @@ function skill:OnCast()
         end
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -1181,7 +1185,7 @@ function skill:OnCast()
         selectUnit.Attribute:add("法术穿透", -self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -1202,7 +1206,7 @@ function skill:OnCast()
         selectUnit.Attribute:add("法术穿透", -self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -1223,7 +1227,7 @@ function skill:OnCast()
         selectUnit.Attribute:add("法术穿透", -self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -1244,7 +1248,7 @@ function skill:OnCast()
         selectUnit.Attribute:add("法术穿透", -self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
-            self.Owner:RemoveSkill(skillId)
+            self.Owner:RemoveSkill(self.Id)
             self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
         end
     end
@@ -1307,12 +1311,12 @@ function skill:OnAttack(attactUnit, defUnit)
             DestroyEffect(AddSpecialEffect(self.mArt1, defUnit:X(), defUnit:Y()))
             DestroyEffect(AddSpecialEffect(self.mArt2, defUnit:X(), defUnit:Y()))
             AssetsManager.OverlapCircle(
-                defUnit:X(),
-                defUnit:Y(),
-                300,
-                function(unit)
-                    EXUnitDamageTarget(attactUnit, unit, damage, EXDamageType.Magic)
-                end
+            defUnit:X(),
+            defUnit:Y(),
+            300,
+            function(unit)
+                EXUnitDamageTarget(attactUnit, unit, damage, EXDamageType.Magic)
+            end
             )
         else
             self.Count = self.Count + 1

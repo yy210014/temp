@@ -17,13 +17,14 @@ function PlayerInfo:New(entity)
     newPlayer.KillCount = 0
     newPlayer.MonsterCount = 0
     newPlayer.Score = 0
+    newPlayer.IsWatch = false
     mPlayers[newPlayer.Id + 1] = newPlayer
     mPlayers.Count = mPlayers.Count + 1
     return newPlayer
 end
 
-function PlayerInfo:Kill(entity)
-    local index = GetPlayerId(entity) + 1
+function PlayerInfo:Kill(killUnit, dieUnit)
+    local index = GetPlayerId(killUnit.Player) + 1
     local player = mPlayers[index]
     if (Game.GetMode() == GameMode.NORMAL) then
         player.KillCount = player.KillCount + 1
@@ -38,8 +39,10 @@ function PlayerInfo:Kill(entity)
         Multiboard.ShowKillCount(index, player.KillCount)
         Multiboard.ShowMonsterCount(-1)
     elseif (Game.GetMode() == GameMode.ENDLESS) then
+        index = GetPlayerId(dieUnit.Player) - 7
+        player = mPlayers[index]
         player.MonsterCount = player.MonsterCount - 1
-        Multiboard.ShowMonsterCount(player.MonsterCount, GetPlayerId(entity) + 1)
+        Multiboard.ShowMonsterCount(player.MonsterCount, index)
     end
 end
 

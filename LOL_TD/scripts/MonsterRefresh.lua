@@ -275,7 +275,7 @@ function MoneyShow_showDialog()
         for i = 0, 3 do
             if (GetPlayerController(Player(i)) == MAP_CONTROL_USER and
             GetPlayerSlotState(Player(i)) == PLAYER_SLOT_STATE_PLAYING) then
-                fuliguai[#fuliguai + 1] = Spawn(MonsterRefresh.ChuGuaiKous[i + 1], i + 1)
+                fuliguai[i + 1] = Spawn(MonsterRefresh.ChuGuaiKous[i + 1], i + 1)
             end
         end
         DisplayTextToAll("远古巨龙出现！对远古巨龙造成的伤害越高，奖励的金币就越多！", "ffffcc00")
@@ -296,16 +296,13 @@ function MoneyShow_showDialog()
                 if (GetPlayerController(Player(i)) == MAP_CONTROL_USER and
                 GetPlayerSlotState(Player(i)) == PLAYER_SLOT_STATE_PLAYING) then
                     local money = Damage2Money(fuliguai[i + 1].DamageSum, 1000, 200, 1)
+                    AssetsManager.DestroyObject(fuliguai[i + 1])
+                    Multiboard.ShowMonsterCount(-1)
                     for j = 0, 3 do
                         DisplayTextToPlayer(Player(j), 0, 0, "|cffffcc00" .. GetPlayerName(Player(i)) .. "|r对远古巨龙造成的伤害：|cFF00FF00" .. math.modf(fuliguai[i + 1].DamageSum) .. "|r 奖励金币数量：|cffffcc00" .. money .. "|r")
                     end
                     SetPlayerState(Player(i), PLAYER_STATE_RESOURCE_GOLD, GetPlayerState(Player(i), PLAYER_STATE_RESOURCE_GOLD) + money)
                 end
-            end
-            for i = #fuliguai, 1, -1 do
-                AssetsManager.DestroyObject(fuliguai[i])
-                table.remove(fuliguai, i)
-                Multiboard.ShowMonsterCount(-1)
             end
             DelayPush()
         end)
@@ -336,7 +333,7 @@ function EndLessComing()
     if (mKillBossCount <= 0) then
         Game.Win()
         return
-    end 
+    end
     DisplayTextToAll("恭喜你们开启了无尽关卡！无尽关卡即将来袭..", Color.yellow)
     for i = #GetEnemyTeamUnits(), 1, -1 do
         AssetsManager.DestroyObject(GetEnemyTeamUnits()[i])
@@ -344,6 +341,16 @@ function EndLessComing()
     mCurWaveIndex = 1
     Game.SetMode(GameMode.ENDLESS)
     Multiboard.UpdateEndLessInfo()
+    for i = 0, 3 do
+        if
+        (GetPlayerController(Player(i)) == MAP_CONTROL_USER and
+        GetPlayerSlotState(Player(i)) == PLAYER_SLOT_STATE_PLAYING)
+        then
+            if (Worke[i] ~= nil) then
+                Worke[i]:RemoveSkill(GetId("lqfl"))
+            end
+        end
+    end
     DelayEndLessPush()
 end
 
@@ -368,20 +375,45 @@ function WavesClear()
             end
         end
     elseif (Game.GetMode() == GameMode.ENDLESS) then
+        PlayerInfo:IteratePlayer(
+        function(player)
+            if (player.MonsterCount > 30) then
+                if (player.IsWatch == false) then
+                    player.IsWatch = true
+                    DisplayTextToAll("|cffffcc00玩家:|r" .. GetPlayerName(player.Entity) .. "|cffffcc00的怪物数量超出限制，切换为观看模式|r。", Color.white)
+                    for i = #GetPlayerTeamUnits(player.Id), 1, -1 do
+                        AssetsManager.DestroyObject(GetPlayerTeamUnits(player.Id)[i])
+                    end
+                    for i = #GetEnemyTeamUnits(), 1, -1 do
+                        if (GetPlayerId(GetEnemyTeamUnits()[i].Player) - 8 == player.Id) then
+                            AssetsManager.DestroyObject(GetEnemyTeamUnits()[i])
+                        end
+                    end
+                end
+            else
+                PlayerInfo.AddScore(player.Entity, 1)
+            end
+        end)
         if (mCurWaveIndex > 5) then
             mCurWaveIndex = 1
             mEndlessWaveIndex = mEndlessWaveIndex + 1
             PlayerInfo:IteratePlayer(
             function(player)
-                DisplayTextToPlayer(player.Entity, 0, 0, "|cffffcc00成功守住了一轮无尽，奖励3点积分|r")
-                PlayerInfo.AddScore(player.Entity, 3)
+                if (player.IsWatch == false) then
+                    DisplayTextToPlayer(player.Entity, 0, 0, "|cffffcc00成功守住了一轮无尽，奖励3点积分|r")
+                    PlayerInfo.AddScore(player.Entity, 3)
+                end
             end)
         end
+        local fail = true
         PlayerInfo:IteratePlayer(
         function(player)
-            PlayerInfo.AddScore(player.Entity, 1)
+            if (player.IsWatch == false) then
+                fail = false
+            end
         end)
-        if (false) then
+        if (fail) then
+            Game.Fail()
         else
             DelayEndLessPush()
         end
@@ -437,14 +469,12 @@ function MonsterRefresh.OnGameUpdate(dt)
                         table.remove(mBossIds, #mBossIds)
                     end
                 end
-                for i = 0, 3 do
-                    if
-                    (GetPlayerController(Player(i)) == MAP_CONTROL_USER and
-                    GetPlayerSlotState(Player(i)) == PLAYER_SLOT_STATE_PLAYING)
-                    then
-                        Spawn(MonsterRefresh.ChuGuaiKous[i + 1], i + 1)
+                PlayerInfo:IteratePlayer(
+                function(player)
+                    if (player.IsWatch == false) then
+                        Spawn(MonsterRefresh.ChuGuaiKous[player.Id + 1], player.Id + 1)
                     end
-                end
+                end)
                 return
             end
         else

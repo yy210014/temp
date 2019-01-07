@@ -42,6 +42,13 @@ function GameStart.AnyDummyDamaged(attactUnit, defUnit)
         EXUnitDamageTarget(spellUnit, defUnit, damage, EXDamageType.Magic)
     end
 
+    if GetUnitAbilityLevel(attactUnit.Entity, GetId("AQ05")) > 0 then
+        local spellUnit = attactUnit.Owner
+        defUnit:AddBuff("狂躁律动")
+        local ap = spellUnit.Attribute:get("法术攻击")
+        EXUnitDamageTarget(spellUnit, defUnit, 100 + ap, EXDamageType.Magic)
+    end
+
     if GetUnitTypeId(attactUnit.Entity) == GetId("uq05") then
         mDamages1 = { 80, 120, 180, 240, 300, 360 }
         mDamages2 = { 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 }
@@ -209,7 +216,7 @@ local mUnitDeathDropCount = { 0, 0, 0, 0 }
 function GameStart.AnyUnitDeath(killUnit, dieUnit)
     if (dieUnit.IsDying == false) then
         dieUnit.IsDying = true
-        PlayerInfo:Kill(killUnit.Player)
+        PlayerInfo:Kill(killUnit, dieUnit)
     end
     --凶手单位是玩家单位
     if
@@ -327,13 +334,13 @@ function GameStart.AnyUnitConstructFinish()
         --开启AI
         IssueImmediateOrder(unit.Entity, "manashieldon")
 
-          unit.Attribute:add("魔法恢复", 100)
+     --[[       unit.Attribute:add("魔法恢复", 100)
         unit.Attribute:add("攻击速度", 2)
         unit.Attribute:add("暴击", 0.5)
         unit.Attribute:add("冷却缩减上限", 0.5)
         unit.Attribute:add("冷却缩减", 0.5)
-        unit.Attribute:add("物理攻击", 3000000)
-        unit.Attribute:add("法术攻击", 100000)
+        unit.Attribute:add("物理攻击", 300000)
+        unit.Attribute:add("法术攻击", 100000)]]
         --辅助英雄写死
         if (unit.Id == GetId("UH35")) then
             unit:LearnedSkill(GetId("AH80"))
@@ -354,6 +361,7 @@ function GameStart.AnyUnitConstructFinish()
     end
 
     unit:LearnedSkill(GetId("AU10")) --出售
+    unit:AddSkill("A009") --闪现
 end
 
 --任意单位被出售

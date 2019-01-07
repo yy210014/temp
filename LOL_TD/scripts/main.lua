@@ -143,6 +143,7 @@ function main()
             )
             AssetsManager.DestroyObject(u)
         end)
+        PlayerInfo:Player(GetPlayerId(GetTriggerPlayer())).IsWatch = true
     end
     )
     trig = nil

@@ -25,6 +25,10 @@ function skill:OnSell()
     PLAYER_STATE_RESOURCE_GOLD,
     GetPlayerState(spellUnit.Player, PLAYER_STATE_RESOURCE_GOLD) + sellGold
     )
+    if (spellUnit.UseNum ~= nil) then
+        local num = math.floor(spellUnit.UseNum * 0.5)
+        SetPlayerState(spellUnit.Player, PLAYER_STATE_RESOURCE_LUMBER, GetPlayerState(spellUnit.Player, PLAYER_STATE_RESOURCE_LUMBER) + num)
+    end
     CreateGoldText(sellGold, spellUnit.Entity)
 
     spellUnit:IterateItems(

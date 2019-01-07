@@ -54,10 +54,10 @@ function skill:OnCast()
     owner:AddSkill(id)
     self.Count = self.Count + 1
     if (self.Count >= 2) then
-        owner:RemoveSkill("AT04")
+        owner:RemoveSkill(GetId("AT04"))
     else
         if (GetUnitLevel(SelectUnit.Entity) < 6) then
-            owner:RemoveSkill("AT04")
+            owner:RemoveSkill(GetId("AT04"))
             owner:AddSkill("AX04")
         end
     end

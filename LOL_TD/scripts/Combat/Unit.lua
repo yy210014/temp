@@ -162,7 +162,7 @@ function Unit:RefreshComb()
                         heros[i].CombEnableCount = heros[i].CombEnableCount + 1
                         if (heros[i].tianfu ~= nil) then
                             if (heros[i].CombEnableCount >= 2 and heros[i].tianfu:GetSkill(GetId("AX06")) ~= nil) then
-                                heros[i].tianfu:RemoveSkill("AX06")
+                                heros[i].tianfu:RemoveSkill(GetId("AX06"))
                                 heros[i].tianfu:AddSkill("AT06")
                             end
                         end
@@ -313,7 +313,6 @@ function Unit:GetItem(entity)
 end
 
 function Unit:RemoveSkill(abilityid)
-    abilityid = GetId(abilityid)
     for i = #self.Skills, 1, -1 do
         if (self.Skills[i].Id == abilityid) then
             UnitRemoveAbility(self.Entity, abilityid)

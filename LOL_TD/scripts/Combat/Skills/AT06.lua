@@ -44,5 +44,5 @@ function skill:OnCast()
         end
     end
     owner:AddSkill(id)
-    owner:RemoveSkill(ID2Str(self.Id))
+    owner:RemoveSkill(self.Id)
 end

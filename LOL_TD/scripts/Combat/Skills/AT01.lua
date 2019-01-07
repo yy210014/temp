@@ -4,9 +4,9 @@ function skill:OnCast()
     local owner = self.Owner
     local SelectUnit = owner.SelectUnit
 
-    owner:RemoveSkill("AT01")
-    owner:RemoveSkill("AT02")
-    owner:RemoveSkill("AT03")
+    owner:RemoveSkill(GetId("AT01"))
+    owner:RemoveSkill(GetId("AT02"))
+    owner:RemoveSkill(GetId("AT03"))
     owner:AddSkill("AT04")
     if (GetUnitLevel(SelectUnit.Entity) >= 11) then
         owner:AddSkill("AT05")
@@ -30,18 +30,18 @@ skill.OnLevelUp = function(SelectUnit)
     local unitLevel = GetUnitLevel(SelectUnit.Entity)
     if (unitLevel == 6) then
         if (SelectUnit.tianfu:GetSkill(GetId("AX04")) ~= nil) then
-            SelectUnit.tianfu:RemoveSkill("AX04")
+            SelectUnit.tianfu:RemoveSkill(GetId("AX04"))
             local a1 = SelectUnit.tianfu:AddSkill("AT04")
             a1.Count = 1
         end
     elseif (unitLevel == 11) then
         if (SelectUnit.tianfu:GetSkill(GetId("AX05")) ~= nil) then
-            SelectUnit.tianfu:RemoveSkill("AX05")
+            SelectUnit.tianfu:RemoveSkill(GetId("AX05"))
             SelectUnit.tianfu:AddSkill("AT05")
         end
     elseif (unitLevel == 16) then
         if (SelectUnit.tianfu:GetSkill(GetId("AZ05")) ~= nil) then
-            SelectUnit.tianfu:RemoveSkill("AZ05")
+            SelectUnit.tianfu:RemoveSkill(GetId("AZ05"))
             local a3 = SelectUnit.tianfu:AddSkill("AT05")
             a3.Count = 1
         end

@@ -4,9 +4,9 @@ function skill:OnCast()
     local owner = self.Owner
     local SelectUnit = owner.SelectUnit
     
-    owner:RemoveSkill("AT01")
-    owner:RemoveSkill("AT02")
-    owner:RemoveSkill("AT03")
+    owner:RemoveSkill(GetId("AT01"))
+    owner:RemoveSkill(GetId("AT02"))
+    owner:RemoveSkill(GetId("AT03"))
     owner:AddSkill("AT04")
     if (GetUnitLevel(SelectUnit.Entity) >= 11) then
         owner:AddSkill("AT05")

@@ -1,7 +1,7 @@
 local skill = Skills["能量爆裂"]
 skill.SkillType = 1
 local mDamages1 = {400, 800, 1200, 1600, 2000, 2400}
-local mDamages2 = {2, 2.4, 2.8, 3.2, 3.6, 4}
+local mDamages2 = {5, 6, 7, 8, 9, 10}
 local mArt = "blackhole.mdl"
 
 function skill:OnCast()

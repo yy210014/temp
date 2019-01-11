@@ -85,7 +85,7 @@ function GameStart.AnyUnitDamaged()
             --攻击主目标
             --怒气
             if (attactUnit.ManaType == 2) then
-                attactUnit.Attribute:add("怒气值", 5)
+                attactUnit.Attribute:add("怒气值", 10)
             end
             --迭代技能
             attactUnit:IterateSkills(
@@ -114,7 +114,12 @@ function GameStart.AnyUnitDamaged()
         else
             --飓风
             if (attactUnit:ContainItemId(GetId("I058"))) then
-                damage = damage * 0.4
+                local comb = attactUnit:GetComb("艾希-飓风")
+                if (comb ~= nil and comb.Enable) then
+                    damage = damage * 0.8
+                else
+                    damage = damage * 0.4
+                end
             end
         end
         --模拟暴击
@@ -124,7 +129,7 @@ function GameStart.AnyUnitDamaged()
             if (crit > random) then
                 damage = damage * attactUnit.Attribute.CritDamage
                 isCritDamage = true
-                --GameEventProc.SendEvent("任意单位暴击", attactUnit, defUnit)
+                GameEventProc.SendEvent("任意单位暴击", attactUnit, defUnit)
             end
         end
     else
@@ -175,9 +180,6 @@ function GameStart.AnyUnitDamaged()
         defUnit:AddDamageText(damage, isCritDamage, EXGetDamageColor())
         EXSetEventDamage(damage)
         if (defUnit.Id == GetId("End0")) then
-            if (defUnit.DamageSum == nil) then
-                defUnit.DamageSum = 0
-            end
             defUnit.DamageSum = defUnit.DamageSum + damage
         end
     end
@@ -191,11 +193,27 @@ function GameStart.AnyUnitDamaged()
             end
             if (skill.SkillType == 0) then
                 IssueImmediateOrder(attactUnit.Entity, skill.Order)
+            elseif (skill.SkillType == 4) then
+                if (defUnit.Attribute:get("生命") > damage and defUnit.IsDying == false) then
+                    IssueTargetOrder(attactUnit.Entity, skill.Order, defUnit.Entity)
+                else
+                    local enemys = GetEnemyTeamUnits()
+                    local radius = Clamp(skill:GetCurRange() - 200, 0, 1000)
+                    for i = 1, #enemys do
+                        if (enemys[i] ~= nil) then
+                            local dist = DistanceBetweenPoint(attactUnit:X(), enemys[i]:X(), attactUnit:Y(), enemys[i]:Y())
+                            if (enemys[i] ~= defUnit and dist < radius and enemys[i].IsDying == false) then
+                                IssueTargetOrder(attactUnit.Entity, skill.Order, enemys[i].Entity)
+                                return
+                            end
+                        end
+                    end
+                end
             else
                 AssetsManager.OverlapCircle(
                 attactUnit:X(),
                 attactUnit:Y(),
-                skill:GetCurRange() - 200,
+                Clamp(skill:GetCurRange() - 200, 0, 1000),
                 function(enemy)
                     if (skill.SkillType == 1) then
                         IssueTargetOrder(attactUnit.Entity, skill.Order, enemy.Entity)
@@ -334,7 +352,7 @@ function GameStart.AnyUnitConstructFinish()
         --开启AI
         IssueImmediateOrder(unit.Entity, "manashieldon")
 
-     --[[       unit.Attribute:add("魔法恢复", 100)
+        --[[       unit.Attribute:add("魔法恢复", 100)
         unit.Attribute:add("攻击速度", 2)
         unit.Attribute:add("暴击", 0.5)
         unit.Attribute:add("冷却缩减上限", 0.5)

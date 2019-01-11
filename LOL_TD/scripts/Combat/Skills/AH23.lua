@@ -1,5 +1,5 @@
 local skill = Skills["阿尔法突袭"]
-skill.SkillType = 1
+skill.SkillType = 4
 skill.DamageList = nil
 skill.Interval = 0.1
 skill.IntervalDt = 0
@@ -17,7 +17,7 @@ function skill:OnCast()
         Game.LogError("阿尔法突袭-丢失单位")
         return
     end
-    self.dummy =     spellUnit:CreateDummy(
+    self.dummy = spellUnit:CreateDummy(
     "Abilities\\Weapons\\PhoenixMissile\\Phoenix_Missile_mini.mdl",
     spellUnit:X(),
     spellUnit:Y()
@@ -36,7 +36,7 @@ skill.Action = function(self, dt)
         SetUnitX(self.dummy, self.spellTargetUnit:X())
         SetUnitY(self.dummy, self.spellTargetUnit:Y())
         --特效
-        local dummy =        AssetsManager.LoadUnit(self.Owner.Player, "uq00", self.spellTargetUnit:X(), self.spellTargetUnit:Y())
+        local dummy =  AssetsManager.LoadUnit(self.Owner.Player, "uq00", self.spellTargetUnit:X(), self.spellTargetUnit:Y())
         dummy.Effect = AddSpecialEffectTarget(mArt1, dummy.Entity, "origin")
         dummy:SetUnitFacing(GetRandomReal(0, 6.28))
         AssetsManager.RemoveObject(dummy)

@@ -68,9 +68,9 @@ end
 
 function Card.Random1()
     local random = math.random(1, 10)
-    if (random <= 6) then
+    if (random <= 2) then
         return Card.RandomN()
-    elseif (random > 6 and random <= 9) then
+    elseif (random > 2 and random <= 9) then
         return Card.RandomR()
     elseif (random > 9) then
         return Card.RandomSR()
@@ -79,12 +79,21 @@ end
 
 function Card.Random2()
     local random = math.random(1, 10)
-    if (random <= 3) then
+    if (random <= 2) then
         return "IH" .. RId[math.random(1, #RId)]
-    elseif (random > 3 and random <= 9) then
+    elseif (random > 2 and random <= 9) then
         return "IH" .. SRId[math.random(1, #SRId)]
     elseif (random > 9) then
         return "IH" .. SSRId[math.random(1, #SSRId)]
+    end
+end
+
+function Card.Random3()
+    local random = math.random(1, 10)
+    if (random <= 9) then
+        return Card.RandomSR()
+    else
+        return Card.RandomSSR()
     end
 end
 

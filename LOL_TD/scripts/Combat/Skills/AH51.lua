@@ -1,13 +1,13 @@
 local skill = Skills["战斗狂怒"]
 skill.Crits = { 0.005, 0.01, 0.015, 0.02, 0.025, 0.03 }
-skill.Attacks = { 2, 4, 6, 8, 10, 12 }
+skill.Attacks = { 6, 12, 18, 24, 30, 36 }
 skill.CurCrit = 0
 skill.CurAttack = 0
 function skill:OnCast()
 end
 
 skill.OnCrit = function(attactUnit, defUnit)
-    attactUnit.Attribute:add("怒气值", 5)
+    attactUnit.Attribute:add("怒气值", 10)
 end
 
 skill.OnManaChange = function(owner, value)
@@ -36,7 +36,7 @@ function skill:OnLearned()
 end
 
 function skill:OnKill(dieUnit)
-    self.Owner.Attribute:add("怒气值", 5)
+    self.Owner.Attribute:add("怒气值", 10)
 end
 
 GameEventProc.RegisterEventHandler("任意单位暴击", skill.OnCrit)

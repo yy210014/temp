@@ -5,7 +5,7 @@ local mArt1 = "AZModel\\AZ_PotM(1)_R2.mdl"
 local mArt2 = "AZ_PotM(1)_R1_Misslie.mdl"
 local mSpeed = 15
 local mMaxDistance = 1200
-local mDamages1 = {150, 250, 350, 450, 550, 650}
+local mDamages1 = {200, 400, 600, 800, 1000, 1200}
 local mDamages2 = {1, 1.1, 1.2, 1.3, 1.4, 1.5}
 
 function skill:OnCast()

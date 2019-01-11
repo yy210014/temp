@@ -3,7 +3,7 @@ local mArt = "Abilities\\Spells\\Other\\Transmute\\PileofGold.mdl"
 function skill:OnCast()
     local spellUnit = self.Owner
     local player = spellUnit.Player
-    local addMoney = (MonsterRefresh.GetCurWaveIndex() - 1) * 20 + 40
+    local addMoney = (MonsterRefresh.GetCurWaveIndex() - 1) * 20 + 30
     local content = ""
     local scale = 1
     if (7 >= math.random(1, 10)) then

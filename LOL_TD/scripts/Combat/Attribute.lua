@@ -289,9 +289,9 @@ set["暴击"] = function(self, value)
 end
 
 get["暴击伤害"] = function(self)
-    return Clamp(self.CritDamage, 10, self.CritDamage)
+    return self.CritDamage
 end
 
 set["暴击伤害"] = function(self, value)
-    self.CritDamage = Clamp(value, 10, self.CritDamage)
+    self.CritDamage = value
 end

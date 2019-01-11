@@ -3,9 +3,9 @@ skill.SkillType = 2
 skill.DamageList = nil
 local mDamages1 = {120, 240, 360, 480, 600, 720}
 local mDamages2 = {0.5, 0.6, 0.7, 0.8, 0.9, 1}
-local mSpeed = 10
-local mMaxDistance = 800
-local mArt = "Abilities\\Weapons\\VengeanceMissile\\VengeanceMissile.mdl"
+local mSpeed = 15
+local mMaxDistance = 1000
+local mArt = "AZ_MGN_Q01.mdl"
 
 setmetatable(Buffs["光之束缚"], {__index = Buffs["禁锢"]})
 Buffs["光之束缚"].Durs = {1.5, 1.5, 1.5, 1.5, 1.5, 1.5}

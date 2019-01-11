@@ -21,8 +21,8 @@ function item:OnKill(dieUnit)
         CreateGoldText(1, unit.Entity)
         self:SetCharges(count)
     elseif (count == 100) then
-        SetPlayerState(unit.Player, PLAYER_STATE_RESOURCE_GOLD, GetPlayerState(unit.Player, PLAYER_STATE_RESOURCE_GOLD) + 300)
-        CreateGoldText(300, unit.Entity)
+        SetPlayerState(unit.Player, PLAYER_STATE_RESOURCE_GOLD, GetPlayerState(unit.Player, PLAYER_STATE_RESOURCE_GOLD) + 200)
+        CreateGoldText(200, unit.Entity)
         self:SetCharges(count)
     end
 end

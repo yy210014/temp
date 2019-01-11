@@ -33,7 +33,7 @@ local mItemComList = {
     ["I059"] = { GetId("I060"), GetId("I023"), GetId("I010") }, --大冰锤（卷轴）:大冰锤+小木槌+十字镐
     ["I063"] = { GetId("I064"), GetId("I033"), GetId("I028") }, --巫妖之祸（卷轴）:巫妖之祸+耀光+爆裂魔杖
     ["I065"] = { GetId("I066"), GetId("I031"), GetId("I029") }, --大天使（卷轴）:大天使+女神之泪+无用大棒
-    ["I068"] = { GetId("I069"), GetId("I009"), GetId("I028") }, --法穿棒（卷轴）:法穿棒+增幅典籍+爆裂魔杖
+    ["I068"] = { GetId("I069"), GetId("I028"), GetId("I028") }, --法穿棒（卷轴）:法穿棒+增幅典籍+爆裂魔杖
     ["I070"] = { GetId("I071"), GetId("I035"), GetId("I037"), GetId("I039") }, --大圣杯（卷轴）:大圣杯+和谐圣杯+恶魔法典+禁忌雕像
     ["I072"] = { GetId("I073"), GetId("I029"), GetId("I028"), GetId("I009") }, --帽子（卷轴）:帽子+无用大棒+爆裂魔杖+增幅典籍
     ["I074"] = { GetId("I075"), GetId("I037"), GetId("I041"), GetId("I039") }, --鬼书（卷轴）:鬼书+恶魔法典+遗失的章节+禁忌雕像
@@ -154,14 +154,22 @@ function Item.ItemCompound(unit)
         return
     end
     local itemId = mItemComList[ID2Str(GetItemTypeId(item))][1]
+    local num = 0
     for i = #deleteList, 1, -1 do
+        if (GetItemCharges(deleteList[i]) > 1) then
+            num = GetItemCharges(deleteList[i])
+        end
         RemoveItem(deleteList[i])
         table.remove(deleteList, i)
     end
     deleteList = nil
     local itemAXAD = CreateItem(itemId, unit:X(), unit:Y())
+    if (num ~= 0) then
+        SetItemCharges(itemAXAD, num)
+    end
     Game.Log("合成物品： " .. GetItemName(itemAXAD))
     UnitAddItem(unit.Entity, itemAXAD)
+
     DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\Items\\AIlm\\AIlmTarget.mdl", unit.Entity, "origin"))
     return true
 end

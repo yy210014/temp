@@ -1,7 +1,7 @@
 local skill = Skills["弹跳炸弹"]
 skill.SkillType = 2
 local mDamages1 = {200, 400, 600, 800, 1000, 1200}
-local mDamages2 = {0.75, 1, 1.25, 1.5, 1.75, 2}
+local mDamages2 = {1.0, 1.4, 1.8, 2.2, 2.6, 3.0}
 local mDamageRange = 350
 --local mArt = "Abilities\\Weapons\\Mortar\\MortarMissile.mdl"
 local mArt = "BombMissile.mdl"

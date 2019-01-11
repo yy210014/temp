@@ -27,7 +27,7 @@ function item:OnAttack(attactUnit, defUnit)
     function(unit)
         if (unit ~= defUnit) then
             local damage = attactUnit.Attribute:get("物理攻击") + attactUnit.Attribute:get("物理攻击加成")
-            EXUnitDamageTarget(attactUnit, unit, damage * 2, EXDamageType.Physics)
+            EXUnitDamageTarget(attactUnit, unit, damage * 1.2, EXDamageType.Physics)
         end
     end
     )

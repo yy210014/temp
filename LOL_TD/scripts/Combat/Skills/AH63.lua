@@ -1,10 +1,10 @@
 local skill = Skills["寒冰碎片"]
 skill.SkillType = 2
 
-local mSpeed = 10
+local mSpeed = 18
 local mMaxDistance = 800
-local mDamages1 = {200, 350, 500, 650, 800, 950}
-local mDamages2 = {1, 1.1, 1.2, 1.3, 1.4, 1.5}
+local mDamages1 = {200, 400, 600, 800, 1000, 1200}
+local mDamages2 = {1, 1.4, 1.8, 2.2, 2.6, 3.0}
 local mDummyArt = "AZ_blueDragonpf_Missile.mdl"
 local mTargetArt = "AZ_Mr.War3_GJSxh1_R.mdl"
 
@@ -51,9 +51,9 @@ skill.OnPathUpdate = function(dummy)
             local self = dummy.Skill
             local ap = owner.Attribute:get("法术攻击")
             local damage = mDamages1[self:GetCurLevel()] + ap * mDamages2[self:GetCurLevel()]
-            local comb = owner:GetComb("丽桑卓-帽子")
+            local comb = owner:GetComb("丽桑卓-鬼书")
             if (comb ~= nil and comb.Enable) then
-                damage = damage + damage * 0.3
+                damage = damage + damage * 0.5
             end
             EXUnitDamageTarget(owner, unit, damage, EXDamageType.Magic)
             unit:AddBuff("寒冰碎片", self:GetCurLevel())
@@ -75,7 +75,7 @@ skill.OnPathUpdate = function(dummy)
                     --创建运动
                     local loc = dummy2:AddLocomotion("冲锋")
                     if (loc ~= nil) then
-                        loc:Start(unit2, mSpeed, self.OnPathEnd2)
+                        loc:Start(unit2, 12, self.OnPathEnd2)
                     end
                 end
             )

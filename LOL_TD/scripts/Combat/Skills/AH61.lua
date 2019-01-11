@@ -4,7 +4,7 @@ skill.LastCastTime = 0
 skill.SpellTargetX = 0
 skill.SpellTargetY = 0
 local mDamages1 = {200, 400, 600, 800, 1000, 1200}
-local mDamages2 = {1.5, 1.7, 1.9, 2.1, 2.3, 2.5}
+local mDamages2 = {1.0, 1.4, 1.8, 2.2, 2.6, 3.0}
 local mArt = "AZ_Tian.mdl"
 local mDelayTime = 0.4
 
@@ -29,7 +29,7 @@ skill.DelayDamage = function(self, dt)
                 local ap = spellUnit.Attribute:get("法术攻击")
                 local damage = mDamages1[self:GetCurLevel()] + (ap * mDamages2[self:GetCurLevel()])
                 if (comb ~= nil and comb.Enable) then
-                    damage = damage + damage * 0.3
+                    damage = damage + damage * 0.5
                 end
                 EXUnitDamageTarget(spellUnit, unit, damage, EXDamageType.Magic)
             end

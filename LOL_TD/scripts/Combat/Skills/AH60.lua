@@ -5,7 +5,7 @@ local mArt = "Shadow_Frost_Weapon_Effect.mdl"
 local mSpeed = 15
 local mMaxDistance = 800
 local mDamages1 = {150, 300, 450, 600, 750, 900}
-local mDamages2 = {1, 1.2, 1.4, 1.6, 1.8, 2}
+local mDamages2 = {1, 1.3, 1.6, 1.9, 2.2, 2.5}
 
 function skill:OnCast()
     local spellUnit = self.Owner

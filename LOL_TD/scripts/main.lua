@@ -28,7 +28,7 @@ function main()
     TriggerAddAction(trig, Game.OnGameUpdate)
 
     trig = CreateTrigger()
-    for i, v in ipairs(PlayerTeam) do
+    for i, v in ipairs(AllPlayerTeam) do
         TriggerRegisterPlayerUnitEvent(trig, Player(v), EVENT_PLAYER_UNIT_ATTACKED, nil)
     end
     TriggerAddAction(trig, GameStart.AnyUnitAttack)

@@ -1,7 +1,7 @@
 local skill = Skills["透光奇点"]
 skill.SkillType = 3
-local mDamages1 = {200, 400, 600, 800, 1000, 1200}
-local mDamages2 = {0.75, 1, 1.25, 1.5, 1.75, 2}
+local mDamages1 = {150, 300, 450, 600, 750, 900}
+local mDamages2 = {1, 1.3, 1.6, 1.9, 2.2, 2.5}
 local mArt = "Abilities\\Weapons\\VengeanceMissile\\VengeanceMissile.mdl"
 
 local mArt1 = "AZ_Lina(2)_T1_MagicMatrix.mdl"

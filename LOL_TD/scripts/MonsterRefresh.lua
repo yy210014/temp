@@ -257,6 +257,8 @@ function DelayEndLessPush()
     TimerDialogDisplay(mDelayPushTimerDialog, true)
 end
 
+--1000 2000 4000 8000 16000
+--200 300 500 800
 function Damage2Money(damage, base, money, count) --1000, 200, 1
     if (damage >= base) then
         return Damage2Money(damage, base * 2, money + (count - 1) * 100, count + 1)
@@ -276,6 +278,7 @@ function MoneyShow_showDialog()
             if (GetPlayerController(Player(i)) == MAP_CONTROL_USER and
             GetPlayerSlotState(Player(i)) == PLAYER_SLOT_STATE_PLAYING) then
                 fuliguai[i + 1] = Spawn(MonsterRefresh.ChuGuaiKous[i + 1], i + 1)
+                fuliguai[i + 1].DamageSum = 0
             end
         end
         DisplayTextToAll("远古巨龙出现！对远古巨龙造成的伤害越高，奖励的金币就越多！", "ffffcc00")
@@ -442,8 +445,12 @@ function Spawn(spawnPoint, index)
     RemoveGuardPosition(unit.Entity)
     IssuePointOrderLoc(unit.Entity, "move", MonsterRefresh.RectPoints[index])
     if (Game.GetMode() == GameMode.NORMAL) then
-        unit.Attribute:add("护甲", unit.Attribute:get("护甲") * (0.1 * Game.GetLevel() - 0.1))
-        unit.Attribute:add("生命上限", unit.Attribute:get("生命上限") * (0.3 * Game.GetLevel() - 0.3))
+        --unit.Attribute:add("护甲", unit.Attribute:get("护甲") * (0.1 * Game.GetLevel() - 0.1))
+        if (Game.GetLevel() == 4) then
+            unit.Attribute:add("生命上限", unit.Attribute:get("生命上限") * 0.5)
+        else
+            unit.Attribute:add("生命上限", unit.Attribute:get("生命上限") * (0.2 * Game.GetLevel() - 0.2))
+        end
         Multiboard.ShowMonsterCount(1, index)
     elseif (Game.GetMode() == GameMode.ENDLESS) then
         unit.Attribute:add("生命上限", unit.Attribute:get("生命上限") * (0.15 * Game.GetLevel() - 0.15))

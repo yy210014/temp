@@ -7,7 +7,7 @@ end
 
 function skill:OnBeginAttack(attactUnit, defUnit)
     if (self.Count > 2) then
-        SetUnitAnimation(attactUnit.Entity, "attack slam")
+        SetUnitAnimation(attactUnit.Entity, "spell three")
     end
 end
 

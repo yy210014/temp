@@ -1,8 +1,8 @@
 local skill = Skills["终极闪光"]
 skill.SkillType = 2
 skill.KillCount = 0
-local mDamages1 = {300, 550, 800, 1000, 1250, 1500}
-local mDamages2 = {0.5, 1, 1.5, 2, 2.5, 3}
+local mDamages1 = { 200, 400, 600, 800, 1000, 1200 }
+local mDamages2 = { 2.0, 2.5, 3.0, 3.5, 4.0, 4.5 }
 local mDistance = 2100
 local mDamageRange = 250
 local EmitterDis = 100
@@ -32,30 +32,36 @@ function skill:OnCast()
     AssetsManager.RemoveObject(dummy2)
 
     self.KillCount = 0
-    local comb = spellUnit:GetComb("拉克丝-鬼书")
+    local comb1 = spellUnit:GetComb("正义兄妹-拉克丝")
+    local comb2 = spellUnit:GetComb("拉克丝-鬼书")
     AssetsManager.OverlapLine(
-        spellUnit:X(),
-        spellUnit:Y(),
-        mDistance,
-        mDamageRange,
-        angle,
-        function(unit)
-            --特效
-            DestroyEffect(
-                AddSpecialEffectTarget(
-                    "Abilities\\Spells\\Other\\Stampede\\StampedeMissileDeath.mdl",
-                    unit.Entity,
-                    "chest"
-                )
-            )
-            --伤害
-            local ap = spellUnit.Attribute:get("法术攻击")
-            local damage = mDamages1[self:GetCurLevel()] + ap * mDamages2[self:GetCurLevel()]
-            if (comb ~= nil and comb.Enable) then
-                damage = damage + damage * 0.3
-            end
-            EXUnitDamageTarget(spellUnit, unit, damage, EXDamageType.Magic)
+    spellUnit:X(),
+    spellUnit:Y(),
+    mDistance,
+    mDamageRange,
+    angle,
+    function(unit)
+        --特效
+        DestroyEffect(
+        AddSpecialEffectTarget(
+        "Abilities\\Spells\\Other\\Stampede\\StampedeMissileDeath.mdl",
+        unit.Entity,
+        "chest"
+        )
+        )
+        --伤害
+        local ap = spellUnit.Attribute:get("法术攻击")
+        local damage = mDamages1[self:GetCurLevel()] + ap * mDamages2[self:GetCurLevel()]
+        local damageAdd = 0
+        if (comb1 ~= nil and comb1.Enable) then
+            damageAdd = 1
         end
+        if (comb2 ~= nil and comb2.Enable) then
+            damageAdd = damageAdd + 0.5
+        end
+        damage = damage + damage * damageAdd --大招羁绊伤害加成
+        EXUnitDamageTarget(spellUnit, unit, damage, EXDamageType.Magic)
+    end
     )
 end
 

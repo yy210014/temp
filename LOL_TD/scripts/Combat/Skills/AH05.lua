@@ -1,6 +1,6 @@
 local skill = Skills["战阵律动"]
-local mDamages1 = {50, 60, 70, 80, 100, 120}
-local mDamages2 = {0.2, 0.3, 0.4, 0.6, 0.8, 1}
+local mDamages1 = {50, 100, 150, 200, 250, 300}
+local mDamages2 = {0.5, 1.0, 1.5, 2.0, 2.5, 3.0}
 local mArt = "AZ_impact01.mdl"
 
 local buff = Buffs["战阵律动"]

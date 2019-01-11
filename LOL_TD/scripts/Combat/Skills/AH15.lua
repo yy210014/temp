@@ -1,10 +1,10 @@
 local skill = Skills["痛苦腐蚀"]
 skill.SkillType = 3
-skill.Interval = 1
+skill.Interval = 0.5
 skill.IntervalDt = 0
 skill.Duration = 5.5
 local mDamageRange = 450
-local mDamages1 = {55, 70, 85, 100, 115, 130}
+local mDamages1 = {50, 80, 110, 140, 170, 200}
 local mDamages2 = {0.3, 0.4, 0.5, 0.6, 0.7, 0.8}
 
 skill.Action = function(self, dt)

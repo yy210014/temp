@@ -54,7 +54,7 @@ local comb = Combs["草丛三剑客"]
 comb.Ubertip = [[
 -草丛三剑客
  羁绊需求：盖伦+皇子+赵信
- 羁绊效果：盖伦/皇子/赵信获得15%的物理伤害加成|n
+ 羁绊效果：盖伦/皇子/赵信获得50%的物理伤害加成|n
 ]]
 
 function comb:HerosId()
@@ -66,19 +66,19 @@ function comb:Conditions()
 end
 
 function comb:OnEnable()
-    self.Owner.Attribute:add("物理伤害加成", 0.15)
+    self.Owner.Attribute:add("物理伤害加成", 0.5)
 end
 
 function comb:OnDisable()
-    self.Owner.Attribute:add("物理伤害加成", -0.15)
+    self.Owner.Attribute:add("物理伤害加成", -0.5)
 end
 
 comb = Combs["正义兄妹-盖伦"]
 comb.Ubertip = [[
 -正义兄妹
  羁绊需求：盖伦+拉克丝
- 羁绊效果：盖伦增加10%的额外技能冷却缩减.
-          拉克丝获得额外技能,光芒四射.|n
+ 羁绊效果：盖伦增加审判伤害100%.
+          拉克丝增加终极闪光技能伤害100%.|n
 ]]
 
 function comb:HerosId()
@@ -90,19 +90,17 @@ function comb:Conditions()
 end
 
 function comb:OnEnable()
-    self.Owner.Attribute:add("冷却缩减", 0.1)
 end
 
 function comb:OnDisable()
-    self.Owner.Attribute:add("冷却缩减", -0.1)
 end
 
 comb = Combs["正义兄妹-拉克丝"]
 comb.Ubertip = [[
 -正义兄妹
  羁绊需求：盖伦+拉克丝
- 羁绊效果：盖伦增加10%的额外技能冷却缩减.
-          拉克丝获得额外技能,光芒四射.|n
+ 羁绊效果：盖伦增加审判伤害100%.
+          拉克丝增加终极闪光技能伤害100%.|n
 ]]
 
 function comb:HerosId()
@@ -114,18 +112,16 @@ function comb:Conditions()
 end
 
 function comb:OnEnable()
-    self.Owner:AddSkill("AH74")
 end
 
 function comb:OnDisable()
-    self.Owner:RemoveSkill(GetId("AH74"))
 end
 
 comb = Combs["蛮易信"]
 comb.Ubertip = [[
 -蛮易信
  羁绊需求：蛮王+赵信+剑圣
- 羁绊效果：蛮王/赵信/剑圣获得20%的额外攻击速度和20%的物理伤害加成.|n
+ 羁绊效果：蛮王/赵信/剑圣获得30%的暴击伤害和30%的物理伤害加成.|n
 ]]
 
 function comb:HerosId()
@@ -137,13 +133,13 @@ function comb:Conditions()
 end
 
 function comb:OnEnable()
-    self.Owner.Attribute:add("攻击速度", 0.2)
-    self.Owner.Attribute:add("物理伤害加成", 0.2)
+    self.Owner.Attribute:add("暴击伤害", 0.3)
+    self.Owner.Attribute:add("物理伤害加成", 0.3)
 end
 
 function comb:OnDisable()
-    self.Owner.Attribute:add("攻击速度", -0.2)
-    self.Owner.Attribute:add("物理伤害加成", -0.2)
+    self.Owner.Attribute:add("暴击伤害", -0.3)
+    self.Owner.Attribute:add("物理伤害加成", -0.3)
 end
 
 comb = Combs["美女与野兽"]
@@ -221,8 +217,8 @@ comb = Combs["炮火联盟-小炮"]
 comb.Ubertip = [[
 -炮火联盟
  羁绊需求：小炮+炸弹人
- 羁绊效果：增加小炮15%额外物理攻击穿透
-          增加炸弹人15%额外法术穿透|n
+ 羁绊效果：增加小炮50%物理伤害加成
+          增加炸弹人50%法术伤害加成|n
 ]]
 
 function comb:HerosId()
@@ -234,19 +230,19 @@ function comb:Conditions()
 end
 
 function comb:OnEnable()
-    self.Owner.Attribute:add("物理穿透", 0.15)
+    self.Owner.Attribute:add("法术伤害加成", 0.5)
 end
 
 function comb:OnDisable()
-    self.Owner.Attribute:add("物理穿透", -0.15)
+    self.Owner.Attribute:add("法术伤害加成", -0.5)
 end
 
 comb = Combs["炮火联盟-炸弹人"]
 comb.Ubertip = [[
 -炮火联盟
  羁绊需求：小炮+炸弹人
- 羁绊效果：增加小炮15%额外物理攻击穿透
-          增加炸弹人15%额外法术穿透|n
+ 羁绊效果：增加小炮50%物理伤害加成
+          增加炸弹人50%法术伤害加成|n
 ]]
 
 function comb:HerosId()
@@ -258,19 +254,19 @@ function comb:Conditions()
 end
 
 function comb:OnEnable()
-    self.Owner.Attribute:add("法术穿透", 0.15)
+    self.Owner.Attribute:add("法术伤害加成", 0.5)
 end
 
 function comb:OnDisable()
-    self.Owner.Attribute:add("法术穿透", -0.15)
+    self.Owner.Attribute:add("法术伤害加成", -0.5)
 end
 
 comb = Combs["神圣与堕落-天使"]
 comb.Ubertip = [[
 -神圣与堕落
  羁绊需求：天使+莫甘娜
- 羁绊效果：增加天使10%的额外攻速
-          增加莫甘娜10%的额外技能冷却缩减|n
+ 羁绊效果：增加天使80%攻速
+          增加莫甘娜20%冷却缩减|n
 ]]
 
 function comb:HerosId()
@@ -282,19 +278,19 @@ function comb:Conditions()
 end
 
 function comb:OnEnable()
-    self.Owner.Attribute:add("攻击速度", 0.1)
+    self.Owner.Attribute:add("攻击速度", 0.8)
 end
 
 function comb:OnDisable()
-    self.Owner.Attribute:add("攻击速度", -0.1)
+    self.Owner.Attribute:add("攻击速度", -0.8)
 end
 
 comb = Combs["神圣与堕落-莫甘娜"]
 comb.Ubertip = [[
 -神圣与堕落
  羁绊需求：天使+莫甘娜
- 羁绊效果：增加天使10%的额外攻速
-          增加莫甘娜10%的额外技能冷却缩减|n
+ 羁绊效果：增加天使80%攻速
+          增加莫甘娜20%冷却缩减|n
 ]]
 
 function comb:HerosId()
@@ -306,18 +302,18 @@ function comb:Conditions()
 end
 
 function comb:OnEnable()
-    self.Owner.Attribute:add("冷却缩减", 0.1)
+    self.Owner.Attribute:add("冷却缩减", 0.2)
 end
 
 function comb:OnDisable()
-    self.Owner.Attribute:add("冷却缩减", -0.1)
+    self.Owner.Attribute:add("冷却缩减", -0.2)
 end
 
 comb = Combs["黑暗魔法"]
 comb.Ubertip = [[
 -黑暗魔法
  羁绊需求：莫甘娜+小法
- 羁绊效果：增加莫甘娜/小法10%的额外法术穿透|n
+ 羁绊效果：增加莫甘娜/小法50%的额外法术穿透|n
 ]]
 
 function comb:HerosId()
@@ -329,18 +325,18 @@ function comb:Conditions()
 end
 
 function comb:OnEnable()
-    self.Owner.Attribute:add("法术穿透", 0.1)
+    self.Owner.Attribute:add("法术穿透", 0.5)
 end
 
 function comb:OnDisable()
-    self.Owner.Attribute:add("法术穿透", -0.1)
+    self.Owner.Attribute:add("法术穿透", -0.5)
 end
 
 comb = Combs["皇子-九头蛇"]
 comb.Ubertip = [[
 -九头蛇
  羁绊需求：皇子+九头蛇
- 羁绊效果：增加皇子15%额外物理穿透|n
+ 羁绊效果：增加皇子30%物理穿透|n
 ]]
 
 function comb:HerosId()
@@ -352,11 +348,11 @@ function comb:Conditions()
 end
 
 function comb:OnEnable()
-    self.Owner.Attribute:add("物理穿透", 0.15)
+    self.Owner.Attribute:add("物理穿透", 0.3)
 end
 
 function comb:OnDisable()
-    self.Owner.Attribute:add("物理穿透", -0.15)
+    self.Owner.Attribute:add("物理穿透", -0.3)
 end
 
 comb = Combs["皇子-黑切"]
@@ -384,7 +380,7 @@ comb = Combs["赵信-电刀"]
 comb.Ubertip = [[
 -电刀
  羁绊需求：赵信+电刀
- 羁绊效果：增加赵信30%的攻速|n
+ 羁绊效果：增加赵信30%的暴击率|n
 ]]
 
 function comb:HerosId()
@@ -396,18 +392,18 @@ function comb:Conditions()
 end
 
 function comb:OnEnable()
-    self.Owner.Attribute:add("攻击速度", 0.3)
+    self.Owner.Attribute:add("暴击", 0.3)
 end
 
 function comb:OnDisable()
-    self.Owner.Attribute:add("攻击速度", -0.3)
+    self.Owner.Attribute:add("暴击", -0.3)
 end
 
 comb = Combs["赵信-九头蛇"]
 comb.Ubertip = [[
 -九头蛇
  羁绊需求：赵信+九头蛇
- 羁绊效果：增加赵信15%额外物理穿透|n
+ 羁绊效果：增加赵信30%额外物理穿透|n
 ]]
 
 function comb:HerosId()
@@ -419,11 +415,11 @@ function comb:Conditions()
 end
 
 function comb:OnEnable()
-    self.Owner.Attribute:add("物理穿透", 0.15)
+    self.Owner.Attribute:add("物理穿透", 0.3)
 end
 
 function comb:OnDisable()
-    self.Owner.Attribute:add("物理穿透", -0.15)
+    self.Owner.Attribute:add("物理穿透", -0.3)
 end
 
 comb = Combs["拉克丝-大圣杯"]
@@ -453,7 +449,7 @@ comb = Combs["拉克丝-鬼书"]
 comb.Ubertip = [[
 -鬼书
  羁绊需求：拉克丝+鬼书
- 羁绊效果：增加拉克丝“终极闪光”技能伤害30%|n
+ 羁绊效果：增加拉克丝“终极闪光”技能伤害50%|n
 ]]
 
 function comb:HerosId()
@@ -474,7 +470,7 @@ comb = Combs["莫甘娜-帽子"]
 comb.Ubertip = [[
 -帽子
  羁绊需求：莫甘娜+帽子
- 羁绊效果：增加莫甘娜15%的额外法术穿透|n
+ 羁绊效果：增加莫甘娜30%法术穿透|n
 ]]
 
 function comb:HerosId()
@@ -486,18 +482,18 @@ function comb:Conditions()
 end
 
 function comb:OnEnable()
-    self.Owner.Attribute:add("法术穿透", 0.15)
+    self.Owner.Attribute:add("法术穿透", 0.3)
 end
 
 function comb:OnDisable()
-    self.Owner.Attribute:add("法术穿透", -0.15)
+    self.Owner.Attribute:add("法术穿透", -0.3)
 end
 
 comb = Combs["莫甘娜-法穿棒"]
 comb.Ubertip = [[
 -法穿棒
  羁绊需求：莫甘娜+法穿棒
- 羁绊效果：增加莫甘娜120法术攻击|n
+ 羁绊效果：增加莫甘娜30%法术伤害|n
 ]]
 
 function comb:HerosId()
@@ -520,7 +516,7 @@ comb = Combs["小炮-电刀"]
 comb.Ubertip = [[
 -电刀
  羁绊需求：小炮+电刀
- 羁绊效果：增加小炮15%的物理穿透|n
+ 羁绊效果：增加小炮30%的物理穿透|n
 ]]
 
 function comb:HerosId()
@@ -532,18 +528,18 @@ function comb:Conditions()
 end
 
 function comb:OnEnable()
-    self.Owner.Attribute:add("物理穿透", 0.15)
+    self.Owner.Attribute:add("物理穿透", 0.3)
 end
 
 function comb:OnDisable()
-    self.Owner.Attribute:add("物理穿透", -0.15)
+    self.Owner.Attribute:add("物理穿透", -0.3)
 end
 
 comb = Combs["小炮-无尽"]
 comb.Ubertip = [[
 -无尽
  羁绊需求：小炮+无尽
- 羁绊效果：增加小炮20%的额外暴击伤害|n
+ 羁绊效果：增加小炮30%的额外暴击伤害|n
 ]]
 
 function comb:HerosId()
@@ -555,18 +551,18 @@ function comb:Conditions()
 end
 
 function comb:OnEnable()
-    self.Owner.Attribute:add("暴击伤害", 0.2)
+    self.Owner.Attribute:add("暴击伤害", 0.3)
 end
 
 function comb:OnDisable()
-    self.Owner.Attribute:add("暴击伤害", -0.2)
+    self.Owner.Attribute:add("暴击伤害", -0.3)
 end
 
 comb = Combs["天使-羊刀"]
 comb.Ubertip = [[
 -羊刀
  羁绊需求：天使+羊刀
- 羁绊效果：增加天使15%的物理穿透|n
+ 羁绊效果：增加天使30%的物理穿透|n
 ]]
 
 function comb:HerosId()
@@ -578,18 +574,18 @@ function comb:Conditions()
 end
 
 function comb:OnEnable()
-    self.Owner.Attribute:add("物理穿透", 0.15)
+    self.Owner.Attribute:add("物理穿透", 0.3)
 end
 
 function comb:OnDisable()
-    self.Owner.Attribute:add("物理穿透", -0.15)
+    self.Owner.Attribute:add("物理穿透", -0.3)
 end
 
 comb = Combs["天使-纳什之牙"]
 comb.Ubertip = [[
 -纳什之牙
  羁绊需求：天使+纳什之牙
- 羁绊效果：增加天使15%的法术穿透|n
+ 羁绊效果：增加天使30%的法术穿透|n
 ]]
 
 function comb:HerosId()
@@ -601,18 +597,18 @@ function comb:Conditions()
 end
 
 function comb:OnEnable()
-    self.Owner.Attribute:add("法术穿透", 0.15)
+    self.Owner.Attribute:add("法术穿透", 0.3)
 end
 
 function comb:OnDisable()
-    self.Owner.Attribute:add("法术穿透", -0.15)
+    self.Owner.Attribute:add("法术穿透", -0.3)
 end
 
 comb = Combs["炸弹人-鬼书"]
 comb.Ubertip = [[
 -鬼书
  羁绊需求：炸弹人+鬼书
- 羁绊效果：增加炸弹人15%的法术穿透|n
+ 羁绊效果：增加炸弹人30%的法术穿透|n
 ]]
 
 function comb:HerosId()
@@ -624,11 +620,11 @@ function comb:Conditions()
 end
 
 function comb:OnEnable()
-    self.Owner.Attribute:add("法术穿透", 0.15)
+    self.Owner.Attribute:add("法术穿透", 0.3)
 end
 
 function comb:OnDisable()
-    self.Owner.Attribute:add("法术穿透", -0.15)
+    self.Owner.Attribute:add("法术穿透", -0.3)
 end
 
 comb = Combs["炸弹人-大圣杯"]
@@ -658,7 +654,7 @@ comb = Combs["艾希-飓风"]
 comb.Ubertip = [[
 -飓风
  羁绊需求：艾希+飓风
- 羁绊效果：增加艾希携带飓风时的攻击目标至8个|n
+ 羁绊效果：增加飓风额外箭矢40%的伤害|n
 ]]
 
 function comb:HerosId()
@@ -679,7 +675,7 @@ comb = Combs["艾希-无尽"]
 comb.Ubertip = [[
 -无尽
  羁绊需求：艾希+无尽
- 羁绊效果：增加艾希20%的额外暴击伤害|n
+ 羁绊效果：增加艾希30%的额外暴击伤害|n
 ]]
 
 function comb:HerosId()
@@ -691,18 +687,18 @@ function comb:Conditions()
 end
 
 function comb:OnEnable()
-    self.Owner.Attribute:add("暴击伤害", 0.2)
+    self.Owner.Attribute:add("暴击伤害", 0.3)
 end
 
 function comb:OnDisable()
-    self.Owner.Attribute:add("暴击伤害", -0.2)
+    self.Owner.Attribute:add("暴击伤害", -0.3)
 end
 
 comb = Combs["盖伦-黑切"]
 comb.Ubertip = [[
 -黑切
  羁绊需求：盖伦+黑切
- 羁绊效果：增加盖伦15%的物理穿透|n
+ 羁绊效果：增加盖伦30%的物理穿透|n
 ]]
 
 function comb:HerosId()
@@ -714,18 +710,18 @@ function comb:Conditions()
 end
 
 function comb:OnEnable()
-    self.Owner.Attribute:add("物理穿透", 0.15)
+    self.Owner.Attribute:add("物理穿透", 0.3)
 end
 
 function comb:OnDisable()
-    self.Owner.Attribute:add("物理穿透", -0.15)
+    self.Owner.Attribute:add("物理穿透", -0.3)
 end
 
 comb = Combs["盖伦-日炎"]
 comb.Ubertip = [[
 -日炎
  羁绊需求：盖伦+日炎
- 羁绊效果：增加日炎造成50%的伤害|n
+ 羁绊效果：增加盖伦10%冷却缩减|n
 ]]
 
 function comb:HerosId()
@@ -737,16 +733,18 @@ function comb:Conditions()
 end
 
 function comb:OnEnable()
+    self.Owner.Attribute:add("冷却缩减", 0.1)
 end
 
 function comb:OnDisable()
+    self.Owner.Attribute:add("冷却缩减", -0.1)
 end
 
 comb = Combs["蛮王-无尽"]
 comb.Ubertip = [[
 -无尽
  羁绊需求：蛮王+无尽
- 羁绊效果：增加蛮王20%的额外暴击伤害|n
+ 羁绊效果：增加蛮王30%的物理穿透|n
 ]]
 
 function comb:HerosId()
@@ -758,18 +756,18 @@ function comb:Conditions()
 end
 
 function comb:OnEnable()
-    self.Owner.Attribute:add("暴击伤害", 0.2)
+    self.Owner.Attribute:add("物理穿透", 0.3)
 end
 
 function comb:OnDisable()
-    self.Owner.Attribute:add("暴击伤害", -0.2)
+    self.Owner.Attribute:add("物理穿透", -0.3)
 end
 
 comb = Combs["蛮王-红叉"]
 comb.Ubertip = [[
 -红叉
  羁绊需求：蛮王+红叉
- 羁绊效果：增加蛮王15%的物理穿透|n
+ 羁绊效果：增加蛮王50%的攻击速度|n
 ]]
 
 function comb:HerosId()
@@ -781,19 +779,19 @@ function comb:Conditions()
 end
 
 function comb:OnEnable()
-    self.Owner.Attribute:add("物理穿透", 0.15)
+    self.Owner.Attribute:add("攻击速度", 0.5)
 end
 
 function comb:OnDisable()
-    self.Owner.Attribute:add("物理穿透", -0.15)
+    self.Owner.Attribute:add("攻击速度", -0.5)
 end
 
 comb = Combs["丽桑卓-鬼书"]
 comb.Ubertip = [[
 -鬼书
  羁绊需求：丽桑卓+鬼书
- 羁绊效果：增加丽桑卓15%的法术穿透|n
-]]
+ 羁绊效果：增加丽桑卓“寒冰碎片”技能伤害50%|n
+ ]]
 
 function comb:HerosId()
     return {self.Owner.Id}
@@ -804,19 +802,17 @@ function comb:Conditions()
 end
 
 function comb:OnEnable()
-    self.Owner.Attribute:add("法术穿透", 0.15)
 end
 
 function comb:OnDisable()
-    self.Owner.Attribute:add("法术穿透", -0.15)
 end
 
 comb = Combs["丽桑卓-帽子"]
 comb.Ubertip = [[
 -帽子
  羁绊需求：丽桑卓+帽子
- 羁绊效果：增加丽桑卓“寒冰碎片”技能伤害30%|n
-]]
+ 羁绊效果：增加丽桑卓30%的法术穿透|n
+ ]]
 
 function comb:HerosId()
     return {self.Owner.Id}
@@ -827,16 +823,18 @@ function comb:Conditions()
 end
 
 function comb:OnEnable()
+    self.Owner.Attribute:add("法术穿透", 0.3)
 end
 
 function comb:OnDisable()
+    self.Owner.Attribute:add("法术穿透", -0.3)
 end
 
 comb = Combs["易大师-无尽"]
 comb.Ubertip = [[
 -无尽
  羁绊需求：易大师+无尽
- 羁绊效果：增加易20%额外暴击伤害|n
+ 羁绊效果：增加易30%额外暴击伤害|n
 ]]
 
 function comb:HerosId()
@@ -848,18 +846,18 @@ function comb:Conditions()
 end
 
 function comb:OnEnable()
-    self.Owner.Attribute:add("暴击伤害", 0.2)
+    self.Owner.Attribute:add("暴击伤害", 0.3)
 end
 
 function comb:OnDisable()
-    self.Owner.Attribute:add("暴击伤害", -0.2)
+    self.Owner.Attribute:add("暴击伤害", -0.3)
 end
 
 comb = Combs["易大师-电刀"]
 comb.Ubertip = [[
 -电刀
  羁绊需求：易大师+电刀
- 羁绊效果：增加易15%物理穿透|n
+ 羁绊效果：增加易30%物理穿透|n
 ]]
 
 function comb:HerosId()
@@ -871,18 +869,18 @@ function comb:Conditions()
 end
 
 function comb:OnEnable()
-    self.Owner.Attribute:add("物理穿透", 0.15)
+    self.Owner.Attribute:add("物理穿透", 0.3)
 end
 
 function comb:OnDisable()
-    self.Owner.Attribute:add("物理穿透", -0.15)
+    self.Owner.Attribute:add("物理穿透", -0.3)
 end
 
 comb = Combs["小法师-鬼书"]
 comb.Ubertip = [[
 -鬼书
  羁绊需求：小法师+鬼书
- 羁绊效果：增加小法师15%的法术穿透|n
+ 羁绊效果：增加小法师30%的法术穿透|n
 ]]
 
 function comb:HerosId()
@@ -894,18 +892,18 @@ function comb:Conditions()
 end
 
 function comb:OnEnable()
-    self.Owner.Attribute:add("法术穿透", 0.15)
+    self.Owner.Attribute:add("法术穿透", 0.30)
 end
 
 function comb:OnDisable()
-    self.Owner.Attribute:add("法术穿透", -0.15)
+    self.Owner.Attribute:add("法术穿透", -0.30)
 end
 
 comb = Combs["小法师-大圣杯"]
 comb.Ubertip = [[
 -大圣杯
  羁绊需求：小法师+大圣杯
- 羁绊效果：增加小法师“黑暗物质”技能伤害30%|n
+ 羁绊效果：增加小法师“黑暗物质”技能伤害50%|n
 ]]
 
 function comb:HerosId()

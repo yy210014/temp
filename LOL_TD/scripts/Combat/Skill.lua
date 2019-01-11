@@ -9,12 +9,15 @@ function Skill:New(owner, id)
     newSkill.Id = id
     newSkill.Order = Slk.ability[id]["Order"]
     newSkill.MaxLevel = tonumber(Slk.ability[id]["levels"])
+    local index = 0 
+    --self.Cools slk优化后只获取到了4级数据
     for i = 1, newSkill.MaxLevel do
-        table.insert(newSkill.Cools, tonumber(Slk.ability[id]["Cool" .. i]))
-        table.insert(newSkill.Rngs, tonumber(Slk.ability[id]["Rng" .. i]))
-        table.insert(newSkill.Areas, tonumber(Slk.ability[id]["Area" .. i]))
-        table.insert(newSkill.Durs, tonumber(Slk.ability[id]["Dur" .. i]))
-        table.insert(newSkill.HeroDurs, tonumber(Slk.ability[id]["HeroDur" .. i]))
+        index = i > 4 and 4 or i
+        table.insert(newSkill.Cools, tonumber(Slk.ability[id]["Cool" .. index]))
+        table.insert(newSkill.Rngs, tonumber(Slk.ability[id]["Rng" .. index]))
+        table.insert(newSkill.Areas, tonumber(Slk.ability[id]["Area" .. index]))
+        table.insert(newSkill.Durs, tonumber(Slk.ability[id]["Dur" .. index]))
+        table.insert(newSkill.HeroDurs, tonumber(Slk.ability[id]["HeroDur" .. index]))
     end
     newSkill:UpdateCD()
     return newSkill
@@ -95,11 +98,6 @@ end
 function Skill:GetBeginCD()
     local cool = self.Cools[self:GetCurLevel()]
     local cooldown = self.Owner.Attribute:get("冷却缩减")
-    if (cool == nil) then
-        Game.Log("self: " .. tostring(self.Name))
-        Game.Log("Cools: " .. tostring(#self.Cools))
-        Game.LogError("CurLevel: " .. tostring(self:GetCurLevel()))
-    end
     return cool - cool * cooldown
 end
 
@@ -146,7 +144,7 @@ Skills = setmetatable(
         self[name] = {}
         setmetatable(self[name], { __index = Skill })
         self[name].Name = name
-        self[name].SkillType = -1 -- -1被动 0无目标 1单位目标 2点目标 3点范围
+        self[name].SkillType = -1 -- -1被动 0无目标 1单位目标(远) 2点目标 3点范围 4单位目标(近)
         self[name].Stack = -1 --库存
         self[name].Cools = {} --冷却时间
         self[name].Rngs = {} --施法距离

@@ -2,8 +2,8 @@ local skill = Skills["巨龙撞击"]
 skill.SkillType = 2
 local mDamageRange = 200
 local mDistance = 1200
-local mDamages1 = { 150, 250, 350, 500, 700, 900 }
-local mDamages2 = { 0.1, 0.2, 0.4, 0.6, 0.8, 1 }
+local mDamages1 = { 150, 300, 450, 600, 750, 900 }
+local mDamages2 = { 0.5, 0.6, 0.7, 0.8, 0.9, 1 }
 local mArt = "AZ_youlongtuci.mdl"
 
 setmetatable(Buffs["巨龙撞击"], { __index = Buffs["护甲"] })

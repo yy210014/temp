@@ -1,5 +1,5 @@
 local skill = Skills["无畏冲锋"]
-skill.SkillType = 1
+skill.SkillType = 4
 local mDamageRange = 300
 local mDamages1 = {50, 100, 200, 400, 600, 800}
 local mDamages2 = {0.5, 0.6, 0.7, 0.8, 0.9, 1}

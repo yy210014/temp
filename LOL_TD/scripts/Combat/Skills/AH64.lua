@@ -1,8 +1,8 @@
 local skill = Skills["冰霜之环"]
 skill.SkillType = 0
 
-local mDamages1 = { 170, 250, 340, 420, 500, 600 }
-local mDamages2 = { 1, 1.1, 1.2, 1.3, 1.4, 1.5 }
+local mDamages1 = { 150, 300, 450, 600, 750, 900 }
+local mDamages2 = { 0.5, 0.7, 1.9, 1.1, 1.3, 1.5 }
 local mRange = 600
 local mArt1 = "bing1.mdl"
 

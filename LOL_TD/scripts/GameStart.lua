@@ -259,14 +259,16 @@ function GameStart.AnyUnitDeath(killUnit, dieUnit)
         end
     end
     --怪兽掉落
-    local playerId = GetPlayerId(killUnit.Player) + 1
-    mUnitDeathDropCount[playerId] = mUnitDeathDropCount[playerId] + 1
-    if (mUnitDeathDropCount[playerId] > 15) then
-        local itemId = Card.RandomDrop()
-        if (itemId ~= 0) then
-            CreateItem(itemId, dieUnit:X(), dieUnit:Y())
+    if (Game.GetMode() == GameMode.NORMAL) then
+        local playerId = GetPlayerId(killUnit.Player) + 1
+        mUnitDeathDropCount[playerId] = mUnitDeathDropCount[playerId] + 1
+        if (mUnitDeathDropCount[playerId] > 15) then
+            local itemId = Card.RandomDrop()
+            if (itemId ~= 0) then
+                CreateItem(itemId, dieUnit:X(), dieUnit:Y())
+            end
+            mUnitDeathDropCount[playerId] = 0
         end
-        mUnitDeathDropCount[playerId] = 0
     end
     --迭代技能
     killUnit:IterateSkills(

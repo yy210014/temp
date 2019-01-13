@@ -10,6 +10,8 @@ function skill:Initialize()
         --    {"ATCA", "ATCB", "ATCC", "ATCS"}, --杀怪加钱点
         { "ATDA", "ATDB", "ATDC", "ATDS" }, --每杀1个怪加1点物理攻击（最高100点）
         { "ATFA", "ATFB", "ATFC", "ATFS" } --物理穿透和法术穿透
+
+        --物理伤害
     }
     owner.ApList2 = {
         { "AT9A", "AT9B", "AT9C", "AT9S" }, --法术穿透
@@ -17,11 +19,13 @@ function skill:Initialize()
         --    {"ATCA", "ATCB", "ATCC", "ATCS"}, --杀怪加钱点
         { "ATEA", "ATEB", "ATEC", "ATES" }, --每杀1个怪加1点法术攻击（最高100点）
         { "ATFA", "ATFB", "ATFC", "ATFS" } --物理穿透和法术穿透
+
+        --法术伤害
     }
     owner.AdNApList2 = {
         { "AT8A", "AT8B", "AT8C", "AT8S" }, --物理穿透
         { "AT9A", "AT9B", "AT9C", "AT9S" }, --法术穿透
-        { "ATAA", "ATAB", "ATAC", "ATAS" }, --暴击伤害
+        --{ "ATAA", "ATAB", "ATAC", "ATAS" }, --暴击伤害
         { "ATBA", "ATBB", "ATBC", "ATBS" }, --技能冷却缩减
         --   {"ATCA", "ATCB", "ATCC", "ATCS"}, --杀怪加钱点
         { "ATDA", "ATDB", "ATDC", "ATDS" }, --每杀1个怪加1点物理攻击（最高100点）

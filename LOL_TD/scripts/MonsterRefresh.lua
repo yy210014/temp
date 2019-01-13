@@ -53,12 +53,12 @@ local mEndlessWaveIndex = 1
 local mMaxWaveIndex = 56
 local mDelay = {
     60, 10, 10, 10, 10, 10, 10, 10,
-    20, 10, 10, 10, 10, 10, 10, 10,
-    20, 10, 10, 10, 10, 10, 10, 10,
-    20, 10, 10, 10, 10, 10, 10, 10,
-    20, 10, 10, 10, 10, 10, 10, 10,
-    20, 10, 10, 10, 10, 10, 10, 10,
-    20, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10,
 }
 
 local mDuration = {
@@ -253,7 +253,7 @@ end
 
 function DelayEndLessPush()
     TimerStart(mDelayPushTimer, 10, false, PushWave)
-    TimerDialogSetTitle(mDelayPushTimerDialog, "下一波即将到来")
+    TimerDialogSetTitle(mDelayPushTimerDialog, "无尽第" .. mEndlessWaveIndex .. "波")
     TimerDialogDisplay(mDelayPushTimerDialog, true)
 end
 
@@ -453,7 +453,7 @@ function Spawn(spawnPoint, index)
         end
         Multiboard.ShowMonsterCount(1, index)
     elseif (Game.GetMode() == GameMode.ENDLESS) then
-        unit.Attribute:add("生命上限", unit.Attribute:get("生命上限") * (0.15 * Game.GetLevel() - 0.15))
+        unit.Attribute:add("生命上限", unit.Attribute:get("生命上限") * (0.05 * mEndlessWaveIndex - 0.05))
         PlayerInfo:AddMonsterCount(Player(index - 1))
     end
     unit.Attribute:add("生命", unit.Attribute:get("生命上限"))

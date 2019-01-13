@@ -1294,33 +1294,28 @@ function skill:OnAttack(attactUnit, defUnit)
 end
 
 skill = Skills["雷霆万钧[被动]"]
-Ubertip = "|cffffff00效果：每三次攻击时，会对该目标周围造成一次雷霆打击造成30*英雄等级+0.2*物理攻击+0.2*法术攻击的魔法伤害。（CD10s）|r"
-skill.LastTime = 0
 skill.Count = 1
 skill.mArt1 = "AZ_TS_G2.mdl"
 skill.mArt2 = "Abilities\\Spells\\Human\\Thunderclap\\ThunderClapCaster.mdl"
 function skill:OnAttack(attactUnit, defUnit)
     --Game.Log("雷霆万钧[被动]")
-    if (GameScene.Elapsed - self.LastTime > 10) then
-        if (self.Count >= 3) then
-            self.LastTime = GameScene.Elapsed
-            self.Count = 1
-            local ad = attactUnit.Attribute:get("物理攻击") + attactUnit.Attribute:get("物理攻击加成")
-            local ap = attactUnit.Attribute:get("法术攻击")
-            local damage = 30 * GetHeroLevel(attactUnit.Entity) + 0.2 * ad + 0.2 * ap
-            DestroyEffect(AddSpecialEffect(self.mArt1, defUnit:X(), defUnit:Y()))
-            DestroyEffect(AddSpecialEffect(self.mArt2, defUnit:X(), defUnit:Y()))
-            AssetsManager.OverlapCircle(
-            defUnit:X(),
-            defUnit:Y(),
-            300,
-            function(unit)
-                EXUnitDamageTarget(attactUnit, unit, damage, EXDamageType.Magic)
-            end
-            )
-        else
-            self.Count = self.Count + 1
+    if (self.Count >= 3) then
+        self.Count = 1
+        local ad = attactUnit.Attribute:get("物理攻击") + attactUnit.Attribute:get("物理攻击加成")
+        local ap = attactUnit.Attribute:get("法术攻击")
+        local damage = 30 * GetHeroLevel(attactUnit.Entity) + 0.3 * ad + 0.3 * ap
+        DestroyEffect(AddSpecialEffect(self.mArt1, defUnit:X(), defUnit:Y()))
+        DestroyEffect(AddSpecialEffect(self.mArt2, defUnit:X(), defUnit:Y()))
+        AssetsManager.OverlapCircle(
+        defUnit:X(),
+        defUnit:Y(),
+        400,
+        function(unit)
+            EXUnitDamageTarget(attactUnit, unit, damage, EXDamageType.Magic)
         end
+        )
+    else
+        self.Count = self.Count + 1
     end
 end
 
@@ -1328,7 +1323,7 @@ skill = Skills["血虐狂暴[被动]"]
 setmetatable(Buffs["血虐狂暴"], { __index = Buffs["攻速"] })
 Buffs["血虐狂暴"].values = { 0.1 }
 Buffs["血虐狂暴"].Durs = { 3 }
-Buffs["血虐狂暴"].MaxStack = 3
+Buffs["血虐狂暴"].MaxStack = 5
 function skill:OnAttack(attactUnit, defUnit, isCrit)
     if (isCrit) then
         --Game.Log("血虐狂暴[被动]")
@@ -1337,12 +1332,10 @@ function skill:OnAttack(attactUnit, defUnit, isCrit)
 end
 
 skill = Skills["符文法剑[被动]"]
-Ubertip = "|cffffff00效果：每次攻击附带0.5*法术攻击的额外魔法伤害|r"
 skill.value = 0
 function skill:OnAttack(attactUnit, defUnit)
-    --Game.Log("符文法剑[被动]")
     local ap = attactUnit.Attribute:get("法术攻击")
-    local damage = ap * 0.5
+    local damage = ap * 3
     DestroyEffect(
     AddSpecialEffectTarget("Abilities\\Spells\\Other\\Stampede\\StampedeMissileDeath.mdl", defUnit.Entity, "chest")
     )
@@ -1351,7 +1344,6 @@ end
 
 skill = Skills["幽冥冷火[被动]"]
 skill.LastTime = 0
-Ubertip = "|cffffff00效果：每次造成伤害时，会使第一个伤害目标周围范围内单位在3秒内受到持续魔法伤害，每秒伤害值为（10+0.4*物理攻击+0.4*法术攻击）*0.3。（CD10s）|r"
 setmetatable(Buffs["幽冥冷火"], { __index = Buffs["灼烧"] })
 Buffs["幽冥冷火"].values = { 0 }
 Buffs["幽冥冷火"].Durs = { 3 }

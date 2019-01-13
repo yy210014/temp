@@ -357,7 +357,7 @@ end
 --运动中的单位中途死亡也要让运动继续下去，死亡单位5秒后销毁，并释放相关内存
 function Unit:Destroy(destroy)
     if (self.Buffs == nil) then
-        Game.LogError("Buffs == nil")
+        Game.LogError(self.Name .."Buffs == nil")
     end
     for i = #self.Buffs, 1, -1 do
         if (self.Buffs[i] ~= nil) then
@@ -414,7 +414,7 @@ function Unit:UpdateSkillCD()
             if (self.Skills[i] ~= nil) then
                 self.Skills[i]:UpdateCD()
             else
-                Game.LogError("丢失Skill")
+                Game.LogError(self.Name .."丢失Skill")
             end
         end
     end
@@ -515,7 +515,7 @@ function Unit:OnGameUpdate(dt)
     if (self.Texts ~= nil and #self.Texts > 0) then
         self.TextDt = self.TextDt - dt
         if (self.TextDt <= 0) then
-            self.TextDt = #self.Texts >= 5 and 0.08 or 0.16
+            self.TextDt = #self.Texts >= 5 and 0.04 or 0.16
             local text = self.Texts[#self.Texts]
             CreateDamageText(text[1], self.Entity, text[2], text[3])
             table.remove(self.Texts, #self.Texts)
@@ -528,7 +528,7 @@ function Unit:OnGameUpdate(dt)
             if (self.Skills[i] ~= nil) then
                 self.Skills[i]:OnGameUpdate(dt)
             else
-                Game.LogError("丢失Skill")
+                Game.LogError(self.Name .."丢失Skill")
             end
         end
     end
@@ -538,7 +538,7 @@ function Unit:OnGameUpdate(dt)
             if (self.Buffs[i] ~= nil) then
                 self.Buffs[i]:OnGameUpdate(dt)
             else
-                Game.LogError("丢失Buff")
+                Game.LogError(self.Name .."丢失Buff")
             end
         end
     end
@@ -568,7 +568,7 @@ function Unit:IterateSkills(call)
             if (self.Skills[i] ~= nil) then
                 call(self.Skills[i])
             else
-                Game.LogError("丢失Skill")
+                Game.LogError(self.Name .."丢失Skill")
             end
         end
     end
@@ -580,7 +580,7 @@ function Unit:IterateBuffs(call)
             if (self.Buffs[i] ~= nil) then
                 call(self.Buffs[i])
             else
-                Game.LogError("丢失Buff")
+                Game.LogError(self.Name .. "丢失Buff")
             end
         end
     end
@@ -592,7 +592,7 @@ function Unit:IterateItems(call)
             if (self.Items[i] ~= nil) then
                 call(self.Items[i])
             else
-                Game.LogError("丢失道具")
+                Game.LogError(self.Name .."丢失道具")
             end
         end
     end

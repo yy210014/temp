@@ -403,7 +403,7 @@ comb = Combs["赵信-九头蛇"]
 comb.Ubertip = [[
 -九头蛇
  羁绊需求：赵信+九头蛇
- 羁绊效果：增加赵信30%额外物理穿透|n
+ 羁绊效果：增加赵信30%攻击速度|n
 ]]
 
 function comb:HerosId()
@@ -415,11 +415,11 @@ function comb:Conditions()
 end
 
 function comb:OnEnable()
-    self.Owner.Attribute:add("物理穿透", 0.3)
+    self.Owner.Attribute:add("攻击速度", 0.3)
 end
 
 function comb:OnDisable()
-    self.Owner.Attribute:add("物理穿透", -0.3)
+    self.Owner.Attribute:add("攻击速度", -0.3)
 end
 
 comb = Combs["拉克丝-大圣杯"]
@@ -767,7 +767,7 @@ comb = Combs["蛮王-红叉"]
 comb.Ubertip = [[
 -红叉
  羁绊需求：蛮王+红叉
- 羁绊效果：增加蛮王50%的攻击速度|n
+ 羁绊效果：增加蛮王30%的攻击速度|n
 ]]
 
 function comb:HerosId()
@@ -779,11 +779,11 @@ function comb:Conditions()
 end
 
 function comb:OnEnable()
-    self.Owner.Attribute:add("攻击速度", 0.5)
+    self.Owner.Attribute:add("攻击速度", 0.3)
 end
 
 function comb:OnDisable()
-    self.Owner.Attribute:add("攻击速度", -0.5)
+    self.Owner.Attribute:add("攻击速度", -0.3)
 end
 
 comb = Combs["丽桑卓-鬼书"]

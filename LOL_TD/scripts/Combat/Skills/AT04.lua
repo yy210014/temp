@@ -15,14 +15,14 @@ function skill:Initialize()
         {"AT1A", "AT1B", "AT1C", "AT1S"}, --法术攻击
         {"AT3A", "AT3B", "AT3C", "AT3S"}, --蓝量
         {"AT4A", "AT4B", "AT4C", "AT4S"}, --蓝量回复
-        {"AT5A", "AT5B", "AT5C", "AT5S"}, --攻击距离
+        --{"AT5A", "AT5B", "AT5C", "AT5S"}, --攻击距离
         --  {"AT6A", "AT6B", "AT6C", "AT6S"}, --经验获取
         {"AT7A", "AT7B", "AT7C", "AT7S"} --物理攻击和法术攻击
     }
     owner.AdNApList1 = {
-        {"AT1A", "AT1B", "AT1C", "AT1S"}, --法术攻击
+        --{"AT1A", "AT1B", "AT1C", "AT1S"}, --法术攻击
         {"AT2A", "AT2B", "AT2C", "AT2S"}, --攻速
-        {"AT3A", "AT3B", "AT3C", "AT3S"}, --蓝量
+        --{"AT3A", "AT3B", "AT3C", "AT3S"}, --蓝量
         {"AT4A", "AT4B", "AT4C", "AT4S"}, --蓝量回复
         {"AT5A", "AT5B", "AT5C", "AT5S"}, --攻击距离
         --   {"AT6A", "AT6B", "AT6C", "AT6S"}, --经验获取

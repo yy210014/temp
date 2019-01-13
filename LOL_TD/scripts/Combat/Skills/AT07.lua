@@ -4,5 +4,4 @@ function skill:OnCast()
         ClearSelection()
         SelectUnit(self.Owner.SelectUnit.Entity, true)
     end
-    DisableTrigger(self.Owner.EscTrigger)
 end

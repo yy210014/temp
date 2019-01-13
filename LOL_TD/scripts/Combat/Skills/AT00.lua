@@ -14,20 +14,34 @@ function skill:OnCast()
     if (unit.tianfu.EscTrigger == nil) then
         unit.tianfu.EscTrigger = CreateTrigger()
         TriggerRegisterPlayerEventEndCinematic(unit.tianfu.EscTrigger, unit.Player)
-        TriggerAddAction(unit.tianfu.EscTrigger, self.TrigAction)
+        TriggerAddAction(unit.tianfu.EscTrigger, self.TrigAction1)
     else
         EnableTrigger(unit.tianfu.EscTrigger)
     end
+    --动态注册选择单位事件
+    if (unit.tianfu.SelectedTrigger == nil) then
+        unit.tianfu.SelectedTrigger = CreateTrigger()
+        TriggerRegisterPlayerUnitEvent(unit.tianfu.SelectedTrigger, unit.Player, EVENT_PLAYER_UNIT_DESELECTED, nil)
+        TriggerAddAction(unit.tianfu.SelectedTrigger, self.TrigAction2)
+    else
+        EnableTrigger(unit.tianfu.SelectedTrigger)
+    end
 end
 
-skill.TrigAction = function()
+skill.TrigAction1 = function()
     if (IsUnitSelected(mLastSelectUnit.Entity, GetTriggerPlayer())) then
         if GetLocalPlayer() == mLastSelectUnit.Player then
             ClearSelection()
             SelectUnit(mLastSelectUnit.SelectUnit.Entity, true)
         end
+    end
+end
+
+skill.TrigAction2 = function()
+    if (GetTriggerUnit() == mLastSelectUnit.Entity) then
         ShowUnit(mLastSelectUnit.Entity, false)
         DisableTrigger(mLastSelectUnit.EscTrigger)
+        DisableTrigger(mLastSelectUnit.SelectedTrigger)
     end
 end
 

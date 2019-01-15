@@ -1,9 +1,12 @@
 globals
 //globals from BzAPI:
 constant boolean LIBRARY_BzAPI=true
-trigger array BzAPI___DamageEventQueue
-integer BzAPI___DamageEventNumber= 0
+trigger array BzAPI__DamageEventQueue
+integer BzAPI__DamageEventNumber= 0
 //endglobals from BzAPI
+//globals from NFTSCommandFunc:
+constant boolean LIBRARY_NFTSCommandFunc=true
+//endglobals from NFTSCommandFunc
 //globals from YDTriggerSaveLoadSystem:
 constant boolean LIBRARY_YDTriggerSaveLoadSystem=true
 hashtable YDHT
@@ -27,10 +30,10 @@ real yd_MapMaxX= 0
 real yd_MapMinX= 0
 real yd_MapMaxY= 0
 real yd_MapMinY= 0
-string array YDWEBase___yd_PlayerColor
-trigger array YDWEBase___AbilityCastingOverEventQueue
-integer array YDWEBase___AbilityCastingOverEventType
-integer YDWEBase___AbilityCastingOverEventNumber= 0
+string array YDWEBase__yd_PlayerColor
+trigger array YDWEBase__AbilityCastingOverEventQueue
+integer array YDWEBase__AbilityCastingOverEventType
+integer YDWEBase__AbilityCastingOverEventNumber= 0
 //endglobals from YDWEBase
 //globals from YDWEGetItemOfTypeFromUnitBJNull:
 constant boolean LIBRARY_YDWEGetItemOfTypeFromUnitBJNull=true
@@ -412,6 +415,12 @@ native EXBlendButtonIcon takes string a, string b, string c returns boolean
     endfunction
 
 //library BzAPI ends
+//library NFTSCommandFunc:
+    function NFTSCommandFunc takes nothing returns nothing
+        
+    endfunction
+
+//library NFTSCommandFunc ends
 //library YDTriggerSaveLoadSystem:
     function YDTriggerSaveLoadSystem___Init takes nothing returns nothing
             set YDHT=InitHashtable()
@@ -1018,11 +1027,11 @@ endfunction
 function YDWESyStemAbilityCastingOverTriggerAction takes unit hero,integer index returns nothing
  local integer i= 0
     loop
-        exitwhen i >= YDWEBase___AbilityCastingOverEventNumber
-        if YDWEBase___AbilityCastingOverEventType[i] == index then
+        exitwhen i >= YDWEBase__AbilityCastingOverEventNumber
+        if YDWEBase__AbilityCastingOverEventType[i] == index then
             set bj_lastAbilityCastingUnit=hero
-			if YDWEBase___AbilityCastingOverEventQueue[i] != null and TriggerEvaluate(YDWEBase___AbilityCastingOverEventQueue[i]) and IsTriggerEnabled(YDWEBase___AbilityCastingOverEventQueue[i]) then
-				call TriggerExecute(YDWEBase___AbilityCastingOverEventQueue[i])
+			if YDWEBase__AbilityCastingOverEventQueue[i] != null and TriggerEvaluate(YDWEBase__AbilityCastingOverEventQueue[i]) and IsTriggerEnabled(YDWEBase__AbilityCastingOverEventQueue[i]) then
+				call TriggerExecute(YDWEBase__AbilityCastingOverEventQueue[i])
 			endif
 		endif
         set i=i + 1
@@ -1032,9 +1041,9 @@ endfunction
 //YDWE技能捕捉事件 
 //===========================================================================  
 function YDWESyStemAbilityCastingOverRegistTrigger takes trigger trg,integer index returns nothing
-	set YDWEBase___AbilityCastingOverEventQueue[YDWEBase___AbilityCastingOverEventNumber]=trg
-	set YDWEBase___AbilityCastingOverEventType[YDWEBase___AbilityCastingOverEventNumber]=index
-	set YDWEBase___AbilityCastingOverEventNumber=YDWEBase___AbilityCastingOverEventNumber + 1
+	set YDWEBase__AbilityCastingOverEventQueue[YDWEBase__AbilityCastingOverEventNumber]=trg
+	set YDWEBase__AbilityCastingOverEventType[YDWEBase__AbilityCastingOverEventNumber]=index
+	set YDWEBase__AbilityCastingOverEventNumber=YDWEBase__AbilityCastingOverEventNumber + 1
 endfunction 
 //===========================================================================
 //系统函数完善
@@ -1071,7 +1080,7 @@ endfunction
 //unitpool bj_lastCreatedPool=null
 //unit bj_lastPoolAbstractedUnit=null
 function YDWEGetPlayerColorString takes player p,string s returns string
-    return YDWEBase___yd_PlayerColor[GetHandleId(GetPlayerColor(p))] + s + "|r"
+    return YDWEBase__yd_PlayerColor[GetHandleId(GetPlayerColor(p))] + s + "|r"
 endfunction
 //===========================================================================
 //===========================================================================
@@ -1118,22 +1127,22 @@ function InitializeYD takes nothing returns nothing
 	set yd_MapMaxX=GetCameraBoundMaxX() + GetCameraMargin(CAMERA_MARGIN_RIGHT)
 	set yd_MapMaxY=GetCameraBoundMaxY() + GetCameraMargin(CAMERA_MARGIN_TOP)
 	
-    set YDWEBase___yd_PlayerColor[0]="|cFFFF0303"
-    set YDWEBase___yd_PlayerColor[1]="|cFF0042FF"
-    set YDWEBase___yd_PlayerColor[2]="|cFF1CE6B9"
-    set YDWEBase___yd_PlayerColor[3]="|cFF540081"
-    set YDWEBase___yd_PlayerColor[4]="|cFFFFFC01"
-    set YDWEBase___yd_PlayerColor[5]="|cFFFE8A0E"
-    set YDWEBase___yd_PlayerColor[6]="|cFF20C000"
-    set YDWEBase___yd_PlayerColor[7]="|cFFE55BB0"
-    set YDWEBase___yd_PlayerColor[8]="|cFF959697"
-    set YDWEBase___yd_PlayerColor[9]="|cFF7EBFF1"
-    set YDWEBase___yd_PlayerColor[10]="|cFF106246"
-    set YDWEBase___yd_PlayerColor[11]="|cFF4E2A04"
-    set YDWEBase___yd_PlayerColor[12]="|cFF282828"
-    set YDWEBase___yd_PlayerColor[13]="|cFF282828"
-    set YDWEBase___yd_PlayerColor[14]="|cFF282828"
-    set YDWEBase___yd_PlayerColor[15]="|cFF282828"
+    set YDWEBase__yd_PlayerColor[0]="|cFFFF0303"
+    set YDWEBase__yd_PlayerColor[1]="|cFF0042FF"
+    set YDWEBase__yd_PlayerColor[2]="|cFF1CE6B9"
+    set YDWEBase__yd_PlayerColor[3]="|cFF540081"
+    set YDWEBase__yd_PlayerColor[4]="|cFFFFFC01"
+    set YDWEBase__yd_PlayerColor[5]="|cFFFE8A0E"
+    set YDWEBase__yd_PlayerColor[6]="|cFF20C000"
+    set YDWEBase__yd_PlayerColor[7]="|cFFE55BB0"
+    set YDWEBase__yd_PlayerColor[8]="|cFF959697"
+    set YDWEBase__yd_PlayerColor[9]="|cFF7EBFF1"
+    set YDWEBase__yd_PlayerColor[10]="|cFF106246"
+    set YDWEBase__yd_PlayerColor[11]="|cFF4E2A04"
+    set YDWEBase__yd_PlayerColor[12]="|cFF282828"
+    set YDWEBase__yd_PlayerColor[13]="|cFF282828"
+    set YDWEBase__yd_PlayerColor[14]="|cFF282828"
+    set YDWEBase__yd_PlayerColor[15]="|cFF282828"
     //=================显示版本=====================
     call YDWEVersion_Init()
 endfunction
@@ -1180,7 +1189,7 @@ endfunction
 // 
 //   Warcraft III map script
 //   Generated by the Warcraft III World Editor
-//   Date: Tue Jan 15 14:36:44 2019
+//   Date: Tue Jan 15 00:03:31 2019
 //   Map Author: 渣康传奇
 // 
 //===========================================================================
@@ -3414,10 +3423,10 @@ function config takes nothing returns nothing
     call SetPlayers(8)
     call SetTeams(8)
     call SetGamePlacement(MAP_PLACEMENT_TEAMS_TOGETHER)
-    call DefineStartLocation(0, - 3008.0, 1664.0)
-    call DefineStartLocation(1, 1600.0, 2880.0)
-    call DefineStartLocation(2, 3072.0, - 1664.0)
-    call DefineStartLocation(3, - 1536.0, - 3072.0)
+    call DefineStartLocation(0, - 2048.0, 2816.0)
+    call DefineStartLocation(1, 2816.0, 2048.0)
+    call DefineStartLocation(2, 4672.0, - 4800.0)
+    call DefineStartLocation(3, - 2624.0, - 1984.0)
     call DefineStartLocation(4, 0.0, 128.0)
     call DefineStartLocation(5, 0.0, 128.0)
     call DefineStartLocation(6, 0.0, 128.0)

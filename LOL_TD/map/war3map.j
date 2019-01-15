@@ -145,7 +145,7 @@ trigger gg_trg_SelectedItem2= null
 trigger gg_trg_RefrshItemCell= null
 
 trigger l__library_init
-
+tas
 //JASSHelper struct globals:
 
 endglobals

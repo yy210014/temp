@@ -394,7 +394,9 @@ function WavesClear()
                     end
                 end
             else
-                PlayerInfo.AddScore(player.Entity, 1)
+                if (player.IsWatch == false) then
+                    PlayerInfo.AddScore(player.Entity, 1)
+                end
             end
         end)
         if (mCurWaveIndex > 5) then

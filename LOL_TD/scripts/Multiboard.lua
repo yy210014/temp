@@ -46,8 +46,13 @@ function Multiboard.UpdateEndLessInfo()
     MultiboardSetItemValue(MultiboardGetItem(mMultiboard, PlayerInfo:Count() + 1, 0), "|cffffcc00无尽模式|r")
     MultiboardSetItemValue(MultiboardGetItem(mMultiboard, PlayerInfo:Count() + 1, 1), "")
     MultiboardSetItemValue(MultiboardGetItem(mMultiboard, PlayerInfo:Count() + 1, 2), "")
-    for i = 1, PlayerInfo:Count() do
-        MultiboardSetItemValue(MultiboardGetItem(mMultiboard, i, 1), 0)
+    for i = 0, 3 do
+        if
+        (GetPlayerController(Player(i)) == MAP_CONTROL_USER and
+        GetPlayerSlotState(Player(i)) == PLAYER_SLOT_STATE_PLAYING)
+        then
+            MultiboardSetItemValue(MultiboardGetItem(mMultiboard, i + 1, 1), "")
+        end
     end
 end
 
@@ -108,6 +113,7 @@ function Multiboard.OnGameUpdate(dt)
         mTimeStrs[2] = mTime3
         mTimeStrs[4] = mTime2
         mTimeStrs[6] = mTime1
-        MultiboardSetTitleText(mMultiboard, table.concat(mTimeStrs))
+        --MultiboardSetTitleText(mMultiboard, table.concat(mTimeStrs))
+        MultiboardSetTitleText(mMultiboard, "第" .. MonsterRefresh.GetCurWaveIndex() .. "波")
     end
 end

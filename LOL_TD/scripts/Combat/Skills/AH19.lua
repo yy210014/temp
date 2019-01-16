@@ -8,6 +8,8 @@ local mRange = 800
 local mDelay = 4
 
 local mSpecialArt = "Abilities\\Spells\\Other\\Volcano\\VolcanoDeath.mdl"
+local mTargetArt = "Abilities\\Spells\\Other\\SoulBurn\\SoulBurnbuff.mdl"
+
 function skill:OnCast()
     local spellTargetUnit = GetJ_EnemyUnits(GetSpellTargetUnit())
     if (spellTargetUnit == nil) then

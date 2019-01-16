@@ -293,10 +293,10 @@ function GameStart.AnyUnitDeath(killUnit, dieUnit)
 
     --死亡单位是英雄
     if (IsUnitType(dieUnit.Entity, UNIT_TYPE_HERO)) then
-        if (MonsterRefresh.GetCurWaveIndex() == 41 and Game.GetLevel() == 1) then
+        if (MonsterRefresh.GetCurWaveIndex() == 40 and Game.GetLevel() == 1) then
             AllWavesDie()
         end
-        if (MonsterRefresh.GetCurWaveIndex() == 57) then
+        if (MonsterRefresh.GetCurWaveIndex() == 56) then
             if (Game.GetLevel() <= 2) then
                 AllWavesDie()
             else

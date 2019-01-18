@@ -19,8 +19,8 @@ function PlayerInfo:New(entity)
     newPlayer.KillCount = 0
     newPlayer.MonsterCount = 0
     newPlayer.IsWatch = false
-    newPlayer.IsVIP = LoadInteger(Jglobals.udg_table, GetPlayerId(entity), jfType.VIP) == 1 and true or false
-    newPlayer.Score = LoadInteger(Jglobals.udg_table, GetPlayerId(entity), jfType.Score) or 0
+    newPlayer.IsVIP = DecodeBase64(LoadStr(Jglobals.udg_table, GetPlayerId(entity), jfType.VIP)) == 1 and true or false
+    newPlayer.Score = DecodeBase64(LoadStr(Jglobals.udg_table, GetPlayerId(entity), jfType.Score)) or 0
     mPlayers[newPlayer.Id + 1] = newPlayer
     mPlayers.Count = mPlayers.Count + 1
     return newPlayer
@@ -69,7 +69,7 @@ function PlayerInfo.AddScore(entity, score)
     player.Score = player.Score + score
 
     --DzAPI_Map_Ladder_SetStat(entity, "Sorce", tostring(player.Score))
-    SaveInteger(Jglobals.udg_table, GetPlayerId(entity), jfType.Score, player.Score)
+    SaveStr(Jglobals.udg_table, GetPlayerId(entity), jfType.Score, EncodeBase64(tostring(player.Score)))
     Multiboard.ShowScore(index, player.Score)
 end
 
@@ -92,7 +92,7 @@ function PlayerInfo:EnableVIP(entity)
     player.IsVIP = true
     AddPlayerTechResearched(entity, GetId("R011"), 1)
     --DzAPI_Map_Ladder_SetStat(entity, "VIP", tostring(1))
-    SaveInteger(Jglobals.udg_table, GetPlayerId(entity), jfType.VIP, player.Score)
+    SaveStr(Jglobals.udg_table, GetPlayerId(entity), jfType.VIP, EncodeBase64(tostring(player.VIP)))
     local worke = Worke[GetPlayerId(entity)]
     local timer = CreateTimer()
     TimerStart(timer, 1, true,

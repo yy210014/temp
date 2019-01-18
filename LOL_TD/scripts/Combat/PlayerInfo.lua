@@ -69,7 +69,7 @@ function PlayerInfo.AddScore(entity, score)
     player.Score = player.Score + score
 
     --DzAPI_Map_Ladder_SetStat(entity, "Sorce", tostring(player.Score))
-    SaveStr(Jglobals.udg_table, GetPlayerId(entity), jfType.Score, player.Score)
+    SaveInteger(Jglobals.udg_table, GetPlayerId(entity), jfType.Score, player.Score)
     Multiboard.ShowScore(index, player.Score)
 end
 
@@ -92,7 +92,7 @@ function PlayerInfo:EnableVIP(entity)
     player.IsVIP = true
     AddPlayerTechResearched(entity, GetId("R011"), 1)
     --DzAPI_Map_Ladder_SetStat(entity, "VIP", tostring(1))
-    SaveStr(Jglobals.udg_table, GetPlayerId(entity), jfType.VIP, player.Score)
+    SaveInteger(Jglobals.udg_table, GetPlayerId(entity), jfType.VIP, player.Score)
     local worke = Worke[GetPlayerId(entity)]
     local timer = CreateTimer()
     TimerStart(timer, 1, true,

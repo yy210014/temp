@@ -1,9 +1,12 @@
 globals
 //globals from BzAPI:
 constant boolean LIBRARY_BzAPI=true
-trigger array BzAPI__DamageEventQueue
-integer BzAPI__DamageEventNumber= 0
+trigger array BzAPI___DamageEventQueue
+integer BzAPI___DamageEventNumber= 0
 //endglobals from BzAPI
+//globals from DzAPI:
+constant boolean LIBRARY_DzAPI=true
+//endglobals from DzAPI
 //globals from YDTriggerSaveLoadSystem:
 constant boolean LIBRARY_YDTriggerSaveLoadSystem=true
 hashtable YDHT
@@ -27,10 +30,10 @@ real yd_MapMaxX= 0
 real yd_MapMinX= 0
 real yd_MapMaxY= 0
 real yd_MapMinY= 0
-string array YDWEBase__yd_PlayerColor
-trigger array YDWEBase__AbilityCastingOverEventQueue
-integer array YDWEBase__AbilityCastingOverEventType
-integer YDWEBase__AbilityCastingOverEventNumber= 0
+string array YDWEBase___yd_PlayerColor
+trigger array YDWEBase___AbilityCastingOverEventQueue
+integer array YDWEBase___AbilityCastingOverEventType
+integer YDWEBase___AbilityCastingOverEventNumber= 0
 //endglobals from YDWEBase
 //globals from YDWEGetItemOfTypeFromUnitBJNull:
 constant boolean LIBRARY_YDWEGetItemOfTypeFromUnitBJNull=true
@@ -79,6 +82,7 @@ integer array udg_ItemCooldowns
 integer array udg_ItemManas
 integer udg_ClickFrameID= 0
 integer array udg_SellItemId
+hashtable udg_table= null
     // Generated
 rect gg_rct_chuguaikou1= null
 rect gg_rct_chuguaikou2= null
@@ -140,10 +144,10 @@ trigger gg_trg_Fram202Action= null
 trigger gg_trg_SelectedHero= null
 trigger gg_trg_BuyItem= null
 trigger gg_trg_SellItem= null
+trigger gg_trg_EventPlayerLeave= null
 trigger gg_trg_SellItem2= null
 trigger gg_trg_SelectedItem2= null
 trigger gg_trg_RefrshItemCell= null
-hashtable udg_table = InitHashtable()
 
 trigger l__library_init
 
@@ -255,10 +259,7 @@ endglobals
     native DzFrameSetSize takes integer frame, real w, real h returns nothing
     native DzCreateFrameByTagName takes string frameType, string name, integer parent, string template, integer id returns integer
     native DzFrameSetVertexColor takes integer frame, integer color returns nothing
-	native EXExecuteScript takes string script returns string
-    native EXBlendButtonIcon takes string a, string b, string c returns boolean
-
-    native DzAPI_Map_SaveServerValue takes player whichPlayer, string key, string value returns boolean
+	native DzAPI_Map_SaveServerValue takes player whichPlayer, string key, string value returns boolean
     native DzAPI_Map_GetServerValue takes player whichPlayer, string key returns string
     native DzAPI_Map_Ladder_SetStat takes player whichPlayer, string key, string value returns nothing
     native DzAPI_Map_IsRPGLadder takes nothing returns boolean
@@ -286,6 +287,118 @@ endglobals
 	native DzAPI_Map_OrpgTrigger takes player whichPlayer, string key returns nothing
 	native DzAPI_Map_GetServerArchiveDrop takes player whichPlayer, string key returns string
 	native DzAPI_Map_GetServerArchiveEquip takes player whichPlayer, string key returns integer
+	native EXExecuteScript takes string script returns string
+native EXBlendButtonIcon takes string a, string b, string c returns boolean
+
+
+//library BzAPI:
+    //hardware
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //plus
+
+
+
+
+
+
+
+
+
+    //sync
+
+
+
+
+    //gui
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     function DzTriggerRegisterMouseEventTrg takes trigger trg,integer status,integer btn returns nothing
@@ -332,8 +445,178 @@ endglobals
     endfunction
 
 //library BzAPI ends
+//library DzAPI:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ function GetPlayerServerValueSuccess takes player whichPlayer returns boolean
+		if ( DzAPI_Map_GetServerValueErrorCode(whichPlayer) == 0 ) then
+			return true
+		else
+			return false
+		endif
+	endfunction
+  function DzAPI_Map_StoreInteger takes player whichPlayer,string key,integer value returns nothing
+        set key="I" + key
+        call DzAPI_Map_SaveServerValue(whichPlayer, key, I2S(value))
+        set key=null
+        set whichPlayer=null
+    endfunction
+    function DzAPI_Map_GetStoredInteger takes player whichPlayer,string key returns integer
+        local integer value
+        set key="I" + key
+        set value=S2I(DzAPI_Map_GetServerValue(whichPlayer, key))
+        set key=null
+        set whichPlayer=null
+        return value
+    endfunction
+    function DzAPI_Map_StoreReal takes player whichPlayer,string key,real value returns nothing
+        set key="R" + key
+        call DzAPI_Map_SaveServerValue(whichPlayer, key, R2S(value))
+        set key=null
+        set whichPlayer=null
+    endfunction
+    function DzAPI_Map_GetStoredReal takes player whichPlayer,string key returns real
+        local real value
+        set key="R" + key
+        set value=S2R(DzAPI_Map_GetServerValue(whichPlayer, key))
+        set key=null
+        set whichPlayer=null
+        return value
+    endfunction
+    function DzAPI_Map_StoreBoolean takes player whichPlayer,string key,boolean value returns nothing
+        set key="B" + key
+        if ( value ) then
+            call DzAPI_Map_SaveServerValue(whichPlayer, key, "1")
+        else
+            call DzAPI_Map_SaveServerValue(whichPlayer, key, "0")
+        endif
+        set key=null
+        set whichPlayer=null
+    endfunction
+    function DzAPI_Map_GetStoredBoolean takes player whichPlayer,string key returns boolean
+        local boolean value
+        set key="B" + key
+        set key=DzAPI_Map_GetServerValue(whichPlayer, key)
+        if ( key == "1" ) then
+            set value=true
+        else
+            set value=false
+        endif
+        set key=null
+        set whichPlayer=null
+        return value
+    endfunction
+    function DzAPI_Map_StoreString takes player whichPlayer,string key,string value returns nothing
+        set key="S" + key
+        call DzAPI_Map_SaveServerValue(whichPlayer, key, value)
+        set key=null
+        set whichPlayer=null
+    endfunction
+    function DzAPI_Map_GetStoredString takes player whichPlayer,string key returns string
+        return DzAPI_Map_GetServerValue(whichPlayer, "S" + key)
+    endfunction
+ function DzAPI_Map_GetStoredUnitType takes player whichPlayer,string key returns integer
+        local integer value
+        set key="I" + key
+        set value=S2I(DzAPI_Map_GetServerValue(whichPlayer, key))
+        set key=null
+        set whichPlayer=null
+        return value
+    endfunction
+ function DzAPI_Map_GetStoredAbilityId takes player whichPlayer,string key returns integer
+        local integer value
+        set key="I" + key
+        set value=S2I(DzAPI_Map_GetServerValue(whichPlayer, key))
+        set key=null
+        set whichPlayer=null
+        return value
+    endfunction
+    function DzAPI_Map_FlushStoredMission takes player whichPlayer,string key returns nothing
+        call DzAPI_Map_SaveServerValue(whichPlayer, key, null)
+        set key=null
+        set whichPlayer=null
+    endfunction
+    function DzAPI_Map_Ladder_SubmitIntegerData takes player whichPlayer,string key,integer value returns nothing
+        call DzAPI_Map_Ladder_SetStat(whichPlayer, key, I2S(value))
+    endfunction
+    function DzAPI_Map_Stat_SubmitUnitIdData takes player whichPlayer,string key,integer value returns nothing
+        if ( value == 0 ) then
+            //call DzAPI_Map_Ladder_SetStat(whichPlayer,key,"0")
+        else
+            call DzAPI_Map_Ladder_SetStat(whichPlayer, key, I2S(value))
+        endif
+    endfunction
+    function DzAPI_Map_Stat_SubmitUnitData takes player whichPlayer,string key,unit value returns nothing
+        call DzAPI_Map_Stat_SubmitUnitIdData(whichPlayer , key , GetUnitTypeId(value))
+    endfunction
+    function DzAPI_Map_Ladder_SubmitAblityIdData takes player whichPlayer,string key,integer value returns nothing
+        if ( value == 0 ) then
+            //call DzAPI_Map_Ladder_SetStat(whichPlayer,key,"0")
+        else
+            call DzAPI_Map_Ladder_SetStat(whichPlayer, key, I2S(value))
+        endif
+    endfunction
+    function DzAPI_Map_Ladder_SubmitItemIdData takes player whichPlayer,string key,integer value returns nothing
+        local string S
+        if ( value == 0 ) then
+            set S="0"
+        else
+            set S=I2S(value)
+            call DzAPI_Map_Ladder_SetStat(whichPlayer, key, S)
+        endif
+        //call DzAPI_Map_Ladder_SetStat(whichPlayer,key,S)
+        set S=null
+        set whichPlayer=null
+    endfunction
+    function DzAPI_Map_Ladder_SubmitItemData takes player whichPlayer,string key,item value returns nothing
+        call DzAPI_Map_Ladder_SubmitItemIdData(whichPlayer , key , GetItemTypeId(value))
+    endfunction
+    function DzAPI_Map_Ladder_SubmitBooleanData takes player whichPlayer,string key,boolean value returns nothing
+        if ( value ) then
+            call DzAPI_Map_Ladder_SetStat(whichPlayer, key, "1")
+        else
+            call DzAPI_Map_Ladder_SetStat(whichPlayer, key, "0")
+        endif
+    endfunction
+    function DzAPI_Map_Ladder_SubmitTitle takes player whichPlayer,string value returns nothing
+        call DzAPI_Map_Ladder_SetStat(whichPlayer, value, "1")
+    endfunction
+ function DzAPI_Map_Ladder_SubmitPlayerRank takes player whichPlayer,integer value returns nothing
+        call DzAPI_Map_Ladder_SetPlayerStat(whichPlayer, "RankIndex", I2S(value))
+    endfunction
+ function DzAPI_Map_Ladder_SubmitPlayerExtraExp takes player whichPlayer,integer value returns nothing
+        call DzAPI_Map_Ladder_SetStat(whichPlayer, "ExtraExp", I2S(value))
+	endfunction
+
+//library DzAPI ends
 //library YDTriggerSaveLoadSystem:
-    function YDTriggerSaveLoadSystem__Init takes nothing returns nothing
+    function YDTriggerSaveLoadSystem___Init takes nothing returns nothing
             set YDHT=InitHashtable()
         set YDLOC=InitHashtable()
     endfunction
@@ -938,11 +1221,11 @@ endfunction
 function YDWESyStemAbilityCastingOverTriggerAction takes unit hero,integer index returns nothing
  local integer i= 0
     loop
-        exitwhen i >= YDWEBase__AbilityCastingOverEventNumber
-        if YDWEBase__AbilityCastingOverEventType[i] == index then
+        exitwhen i >= YDWEBase___AbilityCastingOverEventNumber
+        if YDWEBase___AbilityCastingOverEventType[i] == index then
             set bj_lastAbilityCastingUnit=hero
-			if YDWEBase__AbilityCastingOverEventQueue[i] != null and TriggerEvaluate(YDWEBase__AbilityCastingOverEventQueue[i]) and IsTriggerEnabled(YDWEBase__AbilityCastingOverEventQueue[i]) then
-				call TriggerExecute(YDWEBase__AbilityCastingOverEventQueue[i])
+			if YDWEBase___AbilityCastingOverEventQueue[i] != null and TriggerEvaluate(YDWEBase___AbilityCastingOverEventQueue[i]) and IsTriggerEnabled(YDWEBase___AbilityCastingOverEventQueue[i]) then
+				call TriggerExecute(YDWEBase___AbilityCastingOverEventQueue[i])
 			endif
 		endif
         set i=i + 1
@@ -952,9 +1235,9 @@ endfunction
 //YDWE技能捕捉事件 
 //===========================================================================  
 function YDWESyStemAbilityCastingOverRegistTrigger takes trigger trg,integer index returns nothing
-	set YDWEBase__AbilityCastingOverEventQueue[YDWEBase__AbilityCastingOverEventNumber]=trg
-	set YDWEBase__AbilityCastingOverEventType[YDWEBase__AbilityCastingOverEventNumber]=index
-	set YDWEBase__AbilityCastingOverEventNumber=YDWEBase__AbilityCastingOverEventNumber + 1
+	set YDWEBase___AbilityCastingOverEventQueue[YDWEBase___AbilityCastingOverEventNumber]=trg
+	set YDWEBase___AbilityCastingOverEventType[YDWEBase___AbilityCastingOverEventNumber]=index
+	set YDWEBase___AbilityCastingOverEventNumber=YDWEBase___AbilityCastingOverEventNumber + 1
 endfunction 
 //===========================================================================
 //系统函数完善
@@ -991,7 +1274,7 @@ endfunction
 //unitpool bj_lastCreatedPool=null
 //unit bj_lastPoolAbstractedUnit=null
 function YDWEGetPlayerColorString takes player p,string s returns string
-    return YDWEBase__yd_PlayerColor[GetHandleId(GetPlayerColor(p))] + s + "|r"
+    return YDWEBase___yd_PlayerColor[GetHandleId(GetPlayerColor(p))] + s + "|r"
 endfunction
 //===========================================================================
 //===========================================================================
@@ -1038,22 +1321,22 @@ function InitializeYD takes nothing returns nothing
 	set yd_MapMaxX=GetCameraBoundMaxX() + GetCameraMargin(CAMERA_MARGIN_RIGHT)
 	set yd_MapMaxY=GetCameraBoundMaxY() + GetCameraMargin(CAMERA_MARGIN_TOP)
 	
-    set YDWEBase__yd_PlayerColor[0]="|cFFFF0303"
-    set YDWEBase__yd_PlayerColor[1]="|cFF0042FF"
-    set YDWEBase__yd_PlayerColor[2]="|cFF1CE6B9"
-    set YDWEBase__yd_PlayerColor[3]="|cFF540081"
-    set YDWEBase__yd_PlayerColor[4]="|cFFFFFC01"
-    set YDWEBase__yd_PlayerColor[5]="|cFFFE8A0E"
-    set YDWEBase__yd_PlayerColor[6]="|cFF20C000"
-    set YDWEBase__yd_PlayerColor[7]="|cFFE55BB0"
-    set YDWEBase__yd_PlayerColor[8]="|cFF959697"
-    set YDWEBase__yd_PlayerColor[9]="|cFF7EBFF1"
-    set YDWEBase__yd_PlayerColor[10]="|cFF106246"
-    set YDWEBase__yd_PlayerColor[11]="|cFF4E2A04"
-    set YDWEBase__yd_PlayerColor[12]="|cFF282828"
-    set YDWEBase__yd_PlayerColor[13]="|cFF282828"
-    set YDWEBase__yd_PlayerColor[14]="|cFF282828"
-    set YDWEBase__yd_PlayerColor[15]="|cFF282828"
+    set YDWEBase___yd_PlayerColor[0]="|cFFFF0303"
+    set YDWEBase___yd_PlayerColor[1]="|cFF0042FF"
+    set YDWEBase___yd_PlayerColor[2]="|cFF1CE6B9"
+    set YDWEBase___yd_PlayerColor[3]="|cFF540081"
+    set YDWEBase___yd_PlayerColor[4]="|cFFFFFC01"
+    set YDWEBase___yd_PlayerColor[5]="|cFFFE8A0E"
+    set YDWEBase___yd_PlayerColor[6]="|cFF20C000"
+    set YDWEBase___yd_PlayerColor[7]="|cFFE55BB0"
+    set YDWEBase___yd_PlayerColor[8]="|cFF959697"
+    set YDWEBase___yd_PlayerColor[9]="|cFF7EBFF1"
+    set YDWEBase___yd_PlayerColor[10]="|cFF106246"
+    set YDWEBase___yd_PlayerColor[11]="|cFF4E2A04"
+    set YDWEBase___yd_PlayerColor[12]="|cFF282828"
+    set YDWEBase___yd_PlayerColor[13]="|cFF282828"
+    set YDWEBase___yd_PlayerColor[14]="|cFF282828"
+    set YDWEBase___yd_PlayerColor[15]="|cFF282828"
     //=================显示版本=====================
     call YDWEVersion_Init()
 endfunction
@@ -1096,11 +1379,11 @@ endfunction
 //library YDWEYDWEJapiScript ends
 //===========================================================================
 // 
-// 撸圈TD1.24
+// 撸圈TD
 // 
 //   Warcraft III map script
 //   Generated by the Warcraft III World Editor
-//   Date: Tue Jan 15 16:27:25 2019
+//   Date: Fri Jan 18 16:24:13 2019
 //   Map Author: 渣康传奇
 // 
 //===========================================================================
@@ -1231,7 +1514,6 @@ function CreateNeutralPassiveBuildings takes nothing returns nothing
     local integer unitID
     local trigger t
     local real life
-    set u=CreateUnit(p, 'uw11', 0, 140, 270)
     set u=CreateUnit(p, 'uw10', - 828.5, - 390.9, 31.926)
     set u=CreateUnit(p, 'uw02', - 821.7, 408.1, 341.064)
     set u=CreateUnit(p, 'uw04', 839.1, - 382.3, 157.384)
@@ -1743,16 +2025,7 @@ function Trig______________________uActions takes nothing returns nothing
     call SetTimeOfDay(12)
     call FogEnable(false)
     call FogMaskEnableOff()
-    set bj_forLoopBIndex = 0
-    set bj_forLoopBIndexEnd = 3
-    loop
-        exitwhen bj_forLoopBIndex > bj_forLoopBIndexEnd
-        if(GetPlayerController(Player(i)) == MAP_CONTROL_USER and GetPlayerSlotState(Player(i)) == PLAYER_SLOT_STATE_PLAYING) then
-            call SaveStr(udg_table, i, 200, DzAPI_Map_GetServerValue(Player(i), "Score"))
-            call SaveStr(udg_table, i, 201, DzAPI_Map_GetServerValue(Player(i), "VIP"))
-        endif
-        set bj_forLoopBIndex = bj_forLoopBIndex + 1
-    endloop
+    set udg_table=( InitHashtable() )
     call Cheat("exec-lua:scripts.main")
     call DzLoadToc("custom2.toc")
     // 装备商店
@@ -2633,6 +2906,8 @@ function Trig_Trig0Actions takes nothing returns nothing
         set udg_ui_isHEOpen[GetPlayerId(DzGetTriggerUIEventPlayer())]=true
         call RefreshItemCell(DzGetTriggerUIEventPlayer())
         if ( ( DzGetTriggerUIEventPlayer() == GetLocalPlayer() ) ) then
+            set udg_SelectedItemId[GetPlayerId(DzGetTriggerUIEventPlayer())]=0
+            set udg_SellItemId[GetPlayerId(DzGetTriggerUIEventPlayer())]=0
             call DzFrameShow(udg_UI_ab[0], true)
         else
         endif
@@ -2949,6 +3224,8 @@ function Trig_PActions takes nothing returns nothing
         set udg_ui_isHEOpen[GetPlayerId(DzGetTriggerKeyPlayer())]=true
         call RefreshItemCell(DzGetTriggerKeyPlayer())
         if ( ( DzGetTriggerKeyPlayer() == GetLocalPlayer() ) ) then
+            set udg_SelectedItemId[GetPlayerId(DzGetTriggerKeyPlayer())]=0
+            set udg_SellItemId[GetPlayerId(DzGetTriggerKeyPlayer())]=0
             call DzFrameShow(udg_UI_ab[0], true)
         else
         endif
@@ -3129,6 +3406,26 @@ function InitTrig_SellItem takes nothing returns nothing
     call TriggerAddAction(gg_trg_SellItem, function Trig_SellItemActions)
 endfunction
 //===========================================================================
+// Trigger: EventPlayerLeave
+//
+// EVENT_PLAYER_LEAVE
+//===========================================================================
+function Trig_EventPlayerLeaveActions takes nothing returns nothing
+    call DzAPI_Map_Ladder_SetStat((GetTriggerPlayer() ), ( "Score" ), I2S(( LoadInteger(udg_table, GetPlayerId(GetTriggerPlayer()), 200)))) // INLINED!!
+    call DzAPI_Map_Ladder_SetStat((GetTriggerPlayer() ), ( "VIP" ), I2S(( LoadInteger(udg_table, GetPlayerId(GetTriggerPlayer()), 201)))) // INLINED!!
+    call SaveInteger(udg_table, GetPlayerId(GetTriggerPlayer()), 200, DzAPI_Map_GetStoredInteger(GetTriggerPlayer() , "Score"))
+    call SaveInteger(udg_table, GetPlayerId(GetTriggerPlayer()), 201, DzAPI_Map_GetStoredInteger(GetTriggerPlayer() , "VIP"))
+endfunction
+//===========================================================================
+function InitTrig_EventPlayerLeave takes nothing returns nothing
+    set gg_trg_EventPlayerLeave=CreateTrigger()
+    call TriggerRegisterPlayerEventLeave(gg_trg_EventPlayerLeave, Player(0))
+    call TriggerRegisterPlayerEventLeave(gg_trg_EventPlayerLeave, Player(1))
+    call TriggerRegisterPlayerEventLeave(gg_trg_EventPlayerLeave, Player(2))
+    call TriggerRegisterPlayerEventLeave(gg_trg_EventPlayerLeave, Player(3))
+    call TriggerAddAction(gg_trg_EventPlayerLeave, function Trig_EventPlayerLeaveActions)
+endfunction
+//===========================================================================
 function InitCustomTriggers takes nothing returns nothing
     call InitTrig______________________u()
     call InitTrig_InitItemCell()
@@ -3152,6 +3449,7 @@ function InitCustomTriggers takes nothing returns nothing
     call InitTrig_SelectedHero()
     call InitTrig_BuyItem()
     call InitTrig_SellItem()
+    call InitTrig_EventPlayerLeave()
 endfunction
 //===========================================================================
 function RunInitializationTriggers takes nothing returns nothing
@@ -3327,7 +3625,7 @@ function main takes nothing returns nothing
     call CreateAllUnits()
     call InitBlizzard()
 
-call ExecuteFunc("YDTriggerSaveLoadSystem__Init")
+call ExecuteFunc("YDTriggerSaveLoadSystem___Init")
 call ExecuteFunc("InitializeYD")
 
     call InitGlobals()

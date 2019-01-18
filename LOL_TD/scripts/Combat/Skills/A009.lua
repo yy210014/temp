@@ -5,9 +5,13 @@ local mCasterArt = "Abilities\\Spells\\NightElf\\Blink\\BlinkCaster.mdl"
 local mEffectArt = "Abilities\\Spells\\NightElf\\Blink\\BlinkTarget.mdl"
 function skill:OnCast()
     local unit = self.Owner
-    DestroyEffect(AddSpecialEffect(mCasterArt, unit:X(), unit:Y()))
-    SetUnitPosition(unit.Entity, GetSpellTargetX(), GetSpellTargetY())
-    unit:RemoveSkill(self.Id)
-    DestroyEffect(AddSpecialEffect(mEffectArt, unit:X(), unit:Y()))
-    
+
+    if (IsTerrainPathable(GetSpellTargetX(),  GetSpellTargetY(), PATHING_TYPE_BUILDABILITY)) then
+        DisplayTimedTextToPlayer(unit.Player, 0, 0, 5, "|cffEE0000该区域不能进行闪现。|r")
+    else
+        DestroyEffect(AddSpecialEffect(mCasterArt, unit:X(), unit:Y()))
+        SetUnitPosition(unit.Entity, GetSpellTargetX(), GetSpellTargetY())
+        unit:RemoveSkill(self.Id)
+        DestroyEffect(AddSpecialEffect(mEffectArt, unit:X(), unit:Y()))
+    end
 end

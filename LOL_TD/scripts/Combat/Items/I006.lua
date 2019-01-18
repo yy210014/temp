@@ -1,4 +1,4 @@
-local item = Items["格斗手套"]
+local item = Items["暴击拳套"]
 
 function item:OnAdd()
     local unit = self.Owner

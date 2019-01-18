@@ -727,8 +727,8 @@ Ubertip="使得英雄处于火焰的包围之中，每秒对周围的地面单�
 Description=让英雄处于烈焰之中。
 
 [evtl]
-Name=闪避护符
-Tip=购买闪避护符
+Name=闪避仙女吊坠
+Tip=购买闪避仙女吊坠
 Ubertip="能让英雄有<AIev,DataA1,%>% 的概率躲避掉敌人的攻击。|n不能和闪避以及醉拳技能一起使用。"
 Description=让英雄更加难以被攻击到。
 
@@ -918,8 +918,8 @@ Ubertip="里面似乎充满着无聊的数字和事实记载。"
 Description=帐本。
 
 [totw]
-Name=野性护符
-Tip=购买野性护符
+Name=野性仙女吊坠
+Tip=购买野性仙女吊坠
 Ubertip="这块神秘的石头能召唤出一两栖鱼人来为你战斗。|n一共可以召唤<totw,uses>次。|n持续<AIff,Dur1>秒。"
 Description=召唤两栖鱼人。
 

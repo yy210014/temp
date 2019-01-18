@@ -215,7 +215,7 @@ Frame "BACKDROP" "BAG" {      //父级
 		Height 0.4,
 		LayerStyle "IGNORETRACKEVENTS",
 		SetPoint CENTER, "BAG", CENTER, 0, 0,
-			//多兰戒
+			//新手戒
 			Frame "TEXTBUTTON" "100" {
 				Height 0.025,
 				Width 0.025,
@@ -1337,7 +1337,7 @@ Frame "BACKDROP" "BAG" {      //父级
 		Height 0.4,
 		LayerStyle "IGNORETRACKEVENTS",
 		SetPoint CENTER, "BAG", CENTER, 0, 0,
-			//多兰戒
+			//新手戒
 			Frame "TEXTBUTTON" "200" {
 				Height 0.025,
 				Width 0.025,
@@ -2468,7 +2468,7 @@ Frame "BACKDROP" "BAG" {      //父级
 		Height 0.4,
 		LayerStyle "IGNORETRACKEVENTS",
 		SetPoint CENTER, "BAG", CENTER, 0, 0,
-			//多兰戒
+			//新手戒
 			Frame "TEXTBUTTON" "300" {
 				Height 0.025,
 				Width 0.025,
@@ -3601,7 +3601,7 @@ Frame "BACKDROP" "BAG" {      //父级
 		Height 0.4,
 		LayerStyle "IGNORETRACKEVENTS",
 		SetPoint CENTER, "BAG", CENTER, 0, 0,
-			//多兰戒
+			//新手戒
 			Frame "TEXTBUTTON" "400" {
 				Height 0.025,
 				Width 0.025,
@@ -4736,7 +4736,7 @@ Frame "BACKDROP" "BAG" {      //父级
 		Height 0.4,
 		LayerStyle "IGNORETRACKEVENTS",
 		SetPoint CENTER, "BAG", CENTER, 0, 0,
-			//多兰戒
+			//新手戒
 			Frame "TEXTBUTTON" "500" {
 				Height 0.025,
 				Width 0.025,
@@ -6286,29 +6286,23 @@ Frame "BACKDROP" "BAG1" {
 	Height 0.001,
 	BackdropBackground  "war3mapImported\touming.tga",
 	BackdropBlendAll,
-	
 	Frame "TEXTBUTTON" "AA" {
    	  	Height 0.03,
   		Width 0.05,
-  		ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+		ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
   		ButtonPushedTextOffset -0.001f -0.0015f,
 		SetPoint TOP, "BAG1", TOP, 0, 0,
     		ControlBackdrop "AAUP",
    		Frame "BACKDROP" "AAUP" {
-   			BackdropBackground  "war3mapImported\AA.tga",
-     			BackdropBlendAll,
-    		}
-    		ControlPushedBackdrop "AADOWN",
-    		Frame "BACKDROP" "AADOWN" {
-        		BackdropBackground  "war3mapImported\AAdown.tga",
-        		BackdropBlendAll,
-    		}
-    		ControlMouseOverHighlight "AALIGHT",
-    		Frame "HIGHLIGHT" "AALIGHT" {
-        		HighlightType "FILETEXTURE",
-        		HighlightAlphaFile "war3mapImported\AAdown.tga",
-        		HighlightAlphaMode "ADD",
-    		}
+   			BackdropBackground  "Icon\BTNshangdian.tga",
+     		BackdropBlendAll,
+    	}
+		ControlMouseOverHighlight "AALIGHT",
+		Frame "HIGHLIGHT" "AALIGHT" {
+			HighlightType "FILETEXTURE",
+			HighlightAlphaFile "war3mapImported\Adown.tga",
+			HighlightAlphaMode "ADD",
+		}
 	}
 }
 Frame "BACKDROP" "BAG2" {      //父级
@@ -6668,4 +6662,3 @@ Frame "BACKDROP" "BAG2" {      //父级
 			}		
 					
 }
-

@@ -1,4 +1,4 @@
-local item = Items["九头蛇"]
+local item = Items["大九头蛇"]
 local mRange = 600
 
 function item:OnAdd()

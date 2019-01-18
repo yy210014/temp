@@ -1,4 +1,4 @@
-local item = Items["女神之泪"]
+local item = Items["天使之泪"]
 local mMaxCount = 1500
 
 function item:OnAdd()

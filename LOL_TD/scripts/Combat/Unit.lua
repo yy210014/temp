@@ -16,18 +16,18 @@ mt.LastFightTime = 0
 
 local mHeroRegenManaList = {
     --ad
-    [GetId("UH12")] = { 1.6, 0.1 }, --赵信
+    [GetId("UH12")] = { 1.6, 0.1 }, --菊花信
     [GetId("UH11")] = { 1.6, 0.1 }, --皇子
-    [GetId("UH19")] = { 1.6, 0.1 }, --易大师
+    [GetId("UH19")] = { 1.6, 0.1 }, --剑圣
     [GetId("UH25")] = { 2.4, 0.1 }, --寒冰
     [GetId("UH23")] = { 2.4, 0.1 }, --小炮
-    [GetId("UH13")] = { 1.6, 0.2 }, --天使
+    [GetId("UH13")] = { 1.6, 0.2 }, --大天使
     --ap
-    [GetId("UH02")] = { 3, 0.2 }, --莫甘娜
+    [GetId("UH02")] = { 3, 0.2 }, --堕天使
     [GetId("UH08")] = { 3, 0.2 }, --小法
     [GetId("UH03")] = { 3, 0.2 }, --炸弹人
-    [GetId("UH06")] = { 3, 0.2 }, --丽桑卓
-    [GetId("UH01")] = { 3, 0.2 }, --拉克丝
+    [GetId("UH06")] = { 3, 0.2 }, --冰女
+    [GetId("UH01")] = { 3, 0.2 }, --光辉
     --辅助
     [GetId("UH35")] = { 3, 0.2 }, --风女
     [GetId("UH36")] = { 3, 0.2 }, --琴女
@@ -135,7 +135,6 @@ function Unit:AddItem(entity)
     Item.ItemOverlay(self, item)
     Item.ItemCompound(self)
     item:OnAdd()
-    item:OnRefresh()
     return item
 end
 

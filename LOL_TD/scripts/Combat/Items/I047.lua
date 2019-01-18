@@ -1,4 +1,4 @@
-local item = Items["魔宗"]
+local item = Items["魔宗之刃"]
 item.Count = 0
 item.LastValue = 0
 local mMaxCount = 1500

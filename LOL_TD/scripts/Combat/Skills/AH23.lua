@@ -1,4 +1,4 @@
-local skill = Skills["阿尔法突袭"]
+local skill = Skills["剑圣突袭"]
 skill.SkillType = 4
 skill.DamageList = nil
 skill.Interval = 0.1
@@ -14,7 +14,7 @@ function skill:OnCast()
     local spellUnit = self.Owner
     local spellTargetUnit = GetJ_EnemyUnits(GetSpellTargetUnit())
     if (spellTargetUnit == nil) then
-        Game.LogError("阿尔法突袭-丢失单位")
+        Game.LogError("剑圣突袭-丢失单位")
         return
     end
     self.dummy = spellUnit:CreateDummy(

@@ -32,8 +32,8 @@ function skill:OnCast()
     AssetsManager.RemoveObject(dummy2)
 
     self.KillCount = 0
-    local comb1 = spellUnit:GetComb("正义兄妹-拉克丝")
-    local comb2 = spellUnit:GetComb("拉克丝-鬼书")
+    local comb1 = spellUnit:GetComb("正义兄妹-光辉")
+    local comb2 = spellUnit:GetComb("光辉-鬼书")
     AssetsManager.OverlapLine(
     spellUnit:X(),
     spellUnit:Y(),

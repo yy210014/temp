@@ -12,7 +12,7 @@ Buffs["巨龙撞击"].Durs = { 3, 3, 3, 3, 3, 3, 3, 3 }
 
 function skill:OnCast()
     local spellUnit = self.Owner
-    local comb = spellUnit:GetComb("皇子-黑切")
+    local comb = spellUnit:GetComb("皇子-切割者")
     local angle = AngleBetweenPoint(spellUnit:X(), GetSpellTargetX(), spellUnit:Y(), GetSpellTargetY())
 
 

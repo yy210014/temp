@@ -1,4 +1,4 @@
-local item = Items["增幅典籍"]
+local item = Items["增幅法典"]
 
 function item:OnAdd()
     local unit = self.Owner

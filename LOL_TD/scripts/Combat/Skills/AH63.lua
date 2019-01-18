@@ -51,7 +51,7 @@ skill.OnPathUpdate = function(dummy)
             local self = dummy.Skill
             local ap = owner.Attribute:get("法术攻击")
             local damage = mDamages1[self:GetCurLevel()] + ap * mDamages2[self:GetCurLevel()]
-            local comb = owner:GetComb("丽桑卓-鬼书")
+            local comb = owner:GetComb("冰女-鬼书")
             if (comb ~= nil and comb.Enable) then
                 damage = damage + damage * 0.5
             end
@@ -99,7 +99,7 @@ skill.OnPathEnd2 = function(dummy)
     local self = dummy.Skill
     local ap = owner.Attribute:get("法术攻击")
     local damage = mDamages1[self:GetCurLevel()] + ap * mDamages2[self:GetCurLevel()]
-    local comb = owner:GetComb("丽桑卓-帽子")
+    local comb = owner:GetComb("冰女-帽子")
     if (comb ~= nil and comb.Enable) then
         damage = damage + damage * 0.3
     end

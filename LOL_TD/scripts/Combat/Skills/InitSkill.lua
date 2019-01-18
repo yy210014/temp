@@ -7,15 +7,15 @@ require "scripts.Combat.Skills.AH03"
 require "scripts.Combat.Skills.AH05"
 require "scripts.Combat.Skills.AH08"
 require "scripts.Combat.Skills.AH07"
---赵信
+--菊花信
 require "scripts.Combat.Skills.AH09"
 require "scripts.Combat.Skills.AH06"  --需要选取扇形和直线范围
 require "scripts.Combat.Skills.AH10"
---拉克丝
+--光辉
 require "scripts.Combat.Skills.AH11"--被动改成Q
 require "scripts.Combat.Skills.AH12"
 require "scripts.Combat.Skills.AH13"
---莫甘娜
+--堕天使
 require "scripts.Combat.Skills.AH14"
 require "scripts.Combat.Skills.AH15"
 require "scripts.Combat.Skills.AH16"
@@ -23,11 +23,11 @@ require "scripts.Combat.Skills.AH16"
 require "scripts.Combat.Skills.AH17"
 require "scripts.Combat.Skills.AH18"
 require "scripts.Combat.Skills.AH19"
---天使凯尔
+--大天使
 require "scripts.Combat.Skills.AH20"
 require "scripts.Combat.Skills.AH21"
 require "scripts.Combat.Skills.AH22"
---易大师
+--剑圣
 require "scripts.Combat.Skills.AH23"
 require "scripts.Combat.Skills.AH24"
 require "scripts.Combat.Skills.AH25"
@@ -51,11 +51,11 @@ require "scripts.Combat.Skills.AH37"
 require "scripts.Combat.Skills.AH38"
 require "scripts.Combat.Skills.AH39"
 require "scripts.Combat.Skills.AH41"
---艾希
+--寒冰
 require "scripts.Combat.Skills.AH42"
 require "scripts.Combat.Skills.AH43"
 require "scripts.Combat.Skills.AH44"
---盖伦
+--草丛伦
 require "scripts.Combat.Skills.AH45"
 require "scripts.Combat.Skills.AH46" --用剑刃风暴模板，伤害改成0
 require "scripts.Combat.Skills.AH47"
@@ -63,7 +63,7 @@ require "scripts.Combat.Skills.AH47"
 require "scripts.Combat.Skills.AH48"
 require "scripts.Combat.Skills.AH49"
 require "scripts.Combat.Skills.AH50"
---蛮王
+--蛮子
 require "scripts.Combat.Skills.AH51"
 require "scripts.Combat.Skills.AH52"
 require "scripts.Combat.Skills.AH53"
@@ -79,7 +79,7 @@ require "scripts.Combat.Skills.AH59"
 require "scripts.Combat.Skills.AH60"
 require "scripts.Combat.Skills.AH61"
 require "scripts.Combat.Skills.AH62"
---丽桑卓
+--冰女
 require "scripts.Combat.Skills.AH63"
 require "scripts.Combat.Skills.AH64"
 require "scripts.Combat.Skills.AH65"
@@ -124,3 +124,8 @@ require "scripts.Combat.Skills.AU10"
 require "scripts.Combat.Skills.A008"
 --闪现
 require "scripts.Combat.Skills.A009"
+
+--
+require "scripts.Combat.Skills.cb01"
+require "scripts.Combat.Skills.gh01"
+require "scripts.Combat.Skills.pf01"

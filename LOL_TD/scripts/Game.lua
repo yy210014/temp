@@ -82,7 +82,7 @@ function Game.SetSpeed(speed)
 end
 
 local mChooseTimer, mChooseTimerDialog, mChooseTriggers, mDialog
-local mDifficultyTest = { "难一(40波)", "难二(56波)", "难三(开启无尽)", "难四(开启无尽)" }
+local mDifficultyTest = { "难一(40波)", "难二(56波)", "难三(无尽)", "难四(无尽,双倍积分)" }
 function Game.ChooseLevel()
     mChooseTimer = CreateTimer()
     mChooseTimerDialog = CreateTimerDialog(mChooseTimer)
@@ -163,7 +163,13 @@ function Game.Pause(pause)
 end
 
 function Game.Win()
-    DisplayTextToAll("恭喜通关！", "ff3CB371")
+    PlayerInfo:IteratePlayer(
+    function(player)
+        if (player.IsWatch == false) then
+            PlayerInfo.AddScore(player.Entity, Game.GetLevel() * 5)
+            DisplayTextToPlayer(player.Entity, 0, 0, "|cffffcc00恭喜通关，所有坚守在最后的玩家获得" .. (Game.GetLevel() * 5) .. "点游戏积分!|r")
+        end
+    end)
     local timer = CreateTimer()
     TimerStart(timer, 5, false, VictoryHandler)
 end

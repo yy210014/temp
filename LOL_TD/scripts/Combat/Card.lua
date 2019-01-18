@@ -5,10 +5,10 @@ CardType = { SR, UR, GR }
 local NId = { "30", "31", "32", "33", "34", "35", "36", "37" }
 local RId = { "38", "41", "42", "43", "44" }
 
---皇子,赵信,拉克丝,小炮,天使凯尔,艾希 ,蛮王,易大师,小法师
+--皇子,菊花信,光辉,小炮,大天使,寒冰 ,蛮子,剑圣,小法师
 local SRId = { "02", "03", "04", "06", "07", "12", "16", "19", "21" }
 
---莫甘娜,炸弹人,盖伦 ,丽桑卓
+--堕天使,炸弹人,草丛伦 ,冰女
 local SSRId = { "05", "10", "13", "17" }
 local GRId = { 1, 1 }
 
@@ -89,8 +89,8 @@ function Card.Random2()
 end
 
 function Card.Random3()
-    local random = math.random(1, 10)
-    if (random <= 9) then
+    local random = math.random(1, 20)
+    if (random <= 19) then
         return Card.RandomSR()
     else
         return Card.RandomSSR()
@@ -163,10 +163,15 @@ local mDropList = {
     GetId("IB01"),
     GetId("IB01"),
     GetId("IB01"),
+    0,
     GetId("IB02"),
+    0,
     GetId("IB02"),
+    0,
     GetId("IB02"),
+    0,
     GetId("IB03"),
+    0,
     0,
     0,
     0,

@@ -1,4 +1,4 @@
-local item = Items["巨人熔渣"]
+local item = Items["火焰之心"]
 item.Timer = nil
 local mArt1 = "Abilities\\Spells\\Other\\ImmolationRed\\ImmolationRedTarget.mdl"
 

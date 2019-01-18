@@ -1,4 +1,4 @@
-local item = Items["大天使"]
+local item = Items["大天使之杖"]
 item.LastValue = 0
 local mMaxCount = 1500
 

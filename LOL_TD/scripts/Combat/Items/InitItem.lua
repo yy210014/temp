@@ -66,3 +66,6 @@ require "scripts.Combat.Items.IB02"
 require "scripts.Combat.Items.IB03"
 require "scripts.Combat.Items.IB06"
 require "scripts.Combat.Items.IB07"
+
+--
+require "scripts.Combat.Items.jf00"

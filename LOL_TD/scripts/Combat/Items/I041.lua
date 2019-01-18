@@ -1,4 +1,4 @@
-local item = Items["遗失的章节"]
+local item = Items["遗失的篇章"]
 
 function item:OnAdd()
     local unit = self.Owner

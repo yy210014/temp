@@ -54,7 +54,7 @@ function GameStart.AnyDummyDamaged(attactUnit, defUnit)
         mDamages2 = { 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 }
         local spellUnit = attactUnit.Owner
         local self = attactUnit.Skill
-        defUnit:AddBuff("海克斯爆破雷区", self:GetCurLevel())
+        defUnit:AddBuff("爆破雷区", self:GetCurLevel())
         local ap = spellUnit.Attribute:get("法术攻击")
         local damage = mDamages1[self:GetCurLevel()] + (ap * mDamages2[self:GetCurLevel()])
         EXUnitDamageTarget(spellUnit, defUnit, damage, EXDamageType.Magic)
@@ -81,6 +81,16 @@ function GameStart.AnyUnitDamaged()
 
     --普通攻击
     if (0 ~= EXGetEventDamageData(EVENT_DAMAGE_DATA_IS_ATTACK)) then
+        --模拟暴击
+        if (attactUnit.Attribute.Crit > 0) then
+            local crit = attactUnit.Attribute.Crit * 100
+            local random = GetRandomReal(0, 1) * 100
+            if (crit > random) then
+                damage = damage * attactUnit.Attribute.CritDamage
+                isCritDamage = true
+                GameEventProc.SendEvent("任意单位暴击", attactUnit, defUnit)
+            end
+        end
         if (0 ~= EXGetEventDamageData(EVENT_DAMAGE_DATA_IS_PHYSICAL)) then
             --攻击主目标
             --怒气
@@ -114,22 +124,12 @@ function GameStart.AnyUnitDamaged()
         else
             --飓风
             if (attactUnit:ContainItemId(GetId("I058"))) then
-                local comb = attactUnit:GetComb("艾希-飓风")
+                local comb = attactUnit:GetComb("寒冰-飓风")
                 if (comb ~= nil and comb.Enable) then
                     damage = damage * 0.8
                 else
                     damage = damage * 0.4
                 end
-            end
-        end
-        --模拟暴击
-        if (attactUnit.Attribute.Crit > 0) then
-            local crit = attactUnit.Attribute.Crit * 100
-            local random = GetRandomReal(0, 1) * 100
-            if (crit > random) then
-                damage = damage * attactUnit.Attribute.CritDamage
-                isCritDamage = true
-                GameEventProc.SendEvent("任意单位暴击", attactUnit, defUnit)
             end
         end
     else
@@ -252,7 +252,11 @@ function GameStart.AnyUnitDeath(killUnit, dieUnit)
             for i = 1, #units do
                 if IsUnitType(units[i].Entity, UNIT_TYPE_HERO) then
                     if (GetUnitLevel(units[i].Entity) < 18 or units[i].CombEnableCount >= 3) then
-                        AddHeroXP(units[i].Entity, exp, false)
+                        if (Game.GetMode() == GameMode.ENDLESS) then
+                            AddHeroXP(units[i].Entity, 1, false)
+                        else
+                            AddHeroXP(units[i].Entity, exp, false)
+                        end
                     end
                 end
             end
@@ -262,7 +266,7 @@ function GameStart.AnyUnitDeath(killUnit, dieUnit)
     if (Game.GetMode() == GameMode.NORMAL) then
         local playerId = GetPlayerId(killUnit.Player) + 1
         mUnitDeathDropCount[playerId] = mUnitDeathDropCount[playerId] + 1
-        if (mUnitDeathDropCount[playerId] > 15) then
+        if (mUnitDeathDropCount[playerId] >= (PlayerInfo:IsVIP(killUnit.Player) and 20 or 25)) then
             local itemId = Card.RandomDrop()
             if (itemId ~= 0) then
                 CreateItem(itemId, dieUnit:X(), dieUnit:Y())
@@ -354,7 +358,7 @@ function GameStart.AnyUnitConstructFinish()
         --开启AI
         IssueImmediateOrder(unit.Entity, "manashieldon")
 
-        --[[       unit.Attribute:add("魔法恢复", 100)
+       --[[ unit.Attribute:add("魔法恢复", 100)
         unit.Attribute:add("攻击速度", 2)
         unit.Attribute:add("暴击", 0.5)
         unit.Attribute:add("冷却缩减上限", 0.5)
@@ -399,7 +403,7 @@ function GameStart.AnyUnitSell(unit)
     false,
     function()
         unit:RefreshComb()
-        DestroyTimer(GetExpiredTimer())
+        DestroyTimer(tim)
     end
     )
 end
@@ -413,7 +417,7 @@ function GameStart.AnyUnitOrderBuild()
         --不可建造地面
         local item = UnitItemInSlot(orderUnit, orderID - 852008)
         if (IsTerrainPathable(GetLocationX(orderPos), GetLocationY(orderPos), PATHING_TYPE_BUILDABILITY)) then
-            DisplayTimedTextToPlayer(GetOwningPlayer(orderUnit), 0, 0, 5, "|cffEE0000该地表不能进行建造。|r")
+            DisplayTimedTextToPlayer(GetOwningPlayer(orderUnit), 0, 0, 5, "|cffEE0000该区域不能进行建造。|r")
             IssueImmediateOrder(orderUnit, "stop")
             IssuePointOrderLoc(orderUnit, "move", GetUnitLoc(orderUnit))
         elseif
@@ -541,7 +545,7 @@ function GameStart.AnyUnitPickUpItem()
         false,
         function()
             unit:RefreshComb()
-            DestroyTimer(GetExpiredTimer())
+            DestroyTimer(tim)
         end
         )
     end
@@ -577,7 +581,7 @@ function GameStart.AnyUnitSellItem()
         false,
         function()
             unit:RefreshComb()
-            DestroyTimer(GetExpiredTimer())
+            DestroyTimer(tim)
         end
         )
     end
@@ -600,7 +604,7 @@ function GameStart.AnyUnitDropItem()
         false,
         function()
             unit:RefreshComb()
-            DestroyTimer(GetExpiredTimer())
+            DestroyTimer(tim)
         end
         )
     end
@@ -627,6 +631,11 @@ function GameStart.AnyPlayerChat()
         return
     end
 
+    if (str == "-jf") then
+        DisplayTextToPlayer(player, 0, 0, "|cffffcc00您当前积分为：|r" .. PlayerInfo:Player(playerID).Score)
+        return
+    end
+
     if (IsDebug == false) then
         return
     end
@@ -635,6 +644,15 @@ function GameStart.AnyPlayerChat()
         cheat(playerID)
         return
     end
+    local index = string.find(str, "jf:")
+    if (index ~= nil) then
+        local score = tonumber(string.sub(str, index + 3, #str))
+        if (score ~= nil) then
+            PlayerInfo.AddScore(player, score)
+        end
+        return
+    end
+
     local index = string.find(str, "item:")
     if (index ~= nil) then
         local itemId = string.sub(str, index + 5, #str)

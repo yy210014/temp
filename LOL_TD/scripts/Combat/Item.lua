@@ -8,43 +8,43 @@ mt.Id = 0
 
 --合成列表
 local mItemComList = {
-    ["I012"] = { GetId("I013"), GetId("I004"), GetId("I004") }, --反曲之弓（卷轴）:反曲之弓+短剑+短剑
-    ["I014"] = { GetId("I015"), GetId("I004"), GetId("I006") }, --狂热黄叉（卷轴）:狂热黄叉+短剑+格斗手套
-    ["I016"] = { GetId("I017"), GetId("I005") }, --轻语（卷轴）:轻语+长剑
-    ["I018"] = { GetId("I019"), GetId("I005"), GetId("I005") }, --锯齿短匕（卷轴）:锯齿短匕+长剑+长剑
-    ["I020"] = { GetId("I021"), GetId("I005"), GetId("I005") }, --考尔菲德的战锤（卷轴）:考尔菲德的战锤+长剑+长剑
+    ["I012"] = { GetId("I013"), GetId("I004"), GetId("I004") }, --反曲（卷轴）:反曲+短剑+短剑
+    ["I014"] = { GetId("I015"), GetId("I004"), GetId("I006") }, --黄叉（卷轴）:黄叉+短剑+暴击拳套
+    ["I016"] = { GetId("I017"), GetId("I005") }, --穿甲弓（卷轴）:穿甲弓+长剑
+    ["I018"] = { GetId("I019"), GetId("I005"), GetId("I005") }, --锯齿匕首（卷轴）:锯齿匕首+长剑+长剑
+    ["I020"] = { GetId("I021"), GetId("I005"), GetId("I005") }, --战锤（卷轴）:战锤+长剑+长剑
     ["I022"] = { GetId("I023"), GetId("I005") }, --小木槌（卷轴）:小木槌+长剑
-    ["I024"] = { GetId("I025"), GetId("I005"), GetId("I005") }, --提亚马特（卷轴）:提亚马特+长剑+长剑
-    ["I026"] = { GetId("I027"), GetId("I015"), GetId("I004") }, --电刀（卷轴）:电刀+狂热黄叉+短剑
-    ["I030"] = { GetId("I031"), GetId("I007"), GetId("I008") }, --女神之泪（卷轴）:女神之泪+蓝水晶+仙女护符
-    ["I032"] = { GetId("I033"), GetId("I007") }, --耀光（卷轴）:耀光+蓝水晶
-    ["I034"] = { GetId("I035"), GetId("I009"), GetId("I008"), GetId("I008") }, --和谐圣杯（卷轴）:和谐圣杯+增幅典籍+仙女护符+仙女护符
-    ["I036"] = { GetId("I037"), GetId("I009") }, --恶魔法典（卷轴）:恶魔法典+增幅典籍
-    ["I038"] = { GetId("I039"), GetId("I008"), GetId("I008") }, --禁忌雕像（卷轴）:禁忌雕像+仙女护符+仙女护符
-    ["I040"] = { GetId("I041"), GetId("I009"), GetId("I007") }, --遗失的章节（卷轴）:遗失的章节+增幅典籍+蓝水晶
-    ["I042"] = { GetId("I043"), GetId("I011"), GetId("I011") }, --无尽之刃（卷轴）:无尽之刃+暴风大剑+暴风大剑
-    ["I044"] = { GetId("I045"), GetId("I023"), GetId("I033"), GetId("I015") }, --三相之力（卷轴）:三相之力+小木槌+耀光+狂热黄叉
-    ["I046"] = { GetId("I047"), GetId("I031"), GetId("I010") }, --魔宗（卷轴）:魔宗+女神之泪+十字镐
-    ["I049"] = { GetId("I050"), GetId("I023"), GetId("I021") }, --黑切（卷轴）:黑切+小木槌+考尔菲德的战锤
-    ["I051"] = { GetId("I052"), GetId("I025"), GetId("I010") }, --九头蛇（卷轴）:九头蛇+提亚马特+十字镐
-    ["I053"] = { GetId("I054"), GetId("I021"), GetId("I019") }, --幕刃（卷轴）:幕刃+考尔菲德的战锤+锯齿短匕
-    ["I055"] = { GetId("I056"), GetId("I015"), GetId("I004"), GetId("I004") }, --红叉（卷轴）:红叉+狂热黄叉+短剑+短剑
-    ["I057"] = { GetId("I058"), GetId("I015"), GetId("I013") }, --飓风（卷轴）:飓风+狂热黄叉+反曲之弓
+    ["I024"] = { GetId("I025"), GetId("I005"), GetId("I005") }, --九头蛇（卷轴）:九头蛇+长剑+长剑
+    ["I026"] = { GetId("I027"), GetId("I015"), GetId("I004") }, --电刀（卷轴）:电刀+黄叉+短剑
+    ["I030"] = { GetId("I031"), GetId("I007"), GetId("I008") }, --天使之泪（卷轴）:天使之泪+蓝宝石+仙女吊坠
+    ["I032"] = { GetId("I033"), GetId("I007") }, --光耀之剑（卷轴）:光耀之剑+蓝宝石
+    ["I034"] = { GetId("I035"), GetId("I009"), GetId("I008"), GetId("I008") }, --小圣杯（卷轴）:小圣杯+增幅法典+仙女吊坠+仙女吊坠
+    ["I036"] = { GetId("I037"), GetId("I009") }, --恶魔之书（卷轴）:恶魔之书+增幅法典
+    ["I038"] = { GetId("I039"), GetId("I008"), GetId("I008") }, --神秘雕像（卷轴）:神秘雕像+仙女吊坠+仙女吊坠
+    ["I040"] = { GetId("I041"), GetId("I009"), GetId("I007") }, --遗失的篇章（卷轴）:遗失的篇章+增幅法典+蓝宝石
+    ["I042"] = { GetId("I043"), GetId("I011"), GetId("I011") }, --无尽利刃（卷轴）:无尽利刃+暴风大剑+暴风大剑
+    ["I044"] = { GetId("I045"), GetId("I023"), GetId("I033"), GetId("I015") }, --三相（卷轴）:三相+小木槌+光耀之剑+黄叉
+    ["I046"] = { GetId("I047"), GetId("I031"), GetId("I010") }, --魔宗之刃（卷轴）:魔宗之刃+天使之泪+十字镐
+    ["I049"] = { GetId("I050"), GetId("I023"), GetId("I021") }, --切割者（卷轴）:切割者+小木槌+战锤
+    ["I051"] = { GetId("I052"), GetId("I025"), GetId("I010") }, --大九头蛇（卷轴）:大九头蛇+九头蛇+十字镐
+    ["I053"] = { GetId("I054"), GetId("I021"), GetId("I019") }, --幕刃（卷轴）:幕刃+战锤+锯齿匕首
+    ["I055"] = { GetId("I056"), GetId("I015"), GetId("I004"), GetId("I004") }, --红叉（卷轴）:红叉+黄叉+短剑+短剑
+    ["I057"] = { GetId("I058"), GetId("I015"), GetId("I013") }, --飓风（卷轴）:飓风+黄叉+反曲
     ["I059"] = { GetId("I060"), GetId("I023"), GetId("I010") }, --大冰锤（卷轴）:大冰锤+小木槌+十字镐
-    ["I063"] = { GetId("I064"), GetId("I033"), GetId("I028") }, --巫妖之祸（卷轴）:巫妖之祸+耀光+爆裂魔杖
-    ["I065"] = { GetId("I066"), GetId("I031"), GetId("I029") }, --大天使（卷轴）:大天使+女神之泪+无用大棒
-    ["I068"] = { GetId("I069"), GetId("I028"), GetId("I028") }, --法穿棒（卷轴）:法穿棒+增幅典籍+爆裂魔杖
-    ["I070"] = { GetId("I071"), GetId("I035"), GetId("I037"), GetId("I039") }, --大圣杯（卷轴）:大圣杯+和谐圣杯+恶魔法典+禁忌雕像
-    ["I072"] = { GetId("I073"), GetId("I029"), GetId("I028"), GetId("I009") }, --帽子（卷轴）:帽子+无用大棒+爆裂魔杖+增幅典籍
-    ["I074"] = { GetId("I075"), GetId("I037"), GetId("I041"), GetId("I039") }, --鬼书（卷轴）:鬼书+恶魔法典+遗失的章节+禁忌雕像
-    ["I061"] = { GetId("I062"), GetId("I001") }, --杀人剑（卷轴）:杀人剑+多兰剑
-    ["I076"] = { GetId("I077"), GetId("I002") }, --杀人书（卷轴）:杀人书+多兰戒
-    ["I078"] = { GetId("I079"), GetId("I010"), GetId("I017") }, --大轻语（卷轴）:大轻语+十字镐+轻语
-    ["I080"] = { GetId("I081"), GetId("I004"), GetId("I004") }, --峰刺（卷轴）:蜂刺+短剑+短剑
-    ["I082"] = { GetId("I083"), GetId("I081"), GetId("I037") }, --纳什之牙（卷轴）:纳什之牙+蜂刺+恶魔法典
-    ["I084"] = { GetId("I085"), GetId("I007"), GetId("I021"), GetId("I011") }, --吸蓝刀（卷轴）:吸蓝刀+蓝水晶+考尔菲德的战锤+暴风大剑
-    ["I086"] = { GetId("I087"), GetId("I088"), GetId("I092") }, --日炎斗篷（卷轴）:日炎斗篷+巨人熔渣+燃烧宝石
-    ["I091"] = { GetId("I090"), GetId("I013"), GetId("I010"), GetId("I028") } --羊刀（卷轴）:羊刀+反曲之弓+十字镐+爆裂魔杖
+    ["I063"] = { GetId("I064"), GetId("I033"), GetId("I028") }, --巫术法杖（卷轴）:巫术法杖+光耀之剑+小魔杖
+    ["I065"] = { GetId("I066"), GetId("I031"), GetId("I029") }, --大天使之杖（卷轴）:大天使之杖+天使之泪+大魔杖
+    ["I068"] = { GetId("I069"), GetId("I028"), GetId("I028") }, --法穿棒（卷轴）:法穿棒+增幅法典+小魔杖
+    ["I070"] = { GetId("I071"), GetId("I035"), GetId("I037"), GetId("I039") }, --大圣杯（卷轴）:大圣杯+小圣杯+恶魔之书+神秘雕像
+    ["I072"] = { GetId("I073"), GetId("I029"), GetId("I028"), GetId("I009") }, --帽子（卷轴）:帽子+大魔杖+小魔杖+增幅法典
+    ["I074"] = { GetId("I075"), GetId("I037"), GetId("I041"), GetId("I039") }, --鬼书（卷轴）:鬼书+恶魔之书+遗失的篇章+神秘雕像
+    ["I061"] = { GetId("I062"), GetId("I001") }, --杀人剑（卷轴）:杀人剑+新手剑
+    ["I076"] = { GetId("I077"), GetId("I002") }, --杀人书（卷轴）:杀人书+新手戒
+    ["I078"] = { GetId("I079"), GetId("I010"), GetId("I017") }, --破甲弓（卷轴）:破甲弓+十字镐+穿甲弓
+    ["I080"] = { GetId("I081"), GetId("I004"), GetId("I004") }, --速刃（卷轴）:速刃+短剑+短剑
+    ["I082"] = { GetId("I083"), GetId("I081"), GetId("I037") }, --纳什之牙（卷轴）:纳什之牙+速刃+恶魔之书
+    ["I084"] = { GetId("I085"), GetId("I007"), GetId("I021"), GetId("I011") }, --吸蓝刀（卷轴）:吸蓝刀+蓝宝石+战锤+暴风大剑
+    ["I086"] = { GetId("I087"), GetId("I088"), GetId("I092") }, --烈焰斗篷（卷轴）:烈焰斗篷+火焰之心+火焰宝石
+    ["I091"] = { GetId("I090"), GetId("I013"), GetId("I010"), GetId("I028") } --羊刀（卷轴）:羊刀+反曲+十字镐+小魔杖
 }
 --叠加列表
 local mItemOverlayList = {
@@ -65,7 +65,7 @@ local mItemUniquenessList = {
 }
 
 function Item.HasItem(unit, itemId, list)
-    local item
+    local item = nil
     for i = 5, 0, -1 do
         item = UnitItemInSlot(unit.Entity, i)
         if item ~= nil and itemId == GetItemTypeId(item) and IsInTable(item, list) == -1 then
@@ -77,7 +77,7 @@ end
 
 function Item.ItemUniquenessList(unit, item)
     if (mItemUniquenessList[ID2Str(item.Id)] ~= nil) then
-        local v
+        local v = nil
         for i = 5, 0, -1 do
             v = UnitItemInSlot(unit.Entity, i)
             if v ~= nil and item.Id == GetItemTypeId(v) and v ~= item.Entity then
@@ -97,8 +97,8 @@ function Item.ItemOverlay(unit, item)
             if v ~= nil and item.Id == GetItemTypeId(v) and v ~= item.Entity then
                 SetItemCharges(v, GetItemCharges(v) + GetItemCharges(item.Entity))
                 RemoveItem(item.Entity)
-                if (item.Id == GetId("IB04") and GetItemCharges(v) >= 150) then
-                    SetItemCharges(v, GetItemCharges(v) - 150)
+                if (item.Id == GetId("IB04") and GetItemCharges(v) >= 120) then
+                    SetItemCharges(v, GetItemCharges(v) - 120)
                     if GetItemCharges(v) == 0 then
                         RemoveItem(v)
                     end
@@ -125,7 +125,7 @@ end
 function Item.ItemCompound(unit)
     local item
     local falg = false
-    local deleteList = {}
+    local deleteList = nil
     local id
     for i = 5, 0, -1 do
         item = UnitItemInSlot(unit.Entity, i)

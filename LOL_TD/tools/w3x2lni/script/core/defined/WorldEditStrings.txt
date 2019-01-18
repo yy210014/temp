@@ -8456,7 +8456,7 @@ WESTRING_MISCVAL_DCAL_HINT=未发现作用
 WESTRING_MISCVAL_MTCL=游戏性 - 群体传送使单位聚集
 WESTRING_MISCVAL_DSCL=游戏性 - 黑暗传送使单位聚集
 WESTRING_MISCVAL_TPCL=游戏性 - 回城卷轴使单位聚集
-WESTRING_MISCVAL_ARCL=游戏性 - 召唤护符使单位聚集
+WESTRING_MISCVAL_ARCL=游戏性 - 召唤仙女吊坠使单位聚集
 WESTRING_MISCVAL_MLCL=游戏性 - 飞行单位变身寻找最近地着陆
 WESTRING_MISCVAL_MLCL_HINT="为True时,当有单位或可破坏物障碍时会自动寻找最近地着陆;为False时会提示无法登陆."
 WESTRING_MISCVAL_MADI=游戏性 - 变身时禁用其它形态交替技能

@@ -1,4 +1,4 @@
-local item = Items["萃取"]
+local item = Items["贪婪"]
 
 function item:OnAdd()
     local unit = self.Owner
@@ -11,7 +11,7 @@ function item:OnRemove()
 end
 
 function item:OnKill(dieUnit)
-    if (self:GetCharges() > 100) then
+    if (self:GetCharges() > 100 or Game.GetMode() == GameMode.ENDLESS) then
         return
     end
     local unit = self.Owner

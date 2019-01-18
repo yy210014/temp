@@ -27,7 +27,7 @@ skill.Action = function(self, dt)
     if (self.IntervalDt <= 0) then
         self.IntervalDt = self.Interval
         local spellUnit = self.Owner
-        local comb = spellUnit:GetComb("正义兄妹-盖伦")
+        local comb = spellUnit:GetComb("正义兄妹-草丛伦")
         AssetsManager.OverlapCircle(
         spellUnit:X(),
         spellUnit:Y(),

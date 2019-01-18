@@ -22,7 +22,7 @@ end
 
 local mPlayerRewardFlag = { 0, 0, 0, 0 }
 function Repick(player, playerID)
-    if (1 == mPlayerRewardFlag[playerID + 1]) then
+    if (mPlayerRewardFlag[playerID + 1] == (PlayerInfo:IsVIP(player) and 2 or 1)) then
         return
     end
     if (nil == Worke[playerID]) then
@@ -39,14 +39,14 @@ function Repick(player, playerID)
         DisplayTextToPlayer(player, 0, 0, "|cffffcc00请确认物品栏拥有SR卡片。|r")
         return
     end
-    mPlayerRewardFlag[playerID + 1] = 1
+    mPlayerRewardFlag[playerID + 1] = mPlayerRewardFlag[playerID + 1] + 1
     RemoveItem(item.Entity)
     local itemID = Card.RandomSR()
     UnitAddItem(Worke[playerID].Entity, CreateItem(GetId(itemID), Worke[playerID]:X(), Worke[playerID]:Y()))
 end
 
 local mCheatItems = {
-    "03", --赵信
+    "03", --菊花信
     "04",
     "05",
     "06",
@@ -91,6 +91,7 @@ function cheat(playerId)
     PLAYER_STATE_RESOURCE_LUMBER,
     GetPlayerState(Player(playerId), PLAYER_STATE_RESOURCE_LUMBER) + 10000
     )
+    PlayerInfo:EnableVIP(Player(playerId))
 end
 
 function GetGuid()

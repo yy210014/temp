@@ -120,7 +120,7 @@ Ubertip="灵活的远程攻击单位，能学习到哨兵和月刃技能。|n|n|
 Name=弓箭手
 Hotkey=A
 Tip=训练弓箭手(|cffffcc00A|r)
-Ubertip="基本的远程攻击单位。能学习到射击术，硬弓和驯服角鹰兽这三项技能。|n|n|cffffcc00能攻击地面和空中单位。|r"
+Ubertip="基本的远程攻击单位。能学习到射击术，硬弓和驯服角鹰兽这三相技能。|n|n|cffffcc00能攻击地面和空中单位。|r"
 
 [edry]
 Name=树妖

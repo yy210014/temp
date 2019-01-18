@@ -5,7 +5,7 @@ skill.DamageList = nil
 local mSpeed = 15
 local mMaxDistance = 800
 local mArt = "AZ_jingzi_jiansheng01_F1.mdl"
-local mDamages1 = {80, 120, 180, 260, 360, 480}
+local mDamages1 = {120, 240, 360, 480, 600, 720}
 local mDamages2 = {1, 1.1, 1.2, 1.3, 1.4, 1.5}
 local mDamages3 = {1, 1.1, 1.2, 1.3, 1.4, 1.5}
 

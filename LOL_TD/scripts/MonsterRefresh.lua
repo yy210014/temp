@@ -270,7 +270,7 @@ local fuliguai = {}
 function MoneyShow_showDialog()
     local monTimer = CreateTimer()
     local _timerMoney = CreateTimerDialog(monTimer)
-    TimerDialogSetTitle(_timerMoney, "远古巨龙挑战")
+    TimerDialogSetTitle(_timerMoney, "远古龙挑战")
     TimerDialogDisplay(_timerMoney, true)
     TimerStart(monTimer, 10, false, function()
         mMonsterId = "End0"
@@ -281,7 +281,7 @@ function MoneyShow_showDialog()
                 fuliguai[i + 1].DamageSum = 0
             end
         end
-        DisplayTextToAll("远古巨龙出现！对远古巨龙造成的伤害越高，奖励的金币就越多！", "ffffcc00")
+        DisplayTextToAll("远古龙出现！对远古龙造成的伤害越高，奖励的金币就越多！", "ffffcc00")
 
         DestroyTimer(monTimer)
         DestroyTimerDialog(_timerMoney)
@@ -302,7 +302,7 @@ function MoneyShow_showDialog()
                     AssetsManager.DestroyObject(fuliguai[i + 1])
                     Multiboard.ShowMonsterCount(-1)
                     for j = 0, 3 do
-                        DisplayTextToPlayer(Player(j), 0, 0, "|cffffcc00" .. GetPlayerName(Player(i)) .. "|r对远古巨龙造成的伤害：|cFF00FF00" .. math.modf(fuliguai[i + 1].DamageSum) .. "|r 奖励金币数量：|cffffcc00" .. money .. "|r")
+                        DisplayTextToPlayer(Player(j), 0, 0, "|cffffcc00" .. GetPlayerName(Player(i)) .. "|r对远古龙造成的伤害：|cFF00FF00" .. math.modf(fuliguai[i + 1].DamageSum) .. "|r 奖励金币数量：|cffffcc00" .. money .. "|r")
                     end
                     SetPlayerState(Player(i), PLAYER_STATE_RESOURCE_GOLD, GetPlayerState(Player(i), PLAYER_STATE_RESOURCE_GOLD) + money)
                 end
@@ -329,6 +329,7 @@ function TimeToStopBOSS()
 end
 
 function EndLessComing()
+    mSpawnEnable = false
     DestroyTimer(BossStopTimer)
     DestroyTimerDialog(_BossDialog)
     local money = mKillBossCount * 5000
@@ -337,7 +338,13 @@ function EndLessComing()
         Game.Win()
         return
     end
-    DisplayTextToAll("恭喜你们开启了无尽关卡！无尽关卡即将来袭..", Color.yellow)
+    PlayerInfo:IteratePlayer(
+    function(player)
+        if (player.IsWatch == false) then
+            PlayerInfo.AddScore(player.Entity, Game.GetLevel() * 5)
+            DisplayTextToPlayer(player.Entity, 0, 0, "|cffffcc00恭喜你们开启了无尽关卡!所有进入无尽模式的玩家获得" .. (Game.GetLevel() * 5) .. "点游戏积分!|r")
+        end
+    end)
     for i = #GetEnemyTeamUnits(), 1, -1 do
         AssetsManager.DestroyObject(GetEnemyTeamUnits()[i])
     end
@@ -384,9 +391,14 @@ function WavesClear()
                 if (player.IsWatch == false) then
                     player.IsWatch = true
                     DisplayTextToAll("|cffffcc00玩家:|r" .. GetPlayerName(player.Entity) .. "|cffffcc00的怪物数量超出限制，切换为观看模式|r。", Color.white)
-                    for i = #GetPlayerTeamUnits(player.Id), 1, -1 do
-                        AssetsManager.DestroyObject(GetPlayerTeamUnits(player.Id)[i])
-                    end
+                    AssetsManager.IteratePlayerUnits(player.Id, function(u)
+                        u:IterateItems(
+                        function(item)
+                            UnitRemoveItem(u.Entity, item.Entity)
+                        end
+                        )
+                        AssetsManager.DestroyObject(u)
+                    end)
                     for i = #GetEnemyTeamUnits(), 1, -1 do
                         if (GetPlayerId(GetEnemyTeamUnits()[i].Player) - 8 == player.Id) then
                             AssetsManager.DestroyObject(GetEnemyTeamUnits()[i])
@@ -399,9 +411,9 @@ function WavesClear()
                 end
             end
         end)
+        mEndlessWaveIndex = mEndlessWaveIndex + 1
         if (mCurWaveIndex > 5) then
             mCurWaveIndex = 1
-            mEndlessWaveIndex = mEndlessWaveIndex + 1
             PlayerInfo:IteratePlayer(
             function(player)
                 if (player.IsWatch == false) then
@@ -455,7 +467,11 @@ function Spawn(spawnPoint, index)
         end
         Multiboard.ShowMonsterCount(1, index)
     elseif (Game.GetMode() == GameMode.ENDLESS) then
-        unit.Attribute:add("生命上限", unit.Attribute:get("生命上限") * (0.05 * mEndlessWaveIndex - 0.05))
+        if (Game.GetLevel() == 4) then
+            unit.Attribute:add("生命上限", unit.Attribute:get("生命上限") * (0.2 * mEndlessWaveIndex - 0.2))
+        else
+            unit.Attribute:add("生命上限", unit.Attribute:get("生命上限") * (0.1 * mEndlessWaveIndex - 0.1))
+        end
         PlayerInfo:AddMonsterCount(Player(index - 1))
     end
     unit.Attribute:add("生命", unit.Attribute:get("生命上限"))

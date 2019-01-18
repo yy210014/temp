@@ -1,12 +1,12 @@
-local skill = Skills["海克斯爆破雷区"]
+local skill = Skills["爆破雷区"]
 skill.SkillType = 2
 local mDuration = 15
 local mDamages1 = {80, 120, 180, 240, 300, 360}
 local mDamages2 = {0.3, 0.4, 0.5, 0.6, 0.7, 0.8}
 
-setmetatable(Buffs["海克斯爆破雷区"], {__index = Buffs["移速"]})
-Buffs["海克斯爆破雷区"].values = {-0.2, -0.25, -0.3, -0.35, -0.4, -0.5}
-Buffs["海克斯爆破雷区"].Durs = {1.5, 1.5, 1.5, 1.5, 1.5, 1.5}
+setmetatable(Buffs["爆破雷区"], {__index = Buffs["移速"]})
+Buffs["爆破雷区"].values = {-0.2, -0.25, -0.3, -0.35, -0.4, -0.5}
+Buffs["爆破雷区"].Durs = {1.5, 1.5, 1.5, 1.5, 1.5, 1.5}
 
 function skill:OnCast()
     local spellUnit = self.Owner

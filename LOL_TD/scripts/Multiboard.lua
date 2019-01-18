@@ -16,13 +16,13 @@ end
 function Multiboard.CreateMultiboard()
     mMultiboard = CreateMultiboard()
     MultiboardMinimize(mMultiboard, false)
-    MultiboardSetRowCount(mMultiboard, PlayerInfo:Count() + 2)
+    MultiboardSetRowCount(mMultiboard, 6)
     MultiboardSetColumnCount(mMultiboard, 3)
     MultiboardSetItemsWidth(mMultiboard, 0.03)
     MultiboardSetItemValue(MultiboardGetItem(mMultiboard, 0, 0), "|cffFF6633玩家|r")
     MultiboardSetItemValue(MultiboardGetItem(mMultiboard, 0, 1), "|cffFF6633杀敌数|r")
     MultiboardSetItemValue(MultiboardGetItem(mMultiboard, 0, 2), "")
-    MultiboardSetItemValue(MultiboardGetItem(mMultiboard, PlayerInfo:Count() + 1, 0), "圈内/最大")
+    MultiboardSetItemValue(MultiboardGetItem(mMultiboard, 5, 0), "圈内/最大")
 
     MultiboardSetItemsStyle(mMultiboard, true, false)
     MultiboardDisplay(mMultiboard, true)
@@ -43,15 +43,15 @@ end
 function Multiboard.UpdateEndLessInfo()
     MultiboardSetItemValue(MultiboardGetItem(mMultiboard, 0, 1), "|cffFF6633积分|r")
     MultiboardSetItemValue(MultiboardGetItem(mMultiboard, 0, 2), "|cffFF6633剩余怪兽数量|r")
-    MultiboardSetItemValue(MultiboardGetItem(mMultiboard, PlayerInfo:Count() + 1, 0), "|cffffcc00无尽模式|r")
-    MultiboardSetItemValue(MultiboardGetItem(mMultiboard, PlayerInfo:Count() + 1, 1), "")
-    MultiboardSetItemValue(MultiboardGetItem(mMultiboard, PlayerInfo:Count() + 1, 2), "")
+    MultiboardSetItemValue(MultiboardGetItem(mMultiboard, 5, 0), "|cffffcc00无尽模式|r")
+    MultiboardSetItemValue(MultiboardGetItem(mMultiboard, 5, 1), "")
+    MultiboardSetItemValue(MultiboardGetItem(mMultiboard, 5, 2), "")
     for i = 0, 3 do
         if
         (GetPlayerController(Player(i)) == MAP_CONTROL_USER and
         GetPlayerSlotState(Player(i)) == PLAYER_SLOT_STATE_PLAYING)
         then
-            MultiboardSetItemValue(MultiboardGetItem(mMultiboard, i + 1, 1), "")
+            MultiboardSetItemValue(MultiboardGetItem(mMultiboard, i + 1, 1), 0)
         end
     end
 end
@@ -66,9 +66,9 @@ end
 
 function Multiboard.ShowLevel(level)
     if (Game.GetLevel() > 2) then
-        MultiboardSetItemValue(MultiboardGetItem(mMultiboard, PlayerInfo:Count() + 1, 2), "|cffffcc00难度" .. level .. "|r/" .. "|cffffcc00无尽|r")
+        MultiboardSetItemValue(MultiboardGetItem(mMultiboard, 5, 2), "|cffffcc00难度" .. level .. "|r/" .. "|cffffcc00无尽|r")
     else
-        MultiboardSetItemValue(MultiboardGetItem(mMultiboard, PlayerInfo:Count() + 1, 2), "|cffffcc00难度" .. level .. "|r")
+        MultiboardSetItemValue(MultiboardGetItem(mMultiboard, 5, 2), "|cffffcc00难度" .. level .. "|r")
     end
 end
 
@@ -85,7 +85,7 @@ function Multiboard.ShowMonsterCount(count, i)
             colorSTR = "|cff66CD00"
         end
         MultiboardSetItemValue(
-        MultiboardGetItem(mMultiboard, PlayerInfo:Count() + 1, 1),
+        MultiboardGetItem(mMultiboard, 5, 1),
         colorSTR .. mMultiboardCurNum .. "|r|cffFFFFFF/" .. mMultiboardMaxNum .. "|r"
         )
     elseif (Game.GetMode() == GameMode.ENDLESS) then
@@ -115,5 +115,6 @@ function Multiboard.OnGameUpdate(dt)
         mTimeStrs[6] = mTime1
         --MultiboardSetTitleText(mMultiboard, table.concat(mTimeStrs))
         MultiboardSetTitleText(mMultiboard, "第" .. MonsterRefresh.GetCurWaveIndex() .. "波")
+
     end
 end

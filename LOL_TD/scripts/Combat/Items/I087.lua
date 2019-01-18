@@ -1,4 +1,4 @@
-local item = Items["日炎斗篷"]
+local item = Items["烈焰斗篷"]
 item.Timer = nil
 local mArt1 = "Abilities\\Spells\\Other\\ImmolationRed\\ImmolationRedTarget.mdl"
 function item:OnAdd()
@@ -9,16 +9,16 @@ function item:OnAdd()
     self.Timer = CreateTimer()
     TimerStart(
     self.Timer,
-    0.5,
+    1,
     true,
     function()
-        local comb = owner:GetComb("盖伦-日炎")
+        local comb = owner:GetComb("草丛伦-日炎")
         AssetsManager.OverlapCircle(
         owner:X(),
         owner:Y(),
         900,
         function(unit)
-            local damage = 20 * GetUnitLevel(owner.Entity)
+            local damage = 30 * GetUnitLevel(owner.Entity)
             if (comb ~= nil and comb.Enable) then
                 damage = damage + damage * 0.5
             end

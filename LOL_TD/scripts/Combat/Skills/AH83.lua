@@ -12,11 +12,11 @@ function skill:OnCast()
     dummy:SetUnitFacing(self.angle)
     SetUnitFlyHeight(dummy.Entity, 70, 0)
     dummy.Effect = AddSpecialEffectTarget(mArt, dummy.Entity, "origin")
-    UnitApplyTimedLife(dummy.Entity, "BHwe", 3)
+    AssetsManager.RemoveObject(dummy)
 
     local dummy2 = AssetsManager.LoadUnit(spellUnit.Player, "uq00", spellUnit:X(), spellUnit:Y())
     dummy2:AddSkill("AQ05")
     dummy2.Owner = spellUnit
     IssuePointOrder(dummy2.Entity, "carrionswarm", GetSpellTargetX(), GetSpellTargetY())
-    UnitApplyTimedLife(dummy2.Entity, "BHwe", 3)
+    AssetsManager.RemoveObject(dummy2)
 end

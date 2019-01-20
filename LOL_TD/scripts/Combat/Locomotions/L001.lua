@@ -9,6 +9,7 @@ locomotion.OnFoward = function(self, dt)
         self:PathEnded()
         return
     end
+
     local angle = AngleBetweenUnits(self.Owner.Entity, self.Target.Entity)
     local offX = self.Speed * math.cos(angle)
     local offY = self.Speed * math.sin(angle)
@@ -22,6 +23,10 @@ locomotion.OnFoward = function(self, dt)
 end
 
 locomotion.OnFoward2 = function(self, dt)
+    if (RectContainsUnit(GetPlayableMapRect(), self.Owner.Entity)) then
+        self:PathEnded()
+        return
+    end
     local offX = self.Speed * math.cos(self.Angle)
     local offY = self.Speed * math.sin(self.Angle)
     SetUnitX(self.Owner.Entity, self.Owner:X() + offX)

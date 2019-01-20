@@ -297,10 +297,10 @@ function GameStart.AnyUnitDeath(killUnit, dieUnit)
 
     --死亡单位是英雄
     if (IsUnitType(dieUnit.Entity, UNIT_TYPE_HERO)) then
-        if (MonsterRefresh.GetCurWaveIndex() == 40 and Game.GetLevel() == 1) then
+        if (MonsterRefresh.GetCurWaveIndex() == 41 and Game.GetLevel() == 1) then
             AllWavesDie()
         end
-        if (MonsterRefresh.GetCurWaveIndex() == 56) then
+        if (MonsterRefresh.GetCurWaveIndex() == 57) then
             if (Game.GetLevel() <= 2) then
                 AllWavesDie()
             else
@@ -327,9 +327,10 @@ function GameStart.AnyUnitDeath(killUnit, dieUnit)
             AssetsManager.IteratePlayerUnits(GetPlayerId(killUnit.Player), function(hero)
                 if (IsUnitType(hero.Entity, UNIT_TYPE_HERO)) then
                     local dummy = AssetsManager.LoadUnit(hero.Player, "uq00", hero:X(), hero:Y())
+                    dummy.Name = "小龙buff"
                     local skill = dummy:AddSkill(abilityId)
                     IssueTargetOrder(dummy.Entity, skill.Order, hero.Entity)
-                    UnitApplyTimedLife(dummy.Entity, "BHwe", 1)
+                    AssetsManager.RemoveObject(dummy)
                 end
             end)
         end

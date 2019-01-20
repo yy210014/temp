@@ -53,8 +53,8 @@ function DecodeBase64(str64)
         end
         for j = 16, 0, -8 do
             if str_count > 0 then
-                str = str .. string.char(math.floor(data / math.pow(2, j)))
-                data = math.mod(data, math.pow(2, j))
+                str = str .. string.char(math.floor(data / 2 ^ j))
+                data = data % (2 ^ j)
                 str_count = str_count - 1
             end
         end

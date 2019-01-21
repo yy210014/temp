@@ -1,9 +1,19 @@
+require "scripts.Common.Base64"
+
 PlayerInfo = {}
 local mPlayers = { Count = 0 }
 local mt = {}
 mt.Worke = nil
 
-local jfType = { Score = 200, VIP = 201 }
+jfType = { Score = 200, VIP = 201, gh01 = 301, gh02 = 302, cb01 = 401, cb02 = 402, pf01 = 501 }
+local JFItem = {
+    --{ jfType.VIP, "aeger", "R006", 0 },
+    { jfType.gh01, "wqe2", GetId("R006"), 300, Jglobals.udg_ghTimer },
+    { jfType.gh02, "sdger", GetId("R007"), 800, Jglobals.udg_ghTimer },
+    { jfType.cb01, "sdxsqq", GetId("R008"), 500, Jglobals.udg_cbTimer },
+    { jfType.cb02, "235rf", GetId("R009"), 1000, Jglobals.udg_cbTimerx },
+    { jfType.pf01, "t4werw", GetId("R010"), 1500, Jglobals.udg_pfTimer },
+}
 
 function mt:New(player)
     local newPlayer = {}
@@ -14,13 +24,39 @@ function mt:New(player)
     return newPlayer
 end
 
+function mt:CheckJFItem()
+    for i = 1, #JFItem do
+        local item = LoadStr(Jglobals.udg_table, self.Id + 1, JFItem[i][1])
+        if (item ~= "" and DecodeBase64(item) == JFItem[i][2]) then
+            AddPlayerTechResearched(self.Entity, JFItem[i][3], 1)
+        end
+    end
+end
+
 function PlayerInfo:New(entity)
     local newPlayer = mt:New(entity)
     newPlayer.KillCount = 0
     newPlayer.MonsterCount = 0
     newPlayer.IsWatch = false
-    newPlayer.IsVIP = DecodeBase64(LoadStr(Jglobals.udg_table, GetPlayerId(entity), jfType.VIP)) == 1 and true or false
-    newPlayer.Score = DecodeBase64(LoadStr(Jglobals.udg_table, GetPlayerId(entity), jfType.Score)) or 0
+
+    --newPlayer.IsVIP = DecodeBase64(LoadStr(Jglobals.udg_table, GetPlayerId(entity), jfType.VIP)) == 1 and true or false
+    local score = LoadStr(Jglobals.udg_table, GetPlayerId(entity) + 1, jfType.Score)
+    if (score == nil or score == "") then
+        newPlayer.Score = 1300
+    else
+        score = tonumber(DecodeBase64(score))
+        if (score == nil) then
+            DisplayTextToPlayer(entity, 0, 0, "|cFFFF0000游戏积分异常，积分清零！|r")
+            newPlayer.Score = 0
+            SaveStr(Jglobals.udg_table, GetPlayerId(entity) + 1, jfType.Score, "")
+            TimerStart(Jglobals.udg_jfTimer, 0.01, false, nil)
+        else
+            newPlayer.Score = score
+        end
+        --newPlayer.Score = tonumber(DecodeBase64(score))
+    end
+    newPlayer:CheckJFItem()
+    DisplayTextToPlayer(entity, 0, 0, "当前游戏积分：" .. newPlayer.Score)
     mPlayers[newPlayer.Id + 1] = newPlayer
     mPlayers.Count = mPlayers.Count + 1
     return newPlayer
@@ -68,9 +104,11 @@ function PlayerInfo.AddScore(entity, score)
     end
     player.Score = player.Score + score
 
-    --DzAPI_Map_Ladder_SetStat(entity, "Sorce", tostring(player.Score))
-    SaveStr(Jglobals.udg_table, GetPlayerId(entity), jfType.Score, EncodeBase64(tostring(player.Score)))
-    Multiboard.ShowScore(index, player.Score)
+    SaveStr(Jglobals.udg_table, GetPlayerId(entity) + 1, jfType.Score, EncodeBase64(tostring(player.Score)))
+    TimerStart(Jglobals.udg_jfTimer, 0.01, false, nil)
+    if (Game.GetMode() == GameMode.ENDLESS) then
+        Multiboard.ShowScore(index, player.Score)
+    end
 end
 
 function PlayerInfo:AddMonsterCount(entity)
@@ -91,8 +129,7 @@ function PlayerInfo:EnableVIP(entity)
     local player = mPlayers[index]
     player.IsVIP = true
     AddPlayerTechResearched(entity, GetId("R011"), 1)
-    --DzAPI_Map_Ladder_SetStat(entity, "VIP", tostring(1))
-    SaveStr(Jglobals.udg_table, GetPlayerId(entity), jfType.VIP, EncodeBase64(tostring(player.VIP)))
+    --SaveStr(Jglobals.udg_table, GetPlayerId(entity), jfType.VIP, EncodeBase64(tostring(player.VIP)))
     local worke = Worke[GetPlayerId(entity)]
     local timer = CreateTimer()
     TimerStart(timer, 1, true,
@@ -108,6 +145,22 @@ function PlayerInfo:EnableVIP(entity)
     end
     )
     UnitAddItem(worke.Entity, CreateItem(GetId("IB02"), worke:X(), worke:Y()))
+end
+
+function PlayerInfo:EnableJFItem(entity, type)
+    for i = 1, #JFItem do
+        if (JFItem[i][1] == type) then
+            if (PlayerInfo:GetScore(entity) >= JFItem[i][4]) then
+                PlayerInfo.AddScore(entity, -JFItem[i][4])
+                AddPlayerTechResearched(entity, JFItem[i][3], 1)
+                SaveStr(Jglobals.udg_table, GetPlayerId(entity) + 1, JFItem[i][1], EncodeBase64(JFItem[i][2]))
+                TimerStart(JFItem[i][5], 0.01, false, nil)
+                DisplayTextToAll("兑换皮肤成功,当前剩余积分：" .. self:GetScore(entity), Color.yellow)
+            else
+                DisplayTextToAll("积分不足兑换失败,当前剩余积分：" .. self:GetScore(entity), Color.yellow)
+            end
+        end
+    end
 end
 
 function PlayerInfo:Player(id)

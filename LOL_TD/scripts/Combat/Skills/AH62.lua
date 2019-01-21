@@ -38,6 +38,10 @@ skill.OnPathEnd = function(dummy)
     local self = dummy.Skill
     local ap = owner.Attribute:get("法术攻击")
     local damage = mDamages1[self:GetCurLevel()] + (ap * mDamages2[self:GetCurLevel()])
+    local comb = owner:GetComb("小法师-大圣杯")
+    if (comb ~= nil and comb.Enable) then
+        damage = damage + damage * 0.5
+    end
     EXUnitDamageTarget(owner, spellTargetUnit, damage, EXDamageType.Magic)
     AssetsManager.RemoveObject(dummy)
 end

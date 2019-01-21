@@ -10,9 +10,9 @@ local mExplosion = "GoblinTech_R.mdl"
 function skill:OnCast()
     local spellUnit = self.Owner
     local dummy = AssetsManager.LoadUnit(spellUnit.Player, "uq00", spellUnit:X(), spellUnit:Y())
+    dummy.Name = "地狱火炮-万能马甲"
     dummy.Effect = AddSpecialEffectTarget(mArt, dummy.Entity, "origin")
     dummy.Owner = self.Owner
-    AssetsManager.RemoveObject(dummy)
     local locom = dummy:AddLocomotion("跳跃")
     local angle = AngleBetweenPoint(spellUnit:X(), GetSpellTargetX(), spellUnit:Y(), GetSpellTargetY())
     local dist = DistanceBetweenPoint(spellUnit:X(), GetSpellTargetX(), spellUnit:Y(), GetSpellTargetY())

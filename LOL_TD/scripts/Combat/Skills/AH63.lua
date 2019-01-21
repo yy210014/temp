@@ -1,7 +1,7 @@
 local skill = Skills["寒冰碎片"]
 skill.SkillType = 2
 
-local mSpeed = 18
+local mSpeed = 15
 local mMaxDistance = 800
 local mDamages1 = {200, 400, 600, 800, 1000, 1200}
 local mDamages2 = {1, 1.4, 1.8, 2.2, 2.6, 3.0}
@@ -75,7 +75,7 @@ skill.OnPathUpdate = function(dummy)
                     --创建运动
                     local loc = dummy2:AddLocomotion("冲锋")
                     if (loc ~= nil) then
-                        loc:Start(unit2, 12, self.OnPathEnd2)
+                        loc:Start(unit2, 10, self.OnPathEnd2)
                     end
                 end
             )

@@ -1,5 +1,4 @@
 require "scripts.utility"
-require "scripts.Common.pairs"
 require "scripts.Api.common"
 require "scripts.Api.blizzard"
 require "scripts.Api.japi"

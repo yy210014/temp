@@ -548,7 +548,15 @@ function Unit:OnDyingUpdate(dt)
     if (self.Locomotion ~= nil) then
         self.Locomotion:OnGameUpdate(dt)
     end
-
+    if (self.Skills ~= nil) then
+        for i = #self.Skills, 1, -1 do
+            if (self.Skills[i] ~= nil) then
+                self.Skills[i]:OnGameUpdate(dt)
+            else
+                Game.LogError(self.Name .."丢失Skill")
+            end
+        end
+    end
     if (self.Texts ~= nil and #self.Texts > 0) then
         self.TextDt = self.TextDt - dt
         if (self.TextDt <= 0) then

@@ -11,7 +11,7 @@ local JFItem = {
     { jfType.gh01, "wqe2", GetId("R006"), 300, Jglobals.udg_ghTimer },
     { jfType.gh02, "sdger", GetId("R007"), 800, Jglobals.udg_ghTimer },
     { jfType.cb01, "sdxsqq", GetId("R008"), 500, Jglobals.udg_cbTimer },
-    { jfType.cb02, "235rf", GetId("R009"), 1000, Jglobals.udg_cbTimerx },
+    { jfType.cb02, "235rf", GetId("R009"), 1000, Jglobals.udg_cbTimer },
     { jfType.pf01, "t4werw", GetId("R010"), 1500, Jglobals.udg_pfTimer },
 }
 
@@ -42,7 +42,7 @@ function PlayerInfo:New(entity)
     --newPlayer.IsVIP = DecodeBase64(LoadStr(Jglobals.udg_table, GetPlayerId(entity), jfType.VIP)) == 1 and true or false
     local score = LoadStr(Jglobals.udg_table, GetPlayerId(entity) + 1, jfType.Score)
     if (score == nil or score == "") then
-        newPlayer.Score = 1300
+        newPlayer.Score = 0
     else
         score = tonumber(DecodeBase64(score))
         if (score == nil) then

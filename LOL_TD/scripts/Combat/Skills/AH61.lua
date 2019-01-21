@@ -20,7 +20,6 @@ end
 skill.DelayDamage = function(self, dt)
     if (GameScene.Elapsed - self.LastCastTime > mDelayTime) then
         local spellUnit = self.Owner
-        local comb = spellUnit:GetComb("小法师-大圣杯")
         AssetsManager.OverlapCircle(
             self.SpellTargetX,
             self.SpellTargetY,
@@ -28,9 +27,6 @@ skill.DelayDamage = function(self, dt)
             function(unit)
                 local ap = spellUnit.Attribute:get("法术攻击")
                 local damage = mDamages1[self:GetCurLevel()] + (ap * mDamages2[self:GetCurLevel()])
-                if (comb ~= nil and comb.Enable) then
-                    damage = damage + damage * 0.5
-                end
                 EXUnitDamageTarget(spellUnit, unit, damage, EXDamageType.Magic)
             end
         )

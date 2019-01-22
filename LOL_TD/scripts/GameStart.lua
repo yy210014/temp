@@ -359,7 +359,7 @@ function GameStart.AnyUnitConstructFinish()
         --开启AI
         IssueImmediateOrder(unit.Entity, "manashieldon")
 
-       --[[ unit.Attribute:add("魔法恢复", 100)
+        --[[ unit.Attribute:add("魔法恢复", 100)
         unit.Attribute:add("攻击速度", 2)
         unit.Attribute:add("暴击", 0.5)
         unit.Attribute:add("冷却缩减上限", 0.5)
@@ -400,7 +400,7 @@ function GameStart.AnyUnitSell(unit)
     local tim = CreateTimer()
     TimerStart(
     tim,
-    0.01,
+    0,
     false,
     function()
         unit:RefreshComb()
@@ -542,7 +542,7 @@ function GameStart.AnyUnitPickUpItem()
         local tim = CreateTimer()
         TimerStart(
         tim,
-        0.01,
+        0,
         false,
         function()
             unit:RefreshComb()
@@ -578,7 +578,7 @@ function GameStart.AnyUnitSellItem()
         local tim = CreateTimer()
         TimerStart(
         tim,
-        0.01,
+        0,
         false,
         function()
             unit:RefreshComb()
@@ -601,7 +601,7 @@ function GameStart.AnyUnitDropItem()
         local tim = CreateTimer()
         TimerStart(
         tim,
-        0.01,
+        0,
         false,
         function()
             unit:RefreshComb()

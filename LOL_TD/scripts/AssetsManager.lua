@@ -1,7 +1,7 @@
 AssetsManager = {}
 
 local mPlayerTeamUnits = { {}, {}, {}, {} }
-local mEnemyTeamUnits = {}
+local mEnemyTeamUnits = { {}, {}, {}, {} }
 local mDefUnitFacing = 270
 local mDyingUnits = {}
 
@@ -18,9 +18,17 @@ function GetJ_PlayerUnits(entity)
 end
 
 function GetJ_EnemyUnits(entity)
-    for i = #mEnemyTeamUnits, 1, -1 do
-        if (mEnemyTeamUnits[i].Entity == entity) then
-            return mEnemyTeamUnits[i]
+    local playerId = GetPlayerId(GetOwningPlayer(entity))
+    if (playerId < 8) then
+        return nil
+    end
+    local list = mEnemyTeamUnits[playerId - 7]
+    if (list == nil) then
+        Game.LogError("空list ， playerId：" .. playerId)
+    end
+    for i = #list, 1, -1 do
+        if (list[i].Entity == entity) then
+            return list[i]
         end
     end
     return nil
@@ -44,7 +52,7 @@ function AssetsManager.LoadUnit(player, id, x, y)
     if (unit.FactionId == PlayerTeamFactionId) then
         mPlayerTeamUnits[GetPlayerId(player) + 1][#mPlayerTeamUnits[GetPlayerId(player) + 1] + 1] = unit
     else
-        mEnemyTeamUnits[#mEnemyTeamUnits + 1] = unit
+        mEnemyTeamUnits[GetPlayerId(player) - 7][#mEnemyTeamUnits[GetPlayerId(player) - 7] + 1] = unit
     end
 
     local trig = CreateTrigger()
@@ -57,13 +65,13 @@ end
 function AssetsManager.LoadUnitAtLoc(player, id, point)
     local entity = CreateUnitAtLoc(player, GetId(id), point, mDefUnitFacing)
     if (entity == nil) then
-        Game.Log("LoadUnitAtLoc id: "..id)
+        Game.Log("LoadUnitAtLoc id: " .. id)
     end
     local unit = Unit:New(entity)
     if (unit.FactionId == PlayerTeamFactionId) then
         mPlayerTeamUnits[GetPlayerId(player) + 1][#mPlayerTeamUnits[GetPlayerId(player) + 1] + 1] = unit
     else
-        mEnemyTeamUnits[#mEnemyTeamUnits + 1] = unit
+        mEnemyTeamUnits[GetPlayerId(player) - 7][#mEnemyTeamUnits[GetPlayerId(player) - 7] + 1] = unit
     end
     local trig = CreateTrigger()
     TriggerRegisterUnitEvent(trig, entity, EVENT_UNIT_DAMAGED)
@@ -77,7 +85,7 @@ function AssetsManager.LoadEntity(entity)
     if (unit.FactionId == PlayerTeamFactionId) then
         mPlayerTeamUnits[GetPlayerId(unit.Player) + 1][#mPlayerTeamUnits[GetPlayerId(unit.Player) + 1] + 1] = unit
     else
-        mEnemyTeamUnits[#mEnemyTeamUnits + 1] = unit
+        mEnemyTeamUnits[GetPlayerId(unit.player) - 7][#mEnemyTeamUnits[GetPlayerId(unit.player) - 7] + 1] = unit
     end
     local trig = CreateTrigger()
     TriggerRegisterUnitEvent(trig, entity, EVENT_UNIT_DAMAGED)
@@ -110,9 +118,9 @@ local function DestroyEnemyObject(unit, destroy)
         DestroyTrigger(unit.Trigger)
         unit.Trigger = nil
     end
-    for i = #mEnemyTeamUnits, 1, -1 do
-        if (mEnemyTeamUnits[i] == unit) then
-            table.remove(mEnemyTeamUnits, i)
+    for i = #mEnemyTeamUnits[GetPlayerId(unit.Player) - 7], 1, -1 do
+        if (mEnemyTeamUnits[GetPlayerId(unit.Player) - 7][i] == unit) then
+            table.remove(mEnemyTeamUnits[GetPlayerId(unit.Player) - 7], i)
             break
         end
     end
@@ -150,9 +158,12 @@ function AssetsManager.OnGameUpdate(dt)
         end
     end
 
-    for i = #mEnemyTeamUnits, 1, -1 do
-        if (mEnemyTeamUnits[i] ~= nil) then
-            mEnemyTeamUnits[i]:OnGameUpdate(dt)
+    for i = 1, #mEnemyTeamUnits do
+        local list = mEnemyTeamUnits[i]
+        for j = #list, 1, -1 do
+            if (list[j] ~= nil) then
+                list[j]:OnGameUpdate(dt)
+            end
         end
     end
 
@@ -179,16 +190,57 @@ function AssetsManager.IteratePlayerUnits(playerId, call)
 end
 
 function AssetsManager.IterateEnemyUnits(call)
-    for i = #mEnemyTeamUnits, 1, -1 do
-        if (mEnemyTeamUnits[i] ~= nil) then
-            if (mEnemyTeamUnits[i].IsDying == false) then
-                call(mEnemyTeamUnits[i])
+    for i = 1, #mEnemyTeamUnits do
+        local list = mEnemyTeamUnits[i]
+        for j = #list, 1, -1 do
+            if (list[j] ~= nil and list[j].IsDying == false) then
+                call(list[j])
             end
         end
     end
 end
 
-function AssetsManager.OverlapRandom(x1, y1, radius)
+function AssetsManager.OverlapLine(x1, y1, dis, rng, angle, call)
+    for i = 1, #mEnemyTeamUnits do
+        local list = mEnemyTeamUnits[i]
+        for j = #list, 1, -1 do
+            if (list[j] ~= nil and list[j].IsDying == false) then
+                local x2 = x1 + dis * math.cos(angle)
+                local y2 = y1 + dis * math.sin(angle)
+                local x, y = (x1 + x2) / 2, (y1 + y2) / 2
+                local r = dis / 2
+                local dist1 = DistanceBetweenPoint(x, list[j]:X(), y, list[j]:Y())
+                if (dist1 < r) then --先选一个圆
+                    local a, b = y1 - y2, x2 - x1
+                    local c = -a * x1 - b * y1
+                    local l = (a * a + b * b) ^ 0.5
+                    local w = rng / 2
+                    local dist2 = math.abs(a * list[j]:X() + b * list[j]:Y() + c) / l
+                    if (dist2 <= w) then
+                        call(list[j])
+                    end
+                end
+            end
+        end
+    end
+end
+
+function AssetsManager.OverlapCircle(x1, y1, radius, call)
+    for i = 1, #mEnemyTeamUnits do
+        local list = mEnemyTeamUnits[i]
+        for j = #list, 1, -1 do
+            if (list[j] ~= nil and list[j].IsDying == false) then
+                local dist = DistanceBetweenPoint(x1, list[j]:X(), y1, list[j]:Y())
+                if (dist < radius) then
+                    call(list[j])
+                end
+            end
+        end
+    end
+end
+
+
+--[[function AssetsManager.OverlapRandom(x1, y1, radius)
     if (#mEnemyTeamUnits == 0) then
         return nil
     end
@@ -206,39 +258,6 @@ function AssetsManager.OverlapRandom(x1, y1, radius)
     return unit
 end
 
-function AssetsManager.OverlapLine(x1, y1, dis, rng, angle, call)
-    for i = #mEnemyTeamUnits, 1, -1 do
-        if (mEnemyTeamUnits[i] ~= nil) then
-            local x2 = x1 + dis * math.cos(angle)
-            local y2 = y1 + dis * math.sin(angle)
-            local x, y = (x1 + x2) / 2, (y1 + y2) / 2
-            local r = dis / 2
-            local dist1 = DistanceBetweenPoint(x, mEnemyTeamUnits[i]:X(), y, mEnemyTeamUnits[i]:Y())
-            if (dist1 < r and mEnemyTeamUnits[i].IsDying == false) then --先选一个圆
-                local a, b = y1 - y2, x2 - x1
-                local c = -a * x1 - b * y1
-                local l = (a * a + b * b) ^ 0.5
-                local w = rng / 2
-                local dist2 = math.abs(a * mEnemyTeamUnits[i]:X() + b * mEnemyTeamUnits[i]:Y() + c) / l
-                if (dist2 <= w) then
-                    call(mEnemyTeamUnits[i])
-                end
-            end
-        end
-    end
-end
-
-function AssetsManager.OverlapCircle(x1, y1, radius, call)
-    for i = #mEnemyTeamUnits, 1, -1 do
-        if (mEnemyTeamUnits[i] ~= nil) then
-            local dist = DistanceBetweenPoint(x1, mEnemyTeamUnits[i]:X(), y1, mEnemyTeamUnits[i]:Y())
-            if (dist < radius and mEnemyTeamUnits[i].IsDying == false) then
-                call(mEnemyTeamUnits[i])
-            end
-        end
-    end
-end
-
 function AssetsManager.OverlapBox()
     for i, v in ipairs(mEnemyTeamUnits) do
         if (v.IsDying == false) then
@@ -253,4 +272,4 @@ function AssetsManager.OverlapSector()
             -- call(v)
         end
     end
-end
+end]]

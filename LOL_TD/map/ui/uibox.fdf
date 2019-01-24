@@ -6310,7 +6310,8 @@ Frame "BACKDROP" "BAG2" {      //父级
 	Height 0.4,
 	BackdropBackground  "war3mapImported\AASHOP1.tga",
 	BackdropBlendAll,
-	
+
+	//标题
 	Frame "TEXTBUTTON" "AB1" {
    	  	Height 0.02,
   		Width 0.05,
@@ -6330,7 +6331,8 @@ Frame "BACKDROP" "BAG2" {      //父级
         		HighlightAlphaMode "ADD",
 				}
 	}
-				//英雄
+	
+	//装 备
 	Frame "TEXT" "AB11" {
    		FrameFont "font02.TTF", 0.014, "",
    		FontJustificationH JUSTIFYRIGHT,
@@ -6360,7 +6362,7 @@ Frame "BACKDROP" "BAG2" {      //父级
 				}
 	}
 	
-				//英雄
+	//英 雄
 	Frame "TEXT" "AB22" {
    		FrameFont "font02.TTF", 0.014, "",
    		FontJustificationH JUSTIFYRIGHT,
@@ -6369,6 +6371,8 @@ Frame "BACKDROP" "BAG2" {      //父级
 		LayerStyle "IGNORETRACKEVENTS",
 		SetPoint BOTTOM, "AB2", BOTTOM, 0, 0,
 	}
+
+	//白金召唤 
 	Frame "TEXTBUTTON" "HeroCard" {
    	  	Height 0.15,
   		Width 0.08,
@@ -6380,7 +6384,6 @@ Frame "BACKDROP" "BAG2" {      //父级
    			BackdropBackground  "war3mapImported\HeroCard.tga",
      			BackdropBlendAll,
     	}
-    	//按下
     	ControlPushedBackdrop "HeroCardDOWN",
     	Frame "BACKDROP" "HeroCardDOWN" {
         	BackdropBackground  "war3mapImported\HeroCarddown.tga",
@@ -6393,39 +6396,51 @@ Frame "BACKDROP" "BAG2" {      //父级
         	HighlightAlphaMode "ADD",
 		}
 		
-		//标题
 		Frame "TEXTBUTTON" "HeroCardshow" {
-   	  	Height 0.04,
-  		Width 0.09,
-		SetPoint BOTTOM, "HeroCard", TOP, 0.0, 0.01,
-    		ControlBackdrop "HeroCardshowUP",
-   		Frame "BACKDROP" "HeroCardshowUP" {
-   			BackdropBackground  "war3mapImported\TF1.tga",
-     			BackdropBlendAll,
-    		}
+			Height 0.04,
+			Width 0.09,
+			SetPoint BOTTOM, "HeroCard", TOP, 0.0, 0.01,
+				ControlBackdrop "HeroCardshowUP",
+			Frame "BACKDROP" "HeroCardshowUP" {
+				BackdropBackground  "war3mapImported\TF1.tga",
+					BackdropBlendAll,
+				}
+		}
+
+		//Tooltip
+		Frame "TEXT" "HeroCardTooltip" {
+			FrameFont "font02.TTF", 0.015, "",
+			FontJustificationH JUSTIFYRIGHT,
+			FontJustificationV JUSTIFYMIDDLE,
+			FontFlags "FIXEDSIZE",
+			LayerStyle "IGNORETRACKEVENTS",
+			SetPoint TOP, "HeroCard", TOP, 0, -0.008,
+			Text "|cFF00FF00抽N~R卡|r",
 		}
 
 		//金币
 		Frame "TEXTBUTTON" "HeroCardtext" {
-   	  	Height 0.028,
-  		Width 0.08,
-		SetPoint TOP, "HeroCard", BOTTOM, 0.0, -0.008,
-    		ControlBackdrop "HeroCardtextUP",
-   		Frame "BACKDROP" "HeroCardtextUP" {
-   			BackdropBackground  "war3mapImported\KKGoldText.tga",
-     			BackdropBlendAll,
-    		}
+			Height 0.028,
+			Width 0.08,
+			SetPoint TOP, "HeroCard", BOTTOM, 0.0, -0.008,
+				ControlBackdrop "HeroCardtextUP",
+			Frame "BACKDROP" "HeroCardtextUP" {
+				BackdropBackground  "war3mapImported\KKGoldText.tga",
+					BackdropBlendAll,
+				}
 		}	
-			
+		
+		//1000
 		Frame "TEXT" "HeroCardshowtext" {
-   		FrameFont "font02.TTF", 0.015, "",
-   		FontJustificationH JUSTIFYRIGHT,
-   		FontJustificationV JUSTIFYMIDDLE,
-   		FontFlags "FIXEDSIZE",
-		LayerStyle "IGNORETRACKEVENTS",
-		SetPoint TOP, "HeroCardtext", TOP, 0, -0.008,
-	}
+			FrameFont "font02.TTF", 0.015, "",
+			FontJustificationH JUSTIFYRIGHT,
+			FontJustificationV JUSTIFYMIDDLE,
+			FontFlags "FIXEDSIZE",
+			LayerStyle "IGNORETRACKEVENTS",
+			SetPoint TOP, "HeroCardtext", TOP, 0, -0.008,
+		}
 
+	//钻石召唤
 	Frame "TEXTBUTTON" "HeroCard1" {
    	  	Height 0.15,
   		Width 0.08,
@@ -6448,6 +6463,16 @@ Frame "BACKDROP" "BAG2" {      //父级
         	HighlightType "FILETEXTURE",
 			HighlightAlphaFile "UI\Widgets\BattleNet\bnet-button01-highlight-mouse.blp",    
         	HighlightAlphaMode "ADD",
+		}
+		//Tooltip
+		Frame "TEXT" "HeroCard1Tooltip" {
+			FrameFont "font02.TTF", 0.015, "",
+			FontJustificationH JUSTIFYRIGHT,
+			FontJustificationV JUSTIFYMIDDLE,
+			FontFlags "FIXEDSIZE",
+			LayerStyle "IGNORETRACKEVENTS",
+			SetPoint TOP, "HeroCard1", TOP, 0, -0.008,
+			Text "|cFFFF00FF抽R~SSR卡|r",
 		}
 		
 	}
@@ -6504,6 +6529,17 @@ Frame "BACKDROP" "BAG2" {      //父级
         	HighlightType "FILETEXTURE",
 			HighlightAlphaFile "UI\Widgets\BattleNet\bnet-button01-highlight-mouse.blp",    
         	HighlightAlphaMode "ADD",
+		}
+		
+		//Tooltip
+		Frame "TEXT" "HeroCard2Tooltip" {
+			FrameFont "font02.TTF", 0.015, "",
+			FontJustificationH JUSTIFYRIGHT,
+			FontJustificationV JUSTIFYMIDDLE,
+			FontFlags "FIXEDSIZE",
+			LayerStyle "IGNORETRACKEVENTS",
+			SetPoint TOP, "HeroCard2", TOP, 0, -0.008,
+			Text "|cFFFFFF00抽SR~SSR卡|r",
 		}
 	}
 	
@@ -6625,40 +6661,36 @@ Frame "BACKDROP" "BAG2" {      //父级
 	}
 	
 
-				Frame "TEXTBUTTON" "ZTJIN" {
-    Height 0.04,
-    Width 0.035,
-
+	Frame "TEXTBUTTON" "ZTJIN" {
+		Height 0.04,
+		Width 0.035,
 		SetPoint TOPLEFT, "BAG3", TOPLEFT, 0.03, -0.11,
-    		ControlBackdrop "ZTJINUP",
+    	ControlBackdrop "ZTJINUP",
    		Frame "BACKDROP" "ZTJINUP" {
    			BackdropBackground  "war3mapImported\ZT_JiN1.tga",
-     			BackdropBlendAll,
-    		}
-			}	
+     		BackdropBlendAll,
+    	}
+	}	
 			
-							Frame "TEXTBUTTON" "ZTJIN1" {
-    Height 0.04,
-    Width 0.035,
-
+	Frame "TEXTBUTTON" "ZTJIN1" {
+		Height 0.04,
+		Width 0.035,
 		SetPoint TOPLEFT, "BAG3", TOPLEFT, 0.075, -0.11,
-    		ControlBackdrop "ZTJIN1UP",
-   		Frame "BACKDROP" "ZTJIN1UP" {
-   			BackdropBackground  "war3mapImported\ZT_JiN2.tga",
-     			BackdropBlendAll,
-    		}
-			}	
+		ControlBackdrop "ZTJIN1UP",
+		Frame "BACKDROP" "ZTJIN1UP" {
+			BackdropBackground  "war3mapImported\ZT_JiN2.tga",
+			BackdropBlendAll,
+		}
+	}	
 			
-		Frame "TEXTBUTTON" "ZTJIN2" {
-    Height 0.04,
-    Width 0.035,
-
+	Frame "TEXTBUTTON" "ZTJIN2" {
+		Height 0.04,
+		Width 0.035,
 		SetPoint TOPLEFT, "BAG3", TOPLEFT, 0.12, -0.11,
-    		ControlBackdrop "ZTJIN2UP",
+    	ControlBackdrop "ZTJIN2UP",
    		Frame "BACKDROP" "ZTJIN2UP" {
    			BackdropBackground  "war3mapImported\ZT_JiN2.tga",
-     			BackdropBlendAll,
-    		}
-			}		
-					
+     		BackdropBlendAll,
+    	}
+	}				
 }

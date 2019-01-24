@@ -1,7 +1,7 @@
 require "scripts.Common.Base64"
 
 PlayerInfo = {}
-local mPlayers = { Count = 0 }
+local mPlayers = {}
 local mt = {}
 mt.Worke = nil
 
@@ -27,7 +27,7 @@ end
 function mt:CheckJFItem()
     for i = 1, #JFItem do
         local item = LoadStr(Jglobals.udg_table, self.Id + 1, JFItem[i][1])
-        if (item ~= "" and DecodeBase64(item) == JFItem[i][2]) then
+        if (item ~= nil and item ~= "" and DecodeBase64(item) == JFItem[i][2]) then
             AddPlayerTechResearched(self.Entity, JFItem[i][3], 1)
         end
     end
@@ -57,14 +57,22 @@ function PlayerInfo:New(entity)
     end
     newPlayer:CheckJFItem()
     DisplayTextToPlayer(entity, 0, 0, "当前游戏积分：" .. newPlayer.Score)
-    mPlayers[newPlayer.Id + 1] = newPlayer
-    mPlayers.Count = mPlayers.Count + 1
+    mPlayers[#mPlayers + 1] = newPlayer
     return newPlayer
+end
+
+function GetJ_Player(entity)
+    for i = #mPlayers, 1, -1 do
+        if (mPlayers[i].Entity == entity) then
+            return mPlayers[i]
+        end
+    end
+    return nil
 end
 
 function PlayerInfo:Kill(killUnit, dieUnit)
     local index = GetPlayerId(killUnit.Player) + 1
-    local player = mPlayers[index]
+    local player = GetJ_Player(killUnit.Player)
     if (Game.GetMode() == GameMode.NORMAL) then
         player.KillCount = player.KillCount + 1
         if (player.KillCount % 100 == 0) then
@@ -79,21 +87,23 @@ function PlayerInfo:Kill(killUnit, dieUnit)
         Multiboard.ShowMonsterCount(-1)
     elseif (Game.GetMode() == GameMode.ENDLESS) then
         index = GetPlayerId(dieUnit.Player) - 7
-        player = mPlayers[index]
+        player = GetJ_Player(Player(index - 1))
         player.MonsterCount = player.MonsterCount - 1
         Multiboard.ShowMonsterCount(player.MonsterCount, index)
     end
 end
 
 function PlayerInfo:GetScore(entity)
-    local index = GetPlayerId(entity) + 1
-    local player = mPlayers[index]
-    return player.Score
+    local player = GetJ_Player(entity)
+    if (player ~= nil) then
+        return player.Score
+    end
+    return 0
 end
 
 function PlayerInfo.AddScore(entity, score)
     local index = GetPlayerId(entity) + 1
-    local player = mPlayers[index]
+    local player = GetJ_Player(entity)
     if (score > 0) then
         if (Game.GetMode() == GameMode.ENDLESS and Game.GetLevel() == 4) then
             score = score * 2
@@ -113,20 +123,22 @@ end
 
 function PlayerInfo:AddMonsterCount(entity)
     local index = GetPlayerId(entity) + 1
-    local player = mPlayers[index]
+    local player = GetJ_Player(entity)
     player.MonsterCount = player.MonsterCount + 1
     Multiboard.ShowMonsterCount(player.MonsterCount, index)
 end
 
 function PlayerInfo:IsVIP(entity)
-    local index = GetPlayerId(entity) + 1
-    local player = mPlayers[index]
-    return player.IsVIP
+    local player = GetJ_Player(entity)
+    if (player ~= nil) then
+        return player.IsVIP
+    end
+    return false
 end
 
 function PlayerInfo:EnableVIP(entity)
     local index = GetPlayerId(entity) + 1
-    local player = mPlayers[index]
+    local player = GetJ_Player(entity)
     player.IsVIP = true
     AddPlayerTechResearched(entity, GetId("R011"), 1)
     --SaveStr(Jglobals.udg_table, GetPlayerId(entity), jfType.VIP, EncodeBase64(tostring(player.VIP)))
@@ -164,12 +176,11 @@ function PlayerInfo:EnableJFItem(entity, type)
 end
 
 function PlayerInfo:Player(id)
-    local index = id + 1
-    return mPlayers[index]
+    return GetJ_Player(Player(id))
 end
 
 function PlayerInfo:Count()
-    return mPlayers.Count
+    return #mPlayers
 end
 
 function PlayerInfo:IteratePlayer(call)

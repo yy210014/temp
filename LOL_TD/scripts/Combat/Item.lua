@@ -18,8 +18,8 @@ local mItemComList = {
     ["I026"] = { GetId("I027"), GetId("I015"), GetId("I004") }, --电刀（卷轴）:电刀+黄叉+短剑
     ["I030"] = { GetId("I031"), GetId("I007"), GetId("I008") }, --天使之泪（卷轴）:天使之泪+蓝宝石+仙女吊坠
     ["I032"] = { GetId("I033"), GetId("I007") }, --光耀之剑（卷轴）:光耀之剑+蓝宝石
-    ["I034"] = { GetId("I035"), GetId("I009"), GetId("I008"), GetId("I008") }, --小圣杯（卷轴）:小圣杯+增幅法典+仙女吊坠+仙女吊坠
-    ["I036"] = { GetId("I037"), GetId("I009") }, --恶魔之书（卷轴）:恶魔之书+增幅法典
+    ["I034"] = { GetId("I035"), GetId("I009"), GetId("I008"), GetId("I008") }, --圣杯（卷轴）:圣杯+增幅法典+仙女吊坠+仙女吊坠
+    ["I036"] = { GetId("I037"), GetId("I009") }, --恶魔法书（卷轴）:恶魔法书+增幅法典
     ["I038"] = { GetId("I039"), GetId("I008"), GetId("I008") }, --神秘雕像（卷轴）:神秘雕像+仙女吊坠+仙女吊坠
     ["I040"] = { GetId("I041"), GetId("I009"), GetId("I007") }, --遗失的篇章（卷轴）:遗失的篇章+增幅法典+蓝宝石
     ["I042"] = { GetId("I043"), GetId("I011"), GetId("I011") }, --无尽利刃（卷轴）:无尽利刃+暴风大剑+暴风大剑
@@ -34,14 +34,14 @@ local mItemComList = {
     ["I063"] = { GetId("I064"), GetId("I033"), GetId("I028") }, --巫术法杖（卷轴）:巫术法杖+光耀之剑+小魔杖
     ["I065"] = { GetId("I066"), GetId("I031"), GetId("I029") }, --大天使之杖（卷轴）:大天使之杖+天使之泪+大魔杖
     ["I068"] = { GetId("I069"), GetId("I028"), GetId("I028") }, --法穿棒（卷轴）:法穿棒+增幅法典+小魔杖
-    ["I070"] = { GetId("I071"), GetId("I035"), GetId("I037"), GetId("I039") }, --大圣杯（卷轴）:大圣杯+小圣杯+恶魔之书+神秘雕像
+    ["I070"] = { GetId("I071"), GetId("I035"), GetId("I037"), GetId("I039") }, --大圣杯（卷轴）:大圣杯+圣杯+恶魔法书+神秘雕像
     ["I072"] = { GetId("I073"), GetId("I029"), GetId("I028"), GetId("I009") }, --帽子（卷轴）:帽子+大魔杖+小魔杖+增幅法典
-    ["I074"] = { GetId("I075"), GetId("I037"), GetId("I041"), GetId("I039") }, --鬼书（卷轴）:鬼书+恶魔之书+遗失的篇章+神秘雕像
+    ["I074"] = { GetId("I075"), GetId("I037"), GetId("I041"), GetId("I039") }, --鬼书（卷轴）:鬼书+恶魔法书+遗失的篇章+神秘雕像
     ["I061"] = { GetId("I062"), GetId("I001") }, --杀人剑（卷轴）:杀人剑+新手剑
     ["I076"] = { GetId("I077"), GetId("I002") }, --杀人书（卷轴）:杀人书+新手戒
     ["I078"] = { GetId("I079"), GetId("I010"), GetId("I017") }, --破甲弓（卷轴）:破甲弓+十字镐+穿甲弓
     ["I080"] = { GetId("I081"), GetId("I004"), GetId("I004") }, --速刃（卷轴）:速刃+短剑+短剑
-    ["I082"] = { GetId("I083"), GetId("I081"), GetId("I037") }, --纳什之牙（卷轴）:纳什之牙+速刃+恶魔之书
+    ["I082"] = { GetId("I083"), GetId("I081"), GetId("I037") }, --纳什之牙（卷轴）:纳什之牙+速刃+恶魔法书
     ["I084"] = { GetId("I085"), GetId("I007"), GetId("I021"), GetId("I011") }, --吸蓝刀（卷轴）:吸蓝刀+蓝宝石+战锤+暴风大剑
     ["I086"] = { GetId("I087"), GetId("I088"), GetId("I092") }, --烈焰斗篷（卷轴）:烈焰斗篷+火焰之心+火焰宝石
     ["I091"] = { GetId("I090"), GetId("I013"), GetId("I010"), GetId("I028") } --羊刀（卷轴）:羊刀+反曲+十字镐+小魔杖
@@ -130,21 +130,23 @@ function Item.ItemCompound(unit)
     for i = 5, 0, -1 do
         item = UnitItemInSlot(unit.Entity, i)
         if (item ~= nil) then
-            id = ID2Str(GetItemTypeId(item))
-            local list = mItemComList[id]
-            if (list ~= nil) then
-                deleteList = {}
-                deleteList[#deleteList + 1] = item
-                for j = 2, #list do
-                    local delfItem = Item.HasItem(unit, list[j], deleteList)
-                    if (delfItem == nil) then
+            if (GetItemLevel(item) == 12) then
+                id = ID2Str(GetItemTypeId(item))
+                local list = mItemComList[id]
+                if (list ~= nil) then
+                    deleteList = {}
+                    deleteList[#deleteList + 1] = item
+                    for j = 2, #list do
+                        local delfItem = Item.HasItem(unit, list[j], deleteList)
+                        if (delfItem == nil) then
+                            break
+                        end
+                        deleteList[#deleteList + 1] = delfItem
+                    end
+                    if (#deleteList == #list) then
+                        falg = true
                         break
                     end
-                    deleteList[#deleteList + 1] = delfItem
-                end
-                if (#deleteList == #list) then
-                    falg = true
-                    break
                 end
             end
         end
@@ -178,7 +180,6 @@ end
 function Item:New(owner, entity)
     local newItem = {}
     local name = FilterStringColor(GetItemName(entity))
-
     setmetatable(newItem, { __index = Items[name] })
     newItem.Owner = owner
     newItem.Entity = entity

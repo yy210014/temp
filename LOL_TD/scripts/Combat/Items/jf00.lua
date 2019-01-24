@@ -4,7 +4,7 @@ function item:OnAdd()
     PlayerInfo:EnableJFItem(unit.Player, jfType.gh01)
 end
 
-local item = Items["时光之轮"]
+local item = Items["五行之轮"]
 
 function item:OnAdd()
     local unit = self.Owner

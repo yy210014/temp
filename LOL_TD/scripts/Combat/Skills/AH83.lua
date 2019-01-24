@@ -18,5 +18,11 @@ function skill:OnCast()
     dummy2:AddSkill("AQ05")
     dummy2.Owner = spellUnit
     IssuePointOrder(dummy2.Entity, "carrionswarm", GetSpellTargetX(), GetSpellTargetY())
-    AssetsManager.RemoveObject(dummy2)
+    local timer = CreateTimer()
+    TimerStart(timer, 1, true,
+    function()
+        AssetsManager.RemoveObject(dummy2)
+        DestroyTimer(timer)
+    end
+    )
 end

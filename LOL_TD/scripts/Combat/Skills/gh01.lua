@@ -8,9 +8,9 @@ function skill:OnCast()
     spellUnit.ghEffect = AddSpecialEffectTarget(self.Art, spellUnit.Entity, "origin")
 end
 
-skill = Skills["时光之轮"]
+skill = Skills["五行之轮"]
 skill.Effect = nil
-skill.Art = "WatchAura.mdl"
+skill.Art = "[AKE]war3AKE.com - 2742654800546824576218397.mdl"
 function skill:OnCast()
     local spellUnit = self.Owner
     if (spellUnit.ghEffect ~= nil) then

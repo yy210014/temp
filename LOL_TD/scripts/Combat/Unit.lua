@@ -355,25 +355,8 @@ end
 --走AssetsManager.DestroyObject(unit)删除逻辑，不要直接从这删除
 --运动中的单位中途死亡也要让运动继续下去，死亡单位5秒后销毁，并释放相关内存
 function Unit:Destroy(destroy)
-    if (self.Buffs == nil) then
-        Game.LogError(self.Name .."Buffs == nil")
-    end
-    for i = #self.Buffs, 1, -1 do
-        if (self.Buffs[i] ~= nil) then
-            self.Buffs[i]:OnRemove()
-            table.remove(self.Buffs, i)
-        end
-    end
-    if (self.Effect ~= nil) then
-        DestroyEffect(self.Effect)
-    end
     if (destroy) then
         --释放内存
-        for i = #self.Buffs, 1, -1 do
-            self.Buffs[i]:OnRemove()
-            table.remove(self.Buffs, i)
-        end
-        self.Buffs = nil
         for i = #self.Skills, 1, -1 do
             self.Skills[i]:OnRemove()
             table.remove(self.Skills, i)
@@ -404,6 +387,17 @@ function Unit:Destroy(destroy)
         end
         self.Entity = nil
         self = nil
+    else
+        for i = #self.Buffs, 1, -1 do
+            if (self.Buffs[i] ~= nil) then
+                self.Buffs[i]:OnRemove()
+                table.remove(self.Buffs, i)
+            end
+        end
+        self.Buffs = nil
+        if (self.Effect ~= nil) then
+            DestroyEffect(self.Effect)
+        end
     end
 end
 
@@ -413,7 +407,7 @@ function Unit:UpdateSkillCD()
             if (self.Skills[i] ~= nil) then
                 self.Skills[i]:UpdateCD()
             else
-                Game.LogError(self.Name .."丢失Skill")
+                Game.LogError(self.Name .. "丢失Skill")
             end
         end
     end
@@ -527,17 +521,17 @@ function Unit:OnGameUpdate(dt)
             if (self.Skills[i] ~= nil) then
                 self.Skills[i]:OnGameUpdate(dt)
             else
-                Game.LogError(self.Name .."丢失Skill")
+                Game.LogError(self.Name .. "丢失Skill")
             end
         end
     end
 
     if (self.Buffs ~= nil) then
         for i = #self.Buffs, 1, -1 do
-            if (self.Buffs[i] ~= nil) then
+            if (self.Buffs ~= nil and self.Buffs[i] ~= nil) then
                 self.Buffs[i]:OnGameUpdate(dt)
             else
-                Game.LogError(self.Name .."丢失Buff")
+                Game.LogError(self.Name .. "丢失Buff")
             end
         end
     end
@@ -553,7 +547,7 @@ function Unit:OnDyingUpdate(dt)
             if (self.Skills[i] ~= nil) then
                 self.Skills[i]:OnGameUpdate(dt)
             else
-                Game.LogError(self.Name .."丢失Skill")
+                Game.LogError(self.Name .. "丢失Skill")
             end
         end
     end
@@ -575,7 +569,7 @@ function Unit:IterateSkills(call)
             if (self.Skills[i] ~= nil) then
                 call(self.Skills[i])
             else
-                Game.LogError(self.Name .."丢失Skill")
+                Game.LogError(self.Name .. "丢失Skill")
             end
         end
     end
@@ -599,7 +593,7 @@ function Unit:IterateItems(call)
             if (self.Items[i] ~= nil) then
                 call(self.Items[i])
             else
-                Game.LogError(self.Name .."丢失道具")
+                Game.LogError(self.Name .. "丢失道具")
             end
         end
     end

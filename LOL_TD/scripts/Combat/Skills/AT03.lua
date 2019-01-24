@@ -13,7 +13,11 @@ function skill:OnCast()
     else
         owner:AddSkill("AX05")
     end
-    owner:AddSkill("AX06")
+    if (SelectUnit.CombEnableCount >= 2) then
+        owner:AddSkill("AT06")
+    else
+        owner:AddSkill("AX06")
+    end
     SelectUnit.TianFuType = 3
 end
 

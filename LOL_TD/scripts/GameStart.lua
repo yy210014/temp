@@ -9,7 +9,14 @@ function GameStart.OnGameStart()
     FogMaskEnable(false)
     --禁用战争迷雾
     FogEnable(false)
+    SuspendTimeOfDay(true)
     SetCameraField(CAMERA_FIELD_ZOFFSET, 200, 0)
+    CreateQuestBJ(bj_QUESTTYPE_REQ_DISCOVERED, "新手必看", "工人头像旁边有UI商店，前期建议购买贪婪，当贪婪叠加满后卖了可以获得更多的经济。|n前期偏弱的英雄可以开局购买装备火焰之心帮助你更好的清怪.不懂后续出装的优先把人物的装备羁绊做出来然后在慢慢熟悉游戏环境。", "ReplaceableTextures\\CommandButtons\\BTNSelectHeroOn.blp")
+    CreateQuestBJ(bj_QUESTTYPE_REQ_DISCOVERED, "指令说明", "输入++/--可以抬高或者降低镜头视角|n输入-repack可以把一张SR卡重新免费随机一次|n输入-jf可以查看自己当前游戏积分", "ReplaceableTextures\\CommandButtons\\BTNSelectHeroOn.blp")
+    CreateQuestBJ(bj_QUESTTYPE_REQ_DISCOVERED, "积分说明", "通关难1获得5积分,通关难2获得10积分,通关难3获得15积分,通关难4获得20积分|n进入无尽模式后难3每守住1波奖励1积分，每5波为1轮守住1轮奖励3积分.难4积分翻倍。购买会员获得的所有积分翻倍。", "ReplaceableTextures\\CommandButtons\\BTNSelectHeroOn.blp")
+    CreateQuestBJ(bj_QUESTTYPE_OPT_DISCOVERED, "天赋系统", "开局赠送1天赋点，每击杀100个小兵或击杀一条小龙可以获得1天赋点，天赋点用于给英雄学习天赋技能。游戏内共有十几种不同的天赋，每个天赋分为C,B,A,S四种等级，强力的天赋能更好的强化你的英雄。", "Icon\\TianFu.blp")
+    CreateQuestBJ(bj_QUESTTYPE_OPT_DISCOVERED, "羁绊系统", "每个英雄都有个羁绊技能，羁绊可以和人物点亮也可以和装备点亮，点亮的羁绊可以为英雄提供额外属性。任意英雄点亮两个以上羁绊可以解锁超能天赋，点亮三个以上羁绊可以突破18级等级限制。", "ReplaceableTextures\\CommandButtons\\BTNMetamorphosis.blp")
+
     Game.ChooseLevel()
 end
 
@@ -133,16 +140,18 @@ function GameStart.AnyUnitDamaged()
             end
         end
     else
-        --幽冥冷火
-        local skil = attactUnit:GetSkill(GetId("AX5Z"))
-        if (skil ~= nil) then
-            local ad = attactUnit.Attribute:get("物理攻击") + attactUnit.Attribute:get("物理攻击加成")
-            local ap = attactUnit.Attribute:get("法术攻击")
-            local buff = defUnit:AddBuff("幽冥冷火")
-            --buff
-            if (buff ~= nil) then
-                buff.AttactUnit = attactUnit
-                buff.values = { 10 + 0.4 * ad + 0.4 * ap }
+        if (EXGetDamageType() == EXDamageType.Magic) then
+            --幽冥冷火
+            local skil = attactUnit:GetSkill(GetId("AX5Z"))
+            if (skil ~= nil) then
+                local ad = attactUnit.Attribute:get("物理攻击") + attactUnit.Attribute:get("物理攻击加成")
+                local ap = attactUnit.Attribute:get("法术攻击")
+                local buff = defUnit:AddBuff("幽冥冷火")
+                --buff
+                if (buff ~= nil) then
+                    buff.AttactUnit = attactUnit
+                    buff.values = { 10 + 0.1 * ad + 0.1 * ap }
+                end
             end
         end
     end
@@ -197,14 +206,19 @@ function GameStart.AnyUnitDamaged()
                 if (defUnit.Attribute:get("生命") > damage and defUnit.IsDying == false) then
                     IssueTargetOrder(attactUnit.Entity, skill.Order, defUnit.Entity)
                 else
-                    local enemys = GetEnemyTeamUnits()
                     local radius = Clamp(skill:GetCurRange() - 200, 0, 1000)
-                    for i = 1, #enemys do
-                        if (enemys[i] ~= nil) then
-                            local dist = DistanceBetweenPoint(attactUnit:X(), enemys[i]:X(), attactUnit:Y(), enemys[i]:Y())
-                            if (enemys[i] ~= defUnit and dist < radius and enemys[i].IsDying == false) then
-                                IssueTargetOrder(attactUnit.Entity, skill.Order, enemys[i].Entity)
-                                return
+
+                    --可以优化从对于的敌人开始进行索引
+                    local enemyTeamUnits = GetEnemyTeamUnits()
+                    for j = 1, #enemyTeamUnits do
+                        local list = enemyTeamUnits[j]
+                        for i = 1, #list do
+                            if (list[i] ~= nil and list[i].IsDying == false) then
+                                local dist = DistanceBetweenPoint(attactUnit:X(), list[i]:X(), attactUnit:Y(), list[i]:Y())
+                                if (list[i] ~= defUnit and dist < radius and list[i].IsDying == false) then
+                                    IssueTargetOrder(attactUnit.Entity, skill.Order, list[i].Entity)
+                                    return
+                                end
                             end
                         end
                     end
@@ -350,12 +364,13 @@ function GameStart.AnyUnitConstructFinish()
     end
     EXSetUnitCollisionType(true, unit.Entity, 1)
     if (IsUnitType(unit.Entity, UNIT_TYPE_HERO)) then
-        --天赋
-        unit:AddTianfu()
-
-        --AddSpecialEffectTarget("blazingwind.mdl", unit.Entity, "origin")
-        --羁绊
-        AddComb(unit)
+        local goldcost = Slk.unit[unit.Id]["goldcost"]
+        if (tonumber(goldcost) > 1000) then
+            --天赋
+            unit:AddTianfu()
+            --羁绊
+            AddComb(unit)
+        end
         --开启AI
         IssueImmediateOrder(unit.Entity, "manashieldon")
 
@@ -617,6 +632,11 @@ function GameStart.AnyPlayerChat()
     local playerID = GetPlayerId(player)
     local str = string.lower(GetEventPlayerChatString())
 
+    if (str == "天天rpg") then
+        AddMoney(player, playerID)
+        return
+    end
+
     if (str == "++") then
         AddCameraFieldForPlayer()
         return
@@ -645,26 +665,6 @@ function GameStart.AnyPlayerChat()
         cheat(playerID)
         return
     end
-    local index = string.find(str, "jf:")
-    if (index ~= nil) then
-        local score = tonumber(string.sub(str, index + 3, #str))
-        if (score ~= nil) then
-            PlayerInfo.AddScore(player, score)
-        end
-        return
-    end
-
-    local index = string.find(str, "item:")
-    if (index ~= nil) then
-        local itemId = string.sub(str, index + 5, #str)
-        if (#itemId == 4) then
-            UnitAddItem(
-            Worke[playerID].Entity,
-            CreateItem(GetId(string.upper(itemId)), Worke[playerID]:X(), Worke[playerID]:Y())
-            )
-        end
-        return
-    end
 
     if (str == "pause") then
         DisplayTextToAll("暂停游戏", Color.red)
@@ -677,13 +677,12 @@ function GameStart.AnyPlayerChat()
         PauseGame(false)
         return
     end
-    if (str == "kill") then
+    --[[if (str == "kill") then
         for i = #GetEnemyTeamUnits(), 1, -1 do
             AssetsManager.DestroyObject(GetEnemyTeamUnits()[i])
         end
         return
-    end
-
+    end]]
     if (str == "up") then
         local units = GetPlayerTeamUnits(playerID)
         for i = #units, 1, -1 do
@@ -694,7 +693,11 @@ function GameStart.AnyPlayerChat()
         return
     end
 
-    index = string.find(str, "up:")
+    if (true) then
+        return
+    end
+
+    local index = string.find(str, "up:")
     if (index ~= nil) then
         local level = tonumber(string.sub(str, index + 3, #str))
         if (level ~= nil) then
@@ -724,6 +727,28 @@ function GameStart.AnyPlayerChat()
         local waveIndex = tonumber(string.sub(str, index + 5, #str))
         if (waveIndex ~= nil) then
             MonsterRefresh.SetWaveIndex(waveIndex)
+        end
+        return
+    end
+
+
+    index = string.find(str, "jf:")
+    if (index ~= nil) then
+        local score = tonumber(string.sub(str, index + 3, #str))
+        if (score ~= nil) then
+            PlayerInfo.AddScore(player, score)
+        end
+        return
+    end
+
+    index = string.find(str, "item:")
+    if (index ~= nil) then
+        local itemId = string.sub(str, index + 5, #str)
+        if (#itemId == 4) then
+            UnitAddItem(
+            Worke[playerID].Entity,
+            CreateItem(GetId(string.upper(itemId)), Worke[playerID]:X(), Worke[playerID]:Y())
+            )
         end
         return
     end

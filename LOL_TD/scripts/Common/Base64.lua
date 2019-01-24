@@ -1,5 +1,5 @@
 function EncodeBase64(source_str)
-    if (source_str == "") then
+    if (source_str == nil or source_str == "") then
         Game.LogError("空字符串")
         return
     end
@@ -30,7 +30,7 @@ function EncodeBase64(source_str)
 end
 
 function DecodeBase64(str64)
-    if (str64 == "") then
+    if (str64 == nil or str64 == "") then
         Game.LogError("空字符串")
         return
     end

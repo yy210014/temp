@@ -1,7 +1,7 @@
 local skill = Skills["剑道"]
 skill.SkillType = 0
-local mAttack = {20, 15, 15, 15, 15, 20}
-local mDamages = {0.05, 0.10, 0.15, 0.20, 0.25, 0.30}
+local mAttack = {20, 20, 20, 20, 20, 20}
+local mDamages = {0.1, 0.2, 0.3, 0.4, 0.5, 0.6}
 
 local buff = Buffs["剑道"]
 buff.Durs = {5, 5, 5, 5, 5, 5}

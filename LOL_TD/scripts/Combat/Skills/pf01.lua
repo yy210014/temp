@@ -13,9 +13,15 @@ function skill:OnCast()
         UnitRemoveItem(spellUnit.Entity, item.Entity)
     end
     )
+
+    local lqfl = spellUnit:GetSkill(GetId("lqfl"))
+    local lqflCD = 0
+    if (lqfl ~= nil) then
+        lqflCD = lqfl:GetCurCd()
+    end
     spellUnit.Entity = CreateUnit(spellUnit.Player, GetId("ug01"), x, y, facing)
     RemoveUnit(deleteEntity)
-    for i = 1, #tempList do
+    for i = #tempList, 1, -1 do
         UnitAddItem(spellUnit.Entity, tempList[i])
     end
     tempList = nil
@@ -23,6 +29,12 @@ function skill:OnCast()
         ClearSelection()
         SelectUnit(spellUnit.Entity, true)
     end
+    local lqfl = spellUnit:GetSkill(GetId("lqfl"))
+    if (lqfl ~= nil) then
+        local abilityCode = EXGetUnitAbility(self.Owner.Entity, GetId("lqfl"))
+        EXSetAbilityState(abilityCode, ABILITY_STATE_COOLDOWN, lqflCD)
+    end
+
     DestroyEffect(AddSpecialEffectTarget(self.Art, spellUnit.Entity, "chest"))
     --    DzSetUnitModel(spellUnit.Entity, self.Art)
 end

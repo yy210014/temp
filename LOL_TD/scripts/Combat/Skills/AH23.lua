@@ -4,7 +4,7 @@ skill.DamageList = nil
 skill.Interval = 0.1
 skill.IntervalDt = 0
 local mRange = 400
-local mMaxCount = 6
+local mMaxCount = { 6, 6, 7, 7, 8, 8 }
 local mDamages1 = { 200, 400, 600, 800, 1000, 1200 }
 local mDamages2 = { 1, 1.2, 1.4, 1.6, 1.8, 2 }
 local mArt0 = "Abilities\\Weapons\\PhoenixMissile\\Phoenix_Missile_mini.mdl"
@@ -43,25 +43,28 @@ skill.Action = function(self, dt)
 
         local closeUnit = nil
 
-        local list = GetEnemyTeamUnits()
-        for i = 1, #list do
-            if (list[i] ~= nil) then
-                local dist = DistanceBetweenPoint(self.dummy:X(), list[i]:X(), self.dummy:Y(), list[i]:Y())
-                if (dist < mRange and list[i].IsDying == false) then
-                    if (closeUnit == nil and IsInTable(list[i], self.DamageList) == -1) then
-                        closeUnit = list[i]
-                    end
-                    if (closeUnit ~= nil) then
-                        local dist1 = DistanceBetweenPoint(self.dummy:X(), list[i]:X(), self.dummy:Y(), list[i]:Y())
-                        local dist2 = DistanceBetweenPoint(self.dummy:X(), closeUnit:X(), self.dummy:Y(), closeUnit:Y())
-                        if (dist1 < dist2 and list[i].IsDying == false and IsInTable(list[i], self.DamageList) == -1) then
+        local enemyTeamUnits = GetEnemyTeamUnits()
+        for j = 1, #enemyTeamUnits do
+            local list = enemyTeamUnits[j]
+            for i = 1, #list do
+                if (list[i] ~= nil and list[i].IsDying == false) then
+                    local dist = DistanceBetweenPoint(self.dummy:X(), list[i]:X(), self.dummy:Y(), list[i]:Y())
+                    if (dist < mRange and list[i].IsDying == false) then
+                        if (closeUnit == nil and IsInTable(list[i], self.DamageList) == -1) then
                             closeUnit = list[i]
+                        end
+                        if (closeUnit ~= nil) then
+                            local dist1 = DistanceBetweenPoint(self.dummy:X(), list[i]:X(), self.dummy:Y(), list[i]:Y())
+                            local dist2 = DistanceBetweenPoint(self.dummy:X(), closeUnit:X(), self.dummy:Y(), closeUnit:Y())
+                            if (dist1 < dist2 and list[i].IsDying == false and IsInTable(list[i], self.DamageList) == -1) then
+                                closeUnit = list[i]
+                            end
                         end
                     end
                 end
             end
         end
-        if (closeUnit ~= nil and #self.DamageList <= mMaxCount) then
+        if (closeUnit ~= nil and #self.DamageList <= mMaxCount[self:GetCurLevel()]) then
             self.spellTargetUnit = closeUnit
             self.DamageList[#self.DamageList + 1] = closeUnit
         else

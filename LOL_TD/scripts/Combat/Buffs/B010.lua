@@ -1,7 +1,7 @@
 --通用buff，不叠加，相同buff会覆盖,需要先继承在用则可以叠加
 local buff = Buffs["灼烧"]
 buff.Art = "Abilities\\Spells\\Human\\FlameStrike\\FlameStrikeDamageTarget.mdl"
-buff.Interval = 1
+buff.Interval = 0.5
 buff.IntervalDt = 0
 buff.MaxStack = 100
 buff.Durs = {3, 3, 3, 3, 3, 3}
@@ -20,7 +20,7 @@ function buff.Action(self, dt)
             self.AttactUnit,
             self.Owner,
             self.values[self.Level] * self.Stack,
-            EXDamageType.Magic
+            EXDamageType.Real
         )
     end
 end

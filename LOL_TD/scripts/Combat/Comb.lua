@@ -717,10 +717,10 @@ function comb:OnDisable()
     self.Owner.Attribute:add("物理穿透", -0.3)
 end
 
-comb = Combs["草丛伦-日炎"]
+comb = Combs["草丛伦-烈焰斗篷"]
 comb.Ubertip = [[
--日炎
- 羁绊需求：草丛伦+日炎
+-烈焰斗篷
+ 羁绊需求：草丛伦+烈焰斗篷
  羁绊效果：增加草丛伦10%冷却缩减|n
 ]]
 
@@ -857,7 +857,7 @@ comb = Combs["剑圣-电刀"]
 comb.Ubertip = [[
 -电刀
  羁绊需求：剑圣+电刀
- 羁绊效果：增加易30%物理穿透|n
+ 羁绊效果：增加剑圣30%的暴击率|n
 ]]
 
 function comb:HerosId()
@@ -869,11 +869,11 @@ function comb:Conditions()
 end
 
 function comb:OnEnable()
-    self.Owner.Attribute:add("物理穿透", 0.3)
+    self.Owner.Attribute:add("暴击", 0.3)
 end
 
 function comb:OnDisable()
-    self.Owner.Attribute:add("物理穿透", -0.3)
+    self.Owner.Attribute:add("暴击", -0.3)
 end
 
 comb = Combs["小法师-鬼书"]
@@ -961,7 +961,7 @@ function AddComb(unit)
         unit:AddComb(setmetatable({}, {__index = Combs["草丛三剑客"]}))
         unit:AddComb(setmetatable({}, {__index = Combs["正义兄妹-草丛伦"]}))
         unit:AddComb(setmetatable({}, {__index = Combs["草丛伦-切割者"]}))
-        unit:AddComb(setmetatable({}, {__index = Combs["草丛伦-日炎"]}))
+        unit:AddComb(setmetatable({}, {__index = Combs["草丛伦-烈焰斗篷"]}))
     elseif (id == GetId("UH16")) then --蛮子
         unit:AddComb(setmetatable({}, {__index = Combs["蛮易信"]}))
         unit:AddComb(setmetatable({}, {__index = Combs["美女与野兽"]}))

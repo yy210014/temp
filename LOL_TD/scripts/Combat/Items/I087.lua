@@ -12,7 +12,7 @@ function item:OnAdd()
     1,
     true,
     function()
-        local comb = owner:GetComb("草丛伦-日炎")
+        local comb = owner:GetComb("草丛伦-烈焰斗篷")
         AssetsManager.OverlapCircle(
         owner:X(),
         owner:Y(),

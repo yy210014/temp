@@ -9,8 +9,8 @@ local mDamages1 = { 75, 100, 125, 150, 175, 200 }
 local mDamages2 = { 0.7, 0.8, 0.9, 1, 1.1, 1.2 }
 
 setmetatable(Buffs["灵魂镣铐"], { __index = Buffs["移速"] })
-Buffs["灵魂镣铐"].values = {-0.5 }
-Buffs["灵魂镣铐"].Durs = { 5 }
+Buffs["灵魂镣铐"].values = {-0.25, -0.3, -0.35, -0.4, -0.45, -0.5 }
+Buffs["灵魂镣铐"].Durs = { 5, 5, 5, 5, 5, 5 }
 
 skill.Action = function(self, dt)
     self.TimeDt = self.TimeDt + dt
@@ -77,7 +77,7 @@ function skill:OnCast()
     mDamageRange,
     function(unit)
         self.DamageList[#self.DamageList + 1] = unit
-        unit.AH16lightning =         AddLightningEx(
+        unit.AH16lightning =        AddLightningEx(
         "DRAL",
         true,
         spellUnit:X(),
@@ -88,7 +88,7 @@ function skill:OnCast()
         unit:Z() + 60
         )
         SetLightningColor(unit.AH16lightning, 1, 0, 1, 1)
-        unit:AddBuff("灵魂镣铐")
+        unit:AddBuff("灵魂镣铐", self:GetCurLevel())
     end
     )
     self.CurAction = self.Action

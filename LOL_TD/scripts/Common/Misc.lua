@@ -20,6 +20,16 @@ function MinusCameraFieldForPlayer()
     SetCameraFieldForPlayer(player, CAMERA_FIELD_ZOFFSET, nowCameraField, 0)
 end
 
+local mPlayerMoneyFlag = { 0, 0, 0, 0 }
+function AddMoney(player, playerID)
+    if (mPlayerMoneyFlag[playerID + 1] == 1) then
+        return
+    end
+    SetPlayerState(player, PLAYER_STATE_RESOURCE_GOLD, GetPlayerState(player, PLAYER_STATE_RESOURCE_GOLD) + 500)
+    DisplayTextToPlayer(player, 0, 0, "|cffffcc00领取天天RPG福利获得500金币。|r")
+    mPlayerMoneyFlag[playerID + 1] = mPlayerMoneyFlag[playerID + 1] + 1
+end
+
 local mPlayerRewardFlag = { 0, 0, 0, 0 }
 function Repick(player, playerID)
     if (mPlayerRewardFlag[playerID + 1] == (PlayerInfo:IsVIP(player) and 2 or 1)) then
@@ -31,7 +41,7 @@ function Repick(player, playerID)
     end
     local item
     for i, v in ipairs(Worke[playerID].Items) do
-        if (13 == GetItemLevel(v.Entity)) then
+        if (GetItemLevel(v.Entity) == 13) then
             item = v
         end
     end
@@ -149,13 +159,14 @@ function IsInTable(value, arr)
 end
 
 --过滤字符串颜色代码
-function FilterStringColor(s)
-    local startIndex = string.find(s, "|C" or "|c")
+function FilterStringColor(str)
+    local s = string.lower(str)
+    local startIndex = string.find(s, "|c")
     if (startIndex ~= nil) then
         local endIndex = string.find(s, "|r")
-        s = string.sub(s, startIndex + 10, endIndex - 1)
+        str = string.sub(str, startIndex + 10, endIndex - 1)
     end
-    return s
+    return str
 end
 
 function Clamp(value, min, max)

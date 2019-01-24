@@ -68,7 +68,7 @@ local mDuration = {
     40, 40, 40, 40, 40, 40, 40, 20,
     40, 40, 40, 40, 40, 40, 40, 20,
     40, 40, 40, 40, 40, 40, 40, 20,
-    40, 40, 40, 40, 40, 40, 40, 5
+    40, 40, 40, 40, 40, 40, 40, 1
 }
 local mRate = {
     0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 5,
@@ -77,7 +77,7 @@ local mRate = {
     0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 5,
     0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 5,
     0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 5,
-    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 5,
+    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 1,
 }
 
 local mDelayClear = {
@@ -87,7 +87,7 @@ local mDelayClear = {
     30, 10, 10, 10, 10, 10, 10, 10,
     30, 10, 10, 10, 10, 10, 10, 10,
     30, 10, 10, 10, 10, 10, 10, 10,
-    30, 10, 10, 10, 10, 10, 10, 10
+    30, 10, 10, 10, 10, 10, 10, 0
 }
 
 local mMonsterId
@@ -153,6 +153,10 @@ function MonsterRefresh.InitRegion()
         TriggerAddAction(
         trig,
         function()
+            local playerId = GetPlayerId(GetOwningPlayer(GetEnteringUnit()))
+            if (playerId <= 4) then
+                return
+            end
             local enteringUnit = GetJ_EnemyUnits(GetEnteringUnit())
             if (enteringUnit == nil or enteringUnit.FactionId == PlayerTeamFactionId) then
                 return
@@ -345,8 +349,14 @@ function EndLessComing()
             DisplayTextToPlayer(player.Entity, 0, 0, "|cffffcc00恭喜你们开启了无尽关卡!所有进入无尽模式的玩家获得" .. (Game.GetLevel() * 5) .. "点游戏积分!|r")
         end
     end)
-    for i = #GetEnemyTeamUnits(), 1, -1 do
-        AssetsManager.DestroyObject(GetEnemyTeamUnits()[i])
+    local enemyTeamUnits = GetEnemyTeamUnits()
+    for j = 1, #enemyTeamUnits do
+        local list = enemyTeamUnits[j]
+        for i = #list, 1, -1 do
+            if (list[i] ~= nil and list[i].IsDying == false) then
+                AssetsManager.DestroyObject(list[i])
+            end
+        end
     end
     mCurWaveIndex = 1
     Game.SetMode(GameMode.ENDLESS)
@@ -399,9 +409,15 @@ function WavesClear()
                         )
                         AssetsManager.DestroyObject(u)
                     end)
-                    for i = #GetEnemyTeamUnits(), 1, -1 do
-                        if (GetPlayerId(GetEnemyTeamUnits()[i].Player) - 8 == player.Id) then
-                            AssetsManager.DestroyObject(GetEnemyTeamUnits()[i])
+                    local enemyTeamUnits = GetEnemyTeamUnits()
+                    for j = 1, #enemyTeamUnits do
+                        if (player.Id + 1 == j) then
+                            local list = enemyTeamUnits[j]
+                            for i = #list, 1, -1 do
+                                if (list[i] ~= nil and list[i].IsDying == false) then
+                                    AssetsManager.DestroyObject(list[i])
+                                end
+                            end
                         end
                     end
                 end
@@ -441,7 +457,7 @@ function AllWavesDie()
     local win = true
     AssetsManager.IterateEnemyUnits(
     function(unit)
-        if (IsUnitType(unit.Entity, UNIT_TYPE_HERO)) then
+        if (IsUnitType(unit.Entity, UNIT_TYPE_HERO) and unit.Id ~= GetId("End0")) then
             win = false
             return
         end

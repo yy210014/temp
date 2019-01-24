@@ -12,7 +12,6 @@ skill.ApList = {
 skill.AdNApList = {
     "AT1Z", --战斗狂人
     "AT2Z", --雷霆万钧
-    "AT3Z", --血虐狂暴
     "AT4Z", --符文法剑
     "AT5Z" --幽冥冷火
 }

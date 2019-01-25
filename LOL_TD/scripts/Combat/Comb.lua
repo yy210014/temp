@@ -426,7 +426,7 @@ comb = Combs["光辉-大圣杯"]
 comb.Ubertip = [[
 -大圣杯
  羁绊需求：光辉+大圣杯
- 羁绊效果：增加光辉10%的冷却缩减|n
+ 羁绊效果：增加光辉30%法术穿透|n
 ]]
 
 function comb:HerosId()
@@ -438,11 +438,11 @@ function comb:Conditions()
 end
 
 function comb:OnEnable()
-    self.Owner.Attribute:add("冷却缩减", 0.1)
+    self.Owner.Attribute:add("法术穿透", 0.3)
 end
 
 function comb:OnDisable()
-    self.Owner.Attribute:add("冷却缩减", -0.1)
+    self.Owner.Attribute:add("法术穿透", -0.3)
 end
 
 comb = Combs["光辉-鬼书"]

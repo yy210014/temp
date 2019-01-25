@@ -14,6 +14,7 @@ GameScene = {}
 Worke = _array_()
 GameScene.Elapsed = 0
 GameScene.DeltaTime = 0.02
+HeroInfoDialog = {}
 
 local function InitPlayerResource()
     for i, v in ipairs(PlayerTeam) do
@@ -51,6 +52,9 @@ local function InitPlayerUnit()
             RemoveLocation(p)
             RemoveGuardPosition(Worke[i].Entity)
             SuspendHeroXP(Worke[i].Entity, true)
+
+            HeroInfoDialog[i + 1] = DialogCreate()
+            DialogAddButton(HeroInfoDialog[i + 1], "确定", 0)
             --UnitAddItem(Worke[i].Entity, CreateItem(GetId("IH07"), Worke[i]:X(), Worke[i]:Y()))
             --   cheat(i)
             -- UnitAddItem(Worke[i].Entity, CreateItem(GetId("I087"), Worke[i]:X(), Worke[i]:Y()))
@@ -77,5 +81,5 @@ function GameScene.OnGameUpdate(dt)
     GameScene.Elapsed = GameScene.Elapsed + dt
     AssetsManager.OnGameUpdate(dt)
     MonsterRefresh.OnGameUpdate(dt)
-    Multiboard.OnGameUpdate(dt)
+    --Multiboard.OnGameUpdate(dt)
 end

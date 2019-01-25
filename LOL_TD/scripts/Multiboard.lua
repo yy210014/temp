@@ -15,6 +15,7 @@ end
 
 function Multiboard.CreateMultiboard()
     mMultiboard = CreateMultiboard()
+    MultiboardSetTitleText(mMultiboard, "撸圈TD")
     MultiboardMinimize(mMultiboard, false)
     MultiboardSetRowCount(mMultiboard, 6)
     MultiboardSetColumnCount(mMultiboard, 3)

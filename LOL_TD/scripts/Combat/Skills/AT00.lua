@@ -253,7 +253,7 @@ function skill:OnCast()
         end
         local selectUnit = self.Owner.SelectUnit
         selectUnit.Attribute:add("攻击速度", -self.value)
-        self.value = self:GetCurLevel() * 0.07 - (maxLevel and 0 or 0.07)
+        self.value = self:GetCurLevel() * 0.04 - (maxLevel and 0 or 0.04)
         selectUnit.Attribute:add("攻击速度", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
@@ -272,7 +272,7 @@ function skill:OnCast()
         end
         local selectUnit = self.Owner.SelectUnit
         selectUnit.Attribute:add("攻击速度", -self.value)
-        self.value = self:GetCurLevel() * 0.08 - (maxLevel and 0 or 0.08)
+        self.value = self:GetCurLevel() * 0.06 - (maxLevel and 0 or 0.06)
         selectUnit.Attribute:add("攻击速度", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
@@ -291,7 +291,7 @@ function skill:OnCast()
         end
         local selectUnit = self.Owner.SelectUnit
         selectUnit.Attribute:add("攻击速度", -self.value)
-        self.value = self:GetCurLevel() * 0.09 - (maxLevel and 0 or 0.09)
+        self.value = self:GetCurLevel() * 0.08 - (maxLevel and 0 or 0.08)
         selectUnit.Attribute:add("攻击速度", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
@@ -329,7 +329,7 @@ function skill:OnCast()
         end
         local selectUnit = self.Owner.SelectUnit
         selectUnit.Attribute:add("魔法上限", -self.value)
-        self.value = self:GetCurLevel() * 90 - (maxLevel and 0 or 90)
+        self.value = self:GetCurLevel() * 80 - (maxLevel and 0 or 80)
         selectUnit.Attribute:add("魔法上限", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
@@ -348,7 +348,7 @@ function skill:OnCast()
         end
         local selectUnit = self.Owner.SelectUnit
         selectUnit.Attribute:add("魔法上限", -self.value)
-        self.value = self:GetCurLevel() * 100 - (maxLevel and 0 or 100)
+        self.value = self:GetCurLevel() * 110 - (maxLevel and 0 or 110)
         selectUnit.Attribute:add("魔法上限", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
@@ -367,7 +367,7 @@ function skill:OnCast()
         end
         local selectUnit = self.Owner.SelectUnit
         selectUnit.Attribute:add("魔法上限", -self.value)
-        self.value = self:GetCurLevel() * 110 - (maxLevel and 0 or 110)
+        self.value = self:GetCurLevel() * 150 - (maxLevel and 0 or 150)
         selectUnit.Attribute:add("魔法上限", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
@@ -386,7 +386,7 @@ function skill:OnCast()
         end
         local selectUnit = self.Owner.SelectUnit
         selectUnit.Attribute:add("魔法上限", -self.value)
-        self.value = self:GetCurLevel() * 120 - (maxLevel and 0 or 120)
+        self.value = self:GetCurLevel() * 180 - (maxLevel and 0 or 180)
         selectUnit.Attribute:add("魔法上限", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
@@ -405,7 +405,7 @@ function skill:OnCast()
         end
         local selectUnit = self.Owner.SelectUnit
         selectUnit.Attribute:add("魔法恢复", -self.value)
-        self.value = self:GetCurLevel() * 0.5 - (maxLevel and 0 or 0.5)
+        self.value = self:GetCurLevel() * 1.2 - (maxLevel and 0 or 1.2)
         selectUnit.Attribute:add("魔法恢复", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
@@ -424,7 +424,7 @@ function skill:OnCast()
         end
         local selectUnit = self.Owner.SelectUnit
         selectUnit.Attribute:add("魔法恢复", -self.value)
-        self.value = self:GetCurLevel() * 1 - (maxLevel and 0 or 1)
+        self.value = self:GetCurLevel() * 1.8 - (maxLevel and 0 or 1.8)
         selectUnit.Attribute:add("魔法恢复", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
@@ -443,7 +443,7 @@ function skill:OnCast()
         end
         local selectUnit = self.Owner.SelectUnit
         selectUnit.Attribute:add("魔法恢复", -self.value)
-        self.value = self:GetCurLevel() * 1.5 - (maxLevel and 0 or 1.5)
+        self.value = self:GetCurLevel() * 2.4 - (maxLevel and 0 or 2.4)
         selectUnit.Attribute:add("魔法恢复", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
@@ -462,7 +462,7 @@ function skill:OnCast()
         end
         local selectUnit = self.Owner.SelectUnit
         selectUnit.Attribute:add("魔法恢复", -self.value)
-        self.value = self:GetCurLevel() * 2 - (maxLevel and 0 or 2)
+        self.value = self:GetCurLevel() * 3 - (maxLevel and 0 or 3)
         selectUnit.Attribute:add("魔法恢复", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
@@ -500,7 +500,7 @@ function skill:OnCast()
         end
         local selectUnit = self.Owner.SelectUnit
         selectUnit.Attribute:add("攻击范围", -self.value)
-        self.value = self:GetCurLevel() * 25 - (maxLevel and 0 or 25)
+        self.value = self:GetCurLevel() * 30 - (maxLevel and 0 or 30)
         selectUnit.Attribute:add("攻击范围", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
@@ -519,7 +519,7 @@ function skill:OnCast()
         end
         local selectUnit = self.Owner.SelectUnit
         selectUnit.Attribute:add("攻击范围", -self.value)
-        self.value = self:GetCurLevel() * 30 - (maxLevel and 0 or 30)
+        self.value = self:GetCurLevel() * 40 - (maxLevel and 0 or 40)
         selectUnit.Attribute:add("攻击范围", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
@@ -538,7 +538,7 @@ function skill:OnCast()
         end
         local selectUnit = self.Owner.SelectUnit
         selectUnit.Attribute:add("攻击范围", -self.value)
-        self.value = self:GetCurLevel() * 35 - (maxLevel and 0 or 35)
+        self.value = self:GetCurLevel() * 50 - (maxLevel and 0 or 50)
         selectUnit.Attribute:add("攻击范围", self.value)
         if (maxLevel == true) then
             local skillId = ID2Str(self.Id)
@@ -1003,6 +1003,9 @@ function skill:OnKill(dieUnit)
     local selectUnit = self.Owner.SelectUnit
     local maxLevel = GetUnitAbilityLevel(self.Owner.Entity, self.Id) == 5
     self.MaxValue = self:GetCurLevel() * 40 - (maxLevel and 0 or 40)
+    if (self.Id == GetId("AXDC")) then
+        self.MaxValue = 5 * 40
+    end
     if (self.Value < self.MaxValue) then
         self.Value = self.Value + 1
         selectUnit.Attribute:add("物理攻击加成", 1)
@@ -1028,6 +1031,9 @@ function skill:OnKill(dieUnit)
     local selectUnit = self.Owner.SelectUnit
     local maxLevel = GetUnitAbilityLevel(self.Owner.Entity, self.Id) == 5
     self.MaxValue = self:GetCurLevel() * 60 - (maxLevel and 0 or 60)
+    if (self.Id == GetId("AXDB")) then
+        self.MaxValue = 5 * 60
+    end
     if (self.Value < self.MaxValue) then
         self.Value = self.Value + 1
         selectUnit.Attribute:add("物理攻击加成", 1)
@@ -1053,6 +1059,9 @@ function skill:OnKill(dieUnit)
     local selectUnit = self.Owner.SelectUnit
     local maxLevel = GetUnitAbilityLevel(self.Owner.Entity, self.Id) == 5
     self.MaxValue = self:GetCurLevel() * 80 - (maxLevel and 0 or 80)
+    if (self.Id == GetId("AXDA")) then
+        self.MaxValue = 5 * 80
+    end
     if (self.Value < self.MaxValue) then
         self.Value = self.Value + 1
         selectUnit.Attribute:add("物理攻击加成", 1)
@@ -1078,6 +1087,9 @@ function skill:OnKill(dieUnit)
     local selectUnit = self.Owner.SelectUnit
     local maxLevel = GetUnitAbilityLevel(self.Owner.Entity, self.Id) == 5
     self.MaxValue = self:GetCurLevel() * 100 - (maxLevel and 0 or 100)
+    if (self.Id == GetId("AXDS")) then
+        self.MaxValue = 5 * 100
+    end
     if (self.Value < self.MaxValue) then
         self.Value = self.Value + 1
         selectUnit.Attribute:add("物理攻击加成", 1)
@@ -1103,6 +1115,9 @@ function skill:OnKill(dieUnit)
     local selectUnit = self.Owner.SelectUnit
     local maxLevel = GetUnitAbilityLevel(self.Owner.Entity, self.Id) == 5
     self.MaxValue = self:GetCurLevel() * 40 - (maxLevel and 0 or 40)
+    if (self.Id == GetId("AXEC")) then
+        self.MaxValue = 5 * 40
+    end
     if (self.Value < self.MaxValue) then
         self.Value = self.Value + 1
         selectUnit.Attribute:add("法术攻击", 1)
@@ -1128,6 +1143,9 @@ function skill:OnKill(dieUnit)
     local selectUnit = self.Owner.SelectUnit
     local maxLevel = GetUnitAbilityLevel(self.Owner.Entity, self.Id) == 5
     self.MaxValue = self:GetCurLevel() * 60 - (maxLevel and 0 or 60)
+    if (self.Id == GetId("AXEB")) then
+        self.MaxValue = 5 * 60
+    end
     if (self.Value < self.MaxValue) then
         self.Value = self.Value + 1
         selectUnit.Attribute:add("法术攻击", 1)
@@ -1153,6 +1171,9 @@ function skill:OnKill(dieUnit)
     local selectUnit = self.Owner.SelectUnit
     local maxLevel = GetUnitAbilityLevel(self.Owner.Entity, self.Id) == 5
     self.MaxValue = self:GetCurLevel() * 80 - (maxLevel and 0 or 80)
+    if (self.Id == GetId("AXEA")) then
+        self.MaxValue = 5 * 80
+    end
     if (self.Value < self.MaxValue) then
         self.Value = self.Value + 1
         selectUnit.Attribute:add("法术攻击", 1)
@@ -1178,6 +1199,9 @@ function skill:OnKill(dieUnit)
     local selectUnit = self.Owner.SelectUnit
     local maxLevel = GetUnitAbilityLevel(self.Owner.Entity, self.Id) == 5
     self.MaxValue = self:GetCurLevel() * 100 - (maxLevel and 0 or 100)
+    if (self.Id == GetId("AXES")) then
+        self.MaxValue = 5 * 100
+    end
     if (self.Value < self.MaxValue) then
         self.Value = self.Value + 1
         selectUnit.Attribute:add("法术攻击", 1)

@@ -12,7 +12,7 @@ function GameStart.OnGameStart()
     SuspendTimeOfDay(true)
     SetCameraField(CAMERA_FIELD_ZOFFSET, 200, 0)
     CreateQuestBJ(bj_QUESTTYPE_REQ_DISCOVERED, "新手必看", "工人头像旁边有UI商店，前期建议购买贪婪，当贪婪叠加满后卖了可以获得更多的经济。|n前期偏弱的英雄可以开局购买装备火焰之心帮助你更好的清怪.不懂后续出装的优先把人物的装备羁绊做出来然后在慢慢熟悉游戏环境。", "ReplaceableTextures\\CommandButtons\\BTNSelectHeroOn.blp")
-    CreateQuestBJ(bj_QUESTTYPE_REQ_DISCOVERED, "指令说明", "输入++/--可以抬高或者降低镜头视角|n输入-repack可以把一张SR卡重新免费随机一次|n输入-jf可以查看自己当前游戏积分", "ReplaceableTextures\\CommandButtons\\BTNSelectHeroOn.blp")
+    CreateQuestBJ(bj_QUESTTYPE_REQ_DISCOVERED, "指令说明", "输入++/--可以抬高或者降低镜头视角|n输入-repack可以把一张SR卡重新免费随机一次|n输入-jf可以查看自己当前游戏积分|n输入-sx: + 人物索引显示英雄属性，比如-sx:1显示第一个英雄的属性。", "ReplaceableTextures\\CommandButtons\\BTNSelectHeroOn.blp")
     CreateQuestBJ(bj_QUESTTYPE_REQ_DISCOVERED, "积分说明", "通关难1获得5积分,通关难2获得10积分,通关难3获得15积分,通关难4获得20积分|n进入无尽模式后难3每守住1波奖励1积分，每5波为1轮守住1轮奖励3积分.难4积分翻倍。购买会员获得的所有积分翻倍。", "ReplaceableTextures\\CommandButtons\\BTNSelectHeroOn.blp")
     CreateQuestBJ(bj_QUESTTYPE_OPT_DISCOVERED, "天赋系统", "开局赠送1天赋点，每击杀100个小兵或击杀一条小龙可以获得1天赋点，天赋点用于给英雄学习天赋技能。游戏内共有十几种不同的天赋，每个天赋分为C,B,A,S四种等级，强力的天赋能更好的强化你的英雄。", "Icon\\TianFu.blp")
     CreateQuestBJ(bj_QUESTTYPE_OPT_DISCOVERED, "羁绊系统", "每个英雄都有个羁绊技能，羁绊可以和人物点亮也可以和装备点亮，点亮的羁绊可以为英雄提供额外属性。任意英雄点亮两个以上羁绊可以解锁超能天赋，点亮三个以上羁绊可以突破18级等级限制。", "ReplaceableTextures\\CommandButtons\\BTNMetamorphosis.blp")
@@ -657,12 +657,75 @@ function GameStart.AnyPlayerChat()
         return
     end
 
+    local index = string.find(str, "-sx:")
+    if (index ~= nil) then
+        local heroIndex = tonumber(string.sub(str, index + 4, #str))
+        if (heroIndex ~= nil and heroIndex < 6) then
+            local heros = GetPlayerTeamUnits(playerID)
+            local hero = nil
+            local count = 0
+            for i = 1, #heros do
+                if (IsUnitType(heros[i].Entity, UNIT_TYPE_HERO)) then
+                    count = count + 1
+                    if (count == heroIndex) then
+                        hero = heros[i]
+                        break
+                    end
+                end
+            end
+            if (hero ~= nil) then
+                local strs = {}
+                strs[1] = hero.Name
+                strs[2] = "|n|cFFFFFFFF物理攻击：|r|cFF00FF00"
+                strs[3] = tostring(math.modf(hero.Attribute:get("物理攻击") + hero.Attribute:get("物理攻击加成")))
+                strs[4] = "               |r|cFFFFFFFF法术攻击：|r|cFF00FF00"
+                strs[5] = math.modf(hero.Attribute:get("法术攻击"))
+
+                strs[6] = "|n|r|cFFFFFFFF物理穿透：|r|cFF00FF00"
+                strs[7] = tostring(hero.Attribute:get("物理穿透"))
+                strs[8] = "               |r|cFFFFFFFF法术穿透：|r|cFF00FF00"
+                strs[9] = hero.Attribute:get("法术穿透")
+
+                strs[10] = "|n|r|cFFFFFFFF物伤加成：|r|cFF00FF00"
+                strs[11] = tostring(hero.Attribute:get("物理伤害加成") - 1)
+                strs[12] = "               |r|cFFFFFFFF法伤加成：|r|cFF00FF00"
+                strs[13] = hero.Attribute:get("法术伤害加成") - 1
+                strs[14] = "|n|r|cFFFFFFFF暴击几率：|r|cFF00FF00"
+                strs[15] = tostring(hero.Attribute:get("暴击"))
+                strs[16] = "               |r|cFFFFFFFF冷却缩减：|r|cFF00FF00"
+                strs[17] = hero.Attribute:get("冷却缩减")
+
+                strs[18] = "|n|r|cFFFFFFFF暴击伤害：|r|cFF00FF00"
+                strs[19] = tostring(hero.Attribute:get("暴击伤害"))
+                strs[20] = "               |r|cFFFFFFFF冷却上限：|r|cFF00FF00"
+                strs[21] = hero.Attribute:get("冷却缩减上限")
+
+                strs[22] = "|n|r|cFFFFFFFF魔法值：|r|cFF00FF00"
+                strs[23] = tostring(math.modf(hero.Attribute:get("魔法值")))
+                strs[24] = "               |r|cFFFFFFFF魔法恢复：|r|cFF00FF00"
+                strs[25] = hero.Attribute:get("魔法恢复") .. "/s"
+
+                DialogSetMessage(HeroInfoDialog[playerID + 1], table.concat(strs))
+                DialogDisplay(player, HeroInfoDialog[playerID + 1], true)
+            end
+        end
+        return
+    end
     if (IsDebug == false) then
+        return
+    end
+
+    if (true) then
         return
     end
 
     if (str == "cheat") then
         cheat(playerID)
+        return
+    end
+
+    if (str == "vip") then
+        PlayerInfo:EnableVIP(Player(playerID))
         return
     end
 
@@ -693,11 +756,19 @@ function GameStart.AnyPlayerChat()
         return
     end
 
-    if (true) then
+    index = string.find(str, "item:")
+    if (index ~= nil) then
+        local itemId = string.sub(str, index + 5, #str)
+        if (#itemId == 4) then
+            UnitAddItem(
+            Worke[playerID].Entity,
+            CreateItem(GetId(string.upper(itemId)), Worke[playerID]:X(), Worke[playerID]:Y())
+            )
+        end
         return
     end
 
-    local index = string.find(str, "up:")
+    index = string.find(str, "up:")
     if (index ~= nil) then
         local level = tonumber(string.sub(str, index + 3, #str))
         if (level ~= nil) then
@@ -737,18 +808,6 @@ function GameStart.AnyPlayerChat()
         local score = tonumber(string.sub(str, index + 3, #str))
         if (score ~= nil) then
             PlayerInfo.AddScore(player, score)
-        end
-        return
-    end
-
-    index = string.find(str, "item:")
-    if (index ~= nil) then
-        local itemId = string.sub(str, index + 5, #str)
-        if (#itemId == 4) then
-            UnitAddItem(
-            Worke[playerID].Entity,
-            CreateItem(GetId(string.upper(itemId)), Worke[playerID]:X(), Worke[playerID]:Y())
-            )
         end
         return
     end

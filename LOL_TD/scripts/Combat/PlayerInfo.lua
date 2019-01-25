@@ -137,9 +137,12 @@ function PlayerInfo:IsVIP(entity)
 end
 
 function PlayerInfo:EnableVIP(entity)
-    local index = GetPlayerId(entity) + 1
     local player = GetJ_Player(entity)
+    if (player.IsVIP) then
+        return
+    end
     player.IsVIP = true
+    SetPlayerName(entity, "[尊贵VIP]" .. GetPlayerName(entity))
     AddPlayerTechResearched(entity, GetId("R011"), 1)
     --SaveStr(Jglobals.udg_table, GetPlayerId(entity), jfType.VIP, EncodeBase64(tostring(player.VIP)))
     local worke = Worke[GetPlayerId(entity)]

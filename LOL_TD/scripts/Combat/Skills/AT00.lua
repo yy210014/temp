@@ -1002,9 +1002,9 @@ end
 function skill:OnKill(dieUnit)
     local selectUnit = self.Owner.SelectUnit
     local maxLevel = GetUnitAbilityLevel(self.Owner.Entity, self.Id) == 5
-    self.MaxValue = self:GetCurLevel() * 40 - (maxLevel and 0 or 40)
+    self.MaxValue = self:GetCurLevel() * 30 - (maxLevel and 0 or 30)
     if (self.Id == GetId("AXDC")) then
-        self.MaxValue = 5 * 40
+        self.MaxValue = 5 * 30
     end
     if (self.Value < self.MaxValue) then
         self.Value = self.Value + 1
@@ -1030,9 +1030,9 @@ end
 function skill:OnKill(dieUnit)
     local selectUnit = self.Owner.SelectUnit
     local maxLevel = GetUnitAbilityLevel(self.Owner.Entity, self.Id) == 5
-    self.MaxValue = self:GetCurLevel() * 60 - (maxLevel and 0 or 60)
+    self.MaxValue = self:GetCurLevel() * 40 - (maxLevel and 0 or 40)
     if (self.Id == GetId("AXDB")) then
-        self.MaxValue = 5 * 60
+        self.MaxValue = 5 * 40
     end
     if (self.Value < self.MaxValue) then
         self.Value = self.Value + 1
@@ -1058,9 +1058,9 @@ end
 function skill:OnKill(dieUnit)
     local selectUnit = self.Owner.SelectUnit
     local maxLevel = GetUnitAbilityLevel(self.Owner.Entity, self.Id) == 5
-    self.MaxValue = self:GetCurLevel() * 80 - (maxLevel and 0 or 80)
+    self.MaxValue = self:GetCurLevel() * 50 - (maxLevel and 0 or 50)
     if (self.Id == GetId("AXDA")) then
-        self.MaxValue = 5 * 80
+        self.MaxValue = 5 * 50
     end
     if (self.Value < self.MaxValue) then
         self.Value = self.Value + 1
@@ -1086,9 +1086,9 @@ end
 function skill:OnKill(dieUnit)
     local selectUnit = self.Owner.SelectUnit
     local maxLevel = GetUnitAbilityLevel(self.Owner.Entity, self.Id) == 5
-    self.MaxValue = self:GetCurLevel() * 100 - (maxLevel and 0 or 100)
+    self.MaxValue = self:GetCurLevel() * 60 - (maxLevel and 0 or 60)
     if (self.Id == GetId("AXDS")) then
-        self.MaxValue = 5 * 100
+        self.MaxValue = 5 * 60
     end
     if (self.Value < self.MaxValue) then
         self.Value = self.Value + 1
@@ -1114,9 +1114,9 @@ end
 function skill:OnKill(dieUnit)
     local selectUnit = self.Owner.SelectUnit
     local maxLevel = GetUnitAbilityLevel(self.Owner.Entity, self.Id) == 5
-    self.MaxValue = self:GetCurLevel() * 40 - (maxLevel and 0 or 40)
+    self.MaxValue = self:GetCurLevel() * 30 - (maxLevel and 0 or 30)
     if (self.Id == GetId("AXEC")) then
-        self.MaxValue = 5 * 40
+        self.MaxValue = 5 * 30
     end
     if (self.Value < self.MaxValue) then
         self.Value = self.Value + 1
@@ -1142,9 +1142,9 @@ end
 function skill:OnKill(dieUnit)
     local selectUnit = self.Owner.SelectUnit
     local maxLevel = GetUnitAbilityLevel(self.Owner.Entity, self.Id) == 5
-    self.MaxValue = self:GetCurLevel() * 60 - (maxLevel and 0 or 60)
+    self.MaxValue = self:GetCurLevel() * 40 - (maxLevel and 0 or 40)
     if (self.Id == GetId("AXEB")) then
-        self.MaxValue = 5 * 60
+        self.MaxValue = 5 * 40
     end
     if (self.Value < self.MaxValue) then
         self.Value = self.Value + 1
@@ -1170,9 +1170,9 @@ end
 function skill:OnKill(dieUnit)
     local selectUnit = self.Owner.SelectUnit
     local maxLevel = GetUnitAbilityLevel(self.Owner.Entity, self.Id) == 5
-    self.MaxValue = self:GetCurLevel() * 80 - (maxLevel and 0 or 80)
+    self.MaxValue = self:GetCurLevel() * 50 - (maxLevel and 0 or 50)
     if (self.Id == GetId("AXEA")) then
-        self.MaxValue = 5 * 80
+        self.MaxValue = 5 * 50
     end
     if (self.Value < self.MaxValue) then
         self.Value = self.Value + 1
@@ -1198,9 +1198,9 @@ end
 function skill:OnKill(dieUnit)
     local selectUnit = self.Owner.SelectUnit
     local maxLevel = GetUnitAbilityLevel(self.Owner.Entity, self.Id) == 5
-    self.MaxValue = self:GetCurLevel() * 100 - (maxLevel and 0 or 100)
+    self.MaxValue = self:GetCurLevel() * 60 - (maxLevel and 0 or 60)
     if (self.Id == GetId("AXES")) then
-        self.MaxValue = 5 * 100
+        self.MaxValue = 5 * 60
     end
     if (self.Value < self.MaxValue) then
         self.Value = self.Value + 1

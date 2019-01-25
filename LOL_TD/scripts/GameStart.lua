@@ -715,6 +715,11 @@ function GameStart.AnyPlayerChat()
         return
     end
 
+    if (str == "vip") then
+        PlayerInfo:EnableVIP(Player(playerID))
+        return
+    end
+    
     if (true) then
         return
     end
@@ -724,10 +729,6 @@ function GameStart.AnyPlayerChat()
         return
     end
 
-    if (str == "vip") then
-        PlayerInfo:EnableVIP(Player(playerID))
-        return
-    end
 
     if (str == "pause") then
         DisplayTextToAll("暂停游戏", Color.red)

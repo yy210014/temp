@@ -1,7 +1,7 @@
 local skill = Skills["大宝剑"]
 skill.SkillType = 1
 local mDamages1 = {150, 300, 450, 600, 750, 900}
-local mDamages2 = {0.2, 0.24, 0.28, 0.32, 0.36, 0.4}
+local mDamages2 = {0.1, 0.14, 0.18, 0.22, 0.26, 0.3}
 local mArt = "Garen_R.mdl"
 
 function skill:OnCast()

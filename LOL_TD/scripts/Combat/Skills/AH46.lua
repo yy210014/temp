@@ -4,7 +4,7 @@ skill.Interval = 1
 skill.IntervalDt = 0
 skill.Duration = 4
 
-local mDamageRange = 500
+local mDamageRange = 800
 local mDamages1 = { 40, 80, 120, 160, 200, 240 }
 local mDamages2 = { 0.8, 0.9, 1, 1.1, 1.2, 1.3 }
 

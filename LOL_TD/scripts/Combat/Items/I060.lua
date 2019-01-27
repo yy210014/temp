@@ -1,7 +1,7 @@
 local item = Items["大冰锤"]
 
 setmetatable(Buffs["大冰锤"], {__index = Buffs["移速"]})
-Buffs["大冰锤"].values = {-0.2}
+Buffs["大冰锤"].values = {-0.3}
 Buffs["大冰锤"].Durs = {2}
 
 function item:OnAdd()
@@ -15,6 +15,5 @@ function item:OnRemove()
 end
 
 function item:OnAttack(attactUnit,defUnit)
-    --攻击降低目标移速20%，持续2s
     defUnit:AddBuff("大冰锤")
 end

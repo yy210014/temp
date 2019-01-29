@@ -1019,17 +1019,17 @@ function AddComb(unit)
     elseif (id == GetId("UH12")) then --菊花信
         unit:AddComb(setmetatable({}, {__index = Combs["草丛三剑客"]}))
         unit:AddComb(setmetatable({}, {__index = Combs["蛮易信"]}))
-        unit:AddComb(setmetatable({}, {__index = Combs["菊花信-电刀"]}))
         unit:AddComb(setmetatable({}, {__index = Combs["菊花信-大九头蛇"]}))
+        unit:AddComb(setmetatable({}, {__index = Combs["菊花信-电刀"]}))
     elseif (id == GetId("UH13")) then --大天使
         unit:AddComb(setmetatable({}, {__index = Combs["神圣与堕落-大天使"]}))
-        unit:AddComb(setmetatable({}, {__index = Combs["大天使-羊刀"]}))
         unit:AddComb(setmetatable({}, {__index = Combs["大天使-纳什之牙"]}))
+        unit:AddComb(setmetatable({}, {__index = Combs["大天使-羊刀"]}))
     elseif (id == GetId("UH15")) then --草丛伦
         unit:AddComb(setmetatable({}, {__index = Combs["草丛三剑客"]}))
         unit:AddComb(setmetatable({}, {__index = Combs["正义兄妹-草丛伦"]}))
-        unit:AddComb(setmetatable({}, {__index = Combs["草丛伦-切割者"]}))
         unit:AddComb(setmetatable({}, {__index = Combs["草丛伦-烈焰斗篷"]}))
+        unit:AddComb(setmetatable({}, {__index = Combs["草丛伦-切割者"]}))
     elseif (id == GetId("UH16")) then --蛮子
         unit:AddComb(setmetatable({}, {__index = Combs["蛮易信"]}))
         unit:AddComb(setmetatable({}, {__index = Combs["美女与野兽"]}))
@@ -1037,8 +1037,8 @@ function AddComb(unit)
         unit:AddComb(setmetatable({}, {__index = Combs["蛮子-红叉"]}))
     elseif (id == GetId("UH19")) then --剑圣
         unit:AddComb(setmetatable({}, {__index = Combs["蛮易信"]}))
-        unit:AddComb(setmetatable({}, {__index = Combs["剑圣-无尽"]}))
         unit:AddComb(setmetatable({}, {__index = Combs["剑圣-电刀"]}))
+        unit:AddComb(setmetatable({}, {__index = Combs["剑圣-无尽"]}))
     elseif (id == GetId("UH23")) then --小炮
         unit:AddComb(setmetatable({}, {__index = Combs["炮火联盟-小炮"]}))
         unit:AddComb(setmetatable({}, {__index = Combs["小炮-电刀"]}))

@@ -16,6 +16,6 @@ end
 
 function item:OnAttack(attactUnit, defUnit)
     --每次攻击附带自身当前蓝量5%的物理伤害
-    local damage = attactUnit.Attribute:get("魔法值") * 0.05
-    EXUnitDamageTarget(attactUnit, defUnit, damage, EXDamageType.Physics)
+    local damage = attactUnit.Attribute:get("魔法值") * 0.1
+    EXUnitDamageTarget(attactUnit, defUnit, damage, EXDamageType.Real)
 end

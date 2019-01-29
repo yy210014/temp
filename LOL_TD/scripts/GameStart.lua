@@ -720,15 +720,20 @@ function GameStart.AnyPlayerChat()
         return
     end
     
-    if (true) then
+    if (str == "up") then
+        local units = GetPlayerTeamUnits(playerID)
+        for i = #units, 1, -1 do
+            if (IsUnitType(units[i].Entity, UNIT_TYPE_HERO)) then
+                SetHeroLevel(units[i].Entity, GetHeroLevel(units[i].Entity) + 1, true)
+            end
+        end
         return
     end
-
+    
     if (str == "cheat") then
         cheat(playerID)
         return
     end
-
 
     if (str == "pause") then
         DisplayTextToAll("暂停游戏", Color.red)
@@ -747,15 +752,6 @@ function GameStart.AnyPlayerChat()
         end
         return
     end]]
-    if (str == "up") then
-        local units = GetPlayerTeamUnits(playerID)
-        for i = #units, 1, -1 do
-            if (IsUnitType(units[i].Entity, UNIT_TYPE_HERO)) then
-                SetHeroLevel(units[i].Entity, GetHeroLevel(units[i].Entity) + 1, true)
-            end
-        end
-        return
-    end
 
     index = string.find(str, "item:")
     if (index ~= nil) then

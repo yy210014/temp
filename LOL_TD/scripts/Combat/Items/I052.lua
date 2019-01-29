@@ -1,5 +1,6 @@
 local item = Items["大九头蛇"]
 local mRange = 600
+local mArt = "AZ_JSBZ.mdl"
 
 function item:OnAdd()
     local unit = self.Owner
@@ -18,7 +19,7 @@ function item:OnAttack(attactUnit, defUnit)
         return
     end
     DestroyEffect(
-    AddSpecialEffectTarget("Abilities\\Spells\\Orc\\WarStomp\\WarStompCaster.mdl", attactUnit.Entity, "origin")
+    AddSpecialEffectTarget(mArt, attactUnit.Entity, "origin")
     )
     AssetsManager.OverlapCircle(
     attactUnit:X(),

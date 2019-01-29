@@ -91,6 +91,10 @@ require "scripts.Combat.Skills.AH70"
 require "scripts.Combat.Skills.AH71"
 require "scripts.Combat.Skills.AH72"
 require "scripts.Combat.Skills.AH73"
+--孙悟空
+require "scripts.Combat.Skills.AH90"
+require "scripts.Combat.Skills.AH91"
+require "scripts.Combat.Skills.AH92"
 
 --辅助英雄技能
 require "scripts.Combat.Skills.AH80"

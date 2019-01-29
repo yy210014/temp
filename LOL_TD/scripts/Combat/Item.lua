@@ -17,13 +17,13 @@ local mItemComList = {
     ["I024"] = { GetId("I025"), GetId("I005"), GetId("I005") }, --九头蛇（卷轴）:九头蛇+长剑+长剑
     ["I026"] = { GetId("I027"), GetId("I015"), GetId("I004") }, --电刀（卷轴）:电刀+黄叉+短剑
     ["I030"] = { GetId("I031"), GetId("I007"), GetId("I008") }, --天使之泪（卷轴）:天使之泪+蓝宝石+仙女吊坠
-    ["I032"] = { GetId("I033"), GetId("I007") }, --光耀之剑（卷轴）:光耀之剑+蓝宝石
+    ["I032"] = { GetId("I033"), GetId("I007") }, --耀光之剑（卷轴）:耀光之剑+蓝宝石
     ["I034"] = { GetId("I035"), GetId("I009"), GetId("I008"), GetId("I008") }, --圣杯（卷轴）:圣杯+增幅法典+仙女吊坠+仙女吊坠
     ["I036"] = { GetId("I037"), GetId("I009") }, --恶魔法书（卷轴）:恶魔法书+增幅法典
     ["I038"] = { GetId("I039"), GetId("I008"), GetId("I008") }, --神秘雕像（卷轴）:神秘雕像+仙女吊坠+仙女吊坠
     ["I040"] = { GetId("I041"), GetId("I009"), GetId("I007") }, --遗失的篇章（卷轴）:遗失的篇章+增幅法典+蓝宝石
     ["I042"] = { GetId("I043"), GetId("I011"), GetId("I011") }, --无尽利刃（卷轴）:无尽利刃+暴风大剑+暴风大剑
-    ["I044"] = { GetId("I045"), GetId("I023"), GetId("I033"), GetId("I015") }, --三相（卷轴）:三相+小木槌+光耀之剑+黄叉
+    ["I044"] = { GetId("I045"), GetId("I023"), GetId("I033"), GetId("I015") }, --三相（卷轴）:三相+小木槌+耀光之剑+黄叉
     ["I046"] = { GetId("I047"), GetId("I031"), GetId("I010") }, --魔宗之刃（卷轴）:魔宗之刃+天使之泪+十字镐
     ["I049"] = { GetId("I050"), GetId("I023"), GetId("I021") }, --切割者（卷轴）:切割者+小木槌+战锤
     ["I051"] = { GetId("I052"), GetId("I025"), GetId("I010") }, --大九头蛇（卷轴）:大九头蛇+九头蛇+十字镐
@@ -31,7 +31,7 @@ local mItemComList = {
     ["I055"] = { GetId("I056"), GetId("I015"), GetId("I004"), GetId("I004") }, --红叉（卷轴）:红叉+黄叉+短剑+短剑
     ["I057"] = { GetId("I058"), GetId("I015"), GetId("I013") }, --飓风（卷轴）:飓风+黄叉+反曲
     ["I059"] = { GetId("I060"), GetId("I023"), GetId("I010") }, --大冰锤（卷轴）:大冰锤+小木槌+十字镐
-    ["I063"] = { GetId("I064"), GetId("I033"), GetId("I028") }, --巫术法杖（卷轴）:巫术法杖+光耀之剑+小魔杖
+    ["I063"] = { GetId("I064"), GetId("I033"), GetId("I028") }, --巫术法杖（卷轴）:巫术法杖+耀光之剑+小魔杖
     ["I065"] = { GetId("I066"), GetId("I031"), GetId("I029") }, --大天使之杖（卷轴）:大天使之杖+天使之泪+大魔杖
     ["I068"] = { GetId("I069"), GetId("I028"), GetId("I028") }, --法穿棒（卷轴）:法穿棒+增幅法典+小魔杖
     ["I070"] = { GetId("I071"), GetId("I035"), GetId("I037"), GetId("I039") }, --大圣杯（卷轴）:大圣杯+圣杯+恶魔法书+神秘雕像
@@ -77,39 +77,41 @@ end
 
 function Item.ItemUniquenessList(unit, item)
     if (mItemUniquenessList[ID2Str(item.Id)] ~= nil) then
-        local v = nil
-        for i = 5, 0, -1 do
-            v = UnitItemInSlot(unit.Entity, i)
-            if v ~= nil and item.Id == GetItemTypeId(v) and v ~= item.Entity then
+        unit:IterateItems(
+        function(v)
+            if item.Id == v.Id and v ~= item then
                 DisplayTextToPlayer(unit.Player, 0, 0, "|cffffcc00该装备最多只能携带一件！|r")
                 UnitRemoveItem(unit.Entity, item.Entity)
                 return
             end
         end
+        )
     end
 end
 
 function Item.ItemOverlay(unit, item)
     if (mItemOverlayList[ID2Str(item.Id)] ~= nil) then
-        local v
-        for i = 5, 0, -1 do
-            v = UnitItemInSlot(unit.Entity, i)
-            if v ~= nil and item.Id == GetItemTypeId(v) and v ~= item.Entity then
-                SetItemCharges(v, GetItemCharges(v) + GetItemCharges(item.Entity))
+        unit:IterateItems(
+        function(v)
+            if item.Id == v.Id and v ~= item then
+                local entity = v.Entity
+                local entityCount = GetItemCharges(entity)
+                SetItemCharges(entity, entityCount + GetItemCharges(item.Entity))
+                entityCount = GetItemCharges(entity)
                 RemoveItem(item.Entity)
-                if (item.Id == GetId("IB04") and GetItemCharges(v) >= 120) then
-                    SetItemCharges(v, GetItemCharges(v) - 120)
-                    if GetItemCharges(v) == 0 then
-                        RemoveItem(v)
+                if (item.Id == GetId("IB04") and entityCount >= 120) then
+                    SetItemCharges(entity, entityCount - 120)
+                    if entityCount == 0 then
+                        RemoveItem(entity)
                     end
                     local itemAXAD = CreateItem(GetId(Card.RandomSR()), unit:X(), unit:Y())
                     DisplayTextToPlayer(unit.Player, 0, 0, "|cffffcc00合成卡片：" .. GetItemName(itemAXAD) .. "|r")
                     DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\Items\\AIlm\\AIlmTarget.mdl", unit.Entity, "origin"))
                     UnitAddItem(unit.Entity, itemAXAD)
-                elseif (item.Id == GetId("IB05") and GetItemCharges(v) >= 150) then
-                    SetItemCharges(v, GetItemCharges(v) - 150)
-                    if GetItemCharges(v) == 0 then
-                        RemoveItem(v)
+                elseif (item.Id == GetId("IB05") and entityCount >= 150) then
+                    SetItemCharges(entity, entityCount - 150)
+                    if entityCount == 0 then
+                        RemoveItem(entity)
                     end
                     local itemAXAD = CreateItem(GetId(Card.RandomSSR()), unit:X(), unit:Y())
                     DisplayTextToPlayer(unit.Player, 0, 0, "|cffffcc00合成卡片：" .. GetItemName(itemAXAD) .. "|r")
@@ -119,6 +121,7 @@ function Item.ItemOverlay(unit, item)
                 return
             end
         end
+        )
     end
 end
 
@@ -129,24 +132,22 @@ function Item.ItemCompound(unit)
     local id
     for i = 5, 0, -1 do
         item = UnitItemInSlot(unit.Entity, i)
-        if (item ~= nil) then
-            if (GetItemLevel(item) == 12) then
-                id = ID2Str(GetItemTypeId(item))
-                local list = mItemComList[id]
-                if (list ~= nil) then
-                    deleteList = {}
-                    deleteList[#deleteList + 1] = item
-                    for j = 2, #list do
-                        local delfItem = Item.HasItem(unit, list[j], deleteList)
-                        if (delfItem == nil) then
-                            break
-                        end
-                        deleteList[#deleteList + 1] = delfItem
-                    end
-                    if (#deleteList == #list) then
-                        falg = true
+        if (item ~= nil and GetItemLevel(item) == 12) then
+            id = ID2Str(GetItemTypeId(item))
+            local list = mItemComList[id]
+            if (list ~= nil) then
+                deleteList = {}
+                deleteList[#deleteList + 1] = item
+                for j = 2, #list do
+                    local delfItem = Item.HasItem(unit, list[j], deleteList)
+                    if (delfItem == nil) then
                         break
                     end
+                    deleteList[#deleteList + 1] = delfItem
+                end
+                if (#deleteList == #list) then
+                    falg = true
+                    break
                 end
             end
         end

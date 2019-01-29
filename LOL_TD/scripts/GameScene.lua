@@ -19,7 +19,7 @@ HeroInfoDialog = {}
 local function InitPlayerResource()
     for i, v in ipairs(PlayerTeam) do
         SetPlayerState(Player(v), PLAYER_STATE_RESOURCE_GOLD, 1500)
-        SetPlayerState(Player(v), PLAYER_STATE_RESOURCE_LUMBER, 1)
+        SetPlayerState(Player(v), PLAYER_STATE_RESOURCE_LUMBER, 0)
         SetPlayerState(Player(v), PLAYER_STATE_FOOD_CAP_CEILING, 100)
         --修改了人口上限
         SetPlayerState(Player(v), PLAYER_STATE_RESOURCE_FOOD_CAP, 100)
@@ -55,9 +55,9 @@ local function InitPlayerUnit()
 
             HeroInfoDialog[i + 1] = DialogCreate()
             DialogAddButton(HeroInfoDialog[i + 1], "确定", 0)
-            --UnitAddItem(Worke[i].Entity, CreateItem(GetId("IH07"), Worke[i]:X(), Worke[i]:Y()))
+            --UnitAddItem(Worke[i].Entity, CreateItem(GetId("IH45"), Worke[i]:X(), Worke[i]:Y()))
             --   cheat(i)
-            -- UnitAddItem(Worke[i].Entity, CreateItem(GetId("I087"), Worke[i]:X(), Worke[i]:Y()))
+            --UnitAddItem(Worke[i].Entity, CreateItem(GetId("IH07"), Worke[i]:X(), Worke[i]:Y()))
             --   UnitAddItem(Worke[i].Entity, CreateItem(GetId("IH42"), Worke[i]:X(), Worke[i]:Y()))
             --   UnitAddItem(Worke[i].Entity, CreateItem(GetId("IH43"), Worke[i]:X(), Worke[i]:Y()))
         end

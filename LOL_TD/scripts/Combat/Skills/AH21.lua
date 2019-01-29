@@ -45,9 +45,12 @@ skill.OnPathEnd = function(dummy)
     local self = dummy.Skill
     local ad = owner.Attribute:get("物理攻击") + owner.Attribute:get("物理攻击加成")
     local ap = owner.Attribute:get("法术攻击")
-    local damage =    mDamages1[self:GetCurLevel()] + ap * mDamages2[self:GetCurLevel()] + ad * mDamages3[self:GetCurLevel()]
+    local damage = mDamages1[self:GetCurLevel()] + ap * mDamages2[self:GetCurLevel()] + ad * mDamages3[self:GetCurLevel()]
     EXUnitDamageTarget(owner, spellTargetUnit, damage, EXDamageType.Magic)
     spellTargetUnit:AddBuff("清算", self:GetCurLevel())
-    spellTargetUnit:AddBuff("圣焰", self:GetCurLevel())
+    local ah20 = owner:GetSkill(GetId("AH20"))
+    if (ah20 ~= nil) then
+        spellTargetUnit:AddBuff("圣焰", ah20:GetCurLevel())
+    end
     AssetsManager.RemoveObject(dummy)
 end

@@ -37,11 +37,11 @@ if (loc ~= nil) then
 end
 
 --buff
-local buff = Buffs["光耀之剑"]
+local buff = Buffs["耀光之剑"]
 buff.values = { 2, 2, 2, 2, 2, 2 }
 buff.Durs = { 2, 2, 2, 2, 2, 2 }
-unit:AddBuff("光耀之剑")
-unit:RemoveBuff("光耀之剑")
+unit:AddBuff("耀光之剑")
+unit:RemoveBuff("耀光之剑")
 
 --特效
 DestroyEffect(

@@ -1,4 +1,5 @@
 local item = Items["吸蓝刀"]
+local mArt = "Abilities\\Spells\\Undead\\ReplenishMana\\SpiritTouchTarget.mdl"
 
 function item:OnAdd()
     local unit = self.Owner
@@ -18,7 +19,5 @@ function item:OnAttack(attactUnit, defUnit)
     local mana = attactUnit.Attribute:get("魔法值")
     local maxMana = attactUnit.Attribute:get("魔法上限")
     attactUnit.Attribute:add("魔法值", (maxMana - mana) * 0.01)
-    DestroyEffect(
-        AddSpecialEffectTarget("Abilities\\Spells\\Undead\\ReplenishMana\\SpiritTouchTarget.mdl", attactUnit.Entity, "chest")
-    )
+    DestroyEffect(AddSpecialEffectTarget(mArt, attactUnit.Entity, "chest"))
 end

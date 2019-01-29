@@ -20,14 +20,14 @@ end
 
 function item:OnCast()
     local unit = self.Owner
-    unit:AddBuff("光耀之剑")
+    unit:AddBuff("耀光之剑")
 end
 
 function item:OnAttack(attactUnit, defUnit)
     defUnit:AddBuff("小冰锤")
-    if (attactUnit:ContainBuff("光耀之剑")) then
+    if (attactUnit:ContainBuff("耀光之剑")) then
         local damage = (attactUnit.Attribute:get("物理攻击") + attactUnit.Attribute:get("物理攻击加成")) * 1.5
         EXUnitDamageTarget(attactUnit, defUnit, damage, EXDamageType.Physics)
-        attactUnit:RemoveBuff("光耀之剑")
+        attactUnit:RemoveBuff("耀光之剑")
     end
 end

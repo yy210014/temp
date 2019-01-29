@@ -230,11 +230,11 @@ function comb:Conditions()
 end
 
 function comb:OnEnable()
-    self.Owner.Attribute:add("法术伤害加成", 0.5)
+    self.Owner.Attribute:add("物理伤害加成", 0.5)
 end
 
 function comb:OnDisable()
-    self.Owner.Attribute:add("法术伤害加成", -0.5)
+    self.Owner.Attribute:add("物理伤害加成", -0.5)
 end
 
 comb = Combs["炮火联盟-炸弹人"]
@@ -331,6 +331,30 @@ end
 function comb:OnDisable()
     self.Owner.Attribute:add("法术伤害加成", -0.5)
 end
+
+comb = Combs["师徒二人"]
+comb.Ubertip = [[
+-黑暗魔法
+ 羁绊需求：剑圣(SR)+齐天大圣(SSR)
+ 羁绊效果：增加剑圣/齐天大圣50%物理伤害加成|n
+]]
+
+function comb:HerosId()
+    return {GetId("UH19"), GetId("UH40")}
+end
+
+function comb:Conditions()
+    return testA(self, self:HerosId())
+end
+
+function comb:OnEnable()
+    self.Owner.Attribute:add("物理伤害加成", 0.5)
+end
+
+function comb:OnDisable()
+    self.Owner.Attribute:add("物理伤害加成", -0.5)
+end
+
 
 comb = Combs["皇子-大九头蛇"]
 comb.Ubertip = [[
@@ -920,6 +944,50 @@ end
 function comb:OnDisable()
 end
 
+comb = Combs["齐天大圣-三相"]
+comb.Ubertip = [[
+-三相
+ 羁绊需求：齐天大圣+三相
+ 羁绊效果：增加齐天大圣30%的物理穿透|n
+]]
+
+function comb:HerosId()
+    return {self.Owner.Id}
+end
+
+function comb:Conditions()
+    return (UnitHasItemOfTypeBJ(self.Owner.Entity, GetId("I045")) == true)
+end
+
+function comb:OnEnable()
+    self.Owner.Attribute:add("物理穿透", 0.3)
+end
+
+function comb:OnDisable()
+    self.Owner.Attribute:add("物理穿透", 0.3)
+end
+
+comb = Combs["齐天大圣-切割者"]
+comb.Ubertip = [[
+-切割者
+ 羁绊需求：齐天大圣+切割者
+ 羁绊效果：额外增加齐天大圣“如意打击”10点减甲效果|n
+]]
+
+function comb:HerosId()
+    return {self.Owner.Id}
+end
+
+function comb:Conditions()
+    return (UnitHasItemOfTypeBJ(self.Owner.Entity, GetId("I071")) == true)
+end
+
+function comb:OnEnable()
+end
+
+function comb:OnDisable()
+end
+
 function AddComb(unit)
     local id = unit.Id
     local newComb = {}
@@ -980,5 +1048,9 @@ function AddComb(unit)
         unit:AddComb(setmetatable({}, {__index = Combs["美女与野兽"]}))
         unit:AddComb(setmetatable({}, {__index = Combs["寒冰-飓风"]}))
         unit:AddComb(setmetatable({}, {__index = Combs["寒冰-无尽"]}))
+    elseif (id == GetId("UH40")) then --寒冰
+        unit:AddComb(setmetatable({}, {__index = Combs["师徒二人"]}))
+        unit:AddComb(setmetatable({}, {__index = Combs["齐天大圣-三相"]}))
+        unit:AddComb(setmetatable({}, {__index = Combs["齐天大圣-切割者"]}))
     end
 end

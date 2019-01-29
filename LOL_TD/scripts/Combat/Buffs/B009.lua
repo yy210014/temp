@@ -1,4 +1,4 @@
-local buff = Buffs["光耀之剑"]
+local buff = Buffs["耀光之剑"]
 buff.Durs = {2, 2, 2, 2, 2, 2}
 
 function buff:OnAdd()

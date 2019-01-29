@@ -25,11 +25,11 @@ function item:OnCast()
     end
     unit.Attribute:add("魔法上限", 8)
     self:SetCharges(charges)
-    if (self:GetCharges() >= mMaxCount) then
+    --[[if (self:GetCharges() >= mMaxCount) then
         RemoveItem(self.Entity)
         local newItem = CreateItem(GetId("I067"), unit:X(), unit:Y())
         UnitAddItem(unit.Entity, newItem)
-    end
+    end]]
 end
 
 function item:OnRefresh()

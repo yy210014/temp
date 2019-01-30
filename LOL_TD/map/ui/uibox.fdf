@@ -55,15 +55,16 @@ Frame "BACKDROP" "BAG" {      //父级
         	HighlightAlphaFile "war3mapImported\AA2down.tga",
         	HighlightAlphaMode "ADD",
 		}
-	}
-	//物理攻击table
-	Frame "TEXT" "AA33" {
-   		FrameFont "font02.TTF", 0.014, "",
-   		FontJustificationH JUSTIFYRIGHT,
-   		FontJustificationV JUSTIFYMIDDLE,
-   		FontFlags "FIXEDSIZE",
-		LayerStyle "IGNORETRACKEVENTS",
-		SetPoint LEFT, "AA3", LEFT, -0.0095, 0,
+		//物理攻击table
+		Frame "TEXT" "AA33" {
+			FrameFont "font02.TTF", 0.014, "",
+			FontJustificationH JUSTIFYLEFT,            
+			UseActiveContext,
+			FontJustificationV JUSTIFYMIDDLE,
+			//FontFlags "FIXEDSIZE",
+			LayerStyle "IGNORETRACKEVENTS",
+			SetPoint LEFT, "AA3", LEFT, 0.001, 0,
+		}
 	}
 		
 	Frame "TEXTBUTTON" "AA4" {
@@ -84,15 +85,16 @@ Frame "BACKDROP" "BAG" {      //父级
         	HighlightAlphaFile "war3mapImported\AA2down.tga",
         	HighlightAlphaMode "ADD",
 		}
-	}
-	//攻速暴击table
-	Frame "TEXT" "AA44" {
-   		FrameFont "font02.TTF", 0.014, "",
-   		FontJustificationH JUSTIFYRIGHT,
-   		FontJustificationV JUSTIFYMIDDLE,
-   		FontFlags "FIXEDSIZE",
-		LayerStyle "IGNORETRACKEVENTS",
-		SetPoint LEFT, "AA4", LEFT, -0.0095, 0,
+		//攻速暴击table
+		Frame "TEXT" "AA44" {
+			FrameFont "font02.TTF", 0.014, "",
+			UseActiveContext,
+			FontJustificationH JUSTIFYLEFT,
+			FontJustificationV JUSTIFYMIDDLE,
+			FontFlags "FIXEDSIZE",
+			LayerStyle "IGNORETRACKEVENTS",
+			SetPoint LEFT, "AA4", LEFT, 0.001, 0,
+		}
 	}
 
 	Frame "TEXTBUTTON" "AA5" {
@@ -113,16 +115,16 @@ Frame "BACKDROP" "BAG" {      //父级
         	HighlightAlphaFile "war3mapImported\AA2down.tga",
         	HighlightAlphaMode "ADD",
 		}
-	}
-	//法术攻击table
-	Frame "TEXT" "AA55" {
-   		FrameFont "font02.TTF", 0.014, "",
-   		FontJustificationH JUSTIFYRIGHT,
-   		FontJustificationV JUSTIFYMIDDLE,
-   		FontFlags "FIXEDSIZE",
-		LayerStyle "IGNORETRACKEVENTS",
-		SetPoint LEFT, "AA5", LEFT, -0.0095, 0,
-	}		
+		//法术攻击table
+		Frame "TEXT" "AA55" {
+			FrameFont "font02.TTF", 0.014, "",
+			FontJustificationH JUSTIFYLEFT,
+			FontJustificationV JUSTIFYMIDDLE,
+			FontFlags "FIXEDSIZE",
+			LayerStyle "IGNORETRACKEVENTS",
+			SetPoint LEFT, "AA5", LEFT, 0.0010, 0,
+		}	
+	}	
 
 	Frame "TEXTBUTTON" "AA6" {
    	  	Height 0.05,
@@ -141,15 +143,15 @@ Frame "BACKDROP" "BAG" {      //父级
    		 	HighlightAlphaFile "war3mapImported\AA2down.tga",
     		HighlightAlphaMode "ADD",
 		}
-	}
-	//冷却缩减
-	Frame "TEXT" "AA66" {
-   		FrameFont "font02.TTF", 0.014, "",
-   		FontJustificationH JUSTIFYRIGHT,
-   		FontJustificationV JUSTIFYMIDDLE,
-   		FontFlags "FIXEDSIZE",
-		LayerStyle "IGNORETRACKEVENTS",
-		SetPoint LEFT, "AA6", LEFT, -0.0095, 0,
+		//冷却缩减
+		Frame "TEXT" "AA66" {
+			FrameFont "font02.TTF", 0.014, "",
+			FontJustificationH JUSTIFYLEFT,
+			FontJustificationV JUSTIFYMIDDLE,
+			FontFlags "FIXEDSIZE",
+			LayerStyle "IGNORETRACKEVENTS",
+			SetPoint LEFT, "AA6", LEFT, 0.0010, 0,
+		}
 	}
 
 	Frame "TEXTBUTTON" "AA7" {
@@ -170,15 +172,15 @@ Frame "BACKDROP" "BAG" {      //父级
         	HighlightAlphaFile "war3mapImported\AA2down.tga",
         	HighlightAlphaMode "ADD",
 		}
-	}
-	//法力恢复
-	Frame "TEXT" "AA77" {
-   		FrameFont "font02.TTF", 0.014, "",
-   		FontJustificationH JUSTIFYRIGHT,
-   		FontJustificationV JUSTIFYMIDDLE,
-   		FontFlags "FIXEDSIZE",
-		LayerStyle "IGNORETRACKEVENTS",
-		SetPoint LEFT, "AA7", LEFT, -0.0095, 0,
+		//法力恢复
+		Frame "TEXT" "AA77" {
+			FrameFont "font02.TTF", 0.014, "",
+			FontJustificationH JUSTIFYLEFT,
+			FontJustificationV JUSTIFYMIDDLE,
+			FontFlags "FIXEDSIZE",
+			LayerStyle "IGNORETRACKEVENTS",
+			SetPoint LEFT, "AA7", LEFT, 0.0010, 0,
+		}
 	}
 	
 	Frame "TEXTBUTTON" "AA2" {

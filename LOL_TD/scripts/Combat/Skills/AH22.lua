@@ -5,7 +5,7 @@ skill.Durs = { 8, 8, 8, 8, 8, 8 } --持续时间
 local mDamages1 = { 40, 80, 120, 160, 200, 240 }
 local mDamages2 = { 0.25, 0.3, 0.35, 0.4, 0.45, 0.5 }
 local mArt = "AZ_UrsaPsionic_E.mdl"
-local mRange = 450
+local mRange = 600
 
 function skill:OnCast()
     self.Owner.Attribute:add("攻击范围", 400)

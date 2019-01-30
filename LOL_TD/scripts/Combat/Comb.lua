@@ -993,8 +993,8 @@ function AddComb(unit)
     local newComb = {}
     if (id == GetId("UH01")) then --光辉
         unit:AddComb(setmetatable({}, {__index = Combs["正义兄妹-光辉"]}))
-        unit:AddComb(setmetatable({}, {__index = Combs["光辉-大圣杯"]}))
         unit:AddComb(setmetatable({}, {__index = Combs["光辉-鬼书"]}))
+        unit:AddComb(setmetatable({}, {__index = Combs["光辉-大圣杯"]}))
     elseif (id == GetId("UH02")) then --堕天使
         unit:AddComb(setmetatable({}, {__index = Combs["神圣与堕落-堕天使"]}))
         unit:AddComb(setmetatable({}, {__index = Combs["黑暗魔法"]}))
@@ -1048,7 +1048,7 @@ function AddComb(unit)
         unit:AddComb(setmetatable({}, {__index = Combs["美女与野兽"]}))
         unit:AddComb(setmetatable({}, {__index = Combs["寒冰-飓风"]}))
         unit:AddComb(setmetatable({}, {__index = Combs["寒冰-无尽"]}))
-    elseif (id == GetId("UH40")) then --寒冰
+    elseif (id == GetId("UH40")) then --齐天大圣
         unit:AddComb(setmetatable({}, {__index = Combs["师徒二人"]}))
         unit:AddComb(setmetatable({}, {__index = Combs["齐天大圣-三相"]}))
         unit:AddComb(setmetatable({}, {__index = Combs["齐天大圣-切割者"]}))

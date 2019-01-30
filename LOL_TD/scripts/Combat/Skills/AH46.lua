@@ -18,7 +18,7 @@ skill.Action = function(self, dt)
     self.TimeDt = self.TimeDt + dt
     if (self.TimeDt >= self.Duration) then
         self.TimeDt = 0
-        KillUnit(self.Dummy.Entity)
+        AssetsManager.RemoveObject(self.Dummy)
         self:OnFinish()
         return
     end

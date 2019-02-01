@@ -360,7 +360,7 @@ function Unit:Destroy(destroy)
     if (destroy) then
         --释放内存
         for i = #self.Skills, 1, -1 do
-            self.Skills[i]:OnRemove()
+            self.Skills[i]:OnFinish()
             table.remove(self.Skills, i)
         end
         self.Skills = nil

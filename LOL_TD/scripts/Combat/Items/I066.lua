@@ -12,8 +12,8 @@ end
 
 function item:OnRemove()
     local unit = self.Owner
-    unit.Attribute:add("魔法恢复", -2 - self.LastValue)
-    unit.Attribute:add("法术攻击", -150)
+    unit.Attribute:add("魔法恢复", -2)
+    unit.Attribute:add("法术攻击", -150 - self.LastValue)
     unit.Attribute:add("魔法上限", -(600 + self:GetCharges()))
 end
 
@@ -25,7 +25,7 @@ function item:OnCast()
     end
     unit.Attribute:add("魔法上限", 8)
     self:SetCharges(charges)
-    --[[if (self:GetCharges() >= mMaxCount) then
+--[[if (self:GetCharges() >= mMaxCount) then
         RemoveItem(self.Entity)
         local newItem = CreateItem(GetId("I067"), unit:X(), unit:Y())
         UnitAddItem(unit.Entity, newItem)

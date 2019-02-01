@@ -77,41 +77,41 @@ end
 
 function Item.ItemUniquenessList(unit, item)
     if (mItemUniquenessList[ID2Str(item.Id)] ~= nil) then
-        local v = nil
-        for i = 5, 0, -1 do
-            v = UnitItemInSlot(unit.Entity, i)
-            if v ~= nil and item.Id == GetItemTypeId(v) and v ~= item.Entity then
+        unit:IterateItems(
+        function(v)
+            if item.Id == v.Id and v ~= item then
                 DisplayTextToPlayer(unit.Player, 0, 0, "|cffffcc00该装备最多只能携带一件！|r")
                 UnitRemoveItem(unit.Entity, item.Entity)
                 return
             end
         end
+        )
     end
 end
 
 function Item.ItemOverlay(unit, item)
     if (mItemOverlayList[ID2Str(item.Id)] ~= nil) then
-        local v
-        for i = 5, 0, -1 do
-            v = UnitItemInSlot(unit.Entity, i)
-            if v ~= nil and item.Id == GetItemTypeId(v) and v ~= item.Entity then
-                local entityCount = GetItemCharges(v)
-                SetItemCharges(v, entityCount + GetItemCharges(item.Entity))
-                entityCount = GetItemCharges(v)
+        unit:IterateItems(
+        function(v)
+            if item.Id == v.Id and v ~= item then
+                local entity = v.Entity
+                local entityCount = GetItemCharges(entity)
+                SetItemCharges(entity, entityCount + GetItemCharges(item.Entity))
+                entityCount = GetItemCharges(entity)
                 RemoveItem(item.Entity)
                 if (item.Id == GetId("IB04") and entityCount >= 120) then
-                    SetItemCharges(v, entityCount - 120)
+                    SetItemCharges(entity, entityCount - 120)
                     if entityCount == 0 then
-                        RemoveItem(v)
+                        RemoveItem(entity)
                     end
                     local itemAXAD = CreateItem(GetId(Card.RandomSR()), unit:X(), unit:Y())
                     DisplayTextToPlayer(unit.Player, 0, 0, "|cffffcc00合成卡片：" .. GetItemName(itemAXAD) .. "|r")
                     DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\Items\\AIlm\\AIlmTarget.mdl", unit.Entity, "origin"))
                     UnitAddItem(unit.Entity, itemAXAD)
                 elseif (item.Id == GetId("IB05") and entityCount >= 150) then
-                    SetItemCharges(v, entityCount - 150)
+                    SetItemCharges(entity, entityCount - 150)
                     if entityCount == 0 then
-                        RemoveItem(v)
+                        RemoveItem(entity)
                     end
                     local itemAXAD = CreateItem(GetId(Card.RandomSSR()), unit:X(), unit:Y())
                     DisplayTextToPlayer(unit.Player, 0, 0, "|cffffcc00合成卡片：" .. GetItemName(itemAXAD) .. "|r")
@@ -121,6 +121,7 @@ function Item.ItemOverlay(unit, item)
                 return
             end
         end
+        )
     end
 end
 

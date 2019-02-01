@@ -3,6 +3,7 @@ locomotion.Target = nil
 locomotion.Angle = 0
 locomotion.Speed = 10
 locomotion.MaxDistance = 100
+local mMapArea = Rect(GetCameraBoundMinX(), GetCameraBoundMinY(), GetCameraBoundMaxX(), GetCameraBoundMaxY())
 
 locomotion.OnFoward = function(self, dt)
     if (self.Target == nil or self.Target.Entity == nil) then
@@ -23,7 +24,7 @@ locomotion.OnFoward = function(self, dt)
 end
 
 locomotion.OnFoward2 = function(self, dt)
-    if (RectContainsUnit(GetPlayableMapRect(), self.Owner.Entity)) then
+    if (RectContainsUnit(mMapArea, self.Owner.Entity) == false) then
         self:PathEnded()
         return
     end

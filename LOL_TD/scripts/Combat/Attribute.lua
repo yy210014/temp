@@ -218,9 +218,11 @@ set["魔法上限"] = function(self, value)
     if (self.Owner.ManaType ~= 0) then
         return
     end
-    local mana = value - get["魔法上限"](self) + get["魔法值"](self)
-    SetUnitState(self.Owner.Entity, UNIT_STATE_MAX_MANA, Clamp(value, 0, value))
-    self:set("魔法值", mana)
+    local premana = get["魔法值"](self)
+    local preMaxmana = get["魔法上限"](self)
+    local laterMaxmana = Clamp(value, 0, value)
+    SetUnitState(self.Owner.Entity, UNIT_STATE_MAX_MANA, laterMaxmana)
+    self:set("魔法值", premana + premana / preMaxmana * (laterMaxmana - preMaxmana))
 end
 
 get["魔法恢复"] = function(self)

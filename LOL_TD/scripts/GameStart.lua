@@ -12,7 +12,7 @@ function GameStart.OnGameStart()
     SuspendTimeOfDay(true)
     SetCameraField(CAMERA_FIELD_ZOFFSET, 200, 0)
     CreateQuestBJ(bj_QUESTTYPE_REQ_DISCOVERED, "新手必看", "工人头像旁边有UI商店，前期建议购买贪婪，当贪婪叠加满后卖了可以获得更多的经济。|n前期偏弱的英雄可以开局购买装备火焰之心帮助你更好的清怪.不懂后续出装的优先把人物的装备羁绊做出来然后在慢慢熟悉游戏环境。", "ReplaceableTextures\\CommandButtons\\BTNSelectHeroOn.blp")
-    CreateQuestBJ(bj_QUESTTYPE_REQ_DISCOVERED, "指令说明", "输入++/--可以抬高或者降低镜头视角|n输入-repack可以把一张SR卡重新免费随机一次|n输入-jf可以查看自己当前游戏积分|n输入-sx + 人物索引显示英雄属性，比如-sx1显示第一个英雄的属性。", "ReplaceableTextures\\CommandButtons\\BTNSelectHeroOn.blp")
+    CreateQuestBJ(bj_QUESTTYPE_REQ_DISCOVERED, "指令说明", "输入++/--可以抬高或者降低镜头视角|n输入-repick可以把一张SR卡重新免费随机一次|n输入-jf可以查看自己当前游戏积分|n输入-sx + 人物索引显示英雄属性，比如-sx1显示第一个英雄的属性。", "ReplaceableTextures\\CommandButtons\\BTNSelectHeroOn.blp")
     CreateQuestBJ(bj_QUESTTYPE_REQ_DISCOVERED, "积分说明", "通关难1获得5积分,通关难2获得10积分,通关难3获得15积分,通关难4获得20积分|n进入无尽模式后难3每守住1波奖励1积分，每5波为1轮守住1轮奖励3积分.难4积分翻倍。购买会员获得的所有积分翻倍。", "ReplaceableTextures\\CommandButtons\\BTNSelectHeroOn.blp")
     CreateQuestBJ(bj_QUESTTYPE_OPT_DISCOVERED, "天赋系统", "开局领取小黄鸡福利赠送1天赋点，每击杀100个小兵或击杀一条小龙可以获得1天赋点，天赋点用于给英雄学习天赋技能。游戏内共有十几种不同的天赋，每个天赋分为C,B,A,S四种等级，并且达成任意两个羁绊可以解锁强力的超能天赋，天赋系统能更好的强化你的英雄。", "Icon\\TianFu.blp")
     CreateQuestBJ(bj_QUESTTYPE_OPT_DISCOVERED, "羁绊系统", "每个英雄都有个羁绊技能，羁绊可以和人物点亮也可以和装备点亮，点亮的羁绊可以为英雄提供额外属性。任意英雄点亮两个以上羁绊可以解锁超能天赋，点亮三个以上羁绊可以突破18级等级限制。", "ReplaceableTextures\\CommandButtons\\BTNMetamorphosis.blp")
@@ -480,7 +480,7 @@ function GameStart.AnyUnitLearnedSkill()
     local learnedUnit = GetJ_PlayerUnits(GetLearningUnit())
     local abilityId = GetLearnedSkill()
     if (learnedUnit == nil) then
-        Game.LogError("任意单位学习技能-丢失单位")
+        Game.LogError("技能:" .. GetObjectName(abilityId) .. "开始学习,丢失单位:" .. GetUnitName(GetSpellAbilityUnit()))
         return
     end
     local skill = learnedUnit:LearnedSkill(abilityId)
@@ -491,6 +491,7 @@ function GameStart.AnyUnitSpellChannel()
     local spellUnit = GetJ_PlayerUnits(GetSpellAbilityUnit())
     local abilityId = GetSpellAbilityId()
     if (spellUnit == nil) then
+        Game.LogError("技能:" .. GetObjectName(abilityId) .. "准备施放,丢失单位:" .. GetUnitName(GetSpellAbilityUnit()))
         return
     end
 
@@ -505,22 +506,22 @@ function GameStart.AnyUnitSpellEffect()
     local spellUnit = GetJ_PlayerUnits(GetSpellAbilityUnit())
     local abilityId = GetSpellAbilityId()
     if (spellUnit == nil) then
-        Game.LogError("任意单位发动技能效果-丢失单位")
+        Game.LogError("技能:" .. GetObjectName(abilityId) .. "发动效果,丢失单位:" .. GetUnitName(GetSpellAbilityUnit()))
         return
     end
 
     local skill = spellUnit:GetSkill(abilityId)
     if (skill ~= nil) then
         skill:OnSpell()
-
-        --迭代物品
-        spellUnit:IterateItems(
-        function(item)
-            item:OnCast()
+        if (abilityId ~= GetId("AT00") and abilityId ~= GetId("A009") and abilityId ~= GetId("AU10")) then
+            --迭代物品
+            spellUnit:IterateItems(
+            function(item)
+                item:OnCast()
+            end
+            )
         end
-        )
     end
-
     if (abilityId == GetId("AI47")) then
         SetUnitPosition(spellUnit.Entity, GetSpellTargetX(), GetSpellTargetY())
     end
@@ -529,8 +530,11 @@ end
 --任意单位施放技能结束
 function GameStart.AnyUnitSpellFinish()
     local spellUnit = GetJ_PlayerUnits(GetSpellAbilityUnit())
+    local abilityId = GetSpellAbilityId()
     if (spellUnit == nil) then
-        Game.LogError("任意单位施放技能结束-丢失单位")
+        if (abilityId ~= GetId("AU10")) then
+            Game.LogError("技能:" .. GetObjectName(abilityId) .. "施放结束,丢失单位:" .. GetUnitName(GetSpellAbilityUnit()))
+        end
         return
     end
     IssueImmediateOrder(spellUnit.Entity, "stop")

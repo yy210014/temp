@@ -5,13 +5,13 @@ function item:OnAdd()
     local unit = self.Owner
     unit.Attribute:add("魔法恢复", 2)
     self:SetCharges(Clamp(GetItemCharges(self.Entity), 0, mMaxCount))
-    unit.Attribute:add("魔法上限", 500 + self:GetCharges())
+    unit.Attribute:add("魔法上限", 300 + self:GetCharges())
 end
 
 function item:OnRemove()
     local unit = self.Owner
     unit.Attribute:add("魔法恢复", -2)
-    unit.Attribute:add("魔法上限", -(500 + self:GetCharges()))
+    unit.Attribute:add("魔法上限", -(300 + self:GetCharges()))
 end
 
 function item:OnCast()

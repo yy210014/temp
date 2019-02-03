@@ -7,11 +7,17 @@ local mSpeed = 15
 local mMaxDistance = 1000
 
 local mArt = "AZ_MGN_Q01.mdl"
+local mArt2 = "Abilities\\Spells\\Other\\Stampede\\StampedeMissileDeath.mdl"
 
 setmetatable(Buffs["暗之禁锢"], { __index = Buffs["禁锢"] })
 Buffs["暗之禁锢"].Durs = { 1, 1.25, 1.5, 2, 2.5, 3 }
 
 skill.OnPathUpdate = function(dummy)
+    local owner = dummy.Owner
+    local self = dummy.Skill
+    --伤害
+    local ap = owner.Attribute:get("法术攻击")
+    local damage = mDamages1[self:GetCurLevel()] + ap * mDamages2[self:GetCurLevel()]
     AssetsManager.OverlapCircle(
     dummy:X(),
     dummy:Y(),
@@ -19,23 +25,10 @@ skill.OnPathUpdate = function(dummy)
     function(unit)
         if (IsInTable(unit, dummy.Skill.DamageList) == -1) then
             --特效
-            DestroyEffect(
-            AddSpecialEffectTarget(
-            "Abilities\\Spells\\Other\\Stampede\\StampedeMissileDeath.mdl",
-            unit.Entity,
-            "chest"
-            )
-            )
-            local owner = dummy.Owner
-            local self = dummy.Skill
-            --伤害
-            local ap = owner.Attribute:get("法术攻击")
-            local damage = mDamages1[self:GetCurLevel()] + ap * mDamages2[self:GetCurLevel()]
+            DestroyEffect(AddSpecialEffectTarget(mArt2, unit.Entity, "chest"))
             EXUnitDamageTarget(owner, unit, damage, EXDamageType.Magic)
             unit:AddBuff("暗之禁锢", self:GetCurLevel())
             self.DamageList[#self.DamageList + 1] = unit
-            --   dummy.Locomotion:PathEnded()
-            --  return
         end
     end
     )

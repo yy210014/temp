@@ -3,6 +3,7 @@ skill.SkillType = 2
 skill.DamageList = nil
 --local mArt = "Shadow_Frost_Weapon_Effect.mdl"
 local mArt = "Abilities\\Spells\\Undead\\OrbOfDeath\\OrbOfDeathMissile.mdl"
+local mArt2 = "Abilities\\Spells\\Other\\Stampede\\StampedeMissileDeath.mdl"
 
 local mSpeed = 16
 local mMaxDistance = 800
@@ -30,6 +31,11 @@ function skill:OnKill(dieUnit)
 end
 
 skill.OnPathUpdate = function(dummy)
+    local owner = dummy.Owner
+    local self = dummy.Skill
+    --伤害
+    local ap = owner.Attribute:get("法术攻击")
+    local damage = mDamages1[self:GetCurLevel()] + ap * mDamages2[self:GetCurLevel()]
     AssetsManager.OverlapCircle(
     dummy:X(),
     dummy:Y(),
@@ -37,18 +43,7 @@ skill.OnPathUpdate = function(dummy)
     function(unit)
         if (IsInTable(unit, dummy.Skill.DamageList) == -1) then
             --特效
-            DestroyEffect(
-            AddSpecialEffectTarget(
-            "Abilities\\Spells\\Other\\Stampede\\StampedeMissileDeath.mdl",
-            unit.Entity,
-            "chest"
-            )
-            )
-            local owner = dummy.Owner
-            local self = dummy.Skill
-            --伤害
-            local ap = owner.Attribute:get("法术攻击")
-            local damage = mDamages1[self:GetCurLevel()] + ap * mDamages2[self:GetCurLevel()]
+            DestroyEffect(AddSpecialEffectTarget(mArt2, unit.Entity, "chest"))
             EXUnitDamageTarget(owner, unit, damage, EXDamageType.Magic)
             self.DamageList[#self.DamageList + 1] = unit
         end

@@ -410,7 +410,6 @@ function GameStart.AnyUnitSell(unit)
         AssetsManager.DestroyObject(unit.tianfu)
     end
     AssetsManager.RemoveObject(unit)
-    RemoveUnit(unit.Entity)
 
     local tim = CreateTimer()
     TimerStart(
@@ -419,6 +418,7 @@ function GameStart.AnyUnitSell(unit)
     false,
     function()
         unit:RefreshComb()
+        RemoveUnit(unit.Entity)
         DestroyTimer(tim)
     end
     )
@@ -722,7 +722,7 @@ function GameStart.AnyPlayerChat()
         return
     end
 
-    if (true) then
+    if (false) then
         return
     end
 

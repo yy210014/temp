@@ -127,7 +127,7 @@ function Skill:SetStack(value)
 end
 
 function Skill:GetCurLevel()
-    return GetUnitAbilityLevel(self.Owner.Entity, self.Id)
+    return Clamp(GetUnitAbilityLevel(self.Owner.Entity, self.Id), 1, 100)
 end
 
 function Skill:GetCurRange()

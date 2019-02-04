@@ -7,6 +7,7 @@ skill.Duration = 5
 local mDamageRange = 800
 local mDamages1 = { 75, 100, 125, 150, 175, 200 }
 local mDamages2 = { 0.7, 0.8, 0.9, 1, 1.1, 1.2 }
+local mArt = "Abilities\\Spells\\Other\\Stampede\\StampedeMissileDeath.mdl"
 
 setmetatable(Buffs["灵魂镣铐"], { __index = Buffs["移速"] })
 Buffs["灵魂镣铐"].values = {-0.25, -0.3, -0.35, -0.4, -0.45, -0.5 }
@@ -16,6 +17,11 @@ skill.Action = function(self, dt)
     self.TimeDt = self.TimeDt + dt
     if (self.TimeDt >= self.Duration) then
         self.TimeDt = 0
+        for i = #self.DamageList, 1, -1 do
+            DestroyLightning(self.DamageList[i].AH16lightning)
+            self.DamageList[i].AH16lightning = nil
+        end
+        self.DamageList = nil
         self:OnFinish()
         return
     end
@@ -24,16 +30,7 @@ skill.Action = function(self, dt)
     for i = #self.DamageList, 1, -1 do
         local v = self.DamageList[i]
         if (v.IsDying == false) then
-            MoveLightningEx(
-            v.AH16lightning,
-            false,
-            spellUnit:X(),
-            spellUnit:Y(),
-            spellUnit:Z() + 60,
-            v:X(),
-            v:Y(),
-            v:Z() + 60
-            )
+            MoveLightningEx(v.AH16lightning, false, spellUnit:X(), spellUnit:Y(), spellUnit:Z() + 60, v:X(), v:Y(), v:Z() + 60)
         else
             DestroyLightning(v.AH16lightning)
             v.AH16lightning = nil
@@ -44,20 +41,13 @@ skill.Action = function(self, dt)
     self.IntervalDt = self.IntervalDt - dt
     if (self.IntervalDt <= 0) then
         self.IntervalDt = self.Interval
+        local ap = self.Owner.Attribute:get("法术攻击")
+        local damage = mDamages1[self:GetCurLevel()] + ap * mDamages2[self:GetCurLevel()]
         for i = #self.DamageList, 1, -1 do
             local v = self.DamageList[i]
             if (v.IsDying == false) then
                 --特效
-                DestroyEffect(
-                AddSpecialEffectTarget(
-                "Abilities\\Spells\\Other\\Stampede\\StampedeMissileDeath.mdl",
-                v.Entity,
-                "chest"
-                )
-                )
-                --伤害
-                local ap = self.Owner.Attribute:get("法术攻击")
-                local damage = mDamages1[self:GetCurLevel()] + ap * mDamages2[self:GetCurLevel()]
+                DestroyEffect(AddSpecialEffectTarget(mArt, v.Entity, "chest"))
                 EXUnitDamageTarget(self.Owner, v, damage, EXDamageType.Magic)
             else
                 DestroyLightning(v.AH16lightning)
@@ -77,27 +67,10 @@ function skill:OnCast()
     mDamageRange,
     function(unit)
         self.DamageList[#self.DamageList + 1] = unit
-        unit.AH16lightning =        AddLightningEx(
-        "DRAL",
-        true,
-        spellUnit:X(),
-        spellUnit:Y(),
-        spellUnit:Z() + 60,
-        unit:X(),
-        unit:Y(),
-        unit:Z() + 60
-        )
+        unit.AH16lightning = AddLightningEx("DRAL", true, spellUnit:X(), spellUnit:Y(), spellUnit:Z() + 60, unit:X(), unit:Y(), unit:Z() + 60)
         SetLightningColor(unit.AH16lightning, 1, 0, 1, 1)
         unit:AddBuff("灵魂镣铐", self:GetCurLevel())
     end
     )
     self.CurAction = self.Action
-end
-
-function skill:OnRemove()
-    for i = #self.DamageList, 1, -1 do
-        DestroyLightning(self.DamageList[i].AH16lightning)
-        self.DamageList[i].AH16lightning = nil
-    end
-    self.DamageList = nil
 end

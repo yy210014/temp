@@ -18,7 +18,7 @@ skill.Action = function(self, dt)
     self.TimeDt = self.TimeDt + dt
     if (self.TimeDt >= self.Duration) then
         self.TimeDt = 0
-        AssetsManager.RemoveObject(self.Dummy)
+        AssetsManager.DestroyObject(self.Dummy)
         self:OnFinish()
         return
     end

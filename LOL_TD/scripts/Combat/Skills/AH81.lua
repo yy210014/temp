@@ -39,27 +39,27 @@ skill.Delay = function(self, dt)
 end
 
 skill.OnPathUpdate = function(dummy)
+    local owner = dummy.Owner
+    local self = dummy.Skill
+    local ap = owner.Attribute:get("法术攻击")
+    local damage = 100 + ap
     AssetsManager.OverlapCircle(
-        dummy:X(),
-        dummy:Y(),
-        150,
-        function(unit)
-            if (IsInTable(unit, dummy.Skill.DamageList) == -1) then
-                local owner = dummy.Owner
-                local self = dummy.Skill
-                if (unit.Id ~= GetId("End0")) then
-                    local loc = unit:AddLocomotion("击飞")
-                    if (loc ~= nil) then
-                        loc:Start(unit, 0.6, 300, nil)
-                    end
+    dummy:X(),
+    dummy:Y(),
+    150,
+    function(unit)
+        if (IsInTable(unit, dummy.Skill.DamageList) == -1) then
+            if (unit.Id ~= GetId("End0")) then
+                local loc = unit:AddLocomotion("击飞")
+                if (loc ~= nil) then
+                    loc:Start(unit, 0.6, 300, nil)
                 end
-                --伤害
-                local ap = owner.Attribute:get("法术攻击")
-                local damage = 100 + ap
-                EXUnitDamageTarget(owner, unit, damage, EXDamageType.Magic)
-                self.DamageList[#self.DamageList + 1] = unit
             end
+            --伤害
+            EXUnitDamageTarget(owner, unit, damage, EXDamageType.Magic)
+            self.DamageList[#self.DamageList + 1] = unit
         end
+    end
     )
 end
 

@@ -27,8 +27,8 @@ function skill:OnAttack(attactUnit, defUnit)
         defUnit:Y(),
         mRange,
         function(unit)
+            EXUnitDamageTarget(attactUnit, unit, damage, EXDamageType.Magic)
             if (unit ~= defUnit) then
-                EXUnitDamageTarget(attactUnit, unit, damage, EXDamageType.Magic)
                 if (ah20 ~= nil) then
                     unit:AddBuff("圣焰", ah20:GetCurLevel())
                 end

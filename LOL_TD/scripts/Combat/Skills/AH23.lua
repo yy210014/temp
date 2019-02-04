@@ -77,7 +77,7 @@ skill.Action = function(self, dt)
             self.dummy:SetPosition(self.Owner:X(), self.Owner:Y())
             AssetsManager.RemoveObject(self.dummy)
             self.DamageList = nil
-            self.CurAction = nil
+            self:OnFinish()
         end
     end
 end

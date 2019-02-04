@@ -722,7 +722,18 @@ function GameStart.AnyPlayerChat()
         return
     end
 
-    if (false) then
+    if (str == "debug" and IsDebug == false) then
+        IsDebug = true
+        require("jass.console").enable = IsDebug
+        return
+    end
+
+    if (IsDebug == false) then
+        return
+    end
+
+    if (str == "cheat") then
+        cheat(playerID)
         return
     end
 
@@ -736,10 +747,6 @@ function GameStart.AnyPlayerChat()
         return
     end
 
-    if (str == "cheat") then
-        cheat(playerID)
-        return
-    end
 
     if (str == "pause") then
         DisplayTextToAll("暂停游戏", Color.red)

@@ -6417,7 +6417,7 @@ Frame "BACKDROP" "BAG2" {      //父级
 			FontFlags "FIXEDSIZE",
 			LayerStyle "IGNORETRACKEVENTS",
 			SetPoint TOP, "HeroCard", TOP, 0, -0.008,
-			Text "|cFF00FF00抽N~R卡|r",
+			Text "|cFF00FF00抽N~SR卡|r",
 		}
 
 		//金币

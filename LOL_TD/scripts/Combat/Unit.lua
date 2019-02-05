@@ -23,7 +23,7 @@ local mHeroRegenManaList = {
     [GetId("UH25")] = { 2.4, 0.1 }, --寒冰
     [GetId("UH23")] = { 2.4, 0.1 }, --小炮
     [GetId("UH13")] = { 1.6, 0.2 }, --大天使
-    
+
     --ap
     [GetId("UH02")] = { 3, 0.2 }, --堕天使
     [GetId("UH08")] = { 3, 0.2 }, --小法
@@ -359,6 +359,10 @@ end
 function Unit:Destroy(destroy)
     if (destroy) then
         --释放内存
+        for i = #self.Buffs, 1, -1 do
+            table.remove(self.Buffs, i)
+        end
+        self.Buffs = nil
         for i = #self.Skills, 1, -1 do
             self.Skills[i]:OnFinish()
             table.remove(self.Skills, i)
@@ -393,10 +397,8 @@ function Unit:Destroy(destroy)
         for i = #self.Buffs, 1, -1 do
             if (self.Buffs[i] ~= nil) then
                 self.Buffs[i]:OnRemove()
-                table.remove(self.Buffs, i)
             end
         end
-        self.Buffs = nil
         if (self.Effect ~= nil) then
             DestroyEffect(self.Effect)
         end
@@ -488,6 +490,29 @@ function Unit:OnLevelUp()
 end
 
 function Unit:OnGameUpdate(dt)
+    if (self.Attribute:get("生命") <= 0 or self.IsDying) then
+        return
+    end
+    if (self.Buffs ~= nil) then
+        for i = #self.Buffs, 1, -1 do
+            if (self.Buffs[i] ~= nil) then
+                self.Buffs[i]:OnGameUpdate(dt)
+            else
+                Game.LogError(self.Name .. "丢失Buff")
+            end
+        end
+    end
+
+    if (self.Skills ~= nil) then
+        for i = #self.Skills, 1, -1 do
+            if (self.Skills[i] ~= nil) then
+                self.Skills[i]:OnGameUpdate(dt)
+            else
+                Game.LogError(self.Name .. "丢失Skill")
+            end
+        end
+    end
+
     if (self.Locomotion ~= nil) then
         self.Locomotion:OnGameUpdate(dt)
     end
@@ -515,26 +540,6 @@ function Unit:OnGameUpdate(dt)
             CreateDamageText(text[1], self.Entity, text[2], text[3])
             table.remove(self.Texts, #self.Texts)
             text = nil
-        end
-    end
-
-    if (self.Skills ~= nil) then
-        for i = #self.Skills, 1, -1 do
-            if (self.Skills[i] ~= nil) then
-                self.Skills[i]:OnGameUpdate(dt)
-            else
-                Game.LogError(self.Name .. "丢失Skill")
-            end
-        end
-    end
-
-    if (self.Buffs ~= nil) then
-        for i = #self.Buffs, 1, -1 do
-            if (self.Buffs ~= nil and self.Buffs[i] ~= nil) then
-                self.Buffs[i]:OnGameUpdate(dt)
-            else
-                Game.LogError(self.Name .. "丢失Buff")
-            end
         end
     end
 end

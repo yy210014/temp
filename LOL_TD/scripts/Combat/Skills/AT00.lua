@@ -1383,6 +1383,7 @@ end
 skill = Skills["幽冥冷火[被动]"]
 skill.LastTime = 0
 setmetatable(Buffs["幽冥冷火"], { __index = Buffs["灼烧"] })
+Buffs["幽冥冷火"].Art = "Abilities\\Spells\\Human\\FlameStrike\\FlameStrikeDamageTarget.mdl"
 Buffs["幽冥冷火"].values = { 0 }
 Buffs["幽冥冷火"].Durs = { 3 }
 Buffs["幽冥冷火"].MaxStack = 1

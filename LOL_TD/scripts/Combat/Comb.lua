@@ -334,7 +334,7 @@ end
 
 comb = Combs["师徒二人"]
 comb.Ubertip = [[
--黑暗魔法
+-师徒二人
  羁绊需求：剑圣(SR)+齐天大圣(SSR)
  羁绊效果：增加剑圣/齐天大圣50%物理伤害加成|n
 ]]
@@ -967,11 +967,11 @@ function comb:OnDisable()
     self.Owner.Attribute:add("物理穿透", 0.3)
 end
 
-comb = Combs["齐天大圣-切割者"]
+comb = Combs["齐天大圣-吸蓝刀"]
 comb.Ubertip = [[
--切割者
- 羁绊需求：齐天大圣+切割者
- 羁绊效果：额外增加齐天大圣“如意打击”10点减甲效果|n
+-吸蓝刀
+ 羁绊需求：齐天大圣+吸蓝刀
+ 羁绊效果：增加齐天大圣“如意打击”技能伤害50%|n
 ]]
 
 function comb:HerosId()
@@ -979,7 +979,7 @@ function comb:HerosId()
 end
 
 function comb:Conditions()
-    return (UnitHasItemOfTypeBJ(self.Owner.Entity, GetId("I071")) == true)
+    return (UnitHasItemOfTypeBJ(self.Owner.Entity, GetId("I085")) == true)
 end
 
 function comb:OnEnable()
@@ -1037,6 +1037,7 @@ function AddComb(unit)
         unit:AddComb(setmetatable({}, {__index = Combs["蛮子-红叉"]}))
     elseif (id == GetId("UH19")) then --剑圣
         unit:AddComb(setmetatable({}, {__index = Combs["蛮易信"]}))
+        --unit:AddComb(setmetatable({}, {__index = Combs["师徒二人"]}))
         unit:AddComb(setmetatable({}, {__index = Combs["剑圣-电刀"]}))
         unit:AddComb(setmetatable({}, {__index = Combs["剑圣-无尽"]}))
     elseif (id == GetId("UH23")) then --小炮
@@ -1051,6 +1052,6 @@ function AddComb(unit)
     elseif (id == GetId("UH40")) then --齐天大圣
         unit:AddComb(setmetatable({}, {__index = Combs["师徒二人"]}))
         unit:AddComb(setmetatable({}, {__index = Combs["齐天大圣-三相"]}))
-        unit:AddComb(setmetatable({}, {__index = Combs["齐天大圣-切割者"]}))
+        unit:AddComb(setmetatable({}, {__index = Combs["齐天大圣-吸蓝刀"]}))
     end
 end

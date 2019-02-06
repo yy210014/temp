@@ -4,6 +4,7 @@ locomotion.Duration = 1
 locomotion.InitHigh = 0
 locomotion.High = 100
 locomotion.TimeDt = 0
+local mArt = "Abilities\\Spells\\Orc\\MirrorImage\\MirrorImageDeathCaster.mdl"
 
 locomotion.OnUp = function(self, dt)
     if (self.Target == nil or self.Target.Entity == nil) then
@@ -36,7 +37,7 @@ locomotion.OnDown = function(self, dt)
 end
 
 function locomotion:Start(...)
-    local arg = {...}
+    local arg = { ... }
     self.Target = arg[1]
     self.Duration = arg[2]
     self.High = arg[3]
@@ -46,13 +47,7 @@ function locomotion:Start(...)
     UnitAddAbility(targetUnit, GetId("Arav"))
     UnitRemoveAbility(targetUnit, GetId("Arav"))
     PauseUnit(targetUnit, true)
-    DestroyEffect(
-        AddSpecialEffect(
-            "Abilities\\Spells\\Orc\\MirrorImage\\MirrorImageDeathCaster.mdl",
-            self.Target:X(),
-            self.Target:Y()
-        )
-    )
+    DestroyEffect(AddSpecialEffect(mArt, self.Target:X(), self.Target:Y()))
     self.TimeDt = 0
     self.InitHigh = self.Target:Z()
     self.CurAction = self.OnUp

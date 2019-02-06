@@ -55,6 +55,7 @@ require "scripts.Combat.Skills.AH41"
 require "scripts.Combat.Skills.AH42"
 require "scripts.Combat.Skills.AH43"
 require "scripts.Combat.Skills.AH44"
+require "scripts.Combat.Skills.AH76"
 --草丛伦
 require "scripts.Combat.Skills.AH45"
 require "scripts.Combat.Skills.AH46" --用剑刃风暴模板，伤害改成0

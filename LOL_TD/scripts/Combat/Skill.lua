@@ -9,7 +9,7 @@ function Skill:New(owner, id)
     newSkill.Id = id
     newSkill.Order = Slk.ability[id]["Order"]
     newSkill.MaxLevel = tonumber(Slk.ability[id]["levels"])
-    local index = 0 
+    local index = 0
     --self.Cools slk优化后只获取到了4级数据
     for i = 1, newSkill.MaxLevel do
         index = i > 4 and 4 or i
@@ -24,6 +24,9 @@ function Skill:New(owner, id)
 end
 
 function Skill:OnSpell()
+    if (self.IsSpell) then
+        self:OnFinish()
+    end
     self.TimeDt = 0
     self.IsSpell = true
     self.SpellTime = GameScene.Elapsed

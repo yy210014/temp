@@ -1,8 +1,8 @@
 local item = Items["电刀"]
 item.Count = 0
 item.Count2 = 0
-local mRange = 1000
-local mMaxNum = 6
+local mRange = 1200
+local mMaxNum = 7
 
 function item:OnAdd()
     local unit = self.Owner
@@ -17,9 +17,9 @@ function item:OnRemove()
 end
 
 function item:OnAttack(attactUnit, defUnit)
-    --每8次攻击会触发闪电效果，对每个目标造成1250点法术伤害
+    --每7次攻击会触发闪电效果，对每个目标造成1250点法术伤害
     self.Count = self.Count + 1
-    if self.Count >= 8 then
+    if self.Count >= 7 then
         self.Count = 0
         self.Count2 = 0
         AssetsManager.OverlapCircle(
@@ -29,7 +29,7 @@ function item:OnAttack(attactUnit, defUnit)
             function(unit)
                 if (self.Count2 <= mMaxNum) then
                     self.Count2 = self.Count2 + 1
-                    EXUnitDamageTarget(attactUnit, unit, 1000, EXDamageType.Magic)
+                    EXUnitDamageTarget(attactUnit, unit, 1250, EXDamageType.Magic)
                     DestroyEffect(
                         AddSpecialEffectTarget(
                             "Abilities\\Spells\\Items\\AIlb\\AIlbSpecialArt.mdl",

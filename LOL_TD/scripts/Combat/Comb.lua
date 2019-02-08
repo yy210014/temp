@@ -745,7 +745,7 @@ comb = Combs["草丛伦-烈焰斗篷"]
 comb.Ubertip = [[
 -烈焰斗篷
  羁绊需求：草丛伦+烈焰斗篷
- 羁绊效果：增加草丛伦10%冷却缩减|n
+ 羁绊效果：增加烈焰斗篷50%伤害|n
 ]]
 
 function comb:HerosId()
@@ -757,11 +757,9 @@ function comb:Conditions()
 end
 
 function comb:OnEnable()
-    self.Owner.Attribute:add("冷却缩减", 0.1)
 end
 
 function comb:OnDisable()
-    self.Owner.Attribute:add("冷却缩减", -0.1)
 end
 
 comb = Combs["蛮子-无尽"]
@@ -1037,7 +1035,7 @@ function AddComb(unit)
         unit:AddComb(setmetatable({}, {__index = Combs["蛮子-红叉"]}))
     elseif (id == GetId("UH19")) then --剑圣
         unit:AddComb(setmetatable({}, {__index = Combs["蛮易信"]}))
-        --unit:AddComb(setmetatable({}, {__index = Combs["师徒二人"]}))
+        unit:AddComb(setmetatable({}, {__index = Combs["师徒二人"]}))
         unit:AddComb(setmetatable({}, {__index = Combs["剑圣-电刀"]}))
         unit:AddComb(setmetatable({}, {__index = Combs["剑圣-无尽"]}))
     elseif (id == GetId("UH23")) then --小炮

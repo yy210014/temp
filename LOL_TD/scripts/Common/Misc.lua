@@ -73,7 +73,8 @@ local mCheatItems = {
     "41",
     "42",
     "43",
-    "44"
+    "44",
+    "45"
 }
 --作弊
 function cheat(playerId)

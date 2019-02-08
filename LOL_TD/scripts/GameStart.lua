@@ -728,7 +728,7 @@ function GameStart.AnyPlayerChat()
         return
     end
 
-    if (IsDebug == false) then
+    if (true) then
         return
     end
 

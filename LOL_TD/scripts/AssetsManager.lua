@@ -97,6 +97,7 @@ end
 local function DestroyPlayerObject(unit, destroy)
     if (unit.Trigger ~= nil) then
         DestroyTrigger(unit.Trigger)
+        unit.Trigger = nil
     end
 
     for i = #mPlayerTeamUnits[GetPlayerId(unit.Player) + 1], 1, -1 do

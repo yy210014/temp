@@ -1,5 +1,7 @@
 local skill = Skills["爆破雷区"]
 skill.SkillType = 2
+skill.Durs = { 4, 4, 4, 4, 4, 4 } --持续时间
+skill.DummyList = {}
 local mDuration = 15
 local mDamages1 = { 80, 120, 180, 240, 300, 360 }
 local mDamages2 = { 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 }
@@ -20,7 +22,7 @@ function skill:OnCast()
         dummy = AssetsManager.LoadUnit(spellUnit.Player, "uq05", GetSpellTargetX() + offX, GetSpellTargetY() + offY)
         dummy.Owner = self.Owner
         dummy.Skill = self
-        AssetsManager.RemoveObject(dummy)
+        self.DummyList[#self.DummyList + 1] = dummy
     end
     for i = 1, 8 do
         offX = 100 * math.cos(math.rad((360 / 8) * i))
@@ -28,7 +30,13 @@ function skill:OnCast()
         dummy = AssetsManager.LoadUnit(spellUnit.Player, "uq05", GetSpellTargetX() + offX, GetSpellTargetY() + offY)
         dummy.Owner = self.Owner
         dummy.Skill = self
-        AssetsManager.RemoveObject(dummy)
+        self.DummyList[#self.DummyList + 1] = dummy
     end
-    --地雷没有自动排泄，需要开启计时器4秒后统一排泄，AssetsManager.RemoveObject(dieUnit)
+end
+
+function skill:OnRemove()
+    for i = #self.DummyList, 1, -1 do
+        AssetsManager.DestroyObject(self.DummyList[i])
+        table.remove(self.DummyList, i)
+    end
 end

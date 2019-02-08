@@ -357,6 +357,7 @@ end
 --走AssetsManager.DestroyObject(unit)删除逻辑，不要直接从这删除
 --运动中的单位中途死亡也要让运动继续下去，死亡单位5秒后销毁，并释放相关内存
 function Unit:Destroy(destroy)
+    self.IsDying = true
     if (destroy) then
         --释放内存
         for i = #self.Buffs, 1, -1 do

@@ -280,7 +280,7 @@ function GameStart.AnyUnitDeath(killUnit, dieUnit)
     if (Game.GetMode() == GameMode.NORMAL) then
         local playerId = GetPlayerId(killUnit.Player) + 1
         mUnitDeathDropCount[playerId] = mUnitDeathDropCount[playerId] + 1
-        if (mUnitDeathDropCount[playerId] >= (PlayerInfo:IsVIP(killUnit.Player) and 20 or 25)) then
+        if (mUnitDeathDropCount[playerId] >= (PlayerInfo:IsVIP(killUnit.Player) and 21 or 25)) then
             local itemId = Card.RandomDrop()
             if (itemId ~= 0) then
                 CreateItem(itemId, dieUnit:X(), dieUnit:Y())

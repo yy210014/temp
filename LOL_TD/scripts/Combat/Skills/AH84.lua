@@ -1,23 +1,21 @@
 local skill = Skills["破晓"]
 skill.SkillType = 0
-skill.Flag = false
+skill.Durs = { 2, 2, 2, 2, 2, 2 }
 
 setmetatable(Buffs["破晓"], { __index = Buffs["眩晕"] })
 Buffs["破晓"].Durs = { 1, 1, 1, 1, 1, 1 }
 
-function skill:OnCast()
-    self.Flag = true
-end
-
 function skill:OnBeginAttack(attactUnit, defUnit)
-    if (self.Flag) then
-        SetUnitAnimation(attactUnit.Entity, "attack slam")
+    if self.IsSpell then
+        SetUnitAnimationByIndex(attactUnit.Entity, 7)
+    else
+        SetUnitAnimationByIndex(attactUnit.Entity, 2)
     end
 end
 
 function skill:OnAttack(attactUnit, defUnit)
-    if (self.Flag) then
-        self.Flag = false
+    if (self.IsSpell) then
+        self:OnFinish()
         defUnit:AddBuff("破晓")
         local ad = attactUnit.Attribute:get("物理攻击") + attactUnit.Attribute:get("物理攻击加成")
         local ap = attactUnit.Attribute:get("法术攻击")

@@ -8,6 +8,7 @@ function item:OnAdd()
     local unit = self.Owner
     unit.Attribute:add("攻击速度", 0.4)
     unit.Attribute:add("暴击", 0.15)
+    self.Count = GetItemCharges(self.Entity)
 end
 
 function item:OnRemove()
@@ -19,7 +20,7 @@ end
 function item:OnAttack(attactUnit, defUnit)
     --每7次攻击会触发闪电效果，对每个目标造成1250点法术伤害
     self.Count = self.Count + 1
-    if self.Count >= 7 then
+    if self.Count > mMaxNum then
         self.Count = 0
         self.Count2 = 0
         AssetsManager.OverlapCircle(
@@ -41,5 +42,5 @@ function item:OnAttack(attactUnit, defUnit)
             end
         )
     end
-    self:SetCharges(self.Count)
+    SetItemCharges(self.Entity, self.Count)
 end

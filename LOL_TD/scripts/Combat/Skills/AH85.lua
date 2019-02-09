@@ -4,7 +4,7 @@ local mArt1 = "FireNova_Area.mdl"
 local mArt2 = "[Sepll]LinaSun _T2_Blast.mdl"
 
 local mDamages1 = 300
-local mDelayTime = 0.5
+local mDelayTime = 0
 local mDamageRange = 600
 
 setmetatable(Buffs["日耀减速"], { __index = Buffs["移速"] })
@@ -36,10 +36,9 @@ skill.DelayDamage = function(self, dt)
         self.SpellTargetY,
         mDamageRange,
         function(unit)
-            if (DistanceBetweenUnits(spellUnit.Entity, unit.Entity) <= 200) then
+            unit:AddBuff("日耀减速")
+            if (DistanceBetweenPoint(self.SpellTargetX, unit:X(), self.SpellTargetY, unit:Y()) <= 200) then
                 unit:AddBuff("日耀眩晕")
-            else
-                unit:AddBuff("日耀减速")
             end
             --伤害
             local ap = spellUnit.Attribute:get("法术攻击")

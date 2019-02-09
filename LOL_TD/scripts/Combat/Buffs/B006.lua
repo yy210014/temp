@@ -5,15 +5,13 @@ buff.Art = "Abilities\\Spells\\Human\\Thunderclap\\ThunderclapTarget.mdl"
 
 function buff:OnAdd()
     local unit = self.Owner
-    SetUnitAnimation(unit.Entity, "stand")
     self.Effect = AddSpecialEffectTarget(self.Art, unit.Entity, "overhead")
-    self.LastSpeed = (GetUnitDefaultMoveSpeed(unit.Entity) + unit.Attribute:get("移动速度加成")) * -1
-    unit.Attribute:add("移动速度加成", self.LastSpeed)
+    EXPauseUnit(unit.Entity, true)
 end
 
 function buff:OnRemove()
     if (self.Effect ~= nil) then
         DestroyEffect(self.Effect)
     end
-    self.Owner.Attribute:add("移动速度加成", -self.LastSpeed)
+    EXPauseUnit(self.Owner.Entity, false)
 end

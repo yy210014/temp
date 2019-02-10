@@ -256,7 +256,7 @@ function PushWave()
 end
 
 function DelayEndLessPush()
-    TimerStart(mDelayPushTimer, 10, false, PushWave)
+    TimerStart(mDelayPushTimer, 30, false, PushWave)
     TimerDialogSetTitle(mDelayPushTimerDialog, "无尽第" .. mEndlessWaveIndex .. "波")
     TimerDialogDisplay(mDelayPushTimerDialog, true)
 end

@@ -4,7 +4,7 @@ local mMaxCount = 1500
 function item:OnAdd()
     local unit = self.Owner
     unit.Attribute:add("魔法恢复", 2)
-    self:SetCharges(Clamp(GetItemCharges(self.Entity), 0, mMaxCount))
+    self:SetCharges(Misc.Clamp(GetItemCharges(self.Entity), 0, mMaxCount))
     unit.Attribute:add("魔法上限", 300 + self:GetCharges())
 end
 

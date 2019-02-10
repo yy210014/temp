@@ -4,7 +4,7 @@ item.MaxCount = 1500
 
 function item:OnAdd()
     local unit = self.Owner
-    self.Count = Clamp(GetItemCharges(self.Entity), 0, self.MaxCount)
+    self.Count = Misc.Clamp(GetItemCharges(self.Entity), 0, self.MaxCount)
     unit.Attribute:add("物理攻击加成", 30 + self.Count / 5)
     self:SetCharges(self.Count)
 end

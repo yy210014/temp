@@ -206,7 +206,7 @@ function GameStart.AnyUnitDamaged()
                 if (defUnit.Attribute:get("生命") > damage and defUnit.IsDying == false) then
                     IssueTargetOrder(attactUnit.Entity, skill.Order, defUnit.Entity)
                 else
-                    local radius = Clamp(skill:GetCurRange() - 200, 0, 1000)
+                    local radius = Misc.Clamp(skill:GetCurRange() - 200, 0, 1000)
 
                     --可以优化从对于的敌人开始进行索引
                     local enemyTeamUnits = GetEnemyTeamUnits()
@@ -227,7 +227,7 @@ function GameStart.AnyUnitDamaged()
                 AssetsManager.OverlapCircle(
                 attactUnit:X(),
                 attactUnit:Y(),
-                Clamp(skill:GetCurRange() - 200, 0, 1000),
+                Misc.Clamp(skill:GetCurRange() - 200, 0, 1000),
                 function(enemy)
                     if (skill.SkillType == 1) then
                         IssueTargetOrder(attactUnit.Entity, skill.Order, enemy.Entity)

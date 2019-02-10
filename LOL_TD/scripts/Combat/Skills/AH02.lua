@@ -22,7 +22,7 @@ local function Action(self)
                 local ad = self.Owner.Attribute:get("物理攻击") + self.Owner.Attribute:get("物理攻击加成")
                 local ap = self.Owner.Attribute:get("法术攻击")
                 local damage = mDamages[self:GetCurLevel()] + (ad * 0.3) + (ap * 0.2)
-                local rate = 1 - Clamp(self.count * 0.15, 0, 0.6)
+                local rate = 1 - Misc.Clamp(self.count * 0.15, 0, 0.6)
                 damage = damage * rate
                 DestroyEffect(
                     AddSpecialEffectTarget(

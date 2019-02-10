@@ -1,3 +1,16 @@
+Misc = {}
+Misc.PI = 3.14159274
+
+function Misc.Clamp(value, min, max)
+    if (value > max) then
+        return max
+    end
+    if (value < min) then
+        return min
+    end
+    return value
+end
+
 --镜头+
 function AddCameraFieldForPlayer()
     local player = GetTriggerPlayer()
@@ -168,16 +181,6 @@ function FilterStringColor(str)
         str = string.sub(str, startIndex + 10, endIndex - 1)
     end
     return str
-end
-
-function Clamp(value, min, max)
-    if (value > max) then
-        return max
-    end
-    if (value < min) then
-        return min
-    end
-    return value
 end
 
 function HasItem(unit, itemID)

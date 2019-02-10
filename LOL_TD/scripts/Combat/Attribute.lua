@@ -95,7 +95,7 @@ get["物理攻击"] = function(self)
 end
 
 set["物理攻击"] = function(self, value)
-    SetUnitState(self.Owner.Entity, ConvertUnitState(18), Clamp(value, 0, value))
+    SetUnitState(self.Owner.Entity, ConvertUnitState(18), Misc.Clamp(value, 0, value))
 end
 
 get["物理攻击加成"] = function(self)
@@ -103,7 +103,7 @@ get["物理攻击加成"] = function(self)
 end
 
 set["物理攻击加成"] = function(self, value)
-    SetUnitState(self.Owner.Entity, ConvertUnitState(19), Clamp(value, 0, value))
+    SetUnitState(self.Owner.Entity, ConvertUnitState(19), Misc.Clamp(value, 0, value))
 end
 
 get["物理伤害加成"] = function(self)
@@ -111,18 +111,18 @@ get["物理伤害加成"] = function(self)
 end
 
 set["物理伤害加成"] = function(self, value)
-    self.ADDamage = Clamp(value, 1, value)
+    self.ADDamage = Misc.Clamp(value, 1, value)
 end
 
 get["法术攻击"] = function(self)
-    return Clamp(self.Ap, 0, self.Ap)
+    return Misc.Clamp(self.Ap, 0, self.Ap)
 end
 
 set["法术攻击"] = function(self, value)
     if (IsUnitType(self.Owner.Entity, UNIT_TYPE_HERO) == false) then
         return
     end
-    self.Ap = Clamp(value, 0, value)
+    self.Ap = Misc.Clamp(value, 0, value)
     SetHeroStr(self.Owner.Entity, self.Ap, true)
 end
 
@@ -131,23 +131,23 @@ get["法术伤害加成"] = function(self)
 end
 
 set["法术伤害加成"] = function(self, value)
-    self.APDamage = Clamp(value, 1, value)
+    self.APDamage = Misc.Clamp(value, 1, value)
 end
 
 get["物理穿透"] = function(self)
-    return Clamp(self.AdPenetrate, 0, 1)
+    return Misc.Clamp(self.AdPenetrate, 0, 1)
 end
 
 set["物理穿透"] = function(self, value)
-    self.AdPenetrate = Clamp(value, 0, 1)
+    self.AdPenetrate = Misc.Clamp(value, 0, 1)
 end
 
 get["法术穿透"] = function(self)
-    return Clamp(self.APPenetrate, 0, self.APPenetrate)
+    return Misc.Clamp(self.APPenetrate, 0, self.APPenetrate)
 end
 
 set["法术穿透"] = function(self, value)
-    self.APPenetrate = Clamp(value, 0, value)
+    self.APPenetrate = Misc.Clamp(value, 0, value)
 end
 
 get["攻击范围"] = function(self)
@@ -155,7 +155,7 @@ get["攻击范围"] = function(self)
 end
 
 set["攻击范围"] = function(self, value)
-    SetUnitState(self.Owner.Entity, ConvertUnitState(22), Clamp(value, 0, value))
+    SetUnitState(self.Owner.Entity, ConvertUnitState(22), Misc.Clamp(value, 0, value))
 end
 
 get["护甲"] = function(self)
@@ -171,7 +171,7 @@ get["攻击速度"] = function(self)
 end
 
 set["攻击速度"] = function(self, value)
-    SetUnitState(self.Owner.Entity, ConvertUnitState(81), Clamp(value, 0, value))
+    SetUnitState(self.Owner.Entity, ConvertUnitState(81), Misc.Clamp(value, 0, value))
 end
 
 get["移动速度加成"] = function(self)
@@ -180,7 +180,7 @@ end
 
 set["移动速度加成"] = function(self, value)
     self.MoveSpeed = value
-    SetUnitMoveSpeed(self.Owner.Entity, Clamp(GetUnitDefaultMoveSpeed(self.Owner.Entity) + value, 0, 522))
+    SetUnitMoveSpeed(self.Owner.Entity, Misc.Clamp(GetUnitDefaultMoveSpeed(self.Owner.Entity) + value, 0, 522))
 end
 
 get["生命"] = function(self)
@@ -188,7 +188,7 @@ get["生命"] = function(self)
 end
 
 set["生命"] = function(self, value)
-    SetUnitState(self.Owner.Entity, UNIT_STATE_LIFE, Clamp(value, 0, value))
+    SetUnitState(self.Owner.Entity, UNIT_STATE_LIFE, Misc.Clamp(value, 0, value))
 end
 
 get["生命上限"] = function(self)
@@ -196,7 +196,7 @@ get["生命上限"] = function(self)
 end
 
 set["生命上限"] = function(self, value)
-    SetUnitState(self.Owner.Entity, UNIT_STATE_MAX_LIFE, Clamp(value, 0, value))
+    SetUnitState(self.Owner.Entity, UNIT_STATE_MAX_LIFE, Misc.Clamp(value, 0, value))
 end
 
 get["魔法值"] = function(self)
@@ -207,7 +207,7 @@ set["魔法值"] = function(self, value)
     if (self.Owner.ManaType ~= 0 or value < 0) then
         return
     end
-    SetUnitState(self.Owner.Entity, UNIT_STATE_MANA, Clamp(value, 0, value))
+    SetUnitState(self.Owner.Entity, UNIT_STATE_MANA, Misc.Clamp(value, 0, value))
 end
 
 get["魔法上限"] = function(self)
@@ -220,36 +220,36 @@ set["魔法上限"] = function(self, value)
     end
     local premana = get["魔法值"](self)
     local preMaxmana = get["魔法上限"](self)
-    local laterMaxmana = Clamp(value, 0, value)
+    local laterMaxmana = Misc.Clamp(value, 0, value)
     SetUnitState(self.Owner.Entity, UNIT_STATE_MAX_MANA, laterMaxmana)
     self:set("魔法值", premana + premana / preMaxmana * (laterMaxmana - preMaxmana))
 end
 
 get["魔法恢复"] = function(self)
-    return Clamp(self.RegenMana, 0, self.RegenMana)
+    return Misc.Clamp(self.RegenMana, 0, self.RegenMana)
 end
 
 set["魔法恢复"] = function(self, value)
-    self.RegenMana = Clamp(value, 0, value)
+    self.RegenMana = Misc.Clamp(value, 0, value)
 end
 
 get["能量值"] = function(self)
-    return Clamp(GetUnitState(self.Owner.Entity, UNIT_STATE_MANA), 0, 100)
+    return Misc.Clamp(GetUnitState(self.Owner.Entity, UNIT_STATE_MANA), 0, 100)
 end
 
 set["能量值"] = function(self, value)
     if (self.Owner.ManaType ~= 1 or value - get["能量值"](self) <= 0) then
         return
     end
-    SetUnitState(self.Owner.Entity, UNIT_STATE_MANA, Clamp(value, 0, 100))
+    SetUnitState(self.Owner.Entity, UNIT_STATE_MANA, Misc.Clamp(value, 0, 100))
 end
 
 get["怒气值"] = function(self)
-    return Clamp(GetUnitState(self.Owner.Entity, UNIT_STATE_MANA), 0, 100)
+    return Misc.Clamp(GetUnitState(self.Owner.Entity, UNIT_STATE_MANA), 0, 100)
 end
 
 set["怒气值"] = function(self, value)
-    value = Clamp(value, 0, 100)
+    value = Misc.Clamp(value, 0, 100)
     if (self.Owner.ManaType ~= 2 or value == get["怒气值"](self)) then
         return
     end
@@ -258,14 +258,14 @@ set["怒气值"] = function(self, value)
 end
 
 get["冷却缩减"] = function(self)
-    return Clamp(self.Cooldown, 0, self.CooldownMax)
+    return Misc.Clamp(self.Cooldown, 0, self.CooldownMax)
 end
 
 set["冷却缩减"] = function(self, value)
     if (IsUnitType(self.Owner.Entity, UNIT_TYPE_HERO) == false) then
         return
     end
-    self.Cooldown = Clamp(value, 0, self.CooldownMax)
+    self.Cooldown = Misc.Clamp(value, 0, self.CooldownMax)
     SetHeroInt(self.Owner.Entity, self.Cooldown * 100, true)
     self.Owner:UpdateSkillCD()
 end
@@ -279,14 +279,14 @@ set["冷却缩减上限"] = function(self, value)
 end
 
 get["暴击"] = function(self)
-    return Clamp(self.Crit, 0, 1)
+    return Misc.Clamp(self.Crit, 0, 1)
 end
 
 set["暴击"] = function(self, value)
     if (IsUnitType(self.Owner.Entity, UNIT_TYPE_HERO) == false) then
         return
     end
-    self.Crit = Clamp(value, 0, 1)
+    self.Crit = Misc.Clamp(value, 0, 1)
     SetHeroAgi(self.Owner.Entity, math.floor(self.Crit * 100), true)
 end
 

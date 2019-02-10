@@ -44,7 +44,7 @@ function item:OnRefresh()
     --提供最大魔法值2%的攻击力
     local unit = self.Owner
     unit.Attribute:add("魔法上限", -self.Count)
-    self.Count = Clamp(GetItemCharges(self.Entity), 0, mMaxCount)
+    self.Count = Misc.Clamp(GetItemCharges(self.Entity), 0, mMaxCount)
     unit.Attribute:add("魔法上限", self.Count)
     unit.Attribute:add("物理攻击加成", -self.LastValue)
     self.LastValue = unit.Attribute:get("魔法上限") * 0.02

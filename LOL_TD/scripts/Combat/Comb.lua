@@ -655,7 +655,7 @@ comb = Combs["炸弹人-大圣杯"]
 comb.Ubertip = [[
 -大圣杯
  羁绊需求：炸弹人+大圣杯
- 羁绊效果：增加炸弹人10%的冷却缩减|n
+ 羁绊效果：增加炸弹人10%的冷却缩减和冷却上限|n
 ]]
 
 function comb:HerosId()
@@ -667,10 +667,12 @@ function comb:Conditions()
 end
 
 function comb:OnEnable()
+    self.Owner.Attribute:add("冷却缩减上限", 0.1)
     self.Owner.Attribute:add("冷却缩减", 0.1)
 end
 
 function comb:OnDisable()
+    self.Owner.Attribute:add("冷却缩减上限", -0.1)
     self.Owner.Attribute:add("冷却缩减", -0.1)
 end
 

@@ -266,7 +266,7 @@ comb.Ubertip = [[
 -神圣与堕落
  羁绊需求：大天使(SR)+堕天使(SSR)
  羁绊效果：增加大天使80%攻速
-          增加堕天使20%冷却缩减和冷却上限|n
+          增加堕天使50%法术伤害加成|n
 ]]
 
 function comb:HerosId()
@@ -290,7 +290,7 @@ comb.Ubertip = [[
 -神圣与堕落
  羁绊需求：大天使(SR)+堕天使(SSR)
  羁绊效果：增加大天使80%攻速
-          增加堕天使20%冷却缩减和冷却上限|n
+          增加堕天使50%法术伤害加成|n
 ]]
 
 function comb:HerosId()
@@ -302,13 +302,11 @@ function comb:Conditions()
 end
 
 function comb:OnEnable()
-    self.Owner.Attribute:add("冷却缩减", 0.2)
-    self.Owner.Attribute:add("冷却缩减上限", 0.2)
+    self.Owner.Attribute:add("法术伤害加成", 0.5)
 end
 
 function comb:OnDisable()
-    self.Owner.Attribute:add("冷却缩减", -0.2)
-    self.Owner.Attribute:add("冷却缩减上限", -0.2)
+    self.Owner.Attribute:add("法术伤害加成", -0.5)
 end
 
 comb = Combs["黑暗魔法"]

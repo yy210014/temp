@@ -628,29 +628,6 @@ function comb:OnDisable()
     self.Owner.Attribute:add("法术穿透", -0.3)
 end
 
-comb = Combs["炸弹人-鬼书"]
-comb.Ubertip = [[
--鬼书
- 羁绊需求：炸弹人+鬼书
- 羁绊效果：增加炸弹人30%的法术穿透|n
-]]
-
-function comb:HerosId()
-    return {self.Owner.Id}
-end
-
-function comb:Conditions()
-    return (UnitHasItemOfTypeBJ(self.Owner.Entity, GetId("I075")) == true)
-end
-
-function comb:OnEnable()
-    self.Owner.Attribute:add("法术穿透", 0.3)
-end
-
-function comb:OnDisable()
-    self.Owner.Attribute:add("法术穿透", -0.3)
-end
-
 comb = Combs["炸弹人-大圣杯"]
 comb.Ubertip = [[
 -大圣杯
@@ -674,6 +651,29 @@ end
 function comb:OnDisable()
     self.Owner.Attribute:add("冷却缩减上限", -0.1)
     self.Owner.Attribute:add("冷却缩减", -0.1)
+end
+
+comb = Combs["炸弹人-巫术法杖"]
+comb.Ubertip = [[
+-巫术法杖
+ 羁绊需求：炸弹人+巫术法杖
+ 羁绊效果：增加炸弹人30%的法术穿透|n
+]]
+
+function comb:HerosId()
+    return {self.Owner.Id}
+end
+
+function comb:Conditions()
+    return (UnitHasItemOfTypeBJ(self.Owner.Entity, GetId("I064")) == true)
+end
+
+function comb:OnEnable()
+    self.Owner.Attribute:add("法术穿透", 0.3)
+end
+
+function comb:OnDisable()
+    self.Owner.Attribute:add("法术穿透", -0.3)
 end
 
 comb = Combs["寒冰-飓风"]

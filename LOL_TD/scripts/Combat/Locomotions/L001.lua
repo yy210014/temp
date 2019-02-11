@@ -10,30 +10,52 @@ locomotion.OnFoward = function(self, dt)
         self:PathEnded()
         return
     end
-
-    local angle = AngleBetweenUnits(self.Owner.Entity, self.Target.Entity)
-    local offX = self.Speed * math.cos(angle)
-    local offY = self.Speed * math.sin(angle)
-    SetUnitX(self.Owner.Entity, self.Owner:X() + offX)
-    SetUnitY(self.Owner.Entity, self.Owner:Y() + offY)
-    self.Owner:SetUnitFacing(angle)
-    if (DistanceBetweenUnits(self.Owner.Entity, self.Target.Entity) < 10) then
-        SetUnitPathing(self.Owner.Entity, false)
+    local owner = self.Owner
+    local angle = AngleBetweenUnits(owner.Entity, self.Target.Entity)
+    local offX = self.Speed * math.cos(math.rad(angle))
+    local offY = self.Speed * math.sin(math.rad(angle))
+    SetUnitX(owner.Entity, owner:X() + offX)
+    SetUnitY(owner.Entity, owner:Y() + offY)
+    owner:SetUnitFacing(angle)
+    if (DistanceBetweenUnits(owner.Entity, self.Target.Entity) < 10) then
+        SetUnitPathing(owner.Entity, false)
         self:PathEnded()
     end
 end
 
 locomotion.OnFoward2 = function(self, dt)
-    if (RectContainsUnit(mMapArea, self.Owner.Entity) == false) then
+    local owner = self.Owner
+    if (RectContainsUnit(mMapArea, owner.Entity) == false) then
         self:PathEnded()
         return
     end
-    local offX = self.Speed * math.cos(self.Angle)
-    local offY = self.Speed * math.sin(self.Angle)
-    SetUnitX(self.Owner.Entity, self.Owner:X() + offX)
-    SetUnitY(self.Owner.Entity, self.Owner:Y() + offY)
-    if (DistanceBetweenPoint(self.StartX, self.Owner:X(), self.StartY, self.Owner:Y()) > self.MaxDistance) then
-        SetUnitPathing(self.Owner.Entity, false)
+
+
+    local accDt = 0
+    if (self.AccDur > 0) then
+        accDt = self.AccDur < dt and self.AccDur or dt
+        self.AccDur = Misc.Clamp(self.AccDur - dt, 0, self.AccDur)
+    elseif (self.AccDur <= -1) then
+        accDt = dt
+    end
+    self.Speed = self.Speed + self.Acc * accDt
+
+    local offX = self.Speed * math.cos(math.rad(self.Angle))
+    local offY = self.Speed * math.sin(math.rad(self.Angle))
+    SetUnitX(owner.Entity, owner:X() + offX)
+    SetUnitY(owner.Entity, owner:Y() + offY)
+
+    local angle = AngleBetweenPoint(owner:X(), owner:X() + offX, owner:Y(), owner:Y() + offY)
+    -- 自身旋转
+    if (self.RotSpd ~= 0) then
+        local angDelta = self.RotSpd * dt
+        owner:SetUnitFacing(owner:Facing() + angDelta)
+    else
+        owner:SetUnitFacing(angle)
+    end
+
+    if (DistanceBetweenPoint(self.StartX, owner:X(), self.StartY, owner:Y()) > self.MaxDistance) then
+        SetUnitPathing(owner.Entity, false)
         self:PathEnded()
     end
 end
@@ -56,6 +78,9 @@ function locomotion:Start2(...)
     self.MaxDistance = arg[3]
     self.OnPathEnd = arg[4]
     self.OnPathUpdate = arg[5]
+    self.Acc = arg[6] or 0
+    self.AccDur = arg[7] or -1
+    self.RotSpd = arg[8] or 0
     self.StartX = self.Owner:X()
     self.StartY = self.Owner:Y()
     self.Owner:SetUnitFacing(self.Angle)

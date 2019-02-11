@@ -38,7 +38,7 @@ skill.Action = function(self, dt)
         local dummy = AssetsManager.LoadUnit(self.Owner.Player, "uq00", self.spellTargetUnit:X(), self.spellTargetUnit:Y())
         dummy.Name = "剑圣突袭2"
         dummy.Effect = AddSpecialEffectTarget(mArt1, dummy.Entity, "origin")
-        dummy:SetUnitFacing(GetRandomReal(0, 6.28))
+        dummy:SetUnitFacing(math.deg(GetRandomReal(0, 6.28)))
         AssetsManager.RemoveObject(dummy)
 
         local closeUnit = nil

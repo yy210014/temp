@@ -11,8 +11,8 @@ local mDamages = {100, 200, 300, 500, 800, 1000}
 local mDamageRange = 110
 
 local function Action(self)
-    local offX = mSpeed * math.cos(self.angle)
-    local offY = mSpeed * math.sin(self.angle)
+    local offX = mSpeed * math.cos(math.rad(self.angle))
+    local offY = mSpeed * math.sin(math.rad(self.angle))
     SetUnitX(self.dummy, GetUnitX(self.dummy) + offX)
     SetUnitY(self.dummy, GetUnitY(self.dummy) + offY)
     AssetsManager.IterateEnemyUnits(

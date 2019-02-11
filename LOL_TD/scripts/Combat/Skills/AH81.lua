@@ -8,8 +8,8 @@ local mDelayTime = 1
 function skill:OnCast()
     local spellUnit = self.Owner
     self.angle = AngleBetweenPoint(spellUnit:X(), GetSpellTargetX(), spellUnit:Y(), GetSpellTargetY())
-    local offX = 100 * math.cos(self.angle)
-    local offY = 100 * math.sin(self.angle)
+    local offX = 100 * math.cos(math.rad(self.angle))
+    local offY = 100 * math.sin(math.rad(self.angle))
     local dummy = AssetsManager.LoadUnit(spellUnit.Player, "uq00", spellUnit:X() + offX, spellUnit:Y() + offY)
     dummy.Effect = AddSpecialEffectTarget(mArt, dummy.Entity, "origin")
     dummy:SetUnitFacing(self.angle)

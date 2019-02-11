@@ -39,7 +39,7 @@ skill.Action = function(self, dt)
             dummy.Skill = self
             dummy.DamageList = {}
             locom = dummy:AddLocomotion("冲锋")
-            angle = self.angle + math.rad(-20 + 5 * i)
+            angle = self.angle + (-20 + 5 * i)
             locom:Start2(angle, mSpeed, mMaxDistance, self.OnPathEnd, self.OnPathUpdate)
         end
         dummy = nil

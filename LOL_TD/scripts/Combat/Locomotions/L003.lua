@@ -32,7 +32,7 @@ end
 
 function locomotion:Start(...)
     local arg = {...}
-    self.Angle = arg[1]
+    self.Angle = math.rad(arg[1])
     self.MaxDistance = arg[2]
     self.Duration = arg[3]
     self.High = arg[4]

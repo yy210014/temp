@@ -60,13 +60,14 @@ function DistanceBetweenPoint(x1, x2, y1, y2)
     return math.sqrt((x1 - x2) ^ 2 + (y1 - y2) ^ 2)
 end
 
---两个单位之间的角度
+--两个单位之间的角度,取值-180~180
 function AngleBetweenUnits(u1, u2)
     return AngleBetweenPoint(GetUnitX(u1), GetUnitX(u2), GetUnitY(u1), GetUnitY(u2))
 end
 
+--两点之间的角度,取值-180~180
 function AngleBetweenPoint(x1, x2, y1, y2)
-    return Atan2(y2 - y1, x2 - x1)
+    return math.deg(Atan2(y2 - y1, x2 - x1))
 end
 
 --插值运算

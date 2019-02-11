@@ -206,8 +206,8 @@ function AssetsManager.OverlapLine(x1, y1, dis, rng, angle, call)
         local list = mEnemyTeamUnits[i]
         for j = #list, 1, -1 do
             if (list[j] ~= nil and list[j].IsDying == false) then
-                local x2 = x1 + dis * math.cos(angle)
-                local y2 = y1 + dis * math.sin(angle)
+                local x2 = x1 + dis * math.cos(math.rad(angle))
+                local y2 = y1 + dis * math.sin(math.rad(angle))
                 local x, y = (x1 + x2) / 2, (y1 + y2) / 2
                 local r = dis / 2
                 local dist1 = DistanceBetweenPoint(x, list[j]:X(), y, list[j]:Y())

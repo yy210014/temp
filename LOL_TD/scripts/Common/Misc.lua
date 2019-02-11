@@ -101,8 +101,8 @@ function cheat(playerId)
     local offY = 0
     local id = "IH"
     for i, v in ipairs(mCheatItems) do
-        offX = math.random(0, 600) * math.cos(math.random(0, 360))
-        offY = math.random(0, 600) * math.sin(math.random(0, 360))
+        offX = math.random(0, 600) * math.cos(math.random(0, 6.28))
+        offY = math.random(0, 600) * math.sin(math.random(0, 6.28))
         CreateItem(GetId(id .. v), x + offX, y + offY)
     end
     SetPlayerState(

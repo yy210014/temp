@@ -59,6 +59,7 @@ function Unit:New(entity)
     newUnit.Skills = {}
     newUnit.Buffs = {}
     newUnit.Items = {}
+    newUnit.Emitters = {}
     newUnit.Combs = {}
     newUnit.CombEnableCount = 0
     newUnit.Texts = {}
@@ -138,6 +139,13 @@ function Unit:AddItem(entity)
     Item.ItemCompound(self)
     item:OnAdd()
     return item
+end
+
+function Unit:AddEmitter(name)
+    local emitter = Emitter:New(self, name)
+    self.Emitters[#self.Emitters + 1] = emitter
+    emitter:Init()
+    return emitter
 end
 
 function Unit:AddLocomotion(name)
@@ -333,6 +341,13 @@ function Unit:RemoveBuff(name)
     end
 end
 
+function Unit:DisableEmitter()
+    for i = #self.Emitters, 1, -1 do
+        self.Emitters[i]:Disable()
+        table.remove(self.Emitters, i)
+    end
+end
+
 function Unit:_RemoveItem(entity)
     for i = #self.Items, 1, -1 do
         if (self.Items[i].Entity == entity) then
@@ -374,6 +389,12 @@ function Unit:Destroy(destroy)
             table.remove(self.Items, i)
         end
         self.Items = nil
+        for i = #self.Emitters, 1, -1 do
+            self.Emitters[i]:Disable()
+            table.remove(self.Emitters, i)
+        end
+        self.Emitters = nil
+
         for i = #self.Texts, 1, -1 do
             table.remove(self.Texts, i)
         end
@@ -434,6 +455,7 @@ function Unit:Z()
     return GetUnitFlyHeight(self.Entity)
 end
 
+--面向角度采用角度制,0正东方向,90度正北方向
 function Unit:Facing()
     return GetUnitFacing(self.Entity)
 end
@@ -459,8 +481,9 @@ function Unit:SetUnitRotation(zAngle)
     end
 end
 
+--面向角度采用角度制,0正东方向,90度正北方向
 function Unit:SetUnitFacing(facingAngle)
-    EXSetUnitFacing(self.Entity, math.deg(facingAngle))
+    EXSetUnitFacing(self.Entity, facingAngle)
 end
 
 function Unit:SetUnitOwner(Player)
@@ -510,6 +533,16 @@ function Unit:OnGameUpdate(dt)
                 self.Skills[i]:OnGameUpdate(dt)
             else
                 Game.LogError(self.Name .. "丢失Skill")
+            end
+        end
+    end
+
+    if (self.Emitters ~= nil) then
+        for i = #self.Emitters, 1, -1 do
+            if (self.Emitters[i] ~= nil) then
+                self.Emitters[i]:OnGameUpdate(dt)
+            else
+                Game.LogError(self.Name .. "丢失Emitters")
             end
         end
     end

@@ -20,7 +20,7 @@ function skill:OnCast()
         dummy.Owner = spellUnit
         dummy.Skill = self
         locom = dummy:AddLocomotion("冲锋")
-        locom:Start2(angle + math.rad(-40 + 8 * i), mSpeed, mMaxDistance, self.OnPathEnd, self.OnPathUpdate)
+        locom:Start2(angle + (-40 + 8 * i), mSpeed, mMaxDistance, self.OnPathEnd, self.OnPathUpdate)
     end
 end
 

@@ -5,13 +5,12 @@ local mDamages1 = { 200, 400, 600, 800, 1000, 1200 }
 local mDamages2 = { 2.0, 2.5, 3.0, 3.5, 4.0, 4.5 }
 local mDistance = 2100
 local mDamageRange = 250
-local EmitterDis = 100
 
 function skill:OnSpellChannel()
     local spellUnit = self.Owner
     local angle = AngleBetweenPoint(spellUnit:X(), GetSpellTargetX(), spellUnit:Y(), GetSpellTargetY())
-    local offX = 50 * math.cos(angle)
-    local offY = 50 * math.sin(angle)
+    local offX = 50 * math.cos(math.rad(angle))
+    local offY = 50 * math.sin(math.rad(angle))
     local dummy = AssetsManager.LoadUnit(spellUnit.Player, "uq11", spellUnit:X() + offX, spellUnit:Y() + offY)
     dummy:SetUnitFacing(angle)
     AssetsManager.RemoveObject(dummy)
@@ -20,8 +19,8 @@ end
 function skill:OnCast()
     local spellUnit = self.Owner
     local angle = AngleBetweenPoint(spellUnit:X(), GetSpellTargetX(), spellUnit:Y(), GetSpellTargetY())
-    local offX = 50 * math.cos(angle)
-    local offY = 50 * math.sin(angle)
+    local offX = 50 * math.cos(math.rad(angle))
+    local offY = 50 * math.sin(math.rad(angle))
     local dummy = AssetsManager.LoadUnit(spellUnit.Player, "uq09", spellUnit:X(), spellUnit:Y())
     dummy:SetUnitFacing(angle)
     dummy.Owner = spellUnit

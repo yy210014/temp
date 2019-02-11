@@ -8,8 +8,8 @@ local mDamages2 = {0.25, 0.5, 0.75, 1, 1.25, 1.5}
 function skill:OnCast()
     local spellUnit = self.Owner
     local angle = AngleBetweenPoint(spellUnit:X(), GetSpellTargetX(), spellUnit:Y(), GetSpellTargetY())
-    local offX = 50 * math.cos(angle)
-    local offY = 50 * math.sin(angle)
+    local offX = 50 * math.cos(math.rad(angle))
+    local offY = 50 * math.sin(math.rad(angle))
     local dummy = AssetsManager.LoadUnit(spellUnit.Player, "uq00", spellUnit:X(), spellUnit:Y())
     dummy.Effect = AddSpecialEffectTarget(mArt, dummy.Entity, "origin")
     dummy:SetUnitFacing(angle)

@@ -5,15 +5,21 @@ buff.Art = "AZ_MGN_Q2.mdl"
 
 function buff:OnAdd()
     local unit = self.Owner
-    SetUnitAnimation(unit.Entity, "stand")
     self.Effect = AddSpecialEffectTarget(self.Art, unit.Entity, "origin")
-    self.LastSpeed = (GetUnitDefaultMoveSpeed(unit.Entity) + unit.Attribute:get("移动速度加成")) * -1
-    unit.Attribute:add("移动速度加成", self.LastSpeed)
+    PauseUnit(unit.Entity, true)
+    self.CurAction = self.Action
 end
 
 function buff:OnRemove()
     if (self.Effect ~= nil) then
         DestroyEffect(self.Effect)
     end
-    self.Owner.Attribute:add("移动速度加成", -self.LastSpeed)
+    self.CurAction = nil
+    PauseUnit(self.Owner.Entity, false)
+end
+
+buff.Action = function(self, dt)
+    if IsUnitPaused(self.Owner.Entity) == false then
+        PauseUnit(self.Owner.Entity, true)
+    end
 end

@@ -8,14 +8,17 @@ buff.Art2 = "Abilities\\Spells\\Human\\slow\\slowtarget.mdl"
 
 function buff:OnAdd()
     local unit = self.Owner
-    if (GetUnitDefaultMoveSpeed(unit.Entity) + unit.Attribute:get("移动速度加成") <= 0) then
-        return
-    end
-    self.LastSpeed = (GetUnitDefaultMoveSpeed(unit.Entity) + unit.Attribute:get("移动速度加成")) * self.values[self.Level] * self.Stack
+    local moveSpeed = unit.Attribute:get("移动速度") + unit.Attribute:get("移动速度加成")
+    self.LastSpeed = moveSpeed * self.values[self.Level] * self.Stack
     if (self.LastSpeed > 0) then
         self.Effect = AddSpecialEffectTarget(self.Art1, unit.Entity, "overhead")
     elseif (self.LastSpeed < 0) then
         self.Effect = AddSpecialEffectTarget(self.Art2, unit.Entity, "origin")
+    end
+    if (moveSpeed + self.LastSpeed <= 0) then
+        self.LastSpeed = 1 - moveSpeed
+    elseif (moveSpeed + self.LastSpeed > 522) then
+        self.LastSpeed = 522 - moveSpeed
     end
     unit.Attribute:add("移动速度加成", self.LastSpeed)
 end
@@ -24,9 +27,5 @@ function buff:OnRemove()
     if (self.Effect ~= nil) then
         DestroyEffect(self.Effect)
     end
-    local unit = self.Owner
-    if (GetUnitDefaultMoveSpeed(unit.Entity) + unit.Attribute:get("移动速度加成") <= 0) then
-        return
-    end
-    unit.Attribute:add("移动速度加成", -self.LastSpeed)
+    self.Owner.Attribute:add("移动速度加成", -self.LastSpeed)
 end

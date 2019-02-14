@@ -26,6 +26,8 @@ Attribute.ADDamage = 1
 Attribute.APDamage = 1
 --回蓝速度/s
 Attribute.RegenMana = 0
+--移动速度
+Attribute.DefaultMoveSpeed = 0
 --移动速度加成
 Attribute.MoveSpeed = 0
 
@@ -38,6 +40,7 @@ local attribute = {
     ["物理穿透"] = true,
     ["法术穿透"] = true,
     ["攻击速度"] = true,
+    ["移动速度"] = true,
     ["移动速度加成"] = true,
     ["魔法恢复"] = true, --回蓝速度/s
     ["冷却缩减"] = true,
@@ -174,13 +177,20 @@ set["攻击速度"] = function(self, value)
     SetUnitState(self.Owner.Entity, ConvertUnitState(81), Misc.Clamp(value, 0, value))
 end
 
+get["移动速度"] = function(self)
+    if (self.DefaultMoveSpeed == 0) then
+        self.DefaultMoveSpeed = GetUnitDefaultMoveSpeed(self.Owner.Entity)
+    end
+    return self.DefaultMoveSpeed
+end
+
 get["移动速度加成"] = function(self)
     return self.MoveSpeed
 end
 
 set["移动速度加成"] = function(self, value)
     self.MoveSpeed = value
-    SetUnitMoveSpeed(self.Owner.Entity, Misc.Clamp(GetUnitDefaultMoveSpeed(self.Owner.Entity) + value, 0, 522))
+    SetUnitMoveSpeed(self.Owner.Entity, get["移动速度"](self) + value)
 end
 
 get["生命"] = function(self)

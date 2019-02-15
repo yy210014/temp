@@ -7,7 +7,7 @@ local mDamages2 = { 0.5, 0.6, 0.7, 0.8, 0.9, 1 }
 local mArt = "AZ_youlongtuci.mdl"
 
 setmetatable(Buffs["巨龙撞击"], { __index = Buffs["护甲"] })
-Buffs["巨龙撞击"].values = {-5, -10, -15, -20, -25, -30, -35, -40 }
+Buffs["巨龙撞击"].values = {-10, -13, -16, -19, -22, -25, -32, -35 }
 Buffs["巨龙撞击"].Durs = { 3, 3, 3, 3, 3, 3, 3, 3 }
 
 function skill:OnCast()

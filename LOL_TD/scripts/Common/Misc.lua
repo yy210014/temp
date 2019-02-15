@@ -11,6 +11,14 @@ function Misc.Clamp(value, min, max)
     return value
 end
 
+function Misc.Split(str, reps)
+    local resultStrList = {}
+    string.gsub(str, '[^' .. reps .. ']+', function(w)
+        table.insert(resultStrList, tonumber(w))
+    end)
+    return resultStrList
+end
+
 --镜头+
 function AddCameraFieldForPlayer()
     local player = GetTriggerPlayer()
@@ -101,8 +109,8 @@ function cheat(playerId)
     local offY = 0
     local id = "IH"
     for i, v in ipairs(mCheatItems) do
-        offX = math.random(0, 600) * math.cos(math.random(0, 6.28))
-        offY = math.random(0, 600) * math.sin(math.random(0, 6.28))
+        offX = math.random(0, 600) * math.cos(GetRandomReal(0, 6.28))
+        offY = math.random(0, 600) * math.sin(GetRandomReal(0, 6.28))
         CreateItem(GetId(id .. v), x + offX, y + offY)
     end
     SetPlayerState(

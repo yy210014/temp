@@ -3,7 +3,7 @@ skill.SkillType = 0
 skill.Durs = { 8, 8, 8, 8, 8, 8 } --持续时间
 
 local mDamages1 = { 30, 60, 90, 120, 150, 180 }
-local mDamages2 = { 0.25, 0.3, 0.35, 0.4, 0.45, 0.5 }
+local mDamages2 = { 0.15, 0.2, 0.25, 0.3, 0.35, 0.4 }
 local mArt = "AZ_UrsaPsionic_E.mdl"
 local mRange = 600
 

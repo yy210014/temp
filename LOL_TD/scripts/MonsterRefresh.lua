@@ -271,6 +271,7 @@ function Damage2Money(damage, base, money, count) --1000, 200, 1
 end
 
 local fuliguai = {}
+local b = { 1, 5, 20, 35, 60, 120 }
 function MoneyShow_showDialog()
     local monTimer = CreateTimer()
     local _timerMoney = CreateTimerDialog(monTimer)
@@ -302,7 +303,9 @@ function MoneyShow_showDialog()
             for i = 0, 3 do
                 if (GetPlayerController(Player(i)) == MAP_CONTROL_USER and
                 GetPlayerSlotState(Player(i)) == PLAYER_SLOT_STATE_PLAYING) then
-                    local money = Damage2Money(fuliguai[i + 1].DamageSum, 1000, 200, 1)
+                    --local money = Damage2Money(fuliguai[i + 1].DamageSum, 1000, 200, 1)
+                    local a = (mCurWaveIndex - 1) / 8
+                    local money = math.floor((500 + (a - 1) * 1000) * fuliguai[i + 1].DamageSum * 0.001 / (fuliguai[i + 1].DamageSum * 0.001 + b[a]))
                     AssetsManager.DestroyObject(fuliguai[i + 1])
                     Multiboard.ShowMonsterCount(-1)
                     for j = 0, 3 do

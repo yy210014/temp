@@ -1002,8 +1002,8 @@ function AddComb(unit)
         unit:AddComb(setmetatable({}, {__index = Combs["堕天使-法穿棒"]}))
     elseif (id == GetId("UH03")) then --炸弹人
         unit:AddComb(setmetatable({}, {__index = Combs["炮火联盟-炸弹人"]}))
-        unit:AddComb(setmetatable({}, {__index = Combs["炸弹人-鬼书"]}))
         unit:AddComb(setmetatable({}, {__index = Combs["炸弹人-大圣杯"]}))
+        unit:AddComb(setmetatable({}, {__index = Combs["炸弹人-巫术法杖"]}))
     elseif (id == GetId("UH06")) then --冰女
         unit:AddComb(setmetatable({}, {__index = Combs["冰雪之冠-冰女"]}))
         unit:AddComb(setmetatable({}, {__index = Combs["冰女-鬼书"]}))

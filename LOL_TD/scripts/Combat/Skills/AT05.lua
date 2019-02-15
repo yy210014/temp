@@ -4,12 +4,13 @@ skill.Init = false
 function skill:Initialize()
     local owner = self.Owner
     owner.AdList2 = {
-        { "AT8A", "AT8B", "AT8C", "AT8S" }, --物理穿透
         { "ATAA", "ATAB", "ATAC", "ATAS" }, --暴击伤害
+        { "AT8A", "AT8B", "AT8C", "AT8S" }, --物理穿透
         { "ATBA", "ATBB", "ATBC", "ATBS" }, --技能冷却缩减
         --    {"ATCA", "ATCB", "ATCC", "ATCS"}, --杀怪加钱点
         { "ATDA", "ATDB", "ATDC", "ATDS" }, --每杀1个怪加1点物理攻击（最高100点）
-        { "ATFA", "ATFB", "ATFC", "ATFS" } --物理穿透和法术穿透
+        { "ATFA", "ATFB", "ATFC", "ATFS" }, --物理穿透和法术穿透
+        --{ "ATGA", "ATGB", "ATGC", "ATGS" } --破甲
 
         --物理伤害
     }

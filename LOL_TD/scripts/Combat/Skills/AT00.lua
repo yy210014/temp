@@ -963,23 +963,20 @@ function skill:OnCast()
         end
     end
 end
+
 skill = Skills["杀怪加钱点C级"]
-skill.value = 0
 function skill:OnCast()
     Tianfu_Action(self, 1)
 end
 skill = Skills["杀怪加钱点B级"]
-skill.value = 0
 function skill:OnCast()
     Tianfu_Action(self, 1)
 end
 skill = Skills["杀怪加钱点A级"]
-skill.value = 0
 function skill:OnCast()
     Tianfu_Action(self, 1)
 end
 skill = Skills["杀怪加钱点S级"]
-skill.value = 0
 function skill:OnCast()
     Tianfu_Action(self, 1)
 end
@@ -1291,29 +1288,96 @@ function skill:OnCast()
         end
     end
 end
+
+--[[setmetatable(Buffs["破甲C级"], {__index = Buffs["护甲"]})
+Buffs["破甲C级"].values = {-1, -2, -3, -4, -5}
+Buffs["破甲C级"].Durs = {3, 3, 3, 3, 3, 3}
+skill = Skills["破甲C级"]
+function skill:OnCast()
+    if (Tianfu_Condition(self, 2)) then
+        local maxLevel = GetUnitAbilityLevel(self.Owner.Entity, self.Id) == 5
+        if (maxLevel == false) then
+            SetUnitAbilityLevel(self.Owner.Entity, self.Id, GetUnitAbilityLevel(self.Owner.Entity, self.Id) + 1)
+        end
+        if (maxLevel == true) then
+            local skillId = ID2Str(self.Id)
+            self.Owner:RemoveSkill(self.Id)
+            self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
+        end
+    end
+end
+
+function skill:OnAttack(attactUnit, defUnit)
+    defUnit:AddBuff("破甲C级",self:GetCurLevel())
+end
+
+setmetatable(Buffs["破甲B级"], {__index = Buffs["护甲"]})
+Buffs["破甲B级"].values = {-2, -4, -6, -8, -10}
+Buffs["破甲B级"].Durs = {3, 3, 3, 3, 3, 3}
+skill = Skills["破甲B级"]
+function skill:OnCast()
+    if (Tianfu_Condition(self, 2)) then
+        local maxLevel = GetUnitAbilityLevel(self.Owner.Entity, self.Id) == 5
+        if (maxLevel == false) then
+            SetUnitAbilityLevel(self.Owner.Entity, self.Id, GetUnitAbilityLevel(self.Owner.Entity, self.Id) + 1)
+        end
+        if (maxLevel == true) then
+            local skillId = ID2Str(self.Id)
+            self.Owner:RemoveSkill(self.Id)
+            self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
+        end
+    end
+end
+
+function skill:OnAttack(attactUnit, defUnit)
+    defUnit:AddBuff("破甲B级",self:GetCurLevel())
+end
+
+setmetatable(Buffs["破甲A级"], {__index = Buffs["护甲"]})
+Buffs["破甲A级"].values = {-3, -6, -9, -12 -15}
+Buffs["破甲A级"].Durs = {3, 3, 3, 3, 3, 3}
+skill = Skills["破甲A级"]
+function skill:OnCast()
+    if (Tianfu_Condition(self, 2)) then
+        local maxLevel = GetUnitAbilityLevel(self.Owner.Entity, self.Id) == 5
+        if (maxLevel == false) then
+            SetUnitAbilityLevel(self.Owner.Entity, self.Id, GetUnitAbilityLevel(self.Owner.Entity, self.Id) + 1)
+        end
+        if (maxLevel == true) then
+            local skillId = ID2Str(self.Id)
+            self.Owner:RemoveSkill(self.Id)
+            self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
+        end
+    end
+end
+
+function skill:OnAttack(attactUnit, defUnit)
+    defUnit:AddBuff("破甲A级",self:GetCurLevel())
+end
+
+setmetatable(Buffs["破甲S级"], {__index = Buffs["护甲"]})
+Buffs["破甲S级"].values = {-5, -10, -15, -25, -25}
+Buffs["破甲S级"].Durs = {3, 3, 3, 3, 3, 3}
+skill = Skills["破甲S级"]
+function skill:OnCast()
+    if (Tianfu_Condition(self, 2)) then
+        local maxLevel = GetUnitAbilityLevel(self.Owner.Entity, self.Id) == 5
+        if (maxLevel == false) then
+            SetUnitAbilityLevel(self.Owner.Entity, self.Id, GetUnitAbilityLevel(self.Owner.Entity, self.Id) + 1)
+        end
+        if (maxLevel == true) then
+            local skillId = ID2Str(self.Id)
+            self.Owner:RemoveSkill(self.Id)
+            self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
+        end
+    end
+end
+
+function skill:OnAttack(attactUnit, defUnit)
+    defUnit:AddBuff("破甲S级",self:GetCurLevel())
+end
+]]
 skill = Skills["战斗狂人"]
-skill.value = 0
-function skill:OnCast()
-    Tianfu_Action2(self, 5)
-end
-skill = Skills["雷霆万钧"]
-skill.value = 0
-function skill:OnCast()
-    Tianfu_Action2(self, 5)
-end
-skill = Skills["血虐狂暴"]
-skill.value = 0
-function skill:OnCast()
-    Tianfu_Action2(self, 5)
-end
-
-skill = Skills["符文法剑"]
-skill.value = 0
-function skill:OnCast()
-    Tianfu_Action2(self, 5)
-end
-
-skill = Skills["幽冥冷火"]
 skill.value = 0
 function skill:OnCast()
     Tianfu_Action2(self, 5)
@@ -1329,6 +1393,12 @@ function skill:OnAttack(attactUnit, defUnit)
     Buffs["战斗狂人"].values = { 10 + GetHeroLevel(attactUnit.Entity) * 2 }
     --Game.Log("战斗狂人[被动]: " .. Buffs["战斗狂人"].values[1])
     attactUnit:AddBuff("战斗狂人")
+end
+
+skill = Skills["雷霆万钧"]
+skill.value = 0
+function skill:OnCast()
+    Tianfu_Action2(self, 5)
 end
 
 skill = Skills["雷霆万钧[被动]"]
@@ -1357,6 +1427,12 @@ function skill:OnAttack(attactUnit, defUnit)
     end
 end
 
+skill = Skills["血虐狂暴"]
+skill.value = 0
+function skill:OnCast()
+    Tianfu_Action2(self, 5)
+end
+
 skill = Skills["血虐狂暴[被动]"]
 setmetatable(Buffs["血虐狂暴"], { __index = Buffs["攻速"] })
 Buffs["血虐狂暴"].values = { 0.1 }
@@ -1369,6 +1445,12 @@ function skill:OnAttack(attactUnit, defUnit, isCrit)
     end
 end
 
+skill = Skills["符文法剑"]
+skill.value = 0
+function skill:OnCast()
+    Tianfu_Action2(self, 5)
+end
+
 skill = Skills["符文法剑[被动]"]
 skill.value = 0
 function skill:OnAttack(attactUnit, defUnit)
@@ -1378,6 +1460,12 @@ function skill:OnAttack(attactUnit, defUnit)
     AddSpecialEffectTarget("Abilities\\Spells\\Other\\Stampede\\StampedeMissileDeath.mdl", defUnit.Entity, "chest")
     )
     EXUnitDamageTarget(attactUnit, defUnit, damage, EXDamageType.Magic)
+end
+
+skill = Skills["幽冥冷火"]
+skill.value = 0
+function skill:OnCast()
+    Tianfu_Action2(self, 5)
 end
 
 skill = Skills["幽冥冷火[被动]"]

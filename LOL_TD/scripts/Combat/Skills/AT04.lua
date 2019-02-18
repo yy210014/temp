@@ -1,4 +1,4 @@
-local skill = Skills["基础天赋随机"]
+local skill = Skills["初级天赋随机"]
 skill.Count = 0
 skill.Init = false
 function skill:Initialize()

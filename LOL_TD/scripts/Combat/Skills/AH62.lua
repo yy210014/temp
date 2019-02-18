@@ -3,8 +3,8 @@ skill.SkillType = 1
 local mDamages1 = { 400, 800, 1200, 1600, 2000, 2400 }
 local mDamages2 = { 3, 4, 5, 6, 7, 8 }
 --local mArt = "blackhole.mdl"
-local mArt = "Abilities\\Spells\\Undead\\DeathCoil\\DeathCoilMissile.mdl"
-local mArt2 = "Abilities\\Spells\\Undead\\DeathCoil\\DeathCoilSpecialArt.mdl"
+local mArt = "Blind Aura.mdl"
+local mArt2 = "ShadowSlam(Normal Size).mdl"
 
 
 function skill:OnCast()

@@ -62,6 +62,8 @@ local mItemUniquenessList = {
     ["I003"] = 0,
     ["I062"] = 0,
     ["I077"] = 0,
+    ["I067"] = 0,
+    ["I048"] = 0,
 }
 
 function Item.HasItem(unit, itemId, list)

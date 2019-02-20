@@ -150,7 +150,7 @@ get["法术穿透"] = function(self)
 end
 
 set["法术穿透"] = function(self, value)
-    self.APPenetrate = Misc.Clamp(value, 0, value)
+    self.APPenetrate = Misc.Clamp(value, 0, 1)
 end
 
 get["攻击范围"] = function(self)

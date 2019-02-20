@@ -37,6 +37,9 @@ skill.Action = function(self, dt)
 end
 
 function skill:OnCast()
+    if (self.dummy ~= nil) then
+        RemoveUnit(self.dummy)
+    end
     self.dummy = CreateUnit(self.Owner.Player, GetId("uq03"), GetSpellTargetX(), GetSpellTargetY(), self.Owner:Facing())
     self.IntervalDt = 0
     self.CurAction = self.Action

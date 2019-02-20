@@ -9,7 +9,7 @@ function skill:OnCast()
             return
         end
         mLastTime = GameScene.Elapsed
-        DisplayTextToAll("双击出售英雄", Color.red)
+        DisplayTextToPlayer(spellUnit.Player, 0, 0, "|cFFFF0000双击出售英雄|r")
     else
         self:OnSell()
     end

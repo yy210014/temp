@@ -35,6 +35,9 @@ function item:AddCount(unit)
     SetItemCharges(self.Entity, self.Count)
     if (self.Count >= mMaxCount) then
         --创建炽天使
+        RemoveItem(self.Entity)
+        local newItem = CreateItem(GetId("I067"), unit:X(), unit:Y())
+        UnitAddItem(unit.Entity, newItem)
     end
 end
 

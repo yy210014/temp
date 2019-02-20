@@ -304,9 +304,11 @@ function Unit:GetBuff(name)
 end
 
 function Unit:GetSkill(abilityid)
-    for i = 1, #self.Skills do
-        if (self.Skills[i].Id == abilityid) then
-            return self.Skills[i]
+    if (self.Skills ~= nil) then
+        for i = 1, #self.Skills do
+            if (self.Skills[i].Id == abilityid) then
+                return self.Skills[i]
+            end
         end
     end
     return nil

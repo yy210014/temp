@@ -1411,7 +1411,7 @@ function skill:OnAttack(attactUnit, defUnit)
         self.Count = 1
         local ad = attactUnit.Attribute:get("物理攻击") + attactUnit.Attribute:get("物理攻击加成")
         local ap = attactUnit.Attribute:get("法术攻击")
-        local damage = 30 * GetHeroLevel(attactUnit.Entity) + 0.3 * ad + 0.3 * ap
+        local damage = 30 * GetHeroLevel(attactUnit.Entity) + 0.5 * ad + 0.5 * ap
         DestroyEffect(AddSpecialEffect(self.mArt1, defUnit:X(), defUnit:Y()))
         DestroyEffect(AddSpecialEffect(self.mArt2, defUnit:X(), defUnit:Y()))
         AssetsManager.OverlapCircle(

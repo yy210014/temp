@@ -8,7 +8,7 @@ buff.LastSpeed = 0
 
 function buff:OnAdd()
     local unit = self.Owner
-    self.LastSpeed = unit.Attribute:get("攻击速度") * self.values[self.Level] * self.Stack
+    self.LastSpeed = self.values[self.Level] * self.Stack
     if (self.LastSpeed > 0) then
         self.Effect1 =
             AddSpecialEffectTarget("Abilities\\Spells\\Orc\\Bloodlust\\BloodlustTarget.mdl", unit.Entity, "hand,left")

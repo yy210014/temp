@@ -66,7 +66,7 @@ EXGetAbilityDataInteger = _native_ "EXGetAbilityDataInteger"
 EXSetAbilityDataInteger = _native_ "EXSetAbilityDataInteger" --设置技能数据
 EXGetAbilityDataString = _native_ "EXGetAbilityDataString"
 EXSetAbilityDataString = _native_ "EXSetAbilityDataString" --设置技能数据
-EXSetAbilityAEmeDataA = _native_ "EXSetAbilityAEmeDataA" 
+EXSetAbilityAEmeDataA = _native_ "EXSetAbilityAEmeDataA"
 EXGetEventDamageData = _native_ "EXGetEventDamageData"
 EXSetEventDamage = _native_ "EXSetEventDamage"
 
@@ -106,4 +106,5 @@ EXGetItemDataString = _native_ "EXGetItemDataString"
 EXSetItemDataString = _native_ "EXSetItemDataString"  --设置物品数据
 
 
-EXBlendButtonIcon= _native_ "EXBlendButtonIcon"--合成新的图标
+EXBlendButtonIcon = _native_ "EXBlendButtonIcon"--合成新的图标
+EXSetAbilityString = _native_ "EXSetAbilityString"--set图标

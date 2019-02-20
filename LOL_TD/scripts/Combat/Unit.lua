@@ -199,11 +199,16 @@ function Unit:RefreshCombInfo()
 end
 
 --羁绊
+local mJiban_ui = "Icon\\jiban.blp"
 function Unit:AddComb(comb)
     if (self.CombId == nil) then
-        self.CombId = GetId("J" .. GetPlayerId(self.Player) .. string.sub(ID2Str(self.Id), 3, 4))
+        local id = "J" .. GetPlayerId(self.Player) .. string.sub(ID2Str(self.Id), 3, 4)
+        self.CombId = GetId(id)
         UnitAddAbility(self.Entity, self.CombId)
         UnitMakeAbilityPermanent(self.Entity, true, self.CombId)
+        local newArt = id .. "_newCombArt.blp"
+        EXBlendButtonIcon(mJiban_ui, Slk.unit[self.Id]["Art"], newArt)
+        EXSetAbilityString(self.CombId, 1, 204, newArt)
     end
     comb.Owner = self
     self.Combs[#self.Combs + 1] = comb

@@ -1,4 +1,4 @@
-local skill = Skills["变强"]
+local skill = Skills["超神"]
 function skill:OnLearned()
     local unit = self.Owner
     unit.Attribute:add("物理穿透", 0.1)

@@ -9,6 +9,10 @@ local mMaxDistance = 1200
 local mDamages1 = { 200, 400, 600, 800, 1000, 1200 }
 local mDamages2 = { 1, 1.1, 1.2, 1.3, 1.4, 1.5 }
 
+function skill:OnSpellChannel()
+    SetUnitAnimationByIndex(self.Owner.Entity, 1)
+end
+
 function skill:OnCast()
     local spellUnit = self.Owner
     local dummy, locom, angle

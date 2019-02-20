@@ -8,6 +8,9 @@ local mDyingUnits = {}
 
 function GetJ_PlayerUnits(entity)
     local playerId = GetPlayerId(GetOwningPlayer(entity))
+    if (playerId > 3) then
+        return nil
+    end
     local list = mPlayerTeamUnits[playerId + 1]
     for i = #list, 1, -1 do
         if (list[i].Entity == entity) then

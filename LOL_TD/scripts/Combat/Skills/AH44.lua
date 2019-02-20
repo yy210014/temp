@@ -11,6 +11,10 @@ local mDamages2 = { 1, 1.2, 1.4, 1.6, 1.8, 2 }
 setmetatable(Buffs["魔法水晶箭"], { __index = Buffs["眩晕"] })
 Buffs["魔法水晶箭"].Durs = { 3, 3, 3, 3, 3, 3 }
 
+function skill:OnSpellChannel()
+    SetUnitAnimationByIndex(self.Owner.Entity, 2)
+end
+
 function skill:OnCast()
     local spellUnit = self.Owner
     local angle = AngleBetweenPoint(spellUnit:X(), GetSpellTargetX(), spellUnit:Y(), GetSpellTargetY())

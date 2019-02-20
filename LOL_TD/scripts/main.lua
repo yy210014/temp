@@ -28,6 +28,12 @@ function main()
 
     trig = CreateTrigger()
     for i, v in ipairs(AllPlayerTeam) do
+        TriggerRegisterPlayerUnitEvent(trig, Player(v), EVENT_PLAYER_UNIT_SELECTED, nil)
+    end
+    TriggerAddAction(trig, GameScene.AnyUnitSelected)
+
+    trig = CreateTrigger()
+    for i, v in ipairs(AllPlayerTeam) do
         TriggerRegisterPlayerUnitEvent(trig, Player(v), EVENT_PLAYER_UNIT_ATTACKED, nil)
     end
     TriggerAddAction(trig, GameStart.AnyUnitAttack)

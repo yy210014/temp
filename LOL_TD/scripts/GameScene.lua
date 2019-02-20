@@ -7,6 +7,7 @@ require "scripts.Combat.Attribute"
 require "scripts.Combat.Buffs.InitBuff"
 require "scripts.Combat.Items.InitItem"
 require "scripts.Combat.Skills.InitSkill"
+require "scripts.Combat.Emitters.InitEmitter"
 require "scripts.Combat.Locomotions.InitLocomotion"
 require "scripts.Combat.Comb"
 
@@ -76,10 +77,24 @@ function GameScene.OnGameStart()
     --Game.Log(os.time())
 end
 
+local mSelectedUnit
+function GameScene.AnyUnitSelected()
+    mSelectedUnit = GetJ_PlayerUnits(GetTriggerUnit())
+end
 
 function GameScene.OnGameUpdate(dt)
     GameScene.Elapsed = GameScene.Elapsed + dt
     AssetsManager.OnGameUpdate(dt)
     MonsterRefresh.OnGameUpdate(dt)
+    if (mSelectedUnit ~= nil) then
+        Jglobals.udg_Attribute[0] = tostring(mSelectedUnit.Attribute:get("物理穿透") * 100) .. "%"
+        Jglobals.udg_Attribute[1] = tostring(mSelectedUnit.Attribute:get("法术穿透") * 100) .. "%"
+        Jglobals.udg_Attribute[2] = tostring(mSelectedUnit.Attribute:get("物理伤害加成"))
+        Jglobals.udg_Attribute[3] = tostring(mSelectedUnit.Attribute:get("法术伤害加成"))
+        Jglobals.udg_Attribute[4] = tostring(math.modf(mSelectedUnit.Attribute:get("暴击") * 100)) .. "%"
+        Jglobals.udg_Attribute[5] = tostring(math.modf(mSelectedUnit.Attribute:get("冷却缩减") * 100)) .. "%"
+        Jglobals.udg_Attribute[6] = tostring(mSelectedUnit.Attribute:get("暴击伤害"))
+        Jglobals.udg_Attribute[7] = string.sub(tostring(mSelectedUnit.Attribute:get("攻击速度")), 1, 4)
+    end
     --Multiboard.OnGameUpdate(dt)
 end

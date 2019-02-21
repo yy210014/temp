@@ -2,6 +2,205 @@
 IncludeFile "UI\FrameDef\UI\EscMenuTemplates.fdf",
 IncludeFile "UI\FrameDef\Glue\StandardTemplates.fdf",
 
+//按钮1
+	Frame "TEXTBUTTON" "UIAAA1" {
+    Height 0.035,
+    Width 0.03,
+  		ButtonPushedTextOffset -0.001f -0.0015f,
+
+      		//背景
+    		ControlBackdrop "UIAAA1UP",
+   		Frame "BACKDROP" "UIAAA1UP" {
+   			BackdropBackground  "war3mapImported\[ZT]AN1.tga",
+     			BackdropBlendAll,
+    		}
+					//按下
+    		ControlPushedBackdrop "UIAAA1DOWN",
+    		Frame "BACKDROP" "UIAAA1DOWN" {
+        		BackdropBackground  "war3mapImported\[ZT]AN1down.tga",
+        		BackdropBlendAll,
+    		}
+			}
+	//按钮2
+	Frame "TEXTBUTTON" "UIAAA2" {
+    Height 0.035,
+    Width 0.03,
+  		ButtonPushedTextOffset -0.001f -0.0015f,
+
+      		//背景
+    		ControlBackdrop "UIAAA2UP",
+   		Frame "BACKDROP" "UIAAA2UP" {
+   			BackdropBackground  "war3mapImported\[ZT]AN2.tga",
+     			BackdropBlendAll,
+    		}
+					//按下
+    		ControlPushedBackdrop "UIAAA2DOWN",
+    		Frame "BACKDROP" "UIAAA2DOWN" {
+        		BackdropBackground  "war3mapImported\[ZT]AN2down.tga",
+        		BackdropBlendAll,
+    		}
+			}
+	//按钮3
+	Frame "TEXTBUTTON" "UIAAA3" {
+    Height 0.035,
+    Width 0.025,
+  		ButtonPushedTextOffset -0.001f -0.0015f,
+
+      		//背景
+    		ControlBackdrop "UIAAA3UP",
+   		Frame "BACKDROP" "UIAAA3UP" {
+   			BackdropBackground  "war3mapImported\[ZT]AN3.tga",
+     			BackdropBlendAll,
+    		}
+					//按下
+    		ControlPushedBackdrop "UIAAA3DOWN",
+    		Frame "BACKDROP" "UIAAA3DOWN" {
+        		BackdropBackground  "war3mapImported\[ZT]AN3down.tga",
+        		BackdropBlendAll,
+    		}
+			}
+			
+			
+			
+		Frame "TEXT" "UIATEXT1" {
+   		FrameFont "font02.TTF", 0.018, "",
+   		FontJustificationH JUSTIFYRIGHT,
+   		FontJustificationV JUSTIFYMIDDLE,
+   		FontFlags "FIXEDSIZE",
+	}
+
+		Frame "TEXT" "UIATEXT2" {
+   		FrameFont "font02.TTF", 0.010, "",
+   		FontJustificationH JUSTIFYRIGHT,
+   		FontJustificationV JUSTIFYMIDDLE,
+   		FontFlags "FIXEDSIZE",
+	}
+
+		Frame "TEXT" "UIATEXT3" {
+   		FrameFont "font02.TTF", 0.010, "",
+   		FontJustificationH JUSTIFYRIGHT,
+   		FontJustificationV JUSTIFYMIDDLE,
+   		FontFlags "FIXEDSIZE",
+	}
+
+		Frame "TEXT" "UIATEXT4" {
+   		FrameFont "font02.TTF", 0.010, "",
+   		FontJustificationH JUSTIFYRIGHT,
+   		FontJustificationV JUSTIFYMIDDLE,
+   		FontFlags "FIXEDSIZE",
+	}
+
+		Frame "TEXT" "UIATEXT5" {
+   		FrameFont "font02.TTF", 0.010, "",
+   		FontJustificationH JUSTIFYRIGHT,
+   		FontJustificationV JUSTIFYMIDDLE,
+   		FontFlags "FIXEDSIZE",
+	}
+
+		Frame "TEXT" "UIATEXT6" {
+   		FrameFont "font02.TTF", 0.010, "",
+   		FontJustificationH JUSTIFYRIGHT,
+   		FontJustificationV JUSTIFYMIDDLE,
+   		FontFlags "FIXEDSIZE",
+	}
+
+		Frame "TEXT" "UIATEXT7" {
+   		FrameFont "font02.TTF", 0.010, "",
+   		FontJustificationH JUSTIFYRIGHT,
+   		FontJustificationV JUSTIFYMIDDLE,
+   		FontFlags "FIXEDSIZE",
+	}
+	
+		Frame "TEXT" "UIATEXT8" {
+   		FrameFont "font02.TTF", 0.015, "",
+   		FontJustificationH JUSTIFYRIGHT,
+   		FontJustificationV JUSTIFYMIDDLE,
+   		FontFlags "FIXEDSIZE",
+			Frame "TEXT" "UIATEXT9_1" {
+					FrameFont "font02.TTF", 0.010, "",
+					FontJustificationH JUSTIFYRIGHT,
+					FontJustificationV JUSTIFYMIDDLE,
+					FontFlags "FIXEDSIZE",
+					LayerStyle "IGNORETRACKEVENTS",
+					SetPoint RIGHT, "UIATEXT8", RIGHT, 0.066, -0.016,
+					Text "+0",
+		}
+	}
+
+
+		Frame "TEXT" "UIATEXT9" {
+   		FrameFont "font02.TTF", 0.015, "",
+   		FontJustificationH JUSTIFYRIGHT,
+   		FontJustificationV JUSTIFYMIDDLE,
+   		FontFlags "FIXEDSIZE",
+	}
+
+		Frame "TEXT" "UIATEXT10" {
+   		FrameFont "font02.TTF", 0.012, "",
+   		FontJustificationH JUSTIFYRIGHT,
+   		FontJustificationV JUSTIFYMIDDLE,
+   		FontFlags "FIXEDSIZE",
+	}
+
+
+		Frame "TEXT" "UIATEXT11" {
+   		FrameFont "font02.TTF", 0.011, "",
+   		FontJustificationH JUSTIFYRIGHT,
+   		FontJustificationV JUSTIFYMIDDLE,
+   		FontFlags "FIXEDSIZE",
+	}
+
+		Frame "TEXT" "UIATEXT12" {
+   		FrameFont "font02.TTF", 0.011, "",
+   		FontJustificationH JUSTIFYRIGHT,
+   		FontJustificationV JUSTIFYMIDDLE,
+   		FontFlags "FIXEDSIZE",
+	}
+
+		Frame "TEXT" "UIATEXT13" {
+   		FrameFont "font02.TTF", 0.011, "",
+   		FontJustificationH JUSTIFYRIGHT,
+   		FontJustificationV JUSTIFYMIDDLE,
+   		FontFlags "FIXEDSIZE",
+	}
+
+		Frame "TEXT" "UIATEXT14" {
+   		FrameFont "font02.TTF", 0.012, "",
+   		FontJustificationH JUSTIFYRIGHT,
+   		FontJustificationV JUSTIFYMIDDLE,
+   		FontFlags "FIXEDSIZE",
+	}
+
+		Frame "TEXT" "UIATEXT15" {
+   		FrameFont "font02.TTF", 0.011, "",
+   		FontJustificationH JUSTIFYRIGHT,
+   		FontJustificationV JUSTIFYMIDDLE,
+   		FontFlags "FIXEDSIZE",
+	}
+
+		Frame "TEXT" "UIATEXT16" {
+   		FrameFont "font02.TTF", 0.011, "",
+   		FontJustificationH JUSTIFYRIGHT,
+   		FontJustificationV JUSTIFYMIDDLE,
+   		FontFlags "FIXEDSIZE",
+	}
+
+		Frame "TEXT" "UIATEXT17" {
+   		FrameFont "font02.TTF", 0.011, "",
+   		FontJustificationH JUSTIFYRIGHT,
+   		FontJustificationV JUSTIFYMIDDLE,
+   		FontFlags "FIXEDSIZE",
+	}
+
+		Frame "TEXT" "UIATEXT18" {
+   		FrameFont "font02.TTF", 0.011, "",
+   		FontJustificationH JUSTIFYRIGHT,
+   		FontJustificationV JUSTIFYMIDDLE,
+   		FontFlags "FIXEDSIZE",
+	}
+
+	
+
 Frame "BACKDROP" "BAG" {      //父级
 	Width 0.43,
 	Height 0.4,
@@ -6654,7 +6853,7 @@ Frame "BACKDROP" "BAG2" {      //父级
 			
 							
 	Frame "TEXT" "ZTTEXT" {
-   		FrameFont "war3mapImported\font02.TTF", 0.2, "",
+   		FrameFont "font02.TTF", 0.2, "",
    		FontJustificationH JUSTIFYRIGHT,
    		FontJustificationV JUSTIFYMIDDLE,
    		FontFlags "FIXEDSIZE",

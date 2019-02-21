@@ -5,6 +5,7 @@ InfoPanelTextFont=resource\ui\mtoJianTi.ttf
 LumberIcon=ReplaceableTextures\CommandButtons\BTNSkillz.blp
 MasterFont=resource\ui\mtoJianTi.ttf
 MessageFont=resource\ui\mtoJianTi.ttf
+MultiboardBackground=UI\Widgets\EscMenu\Human\editbox-background.blp
 SupplyIcon=ReplaceableTextures\PassiveButtons\PASBTNPillage.blp
 TextTagFont=resource\ui\mtoJianTi.ttf
 [FrameDef]

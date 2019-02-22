@@ -143,85 +143,43 @@ function CreateGoldText(text, whichUnit)
     SetTextTagPermanent(tt, false)
 end
 
---https://tieba.baidu.com/p/969597081?pn=1
-EXDamageType = {
-    Physics = 1,
-    Magic = 2,
-    Real = 3
-}
-
-EXAttackType = {
-    Physics = 1,
-    Magic = 2,
-    Real = 4
-}
-
-EXDamageType = {
-    Normal = 1,
-    Ability = 2,
+EXAbilityType = {
+    Physics = ATTACK_TYPE_NORMAL,
+    Physics_Ability = ATTACK_TYPE_HERO,
+    Magic = ATTACK_TYPE_PIERCE,
+    Magic_Ability = ATTACK_TYPE_MAGIC,
+    Real = ATTACK_TYPE_CHAOS
 }
 
 function EXGetDamageColor()
-    if (EXGetDamageType() == EXDamageType.Magic) then
+    if (EXGetAttackType() == EXAbilityType.Physics or EXGetAttackType() == EXAbilityType.Physics_Ability) then
+        return Color.Red
+    elseif (EXGetAttackType() == EXAbilityType.Magic or EXGetAttackType() == EXAbilityType.Magic_Ability) then
         return Color.Magenta
-    elseif (EXGetDamageType() == EXDamageType.Real) then
-        return Color.White
     end
-    return Color.Red
+    return Color.White
 end
 
 function EXGetAttackType()
-end
-
-function EXGetDamageType()
     local at = ConvertAttackType(EXGetEventDamageData(EVENT_DAMAGE_DATA_ATTACK_TYPE))
-    local dt = ConvertDamageType(EXGetEventDamageData(EVENT_DAMAGE_DATA_DAMAGE_TYPE))
-    if (at == ATTACK_TYPE_HERO and dt == DAMAGE_TYPE_NORMAL) then
-        return EXDamageType.Physics
-    elseif (at == ATTACK_TYPE_MAGIC and dt == DAMAGE_TYPE_NORMAL) then
-        return EXDamageType.Magic
-    elseif (at == ATTACK_TYPE_CHAOS and dt == DAMAGE_TYPE_UNIVERSAL) then
-        return EXDamageType.Real
+    if (at == ATTACK_TYPE_NORMAL) then
+        return EXAbilityType.Physics
+    elseif (at == ATTACK_TYPE_PIERCE) then
+        return EXAbilityType.Magic
+    elseif (at == ATTACK_TYPE_HERO) then
+        return EXAbilityType.Physics_Ability
+    elseif (at == ATTACK_TYPE_MAGIC) then
+        return EXAbilityType.Magic_Ability
+    elseif (at == ATTACK_TYPE_CHAOS) then
+        return EXAbilityType.Real
     end
-    return 0
+    return EXAbilityType.Physics
 end
 
-function EXUnitDamageTarget(damageSource, target, damage, damageType)
+function EXUnitDamageTarget(damageSource, target, damage, abilityType)
     if (IsUnitAlly(damageSource.Entity, target.Player) == true or target.IsDying) then
         return
     end
-    if (damageType == EXDamageType.Physics) then
-        UnitDamageTarget(
-        damageSource.Entity,
-        target.Entity,
-        damage,
-        false,
-        false,
-        ATTACK_TYPE_HERO,
-        DAMAGE_TYPE_NORMAL,
-        WEAPON_TYPE_WHOKNOWS
-        )
-    elseif (damageType == EXDamageType.Magic) then
-        UnitDamageTarget(
-        damageSource.Entity,
-        target.Entity,
-        damage,
-        false,
-        false,
-        ATTACK_TYPE_MAGIC,
-        DAMAGE_TYPE_NORMAL,
-        WEAPON_TYPE_WHOKNOWS
-        )
-    elseif (damageType == EXDamageType.Real) then
-        UnitDamageTarget(
-        damageSource.Entity,
-        target.Entity,
-        damage,
-        false,
-        false,
-        ATTACK_TYPE_CHAOS,
-        DAMAGE_TYPE_UNIVERSAL,
-        WEAPON_TYPE_WHOKNOWS
-        )
-    end
+    UnitDamageTarget(damageSource.Entity, target.Entity, damage, false, false, abilityType,
+    abilityType == EXAttackType.Real and DAMAGE_TYPE_UNIVERSAL or DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
 end

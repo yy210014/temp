@@ -143,10 +143,22 @@ function CreateGoldText(text, whichUnit)
     SetTextTagPermanent(tt, false)
 end
 
+--https://tieba.baidu.com/p/969597081?pn=1
 EXDamageType = {
     Physics = 1,
     Magic = 2,
     Real = 3
+}
+
+EXAttackType = {
+    Physics = 1,
+    Magic = 2,
+    Real = 4
+}
+
+EXDamageType = {
+    Normal = 1,
+    Ability = 2,
 }
 
 function EXGetDamageColor()
@@ -156,6 +168,9 @@ function EXGetDamageColor()
         return Color.White
     end
     return Color.Red
+end
+
+function EXGetAttackType()
 end
 
 function EXGetDamageType()

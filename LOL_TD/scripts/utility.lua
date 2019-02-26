@@ -144,11 +144,11 @@ function CreateGoldText(text, whichUnit)
 end
 
 EXAbilityType = {
-    Physics = ATTACK_TYPE_NORMAL,
-    Physics_Ability = ATTACK_TYPE_HERO,
-    Magic = ATTACK_TYPE_PIERCE,
-    Magic_Ability = ATTACK_TYPE_MAGIC,
-    Real = ATTACK_TYPE_CHAOS
+    Physics = 6,
+    Physics_Ability = 2,
+    Magic = 3,
+    Magic_Ability = 4,
+    Real = 5,
 }
 
 function EXGetDamageColor()
@@ -161,25 +161,13 @@ function EXGetDamageColor()
 end
 
 function EXGetAttackType()
-    local at = ConvertAttackType(EXGetEventDamageData(EVENT_DAMAGE_DATA_ATTACK_TYPE))
-    if (at == ATTACK_TYPE_NORMAL) then
-        return EXAbilityType.Physics
-    elseif (at == ATTACK_TYPE_PIERCE) then
-        return EXAbilityType.Magic
-    elseif (at == ATTACK_TYPE_HERO) then
-        return EXAbilityType.Physics_Ability
-    elseif (at == ATTACK_TYPE_MAGIC) then
-        return EXAbilityType.Magic_Ability
-    elseif (at == ATTACK_TYPE_CHAOS) then
-        return EXAbilityType.Real
-    end
-    return EXAbilityType.Physics
+    return EXGetEventDamageData(EVENT_DAMAGE_DATA_ATTACK_TYPE)
 end
 
 function EXUnitDamageTarget(damageSource, target, damage, abilityType)
     if (IsUnitAlly(damageSource.Entity, target.Player) == true or target.IsDying) then
         return
     end
-    UnitDamageTarget(damageSource.Entity, target.Entity, damage, false, false, abilityType,
-    abilityType == EXAttackType.Real and DAMAGE_TYPE_UNIVERSAL or DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
+    UnitDamageTarget(damageSource.Entity, target.Entity, damage, false, false, ConvertAttackType(abilityType),
+    abilityType == EXAbilityType.Real and DAMAGE_TYPE_UNIVERSAL or DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
 end

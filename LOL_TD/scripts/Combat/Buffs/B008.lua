@@ -5,6 +5,7 @@ buff.values = { 0, 0, 0, 0, 0, 0 }
 buff.LastSpeed = 0
 buff.Art1 = "Abilities\\Spells\\Items\\AIsp\\SpeedTarget.mdl"
 buff.Art2 = "Abilities\\Spells\\Human\\slow\\slowtarget.mdl"
+buff.AttachPoint = "origin"
 
 function buff:OnAdd()
     local unit = self.Owner
@@ -13,7 +14,7 @@ function buff:OnAdd()
     if (self.LastSpeed > 0) then
         self.Effect = AddSpecialEffectTarget(self.Art1, unit.Entity, "overhead")
     elseif (self.LastSpeed < 0) then
-        self.Effect = AddSpecialEffectTarget(self.Art2, unit.Entity, "origin")
+        self.Effect = AddSpecialEffectTarget(self.Art2, unit.Entity, self.AttachPoint)
     end
     if (moveSpeed + self.LastSpeed <= 0) then
         self.LastSpeed = 1 - moveSpeed

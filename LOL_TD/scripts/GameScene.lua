@@ -28,8 +28,6 @@ local function InitPlayerResource()
     for i, v in ipairs(EnemyTeam) do
         SetPlayerState(Player(v), PLAYER_STATE_GIVES_BOUNTY, 1)
     end
-    --锁定资源交易
-    SetMapFlag(MAP_LOCK_RESOURCE_TRADING, true)
 end
 
 local function InitPlayerUnit()
@@ -47,6 +45,7 @@ local function InitPlayerUnit()
             Worke[i]:AddSkill("gh01")
             Worke[i]:AddSkill("gh02")
             Worke[i]:AddSkill("pf01")
+            Worke[i]:AddSkill("pf02")
 
             --Worke[i]:AddSkill("AU12")
             UnitAddItem(Worke[i].Entity, CreateItem(GetId("IU03"), Worke[i]:X(), Worke[i]:Y()))
@@ -77,24 +76,39 @@ function GameScene.OnGameStart()
     --Game.Log(os.time())
 end
 
-local mSelectedUnit
+local mSelectedUnit = {}
 function GameScene.AnyUnitSelected()
-    mSelectedUnit = GetJ_PlayerUnits(GetTriggerUnit())
+    local id = GetPlayerId(GetTriggerPlayer()) + 1
+    mSelectedUnit[id] = GetJ_PlayerUnits(GetTriggerUnit())
 end
 
 function GameScene.OnGameUpdate(dt)
     GameScene.Elapsed = GameScene.Elapsed + dt
     AssetsManager.OnGameUpdate(dt)
     MonsterRefresh.OnGameUpdate(dt)
-    if (mSelectedUnit ~= nil) then
-        Jglobals.udg_Attribute[0] = tostring(mSelectedUnit.Attribute:get("物理穿透") * 100) .. "%"
-        Jglobals.udg_Attribute[1] = tostring(mSelectedUnit.Attribute:get("法术穿透") * 100) .. "%"
-        Jglobals.udg_Attribute[2] = tostring(mSelectedUnit.Attribute:get("物理伤害加成"))
-        Jglobals.udg_Attribute[3] = tostring(mSelectedUnit.Attribute:get("法术伤害加成"))
-        Jglobals.udg_Attribute[4] = tostring(math.modf(mSelectedUnit.Attribute:get("暴击") * 100)) .. "%"
-        Jglobals.udg_Attribute[5] = tostring(math.modf(mSelectedUnit.Attribute:get("冷却缩减") * 100)) .. "%"
-        Jglobals.udg_Attribute[6] = tostring(mSelectedUnit.Attribute:get("暴击伤害"))
-        Jglobals.udg_Attribute[7] = string.sub(tostring(mSelectedUnit.Attribute:get("攻击速度")), 1, 4)
+    local id = GetPlayerId(GetLocalPlayer()) + 1
+    if mSelectedUnit[id] ~= nil then
+        Jglobals.udg_Attribute[0] = tostring(mSelectedUnit[id].Attribute:get("法术攻击"))
+        Jglobals.udg_Attribute[1] = tostring(math.ceil(mSelectedUnit[id].Attribute:get("物理穿透") * 100)) .. "%"
+        Jglobals.udg_Attribute[2] = tostring(math.ceil(mSelectedUnit[id].Attribute:get("法术穿透") * 100)) .. "%"
+        Jglobals.udg_Attribute[3] = tostring(math.ceil(mSelectedUnit[id].Attribute:get("物理伤害加成") * 100) - 100) .. "%"
+        Jglobals.udg_Attribute[4] = tostring(math.ceil(mSelectedUnit[id].Attribute:get("法术伤害加成") * 100) - 100) .. "%"
+        Jglobals.udg_Attribute[5] = tostring(math.ceil(mSelectedUnit[id].Attribute:get("暴击") * 100)) .. "%"
+        Jglobals.udg_Attribute[6] = tostring(math.ceil(mSelectedUnit[id].Attribute:get("冷却缩减") * 100)) .. "%"
+        Jglobals.udg_Attribute[7] = tostring(math.ceil(mSelectedUnit[id].Attribute:get("暴击伤害") * 100)) .. "%"
+        Jglobals.udg_Attribute[8] = string.sub(tostring(mSelectedUnit[id].Attribute:get("攻击速度")), 1, 4)
+        Jglobals.udg_Attribute[9] = "+" .. tostring(math.ceil(mSelectedUnit[id].Attribute:get("魔法恢复")))
+    else
+        Jglobals.udg_Attribute[0] = "0"
+        Jglobals.udg_Attribute[1] = "0"
+        Jglobals.udg_Attribute[2] = "0"
+        Jglobals.udg_Attribute[3] = "0"
+        Jglobals.udg_Attribute[4] = "0"
+        Jglobals.udg_Attribute[5] = "0"
+        Jglobals.udg_Attribute[6] = "0"
+        Jglobals.udg_Attribute[7] = "0"
+        Jglobals.udg_Attribute[8] = "0"
+        Jglobals.udg_Attribute[9] = "0"
     end
     --Multiboard.OnGameUpdate(dt)
 end

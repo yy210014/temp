@@ -6,61 +6,77 @@ IncludeFile "UI\FrameDef\Glue\StandardTemplates.fdf",
 	Frame "TEXTBUTTON" "UIAAA1" {
     Height 0.035,
     Width 0.03,
-  		ButtonPushedTextOffset -0.001f -0.0015f,
-
-      		//背景
-    		ControlBackdrop "UIAAA1UP",
-   		Frame "BACKDROP" "UIAAA1UP" {
-   			BackdropBackground  "war3mapImported\[ZT]AN1.tga",
-     			BackdropBlendAll,
-    		}
-					//按下
-    		ControlPushedBackdrop "UIAAA1DOWN",
-    		Frame "BACKDROP" "UIAAA1DOWN" {
-        		BackdropBackground  "war3mapImported\[ZT]AN1down.tga",
-        		BackdropBlendAll,
-    		}
-			}
+		ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+  	ButtonPushedTextOffset -0.001f -0.0015f,
+    //背景
+    ControlBackdrop "UIAAA1UP",
+  	Frame "BACKDROP" "UIAAA1UP" {
+   			BackdropBackground  "war3mapImported\[ZT]AN1.blp",
+     		BackdropBlendAll,
+    }
+		//按下
+    ControlPushedBackdrop "UIAAA1DOWN",
+    Frame "BACKDROP" "UIAAA1DOWN" {
+      	BackdropBackground  "war3mapImported\[ZT]AN1down.tga",
+      	BackdropBlendAll,
+  	}
+		ControlMouseOverHighlight "UIAAA1LIGHT",
+		Frame "HIGHLIGHT" "UIAAA1LIGHT" {
+			HighlightType "FILETEXTURE",
+			HighlightAlphaFile "UI\Widgets\BattleNet\bnet-button01-highlight-mouse.blp",    
+			HighlightAlphaMode "ADD",
+		}
+	}
 	//按钮2
 	Frame "TEXTBUTTON" "UIAAA2" {
     Height 0.035,
     Width 0.03,
-  		ButtonPushedTextOffset -0.001f -0.0015f,
-
-      		//背景
-    		ControlBackdrop "UIAAA2UP",
-   		Frame "BACKDROP" "UIAAA2UP" {
-   			BackdropBackground  "war3mapImported\[ZT]AN2.tga",
-     			BackdropBlendAll,
-    		}
-					//按下
-    		ControlPushedBackdrop "UIAAA2DOWN",
-    		Frame "BACKDROP" "UIAAA2DOWN" {
-        		BackdropBackground  "war3mapImported\[ZT]AN2down.tga",
-        		BackdropBlendAll,
-    		}
-			}
+		ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+  	ButtonPushedTextOffset -0.001f -0.0015f,
+    //背景
+    ControlBackdrop "UIAAA2UP",
+   	Frame "BACKDROP" "UIAAA2UP" {
+   		BackdropBackground  "war3mapImported\[ZT]AN2.blp",
+     	BackdropBlendAll,
+    }
+		//按下
+  	ControlPushedBackdrop "UIAAA2DOWN",
+  	Frame "BACKDROP" "UIAAA2DOWN" {
+      	BackdropBackground  "war3mapImported\[ZT]AN2down.tga",
+    		BackdropBlendAll,
+  	}
+		ControlMouseOverHighlight "UIAAA2LIGHT",
+		Frame "HIGHLIGHT" "UIAAA2LIGHT" {
+			HighlightType "FILETEXTURE",
+			HighlightAlphaFile "UI\Widgets\BattleNet\bnet-button01-highlight-mouse.blp",    
+			HighlightAlphaMode "ADD",
+		}
+	}
 	//按钮3
 	Frame "TEXTBUTTON" "UIAAA3" {
     Height 0.035,
     Width 0.025,
-  		ButtonPushedTextOffset -0.001f -0.0015f,
-
-      		//背景
-    		ControlBackdrop "UIAAA3UP",
-   		Frame "BACKDROP" "UIAAA3UP" {
-   			BackdropBackground  "war3mapImported\[ZT]AN3.tga",
+		ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+  	ButtonPushedTextOffset -0.001f -0.0015f,
+  	//背景
+    ControlBackdrop "UIAAA3UP",
+  	Frame "BACKDROP" "UIAAA3UP" {
+   			BackdropBackground  "war3mapImported\[ZT]AN3.blp",
      			BackdropBlendAll,
-    		}
-					//按下
-    		ControlPushedBackdrop "UIAAA3DOWN",
-    		Frame "BACKDROP" "UIAAA3DOWN" {
-        		BackdropBackground  "war3mapImported\[ZT]AN3down.tga",
-        		BackdropBlendAll,
-    		}
-			}
-			
-			
+    }
+		//按下
+  	ControlPushedBackdrop "UIAAA3DOWN",
+    Frame "BACKDROP" "UIAAA3DOWN" {
+      	BackdropBackground  "war3mapImported\[ZT]AN3down.tga",
+    		BackdropBlendAll,
+    }
+		ControlMouseOverHighlight "UIAAA3LIGHT",
+		Frame "HIGHLIGHT" "UIAAA3LIGHT" {
+			HighlightType "FILETEXTURE",
+			HighlightAlphaFile "UI\Widgets\BattleNet\bnet-button01-highlight-mouse.blp",    
+			HighlightAlphaMode "ADD",
+    }
+	}
 			
 		Frame "TEXT" "UIATEXT1" {
    		FrameFont "font02.TTF", 0.018, "",
@@ -6662,7 +6678,7 @@ Frame "BACKDROP" "BAG2" {      //父级
     	ControlMouseOverHighlight "HeroCard1LIGHT",
     	Frame "HIGHLIGHT" "HeroCard1LIGHT" {
         	HighlightType "FILETEXTURE",
-			HighlightAlphaFile "UI\Widgets\BattleNet\bnet-button01-highlight-mouse.blp",    
+			 		HighlightAlphaFile "UI\Widgets\BattleNet\bnet-button01-highlight-mouse.blp",    
         	HighlightAlphaMode "ADD",
 		}
 		//Tooltip
@@ -6728,7 +6744,7 @@ Frame "BACKDROP" "BAG2" {      //父级
     	ControlMouseOverHighlight "HeroCard2LIGHT",
     	Frame "HIGHLIGHT" "HeroCard2LIGHT" {
         	HighlightType "FILETEXTURE",
-			HighlightAlphaFile "UI\Widgets\BattleNet\bnet-button01-highlight-mouse.blp",    
+					HighlightAlphaFile "UI\Widgets\BattleNet\bnet-button01-highlight-mouse.blp",    
         	HighlightAlphaMode "ADD",
 		}
 		

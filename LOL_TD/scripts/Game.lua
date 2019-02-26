@@ -82,7 +82,7 @@ function Game.SetSpeed(speed)
 end
 
 local mChooseTimer, mChooseTimerDialog, mChooseTriggers, mDialog
-local mDifficultyTest = { "难一(40波)", "难二(56波)", "难三(无尽)", "难四(无尽,双倍积分)" }
+local mDifficultyTest = { "难一(56波)", "难二(无尽)", "难三(无尽,双倍积分)"}
 function Game.ChooseLevel()
     mChooseTimer = CreateTimer()
     mChooseTimerDialog = CreateTimerDialog(mChooseTimer)
@@ -96,7 +96,7 @@ function Game.ChooseLevel()
             mDialog = DialogCreate()
             DialogSetMessage(mDialog, "难度选择")
             DisplayTextToPlayer(Player(i), 0, 0, "|cffffcc00请选择难度...|r")
-            for j = 1, 4 do
+            for j = 1, #mDifficultyTest do
                 mChooseTriggers[j] = CreateTrigger()
                 TriggerRegisterDialogButtonEvent(mChooseTriggers[j], DialogAddButton(mDialog, mDifficultyTest[j], 0))
                 TriggerAddAction(
@@ -166,8 +166,8 @@ function Game.Win()
     PlayerInfo:IteratePlayer(
     function(player)
         if (player.IsWatch == false) then
-            PlayerInfo.AddScore(player.Entity, Game.GetLevel() * 5)
-            DisplayTextToPlayer(player.Entity, 0, 0, "|cffffcc00恭喜通关，所有坚守在最后的玩家获得" .. (Game.GetLevel() * 5) .. "点游戏积分!|r")
+            PlayerInfo.AddScore(player.Entity, Game.GetLevel() * 10)
+            DisplayTextToPlayer(player.Entity, 0, 0, "|cffffcc00恭喜通关，所有坚守在最后的玩家获得" .. (Game.GetLevel() * 10) .. "点游戏积分!|r")
         end
     end)
     local timer = CreateTimer()

@@ -15,7 +15,7 @@ end
 
 function Multiboard.CreateMultiboard()
     mMultiboard = CreateMultiboard()
-    MultiboardSetTitleText(mMultiboard, "撸圈TD")
+    MultiboardSetTitleText(mMultiboard, "召唤师联盟TD")
     MultiboardMinimize(mMultiboard, false)
     MultiboardSetRowCount(mMultiboard, 6)
     MultiboardSetColumnCount(mMultiboard, 3)
@@ -66,7 +66,7 @@ function Multiboard.ShowKillCount(i, killCount)
 end
 
 function Multiboard.ShowLevel(level)
-    if (Game.GetLevel() > 2) then
+    if (Game.GetLevel() > 1) then
         MultiboardSetItemValue(MultiboardGetItem(mMultiboard, 5, 2), "|cffffcc00难度" .. level .. "|r/" .. "|cffffcc00无尽|r")
     else
         MultiboardSetItemValue(MultiboardGetItem(mMultiboard, 5, 2), "|cffffcc00难度" .. level .. "|r")

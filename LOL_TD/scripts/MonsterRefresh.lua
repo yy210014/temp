@@ -82,12 +82,12 @@ local mRate = {
 
 local mDelayClear = {
     10, 10, 10, 10, 10, 10, 10, 10,
-    30, 10, 10, 10, 10, 10, 10, 10,
-    30, 10, 10, 10, 10, 10, 10, 10,
-    30, 10, 10, 10, 10, 10, 10, 10,
-    30, 10, 10, 10, 10, 10, 10, 10,
-    30, 10, 10, 10, 10, 10, 10, 10,
-    30, 10, 10, 10, 10, 10, 10, 0
+    10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 0,
 }
 
 local mMonsterId
@@ -186,7 +186,7 @@ end
 function MonsterRefresh.OnGameStart()
     mDelayPushTimer = CreateTimer()
     mDelayPushTimerDialog = CreateTimerDialog(mDelayPushTimer)
-    mMaxWaveIndex = Game.GetLevel() == 1 and 40 or 56
+    mMaxWaveIndex = 56
     MonsterRefresh.InitRegion()
     DelayPush()
 end
@@ -195,15 +195,8 @@ function DelayPush()
     TimerStart(mDelayPushTimer, mDelay[mCurWaveIndex], false, PushWave)
     TimerDialogSetTitle(mDelayPushTimerDialog, "第" .. (mCurWaveIndex) .. "波")
     TimerDialogDisplay(mDelayPushTimerDialog, true)
-    if (mCurWaveIndex == 40 and Game.GetLevel() == 1) then
-        TimerDialogSetTitle(mDelayPushTimerDialog, "最终BOSS")
-        for i = 0, 3 do
-            DisplayTextToPlayer(Player(i), 0, 0, "|cFFFF0000Warning|r" .. " - 最终BOSS即将来袭，击杀全部Boss即可通关！")
-        end
-        return
-    end
     if (mCurWaveIndex == 56) then
-        if (Game.GetLevel() == 2) then
+        if (Game.GetLevel() == 1) then
             TimerDialogSetTitle(mDelayPushTimerDialog, "最终BOSS")
             for i = 0, 3 do
                 DisplayTextToPlayer(Player(i), 0, 0, "|cFFFF0000Warning|r" .. " - 最终BOSS即将来袭，击杀全部Boss即可通关！")
@@ -256,7 +249,7 @@ function PushWave()
 end
 
 function DelayEndLessPush()
-    TimerStart(mDelayPushTimer, 30, false, PushWave)
+    TimerStart(mDelayPushTimer, mDelay[mCurWaveIndex], false, PushWave)
     TimerDialogSetTitle(mDelayPushTimerDialog, "无尽第" .. mEndlessWaveIndex .. "波")
     TimerDialogDisplay(mDelayPushTimerDialog, true)
 end
@@ -272,6 +265,7 @@ end
 
 local fuliguai = {}
 local b = { 1, 5, 20, 35, 60, 120 }
+local c = { 3, 15, 55, 90, 165, 350 }
 function MoneyShow_showDialog()
     local monTimer = CreateTimer()
     local _timerMoney = CreateTimerDialog(monTimer)
@@ -303,15 +297,17 @@ function MoneyShow_showDialog()
             for i = 0, 3 do
                 if (GetPlayerController(Player(i)) == MAP_CONTROL_USER and
                 GetPlayerSlotState(Player(i)) == PLAYER_SLOT_STATE_PLAYING) then
-                    --local money = Damage2Money(fuliguai[i + 1].DamageSum, 1000, 200, 1)
                     local a = (mCurWaveIndex - 1) / 8
-                    local money = math.floor((500 + (a - 1) * 1000) * fuliguai[i + 1].DamageSum * 0.001 / (fuliguai[i + 1].DamageSum * 0.001 + b[a]))
+                    --local money = Damage2Money(fuliguai[i + 1].DamageSum, 1000, 200, 1)
+                    local money2 = math.floor((500 + (a - 1) * 1000) * fuliguai[i + 1].DamageSum * 0.001 / (fuliguai[i + 1].DamageSum * 0.001 + b[a]))
+                    --local money3 = math.floor((1000 + (a - 1) * 2000) * fuliguai[i + 1].DamageSum * 0.001 / (fuliguai[i + 1].DamageSum * 0.001 + c[a]))
+                    --Game.Log("money: " .. money .. " ,money2: " .. money2 .. " ,money3: " .. money3)
                     AssetsManager.DestroyObject(fuliguai[i + 1])
                     Multiboard.ShowMonsterCount(-1)
                     for j = 0, 3 do
-                        DisplayTextToPlayer(Player(j), 0, 0, "|cffffcc00" .. GetPlayerName(Player(i)) .. "|r对远古龙造成的伤害：|cFF00FF00" .. math.modf(fuliguai[i + 1].DamageSum) .. "|r 奖励金币数量：|cffffcc00" .. money .. "|r")
+                        DisplayTextToPlayer(Player(j), 0, 0, "|cffffcc00" .. GetPlayerName(Player(i)) .. "|r对远古龙造成的伤害：|cFF00FF00" .. math.modf(fuliguai[i + 1].DamageSum) .. "|r 奖励金币数量：|cffffcc00" .. money2 .. "|r")
                     end
-                    SetPlayerState(Player(i), PLAYER_STATE_RESOURCE_GOLD, GetPlayerState(Player(i), PLAYER_STATE_RESOURCE_GOLD) + money)
+                    SetPlayerState(Player(i), PLAYER_STATE_RESOURCE_GOLD, GetPlayerState(Player(i), PLAYER_STATE_RESOURCE_GOLD) + money2)
                 end
             end
             DelayPush()
@@ -349,8 +345,8 @@ function EndLessComing()
     function(player)
         if (player.IsWatch == false) then
             SetPlayerState(player.Entity, PLAYER_STATE_RESOURCE_GOLD, GetPlayerState(player.Entity, PLAYER_STATE_RESOURCE_GOLD) + money)
-            PlayerInfo.AddScore(player.Entity, Game.GetLevel() * 5)
-            DisplayTextToPlayer(player.Entity, 0, 0, "|cffffcc00恭喜你们开启了无尽关卡!所有进入无尽模式的玩家获得" .. (Game.GetLevel() * 5) .. "点游戏积分!|r")
+            PlayerInfo.AddScore(player.Entity, Game.GetLevel() * 10)
+            DisplayTextToPlayer(player.Entity, 0, 0, "|cffffcc00恭喜你们开启了无尽关卡!所有进入无尽模式的玩家获得" .. (Game.GetLevel() * 10) .. "点游戏积分!|r")
         end
     end)
     local enemyTeamUnits = GetEnemyTeamUnits()
@@ -375,7 +371,13 @@ function EndLessComing()
             end
         end
     end
-    DelayEndLessPush()
+
+    mDelay = {5, 5, 5, 5, 10}
+    mDuration = {15, 15, 15, 15, 15}
+    mRate = {1, 1, 1, 1, 1 }
+    TimerStart(mDelayPushTimer, 30, false, PushWave)
+    TimerDialogSetTitle(mDelayPushTimerDialog, "无尽第1波")
+    TimerDialogDisplay(mDelayPushTimerDialog, true)
 end
 
 function WavesClear()
@@ -479,18 +481,14 @@ function Spawn(spawnPoint, index)
     RemoveGuardPosition(unit.Entity)
     IssuePointOrderLoc(unit.Entity, "move", MonsterRefresh.RectPoints[index])
     if (Game.GetMode() == GameMode.NORMAL) then
-        --unit.Attribute:add("护甲", unit.Attribute:get("护甲") * (0.1 * Game.GetLevel() - 0.1))
-        if (Game.GetLevel() == 4) then
-            unit.Attribute:add("生命上限", unit.Attribute:get("生命上限") * 0.5)
-        else
-            unit.Attribute:add("生命上限", unit.Attribute:get("生命上限") * (0.2 * Game.GetLevel() - 0.2))
-        end
+        unit.Attribute:add("生命上限", unit.Attribute:get("生命上限") * (0.2 * Game.GetLevel()))
         Multiboard.ShowMonsterCount(1, index)
     elseif (Game.GetMode() == GameMode.ENDLESS) then
-        if (Game.GetLevel() == 4) then
-            unit.Attribute:add("生命上限", unit.Attribute:get("生命上限") * (0.2 * mEndlessWaveIndex - 0.2))
+        unit.Attribute:add("护甲", mEndlessWaveIndex * 2)
+        if (Game.GetLevel() == 3) then
+            unit.Attribute:add("生命上限", unit.Attribute:get("生命上限") * (0.2 * mEndlessWaveIndex + 0.3))
         else
-            unit.Attribute:add("生命上限", unit.Attribute:get("生命上限") * (0.1 * mEndlessWaveIndex - 0.1))
+            unit.Attribute:add("生命上限", unit.Attribute:get("生命上限") * (0.1 * mEndlessWaveIndex + 0.25))
         end
         PlayerInfo:AddMonsterCount(Player(index - 1))
     end

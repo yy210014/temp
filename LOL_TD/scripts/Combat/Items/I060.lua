@@ -1,8 +1,10 @@
-local item = Items["大冰锤"]
+local item = Items["冰锤"]
 
-setmetatable(Buffs["大冰锤"], {__index = Buffs["移速"]})
-Buffs["大冰锤"].values = {-0.3}
-Buffs["大冰锤"].Durs = {2}
+setmetatable(Buffs["冰锤"], {__index = Buffs["移速"]})
+--Buffs["冰锤"].Art2 = "bilities\\Spells\\Other\\FrostDamage\\FrostDamage.mdl"
+--Buffs["冰杖"].AttachPoint = "chest"
+Buffs["冰锤"].values = {-0.3}
+Buffs["冰锤"].Durs = {2}
 
 function item:OnAdd()
     local unit = self.Owner
@@ -15,5 +17,5 @@ function item:OnRemove()
 end
 
 function item:OnAttack(attactUnit,defUnit)
-    defUnit:AddBuff("大冰锤")
+    defUnit:AddBuff("冰锤")
 end

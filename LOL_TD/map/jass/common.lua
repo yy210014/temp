@@ -204,13 +204,13 @@ ALLIANCE_SHARED_VISION_FORCED = ConvertAllianceType(9)
 VERSION_REIGN_OF_CHAOS = ConvertVersion(0)
 VERSION_FROZEN_THRONE = ConvertVersion(1)
 
-ATTACK_TYPE_NORMAL = ConvertAttackType(0)
-ATTACK_TYPE_MELEE = ConvertAttackType(1)
-ATTACK_TYPE_PIERCE = ConvertAttackType(2)
-ATTACK_TYPE_SIEGE = ConvertAttackType(3)
-ATTACK_TYPE_MAGIC = ConvertAttackType(4)
-ATTACK_TYPE_CHAOS = ConvertAttackType(5)
-ATTACK_TYPE_HERO = ConvertAttackType(6)
+ATTACK_TYPE_NORMAL = ConvertAttackType(0) --普通
+ATTACK_TYPE_MELEE = ConvertAttackType(1) --近战
+ATTACK_TYPE_PIERCE = ConvertAttackType(2) --穿刺
+ATTACK_TYPE_SIEGE = ConvertAttackType(3) --攻城
+ATTACK_TYPE_MAGIC = ConvertAttackType(4) --魔法
+ATTACK_TYPE_CHAOS = ConvertAttackType(5) --混乱 
+ATTACK_TYPE_HERO = ConvertAttackType(6) --英雄
 
 DAMAGE_TYPE_UNKNOWN = ConvertDamageType(0)
 DAMAGE_TYPE_NORMAL = ConvertDamageType(4)

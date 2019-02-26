@@ -490,10 +490,31 @@ end
 function comb:OnDisable()
 end
 
-comb = Combs["堕天使-帽子"]
+comb = Combs["堕天使-冰杖"]
 comb.Ubertip = [[
--帽子
- 羁绊需求：堕天使+帽子
+-冰杖
+ 羁绊需求：堕天使+冰杖
+ 羁绊效果：增加堕天使“痛苦腐蚀”技能伤害50%|n
+]]
+
+function comb:HerosId()
+    return {self.Owner.Id}
+end
+
+function comb:Conditions()
+    return (UnitHasItemOfTypeBJ(self.Owner.Entity, GetId("I096")) == true)
+end
+
+function comb:OnEnable()
+end
+
+function comb:OnDisable()
+end
+
+comb = Combs["堕天使-痛苦面具"]
+comb.Ubertip = [[
+-痛苦面具
+ 羁绊需求：堕天使+痛苦面具
  羁绊效果：增加堕天使30%法术穿透|n
 ]]
 
@@ -502,7 +523,7 @@ function comb:HerosId()
 end
 
 function comb:Conditions()
-    return (UnitHasItemOfTypeBJ(self.Owner.Entity, GetId("I073")) == true)
+    return (UnitHasItemOfTypeBJ(self.Owner.Entity, GetId("I100")) == true)
 end
 
 function comb:OnEnable()
@@ -511,29 +532,6 @@ end
 
 function comb:OnDisable()
     self.Owner.Attribute:add("法术穿透", -0.3)
-end
-
-comb = Combs["堕天使-法穿棒"]
-comb.Ubertip = [[
--法穿棒
- 羁绊需求：堕天使+法穿棒
- 羁绊效果：增加堕天使30%法术伤害|n
-]]
-
-function comb:HerosId()
-    return {self.Owner.Id}
-end
-
-function comb:Conditions()
-    return (UnitHasItemOfTypeBJ(self.Owner.Entity, GetId("I069")) == true)
-end
-
-function comb:OnEnable()
-    self.Owner.Attribute:add("法术攻击", 120)
-end
-
-function comb:OnDisable()
-    self.Owner.Attribute:add("法术攻击", -120)
 end
 
 comb = Combs["小炮-电刀"]
@@ -632,7 +630,7 @@ comb = Combs["炸弹人-大圣杯"]
 comb.Ubertip = [[
 -大圣杯
  羁绊需求：炸弹人+大圣杯
- 羁绊效果：增加炸弹人10%的冷却缩减和冷却上限|n
+ 羁绊效果：增加炸弹人“弹跳炸弹”技能伤害50%|n
 ]]
 
 function comb:HerosId()
@@ -644,13 +642,9 @@ function comb:Conditions()
 end
 
 function comb:OnEnable()
-    self.Owner.Attribute:add("冷却缩减上限", 0.1)
-    self.Owner.Attribute:add("冷却缩减", 0.1)
 end
 
 function comb:OnDisable()
-    self.Owner.Attribute:add("冷却缩减上限", -0.1)
-    self.Owner.Attribute:add("冷却缩减", -0.1)
 end
 
 comb = Combs["炸弹人-巫术法杖"]
@@ -831,10 +825,10 @@ end
 function comb:OnDisable()
 end
 
-comb = Combs["冰女-帽子"]
+comb = Combs["冰女-痛苦面具"]
 comb.Ubertip = [[
--帽子
- 羁绊需求：冰女+帽子
+-痛苦面具
+ 羁绊需求：冰女+痛苦面具
  羁绊效果：增加冰女30%的法术穿透|n
  ]]
 
@@ -843,7 +837,7 @@ function comb:HerosId()
 end
 
 function comb:Conditions()
-    return (UnitHasItemOfTypeBJ(self.Owner.Entity, GetId("I073")) == true)
+    return (UnitHasItemOfTypeBJ(self.Owner.Entity, GetId("I100")) == true)
 end
 
 function comb:OnEnable()
@@ -998,8 +992,8 @@ function AddComb(unit)
     elseif (id == GetId("UH02")) then --堕天使
         unit:AddComb(setmetatable({}, {__index = Combs["神圣与堕落-堕天使"]}))
         unit:AddComb(setmetatable({}, {__index = Combs["黑暗魔法"]}))
-        unit:AddComb(setmetatable({}, {__index = Combs["堕天使-帽子"]}))
-        unit:AddComb(setmetatable({}, {__index = Combs["堕天使-法穿棒"]}))
+        unit:AddComb(setmetatable({}, {__index = Combs["堕天使-冰杖"]}))
+        unit:AddComb(setmetatable({}, {__index = Combs["堕天使-痛苦面具"]}))
     elseif (id == GetId("UH03")) then --炸弹人
         unit:AddComb(setmetatable({}, {__index = Combs["炮火联盟-炸弹人"]}))
         unit:AddComb(setmetatable({}, {__index = Combs["炸弹人-大圣杯"]}))
@@ -1007,11 +1001,11 @@ function AddComb(unit)
     elseif (id == GetId("UH06")) then --冰女
         unit:AddComb(setmetatable({}, {__index = Combs["冰雪之冠-冰女"]}))
         unit:AddComb(setmetatable({}, {__index = Combs["冰女-鬼书"]}))
-        unit:AddComb(setmetatable({}, {__index = Combs["冰女-帽子"]}))
+        unit:AddComb(setmetatable({}, {__index = Combs["冰女-痛苦面具"]}))
     elseif (id == GetId("UH08")) then --小法
         unit:AddComb(setmetatable({}, {__index = Combs["黑暗魔法"]}))
-        unit:AddComb(setmetatable({}, {__index = Combs["小法师-鬼书"]}))
         unit:AddComb(setmetatable({}, {__index = Combs["小法师-大圣杯"]}))
+        unit:AddComb(setmetatable({}, {__index = Combs["小法师-鬼书"]}))
     elseif (id == GetId("UH11")) then --皇子
         unit:AddComb(setmetatable({}, {__index = Combs["草丛三剑客"]}))
         unit:AddComb(setmetatable({}, {__index = Combs["皇子-大九头蛇"]}))

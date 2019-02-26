@@ -16,7 +16,7 @@ function buff.Action(self, dt)
     self.IntervalDt = self.IntervalDt - dt
     if (self.IntervalDt <= 0) then
         self.IntervalDt = self.Interval
-        EXUnitDamageTarget(self.AttactUnit, self.Owner, self.values[self.Level] * self.Stack, EXDamageType.Real)
+        EXUnitDamageTarget(self.AttactUnit, self.Owner, self.values[self.Level] * self.Stack, EXAbilityType.Real)
     end
 end
 

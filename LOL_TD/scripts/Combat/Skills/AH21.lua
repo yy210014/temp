@@ -46,7 +46,7 @@ skill.OnPathEnd = function(dummy)
     local ad = owner.Attribute:get("物理攻击") + owner.Attribute:get("物理攻击加成")
     local ap = owner.Attribute:get("法术攻击")
     local damage = mDamages1[self:GetCurLevel()] + ap * mDamages2[self:GetCurLevel()] + ad * mDamages3[self:GetCurLevel()]
-    EXUnitDamageTarget(owner, spellTargetUnit, damage, EXDamageType.Magic)
+    EXUnitDamageTarget(owner, spellTargetUnit, damage, EXAbilityType.Magic_Ability)
     spellTargetUnit:AddBuff("清算", self:GetCurLevel())
     local ah20 = owner:GetSkill(GetId("AH20"))
     if (ah20 ~= nil) then

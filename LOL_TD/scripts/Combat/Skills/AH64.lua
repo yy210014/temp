@@ -24,7 +24,7 @@ function skill:OnCast()
         unit:AddBuff("冰霜之环", comb and self:GetCurLevel() + 1 or self:GetCurLevel())
         local ap = spellUnit.Attribute:get("法术攻击")
         local damage = mDamages1[self:GetCurLevel()] + ap * mDamages2[self:GetCurLevel()]
-        EXUnitDamageTarget(spellUnit, unit, damage, EXDamageType.Magic)
+        EXUnitDamageTarget(spellUnit, unit, damage, EXAbilityType.Magic_Ability)
     end
     )
 end

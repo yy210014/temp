@@ -20,7 +20,7 @@ function buff.Action(self, dt)
             self.AttactUnit,
             self.Owner,
             self.values[self.Level] * self.Stack,
-            EXDamageType.Physics
+            EXAbilityType.Physics
         )
     end
 end

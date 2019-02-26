@@ -44,11 +44,11 @@ skill.OnPathUpdate = function(dummy)
     AssetsManager.OverlapCircle(
     dummy:X(),
     dummy:Y(),
-    100,
+    150,
     function(unit)
         DestroyEffect(AddSpecialEffectTarget(mTargetArt2, unit.Entity, "chest"))
         --伤害
-        EXUnitDamageTarget(owner, unit, damage, EXDamageType.Magic)
+        EXUnitDamageTarget(owner, unit, damage, EXAbilityType.Magic_Ability)
         unit:AddBuff("寒冰碎片", self:GetCurLevel())
 
         AssetsManager.OverlapCircle(
@@ -92,10 +92,6 @@ skill.OnPathEnd2 = function(dummy)
     local self = dummy.Skill
     local ap = owner.Attribute:get("法术攻击")
     local damage = mDamages1[self:GetCurLevel()] + ap * mDamages2[self:GetCurLevel()]
-    local comb = owner:GetComb("冰女-帽子")
-    if (comb ~= nil and comb.Enable) then
-        damage = damage + damage * 0.3
-    end
-    EXUnitDamageTarget(owner, dummy.Target, damage, EXDamageType.Magic)
+    EXUnitDamageTarget(owner, dummy.Target, damage, EXAbilityType.Magic_Ability)
     AssetsManager.RemoveObject(dummy)
 end

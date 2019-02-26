@@ -17,7 +17,7 @@ function item:OnAdd()
         owner:Y(),
         900,
         function(unit)
-            EXUnitDamageTarget(owner, unit,  15 * GetUnitLevel(owner.Entity), EXDamageType.Magic)
+            EXUnitDamageTarget(owner, unit,  18 * GetUnitLevel(owner.Entity), EXAbilityType.Magic)
         end
         )
     end

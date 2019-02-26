@@ -15,7 +15,7 @@ function skill:OnCast()
         function(unit)
             local ad = spellUnit.Attribute:get("物理攻击") + spellUnit.Attribute:get("物理攻击加成")
             local damage = mDamages1[self:GetCurLevel()] + ad * mDamages2[self:GetCurLevel()]
-            EXUnitDamageTarget(spellUnit, unit, damage, EXDamageType.Physics)
+            EXUnitDamageTarget(spellUnit, unit, damage, EXAbilityType.Physics_Ability)
             local ah54 = spellUnit:GetSkill(GetId("AH54"))
             if (ah54 ~= nil) then
                 --buff

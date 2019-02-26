@@ -48,7 +48,7 @@ skill.Action = function(self, dt)
             if (unit.IsDying == false) then
                 --特效
                 DestroyEffect(AddSpecialEffectTarget(mArt, unit.Entity, "chest"))
-                EXUnitDamageTarget(self.Owner, unit, damage, EXDamageType.Magic)
+                EXUnitDamageTarget(self.Owner, unit, damage, EXAbilityType.Magic_Ability)
             else
                 DestroyLightning(lightning)
                 table.remove(self.DamageList, i)

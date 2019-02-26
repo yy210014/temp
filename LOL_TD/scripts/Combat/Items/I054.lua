@@ -24,10 +24,10 @@ function item:OnAttack(attactUnit, defUnit)
     if (GetUnitState(defUnit.Entity, UNIT_STATE_LIFE) <= 0) then
         return
     end
-    --每10s，使英雄的下次攻击附带300点物理伤害，并使目标减速50%
+    --每2s，使英雄的下次攻击附带300点物理伤害，并使目标减速50%
     if (GameScene.Elapsed - self.mLastAttackTime > 2) then
         self.mLastAttackTime = GameScene.Elapsed
-        EXUnitDamageTarget(attactUnit, defUnit, 300, EXDamageType.Physics)
+        EXUnitDamageTarget(attactUnit, defUnit, 300, EXAbilityType.Physics)
         defUnit:AddBuff("幕刃")
     end
 end

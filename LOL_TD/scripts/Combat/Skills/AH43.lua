@@ -41,7 +41,7 @@ skill.OnPathUpdate = function(dummy)
     function(unit)
         --特效
         DestroyEffect(AddSpecialEffectTarget(mArt3, unit.Entity, "chest"))
-        EXUnitDamageTarget(owner, unit, damage, EXDamageType.Physics)
+        EXUnitDamageTarget(owner, unit, damage, EXAbilityType.Physics_Ability)
         dummy.Locomotion:PathEnded()
         return
     end

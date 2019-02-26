@@ -19,6 +19,6 @@ function skill:OnAttack(attactUnit, defUnit)
     if (attactUnit:ContainBuff("剑道")) then
         local ad = attactUnit.Attribute:get("物理攻击") + attactUnit.Attribute:get("物理攻击加成")
         local damage = ad * mDamages[self:GetCurLevel()]
-        EXUnitDamageTarget(attactUnit, defUnit, damage, EXDamageType.Real)
+        EXUnitDamageTarget(attactUnit, defUnit, damage, EXAbilityType.Real)
     end
 end

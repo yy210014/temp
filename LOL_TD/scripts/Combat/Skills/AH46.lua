@@ -47,7 +47,7 @@ skill.Action = function(self, dt)
             if (comb ~= nil and comb.Enable) then
                 damage = damage + damage * 1
             end
-            EXUnitDamageTarget(spellUnit, unit, damage, EXDamageType.Physics)
+            EXUnitDamageTarget(spellUnit, unit, damage, EXAbilityType.Physics_Ability)
         end
         )
     end

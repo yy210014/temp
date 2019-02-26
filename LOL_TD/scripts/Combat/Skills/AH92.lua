@@ -52,7 +52,7 @@ skill.Action = function(self, dt)
             --伤害
             local ad = spellUnit.Attribute:get("物理攻击") + spellUnit.Attribute:get("物理攻击加成")
             local damage = mDamages1[self:GetCurLevel()] + ad * mDamages2[self:GetCurLevel()]
-            EXUnitDamageTarget(spellUnit, unit, damage, EXDamageType.Physics)
+            EXUnitDamageTarget(spellUnit, unit, damage, EXAbilityType.Physics_Ability)
         end
         )
     end

@@ -24,7 +24,7 @@ function skill:OnAttack(attactUnit, defUnit)
                 loc:Start(defUnit, 0.4, 150, nil)
             end
         end
-        EXUnitDamageTarget(attactUnit, defUnit, damage, EXDamageType.Physics)
+        EXUnitDamageTarget(attactUnit, defUnit, damage, EXAbilityType.Physics)
     else
         self.Count = self.Count + 1
     end

@@ -23,7 +23,7 @@ skill.OnPathEnd = function(dummy)
     dummy:Y(),
     mDamageRange,
     function(unit)
-        EXUnitDamageTarget(owner, unit, damage, EXDamageType.Physics)
+        EXUnitDamageTarget(owner, unit, damage, EXAbilityType.Physics_Ability)
         unit:AddBuff("无畏冲锋减速")
     end
     )

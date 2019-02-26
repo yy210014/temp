@@ -15,5 +15,5 @@ function skill:OnCast()
     DestroyEffect(AddSpecialEffect(mArt, spellTargetUnit:X(), spellTargetUnit:Y()))
     local lostLift = spellTargetUnit.Attribute:get("生命上限") - spellTargetUnit.Attribute:get("生命")
     local damage = mDamages1[self:GetCurLevel()] + mDamages2[self:GetCurLevel()] * lostLift
-    EXUnitDamageTarget(spellUnit, spellTargetUnit, damage, EXDamageType.Real)
+    EXUnitDamageTarget(spellUnit, spellTargetUnit, damage, EXAbilityType.Real_Ability)
 end

@@ -22,7 +22,7 @@ function skill:OnAttack(attactUnit, defUnit)
                 "chest"
             )
         )
-        EXUnitDamageTarget(attactUnit, defUnit, damage, EXDamageType.Physics)
+        EXUnitDamageTarget(attactUnit, defUnit, damage, EXAbilityType.Physics)
     end
 end
     

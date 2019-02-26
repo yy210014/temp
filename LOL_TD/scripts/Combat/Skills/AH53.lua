@@ -48,7 +48,7 @@ skill.OnPathUpdate = function(dummy)
         if (IsInTable(unit, dummy.Skill.DamageList) == -1) then
             --特效
             DestroyEffect(AddSpecialEffectTarget(mArt2, unit.Entity, "chest"))
-            EXUnitDamageTarget(owner, unit, damage, EXDamageType.Physics)
+            EXUnitDamageTarget(owner, unit, damage, EXAbilityType.Physics_Ability)
             self.DamageList[#self.DamageList + 1] = unit
         end
     end

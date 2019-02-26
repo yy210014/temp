@@ -12,5 +12,5 @@ function skill:OnAttack(attactUnit, defUnit)
     defUnit:AddBuff("冰霜射击", self:GetCurLevel())
     local ad = attactUnit.Attribute:get("物理攻击") + attactUnit.Attribute:get("物理攻击加成")
     local damage = ad * mDamages[self:GetCurLevel()]
-    EXUnitDamageTarget(attactUnit, defUnit, damage, EXDamageType.Magic)
+    EXUnitDamageTarget(attactUnit, defUnit, damage, EXAbilityType.Magic)
 end

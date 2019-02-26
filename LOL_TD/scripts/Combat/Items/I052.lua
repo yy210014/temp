@@ -1,6 +1,6 @@
 local item = Items["大九头蛇"]
 local mRange = 600
-local mArt = "AZ_JSBZ.mdl"
+local mArt = "AZ_ShockWave01.mdl"
 
 function item:OnAdd()
     local unit = self.Owner
@@ -28,7 +28,7 @@ function item:OnAttack(attactUnit, defUnit)
     function(unit)
         if (unit ~= defUnit) then
             local damage = attactUnit.Attribute:get("物理攻击") + attactUnit.Attribute:get("物理攻击加成")
-            EXUnitDamageTarget(attactUnit, unit, damage * 1.2, EXDamageType.Physics)
+            EXUnitDamageTarget(attactUnit, unit, damage * 1.2, EXAbilityType.Physics)
         end
     end
     )

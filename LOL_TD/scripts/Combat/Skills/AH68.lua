@@ -56,7 +56,7 @@ skill.OnPathUpdate = function(dummy)
                 --伤害
                 local ad = owner.Attribute:get("物理攻击") + owner.Attribute:get("物理攻击加成")
                 local damage = mDamages1[self:GetCurLevel()] + ad * mDamages2[self:GetCurLevel()]
-                EXUnitDamageTarget(owner, unit, damage, EXDamageType.Physics)
+                EXUnitDamageTarget(owner, unit, damage, EXAbilityType.Physics_Ability)
                 self.DamageList[#self.DamageList + 1] = unit
             end
         end

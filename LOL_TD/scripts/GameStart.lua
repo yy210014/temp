@@ -11,9 +11,9 @@ function GameStart.OnGameStart()
     FogEnable(false)
     SuspendTimeOfDay(true)
     SetCameraField(CAMERA_FIELD_ZOFFSET, 200, 0)
-    CreateQuestBJ(bj_QUESTTYPE_REQ_DISCOVERED, "新手必看", "工人头像旁边有UI商店，前期建议购买贪婪，当贪婪叠加满后卖了可以获得更多的经济。|n前期偏弱的英雄可以开局购买装备火焰之心帮助你更好的清怪.不懂后续出装的优先把人物的装备羁绊做出来然后在慢慢熟悉游戏环境。", "ReplaceableTextures\\CommandButtons\\BTNSelectHeroOn.blp")
+    CreateQuestBJ(bj_QUESTTYPE_REQ_DISCOVERED, "新手必看", "前期建议购买贪婪，当贪婪叠加满后卖了可以获得更多的经济。|n前期偏弱的英雄可以开局购买装备火焰之心帮助你更好的清怪.不懂后续出装的优先把人物的装备羁绊做出来然后在慢慢熟悉游戏环境。", "ReplaceableTextures\\CommandButtons\\BTNSelectHeroOn.blp")
     CreateQuestBJ(bj_QUESTTYPE_REQ_DISCOVERED, "指令说明", "输入++/--可以抬高或者降低镜头视角|n输入-repick可以把一张SR卡重新免费随机一次|n输入-jf可以查看自己当前游戏积分|n输入-sx + 人物索引显示英雄属性，比如-sx1显示第一个英雄的属性。", "ReplaceableTextures\\CommandButtons\\BTNSelectHeroOn.blp")
-    CreateQuestBJ(bj_QUESTTYPE_REQ_DISCOVERED, "积分说明", "通关难1获得5积分,通关难2获得10积分,通关难3获得15积分,通关难4获得20积分|n进入无尽模式后难3每守住1波奖励1积分，每5波为1轮守住1轮奖励3积分.难4积分翻倍。购买会员获得的所有积分翻倍。", "ReplaceableTextures\\CommandButtons\\BTNSelectHeroOn.blp")
+    CreateQuestBJ(bj_QUESTTYPE_REQ_DISCOVERED, "积分说明", "通关难1获得10积分,通关难2获得20积分,通关难3获得30积分|n进入无尽模式后难3每守住1波奖励1积分，每5波为1轮守住1轮奖励3积分.难4积分翻倍。购买会员获得的所有积分翻倍。", "ReplaceableTextures\\CommandButtons\\BTNSelectHeroOn.blp")
     CreateQuestBJ(bj_QUESTTYPE_OPT_DISCOVERED, "天赋系统", "开局领取小黄鸡福利赠送1天赋点，每击杀100个小兵或击杀一条小龙可以获得1天赋点，天赋点用于给英雄学习天赋技能。游戏内共有十几种不同的天赋，每个天赋分为C,B,A,S四种等级，并且达成任意两个羁绊可以解锁强力的超能天赋，天赋系统能更好的强化你的英雄。", "Icon\\TianFu.blp")
     CreateQuestBJ(bj_QUESTTYPE_OPT_DISCOVERED, "羁绊系统", "每个英雄都有个羁绊技能，羁绊可以和人物点亮也可以和装备点亮，点亮的羁绊可以为英雄提供额外属性。任意英雄点亮两个以上羁绊可以解锁超能天赋，点亮三个以上羁绊可以突破18级等级限制。", "ReplaceableTextures\\CommandButtons\\BTNMetamorphosis.blp")
 
@@ -46,14 +46,14 @@ function GameStart.AnyDummyDamaged(attactUnit, defUnit)
         defUnit:AddBuff("枪林弹雨", self:GetCurLevel())
         local ap = spellUnit.Attribute:get("法术攻击")
         local damage = mDamages1[self:GetCurLevel()] + (ap * mDamages2[self:GetCurLevel()])
-        EXUnitDamageTarget(spellUnit, defUnit, damage, EXDamageType.Magic)
+        EXUnitDamageTarget(spellUnit, defUnit, damage, EXAbilityType.Magic_Ability)
     end
 
     if GetUnitAbilityLevel(attactUnit.Entity, GetId("AQ05")) > 0 then
         local spellUnit = attactUnit.Owner
         defUnit:AddBuff("狂躁律动")
         local ap = spellUnit.Attribute:get("法术攻击")
-        EXUnitDamageTarget(spellUnit, defUnit, 100 + ap, EXDamageType.Magic)
+        EXUnitDamageTarget(spellUnit, defUnit, 100 + ap, EXAbilityType.Magic_Ability)
     end
 
     if GetUnitTypeId(attactUnit.Entity) == GetId("uq05") then
@@ -64,7 +64,7 @@ function GameStart.AnyDummyDamaged(attactUnit, defUnit)
         defUnit:AddBuff("爆破雷区", self:GetCurLevel())
         local ap = spellUnit.Attribute:get("法术攻击")
         local damage = mDamages1[self:GetCurLevel()] + (ap * mDamages2[self:GetCurLevel()])
-        EXUnitDamageTarget(spellUnit, defUnit, damage, EXDamageType.Magic)
+        EXUnitDamageTarget(spellUnit, defUnit, damage, EXAbilityType.Magic_Ability)
     end
 
     mDamages1 = nil
@@ -140,7 +140,7 @@ function GameStart.AnyUnitDamaged()
             end
         end
     else
-        if (EXGetDamageType() == EXDamageType.Magic) then
+        if (EXGetAttackType() == EXAbilityType.Magic) then
             --幽冥冷火
             local skil = attactUnit:GetSkill(GetId("AX5Z"))
             if (skil ~= nil) then
@@ -154,17 +154,25 @@ function GameStart.AnyUnitDamaged()
                 end
             end
         end
+        if (EXGetAttackType() == EXAbilityType.Physics_Ability or EXGetAttackType() == EXAbilityType.Magic_Ability) then
+            --迭代物品
+            attactUnit:IterateItems(
+            function(item)
+                item:OnSkillDamage(defUnit)
+            end
+            )
+        end
     end
 
     --重新计算伤害
-    if (EXGetDamageType() ~= EXDamageType.Real) then
+    if (EXGetAttackType() ~= EXAbilityType.Real) then
         --计算护甲
         local def = defUnit.Attribute:get("护甲")
         if (def > 0) then
             local pen = 0
-            if (EXGetDamageType() == EXDamageType.Physics) then
+            if (EXGetAttackType() == EXAbilityType.Physics or EXGetAttackType() == EXAbilityType.Physics_Ability) then
                 pen = attactUnit.Attribute:get("物理穿透")
-            elseif (EXGetDamageType() == EXDamageType.Magic) then
+            elseif (EXGetAttackType() == EXAbilityType.Magic or EXGetAttackType() == EXAbilityType.Magic_Ability) then
                 pen = attactUnit.Attribute:get("法术穿透")
             end
             def = def - def * pen
@@ -176,9 +184,9 @@ function GameStart.AnyUnitDamaged()
         end
     end
     --计算伤害加成
-    if (EXGetDamageType() == EXDamageType.Physics) then
+    if (EXGetAttackType() == EXAbilityType.Physics or EXGetAttackType() == EXAbilityType.Physics_Ability) then
         damage = damage * attactUnit.Attribute:get("物理伤害加成")
-    elseif (EXGetDamageType() == EXDamageType.Magic) then
+    elseif (EXGetAttackType() == EXAbilityType.Magic or EXGetAttackType() == EXAbilityType.Magic_Ability) then
         damage = damage * attactUnit.Attribute:get("法术伤害加成")
     end
 
@@ -280,7 +288,7 @@ function GameStart.AnyUnitDeath(killUnit, dieUnit)
     if (Game.GetMode() == GameMode.NORMAL) then
         local playerId = GetPlayerId(killUnit.Player) + 1
         mUnitDeathDropCount[playerId] = mUnitDeathDropCount[playerId] + 1
-        if (mUnitDeathDropCount[playerId] >= (PlayerInfo:IsVIP(killUnit.Player) and 21 or 25)) then
+        if (mUnitDeathDropCount[playerId] >= (PlayerInfo:IsVIP(killUnit.Player) and 22 or 25)) then
             local itemId = Card.RandomDrop()
             if (itemId ~= 0) then
                 CreateItem(itemId, dieUnit:X(), dieUnit:Y())
@@ -311,11 +319,8 @@ function GameStart.AnyUnitDeath(killUnit, dieUnit)
 
     --死亡单位是英雄
     if (IsUnitType(dieUnit.Entity, UNIT_TYPE_HERO)) then
-        if (MonsterRefresh.GetCurWaveIndex() == 41 and Game.GetLevel() == 1) then
-            AllWavesDie()
-        end
         if (MonsterRefresh.GetCurWaveIndex() == 57) then
-            if (Game.GetLevel() <= 2) then
+            if (Game.GetLevel() <= 1) then
                 AllWavesDie()
             else
                 if (dieUnit.Id == GetId("UM56")) then
@@ -374,11 +379,11 @@ function GameStart.AnyUnitConstructFinish()
         --开启AI
         IssueImmediateOrder(unit.Entity, "manashieldon")
 
-        --[[ unit.Attribute:add("魔法恢复", 100)
+        --[[   unit.Attribute:add("魔法恢复", 100)
         unit.Attribute:add("攻击速度", 2)
         unit.Attribute:add("暴击", 0.5)
-        unit.Attribute:add("冷却缩减上限", 0.5)
-        unit.Attribute:add("冷却缩减", 0.5)
+        unit.Attribute:add("冷却缩减上限", 0.8)
+        unit.Attribute:add("冷却缩减", 0.8)
         unit.Attribute:add("物理攻击", 300000)
         unit.Attribute:add("法术攻击", 100000)]]
         --辅助英雄写死
@@ -631,6 +636,8 @@ function GameStart.AnyUnitDropItem()
     end
 end
 
+local mEmitters = { "简单弹幕", "旋转弹幕", "圆形弹幕", "圆形弹幕-交叉", "扇形弹幕", "旋转X4", "仙女散花", "E008", "倒勾" }
+local mEmitterIndex = 0
 --任意玩家输入字符串
 function GameStart.AnyPlayerChat()
     local player = GetTriggerPlayer()
@@ -717,19 +724,24 @@ function GameStart.AnyPlayerChat()
         return
     end
 
-    if (str == "vip") then
-        PlayerInfo:EnableVIP(Player(playerID))
+    if (true) then
         return
     end
-
+    if (str == "vip") then
+        PlayerInfo:EnableVIP(Player(playerID))
+        PlayerInfo:EnableHelp(Player(playerID))
+        return
+    end
     if (str == "debug" and IsDebug == false) then
         IsDebug = true
         require("jass.console").enable = IsDebug
         return
     end
 
-    if (true) then
-        return
+    if (str == "dm") then
+        mEmitterIndex = mEmitterIndex < #mEmitters and mEmitterIndex + 1 or 1
+        Worke[playerID]:DisableEmitter()
+        Worke[playerID]:AddEmitter(mEmitters[mEmitterIndex])
     end
 
     if (str == "cheat") then
@@ -746,7 +758,6 @@ function GameStart.AnyPlayerChat()
         end
         return
     end
-
 
     if (str == "pause") then
         DisplayTextToAll("暂停游戏", Color.red)

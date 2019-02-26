@@ -47,6 +47,6 @@ skill.OnPathEnd = function(dummy)
         damage = damage + damage * 0.5
     end
     DestroyEffect(AddSpecialEffectTarget(mArt2, spellTargetUnit.Entity, "origin"))
-    EXUnitDamageTarget(owner, spellTargetUnit, damage, EXDamageType.Magic)
+    EXUnitDamageTarget(owner, spellTargetUnit, damage, EXAbilityType.Magic_Ability)
     AssetsManager.RemoveObject(dummy)
 end

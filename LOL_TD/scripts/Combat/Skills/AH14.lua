@@ -21,12 +21,12 @@ skill.OnPathUpdate = function(dummy)
     AssetsManager.OverlapCircle(
     dummy:X(),
     dummy:Y(),
-    100,
+    150,
     function(unit)
         if (IsInTable(unit, dummy.Skill.DamageList) == -1) then
             --特效
             DestroyEffect(AddSpecialEffectTarget(mArt2, unit.Entity, "chest"))
-            EXUnitDamageTarget(owner, unit, damage, EXDamageType.Magic)
+            EXUnitDamageTarget(owner, unit, damage, EXAbilityType.Magic_Ability)
             unit:AddBuff("暗之禁锢", self:GetCurLevel())
             self.DamageList[#self.DamageList + 1] = unit
         end

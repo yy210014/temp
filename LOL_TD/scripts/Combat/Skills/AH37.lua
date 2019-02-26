@@ -31,7 +31,7 @@ skill.OnPathEnd = function(dummy)
     dummy:Y(),
     mDamageRange,
     function(unit)
-        EXUnitDamageTarget(owner, unit, damage, EXDamageType.Magic)
+        EXUnitDamageTarget(owner, unit, damage, EXAbilityType.Magic_Ability)
     end
     )
     DestroyEffect(AddSpecialEffect(mExplosion, dummy:X(), dummy:Y()))

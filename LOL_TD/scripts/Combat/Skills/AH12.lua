@@ -30,7 +30,7 @@ skill.DelayDamage = function(self, dt)
                 --伤害
                 local ap = spellUnit.Attribute:get("法术攻击")
                 local damage = mDamages1[self:GetCurLevel()] + ap * mDamages2[self:GetCurLevel()]
-                EXUnitDamageTarget(spellUnit, unit, damage, EXDamageType.Magic)
+                EXUnitDamageTarget(spellUnit, unit, damage, EXAbilityType.Magic_Ability)
             end
         )
         self:OnFinish()

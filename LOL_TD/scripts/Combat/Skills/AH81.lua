@@ -56,7 +56,7 @@ skill.OnPathUpdate = function(dummy)
                 end
             end
             --伤害
-            EXUnitDamageTarget(owner, unit, damage, EXDamageType.Magic)
+            EXUnitDamageTarget(owner, unit, damage, EXAbilityType.Magic_Ability)
             self.DamageList[#self.DamageList + 1] = unit
         end
     end

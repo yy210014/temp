@@ -64,7 +64,7 @@ local ad = spellUnit.Attribute:get("物理攻击") + spellUnit.Attribute:get("�
 local ap = spellUnit.Attribute:get("法术攻击")
 local damage = mDamages1[self:GetCurLevel()] + ap * mDamages2[self:GetCurLevel()]
 --伤害
-EXUnitDamageTarget(self.Owner, unit, damage, EXDamageType.Physics)
+EXUnitDamageTarget(self.Owner, unit, damage, EXAbilityType.Physics)
 
 
 

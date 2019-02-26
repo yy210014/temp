@@ -14,7 +14,7 @@ function skill:OnAttack(attactUnit, defUnit)
     local ap = attactUnit.Attribute:get("法术攻击")
     local maxHp = defUnit.Attribute:get("生命上限")
     local damage = mDamages1[self:GetCurLevel()] + mDamages2[self:GetCurLevel()] * ap
-    EXUnitDamageTarget(attactUnit, defUnit, damage, EXDamageType.Magic)
+    EXUnitDamageTarget(attactUnit, defUnit, damage, EXAbilityType.Magic)
 end
 
 function skill:OnRemove()

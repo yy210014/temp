@@ -66,7 +66,7 @@ skill.OnPathUpdate = function(dummy)
                         "chest"
                     )
                 )
-                EXUnitDamageTarget(owner, unit, damage, EXDamageType.Physics)
+                EXUnitDamageTarget(owner, unit, damage, EXAbilityType.Physics_Ability)
                 dummy.DamageList[#dummy.DamageList + 1] = unit
             end
             return

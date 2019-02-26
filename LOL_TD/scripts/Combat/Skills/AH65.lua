@@ -28,7 +28,7 @@ function skill:OnCast()
     spellTargetUnit:AddBuff("冰封陵墓眩晕", comb and self:GetCurLevel() + 1 or self:GetCurLevel())
     local ap = spellUnit.Attribute:get("法术攻击")
     local damage = mDamages1[self:GetCurLevel()] + ap * mDamages2[self:GetCurLevel()]
-    EXUnitDamageTarget(spellUnit, spellTargetUnit, damage, EXDamageType.Magic)
+    EXUnitDamageTarget(spellUnit, spellTargetUnit, damage, EXAbilityType.Magic)
 
     AssetsManager.OverlapCircle(
     spellTargetUnit:X(),
@@ -37,7 +37,7 @@ function skill:OnCast()
     function(unit)
         if (unit ~= spellTargetUnit) then
             unit:AddBuff("冰封陵墓减速")
-            EXUnitDamageTarget(spellUnit, unit, damage, EXDamageType.Magic)
+            EXUnitDamageTarget(spellUnit, unit, damage, EXAbilityType.Magic_Ability)
         end
     end
     )

@@ -31,7 +31,7 @@ local function Action(self)
                         "chest"
                     )
                 )
-                EXUnitDamageTarget(self.Owner, unit, damage, EXDamageType.Physics)
+                EXUnitDamageTarget(self.Owner, unit, damage, EXAbilityType.Physics_Ability)
                 self.DamageList[#self.DamageList + 1] = unit
                 self.count = self.count + 1
             end

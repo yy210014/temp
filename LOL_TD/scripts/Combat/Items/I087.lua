@@ -22,7 +22,7 @@ function item:OnAdd()
             if (comb ~= nil and comb.Enable) then
                 damage = damage + damage * 0.5
             end
-            EXUnitDamageTarget(owner, unit, damage, EXDamageType.Magic)
+            EXUnitDamageTarget(owner, unit, damage, EXAbilityType.Magic)
         end
         )
     end

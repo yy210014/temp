@@ -12,5 +12,5 @@ end
 
 function item:OnAttack(attactUnit, defUnit)
     --攻击额外附带30点物理伤害
-    EXUnitDamageTarget(attactUnit, defUnit, 30, EXDamageType.Physics)
+    EXUnitDamageTarget(attactUnit, defUnit, 30, EXAbilityType.Physics)
 end

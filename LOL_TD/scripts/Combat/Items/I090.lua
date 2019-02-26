@@ -27,7 +27,7 @@ function item:OnRemove()
 end
 
 function item:OnAttack(attactUnit, defUnit)
-    EXUnitDamageTarget(attactUnit, defUnit, 50, EXDamageType.Magic)
+    EXUnitDamageTarget(attactUnit, defUnit, 50, EXAbilityType.Magic)
     local buff = attactUnit:AddBuff("羊刀")
     --在满层时，每间隔一次普攻会触发两次攻击特效。
     if (buff.MaxStack == 6) then

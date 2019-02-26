@@ -26,12 +26,16 @@ skill.OnPathEnd = function(dummy)
     local self = dummy.Skill
     local ap = owner.Attribute:get("法术攻击")
     local damage = mDamages1[self:GetCurLevel()] + ap * mDamages2[self:GetCurLevel()]
+    local comb = owner:GetComb("炸弹人-大圣杯")
+    if (comb ~= nil and comb.Enable) then
+        damage = damage + damage * 0.5
+    end
     AssetsManager.OverlapCircle(
     dummy:X(),
     dummy:Y(),
     mDamageRange,
     function(unit)
-        EXUnitDamageTarget(owner, unit, damage, EXDamageType.Magic)
+        EXUnitDamageTarget(owner, unit, damage, EXAbilityType.Magic_Ability)
     end
     )
     DestroyEffect(AddSpecialEffect(mExplosion, dummy:X(), dummy:Y()))

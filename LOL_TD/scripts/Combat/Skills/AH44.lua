@@ -36,13 +36,13 @@ skill.OnPathUpdate = function(dummy)
     --伤害
     local ad = owner.Attribute:get("物理攻击") + owner.Attribute:get("物理攻击加成")
     local damage = mDamages1[self:GetCurLevel()] + ad * mDamages2[self:GetCurLevel()]
-    AssetsManager.OverlapCircle(dummy:X(), dummy:Y(), 100,
+    AssetsManager.OverlapCircle(dummy:X(), dummy:Y(), 150,
     function(u1)
         AssetsManager.OverlapCircle(u1:X(), u1:Y(), 400,
         function(u2)
             --特效
             DestroyEffect(AddSpecialEffectTarget(mArt2, u2.Entity, "chest"))
-            EXUnitDamageTarget(owner, u2, damage, EXDamageType.Magic)
+            EXUnitDamageTarget(owner, u2, damage, EXAbilityType.Magic_Ability)
             u2:AddBuff("魔法水晶箭")
         end
         )

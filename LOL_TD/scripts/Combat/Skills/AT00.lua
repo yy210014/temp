@@ -1419,7 +1419,7 @@ function skill:OnAttack(attactUnit, defUnit)
         defUnit:Y(),
         400,
         function(unit)
-            EXUnitDamageTarget(attactUnit, unit, damage, EXDamageType.Magic)
+            EXUnitDamageTarget(attactUnit, unit, damage, EXAbilityType.Magic)
         end
         )
     else
@@ -1459,7 +1459,7 @@ function skill:OnAttack(attactUnit, defUnit)
     DestroyEffect(
     AddSpecialEffectTarget("Abilities\\Spells\\Other\\Stampede\\StampedeMissileDeath.mdl", defUnit.Entity, "chest")
     )
-    EXUnitDamageTarget(attactUnit, defUnit, damage, EXDamageType.Magic)
+    EXUnitDamageTarget(attactUnit, defUnit, damage, EXAbilityType.Magic)
 end
 
 skill = Skills["幽冥冷火"]

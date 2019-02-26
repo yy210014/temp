@@ -20,6 +20,6 @@ function skill:OnAttack(attactUnit, defUnit)
         local ad = attactUnit.Attribute:get("物理攻击") + attactUnit.Attribute:get("物理攻击加成")
         local ap = attactUnit.Attribute:get("法术攻击")
         local damage = 50 + ad * 0.5 + ap * 0.3
-        EXUnitDamageTarget(attactUnit, defUnit, damage, EXDamageType.Magic)
+        EXUnitDamageTarget(attactUnit, defUnit, damage, EXAbilityType.Magic_Ability)
     end
 end

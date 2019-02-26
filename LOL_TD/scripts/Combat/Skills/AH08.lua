@@ -24,7 +24,7 @@ function skill:OnCast()
         )
         )
         --伤害
-        EXUnitDamageTarget(self.Owner, unit, mDamages[self:GetCurLevel()], EXDamageType.Physics)
+        EXUnitDamageTarget(self.Owner, unit, mDamages[self:GetCurLevel()], EXAbilityType.Physics_Ability)
     end
     )
 end

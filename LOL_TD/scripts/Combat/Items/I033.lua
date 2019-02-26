@@ -20,7 +20,7 @@ end
 function item:OnAttack(attactUnit, defUnit)
     if (attactUnit:ContainBuff("耀光之剑")) then
         local damage = attactUnit.Attribute:get("物理攻击") + attactUnit.Attribute:get("物理攻击加成")
-        EXUnitDamageTarget(attactUnit, defUnit, damage, EXDamageType.Physics)
+        EXUnitDamageTarget(attactUnit, defUnit, damage, EXAbilityType.Physics)
         attactUnit:RemoveBuff("耀光之剑")
     end
 end

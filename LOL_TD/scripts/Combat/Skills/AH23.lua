@@ -72,7 +72,7 @@ skill.Action = function(self, dt)
             local damage = mDamages1[self:GetCurLevel()] + ad * mDamages2[self:GetCurLevel()]
             for i = 1, #self.DamageList do
                 DestroyEffect(AddSpecialEffectTarget(mArt2, self.DamageList[i].Entity, "chest"))
-                EXUnitDamageTarget(self.Owner, self.DamageList[i], damage, EXDamageType.Physics)
+                EXUnitDamageTarget(self.Owner, self.DamageList[i], damage, EXAbilityType.Physics_Ability)
             end
             self.dummy:SetPosition(self.Owner:X(), self.Owner:Y())
             AssetsManager.RemoveObject(self.dummy)

@@ -59,7 +59,7 @@ function skill:OnCast()
             damageAdd = damageAdd + 0.5
         end
         damage = damage + damage * damageAdd --大招羁绊伤害加成
-        EXUnitDamageTarget(spellUnit, unit, damage, EXDamageType.Magic)
+        EXUnitDamageTarget(spellUnit, unit, damage, EXAbilityType.Magic_Ability)
     end
     )
 end

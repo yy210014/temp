@@ -22,7 +22,7 @@ skill.OnPathEnd = function(dummy)
     local self = dummy.Skill
     local ad = owner.Attribute:get("物理攻击") + owner.Attribute:get("物理攻击加成")
     local damage = mDamages1[self:GetCurLevel()] + ad * mDamages2[self:GetCurLevel()]
-    EXUnitDamageTarget(owner, spellTargetUnit, damage, EXDamageType.Magic)
+    EXUnitDamageTarget(owner, spellTargetUnit, damage, EXAbilityType.Magic_Ability)
     DestroyEffect(AddSpecialEffectTarget(mArt2, spellTargetUnit.Entity, "chest"))
     AssetsManager.DestroyObject(dummy)
 end

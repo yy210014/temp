@@ -23,6 +23,10 @@ skill.Action = function(self, dt)
         local spellUnit = self.Owner
         local ap = spellUnit.Attribute:get("法术攻击")
         local damage = mDamages1[self:GetCurLevel()] + ap * mDamages2[self:GetCurLevel()]
+        local comb = spellUnit:GetComb("堕天使-冰杖")
+        if (comb ~= nil and comb.Enable) then
+            damage = damage + damage * 0.5
+        end
         AssetsManager.OverlapCircle(
         GetUnitX(self.dummy),
         GetUnitY(self.dummy),
@@ -30,7 +34,7 @@ skill.Action = function(self, dt)
         function(unit)
             --特效
             DestroyEffect(AddSpecialEffectTarget(mArt, unit.Entity, "chest"))
-            EXUnitDamageTarget(spellUnit, unit, damage, EXDamageType.Magic)
+            EXUnitDamageTarget(spellUnit, unit, damage, EXAbilityType.Magic_Ability)
         end
         )
     end

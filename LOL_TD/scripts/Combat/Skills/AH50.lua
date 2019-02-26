@@ -16,7 +16,7 @@ function skill:OnCast()
                 local ad = spellUnit.Attribute:get("物理攻击") + spellUnit.Attribute:get("物理攻击加成")
                 local damage = mDamages1[self:GetCurLevel()] + ad * mDamages2[self:GetCurLevel()]
                 unit:RemoveBuff("撕裂")
-                EXUnitDamageTarget(spellUnit, unit, damage * maxStack, EXDamageType.Physics)
+                EXUnitDamageTarget(spellUnit, unit, damage * maxStack, EXAbilityType.Physics)
             end
         end
     )

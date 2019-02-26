@@ -25,7 +25,7 @@ function skill:OnAttack(attactUnit, defUnit)
         if (comb ~= nil and comb.Enable) then
             damage = damage + damage * 0.5
         end
-        EXUnitDamageTarget(attactUnit, defUnit, damage, EXDamageType.Physics)
+        EXUnitDamageTarget(attactUnit, defUnit, damage, EXAbilityType.Physics_Ability)
         defUnit:AddBuff("如意打击")
     end
 end

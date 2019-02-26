@@ -12,5 +12,5 @@ end
 function skill:OnAttack(attactUnit, defUnit)
     local ad = self.Owner.Attribute:get("物理攻击") + self.Owner.Attribute:get("物理攻击加成")
     local damage = mDamages[self:GetCurLevel()] * ad
-    EXUnitDamageTarget(self.Owner, defUnit, damage, EXDamageType.Physics)
+    EXUnitDamageTarget(self.Owner, defUnit, damage, EXAbilityType.Physics)
 end

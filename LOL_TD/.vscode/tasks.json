@@ -5,6 +5,15 @@
     "type": "shell",
     "tasks": [
         {
+            "label": "单例测试",
+            "command": "\"${workspaceRoot}/tools/w3x2lni/bin/w3x2lni-lua.exe\"",
+            "args": [
+                ".\\tools\\单例测试.lua",
+                "${workspaceRoot}"
+            ],
+            "problemMatcher": []
+        },
+        {
             "label": "运行",
             "command": "\"${workspaceRoot}/tools/w3x2lni/bin/w3x2lni-lua.exe\"",
             "args": [

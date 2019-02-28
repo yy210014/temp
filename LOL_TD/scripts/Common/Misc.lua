@@ -68,10 +68,11 @@ function Repick(player, playerID)
         DisplayTextToPlayer(player, 0, 0, "|cffffcc00请等初始化完后再试。|r")
         return
     end
-    local item
+    local item, itemId
     for i, v in ipairs(Worke[playerID].Items) do
         if (GetItemLevel(v.Entity) == 13) then
             item = v
+            itemId = GetItemTypeId(item.Entity)
         end
     end
     if (nil == item) then
@@ -80,8 +81,11 @@ function Repick(player, playerID)
     end
     mPlayerRewardFlag[playerID + 1] = mPlayerRewardFlag[playerID + 1] + 1
     RemoveItem(item.Entity)
-    local itemID = Card.RandomSR()
-    UnitAddItem(Worke[playerID].Entity, CreateItem(GetId(itemID), Worke[playerID]:X(), Worke[playerID]:Y()))
+    local tempId = GetId(Card.RandomSR())
+    while itemId == tempId do --true 进入
+        tempId = GetId(Card.RandomSR())
+    end
+    UnitAddItem(Worke[playerID].Entity, CreateItem(tempId, Worke[playerID]:X(), Worke[playerID]:Y()))
 end
 
 local mCheatItems = {

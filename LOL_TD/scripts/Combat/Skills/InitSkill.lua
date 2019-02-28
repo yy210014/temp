@@ -1,7 +1,7 @@
 require "scripts.Combat.Skill"
 --战争女神
 require "scripts.Combat.Skills.AH02"
-require "scripts.Combat.Skills.AH04"
+require "scripts.Combat.Skills.AH04" --需要模拟 和飓风冲突 弹射还会触发攻击特效
 require "scripts.Combat.Skills.AH03"
 --皇子
 require "scripts.Combat.Skills.AH05"
@@ -96,6 +96,8 @@ require "scripts.Combat.Skills.AH73"
 require "scripts.Combat.Skills.AH90"
 require "scripts.Combat.Skills.AH91"
 require "scripts.Combat.Skills.AH92"
+--远古巨龙
+require "scripts.Combat.Skills.AH93"
 
 --辅助英雄技能
 require "scripts.Combat.Skills.AH80"
@@ -119,13 +121,13 @@ require "scripts.Combat.Skills.AT05"
 require "scripts.Combat.Skills.AT06"
 require "scripts.Combat.Skills.AT07"
 
---领取福利
+--发工资
 require "scripts.Combat.Skills.lqfl"
 --出售
 require "scripts.Combat.Skills.AU10"
 --回收
 --require "scripts.Combat.Skills.AU12"
---变强
+--超神
 require "scripts.Combat.Skills.A008"
 --闪现
 require "scripts.Combat.Skills.A009"
@@ -134,3 +136,5 @@ require "scripts.Combat.Skills.A009"
 require "scripts.Combat.Skills.cb01"
 require "scripts.Combat.Skills.gh01"
 require "scripts.Combat.Skills.pf01"
+--require "scripts.Combat.Skills.lqzs"
+require "scripts.Combat.Skills.vip0"

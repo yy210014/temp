@@ -24,7 +24,7 @@ function item:OnUse()
         SetItemCharges(item2, 5)
     end
     for i = 0, 3 do
-        DisplayTextToPlayer(Player(i), 0, 0, "|cffffcc00" .. GetPlayerName(Player(i)) .. text)
+        DisplayTextToPlayer(Player(i), 0, 0, "|cffffcc00" .. GetPlayerName(unit.Player) .. text)
     end
     UnitAddItem(unit.Entity, item2)
     UnitAddItem(unit.Entity, item1)

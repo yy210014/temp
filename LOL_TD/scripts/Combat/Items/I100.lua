@@ -17,9 +17,9 @@ function buff.Action(self, dt)
         local attactUnit = self.AttactUnit
         local damage = 0
         if (IsUnitPaused(owner.Entity) or owner.Attribute:get("移动速度加成") < 0) then
-            damage = owner.Attribute:get("生命上限") * 0.08
+            damage = owner.Attribute:get("生命") * 0.03
         else
-            damage = owner.Attribute:get("生命上限") * 0.05
+            damage = owner.Attribute:get("生命") * 0.015
         end
         if (owner.Id == GetId("End0") or owner.Id == GetId("UM56")) then
             damage = 1000

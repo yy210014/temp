@@ -1,8 +1,8 @@
 globals
 //globals from BzAPI:
 constant boolean LIBRARY_BzAPI=true
-trigger array BzAPI___DamageEventQueue
-integer BzAPI___DamageEventNumber= 0
+trigger array BzAPI__DamageEventQueue
+integer BzAPI__DamageEventNumber= 0
 //endglobals from BzAPI
 //globals from DzAPI:
 constant boolean LIBRARY_DzAPI=true
@@ -30,10 +30,10 @@ real yd_MapMaxX= 0
 real yd_MapMinX= 0
 real yd_MapMaxY= 0
 real yd_MapMinY= 0
-string array YDWEBase___yd_PlayerColor
-trigger array YDWEBase___AbilityCastingOverEventQueue
-integer array YDWEBase___AbilityCastingOverEventType
-integer YDWEBase___AbilityCastingOverEventNumber= 0
+string array YDWEBase__yd_PlayerColor
+trigger array YDWEBase__AbilityCastingOverEventQueue
+integer array YDWEBase__AbilityCastingOverEventType
+integer YDWEBase__AbilityCastingOverEventNumber= 0
 //endglobals from YDWEBase
 //globals from YDWEGetItemOfTypeFromUnitBJNull:
 constant boolean LIBRARY_YDWEGetItemOfTypeFromUnitBJNull=true
@@ -157,7 +157,7 @@ trigger gg_trg_SelectedHero= null
 trigger gg_trg_BuyItem= null
 trigger gg_trg_SellItem= null
 trigger gg_trg_jf001= null
-trigger gg_trg_jf002= null
+trigger gg_trg_jfTimer= null
 trigger gg_trg_ghTimer= null
 trigger gg_trg_cbTimer= null
 trigger gg_trg_pfTimer= null
@@ -636,7 +636,7 @@ native EXBlendButtonIcon takes string a, string b, string c returns boolean
 
 //library DzAPI ends
 //library YDTriggerSaveLoadSystem:
-    function YDTriggerSaveLoadSystem___Init takes nothing returns nothing
+    function YDTriggerSaveLoadSystem__Init takes nothing returns nothing
             set YDHT=InitHashtable()
         set YDLOC=InitHashtable()
     endfunction
@@ -1241,11 +1241,11 @@ endfunction
 function YDWESyStemAbilityCastingOverTriggerAction takes unit hero,integer index returns nothing
  local integer i= 0
     loop
-        exitwhen i >= YDWEBase___AbilityCastingOverEventNumber
-        if YDWEBase___AbilityCastingOverEventType[i] == index then
+        exitwhen i >= YDWEBase__AbilityCastingOverEventNumber
+        if YDWEBase__AbilityCastingOverEventType[i] == index then
             set bj_lastAbilityCastingUnit=hero
-			if YDWEBase___AbilityCastingOverEventQueue[i] != null and TriggerEvaluate(YDWEBase___AbilityCastingOverEventQueue[i]) and IsTriggerEnabled(YDWEBase___AbilityCastingOverEventQueue[i]) then
-				call TriggerExecute(YDWEBase___AbilityCastingOverEventQueue[i])
+			if YDWEBase__AbilityCastingOverEventQueue[i] != null and TriggerEvaluate(YDWEBase__AbilityCastingOverEventQueue[i]) and IsTriggerEnabled(YDWEBase__AbilityCastingOverEventQueue[i]) then
+				call TriggerExecute(YDWEBase__AbilityCastingOverEventQueue[i])
 			endif
 		endif
         set i=i + 1
@@ -1255,9 +1255,9 @@ endfunction
 //YDWE技能捕捉事件 
 //===========================================================================  
 function YDWESyStemAbilityCastingOverRegistTrigger takes trigger trg,integer index returns nothing
-	set YDWEBase___AbilityCastingOverEventQueue[YDWEBase___AbilityCastingOverEventNumber]=trg
-	set YDWEBase___AbilityCastingOverEventType[YDWEBase___AbilityCastingOverEventNumber]=index
-	set YDWEBase___AbilityCastingOverEventNumber=YDWEBase___AbilityCastingOverEventNumber + 1
+	set YDWEBase__AbilityCastingOverEventQueue[YDWEBase__AbilityCastingOverEventNumber]=trg
+	set YDWEBase__AbilityCastingOverEventType[YDWEBase__AbilityCastingOverEventNumber]=index
+	set YDWEBase__AbilityCastingOverEventNumber=YDWEBase__AbilityCastingOverEventNumber + 1
 endfunction 
 //===========================================================================
 //系统函数完善
@@ -1294,7 +1294,7 @@ endfunction
 //unitpool bj_lastCreatedPool=null
 //unit bj_lastPoolAbstractedUnit=null
 function YDWEGetPlayerColorString takes player p,string s returns string
-    return YDWEBase___yd_PlayerColor[GetHandleId(GetPlayerColor(p))] + s + "|r"
+    return YDWEBase__yd_PlayerColor[GetHandleId(GetPlayerColor(p))] + s + "|r"
 endfunction
 //===========================================================================
 //===========================================================================
@@ -1341,22 +1341,22 @@ function InitializeYD takes nothing returns nothing
 	set yd_MapMaxX=GetCameraBoundMaxX() + GetCameraMargin(CAMERA_MARGIN_RIGHT)
 	set yd_MapMaxY=GetCameraBoundMaxY() + GetCameraMargin(CAMERA_MARGIN_TOP)
 	
-    set YDWEBase___yd_PlayerColor[0]="|cFFFF0303"
-    set YDWEBase___yd_PlayerColor[1]="|cFF0042FF"
-    set YDWEBase___yd_PlayerColor[2]="|cFF1CE6B9"
-    set YDWEBase___yd_PlayerColor[3]="|cFF540081"
-    set YDWEBase___yd_PlayerColor[4]="|cFFFFFC01"
-    set YDWEBase___yd_PlayerColor[5]="|cFFFE8A0E"
-    set YDWEBase___yd_PlayerColor[6]="|cFF20C000"
-    set YDWEBase___yd_PlayerColor[7]="|cFFE55BB0"
-    set YDWEBase___yd_PlayerColor[8]="|cFF959697"
-    set YDWEBase___yd_PlayerColor[9]="|cFF7EBFF1"
-    set YDWEBase___yd_PlayerColor[10]="|cFF106246"
-    set YDWEBase___yd_PlayerColor[11]="|cFF4E2A04"
-    set YDWEBase___yd_PlayerColor[12]="|cFF282828"
-    set YDWEBase___yd_PlayerColor[13]="|cFF282828"
-    set YDWEBase___yd_PlayerColor[14]="|cFF282828"
-    set YDWEBase___yd_PlayerColor[15]="|cFF282828"
+    set YDWEBase__yd_PlayerColor[0]="|cFFFF0303"
+    set YDWEBase__yd_PlayerColor[1]="|cFF0042FF"
+    set YDWEBase__yd_PlayerColor[2]="|cFF1CE6B9"
+    set YDWEBase__yd_PlayerColor[3]="|cFF540081"
+    set YDWEBase__yd_PlayerColor[4]="|cFFFFFC01"
+    set YDWEBase__yd_PlayerColor[5]="|cFFFE8A0E"
+    set YDWEBase__yd_PlayerColor[6]="|cFF20C000"
+    set YDWEBase__yd_PlayerColor[7]="|cFFE55BB0"
+    set YDWEBase__yd_PlayerColor[8]="|cFF959697"
+    set YDWEBase__yd_PlayerColor[9]="|cFF7EBFF1"
+    set YDWEBase__yd_PlayerColor[10]="|cFF106246"
+    set YDWEBase__yd_PlayerColor[11]="|cFF4E2A04"
+    set YDWEBase__yd_PlayerColor[12]="|cFF282828"
+    set YDWEBase__yd_PlayerColor[13]="|cFF282828"
+    set YDWEBase__yd_PlayerColor[14]="|cFF282828"
+    set YDWEBase__yd_PlayerColor[15]="|cFF282828"
     //=================显示版本=====================
     call YDWEVersion_Init()
 endfunction
@@ -1399,11 +1399,11 @@ endfunction
 //library YDWEYDWEJapiScript ends
 //===========================================================================
 // 
-// 召唤师联盟TD内测版1.20
+// 召唤师联盟TD内测版1.21
 // 
 //   Warcraft III map script
 //   Generated by the Warcraft III World Editor
-//   Date: Mon Feb 25 16:08:45 2019
+//   Date: Wed Feb 27 17:08:19 2019
 //   Map Author: 渣康传奇
 // 
 //===========================================================================
@@ -3776,7 +3776,7 @@ function Trig_BuyItemActions takes nothing returns nothing
         set bj_forLoopAIndexEnd=4
         loop
             exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
-            call DisplayTextToPlayer(ConvertedPlayer(bj_forLoopAIndex), 0, 0, ( ( "|cffffcc00" ) + ( GetPlayerName(ConvertedPlayer(bj_forLoopAIndex)) ) + ( LoadStr(YDLOC, GetHandleId(GetTriggeringTrigger()) * ydl_localvar_step, 0x5F5D2B52) ) ))
+            call DisplayTextToPlayer(ConvertedPlayer(bj_forLoopAIndex), 0, 0, ( ( "|cffffcc00" ) + ( GetPlayerName(DzGetTriggerSyncPlayer()) ) + ( LoadStr(YDLOC, GetHandleId(GetTriggeringTrigger()) * ydl_localvar_step, 0x5F5D2B52) ) ))
             set bj_forLoopAIndex=bj_forLoopAIndex + 1
         endloop
     else
@@ -3826,13 +3826,27 @@ function Trig_jf001Actions takes nothing returns nothing
     loop
         exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
         if ( ( GetPlayerController(ConvertedPlayer(bj_forLoopAIndex)) == MAP_CONTROL_USER ) and ( GetPlayerSlotState(ConvertedPlayer(bj_forLoopAIndex)) == PLAYER_SLOT_STATE_PLAYING ) ) then
+            call SaveInteger(udg_table, bj_forLoopAIndex, 100, DzAPI_Map_GetMapLevel(ConvertedPlayer(bj_forLoopAIndex)))
             call SaveStr(udg_table, bj_forLoopAIndex, 200, (DzAPI_Map_GetServerValue((ConvertedPlayer(bj_forLoopAIndex) ), "S" + ( "Score")))) // INLINED!!
-            call SaveStr(udg_table, bj_forLoopAIndex, 201, (DzAPI_Map_GetServerValue((ConvertedPlayer(bj_forLoopAIndex) ), "S" + ( "VIP")))) // INLINED!!
-            call SaveStr(udg_table, bj_forLoopAIndex, 301, (DzAPI_Map_GetServerValue((ConvertedPlayer(bj_forLoopAIndex) ), "S" + ( "gh01")))) // INLINED!!
-            call SaveStr(udg_table, bj_forLoopAIndex, 302, (DzAPI_Map_GetServerValue((ConvertedPlayer(bj_forLoopAIndex) ), "S" + ( "gh02")))) // INLINED!!
-            call SaveStr(udg_table, bj_forLoopAIndex, 401, (DzAPI_Map_GetServerValue((ConvertedPlayer(bj_forLoopAIndex) ), "S" + ( "cb01")))) // INLINED!!
-            call SaveStr(udg_table, bj_forLoopAIndex, 402, (DzAPI_Map_GetServerValue((ConvertedPlayer(bj_forLoopAIndex) ), "S" + ( "cb02")))) // INLINED!!
-            call SaveStr(udg_table, bj_forLoopAIndex, 501, (DzAPI_Map_GetServerValue((ConvertedPlayer(bj_forLoopAIndex) ), "S" + ( "pf01")))) // INLINED!!
+            // 积分
+            call SaveStr(udg_table, bj_forLoopAIndex, 301, (DzAPI_Map_GetServerValue((ConvertedPlayer(bj_forLoopAIndex) ), "S" + ( "jf_gh01")))) // INLINED!!
+            call SaveStr(udg_table, bj_forLoopAIndex, 302, (DzAPI_Map_GetServerValue((ConvertedPlayer(bj_forLoopAIndex) ), "S" + ( "jf_gh02")))) // INLINED!!
+            call SaveStr(udg_table, bj_forLoopAIndex, 401, (DzAPI_Map_GetServerValue((ConvertedPlayer(bj_forLoopAIndex) ), "S" + ( "jf_cb01")))) // INLINED!!
+            call SaveStr(udg_table, bj_forLoopAIndex, 402, (DzAPI_Map_GetServerValue((ConvertedPlayer(bj_forLoopAIndex) ), "S" + ( "jf_cb02")))) // INLINED!!
+            call SaveStr(udg_table, bj_forLoopAIndex, 501, (DzAPI_Map_GetServerValue((ConvertedPlayer(bj_forLoopAIndex) ), "S" + ( "jf_pf01")))) // INLINED!!
+            call SaveStr(udg_table, bj_forLoopAIndex, 502, (DzAPI_Map_GetServerValue((ConvertedPlayer(bj_forLoopAIndex) ), "S" + ( "jf_pf02")))) // INLINED!!
+            // 地图等级
+            call SaveBoolean(udg_table, bj_forLoopAIndex, 1301, DzAPI_Map_GetStoredBoolean(ConvertedPlayer(bj_forLoopAIndex) , "map_gh01"))
+            call SaveBoolean(udg_table, bj_forLoopAIndex, 1302, DzAPI_Map_GetStoredBoolean(ConvertedPlayer(bj_forLoopAIndex) , "map_gh02"))
+            call SaveBoolean(udg_table, bj_forLoopAIndex, 1401, DzAPI_Map_GetStoredBoolean(ConvertedPlayer(bj_forLoopAIndex) , "map_cb01"))
+            call SaveBoolean(udg_table, bj_forLoopAIndex, 1402, DzAPI_Map_GetStoredBoolean(ConvertedPlayer(bj_forLoopAIndex) , "map_cb02"))
+            call SaveBoolean(udg_table, bj_forLoopAIndex, 1501, DzAPI_Map_GetStoredBoolean(ConvertedPlayer(bj_forLoopAIndex) , "map_pf01"))
+            // 商城
+            call SaveBoolean(udg_table, bj_forLoopAIndex, 2000, DzAPI_Map_HasMallItem(ConvertedPlayer(bj_forLoopAIndex), "VIP"))
+            call SaveBoolean(udg_table, bj_forLoopAIndex, 2001, DzAPI_Map_HasMallItem(ConvertedPlayer(bj_forLoopAIndex), "HELP"))
+            call SaveBoolean(udg_table, bj_forLoopAIndex, 2002, DzAPI_Map_HasMallItem(ConvertedPlayer(bj_forLoopAIndex), "PF_LOLI"))
+            call SaveBoolean(udg_table, bj_forLoopAIndex, 2003, DzAPI_Map_HasMallItem(ConvertedPlayer(bj_forLoopAIndex), "GH_PHOENIX"))
+            call SaveBoolean(udg_table, bj_forLoopAIndex, 2004, DzAPI_Map_HasMallItem(ConvertedPlayer(bj_forLoopAIndex), "CB_BLUE"))
         else
         endif
         set bj_forLoopAIndex=bj_forLoopAIndex + 1
@@ -3845,9 +3859,9 @@ function InitTrig_jf001 takes nothing returns nothing
     call TriggerAddAction(gg_trg_jf001, function Trig_jf001Actions)
 endfunction
 //===========================================================================
-// Trigger: jf002
+// Trigger: jfTimer
 //===========================================================================
-function Trig_jf002Actions takes nothing returns nothing
+function Trig_jfTimerActions takes nothing returns nothing
     set bj_forLoopAIndex=1
     set bj_forLoopAIndexEnd=4
     loop
@@ -3860,10 +3874,10 @@ function Trig_jf002Actions takes nothing returns nothing
     endloop
 endfunction
 //===========================================================================
-function InitTrig_jf002 takes nothing returns nothing
-    set gg_trg_jf002=CreateTrigger()
-    call TriggerRegisterTimerExpireEvent(gg_trg_jf002, udg_jfTimer)
-    call TriggerAddAction(gg_trg_jf002, function Trig_jf002Actions)
+function InitTrig_jfTimer takes nothing returns nothing
+    set gg_trg_jfTimer=CreateTrigger()
+    call TriggerRegisterTimerExpireEvent(gg_trg_jfTimer, udg_jfTimer)
+    call TriggerAddAction(gg_trg_jfTimer, function Trig_jfTimerActions)
 endfunction
 //===========================================================================
 // Trigger: ghTimer
@@ -3874,8 +3888,12 @@ function Trig_ghTimerActions takes nothing returns nothing
     loop
         exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
         if ( ( GetPlayerController(ConvertedPlayer(bj_forLoopAIndex)) == MAP_CONTROL_USER ) and ( GetPlayerSlotState(ConvertedPlayer(bj_forLoopAIndex)) == PLAYER_SLOT_STATE_PLAYING ) ) then
-            call DzAPI_Map_StoreString(ConvertedPlayer(bj_forLoopAIndex) , "gh01" , LoadStr(udg_table, bj_forLoopAIndex, 301))
-            call DzAPI_Map_StoreString(ConvertedPlayer(bj_forLoopAIndex) , "gh02" , LoadStr(udg_table, bj_forLoopAIndex, 302))
+            // 积分
+            call DzAPI_Map_StoreString(ConvertedPlayer(bj_forLoopAIndex) , "jf_gh01" , LoadStr(udg_table, bj_forLoopAIndex, 301))
+            call DzAPI_Map_StoreString(ConvertedPlayer(bj_forLoopAIndex) , "jf_gh02" , LoadStr(udg_table, bj_forLoopAIndex, 302))
+            // 地图等级
+            call DzAPI_Map_StoreBoolean(ConvertedPlayer(bj_forLoopAIndex) , "map_gh01" , LoadBoolean(udg_table, bj_forLoopAIndex, 1301))
+            call DzAPI_Map_StoreBoolean(ConvertedPlayer(bj_forLoopAIndex) , "map_gh02" , LoadBoolean(udg_table, bj_forLoopAIndex, 1302))
         else
         endif
         set bj_forLoopAIndex=bj_forLoopAIndex + 1
@@ -3896,8 +3914,12 @@ function Trig_cbTimerActions takes nothing returns nothing
     loop
         exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
         if ( ( GetPlayerController(ConvertedPlayer(bj_forLoopAIndex)) == MAP_CONTROL_USER ) and ( GetPlayerSlotState(ConvertedPlayer(bj_forLoopAIndex)) == PLAYER_SLOT_STATE_PLAYING ) ) then
-            call DzAPI_Map_StoreString(ConvertedPlayer(bj_forLoopAIndex) , "cb01" , LoadStr(udg_table, bj_forLoopAIndex, 401))
-            call DzAPI_Map_StoreString(ConvertedPlayer(bj_forLoopAIndex) , "cb02" , LoadStr(udg_table, bj_forLoopAIndex, 402))
+            // 积分
+            call DzAPI_Map_StoreString(ConvertedPlayer(bj_forLoopAIndex) , "jf_cb01" , LoadStr(udg_table, bj_forLoopAIndex, 401))
+            call DzAPI_Map_StoreString(ConvertedPlayer(bj_forLoopAIndex) , "jf_cb02" , LoadStr(udg_table, bj_forLoopAIndex, 402))
+            // 地图等级
+            call DzAPI_Map_StoreBoolean(ConvertedPlayer(bj_forLoopAIndex) , "map_cb01" , LoadBoolean(udg_table, bj_forLoopAIndex, 1401))
+            call DzAPI_Map_StoreBoolean(ConvertedPlayer(bj_forLoopAIndex) , "map_cb02" , LoadBoolean(udg_table, bj_forLoopAIndex, 1402))
         else
         endif
         set bj_forLoopAIndex=bj_forLoopAIndex + 1
@@ -3918,7 +3940,11 @@ function Trig_pfTimerActions takes nothing returns nothing
     loop
         exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
         if ( ( GetPlayerController(ConvertedPlayer(bj_forLoopAIndex)) == MAP_CONTROL_USER ) and ( GetPlayerSlotState(ConvertedPlayer(bj_forLoopAIndex)) == PLAYER_SLOT_STATE_PLAYING ) ) then
-            call DzAPI_Map_StoreString(ConvertedPlayer(bj_forLoopAIndex) , "pf01" , LoadStr(udg_table, bj_forLoopAIndex, 501))
+            // 积分
+            call DzAPI_Map_StoreString(ConvertedPlayer(bj_forLoopAIndex) , "jf_pf01" , LoadStr(udg_table, bj_forLoopAIndex, 501))
+            call DzAPI_Map_StoreString(ConvertedPlayer(bj_forLoopAIndex) , "jf_pf02" , LoadStr(udg_table, bj_forLoopAIndex, 502))
+            // 地图等级
+            call DzAPI_Map_StoreBoolean(ConvertedPlayer(bj_forLoopAIndex) , "map_pf01" , LoadBoolean(udg_table, bj_forLoopAIndex, 1501))
         else
         endif
         set bj_forLoopAIndex=bj_forLoopAIndex + 1
@@ -4330,7 +4356,7 @@ function InitCustomTriggers takes nothing returns nothing
     call InitTrig_BuyItem()
     call InitTrig_SellItem()
     call InitTrig_jf001()
-    call InitTrig_jf002()
+    call InitTrig_jfTimer()
     call InitTrig_ghTimer()
     call InitTrig_cbTimer()
     call InitTrig_pfTimer()
@@ -4513,7 +4539,7 @@ function main takes nothing returns nothing
     call CreateAllUnits()
     call InitBlizzard()
 
-call ExecuteFunc("YDTriggerSaveLoadSystem___Init")
+call ExecuteFunc("YDTriggerSaveLoadSystem__Init")
 call ExecuteFunc("InitializeYD")
 
     call InitGlobals()
@@ -4526,7 +4552,7 @@ endfunction
 //*
 //***************************************************************************
 function config takes nothing returns nothing
-    call SetMapName("召唤师联盟TD内测版1.20")
+    call SetMapName("召唤师联盟TD内测版1.21")
     call SetMapDescription("没有说明")
     call SetPlayers(8)
     call SetTeams(8)

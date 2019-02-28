@@ -19,6 +19,14 @@ function Misc.Split(str, reps)
     return resultStrList
 end
 
+function Misc.FracIfGreater(v, f)
+    local n = v / f
+    if (n <= 0) then
+        n = 1
+    end
+    return v - n * f
+end
+
 --镜头+
 function AddCameraFieldForPlayer()
     local player = GetTriggerPlayer()
@@ -124,6 +132,7 @@ function cheat(playerId)
     GetPlayerState(Player(playerId), PLAYER_STATE_RESOURCE_LUMBER) + 10000
     )
     PlayerInfo:EnableVIP(Player(playerId))
+    PlayerInfo:EnableHelp(Player(playerId))
 end
 
 function GetGuid()

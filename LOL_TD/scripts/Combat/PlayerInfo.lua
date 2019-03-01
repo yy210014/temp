@@ -9,7 +9,7 @@ ItemType = {
     MapLevel = 100, Score = 200,
     jf_gh01 = 301, jf_gh02 = 302, jf_cb01 = 401, jf_cb02 = 402, jf_pf01 = 501, jf_pf02 = 502,
     map_gh01 = 1301, map_gh02 = 1302, map_cb01 = 1401, map_cb02 = 1402, map_pf01 = 1501,
-    VIP = 2000, HELP = 2001, PF_LOLI = 2002, GH_PHOENIX = 2003, CB_BLUE = 2004
+    VIP = 2000, HELP = 2001, PF_LOLI = 2002, GH_PHOENIX = 2003, CB_BLUE = 2004, JBLB = 2005, MTLB = 2006,
 }
 local mJFItem = {
     --{ ItemType.jf_VIP, "aeger", "R006", 0 },
@@ -215,7 +215,7 @@ function PlayerInfo:EnableHelp(entity)
     player.IsHelp = true
 
     AddPlayerTechResearched(entity, GetId("R012"), 1)
-    --[[local lqfl = Worke[GetPlayerId(entity)]:GetSkill(GetId("lqfl"))
+--[[local lqfl = Worke[GetPlayerId(entity)]:GetSkill(GetId("lqfl"))
     if (lqfl ~= nil) then
         lqfl:onAuto()
     end]]

@@ -18,12 +18,24 @@ GameScene.DeltaTime = 0.02
 HeroInfoDialog = {}
 
 local function InitPlayerResource()
-    for i, v in ipairs(PlayerTeam) do
-        SetPlayerState(Player(v), PLAYER_STATE_RESOURCE_GOLD, 1500)
-        SetPlayerState(Player(v), PLAYER_STATE_RESOURCE_LUMBER, 0)
-        SetPlayerState(Player(v), PLAYER_STATE_FOOD_CAP_CEILING, 100)
+    for i = 0, 3 do
+        SetPlayerState(Player(i), PLAYER_STATE_FOOD_CAP_CEILING, 100)
         --修改了人口上限
-        SetPlayerState(Player(v), PLAYER_STATE_RESOURCE_FOOD_CAP, 100)
+        SetPlayerState(Player(i), PLAYER_STATE_RESOURCE_FOOD_CAP, 100)
+
+        if LoadBoolean(Jglobals.udg_table, i + 1, ItemType.JBLB) then
+            DisplayTextToPlayer(Player(i), 0, 0, "你已激活金币礼包，开局额外获得500金币。")
+            SetPlayerState(Player(i), PLAYER_STATE_RESOURCE_GOLD, 2000)
+        else
+            SetPlayerState(Player(i), PLAYER_STATE_RESOURCE_GOLD, 1500)
+        end
+
+        if LoadBoolean(Jglobals.udg_table, i + 1, ItemType.MTLB) then
+            DisplayTextToPlayer(Player(i), 0, 0, "你已激活木头礼包，开局额外获得1点天赋点。")
+            SetPlayerState(Player(i), PLAYER_STATE_RESOURCE_LUMBER, 1)
+        else
+            SetPlayerState(Player(i), PLAYER_STATE_RESOURCE_LUMBER, 0)
+        end
     end
     for i, v in ipairs(EnemyTeam) do
         SetPlayerState(Player(v), PLAYER_STATE_GIVES_BOUNTY, 1)
@@ -98,7 +110,7 @@ function GameScene.OnGameUpdate(dt)
     AssetsManager.OnGameUpdate(dt)
     MonsterRefresh.OnGameUpdate(dt)
     local id = GetPlayerId(GetLocalPlayer()) + 1
-    if mSelectedUnit[id] ~= nil then
+    if mSelectedUnit[id] ~= nil and mSelectedUnit[id].Attribute:get("生命") > 0 then
         Jglobals.udg_Attribute[0] = tostring(mSelectedUnit[id].Attribute:get("法术攻击"))
         Jglobals.udg_Attribute[1] = tostring(math.ceil(mSelectedUnit[id].Attribute:get("物理穿透") * 100)) .. "%"
         Jglobals.udg_Attribute[2] = tostring(math.ceil(mSelectedUnit[id].Attribute:get("法术穿透") * 100)) .. "%"

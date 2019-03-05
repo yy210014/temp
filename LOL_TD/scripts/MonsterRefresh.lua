@@ -439,14 +439,18 @@ function WavesClear()
                 if (player.IsWatch == false) then
                     player.IsWatch = true
                     DisplayTextToAll("|cffffcc00玩家:|r" .. GetPlayerName(player.Entity) .. "|cffffcc00的怪物数量超出限制，切换为观看模式|r。", Color.white)
-                    AssetsManager.IteratePlayerUnits(player.Id, function(u)
-                        u:IterateItems(
-                        function(item)
-                            UnitRemoveItem(u.Entity, item.Entity)
+                    local playerTeamUnits = GetPlayerTeamUnits(player.Id)
+                    for i = #playerTeamUnits, 1, -1 do
+                        if (playerTeamUnits[i] ~= nil and playerTeamUnits[i].IsDying == false) then
+                        playerTeamUnits[i]:IterateItems(
+                            function(item)
+                                UnitRemoveItem(playerTeamUnits[i].Entity, item.Entity)
+                            end
+                            )
+                            AssetsManager.DestroyObject(playerTeamUnits[i])
                         end
-                        )
-                        AssetsManager.DestroyObject(u)
-                    end)
+                    end
+
                     local enemyTeamUnits = GetEnemyTeamUnits()
                     for j = 1, #enemyTeamUnits do
                         if (player.Id + 1 == j) then

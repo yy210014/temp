@@ -18,7 +18,7 @@ function skill:OnCast()
     local ad = self.Owner.Attribute:get("物理攻击") + self.Owner.Attribute:get("物理攻击加成")
     local damage = mDamages1[self:GetCurLevel()] + mDamages2[self:GetCurLevel()] * ad
     damage = damage + damage * maxStack * 0.2
-    EXUnitDamageTarget(spellUnit, spellTargetUnit, damage, EXAbilityType.Real_Ability)
+    EXUnitDamageTarget(spellUnit, spellTargetUnit, damage, EXAbilityType.Real)
 end
 
 function skill:OnRemove()

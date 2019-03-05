@@ -519,31 +519,31 @@ function Unit:OnLevelUp()
     end
     --火柴人
     if (GetPlayerTechResearched(self.Player, GetId("R010"), true)) then
-        ad = ad + 2
+        ad = ad + 1
     end
     --小红帽
     if (GetPlayerTechResearched(self.Player, GetId("R021"), true)) then
-        ad = ad + 5
+        ad = ad + 2
     end
     --潮汐
     if (GetPlayerTechResearched(self.Player, GetId("R017"), true)) then
-        ad = ad + 5
+        ad = ad + 2
     end
     --小萝莉
     if (GetPlayerTechResearched(self.Player, GetId("R020"), true)) then
-        ad = ad + 10
+        ad = ad + 5
     end
     --暗紫翅膀
     if (GetPlayerTechResearched(self.Player, GetId("R009"), true)) then
-        ap = ap + 5
+        ap = ap + 2
     end
     --灵光蝶羽
     if (GetPlayerTechResearched(self.Player, GetId("R016"), true)) then
-        ap = ap + 5
+        ap = ap + 2
     end
     --蔚蓝蝶羽
     if (GetPlayerTechResearched(self.Player, GetId("R018"), true)) then
-        ap = ap + 10
+        ap = ap + 5
     end
     self.Attribute:add("物理攻击", ad)
     if (ap ~= 0) then

@@ -19,5 +19,5 @@ function skill:OnCast()
     if (spellTargetUnit.Id == GetId("UM56") and damage > 20000) then
         damage = 20000
     end
-    EXUnitDamageTarget(spellUnit, spellTargetUnit, damage, EXAbilityType.Real_Ability)
+    EXUnitDamageTarget(spellUnit, spellTargetUnit, damage, EXAbilityType.Real)
 end

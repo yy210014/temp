@@ -110,7 +110,7 @@ function GameScene.OnGameUpdate(dt)
     AssetsManager.OnGameUpdate(dt)
     MonsterRefresh.OnGameUpdate(dt)
     local id = GetPlayerId(GetLocalPlayer()) + 1
-    if mSelectedUnit[id] ~= nil and mSelectedUnit[id].Attribute:get("生命") > 0 then
+    if mSelectedUnit[id] ~= nil and mSelectedUnit[id].Attribute ~= nil and mSelectedUnit[id].Attribute:get("生命") > 0 then
         Jglobals.udg_Attribute[0] = tostring(mSelectedUnit[id].Attribute:get("法术攻击"))
         Jglobals.udg_Attribute[1] = tostring(math.ceil(mSelectedUnit[id].Attribute:get("物理穿透") * 100)) .. "%"
         Jglobals.udg_Attribute[2] = tostring(math.ceil(mSelectedUnit[id].Attribute:get("法术穿透") * 100)) .. "%"

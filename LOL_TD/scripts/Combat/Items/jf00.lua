@@ -35,7 +35,7 @@ function item:OnAdd()
 end
 
 --地图等级
-item = Items["紫薇光环"]
+item = Items["绿意怏然"]
 function item:OnAdd()
     local unit = self.Owner
     PlayerInfo:EnableJFItem(unit.Player, ItemType.map_gh01)

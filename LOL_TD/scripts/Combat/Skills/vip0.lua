@@ -18,7 +18,7 @@ skill.Action = function(self, dt)
         AssetsManager.OverlapCircle(
         spellUnit:X(),
         spellUnit:Y(),
-        900,
+        1000,
         function(unit)
             EXUnitDamageTarget(spellUnit, unit, 20, EXAbilityType.Magic)
         end

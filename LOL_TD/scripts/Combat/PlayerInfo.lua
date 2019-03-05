@@ -13,23 +13,23 @@ ItemType = {
 }
 local mJFItem = {
     --{ ItemType.jf_VIP, "aeger", "R006", 0 },
-    { ItemType.jf_gh01, "wqe2", GetId("R006"), 300, Jglobals.udg_ghTimer },
-    { ItemType.jf_gh02, "sdger", GetId("R007"), 800, Jglobals.udg_ghTimer },
-    { ItemType.jf_cb01, "sdxsqq", GetId("R008"), 500, Jglobals.udg_cbTimer },
-    { ItemType.jf_cb02, "235rf", GetId("R009"), 1000, Jglobals.udg_cbTimer },
-    { ItemType.jf_pf01, "t4werw", GetId("R010"), 1500, Jglobals.udg_pfTimer },
-    { ItemType.jf_pf02, "bres", GetId("R021"), 3000, Jglobals.udg_pfTimer },
+    { ItemType.jf_gh01, "wqe2", GetId("R006"), 300, Jglobals.udg_ghTimer }, --轻盈之花
+    { ItemType.jf_gh02, "sdger", GetId("R007"), 800, Jglobals.udg_ghTimer }, --五行之轮
+    { ItemType.jf_cb01, "sdxsqq", GetId("R008"), 500, Jglobals.udg_cbTimer }, --红炎翅膀
+    { ItemType.jf_cb02, "235rf", GetId("R009"), 1000, Jglobals.udg_cbTimer }, --暗紫翅膀
+    { ItemType.jf_pf01, "t4werw", GetId("R010"), 1500, Jglobals.udg_pfTimer }, --火柴人
+    { ItemType.jf_pf02, "bres", GetId("R021"), 3000, Jglobals.udg_pfTimer }, --金猪
 }
 local mMapItem = {
-    { ItemType.map_gh01, GetId("R013"), 3, Jglobals.udg_ghTimer },
-    { ItemType.map_gh02, GetId("R014"), 10, Jglobals.udg_ghTimer },
-    { ItemType.map_cb01, GetId("R015"), 6, Jglobals.udg_cbTimer },
-    { ItemType.map_cb02, GetId("R016"), 15, Jglobals.udg_cbTimer },
-    { ItemType.map_pf01, GetId("R017"), 20, Jglobals.udg_pfTimer },
+    { ItemType.map_gh01, GetId("R013"), 3, Jglobals.udg_ghTimer }, --绿意怏然
+    { ItemType.map_gh02, GetId("R014"), 10, Jglobals.udg_ghTimer }, --幻天旋地
+    { ItemType.map_cb01, GetId("R015"), 6, Jglobals.udg_cbTimer }, --炫紫羽翼
+    { ItemType.map_cb02, GetId("R016"), 15, Jglobals.udg_cbTimer }, --灵光蝶羽
+    { ItemType.map_pf01, GetId("R017"), 20, Jglobals.udg_pfTimer }, --柯基犬
     --商城道具
-    { ItemType.GH_PHOENIX, GetId("R019") },
-    { ItemType.CB_BLUE, GetId("R018") },
-    { ItemType.PF_LOLI, GetId("R020") },
+    { ItemType.GH_PHOENIX, GetId("R019") }, --凤求凰
+    { ItemType.CB_BLUE, GetId("R018") }, --蔚蓝蝶羽
+    { ItemType.PF_LOLI, GetId("R020") }, --小萝莉
 }
 
 function mt:New(player)
@@ -46,12 +46,16 @@ function mt:CheckJFItem()
         local item = LoadStr(Jglobals.udg_table, self.Id + 1, mJFItem[i][1])
         if (item ~= nil and item ~= "" and DecodeBase64(item) == mJFItem[i][2]) then
             AddPlayerTechResearched(self.Entity, mJFItem[i][3], 1)
+        else
+        --    AddPlayerTechResearched(self.Entity, mJFItem[i][3], 1)
         end
     end
     for i = 1, #mMapItem do
         local item = LoadBoolean(Jglobals.udg_table, self.Id + 1, mMapItem[i][1])
         if (item ~= nil and item ~= "" and item == true) then
             AddPlayerTechResearched(self.Entity, mMapItem[i][2], 1)
+        else
+       --     AddPlayerTechResearched(self.Entity, mMapItem[i][2], 1)
         end
     end
     local isVIP = LoadBoolean(Jglobals.udg_table, self.Id + 1, ItemType.VIP)

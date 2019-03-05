@@ -508,13 +508,48 @@ function Unit:OnLevelUp()
         self.Attribute:add("魔法恢复", mHeroRegenManaList[self.Id][2])
     end
     --成长攻击
+    local ad = 0
+    local ap = 0
     if (self.Primary == "INT") then
-        self.Attribute:add("物理攻击", 8)
+        ad = 8
         self.Attribute:add("魔法上限", 80)
     else
-        self.Attribute:add("物理攻击", 15)
+        ad = 15
         self.Attribute:add("魔法上限", 50)
     end
+    --火柴人
+    if (GetPlayerTechResearched(self.Player, GetId("R010"), true)) then
+        ad = ad + 2
+    end
+    --小红帽
+    if (GetPlayerTechResearched(self.Player, GetId("R021"), true)) then
+        ad = ad + 5
+    end
+    --潮汐
+    if (GetPlayerTechResearched(self.Player, GetId("R017"), true)) then
+        ad = ad + 5
+    end
+    --小萝莉
+    if (GetPlayerTechResearched(self.Player, GetId("R020"), true)) then
+        ad = ad + 10
+    end
+    --暗紫翅膀
+    if (GetPlayerTechResearched(self.Player, GetId("R009"), true)) then
+        ap = ap + 5
+    end
+    --灵光蝶羽
+    if (GetPlayerTechResearched(self.Player, GetId("R016"), true)) then
+        ap = ap + 5
+    end
+    --蔚蓝蝶羽
+    if (GetPlayerTechResearched(self.Player, GetId("R018"), true)) then
+        ap = ap + 10
+    end
+    self.Attribute:add("物理攻击", ad)
+    if (ap ~= 0) then
+        self.Attribute:add("法术攻击", ap)
+    end
+
     if (self.onLevelUp ~= nil) then
         self.onLevelUp(self)
     end

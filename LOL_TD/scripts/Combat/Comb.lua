@@ -674,7 +674,7 @@ comb = Combs["寒冰-飓风"]
 comb.Ubertip = [[
 -飓风
  羁绊需求：寒冰+飓风
- 羁绊效果：增加飓风额外箭矢40%的伤害|n
+ 羁绊效果：增加飓风额外箭矢50%的伤害|n
 ]]
 
 function comb:HerosId()

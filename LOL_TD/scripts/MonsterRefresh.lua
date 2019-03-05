@@ -98,6 +98,7 @@ local mTimeDt3 = 0
 local mTimeDt4 = 0
 local mMonTimerTimer
 local mMonTimerTimerDialog
+local mInterest = 0.03
 
 function MonsterRefresh.GetCurWaveIndex()
     return mCurWaveIndex
@@ -265,7 +266,7 @@ end
 
 local fuliguai = {}
 local b = { 1, 5, 20, 35, 60, 120 }
-local c = { 3, 15, 55, 90, 165, 350 }
+local c = { 8, 15, 55, 90, 165, 350 }
 function MoneyShow_showDialog()
     local monTimer = CreateTimer()
     local _timerMoney = CreateTimerDialog(monTimer)
@@ -299,8 +300,14 @@ function MoneyShow_showDialog()
                 GetPlayerSlotState(Player(i)) == PLAYER_SLOT_STATE_PLAYING) then
                     local a = (mCurWaveIndex - 1) / 8
                     --local money = Damage2Money(fuliguai[i + 1].DamageSum, 1000, 200, 1)
-                    local money2 = math.floor((500 + (a - 1) * 1000) * fuliguai[i + 1].DamageSum * 0.001 / (fuliguai[i + 1].DamageSum * 0.001 + b[a]))
+                    --local money2 = math.floor((500 + (a - 1) * 1000) * fuliguai[i + 1].DamageSum * 0.001 / (fuliguai[i + 1].DamageSum * 0.001 + b[a]))
                     --local money3 = math.floor((1000 + (a - 1) * 2000) * fuliguai[i + 1].DamageSum * 0.001 / (fuliguai[i + 1].DamageSum * 0.001 + c[a]))
+                    local money2 = 0
+                    if (a == 1) then
+                        money2 = math.floor((1000 + (a - 1) * 2000) * fuliguai[i + 1].DamageSum * 0.001 / (fuliguai[i + 1].DamageSum * 0.001 + c[a]))
+                    else
+                        money2 = math.floor((500 + (a - 1) * 1000) * fuliguai[i + 1].DamageSum * 0.001 / (fuliguai[i + 1].DamageSum * 0.001 + b[a]))
+                    end
                     --Game.Log("money: " .. money .. " ,money2: " .. money2 .. " ,money3: " .. money3)
                     AssetsManager.DestroyObject(fuliguai[i + 1])
                     Multiboard.ShowMonsterCount(-1)
@@ -368,16 +375,34 @@ function EndLessComing()
         then
             if (Worke[i] ~= nil) then
                 Worke[i]:RemoveSkill(GetId("lqfl"))
+                Worke[i]:RemoveSkill(GetId("sp10"))
+                Worke[i]:RemoveSkill(GetId("sp11"))
+                local gh05 = Worke[i]:GetSkill(GetId("gh05"))
+                if (gh05 ~= nil) then
+                    gh05.CurAction = nil
+                end
+                local cb05 = Worke[i]:GetSkill(GetId("cb05"))
+                if (cb05 ~= nil) then
+                    cb05.CurAction = nil
+                end
             end
         end
     end
 
-    mDelay = {5, 5, 5, 5, 10}
-    mDuration = {15, 15, 15, 15, 15}
-    mRate = {1, 1, 1, 1, 1 }
+    mDelay = { 5, 5, 5, 5, 10 }
+    mDuration = { 15, 15, 15, 15, 15 }
+    mRate = { 1, 1, 1, 1, 1 }
     TimerStart(mDelayPushTimer, 30, false, PushWave)
     TimerDialogSetTitle(mDelayPushTimerDialog, "无尽第1波")
     TimerDialogDisplay(mDelayPushTimerDialog, true)
+end
+
+function AutoMoney()
+    for i = 0, 3 do
+        local money = math.floor(GetPlayerState(Player(i), PLAYER_STATE_RESOURCE_GOLD) * mInterest)
+        SetPlayerState(Player(i), PLAYER_STATE_RESOURCE_GOLD, GetPlayerState(Player(i), PLAYER_STATE_RESOURCE_GOLD) + money)
+        DisplayTextToPlayer(Player(i), 0, 0, "-- 发放存款奖励,获得金币：|cFFFFFF00" .. money)
+    end
 end
 
 function WavesClear()
@@ -391,6 +416,13 @@ function WavesClear()
         return
     end
     if (Game.GetMode() == GameMode.NORMAL) then
+        --[[AutoMoney()
+        if (IsBOSS()) then
+            mInterest = mInterest + 0.01
+            for i = 0, 3 do
+                DisplayTextToPlayer(Player(i), 0, 0, "-- 存款利率上升了1%个点，当前利率：|cFFFFFF00" .. (mInterest * 100) .. "%")
+            end
+        end]]
         if (MonsterNumOut()) then
             Game.Fail()
         else

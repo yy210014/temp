@@ -152,12 +152,12 @@ EXAbilityType = {
 }
 
 function EXGetDamageColor()
-    if (EXGetAttackType() == EXAbilityType.Physics or EXGetAttackType() == EXAbilityType.Physics_Ability) then
-        return Color.Red
+    if (EXGetAttackType() == EXAbilityType.Real) then
+        return Color.White
     elseif (EXGetAttackType() == EXAbilityType.Magic or EXGetAttackType() == EXAbilityType.Magic_Ability) then
         return Color.Magenta
     end
-    return Color.White
+    return Color.Red
 end
 
 function EXGetAttackType()

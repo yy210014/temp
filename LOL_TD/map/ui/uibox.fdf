@@ -6511,7 +6511,7 @@ Frame "BACKDROP" "BAG1" {
 		SetPoint TOP, "BAG1", TOP, 0, 0,
     		ControlBackdrop "AAUP",
    		Frame "BACKDROP" "AAUP" {
-   			BackdropBackground  "Icon\BTNshangdian.tga",
+   			BackdropBackground  "Icon\BTNlqfl.tga",
      		BackdropBlendAll,
     	}
 		ControlMouseOverHighlight "AALIGHT",

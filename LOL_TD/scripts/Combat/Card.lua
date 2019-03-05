@@ -47,7 +47,13 @@ local mBox3Item = {
     GetId("I025"),
     GetId("I033"),
     GetId("I062"),
-    GetId("I077")
+    GetId("I077"),
+
+    GetId("I081"),
+    GetId("I088"),
+    GetId("I089"),
+    GetId("I098"),
+    GetId("I101")
 }
 
 function Card.RandomN()

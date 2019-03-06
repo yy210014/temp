@@ -54,7 +54,7 @@ function AddMoney(player, playerID)
     if (mPlayerMoneyFlag[playerID + 1] == 1) then
         return
     end
-    UnitAddItem(Worke[i].Entity, CreateItem(GetId("IB01"), Worke[i]:X(), Worke[i]:Y()))
+    UnitAddItem(Worke[playerID].Entity, CreateItem(GetId("IB01"), Worke[playerID]:X(), Worke[playerID]:Y()))
 
     --SetPlayerState(player, PLAYER_STATE_RESOURCE_GOLD, GetPlayerState(player, PLAYER_STATE_RESOURCE_GOLD) + 500)
     DisplayTextToPlayer(player, 0, 0, "|cffffcc00领取天天RPG福利获得一个青铜宝箱!|r")

@@ -76,3 +76,9 @@ function skill:OnCast()
     tihuan(self.Owner, GetId("ug04"), self.Art)
     self.Owner:AddSkill("sp11")
 end
+
+local skill = Skills["冰雪女王"]
+skill.Art = "Abilities\\Spells\\NightElf\\FaerieDragonInvis\\FaerieDragon_Invis.mdl"
+function skill:OnCast()
+    tihuan(self.Owner, GetId("UP25"), self.Art)
+end

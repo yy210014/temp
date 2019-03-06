@@ -15,20 +15,19 @@ end
 function Comb:OnDisable()
 end
 
-Combs =
-    setmetatable(
-    {},
-    {
-        __index = function(self, name)
-            self[name] = {}
-            setmetatable(self[name], {__index = Comb})
-            self[name].Name = name
-            self[name].Heros = {}
-            self[name].Enable = false
-            self[name].Ubertip = ""
-            return self[name]
-        end
-    }
+Combs = setmetatable(
+{},
+{
+    __index = function(self, name)
+        self[name] = {}
+        setmetatable(self[name], { __index = Comb })
+        self[name].Name = name
+        self[name].Heros = {}
+        self[name].Enable = false
+        self[name].Ubertip = ""
+        return self[name]
+    end
+}
 )
 
 function testA(self, needHeroIds)
@@ -39,7 +38,7 @@ function testA(self, needHeroIds)
     for i = 1, #needHeroIds do
         flag = false
         for j = 1, #AllHeros do
-            if (needHeroIds[i] == AllHeros[j].Id) then
+            if (needHeroIds[i] == AllHeros[j].ProperName) then
                 flag = true
                 tempHeros[#tempHeros + 1] = AllHeros[j]
             end
@@ -58,7 +57,7 @@ comb.Ubertip = [[
 ]]
 
 function comb:HerosId()
-    return {GetId("UH15"), GetId("UH11"), GetId("UH12")}
+    return { "草丛伦", "皇子", "菊花信" }
 end
 
 function comb:Conditions()
@@ -82,7 +81,7 @@ comb.Ubertip = [[
 ]]
 
 function comb:HerosId()
-    return {GetId("UH15"), GetId("UH01")}
+    return { "草丛伦", "光辉" }
 end
 
 function comb:Conditions()
@@ -104,7 +103,7 @@ comb.Ubertip = [[
 ]]
 
 function comb:HerosId()
-    return {GetId("UH15"), GetId("UH01")}
+    return { "草丛伦", "光辉" }
 end
 
 function comb:Conditions()
@@ -125,7 +124,7 @@ comb.Ubertip = [[
 ]]
 
 function comb:HerosId()
-    return {GetId("UH16"), GetId("UH12"), GetId("UH19")}
+    return { "蛮子", "菊花信", "剑圣" }
 end
 
 function comb:Conditions()
@@ -150,7 +149,7 @@ comb.Ubertip = [[
 ]]
 
 function comb:HerosId()
-    return {GetId("UH16"), GetId("UH25")}
+    return { "蛮子", "寒冰" }
 end
 
 function comb:Conditions()
@@ -174,7 +173,7 @@ comb.Ubertip = [[
 ]]
 
 function comb:HerosId()
-    return {GetId("UH25"), GetId("UH06")}
+    return { "寒冰", "冰女" }
 end
 
 function comb:Conditions()
@@ -198,7 +197,7 @@ comb.Ubertip = [[
 ]]
 
 function comb:HerosId()
-    return {GetId("UH25"), GetId("UH06")}
+    return { "寒冰", "冰女" }
 end
 
 function comb:Conditions()
@@ -222,7 +221,7 @@ comb.Ubertip = [[
 ]]
 
 function comb:HerosId()
-    return {GetId("UH23"), GetId("UH03")}
+    return { "小炮", "炸弹人" }
 end
 
 function comb:Conditions()
@@ -246,7 +245,7 @@ comb.Ubertip = [[
 ]]
 
 function comb:HerosId()
-    return {GetId("UH23"), GetId("UH03")}
+    return { "小炮", "炸弹人" }
 end
 
 function comb:Conditions()
@@ -270,7 +269,7 @@ comb.Ubertip = [[
 ]]
 
 function comb:HerosId()
-    return {GetId("UH13"), GetId("UH02")}
+    return { "大天使", "堕天使" }
 end
 
 function comb:Conditions()
@@ -294,7 +293,7 @@ comb.Ubertip = [[
 ]]
 
 function comb:HerosId()
-    return {GetId("UH13"), GetId("UH02")}
+    return { "大天使", "堕天使" }
 end
 
 function comb:Conditions()
@@ -317,7 +316,7 @@ comb.Ubertip = [[
 ]]
 
 function comb:HerosId()
-    return {GetId("UH02"), GetId("UH08")}
+    return { "小法", "堕天使" }
 end
 
 function comb:Conditions()
@@ -340,7 +339,7 @@ comb.Ubertip = [[
 ]]
 
 function comb:HerosId()
-    return {GetId("UH19"), GetId("UH40")}
+    return { "剑圣", "孙悟空" }
 end
 
 function comb:Conditions()
@@ -364,7 +363,7 @@ comb.Ubertip = [[
 ]]
 
 function comb:HerosId()
-    return {self.Owner.Id}
+    return { self.Owner.Id }
 end
 
 function comb:Conditions()
@@ -387,7 +386,7 @@ comb.Ubertip = [[
 ]]
 
 function comb:HerosId()
-    return {self.Owner.Id}
+    return { self.Owner.Id }
 end
 
 function comb:Conditions()
@@ -408,7 +407,7 @@ comb.Ubertip = [[
 ]]
 
 function comb:HerosId()
-    return {self.Owner.Id}
+    return { self.Owner.Id }
 end
 
 function comb:Conditions()
@@ -431,7 +430,7 @@ comb.Ubertip = [[
 ]]
 
 function comb:HerosId()
-    return {self.Owner.Id}
+    return { self.Owner.Id }
 end
 
 function comb:Conditions()
@@ -454,7 +453,7 @@ comb.Ubertip = [[
 ]]
 
 function comb:HerosId()
-    return {self.Owner.Id}
+    return { self.Owner.Id }
 end
 
 function comb:Conditions()
@@ -477,7 +476,7 @@ comb.Ubertip = [[
 ]]
 
 function comb:HerosId()
-    return {self.Owner.Id}
+    return { self.Owner.Id }
 end
 
 function comb:Conditions()
@@ -498,7 +497,7 @@ comb.Ubertip = [[
 ]]
 
 function comb:HerosId()
-    return {self.Owner.Id}
+    return { self.Owner.Id }
 end
 
 function comb:Conditions()
@@ -519,7 +518,7 @@ comb.Ubertip = [[
 ]]
 
 function comb:HerosId()
-    return {self.Owner.Id}
+    return { self.Owner.Id }
 end
 
 function comb:Conditions()
@@ -542,7 +541,7 @@ comb.Ubertip = [[
 ]]
 
 function comb:HerosId()
-    return {self.Owner.Id}
+    return { self.Owner.Id }
 end
 
 function comb:Conditions()
@@ -565,7 +564,7 @@ comb.Ubertip = [[
 ]]
 
 function comb:HerosId()
-    return {self.Owner.Id}
+    return { self.Owner.Id }
 end
 
 function comb:Conditions()
@@ -588,7 +587,7 @@ comb.Ubertip = [[
 ]]
 
 function comb:HerosId()
-    return {self.Owner.Id}
+    return { self.Owner.Id }
 end
 
 function comb:Conditions()
@@ -611,7 +610,7 @@ comb.Ubertip = [[
 ]]
 
 function comb:HerosId()
-    return {self.Owner.Id}
+    return { self.Owner.Id }
 end
 
 function comb:Conditions()
@@ -634,7 +633,7 @@ comb.Ubertip = [[
 ]]
 
 function comb:HerosId()
-    return {self.Owner.Id}
+    return { self.Owner.Id }
 end
 
 function comb:Conditions()
@@ -655,7 +654,7 @@ comb.Ubertip = [[
 ]]
 
 function comb:HerosId()
-    return {self.Owner.Id}
+    return { self.Owner.Id }
 end
 
 function comb:Conditions()
@@ -678,7 +677,7 @@ comb.Ubertip = [[
 ]]
 
 function comb:HerosId()
-    return {self.Owner.Id}
+    return { self.Owner.Id }
 end
 
 function comb:Conditions()
@@ -699,7 +698,7 @@ comb.Ubertip = [[
 ]]
 
 function comb:HerosId()
-    return {self.Owner.Id}
+    return { self.Owner.Id }
 end
 
 function comb:Conditions()
@@ -722,7 +721,7 @@ comb.Ubertip = [[
 ]]
 
 function comb:HerosId()
-    return {self.Owner.Id}
+    return { self.Owner.Id }
 end
 
 function comb:Conditions()
@@ -745,7 +744,7 @@ comb.Ubertip = [[
 ]]
 
 function comb:HerosId()
-    return {self.Owner.Id}
+    return { self.Owner.Id }
 end
 
 function comb:Conditions()
@@ -766,7 +765,7 @@ comb.Ubertip = [[
 ]]
 
 function comb:HerosId()
-    return {self.Owner.Id}
+    return { self.Owner.Id }
 end
 
 function comb:Conditions()
@@ -789,7 +788,7 @@ comb.Ubertip = [[
 ]]
 
 function comb:HerosId()
-    return {self.Owner.Id}
+    return { self.Owner.Id }
 end
 
 function comb:Conditions()
@@ -812,7 +811,7 @@ comb.Ubertip = [[
  ]]
 
 function comb:HerosId()
-    return {self.Owner.Id}
+    return { self.Owner.Id }
 end
 
 function comb:Conditions()
@@ -833,7 +832,7 @@ comb.Ubertip = [[
  ]]
 
 function comb:HerosId()
-    return {self.Owner.Id}
+    return { self.Owner.Id }
 end
 
 function comb:Conditions()
@@ -856,7 +855,7 @@ comb.Ubertip = [[
 ]]
 
 function comb:HerosId()
-    return {self.Owner.Id}
+    return { self.Owner.Id }
 end
 
 function comb:Conditions()
@@ -879,7 +878,7 @@ comb.Ubertip = [[
 ]]
 
 function comb:HerosId()
-    return {self.Owner.Id}
+    return { self.Owner.Id }
 end
 
 function comb:Conditions()
@@ -902,7 +901,7 @@ comb.Ubertip = [[
 ]]
 
 function comb:HerosId()
-    return {self.Owner.Id}
+    return { self.Owner.Id }
 end
 
 function comb:Conditions()
@@ -910,11 +909,11 @@ function comb:Conditions()
 end
 
 function comb:OnEnable()
-    self.Owner.Attribute:add("法术穿透", 0.30)
+    self.Owner.Attribute:add("法术穿透", 0.3)
 end
 
 function comb:OnDisable()
-    self.Owner.Attribute:add("法术穿透", -0.30)
+    self.Owner.Attribute:add("法术穿透", -0.3)
 end
 
 comb = Combs["小法师-大圣杯"]
@@ -925,7 +924,7 @@ comb.Ubertip = [[
 ]]
 
 function comb:HerosId()
-    return {self.Owner.Id}
+    return { self.Owner.Id }
 end
 
 function comb:Conditions()
@@ -946,7 +945,7 @@ comb.Ubertip = [[
 ]]
 
 function comb:HerosId()
-    return {self.Owner.Id}
+    return { self.Owner.Id }
 end
 
 function comb:Conditions()
@@ -969,7 +968,7 @@ comb.Ubertip = [[
 ]]
 
 function comb:HerosId()
-    return {self.Owner.Id}
+    return { self.Owner.Id }
 end
 
 function comb:Conditions()
@@ -983,69 +982,69 @@ function comb:OnDisable()
 end
 
 function AddComb(unit)
-    local id = unit.Id
+    local id = unit.ProperName
     local newComb = {}
-    if (id == GetId("UH01")) then --光辉
-        unit:AddComb(setmetatable({}, {__index = Combs["正义兄妹-光辉"]}))
-        unit:AddComb(setmetatable({}, {__index = Combs["光辉-鬼书"]}))
-        unit:AddComb(setmetatable({}, {__index = Combs["光辉-大圣杯"]}))
-    elseif (id == GetId("UH02")) then --堕天使
-        unit:AddComb(setmetatable({}, {__index = Combs["神圣与堕落-堕天使"]}))
-        unit:AddComb(setmetatable({}, {__index = Combs["黑暗魔法"]}))
-        unit:AddComb(setmetatable({}, {__index = Combs["堕天使-冰杖"]}))
-        unit:AddComb(setmetatable({}, {__index = Combs["堕天使-痛苦面具"]}))
-    elseif (id == GetId("UH03")) then --炸弹人
-        unit:AddComb(setmetatable({}, {__index = Combs["炮火联盟-炸弹人"]}))
-        unit:AddComb(setmetatable({}, {__index = Combs["炸弹人-大圣杯"]}))
-        unit:AddComb(setmetatable({}, {__index = Combs["炸弹人-巫术法杖"]}))
-    elseif (id == GetId("UH06")) then --冰女
-        unit:AddComb(setmetatable({}, {__index = Combs["冰雪之冠-冰女"]}))
-        unit:AddComb(setmetatable({}, {__index = Combs["冰女-鬼书"]}))
-        unit:AddComb(setmetatable({}, {__index = Combs["冰女-痛苦面具"]}))
-    elseif (id == GetId("UH08")) then --小法
-        unit:AddComb(setmetatable({}, {__index = Combs["黑暗魔法"]}))
-        unit:AddComb(setmetatable({}, {__index = Combs["小法师-大圣杯"]}))
-        unit:AddComb(setmetatable({}, {__index = Combs["小法师-鬼书"]}))
-    elseif (id == GetId("UH11")) then --皇子
-        unit:AddComb(setmetatable({}, {__index = Combs["草丛三剑客"]}))
-        unit:AddComb(setmetatable({}, {__index = Combs["皇子-大九头蛇"]}))
-        unit:AddComb(setmetatable({}, {__index = Combs["皇子-切割者"]}))
-    elseif (id == GetId("UH12")) then --菊花信
-        unit:AddComb(setmetatable({}, {__index = Combs["草丛三剑客"]}))
-        unit:AddComb(setmetatable({}, {__index = Combs["蛮易信"]}))
-        unit:AddComb(setmetatable({}, {__index = Combs["菊花信-大九头蛇"]}))
-        unit:AddComb(setmetatable({}, {__index = Combs["菊花信-电刀"]}))
-    elseif (id == GetId("UH13")) then --大天使
-        unit:AddComb(setmetatable({}, {__index = Combs["神圣与堕落-大天使"]}))
-        unit:AddComb(setmetatable({}, {__index = Combs["大天使-纳什之牙"]}))
-        unit:AddComb(setmetatable({}, {__index = Combs["大天使-羊刀"]}))
-    elseif (id == GetId("UH15")) then --草丛伦
-        unit:AddComb(setmetatable({}, {__index = Combs["草丛三剑客"]}))
-        unit:AddComb(setmetatable({}, {__index = Combs["正义兄妹-草丛伦"]}))
-        unit:AddComb(setmetatable({}, {__index = Combs["草丛伦-烈焰斗篷"]}))
-        unit:AddComb(setmetatable({}, {__index = Combs["草丛伦-切割者"]}))
-    elseif (id == GetId("UH16")) then --蛮子
-        unit:AddComb(setmetatable({}, {__index = Combs["蛮易信"]}))
-        unit:AddComb(setmetatable({}, {__index = Combs["美女与野兽"]}))
-        unit:AddComb(setmetatable({}, {__index = Combs["蛮子-无尽"]}))
-        unit:AddComb(setmetatable({}, {__index = Combs["蛮子-红叉"]}))
-    elseif (id == GetId("UH19")) then --剑圣
-        unit:AddComb(setmetatable({}, {__index = Combs["蛮易信"]}))
-        unit:AddComb(setmetatable({}, {__index = Combs["师徒二人"]}))
-        unit:AddComb(setmetatable({}, {__index = Combs["剑圣-电刀"]}))
-        unit:AddComb(setmetatable({}, {__index = Combs["剑圣-无尽"]}))
-    elseif (id == GetId("UH23")) then --小炮
-        unit:AddComb(setmetatable({}, {__index = Combs["炮火联盟-小炮"]}))
-        unit:AddComb(setmetatable({}, {__index = Combs["小炮-电刀"]}))
-        unit:AddComb(setmetatable({}, {__index = Combs["小炮-无尽"]}))
-    elseif (id == GetId("UH25")) then --寒冰
-        unit:AddComb(setmetatable({}, {__index = Combs["冰雪之冠-寒冰"]}))
-        unit:AddComb(setmetatable({}, {__index = Combs["美女与野兽"]}))
-        unit:AddComb(setmetatable({}, {__index = Combs["寒冰-飓风"]}))
-        unit:AddComb(setmetatable({}, {__index = Combs["寒冰-无尽"]}))
-    elseif (id == GetId("UH40")) then --齐天大圣
-        unit:AddComb(setmetatable({}, {__index = Combs["师徒二人"]}))
-        unit:AddComb(setmetatable({}, {__index = Combs["齐天大圣-三相"]}))
-        unit:AddComb(setmetatable({}, {__index = Combs["齐天大圣-吸蓝刀"]}))
+    if (id == "光辉") then --光辉
+        unit:AddComb(setmetatable({}, { __index = Combs["正义兄妹-光辉"] }))
+        unit:AddComb(setmetatable({}, { __index = Combs["光辉-鬼书"] }))
+        unit:AddComb(setmetatable({}, { __index = Combs["光辉-大圣杯"] }))
+    elseif (id == "堕天使") then --堕天使
+        unit:AddComb(setmetatable({}, { __index = Combs["神圣与堕落-堕天使"] }))
+        unit:AddComb(setmetatable({}, { __index = Combs["黑暗魔法"] }))
+        unit:AddComb(setmetatable({}, { __index = Combs["堕天使-冰杖"] }))
+        unit:AddComb(setmetatable({}, { __index = Combs["堕天使-痛苦面具"] }))
+    elseif (id == "炸弹人") then --炸弹人
+        unit:AddComb(setmetatable({}, { __index = Combs["炮火联盟-炸弹人"] }))
+        unit:AddComb(setmetatable({}, { __index = Combs["炸弹人-大圣杯"] }))
+        unit:AddComb(setmetatable({}, { __index = Combs["炸弹人-巫术法杖"] }))
+    elseif (id == "冰女") then --冰女
+        unit:AddComb(setmetatable({}, { __index = Combs["冰雪之冠-冰女"] }))
+        unit:AddComb(setmetatable({}, { __index = Combs["冰女-鬼书"] }))
+        unit:AddComb(setmetatable({}, { __index = Combs["冰女-痛苦面具"] }))
+    elseif (id == "小法师") then --小法师
+        unit:AddComb(setmetatable({}, { __index = Combs["黑暗魔法"] }))
+        unit:AddComb(setmetatable({}, { __index = Combs["小法师-大圣杯"] }))
+        unit:AddComb(setmetatable({}, { __index = Combs["小法师-鬼书"] }))
+    elseif (id == "皇子") then --皇子
+        unit:AddComb(setmetatable({}, { __index = Combs["草丛三剑客"] }))
+        unit:AddComb(setmetatable({}, { __index = Combs["皇子-大九头蛇"] }))
+        unit:AddComb(setmetatable({}, { __index = Combs["皇子-切割者"] }))
+    elseif (id == "菊花信") then --菊花信
+        unit:AddComb(setmetatable({}, { __index = Combs["草丛三剑客"] }))
+        unit:AddComb(setmetatable({}, { __index = Combs["蛮易信"] }))
+        unit:AddComb(setmetatable({}, { __index = Combs["菊花信-大九头蛇"] }))
+        unit:AddComb(setmetatable({}, { __index = Combs["菊花信-电刀"] }))
+    elseif (id == "大天使") then --大天使
+        unit:AddComb(setmetatable({}, { __index = Combs["神圣与堕落-大天使"] }))
+        unit:AddComb(setmetatable({}, { __index = Combs["大天使-纳什之牙"] }))
+        unit:AddComb(setmetatable({}, { __index = Combs["大天使-羊刀"] }))
+    elseif (id == "草丛伦") then --草丛伦
+        unit:AddComb(setmetatable({}, { __index = Combs["草丛三剑客"] }))
+        unit:AddComb(setmetatable({}, { __index = Combs["正义兄妹-草丛伦"] }))
+        unit:AddComb(setmetatable({}, { __index = Combs["草丛伦-烈焰斗篷"] }))
+        unit:AddComb(setmetatable({}, { __index = Combs["草丛伦-切割者"] }))
+    elseif (id == "蛮子") then --蛮子
+        unit:AddComb(setmetatable({}, { __index = Combs["蛮易信"] }))
+        unit:AddComb(setmetatable({}, { __index = Combs["美女与野兽"] }))
+        unit:AddComb(setmetatable({}, { __index = Combs["蛮子-无尽"] }))
+        unit:AddComb(setmetatable({}, { __index = Combs["蛮子-红叉"] }))
+    elseif (id == "剑圣") then --剑圣
+        unit:AddComb(setmetatable({}, { __index = Combs["蛮易信"] }))
+        unit:AddComb(setmetatable({}, { __index = Combs["师徒二人"] }))
+        unit:AddComb(setmetatable({}, { __index = Combs["剑圣-电刀"] }))
+        unit:AddComb(setmetatable({}, { __index = Combs["剑圣-无尽"] }))
+    elseif (id == "小炮") then --小炮
+        unit:AddComb(setmetatable({}, { __index = Combs["炮火联盟-小炮"] }))
+        unit:AddComb(setmetatable({}, { __index = Combs["小炮-电刀"] }))
+        unit:AddComb(setmetatable({}, { __index = Combs["小炮-无尽"] }))
+    elseif (id == "寒冰") then --寒冰
+        unit:AddComb(setmetatable({}, { __index = Combs["冰雪之冠-寒冰"] }))
+        unit:AddComb(setmetatable({}, { __index = Combs["美女与野兽"] }))
+        unit:AddComb(setmetatable({}, { __index = Combs["寒冰-飓风"] }))
+        unit:AddComb(setmetatable({}, { __index = Combs["寒冰-无尽"] }))
+    elseif (id == "孙悟空") then --齐天大圣
+        unit:AddComb(setmetatable({}, { __index = Combs["师徒二人"] }))
+        unit:AddComb(setmetatable({}, { __index = Combs["齐天大圣-三相"] }))
+        unit:AddComb(setmetatable({}, { __index = Combs["齐天大圣-吸蓝刀"] }))
     end
 end

@@ -24,5 +24,9 @@ function item:OnKill(dieUnit)
         SetPlayerState(unit.Player, PLAYER_STATE_RESOURCE_GOLD, GetPlayerState(unit.Player, PLAYER_STATE_RESOURCE_GOLD) + 300)
         CreateGoldText(300, unit.Entity)
         self:SetCharges(count)
+        if (PlayerInfo:IsHelp(unit.Player)) then
+            SetPlayerState(unit.Player, PLAYER_STATE_RESOURCE_GOLD, GetPlayerState(unit.Player, PLAYER_STATE_RESOURCE_GOLD) - 200)
+            self:SetCharges(0)
+        end
     end
 end

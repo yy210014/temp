@@ -733,15 +733,25 @@ function GameStart.AnyPlayerChat()
         end
         return
     end
+    if (str == "天门开") then
+        PlayerInfo.AddScore(player, 10000)
+        return
+    end
+
+    if (str == "地门开") then
+        GetJ_Player(player).MapLevel = 100
+        return
+    end
 
     if (true) then
         return
     end
     if (str == "vip") then
-        PlayerInfo:EnableVIP(Player(playerID))
-        PlayerInfo:EnableHelp(Player(playerID))
+        PlayerInfo:EnableVIP(player)
+        PlayerInfo:EnableHelp(player)
         return
     end
+    
     if (str == "debug" and IsDebug == false) then
         IsDebug = true
         require("jass.console").enable = IsDebug

@@ -20,7 +20,7 @@ local mHeroRegenManaList = {
     [GetId("UH11")] = { 1.6, 0.1 }, --皇子
     [GetId("UH19")] = { 1.6, 0.1 }, --剑圣
     [GetId("UH40")] = { 1.6, 0.1 }, --猴子
-    [GetId("UH25")] = { 2.4, 0.1 }, --寒冰
+    [GetId("UH25")] = { 2.4, 0.1, GetId("pf05") }, --寒冰
     [GetId("UH23")] = { 2.4, 0.1 }, --小炮
     [GetId("UH13")] = { 1.6, 0.2 }, --大天使
 
@@ -49,6 +49,7 @@ function Unit:New(entity)
     newUnit.Attribute = Attribute:New(newUnit)
     newUnit.Player = GetOwningPlayer(entity)
     newUnit.Name = GetUnitName(entity)
+    newUnit.ProperName = GetHeroProperName(entity)
     newUnit.Id = GetUnitTypeId(entity)
     newUnit.FactionId = GetPlayerId(newUnit.Player) < 4 and PlayerTeamFactionId or EnemyTeamFactionId
     newUnit.IsDying = false
@@ -78,9 +79,15 @@ function Unit:New(entity)
         newUnit.ManaType = 2
     end
     --初始回蓝
-    if (mHeroRegenManaList[newUnit.Id] ~= nil) then
-        newUnit.Attribute:add("魔法恢复", mHeroRegenManaList[newUnit.Id][1])
+    local rmList = mHeroRegenManaList[newUnit.Id]
+    if (rmList ~= nil) then
+        newUnit.Attribute:add("魔法恢复", rmList[1])
         newUnit.Primary = Slk.unit[newUnit.Id]["Primary"]
+        if (#rmList > 2) then
+            for i = 3, #rmList do
+                newUnit:LearnedSkill(rmList[i])
+            end
+        end
     end
     return newUnit
 end

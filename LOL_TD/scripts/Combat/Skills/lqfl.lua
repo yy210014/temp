@@ -20,7 +20,7 @@ function skill:OnCast()
     DestroyEffect(AddSpecialEffect(mArt, spellUnit:X(), spellUnit:Y()))
 
     if (self.IsAutoUse) then
-        DisplayTextToAll(GetPlayerName(player) .. "发工资获得金币" .. addMoney .. content .. "|r|cffffcc00[撸圈助手]", Color.yellow)
+        DisplayTextToAll(GetPlayerName(player) .. "自动领取工资获得金币" .. addMoney .. content .. "|r|cffffcc00[至尊VIP]", Color.yellow)
     else
         DisplayTextToAll(GetPlayerName(player) .. "发工资获得金币" .. addMoney .. content, Color.yellow)
     end

@@ -5,7 +5,7 @@ function skill:OnLearned()
     local player = spellUnit.Player
     SetPlayerName(player, "[尊贵VIP]" .. GetPlayerName(player))
     AddPlayerTechResearched(player, GetId("R011"), 1)
-    UnitAddItem(spellUnit.Entity, CreateItem(GetId("IB02"), spellUnit:X(), spellUnit:Y()))
+    UnitAddItem(spellUnit.Entity, CreateItem(GetId("IB03"), spellUnit:X(), spellUnit:Y()))
     self.IsSpell = true
     self.CurAction = self.Action
 end

@@ -308,6 +308,9 @@ function MoneyShow_showDialog()
                     else
                         money2 = math.floor((500 + (a - 1) * 1000) * fuliguai[i + 1].DamageSum * 0.001 / (fuliguai[i + 1].DamageSum * 0.001 + b[a]))
                     end
+                    if (PlayerInfo:IsHelp(Player(i))) then
+                        money2 = money2 * 1.15
+                    end
                     --Game.Log("money: " .. money .. " ,money2: " .. money2 .. " ,money3: " .. money3)
                     AssetsManager.DestroyObject(fuliguai[i + 1])
                     Multiboard.ShowMonsterCount(-1)
@@ -435,14 +438,14 @@ function WavesClear()
     elseif (Game.GetMode() == GameMode.ENDLESS) then
         PlayerInfo:IteratePlayer(
         function(player)
-            if (player.MonsterCount > 30) then
+            if (player.MonsterCount > player.MonsterCountMax) then
                 if (player.IsWatch == false) then
                     player.IsWatch = true
                     DisplayTextToAll("|cffffcc00玩家:|r" .. GetPlayerName(player.Entity) .. "|cffffcc00的怪物数量超出限制，切换为观看模式|r。", Color.white)
                     local playerTeamUnits = GetPlayerTeamUnits(player.Id)
                     for i = #playerTeamUnits, 1, -1 do
                         if (playerTeamUnits[i] ~= nil and playerTeamUnits[i].IsDying == false) then
-                        playerTeamUnits[i]:IterateItems(
+                            playerTeamUnits[i]:IterateItems(
                             function(item)
                                 UnitRemoveItem(playerTeamUnits[i].Entity, item.Entity)
                             end
@@ -518,6 +521,7 @@ function Spawn(spawnPoint, index)
     IssuePointOrderLoc(unit.Entity, "move", MonsterRefresh.RectPoints[index])
     if (Game.GetMode() == GameMode.NORMAL) then
         unit.Attribute:add("生命上限", unit.Attribute:get("生命上限") * (0.2 * Game.GetLevel()))
+        unit.Attribute:add("护甲", (Game.GetLevel() - 1))
         Multiboard.ShowMonsterCount(1, index)
     elseif (Game.GetMode() == GameMode.ENDLESS) then
         unit.Attribute:add("护甲", mEndlessWaveIndex * 2)

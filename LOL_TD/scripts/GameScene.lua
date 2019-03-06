@@ -22,16 +22,15 @@ local function InitPlayerResource()
         SetPlayerState(Player(i), PLAYER_STATE_FOOD_CAP_CEILING, 100)
         --修改了人口上限
         SetPlayerState(Player(i), PLAYER_STATE_RESOURCE_FOOD_CAP, 100)
+        SetPlayerState(Player(i), PLAYER_STATE_RESOURCE_GOLD, 2000)
 
         if LoadBoolean(Jglobals.udg_table, i + 1, ItemType.JBLB) then
-            DisplayTextToPlayer(Player(i), 0, 0, "你已激活金币礼包，开局额外获得500金币。")
-            SetPlayerState(Player(i), PLAYER_STATE_RESOURCE_GOLD, 2000)
-        else
-            SetPlayerState(Player(i), PLAYER_STATE_RESOURCE_GOLD, 1500)
+            DisplayTextToPlayer(Player(i), 0, 0, "你已激活金币礼包，开局获得一个白银宝藏!")
+            UnitAddItem(Worke[i].Entity, CreateItem(GetId("IB02"), Worke[i]:X(), Worke[i]:Y()))
         end
 
         if LoadBoolean(Jglobals.udg_table, i + 1, ItemType.MTLB) then
-            DisplayTextToPlayer(Player(i), 0, 0, "你已激活木头礼包，开局额外获得1点天赋点。")
+            DisplayTextToPlayer(Player(i), 0, 0, "你已激活木头礼包，开局获得1点天赋点!")
             SetPlayerState(Player(i), PLAYER_STATE_RESOURCE_LUMBER, 1)
         else
             SetPlayerState(Player(i), PLAYER_STATE_RESOURCE_LUMBER, 0)
@@ -65,10 +64,10 @@ local function InitPlayerUnit()
             --UnitAddItem(Worke[i].Entity, CreateItem(GetId("IH07"), Worke[i]:X(), Worke[i]:Y()))
             --UnitAddItem(Worke[i].Entity, CreateItem(GetId("IH42"), Worke[i]:X(), Worke[i]:Y()))
             --UnitAddItem(Worke[i].Entity, CreateItem(GetId("IH43"), Worke[i]:X(), Worke[i]:Y()))
+            Worke[i]:LearnedSkill(GetId("lqfl"))
             PlayerInfo:IteratePlayer(function(p)
                 p:CheckJFItem()
             end)
-            Worke[i]:LearnedSkill(GetId("lqfl"))
             Worke[i]:LearnedSkill(GetId("cb01"))
             Worke[i]:LearnedSkill(GetId("cb02"))
             Worke[i]:LearnedSkill(GetId("cb03"))
@@ -88,8 +87,8 @@ local function InitPlayerUnit()
 end
 
 function GameScene.OnGameStart()
-    InitPlayerResource()
     InitPlayerUnit()
+    InitPlayerResource()
     Multiboard.CreateMultiboard()
     MonsterRefresh.OnGameStart()
     DisplayTextToAll("-提示：输入‘-swap’可以重新随机一次SR英雄。", Color.yellow)

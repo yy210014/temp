@@ -10,18 +10,24 @@ function item:OnUse()
     local gold = Slk.item[itemID]["goldcost"]
     local item2 = nil
     local text = nil
+
+    local isHelp = PlayerInfo:IsHelp(unit.Player)
+    local count = 5
     if (gold == "5000") then
-        text = "|r召唤出了:|cFFFFFF00" .. GetItemName(item1) .. "|r |cffffcc00,额外获得SSR碎片X15|r"
+        count = isHelp and 22 or 15
+        text = "|r召唤出了:|cFFFFFF00" .. GetItemName(item1) .. "|r |cffffcc00,额外获得SSR碎片X" .. count
         item2 = CreateItem(GetId("IB05"), unit:X(), unit:Y())
-        SetItemCharges(item2, 15)
+        SetItemCharges(item2, count)
     elseif (gold == "3000") then
-        text = "|r召唤出了:|cFFFF00FF" .. GetItemName(item1) .. "|r |cffffcc00,额外获得SSR碎片X12|r"
+        count = isHelp and 18 or 12
+        text = "|r召唤出了:|cFFFF00FF" .. GetItemName(item1) .. "|r |cffffcc00,额外获得SR碎片X" .. count
         item2 = CreateItem(GetId("IB04"), unit:X(), unit:Y())
-        SetItemCharges(item2, 12)
+        SetItemCharges(item2, count)
     else
-        text = "|r召唤出了:|cFF00FF00" .. GetItemName(item1) .. "|r |cffffcc00,额外获得SR碎片X5|r"
+        count = isHelp and 7 or 5
+        text = "|r召唤出了:|cFF00FF00" .. GetItemName(item1) .. "|r |cffffcc00,额外获得SR碎片X" .. count
         item2 = CreateItem(GetId("IB04"), unit:X(), unit:Y())
-        SetItemCharges(item2, 5)
+        SetItemCharges(item2, count)
     end
     for i = 0, 3 do
         DisplayTextToPlayer(Player(i), 0, 0, "|cffffcc00" .. GetPlayerName(unit.Player) .. text)

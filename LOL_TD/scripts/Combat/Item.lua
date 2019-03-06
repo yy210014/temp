@@ -230,7 +230,7 @@ function Item:GetCharges()
 end
 
 function Item:SetCharges(value)
-    if (value <= 0) then
+    if (value < 0) then
         return
     end
     SetItemCharges(self.Entity, value)

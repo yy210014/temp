@@ -58,14 +58,14 @@ function mt:CheckJFItem()
             --    AddPlayerTechResearched(self.Entity, mMapItem[i][3], 1)
         end
     end
-    local isVIP = LoadBoolean(Jglobals.udg_table, self.Id + 1, ItemType.VIP)
+ --[[   local isVIP = LoadBoolean(Jglobals.udg_table, self.Id + 1, ItemType.VIP)
     if (isVIP) then
         PlayerInfo:EnableVIP(self.Entity)
     end
     local isHelp = LoadBoolean(Jglobals.udg_table, self.Id + 1, ItemType.HELP)
     if (isHelp) then
         PlayerInfo:EnableHelp(self.Entity)
-    end
+    end]]
 end
 
 function PlayerInfo:New(entity)
@@ -182,7 +182,7 @@ function PlayerInfo:EnableVIP(entity)
         return
     end
     player.IsVIP = true
-    Worke[GetPlayerId(entity)]:LearnedSkill(GetId("vip0"))
+    Worke[GetPlayerId(entity)]:AddSkill("vip0")
 
 --[[  SetPlayerName(entity, "[尊贵VIP]" .. GetPlayerName(entity))
     AddPlayerTechResearched(entity, GetId("R011"), 1)
@@ -218,7 +218,7 @@ function PlayerInfo:EnableHelp(entity)
     end
     player.IsHelp = true
     player.MonsterCountMax = 40
-    Worke[GetPlayerId(entity)]:LearnedSkill(GetId("lqzs"))
+    Worke[GetPlayerId(entity)]:AddSkill("lqzs")
 
 --[[local lqfl = Worke[GetPlayerId(entity)]:GetSkill(GetId("lqfl"))
     if (lqfl ~= nil) then

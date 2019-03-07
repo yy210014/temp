@@ -1,8 +1,8 @@
 globals
 //globals from BzAPI:
 constant boolean LIBRARY_BzAPI=true
-trigger array BzAPI__DamageEventQueue
-integer BzAPI__DamageEventNumber= 0
+trigger array BzAPI___DamageEventQueue
+integer BzAPI___DamageEventNumber= 0
 //endglobals from BzAPI
 //globals from DzAPI:
 constant boolean LIBRARY_DzAPI=true
@@ -30,10 +30,10 @@ real yd_MapMaxX= 0
 real yd_MapMinX= 0
 real yd_MapMaxY= 0
 real yd_MapMinY= 0
-string array YDWEBase__yd_PlayerColor
-trigger array YDWEBase__AbilityCastingOverEventQueue
-integer array YDWEBase__AbilityCastingOverEventType
-integer YDWEBase__AbilityCastingOverEventNumber= 0
+string array YDWEBase___yd_PlayerColor
+trigger array YDWEBase___AbilityCastingOverEventQueue
+integer array YDWEBase___AbilityCastingOverEventType
+integer YDWEBase___AbilityCastingOverEventNumber= 0
 //endglobals from YDWEBase
 //globals from YDWEGetItemOfTypeFromUnitBJNull:
 constant boolean LIBRARY_YDWEGetItemOfTypeFromUnitBJNull=true
@@ -139,7 +139,7 @@ trigger gg_trg_InitItemCel2l= null
 trigger gg_trg___________________u= null
 trigger gg_trg__________________________u= null
 trigger gg_trg_ESC= null
-trigger gg_trg_P= null
+trigger gg_trg_Tab= null
 trigger gg_trg_GetItem= null
 trigger gg_trg_DropItem= null
 trigger gg_trg_InitUi= null
@@ -169,6 +169,8 @@ trigger gg_trg_initial= null
 trigger gg_trg_SelectedUnit= null
 trigger gg_trg_item= null
 trigger gg_trg_ref= null
+trigger gg_trg____________________001= null
+trigger gg_trg_Tab_Jass= null
 
 trigger l__library_init
 
@@ -1242,11 +1244,11 @@ endfunction
 function YDWESyStemAbilityCastingOverTriggerAction takes unit hero,integer index returns nothing
  local integer i= 0
     loop
-        exitwhen i >= YDWEBase__AbilityCastingOverEventNumber
-        if YDWEBase__AbilityCastingOverEventType[i] == index then
+        exitwhen i >= YDWEBase___AbilityCastingOverEventNumber
+        if YDWEBase___AbilityCastingOverEventType[i] == index then
             set bj_lastAbilityCastingUnit=hero
-			if YDWEBase__AbilityCastingOverEventQueue[i] != null and TriggerEvaluate(YDWEBase__AbilityCastingOverEventQueue[i]) and IsTriggerEnabled(YDWEBase__AbilityCastingOverEventQueue[i]) then
-				call TriggerExecute(YDWEBase__AbilityCastingOverEventQueue[i])
+			if YDWEBase___AbilityCastingOverEventQueue[i] != null and TriggerEvaluate(YDWEBase___AbilityCastingOverEventQueue[i]) and IsTriggerEnabled(YDWEBase___AbilityCastingOverEventQueue[i]) then
+				call TriggerExecute(YDWEBase___AbilityCastingOverEventQueue[i])
 			endif
 		endif
         set i=i + 1
@@ -1256,9 +1258,9 @@ endfunction
 //YDWE技能捕捉事件 
 //===========================================================================  
 function YDWESyStemAbilityCastingOverRegistTrigger takes trigger trg,integer index returns nothing
-	set YDWEBase__AbilityCastingOverEventQueue[YDWEBase__AbilityCastingOverEventNumber]=trg
-	set YDWEBase__AbilityCastingOverEventType[YDWEBase__AbilityCastingOverEventNumber]=index
-	set YDWEBase__AbilityCastingOverEventNumber=YDWEBase__AbilityCastingOverEventNumber + 1
+	set YDWEBase___AbilityCastingOverEventQueue[YDWEBase___AbilityCastingOverEventNumber]=trg
+	set YDWEBase___AbilityCastingOverEventType[YDWEBase___AbilityCastingOverEventNumber]=index
+	set YDWEBase___AbilityCastingOverEventNumber=YDWEBase___AbilityCastingOverEventNumber + 1
 endfunction 
 //===========================================================================
 //系统函数完善
@@ -1295,7 +1297,7 @@ endfunction
 //unitpool bj_lastCreatedPool=null
 //unit bj_lastPoolAbstractedUnit=null
 function YDWEGetPlayerColorString takes player p,string s returns string
-    return YDWEBase__yd_PlayerColor[GetHandleId(GetPlayerColor(p))] + s + "|r"
+    return YDWEBase___yd_PlayerColor[GetHandleId(GetPlayerColor(p))] + s + "|r"
 endfunction
 //===========================================================================
 //===========================================================================
@@ -1342,22 +1344,22 @@ function InitializeYD takes nothing returns nothing
 	set yd_MapMaxX=GetCameraBoundMaxX() + GetCameraMargin(CAMERA_MARGIN_RIGHT)
 	set yd_MapMaxY=GetCameraBoundMaxY() + GetCameraMargin(CAMERA_MARGIN_TOP)
 	
-    set YDWEBase__yd_PlayerColor[0]="|cFFFF0303"
-    set YDWEBase__yd_PlayerColor[1]="|cFF0042FF"
-    set YDWEBase__yd_PlayerColor[2]="|cFF1CE6B9"
-    set YDWEBase__yd_PlayerColor[3]="|cFF540081"
-    set YDWEBase__yd_PlayerColor[4]="|cFFFFFC01"
-    set YDWEBase__yd_PlayerColor[5]="|cFFFE8A0E"
-    set YDWEBase__yd_PlayerColor[6]="|cFF20C000"
-    set YDWEBase__yd_PlayerColor[7]="|cFFE55BB0"
-    set YDWEBase__yd_PlayerColor[8]="|cFF959697"
-    set YDWEBase__yd_PlayerColor[9]="|cFF7EBFF1"
-    set YDWEBase__yd_PlayerColor[10]="|cFF106246"
-    set YDWEBase__yd_PlayerColor[11]="|cFF4E2A04"
-    set YDWEBase__yd_PlayerColor[12]="|cFF282828"
-    set YDWEBase__yd_PlayerColor[13]="|cFF282828"
-    set YDWEBase__yd_PlayerColor[14]="|cFF282828"
-    set YDWEBase__yd_PlayerColor[15]="|cFF282828"
+    set YDWEBase___yd_PlayerColor[0]="|cFFFF0303"
+    set YDWEBase___yd_PlayerColor[1]="|cFF0042FF"
+    set YDWEBase___yd_PlayerColor[2]="|cFF1CE6B9"
+    set YDWEBase___yd_PlayerColor[3]="|cFF540081"
+    set YDWEBase___yd_PlayerColor[4]="|cFFFFFC01"
+    set YDWEBase___yd_PlayerColor[5]="|cFFFE8A0E"
+    set YDWEBase___yd_PlayerColor[6]="|cFF20C000"
+    set YDWEBase___yd_PlayerColor[7]="|cFFE55BB0"
+    set YDWEBase___yd_PlayerColor[8]="|cFF959697"
+    set YDWEBase___yd_PlayerColor[9]="|cFF7EBFF1"
+    set YDWEBase___yd_PlayerColor[10]="|cFF106246"
+    set YDWEBase___yd_PlayerColor[11]="|cFF4E2A04"
+    set YDWEBase___yd_PlayerColor[12]="|cFF282828"
+    set YDWEBase___yd_PlayerColor[13]="|cFF282828"
+    set YDWEBase___yd_PlayerColor[14]="|cFF282828"
+    set YDWEBase___yd_PlayerColor[15]="|cFF282828"
     //=================显示版本=====================
     call YDWEVersion_Init()
 endfunction
@@ -1400,11 +1402,11 @@ endfunction
 //library YDWEYDWEJapiScript ends
 //===========================================================================
 // 
-// 召唤师联盟TD内测版1.23
+// 召唤师联盟TD内测版1.25
 // 
 //   Warcraft III map script
 //   Generated by the Warcraft III World Editor
-//   Date: Wed Mar 06 13:56:31 2019
+//   Date: Thu Mar 07 14:51:18 2019
 //   Map Author: 渣康传奇
 // 
 //===========================================================================
@@ -2730,9 +2732,9 @@ function Trig_InitItemCellActions takes nothing returns nothing
     call SaveInteger(YDHT, 'I031', 0xD963A09F, 'I007')
     call SaveInteger(YDHT, 'I033', 0x437E2A40, 'I007')
     call SaveInteger(YDHT, 'I037', 0x437E2A40, 'I009')
-    call SaveInteger(YDHT, 'I035', 0x437E2A40, 'I009')
+    call SaveInteger(YDHT, 'I035', 0x437E2A40, 'I008')
     call SaveInteger(YDHT, 'I035', 0xD963A09F, 'I008')
-    call SaveInteger(YDHT, 'I035', 0xCD1043F3, 'I008')
+    call SaveInteger(YDHT, 'I035', 0xCD1043F3, 'I009')
     call SaveInteger(YDHT, 'I039', 0x437E2A40, 'I008')
     call SaveInteger(YDHT, 'I039', 0xD963A09F, 'I008')
     call SaveInteger(YDHT, 'I041', 0x437E2A40, 'I009')
@@ -2914,11 +2916,6 @@ function Trig_BtnClickLeftActions takes nothing returns nothing
             endif
             if ( ( selectedUnit == null ) ) then
                 call DisplayTextToPlayer(DzGetTriggerKeyPlayer(), 0, 0, "|cffff0000请确认您当前选择的单位拥有道具栏！|r")
-                return
-            else
-            endif
-            if ( ( UnitInventoryCount(selectedUnit) >= 6 ) ) then
-                call DisplayTextToPlayer(DzGetTriggerKeyPlayer(), 0, 0, "|cffff0000道具栏已满，购买失败！|r")
                 return
             else
             endif
@@ -3112,11 +3109,6 @@ function Trig_BtnClickRightActions takes nothing returns nothing
         endif
         if ( ( selectedUnit == null ) ) then
             call DisplayTextToPlayer(DzGetTriggerKeyPlayer(), 0, 0, "|cffff0000请确认您当前选择的单位拥有道具栏！|r")
-            return
-        else
-        endif
-        if ( ( UnitInventoryCount(selectedUnit) >= 6 ) ) then
-            call DisplayTextToPlayer(DzGetTriggerKeyPlayer(), 0, 0, "|cffff0000道具栏已满，购买失败！|r")
             return
         else
         endif
@@ -3542,38 +3534,6 @@ function InitTrig_ESC takes nothing returns nothing
         call TriggerRegisterPlayerEventEndCinematic(gg_trg_ESC, Player(14))
         call TriggerRegisterPlayerEventEndCinematic(gg_trg_ESC, Player(15))
     call TriggerAddAction(gg_trg_ESC, function Trig_ESCActions)
-endfunction
-//===========================================================================
-// Trigger: P
-//===========================================================================
-function Trig_PActions takes nothing returns nothing
-    if ( ( udg_ui_isHEOpen[GetPlayerId(DzGetTriggerKeyPlayer())] == false ) ) then
-        set udg_ui_isHEOpen[GetPlayerId(DzGetTriggerKeyPlayer())]=true
-        set udg_ui_isHEOpen2[GetPlayerId(DzGetTriggerKeyPlayer())]=false
-        call RefreshItemCell(DzGetTriggerKeyPlayer())
-        if ( ( DzGetTriggerKeyPlayer() == GetLocalPlayer() ) ) then
-            call DzFrameSetEnable(DzFrameFindByName("ABB1", 0), false)
-            call DzFrameSetText(DzFrameFindByName("ABBB1", 0), "|cFF808080出售|r")
-            call DzFrameShow(udg_UI_ab[0], true)
-            call DzFrameShow(udg_UI_ab[2], false)
-            call DzClickFrame(udg_Frames[9])
-        else
-        endif
-    else
-        set udg_ui_isHEOpen[GetPlayerId(DzGetTriggerKeyPlayer())]=false
-        set udg_ui_isHEOpen2[GetPlayerId(DzGetTriggerKeyPlayer())]=false
-        if ( ( DzGetTriggerKeyPlayer() == GetLocalPlayer() ) ) then
-            call DzFrameShow(udg_UI_ab[0], false)
-            call DzFrameShow(udg_UI_ab[2], false)
-        else
-        endif
-    endif
-endfunction
-//===========================================================================
-function InitTrig_P takes nothing returns nothing
-    set gg_trg_P=CreateTrigger()
-    call DzTriggerRegisterKeyEventTrg(gg_trg_P , 1 , 'P')
-    call TriggerAddAction(gg_trg_P, function Trig_PActions)
 endfunction
 //===========================================================================
 // Trigger: GetItem
@@ -4313,6 +4273,40 @@ function InitTrig_ref takes nothing returns nothing
     call TriggerAddAction(gg_trg_ref, function Trig_refActions)
 endfunction
 //===========================================================================
+// Trigger: Tab Jass
+//===========================================================================
+//TESH.scrollpos=12
+//TESH.alwaysfold=0
+function Trig_Tab_JassActions takes nothing returns nothing
+    if ( ( udg_ui_isHEOpen[GetPlayerId(DzGetTriggerKeyPlayer())] == false ) ) then
+        set udg_ui_isHEOpen[GetPlayerId(DzGetTriggerKeyPlayer())]=true
+        set udg_ui_isHEOpen2[GetPlayerId(DzGetTriggerKeyPlayer())]=false
+        call RefreshItemCell(DzGetTriggerKeyPlayer())
+        if ( ( DzGetTriggerKeyPlayer() == GetLocalPlayer() ) ) then
+            call DzFrameSetEnable(DzFrameFindByName("ABB1", 0), false)
+            call DzFrameSetText(DzFrameFindByName("ABBB1", 0), "|cFF808080出售|r")
+            call DzFrameShow(udg_UI_ab[0], true)
+            call DzFrameShow(udg_UI_ab[2], false)
+            call DzClickFrame(udg_Frames[9])
+        else
+        endif
+    else
+        set udg_ui_isHEOpen[GetPlayerId(DzGetTriggerKeyPlayer())]=false
+        set udg_ui_isHEOpen2[GetPlayerId(DzGetTriggerKeyPlayer())]=false
+        if ( ( DzGetTriggerKeyPlayer() == GetLocalPlayer() ) ) then
+            call DzFrameShow(udg_UI_ab[0], false)
+            call DzFrameShow(udg_UI_ab[2], false)
+        else
+        endif
+    endif
+endfunction
+//===========================================================================
+function InitTrig_Tab_Jass takes nothing returns nothing
+    set gg_trg_Tab_Jass=CreateTrigger()
+    call DzTriggerRegisterKeyEventTrg(gg_trg_Tab_Jass , 1 , 9)
+    call TriggerAddAction(gg_trg_Tab_Jass, function Trig_Tab_JassActions)
+endfunction
+//===========================================================================
 function InitCustomTriggers takes nothing returns nothing
     call InitTrig______________________u()
     call InitTrig_InitItemCell()
@@ -4332,7 +4326,6 @@ function InitCustomTriggers takes nothing returns nothing
     call InitTrig_Trig7_3()
     call InitTrig_Trig9()
     call InitTrig_ESC()
-    call InitTrig_P()
     call InitTrig_GetItem()
     call InitTrig_DropItem()
     call InitTrig_Fram60Action()
@@ -4347,6 +4340,7 @@ function InitCustomTriggers takes nothing returns nothing
     call InitTrig_initial()
     call InitTrig_SelectedUnit()
     call InitTrig_ref()
+    call InitTrig_Tab_Jass()
 endfunction
 //===========================================================================
 function RunInitializationTriggers takes nothing returns nothing
@@ -4536,7 +4530,7 @@ endfunction
 //*
 //***************************************************************************
 function config takes nothing returns nothing
-    call SetMapName("召唤师联盟TD内测版1.23")
+    call SetMapName("召唤师联盟TD内测版1.25")
     call SetMapDescription("没有说明")
     call SetPlayers(8)
     call SetTeams(8)

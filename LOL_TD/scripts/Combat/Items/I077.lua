@@ -7,11 +7,17 @@ function item:OnAdd()
     self.Count = Misc.Clamp(GetItemCharges(self.Entity), 0, self.MaxCount)
     unit.Attribute:add("法术攻击", 50 + self.Count / 3)
     self:SetCharges(self.Count)
+    if (self.Count == self.MaxCount) then
+        unit.Attribute:add("法术伤害加成", 0.3)
+    end
 end
 
 function item:OnRemove()
     local unit = self.Owner
     unit.Attribute:add("法术攻击", -(50 + self.Count  / 3))
+    if (self.Count == self.MaxCount) then
+        unit.Attribute:add("法术伤害加成", -0.3)
+    end
 end
 
 function item:OnKill(dieUnit)
@@ -27,4 +33,7 @@ function item:OnKill(dieUnit)
     end
     self:SetCharges(self.Count)
     unit.Attribute:add("魔法值", 10)
+    if (self.Count == self.MaxCount) then
+        unit.Attribute:add("法术伤害加成", 0.3)
+    end
 end

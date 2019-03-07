@@ -53,7 +53,7 @@ local comb = Combs["草丛三剑客"]
 comb.Ubertip = [[
 -草丛三剑客
  羁绊需求：草丛伦(SSR)+皇子(SR)+菊花信(SR)
- 羁绊效果：草丛伦/皇子/菊花信获得50%的物理伤害加成|n
+ 羁绊效果：草丛伦/皇子/菊花信获得60%的物理伤害加成|n
 ]]
 
 function comb:HerosId()
@@ -65,11 +65,11 @@ function comb:Conditions()
 end
 
 function comb:OnEnable()
-    self.Owner.Attribute:add("物理伤害加成", 0.5)
+    self.Owner.Attribute:add("物理伤害加成", 0.6)
 end
 
 function comb:OnDisable()
-    self.Owner.Attribute:add("物理伤害加成", -0.5)
+    self.Owner.Attribute:add("物理伤害加成", -0.6)
 end
 
 comb = Combs["正义兄妹-草丛伦"]
@@ -120,7 +120,7 @@ comb = Combs["蛮易信"]
 comb.Ubertip = [[
 -蛮易信
  羁绊需求：蛮子(SR)+菊花信(SR)+剑圣(SR)
- 羁绊效果：蛮子/菊花信/剑圣获得30%的暴击伤害和30%的物理伤害加成.|n
+ 羁绊效果：蛮子/菊花信/剑圣获得50%的暴击伤害和30%的物理伤害加成.|n
 ]]
 
 function comb:HerosId()
@@ -132,12 +132,12 @@ function comb:Conditions()
 end
 
 function comb:OnEnable()
-    self.Owner.Attribute:add("暴击伤害", 0.3)
+    self.Owner.Attribute:add("暴击伤害", 0.5)
     self.Owner.Attribute:add("物理伤害加成", 0.3)
 end
 
 function comb:OnDisable()
-    self.Owner.Attribute:add("暴击伤害", -0.3)
+    self.Owner.Attribute:add("暴击伤害", -0.5)
     self.Owner.Attribute:add("物理伤害加成", -0.3)
 end
 
@@ -311,12 +311,12 @@ end
 comb = Combs["黑暗魔法"]
 comb.Ubertip = [[
 -黑暗魔法
- 羁绊需求：小法(SR)+堕天使(SSR)
- 羁绊效果：增加小法/堕天使50%法术伤害加成|n
+ 羁绊需求：小法师(SR)+堕天使(SSR)
+ 羁绊效果：增加小法师/堕天使50%法术伤害加成|n
 ]]
 
 function comb:HerosId()
-    return { "小法", "堕天使" }
+    return { "小法师", "堕天使" }
 end
 
 function comb:Conditions()

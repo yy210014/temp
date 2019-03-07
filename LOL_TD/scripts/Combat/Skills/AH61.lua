@@ -23,7 +23,7 @@ skill.DelayDamage = function(self, dt)
         AssetsManager.OverlapCircle(
             self.SpellTargetX,
             self.SpellTargetY,
-            350,
+            420,
             function(unit)
                 local ap = spellUnit.Attribute:get("法术攻击")
                 local damage = mDamages1[self:GetCurLevel()] + (ap * mDamages2[self:GetCurLevel()])

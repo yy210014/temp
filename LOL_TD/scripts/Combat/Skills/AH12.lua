@@ -7,7 +7,7 @@ local mArt = "Abilities\\Weapons\\VengeanceMissile\\VengeanceMissile.mdl"
 local mArt1 = "AZ_Lina(2)_T1_MagicMatrix.mdl"
 local mArt2 = "AZ_Lina(2)_T2_Blast.mdl"
 local mDelayTime = 0.7
-local mDamageRange = 300
+local mDamageRange = 420
 
 function skill:OnCast()
     local spellUnit = self.Owner

@@ -4,7 +4,7 @@ skill.KillCount = 0
 local mDamages1 = { 200, 400, 600, 800, 1000, 1200 }
 local mDamages2 = { 2.0, 2.5, 3.0, 3.5, 4.0, 4.5 }
 local mDistance = 2100
-local mDamageRange = 250
+local mDamageRange = 300
 
 function skill:OnSpellChannel()
     local spellUnit = self.Owner

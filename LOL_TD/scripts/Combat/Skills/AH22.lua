@@ -17,6 +17,9 @@ end
 
 function skill:OnCast()
     self.Owner.Attribute:add("攻击范围", 400)
+    if (self.Effect ~= nil) then
+        DestroyEffect(self.Effect)
+    end
     self.Effect = AddSpecialEffectTarget(mArt1, self.Owner.Entity, "weapon")
 end
 
@@ -24,7 +27,6 @@ function skill:OnRemove()
     if (self.Effect ~= nil) then
         DestroyEffect(self.Effect)
     end
-    DestroyEffect(self.Effect)
     self.Owner.Attribute:add("攻击范围", -400)
 end
 

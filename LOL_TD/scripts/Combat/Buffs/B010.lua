@@ -1,7 +1,7 @@
 --通用buff，不叠加，相同buff会覆盖,需要先继承在用则可以叠加
 local buff = Buffs["灼烧"]
 buff.Art = "Abilities\\Spells\\Other\\BreathOfFire\\BreathOfFireDamage.mdl"
-buff.Interval = 0.5
+buff.Interval = 1
 buff.IntervalDt = 0
 buff.MaxStack = 100
 buff.Durs = { 3, 3, 3, 3, 3, 3 }

@@ -1,6 +1,7 @@
 local skill = Skills["正义之怒"]
 skill.SkillType = 0
 skill.Durs = { 8, 8, 8, 8, 8, 8 } --持续时间
+skill.Dis = 0
 
 local mDamages1 = { 30, 60, 90, 120, 150, 180 }
 local mDamages2 = { 0.15, 0.2, 0.25, 0.3, 0.35, 0.4 }
@@ -16,10 +17,9 @@ function skill:OnBeginAttack(attactUnit, defUnit)
 end
 
 function skill:OnCast()
-    self.Owner.Attribute:add("攻击范围", 400)
-    if (self.Effect ~= nil) then
-        DestroyEffect(self.Effect)
-    end
+    self:OnRemove()
+    self.Dis = 400
+    self.Owner.Attribute:add("攻击范围", self.Dis)
     self.Effect = AddSpecialEffectTarget(mArt1, self.Owner.Entity, "weapon")
 end
 
@@ -27,7 +27,8 @@ function skill:OnRemove()
     if (self.Effect ~= nil) then
         DestroyEffect(self.Effect)
     end
-    self.Owner.Attribute:add("攻击范围", -400)
+    self.Owner.Attribute:add("攻击范围", -self.Dis)
+    self.Dis = 0
 end
 
 function skill:OnAttack(attactUnit, defUnit)

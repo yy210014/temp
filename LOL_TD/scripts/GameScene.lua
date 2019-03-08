@@ -50,6 +50,10 @@ local function InitPlayerUnit()
             PlayerInfo:New(Player(i))
             local p = GetStartLocationLoc(GetPlayerStartLocation(Player(i)))
             Worke[i] = AssetsManager.LoadUnitAtLoc(Player(i), "ug00", p)
+            if GetLocalPlayer() == Player(i) then
+                ClearSelection()
+                SelectUnit(Worke[i].Entity, true)
+            end
 
             --Worke[i]:AddSkill("AU12")
             UnitAddItem(Worke[i].Entity, CreateItem(GetId("IU03"), Worke[i]:X(), Worke[i]:Y()))

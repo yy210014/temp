@@ -120,7 +120,7 @@ comb = Combs["蛮易信"]
 comb.Ubertip = [[
 -蛮易信
  羁绊需求：蛮子(SR)+菊花信(SR)+剑圣(SR)
- 羁绊效果：蛮子/菊花信/剑圣获得50%的暴击伤害和30%的物理伤害加成.|n
+ 羁绊效果：蛮子/菊花信/剑圣获得100%的暴击伤害和30%的物理伤害加成.|n
 ]]
 
 function comb:HerosId()
@@ -132,12 +132,12 @@ function comb:Conditions()
 end
 
 function comb:OnEnable()
-    self.Owner.Attribute:add("暴击伤害", 0.5)
+    self.Owner.Attribute:add("暴击伤害", 1)
     self.Owner.Attribute:add("物理伤害加成", 0.3)
 end
 
 function comb:OnDisable()
-    self.Owner.Attribute:add("暴击伤害", -0.5)
+    self.Owner.Attribute:add("暴击伤害", -1)
     self.Owner.Attribute:add("物理伤害加成", -0.3)
 end
 
@@ -145,7 +145,7 @@ comb = Combs["美女与野兽"]
 comb.Ubertip = [[
 -美女与野兽
  羁绊需求：蛮子(SR)+寒冰(SR)
- 羁绊效果：蛮子/寒冰获得额外50%的暴击伤害.|n
+ 羁绊效果：蛮子/寒冰获得额外100%的暴击伤害.|n
 ]]
 
 function comb:HerosId()
@@ -157,11 +157,11 @@ function comb:Conditions()
 end
 
 function comb:OnEnable()
-    self.Owner.Attribute:add("暴击伤害", 0.5)
+    self.Owner.Attribute:add("暴击伤害", 1)
 end
 
 function comb:OnDisable()
-    self.Owner.Attribute:add("暴击伤害", -0.5)
+    self.Owner.Attribute:add("暴击伤害", -1)
 end
 
 comb = Combs["冰雪之冠-寒冰"]
@@ -560,7 +560,7 @@ comb = Combs["小炮-无尽"]
 comb.Ubertip = [[
 -无尽
  羁绊需求：小炮+无尽
- 羁绊效果：增加小炮30%的额外暴击伤害|n
+ 羁绊效果：增加小炮50%的额外暴击伤害|n
 ]]
 
 function comb:HerosId()
@@ -572,11 +572,11 @@ function comb:Conditions()
 end
 
 function comb:OnEnable()
-    self.Owner.Attribute:add("暴击伤害", 0.3)
+    self.Owner.Attribute:add("暴击伤害", 0.5)
 end
 
 function comb:OnDisable()
-    self.Owner.Attribute:add("暴击伤害", -0.3)
+    self.Owner.Attribute:add("暴击伤害", -0.5)
 end
 
 comb = Combs["大天使-羊刀"]
@@ -694,7 +694,7 @@ comb = Combs["寒冰-无尽"]
 comb.Ubertip = [[
 -无尽
  羁绊需求：寒冰+无尽
- 羁绊效果：增加寒冰30%的额外暴击伤害|n
+ 羁绊效果：增加寒冰50%的额外暴击伤害|n
 ]]
 
 function comb:HerosId()
@@ -706,11 +706,11 @@ function comb:Conditions()
 end
 
 function comb:OnEnable()
-    self.Owner.Attribute:add("暴击伤害", 0.3)
+    self.Owner.Attribute:add("暴击伤害", 0.5)
 end
 
 function comb:OnDisable()
-    self.Owner.Attribute:add("暴击伤害", -0.3)
+    self.Owner.Attribute:add("暴击伤害", -0.5)
 end
 
 comb = Combs["草丛伦-切割者"]
@@ -851,7 +851,7 @@ comb = Combs["剑圣-无尽"]
 comb.Ubertip = [[
 -无尽
  羁绊需求：剑圣+无尽
- 羁绊效果：增加易30%额外暴击伤害|n
+ 羁绊效果：增加易50%额外暴击伤害|n
 ]]
 
 function comb:HerosId()
@@ -863,11 +863,11 @@ function comb:Conditions()
 end
 
 function comb:OnEnable()
-    self.Owner.Attribute:add("暴击伤害", 0.3)
+    self.Owner.Attribute:add("暴击伤害", 0.5)
 end
 
 function comb:OnDisable()
-    self.Owner.Attribute:add("暴击伤害", -0.3)
+    self.Owner.Attribute:add("暴击伤害", -0.5)
 end
 
 comb = Combs["剑圣-电刀"]

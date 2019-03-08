@@ -221,7 +221,7 @@ Frame "BACKDROP" "BAG" {      //父级
 	Width 0.43,
 	Height 0.4,
 	BackdropBackground  "war3mapImported\AASHOP.tga",
-	BackdropBlendAll,
+//	BackdropBlendAll,
 	
 	Frame "TEXTBUTTON" "AA1" {
    	  	Height 0.02,
@@ -430,7 +430,7 @@ Frame "BACKDROP" "BAG" {      //父级
 	Frame "FRAME" "ItemCellAds" {      //父级
 		Width 0.43,
 		Height 0.4,
-		LayerStyle "IGNORETRACKEVENTS",
+	//	LayerStyle "IGNORETRACKEVENTS",
 		SetPoint CENTER, "BAG", CENTER, 0, 0,
 			//新手戒
 			Frame "TEXTBUTTON" "100" {

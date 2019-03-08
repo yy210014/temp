@@ -1,6 +1,6 @@
 local skill = Skills["瞄准"]
 local mDamages = {0.3, 0.4, 0.5, 0.6, 0.7, 0.8}
-local mAttactRange = {100, 50, 50, 50, 50, 100}
+local mAttactRange = {50, 50, 50, 50, 50, 50}
 
 function skill:OnCast()
 end

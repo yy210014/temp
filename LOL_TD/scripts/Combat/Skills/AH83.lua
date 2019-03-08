@@ -15,6 +15,7 @@ function skill:OnCast()
     AssetsManager.RemoveObject(dummy)
 
     local dummy2 = AssetsManager.LoadUnit(spellUnit.Player, "uq00", spellUnit:X(), spellUnit:Y())
+    dummy2:SetUnitFacing(self.angle)
     dummy2:AddSkill("AQ05")
     dummy2.Owner = spellUnit
     IssuePointOrder(dummy2.Entity, "carrionswarm", GetSpellTargetX(), GetSpellTargetY())

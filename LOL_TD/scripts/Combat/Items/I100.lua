@@ -17,11 +17,11 @@ function buff.Action(self, dt)
         local attactUnit = self.AttactUnit
         local damage = 0
         if (IsUnitPaused(owner.Entity) or owner.Attribute:get("移动速度加成") < 0) then
-            damage = owner.Attribute:get("生命") * 0.03
+            damage = owner.Attribute:get("生命") * 0.025
         else
             damage = owner.Attribute:get("生命") * 0.015
         end
-        if (owner.Id == GetId("End0") or owner.Id == GetId("UM56")) then
+        if (damage > 1000) then
             damage = 1000
         end
         EXUnitDamageTarget(attactUnit, self.Owner, damage, EXAbilityType.Magic)
@@ -48,5 +48,3 @@ function item:OnSkillDamage(defUnit)
         buff2.AttactUnit = self.Owner
     end
 end
-
-Ubertip = "伤害型技能会灼烧目标3秒，每秒造成相当于目标1.5%当前生命值的法术伤害。这个额外伤害会在对抗移动受损的单位时提升至2.5%。|r"

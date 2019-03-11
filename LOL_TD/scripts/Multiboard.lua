@@ -28,9 +28,7 @@ function Multiboard.CreateMultiboard()
     MultiboardSetItemsStyle(mMultiboard, true, false)
     MultiboardDisplay(mMultiboard, true)
 
-    -- 怪物最大数量
-    mMultiboardMaxNum = 40 + PlayerInfo:Count() * (60 - 10 * Game.GetLevel())
-
+    Multiboard.InitMaxNum()
     for i = 0, 3 do
         if
         (GetPlayerController(Player(i)) == MAP_CONTROL_USER and
@@ -41,12 +39,17 @@ function Multiboard.CreateMultiboard()
     end
 end
 
+    -- 怪物最大数量
+function Multiboard.InitMaxNum()
+    mMultiboardMaxNum = 40 + PlayerInfo:Count() * (60 - 10 * Game.GetLevel())
+end
+
 function Multiboard.UpdateEndLessInfo()
     MultiboardSetItemValue(MultiboardGetItem(mMultiboard, 0, 1), "|cffFF6633积分|r")
     MultiboardSetItemValue(MultiboardGetItem(mMultiboard, 0, 2), "|cffFF6633剩余怪兽数量|r")
     MultiboardSetItemValue(MultiboardGetItem(mMultiboard, 5, 0), "|cffffcc00无尽模式|r")
     MultiboardSetItemValue(MultiboardGetItem(mMultiboard, 5, 1), "")
-    MultiboardSetItemValue(MultiboardGetItem(mMultiboard, 5, 2), "")
+    MultiboardSetItemValue(MultiboardGetItem(mMultiboard, 5, 2), "|cffffcc00难度" .. Game.GetLevel() .. "|r")
     for i = 0, 3 do
         if
         (GetPlayerController(Player(i)) == MAP_CONTROL_USER and

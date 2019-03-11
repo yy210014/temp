@@ -88,7 +88,7 @@ function Skill:UpdateCD()
             EXGetUnitAbility(self.Owner.Entity, self.Id),
             i,
             ABILITY_DATA_COOL,
-            self.Cools[i] - self.Cools[i] * self.Owner.Attribute:get("冷却缩减")
+            self.Cools[i] - self.Cools[i] * Misc.Clamp(self.Owner.Attribute:get("冷却缩减"), 0, self.Owner.Attribute:get("冷却缩减上限"))
             )
         end
     end
@@ -100,7 +100,7 @@ end
 
 function Skill:GetBeginCD()
     local cool = self.Cools[self:GetCurLevel()]
-    local cooldown = self.Owner.Attribute:get("冷却缩减")
+    local cooldown = Misc.Clamp(self.Owner.Attribute:get("冷却缩减"), 0, self.Owner.Attribute:get("冷却缩减上限"))
     return cool - cool * cooldown
 end
 

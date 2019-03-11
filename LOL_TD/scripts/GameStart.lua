@@ -370,7 +370,7 @@ function GameStart.AnyUnitConstructFinish()
     EXSetUnitCollisionType(true, unit.Entity, 1)
     if (IsUnitType(unit.Entity, UNIT_TYPE_HERO)) then
         local goldcost = Slk.unit[unit.Id]["goldcost"]
-        if (tonumber(goldcost) > 1000) then
+        if (tonumber(goldcost) >= 1000) then
             --天赋
             unit:AddTianfu()
             --羁绊
@@ -715,7 +715,7 @@ function GameStart.AnyPlayerChat()
                 strs[14] = "|n|r|cFFFFFFFF暴击几率：|r|cFF00FF00"
                 strs[15] = tostring(hero.Attribute:get("暴击"))
                 strs[16] = "               |r|cFFFFFFFF冷却缩减：|r|cFF00FF00"
-                strs[17] = hero.Attribute:get("冷却缩减")
+                strs[17] = Misc.Clamp(hero.Attribute:get("冷却缩减"), 0, hero.Attribute:get("冷却缩减上限"))
 
                 strs[18] = "|n|r|cFFFFFFFF暴击伤害：|r|cFF00FF00"
                 strs[19] = tostring(hero.Attribute:get("暴击伤害"))

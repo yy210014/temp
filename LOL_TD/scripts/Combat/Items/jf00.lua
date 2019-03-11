@@ -28,7 +28,7 @@ function item:OnAdd()
     PlayerInfo:EnableJFItem(unit.Player, ItemType.jf_pf01)
 end
 
-item = Items["金猪"]
+item = Items["小红帽"]
 function item:OnAdd()
     local unit = self.Owner
     PlayerInfo:EnableJFItem(unit.Player, ItemType.jf_pf02)
@@ -59,7 +59,7 @@ function item:OnAdd()
     PlayerInfo:EnableJFItem(unit.Player, ItemType.map_cb02)
 end
 
-item = Items["柯基犬"]
+item = Items["潮汐"]
 function item:OnAdd()
     local unit = self.Owner
     PlayerInfo:EnableJFItem(unit.Player, ItemType.map_pf01)

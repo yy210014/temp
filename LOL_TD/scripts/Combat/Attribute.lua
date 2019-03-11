@@ -268,15 +268,15 @@ set["怒气值"] = function(self, value)
 end
 
 get["冷却缩减"] = function(self)
-    return Misc.Clamp(self.Cooldown, 0, self.CooldownMax)
+    return self.Cooldown
 end
 
 set["冷却缩减"] = function(self, value)
     if (IsUnitType(self.Owner.Entity, UNIT_TYPE_HERO) == false) then
         return
     end
-    self.Cooldown = Misc.Clamp(value, 0, self.CooldownMax)
-    SetHeroInt(self.Owner.Entity, self.Cooldown * 100, true)
+    self.Cooldown = value
+    --SetHeroInt(self.Owner.Entity, self.Cooldown * 100, true)
     self.Owner:UpdateSkillCD()
 end
 

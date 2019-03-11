@@ -49,7 +49,7 @@ function Unit:New(entity)
     newUnit.Attribute = Attribute:New(newUnit)
     newUnit.Player = GetOwningPlayer(entity)
     newUnit.Name = GetUnitName(entity)
-    newUnit.ProperName = GetHeroProperName(entity)
+    newUnit.ProperName = GetHeroProperName(entity) or newUnit.Name
     newUnit.Id = GetUnitTypeId(entity)
     newUnit.FactionId = GetPlayerId(newUnit.Player) < 4 and PlayerTeamFactionId or EnemyTeamFactionId
     newUnit.IsDying = false

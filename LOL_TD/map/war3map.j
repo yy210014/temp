@@ -30,10 +30,10 @@ real yd_MapMaxX= 0
 real yd_MapMinX= 0
 real yd_MapMaxY= 0
 real yd_MapMinY= 0
-string array YDWEBase___yd_PlayerColor
-trigger array YDWEBase___AbilityCastingOverEventQueue
-integer array YDWEBase___AbilityCastingOverEventType
-integer YDWEBase___AbilityCastingOverEventNumber= 0
+string array YDWEBase__yd_PlayerColor
+trigger array YDWEBase__AbilityCastingOverEventQueue
+integer array YDWEBase__AbilityCastingOverEventType
+integer YDWEBase__AbilityCastingOverEventNumber= 0
 //endglobals from YDWEBase
 //globals from YDWEGetItemOfTypeFromUnitBJNull:
 constant boolean LIBRARY_YDWEGetItemOfTypeFromUnitBJNull=true
@@ -170,7 +170,7 @@ trigger gg_trg_SelectedItem2= null
 trigger gg_trg_RefrshItemCell= null
 trigger gg_trg_initial= null
 trigger gg_trg_SelectedUnit= null
-trigger gg_trg_DeSelectedUnit= null
+trigger gg_trg_item= null
 trigger gg_trg_ref= null
 
 trigger l__library_init
@@ -640,7 +640,7 @@ native EXBlendButtonIcon takes string a, string b, string c returns boolean
 
 //library DzAPI ends
 //library YDTriggerSaveLoadSystem:
-    function YDTriggerSaveLoadSystem__Init takes nothing returns nothing
+    function YDTriggerSaveLoadSystem___Init takes nothing returns nothing
             set YDHT=InitHashtable()
         set YDLOC=InitHashtable()
     endfunction
@@ -1245,11 +1245,11 @@ endfunction
 function YDWESyStemAbilityCastingOverTriggerAction takes unit hero,integer index returns nothing
  local integer i= 0
     loop
-        exitwhen i >= YDWEBase___AbilityCastingOverEventNumber
-        if YDWEBase___AbilityCastingOverEventType[i] == index then
+        exitwhen i >= YDWEBase__AbilityCastingOverEventNumber
+        if YDWEBase__AbilityCastingOverEventType[i] == index then
             set bj_lastAbilityCastingUnit=hero
-			if YDWEBase___AbilityCastingOverEventQueue[i] != null and TriggerEvaluate(YDWEBase___AbilityCastingOverEventQueue[i]) and IsTriggerEnabled(YDWEBase___AbilityCastingOverEventQueue[i]) then
-				call TriggerExecute(YDWEBase___AbilityCastingOverEventQueue[i])
+			if YDWEBase__AbilityCastingOverEventQueue[i] != null and TriggerEvaluate(YDWEBase__AbilityCastingOverEventQueue[i]) and IsTriggerEnabled(YDWEBase__AbilityCastingOverEventQueue[i]) then
+				call TriggerExecute(YDWEBase__AbilityCastingOverEventQueue[i])
 			endif
 		endif
         set i=i + 1
@@ -1259,9 +1259,9 @@ endfunction
 //YDWE技能捕捉事件 
 //===========================================================================  
 function YDWESyStemAbilityCastingOverRegistTrigger takes trigger trg,integer index returns nothing
-	set YDWEBase___AbilityCastingOverEventQueue[YDWEBase___AbilityCastingOverEventNumber]=trg
-	set YDWEBase___AbilityCastingOverEventType[YDWEBase___AbilityCastingOverEventNumber]=index
-	set YDWEBase___AbilityCastingOverEventNumber=YDWEBase___AbilityCastingOverEventNumber + 1
+	set YDWEBase__AbilityCastingOverEventQueue[YDWEBase__AbilityCastingOverEventNumber]=trg
+	set YDWEBase__AbilityCastingOverEventType[YDWEBase__AbilityCastingOverEventNumber]=index
+	set YDWEBase__AbilityCastingOverEventNumber=YDWEBase__AbilityCastingOverEventNumber + 1
 endfunction 
 //===========================================================================
 //系统函数完善
@@ -1298,7 +1298,7 @@ endfunction
 //unitpool bj_lastCreatedPool=null
 //unit bj_lastPoolAbstractedUnit=null
 function YDWEGetPlayerColorString takes player p,string s returns string
-    return YDWEBase___yd_PlayerColor[GetHandleId(GetPlayerColor(p))] + s + "|r"
+    return YDWEBase__yd_PlayerColor[GetHandleId(GetPlayerColor(p))] + s + "|r"
 endfunction
 //===========================================================================
 //===========================================================================
@@ -1345,22 +1345,22 @@ function InitializeYD takes nothing returns nothing
 	set yd_MapMaxX=GetCameraBoundMaxX() + GetCameraMargin(CAMERA_MARGIN_RIGHT)
 	set yd_MapMaxY=GetCameraBoundMaxY() + GetCameraMargin(CAMERA_MARGIN_TOP)
 	
-    set YDWEBase___yd_PlayerColor[0]="|cFFFF0303"
-    set YDWEBase___yd_PlayerColor[1]="|cFF0042FF"
-    set YDWEBase___yd_PlayerColor[2]="|cFF1CE6B9"
-    set YDWEBase___yd_PlayerColor[3]="|cFF540081"
-    set YDWEBase___yd_PlayerColor[4]="|cFFFFFC01"
-    set YDWEBase___yd_PlayerColor[5]="|cFFFE8A0E"
-    set YDWEBase___yd_PlayerColor[6]="|cFF20C000"
-    set YDWEBase___yd_PlayerColor[7]="|cFFE55BB0"
-    set YDWEBase___yd_PlayerColor[8]="|cFF959697"
-    set YDWEBase___yd_PlayerColor[9]="|cFF7EBFF1"
-    set YDWEBase___yd_PlayerColor[10]="|cFF106246"
-    set YDWEBase___yd_PlayerColor[11]="|cFF4E2A04"
-    set YDWEBase___yd_PlayerColor[12]="|cFF282828"
-    set YDWEBase___yd_PlayerColor[13]="|cFF282828"
-    set YDWEBase___yd_PlayerColor[14]="|cFF282828"
-    set YDWEBase___yd_PlayerColor[15]="|cFF282828"
+    set YDWEBase__yd_PlayerColor[0]="|cFFFF0303"
+    set YDWEBase__yd_PlayerColor[1]="|cFF0042FF"
+    set YDWEBase__yd_PlayerColor[2]="|cFF1CE6B9"
+    set YDWEBase__yd_PlayerColor[3]="|cFF540081"
+    set YDWEBase__yd_PlayerColor[4]="|cFFFFFC01"
+    set YDWEBase__yd_PlayerColor[5]="|cFFFE8A0E"
+    set YDWEBase__yd_PlayerColor[6]="|cFF20C000"
+    set YDWEBase__yd_PlayerColor[7]="|cFFE55BB0"
+    set YDWEBase__yd_PlayerColor[8]="|cFF959697"
+    set YDWEBase__yd_PlayerColor[9]="|cFF7EBFF1"
+    set YDWEBase__yd_PlayerColor[10]="|cFF106246"
+    set YDWEBase__yd_PlayerColor[11]="|cFF4E2A04"
+    set YDWEBase__yd_PlayerColor[12]="|cFF282828"
+    set YDWEBase__yd_PlayerColor[13]="|cFF282828"
+    set YDWEBase__yd_PlayerColor[14]="|cFF282828"
+    set YDWEBase__yd_PlayerColor[15]="|cFF282828"
     //=================显示版本=====================
     call YDWEVersion_Init()
 endfunction
@@ -1403,11 +1403,11 @@ endfunction
 //library YDWEYDWEJapiScript ends
 //===========================================================================
 // 
-// 召唤师联盟TD内测版1.25
+// 召唤师联盟TD内测版1.27
 // 
 //   Warcraft III map script
 //   Generated by the Warcraft III World Editor
-//   Date: Fri Mar 08 19:23:54 2019
+//   Date: Fri Mar 08 20:58:19 2019
 //   Map Author: 渣康传奇
 // 
 //===========================================================================
@@ -4203,7 +4203,6 @@ function Trig_initialActions takes nothing returns nothing
     if GetLocalPlayer() == GetLocalPlayer() then
     	call DzFrameSetScriptByCode(udg_ui_ZT[29], 1, function Trig_initialFunc172FT, false)
     endif
-    call DzFrameShow(udg_ui_ZT[0], false)
     call FlushChildHashtable(YDLOC, GetHandleId(GetTriggeringTrigger()) * ydl_localvar_step)
 endfunction
 //===========================================================================
@@ -4215,15 +4214,10 @@ endfunction
 // Trigger: SelectedUnit
 //===========================================================================
 function Trig_SelectedUnitActions takes nothing returns nothing
-    call GroupAddUnit(udg_SelectedUnitGroup[GetPlayerId(GetTriggerPlayer())], GetTriggerUnit())
     set udg_ZT_hero[GetConvertedPlayerId(GetTriggerPlayer())]=GetTriggerUnit()
     call SaveUnitHandle(YDHT, GetConvertedPlayerId(GetTriggerPlayer()), 0xD1493786, GetTriggerUnit())
     if ( ( GetTriggerPlayer() == GetLocalPlayer() ) ) then
-        if ( ( CountUnitsInGroup(udg_SelectedUnitGroup[GetPlayerId(GetTriggerPlayer())]) > 1 ) ) then
-            call DzFrameShow(udg_ui_ZT[0], false)
-        else
-            call DzFrameShow(udg_ui_ZT[0], true)
-        endif
+        call DzFrameShow(udg_ui_ZT[0], true)
         call DzFrameSetTexture(udg_ui_ZT[13], (LoadStr(YDHT, StringHash(("防御" )), StringHash(( ( EXExecuteScript("(require'jass.slk').unit[" + I2S(GetUnitTypeId(GetTriggerUnit())) + "].defType") ))))), 0) // INLINED!!
     else
     endif
@@ -4250,38 +4244,6 @@ function InitTrig_SelectedUnit takes nothing returns nothing
     call TriggerAddAction(gg_trg_SelectedUnit, function Trig_SelectedUnitActions)
 endfunction
 //===========================================================================
-// Trigger: DeSelectedUnit
-//===========================================================================
-function Trig_DeSelectedUnitActions takes nothing returns nothing
-    call GroupRemoveUnit(udg_SelectedUnitGroup[GetPlayerId(GetTriggerPlayer())], GetTriggerUnit())
-    set udg_ZT_hero[GetConvertedPlayerId(GetTriggerPlayer())]=null
-    if ( ( CountUnitsInGroup(udg_SelectedUnitGroup[GetPlayerId(GetTriggerPlayer())]) == 0 ) ) then
-        call DzFrameShow(udg_ui_ZT[0], false)
-    else
-    endif
-endfunction
-//===========================================================================
-function InitTrig_DeSelectedUnit takes nothing returns nothing
-    set gg_trg_DeSelectedUnit=CreateTrigger()
-        call TriggerRegisterPlayerSelectionEventBJ(gg_trg_DeSelectedUnit, Player(0), false)
-        call TriggerRegisterPlayerSelectionEventBJ(gg_trg_DeSelectedUnit, Player(1), false)
-        call TriggerRegisterPlayerSelectionEventBJ(gg_trg_DeSelectedUnit, Player(2), false)
-        call TriggerRegisterPlayerSelectionEventBJ(gg_trg_DeSelectedUnit, Player(3), false)
-        call TriggerRegisterPlayerSelectionEventBJ(gg_trg_DeSelectedUnit, Player(4), false)
-        call TriggerRegisterPlayerSelectionEventBJ(gg_trg_DeSelectedUnit, Player(5), false)
-        call TriggerRegisterPlayerSelectionEventBJ(gg_trg_DeSelectedUnit, Player(6), false)
-        call TriggerRegisterPlayerSelectionEventBJ(gg_trg_DeSelectedUnit, Player(7), false)
-        call TriggerRegisterPlayerSelectionEventBJ(gg_trg_DeSelectedUnit, Player(8), false)
-        call TriggerRegisterPlayerSelectionEventBJ(gg_trg_DeSelectedUnit, Player(9), false)
-        call TriggerRegisterPlayerSelectionEventBJ(gg_trg_DeSelectedUnit, Player(10), false)
-        call TriggerRegisterPlayerSelectionEventBJ(gg_trg_DeSelectedUnit, Player(11), false)
-        call TriggerRegisterPlayerSelectionEventBJ(gg_trg_DeSelectedUnit, Player(12), false)
-        call TriggerRegisterPlayerSelectionEventBJ(gg_trg_DeSelectedUnit, Player(13), false)
-        call TriggerRegisterPlayerSelectionEventBJ(gg_trg_DeSelectedUnit, Player(14), false)
-        call TriggerRegisterPlayerSelectionEventBJ(gg_trg_DeSelectedUnit, Player(15), false)
-    call TriggerAddAction(gg_trg_DeSelectedUnit, function Trig_DeSelectedUnitActions)
-endfunction
-//===========================================================================
 // Trigger: ref
 //===========================================================================
 function Trig_refActions takes nothing returns nothing
@@ -4290,11 +4252,6 @@ function Trig_refActions takes nothing returns nothing
  call SaveInteger(YDLOC, GetHandleId(GetTriggeringTrigger()), 0xCFDE6C76, ydl_localvar_step)
  call SaveInteger(YDLOC, GetHandleId(GetTriggeringTrigger()), 0xECE825E7, ydl_localvar_step)
     call SaveUnitHandle(YDLOC, GetHandleId(GetTriggeringTrigger()) * ydl_localvar_step, 0x32A9E4C8, udg_ZT_hero[GetConvertedPlayerId(GetLocalPlayer())])
-    if ( ( LoadUnitHandle(YDLOC, GetHandleId(GetTriggeringTrigger()) * ydl_localvar_step, 0x32A9E4C8) == null ) ) then
-        call FlushChildHashtable(YDLOC, GetHandleId(GetTriggeringTrigger()) * ydl_localvar_step)
-        return
-    else
-    endif
     // 姓名
     call DzFrameSetText(DzFrameFindByName("UIATEXT1", 0), ( ( "|cffff6800" ) + ( GetUnitName(LoadUnitHandle(YDLOC, GetHandleId(GetTriggeringTrigger()) * ydl_localvar_step, 0x32A9E4C8)) ) + ( "|r" ) ))
     // 物理攻击
@@ -4390,7 +4347,6 @@ function InitCustomTriggers takes nothing returns nothing
     call InitTrig_pfTimer()
     call InitTrig_initial()
     call InitTrig_SelectedUnit()
-    call InitTrig_DeSelectedUnit()
     call InitTrig_ref()
 endfunction
 //===========================================================================
@@ -4568,7 +4524,7 @@ function main takes nothing returns nothing
     call CreateAllUnits()
     call InitBlizzard()
 
-call ExecuteFunc("YDTriggerSaveLoadSystem__Init")
+call ExecuteFunc("YDTriggerSaveLoadSystem___Init")
 call ExecuteFunc("InitializeYD")
 
     call InitGlobals()
@@ -4581,7 +4537,7 @@ endfunction
 //*
 //***************************************************************************
 function config takes nothing returns nothing
-    call SetMapName("召唤师联盟TD内测版1.25")
+    call SetMapName("召唤师联盟TD内测版1.27")
     call SetMapDescription("没有说明")
     call SetPlayers(8)
     call SetTeams(8)

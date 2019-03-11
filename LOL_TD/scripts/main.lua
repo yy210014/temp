@@ -140,7 +140,8 @@ function main()
     trig,
     function()
         DisplayTextToAll(GetPlayerName(GetTriggerPlayer()) .. "已逃离战场。", Color.red)
-        AssetsManager.IteratePlayerUnits(GetPlayerId(GetTriggerPlayer()), function(u)
+        local id = GetPlayerId(GetTriggerPlayer())
+        AssetsManager.IteratePlayerUnits(id, function(u)
             u:IterateItems(
             function(item)
                 UnitRemoveItem(u.Entity, item.Entity)
@@ -148,7 +149,20 @@ function main()
             )
             AssetsManager.DestroyObject(u)
         end)
-        PlayerInfo:Player(GetPlayerId(GetTriggerPlayer())).IsWatch = true
+        PlayerInfo:Player(id).IsWatch = true
+        Multiboard.InitMaxNum()
+        local enemyTeamUnits = GetEnemyTeamUnits()
+        for j = 1, #enemyTeamUnits do
+            if (id + 1 == j) then
+                local list = enemyTeamUnits[j]
+                for i = #list, 1, -1 do
+                    if (list[i] ~= nil and list[i].IsDying == false) then
+                        AssetsManager.DestroyObject(list[i])
+                        Multiboard.ShowMonsterCount(-1)
+                    end
+                end
+            end
+        end
     end
     )
     trig = nil

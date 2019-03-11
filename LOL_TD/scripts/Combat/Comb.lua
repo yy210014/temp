@@ -761,7 +761,7 @@ comb = Combs["蛮子-无尽"]
 comb.Ubertip = [[
 -无尽
  羁绊需求：蛮子+无尽
- 羁绊效果：增加蛮子30%的物理穿透|n
+ 羁绊效果：增加蛮子50%的额外暴击伤害|n
 ]]
 
 function comb:HerosId()
@@ -773,11 +773,11 @@ function comb:Conditions()
 end
 
 function comb:OnEnable()
-    self.Owner.Attribute:add("物理穿透", 0.3)
+    self.Owner.Attribute:add("暴击伤害", 0.5)
 end
 
 function comb:OnDisable()
-    self.Owner.Attribute:add("物理穿透", -0.3)
+    self.Owner.Attribute:add("暴击伤害", -0.5)
 end
 
 comb = Combs["蛮子-红叉"]
@@ -981,6 +981,53 @@ end
 function comb:OnDisable()
 end
 
+comb = Combs["5个辅助"]
+comb.Ubertip = [[
+-5个辅助
+]]
+
+function comb:HerosId()
+    return { "风女", "琴女", "日女", "时光老头", "牛头" }
+end
+
+function comb:Conditions()
+    return testA(self, self:HerosId())
+end
+
+function comb:OnEnable()
+    SetPlayerState(self.Owner.Player, PLAYER_STATE_FOOD_CAP_CEILING, 110)
+    SetPlayerState(self.Owner.Player, PLAYER_STATE_RESOURCE_FOOD_CAP, 110)
+end
+
+function comb:OnDisable()
+    SetPlayerState(self.Owner.Player, PLAYER_STATE_FOOD_CAP_CEILING, 100)
+    SetPlayerState(self.Owner.Player, PLAYER_STATE_RESOURCE_FOOD_CAP, 100)
+end
+
+
+comb = Combs["4条龙"]
+comb.Ubertip = [[
+-4条龙
+]]
+
+function comb:HerosId()
+    return { "水蜉蝣龙", "土蜉蝣龙", "火蜉蝣龙", "风蜉蝣龙" }
+end
+
+function comb:Conditions()
+    return testA(self, self:HerosId())
+end
+
+function comb:OnEnable()
+    SetPlayerState(self.Owner.Player, PLAYER_STATE_FOOD_CAP_CEILING, 110)
+    SetPlayerState(self.Owner.Player, PLAYER_STATE_RESOURCE_FOOD_CAP, 110)
+end
+
+function comb:OnDisable()
+    SetPlayerState(self.Owner.Player, PLAYER_STATE_FOOD_CAP_CEILING, 100)
+    SetPlayerState(self.Owner.Player, PLAYER_STATE_RESOURCE_FOOD_CAP, 100)
+end
+
 function AddComb(unit)
     local id = unit.ProperName
     local newComb = {}
@@ -1046,5 +1093,9 @@ function AddComb(unit)
         unit:AddComb(setmetatable({}, { __index = Combs["师徒二人"] }))
         unit:AddComb(setmetatable({}, { __index = Combs["齐天大圣-三相"] }))
         unit:AddComb(setmetatable({}, { __index = Combs["齐天大圣-吸蓝刀"] }))
+    elseif (id == "风女" or id == "琴女" or id == "日女" or id == "时光老头" or id == "牛头") then
+        unit:AddComb(setmetatable({}, { __index = Combs["5个辅助"] }))
+        --  elseif (id == "水蜉蝣龙" or id == "土蜉蝣龙" or id == "火蜉蝣龙" or id == "风蜉蝣龙") then 
+        --     unit:AddComb(setmetatable({}, { __index = Combs["4条龙"] }))
     end
 end

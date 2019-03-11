@@ -295,9 +295,9 @@ function MoneyShow_showDialog()
             for i = 0, 3 do
                 DisplayTextToPlayer(Player(i), 0, 0, "|cffffcc00本次挑战结束：|r")
             end
-
             for i = 0, 3 do
-                if fuliguai[i + 1] ~= nil then
+                if (GetPlayerController(Player(i)) == MAP_CONTROL_USER and
+                GetPlayerSlotState(Player(i)) == PLAYER_SLOT_STATE_PLAYING) then
                     local a = (mCurWaveIndex - 1) / 8
                     --local money = Damage2Money(fuliguai[i + 1].DamageSum, 1000, 200, 1)
                     --local money2 = math.floor((500 + (a - 1) * 1000) * fuliguai[i + 1].DamageSum * 0.001 / (fuliguai[i + 1].DamageSum * 0.001 + b[a]))
@@ -313,7 +313,6 @@ function MoneyShow_showDialog()
                     end
                     --Game.Log("money: " .. money .. " ,money2: " .. money2 .. " ,money3: " .. money3)
                     AssetsManager.DestroyObject(fuliguai[i + 1])
-                    fuliguai[i + 1] = nil
                     Multiboard.ShowMonsterCount(-1)
                     for j = 0, 3 do
                         DisplayTextToPlayer(Player(j), 0, 0, "|cffffcc00" .. GetPlayerName(Player(i)) .. "|r对远古龙造成的伤害：|cFF00FF00" .. math.modf(fuliguai[i + 1].DamageSum) .. "|r 奖励金币数量：|cffffcc00" .. money2 .. "|r")

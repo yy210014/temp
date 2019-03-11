@@ -18,14 +18,14 @@ local mJFItem = {
     { ItemType.jf_cb01, "sdxsqq", GetId("R008"), 500, Jglobals.udg_cbTimer }, --红炎翅膀
     { ItemType.jf_cb02, "235rf", GetId("R009"), 1000, Jglobals.udg_cbTimer }, --暗紫翅膀
     { ItemType.jf_pf01, "t4werw", GetId("R010"), 1500, Jglobals.udg_pfTimer }, --火柴人
-    { ItemType.jf_pf02, "bres", GetId("R021"), 3000, Jglobals.udg_pfTimer }, --金猪
+    { ItemType.jf_pf02, "bres", GetId("R021"), 3000, Jglobals.udg_pfTimer }, --小红帽
 }
 local mMapItem = {
     { ItemType.map_gh01, "dsher4", GetId("R013"), 3, Jglobals.udg_ghTimer }, --绿意怏然
     { ItemType.map_gh02, "35war", GetId("R014"), 10, Jglobals.udg_ghTimer }, --幻天旋地
     { ItemType.map_cb01, "tsrhdf", GetId("R015"), 6, Jglobals.udg_cbTimer }, --炫紫羽翼
     { ItemType.map_cb02, "34wyhe ws", GetId("R016"), 15, Jglobals.udg_cbTimer }, --灵光蝶羽
-    { ItemType.map_pf01, "2365td", GetId("R017"), 20, Jglobals.udg_pfTimer }, --柯基犬
+    { ItemType.map_pf01, "2365td", GetId("R017"), 20, Jglobals.udg_pfTimer }, --潮汐
     --商城道具
     { ItemType.GH_PHOENIX, GetId("R019") }, --凤求凰
     { ItemType.CB_BLUE, GetId("R018") }, --蔚蓝蝶羽
@@ -58,7 +58,7 @@ function mt:CheckJFItem()
             --    AddPlayerTechResearched(self.Entity, mMapItem[i][3], 1)
         end
     end
- --[[   local isVIP = LoadBoolean(Jglobals.udg_table, self.Id + 1, ItemType.VIP)
+--[[   local isVIP = LoadBoolean(Jglobals.udg_table, self.Id + 1, ItemType.VIP)
     if (isVIP) then
         PlayerInfo:EnableVIP(self.Entity)
     end
@@ -82,16 +82,23 @@ function PlayerInfo:New(entity)
     if (score == nil or score == "") then
         newPlayer.Score = 0
     else
-        score = tonumber(DecodeBase64(score))
-        if (score == nil) then
+        local decode = DecodeBase64(score)
+        if (decode == nil) then
             DisplayTextToPlayer(entity, 0, 0, "|cFFFF0000游戏积分异常，积分清零！|r")
             newPlayer.Score = 0
             SaveStr(Jglobals.udg_table, GetPlayerId(entity) + 1, ItemType.Score, "")
             TimerStart(Jglobals.udg_jfTimer, 0.01, false, nil)
         else
-            newPlayer.Score = score
+            score = tonumber(decode)
+            if (score == nil) then
+                DisplayTextToPlayer(entity, 0, 0, "|cFFFF0000游戏积分异常，积分清零！|r")
+                newPlayer.Score = 0
+                SaveStr(Jglobals.udg_table, GetPlayerId(entity) + 1, ItemType.Score, "")
+                TimerStart(Jglobals.udg_jfTimer, 0.01, false, nil)
+            else
+                newPlayer.Score = score
+            end
         end
-        --newPlayer.Score = tonumber(DecodeBase64(score))
     end
     newPlayer.MapLevel = LoadInteger(Jglobals.udg_table, GetPlayerId(entity) + 1, ItemType.MapLevel)
     DisplayTextToPlayer(entity, 0, 0, "当前游戏积分：" .. newPlayer.Score)

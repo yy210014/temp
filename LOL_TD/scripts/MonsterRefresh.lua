@@ -301,23 +301,24 @@ function MoneyShow_showDialog()
                     local a = (mCurWaveIndex - 1) / 8
                     --local money = Damage2Money(fuliguai[i + 1].DamageSum, 1000, 200, 1)
                     --local money2 = math.floor((500 + (a - 1) * 1000) * fuliguai[i + 1].DamageSum * 0.001 / (fuliguai[i + 1].DamageSum * 0.001 + b[a]))
-                    --local money3 = math.floor((1000 + (a - 1) * 2000) * fuliguai[i + 1].DamageSum * 0.001 / (fuliguai[i + 1].DamageSum * 0.001 + c[a]))
-                    local money2 = 0
+                    local money3 = math.floor((1000 + (a - 1) * 2000) * fuliguai[i + 1].DamageSum * 0.001 / (fuliguai[i + 1].DamageSum * 0.001 + c[a]))
+                    --[[ local money2 = 0
                     if (a == 1) then
                         money2 = math.floor((1000 + (a - 1) * 2000) * fuliguai[i + 1].DamageSum * 0.001 / (fuliguai[i + 1].DamageSum * 0.001 + c[a]))
                     else
                         money2 = math.floor((500 + (a - 1) * 1000) * fuliguai[i + 1].DamageSum * 0.001 / (fuliguai[i + 1].DamageSum * 0.001 + b[a]))
-                    end
+                    end]]
                     if (PlayerInfo:IsHelp(Player(i))) then
-                        money2 = money2 * 1.15
+                        money3 = money3 * 1.15
                     end
+                    money3 = math.ceil(money3)
                     --Game.Log("money: " .. money .. " ,money2: " .. money2 .. " ,money3: " .. money3)
                     AssetsManager.DestroyObject(fuliguai[i + 1])
                     Multiboard.ShowMonsterCount(-1)
                     for j = 0, 3 do
-                        DisplayTextToPlayer(Player(j), 0, 0, "|cffffcc00" .. GetPlayerName(Player(i)) .. "|r对远古龙造成的伤害：|cFF00FF00" .. math.modf(fuliguai[i + 1].DamageSum) .. "|r 奖励金币数量：|cffffcc00" .. money2 .. "|r")
+                        DisplayTextToPlayer(Player(j), 0, 0, "|cffffcc00" .. GetPlayerName(Player(i)) .. "|r对远古龙造成的伤害：|cFF00FF00" .. math.modf(fuliguai[i + 1].DamageSum) .. "|r 奖励金币数量：|cffffcc00" .. money3 .. "|r")
                     end
-                    SetPlayerState(Player(i), PLAYER_STATE_RESOURCE_GOLD, GetPlayerState(Player(i), PLAYER_STATE_RESOURCE_GOLD) + money2)
+                    SetPlayerState(Player(i), PLAYER_STATE_RESOURCE_GOLD, GetPlayerState(Player(i), PLAYER_STATE_RESOURCE_GOLD) + money3)
                 end
             end
             DelayPush()

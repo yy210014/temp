@@ -56,29 +56,62 @@ function skill:OnCast()
     tihuan(self.Owner, GetId("ug01"), self.Art)
 end
 
-local skill = Skills["小红帽"]
+skill = Skills["小红帽"]
 skill.Art = "Abilities\\Spells\\NightElf\\FaerieDragonInvis\\FaerieDragon_Invis.mdl"
 function skill:OnCast()
     tihuan(self.Owner, GetId("ug02"), self.Art)
     self.Owner:AddSkill("sp10")
 end
 
-local skill = Skills["潮汐"]
+skill = Skills["潮汐"]
 skill.Art = "Abilities\\Spells\\NightElf\\FaerieDragonInvis\\FaerieDragon_Invis.mdl"
 function skill:OnCast()
     tihuan(self.Owner, GetId("ug03"), self.Art)
     self.Owner:AddSkill("sp10")
 end
 
-local skill = Skills["小萝莉"]
+skill = Skills["小萝莉"]
 skill.Art = "Abilities\\Spells\\NightElf\\FaerieDragonInvis\\FaerieDragon_Invis.mdl"
 function skill:OnCast()
     tihuan(self.Owner, GetId("ug04"), self.Art)
     self.Owner:AddSkill("sp11")
 end
 
-local skill = Skills["冰雪女王"]
-skill.Art = "Abilities\\Spells\\NightElf\\FaerieDragonInvis\\FaerieDragon_Invis.mdl"
+function tihuanHero(spellUnit, id, art)
+    local x = spellUnit:X()
+    local y = spellUnit:Y()
+    local facing = spellUnit:Facing()
+    local deleteEntity = spellUnit.Entity
+    local tempList = {}
+    spellUnit:IterateItems(
+    function(item)
+        tempList[#tempList + 1] = item.Entity
+        UnitRemoveItem(spellUnit.Entity, item.Entity)
+    end
+    )
+    spellUnit.Entity = CreateUnit(spellUnit.Player, id, x, y, facing)
+    RemoveUnit(deleteEntity)
+    for i = #tempList, 1, -1 do
+        UnitAddItem(spellUnit.Entity, tempList[i])
+    end
+    tempList = nil
+    if GetLocalPlayer() == spellUnit.Player then
+        ClearSelection()
+        SelectUnit(spellUnit.Entity, true)
+    end
+    DestroyEffect(AddSpecialEffectTarget(art, spellUnit.Entity, "chest"))
+    AddComb(spellUnit)
+    IssueImmediateOrder(spellUnit.Entity, "manashieldon")
+end
+
+skill = Skills["冰雪女王"]
 function skill:OnCast()
-    tihuan(self.Owner, GetId("UP25"), self.Art)
+    local unit = self.Owner
+    --tihuanHero(unit, GetId("UP25"), self.Art)
+    DzSetUnitModel(unit.Entity, "juese8.mdl")
+    UnitRemoveAbility(unit.Entity, GetId("H25p"))
+    --UnitAddAbility(unit.Entity, GetId("pfX5"))
+    unit.Attribute:add("暴击伤害", 0.1)
+    unit.Attribute:add("物理攻击加成", 25)
+    unit.Attribute:add("魔法恢复", 3)
 end

@@ -48,7 +48,7 @@ local mItemComList = {
     ["I093"] = { GetId("I094"), GetId("I041"), GetId("I029") }, --回声法杖（卷轴）:回声法杖+遗失的篇章+大魔杖
     ["I097"] = { GetId("I098"), GetId("I009"), GetId("I007") }, --面具（卷轴）:面具+增幅法典+蓝宝石
     ["I099"] = { GetId("I100"), GetId("I098"), GetId("I028") }, --痛苦面具（卷轴）:痛苦面具+面具+小魔杖
-    ["I095"] = { GetId("I096"), GetId("I028"), GetId("I009"), GetId("I007") }, --冰杖（卷轴）:冰杖+小魔杖+增幅典籍+蓝宝石
+    ["I095"] = { GetId("I096"), GetId("I029"), GetId("I009"), GetId("I007") }, --冰杖（卷轴）:冰杖+小魔杖+增幅典籍+蓝宝石
 }
 --叠加列表
 local mItemOverlayList = {

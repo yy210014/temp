@@ -6,9 +6,9 @@ local mt = {}
 mt.Worke = nil
 
 ItemType = {
-    MapLevel = 100, Score = 200,
+    MapLevel = 100, GuildName = 101, Score = 200,
     jf_gh01 = 301, jf_gh02 = 302, jf_cb01 = 401, jf_cb02 = 402, jf_pf01 = 501, jf_pf02 = 502,
-    map_gh01 = 1301, map_gh02 = 1302, map_cb01 = 1401, map_cb02 = 1402, map_pf01 = 1501,
+    map_gh01 = 1301, map_gh02 = 1302, map_cb01 = 1401, map_cb02 = 1402, map_pf01 = 1501, map_pf02 = 1502,
     VIP = 2000, HELP = 2001, PF_LOLI = 2002, GH_PHOENIX = 2003, CB_BLUE = 2004, JBLB = 2005, MTLB = 2006,
 }
 local mJFItem = {
@@ -26,6 +26,8 @@ local mMapItem = {
     { ItemType.map_cb01, "tsrhdf", GetId("R015"), 6, Jglobals.udg_cbTimer }, --炫紫羽翼
     { ItemType.map_cb02, "34wyhe ws", GetId("R016"), 15, Jglobals.udg_cbTimer }, --灵光蝶羽
     { ItemType.map_pf01, "2365td", GetId("R017"), 20, Jglobals.udg_pfTimer }, --潮汐
+    --内测限定
+    { ItemType.map_pf02, "fdhet#$%^&", GetId("R023"), 0, Jglobals.udg_pfTimer }, --冰雪女王
     --商城道具
     { ItemType.GH_PHOENIX, GetId("R019") }, --凤求凰
     { ItemType.CB_BLUE, GetId("R018") }, --蔚蓝蝶羽
@@ -56,6 +58,17 @@ function mt:CheckJFItem()
             AddPlayerTechResearched(self.Entity, mMapItem[i][3], 1)
         else
             --    AddPlayerTechResearched(self.Entity, mMapItem[i][3], 1)
+        end
+    end
+
+    if (self.GuildName == "小黄鸡内测专属") then
+        local item = LoadStr(Jglobals.udg_table, self.Id + 1, mMapItem[6][1])
+        if (item ~= nil and item ~= "" and DecodeBase64(item) == mMapItem[6][2]) then
+        else
+            AddPlayerTechResearched(self.Entity, mMapItem[6][3], 1)
+            SaveStr(Jglobals.udg_table, self.Id + 1, mMapItem[6][1], EncodeBase64(mMapItem[6][2]))
+            TimerStart(mMapItem[6][5], 0.01, false, nil)
+            DisplayTextToPlayer(self.Entity, 0, 0, "|cFFFFFF00您已永久激活冰雪女王(内测限定皮肤)使用资格!|r")
         end
     end
 --[[   local isVIP = LoadBoolean(Jglobals.udg_table, self.Id + 1, ItemType.VIP)
@@ -101,6 +114,7 @@ function PlayerInfo:New(entity)
         end
     end
     newPlayer.MapLevel = LoadInteger(Jglobals.udg_table, GetPlayerId(entity) + 1, ItemType.MapLevel)
+    newPlayer.GuildName = LoadStr(Jglobals.udg_table, GetPlayerId(entity) + 1, ItemType.GuildName)
     DisplayTextToPlayer(entity, 0, 0, "当前游戏积分：" .. newPlayer.Score)
     mPlayers[#mPlayers + 1] = newPlayer
     for i = 13, 21 do

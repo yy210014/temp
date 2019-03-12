@@ -22,21 +22,21 @@ function item:OnKill(dieUnit)
     local unit = self.Owner
     local count = self:GetCharges() + 1
     if (count < 100) then
-        SetPlayerState(unit.Player, PLAYER_STATE_RESOURCE_GOLD, GetPlayerState(unit.Player, PLAYER_STATE_RESOURCE_GOLD) + 1)
-        CreateGoldText(1, unit.Entity)
+        SetPlayerState(unit.Player, PLAYER_STATE_RESOURCE_GOLD, GetPlayerState(unit.Player, PLAYER_STATE_RESOURCE_GOLD) + 2)
+        CreateGoldText(2, unit.Entity)
         self:SetCharges(count)
     elseif (count == 100) then
-        SetPlayerState(unit.Player, PLAYER_STATE_RESOURCE_GOLD, GetPlayerState(unit.Player, PLAYER_STATE_RESOURCE_GOLD) + 300)
-        CreateGoldText(300, unit.Entity)
-        self:SetCharges(count)
-        if (PlayerInfo:IsHelp(unit.Player)) then
+        SetPlayerState(unit.Player, PLAYER_STATE_RESOURCE_GOLD, GetPlayerState(unit.Player, PLAYER_STATE_RESOURCE_GOLD) + 400)
+        CreateGoldText(400, unit.Entity)
+        --self:SetCharges(count)
+        --[[   if (PlayerInfo:IsHelp(unit.Player)) then
             SetPlayerState(unit.Player, PLAYER_STATE_RESOURCE_GOLD, GetPlayerState(unit.Player, PLAYER_STATE_RESOURCE_GOLD) - 200)
             self:SetCharges(0)
-        end
+        end]]
+        RemoveItem(self.Entity)
         local p = GetJ_Player(unit.Player)
         p.I003Count = p.I003Count + 1
         if (p.I003Count == 6) then
-            RemoveItem(self.Entity)
             local newItem = CreateItem(GetId("I0B3"), unit:X(), unit:Y())
             UnitAddItem(unit.Entity, newItem)
         end

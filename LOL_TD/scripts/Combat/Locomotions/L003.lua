@@ -21,7 +21,7 @@ locomotion.OnJump = function(self, dt)
         self.steeps = self.steeps + 1
         height = (-(2 * steeps * dheig - 1) * (2 * steeps * dheig - 1) + 1) * heightMax + OriginHeight
         SetUnitFlyHeight(hero, height, 0)
-        SetUnitFacing(hero, angle)
+        --SetUnitFacing(hero, angle)
     else
         SetUnitFlyHeight(hero, OriginHeight, 0)
         SetUnitPathing(hero, true)

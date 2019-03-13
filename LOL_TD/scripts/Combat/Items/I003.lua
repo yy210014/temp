@@ -28,6 +28,7 @@ function item:OnKill(dieUnit)
     elseif (count == 100) then
         SetPlayerState(unit.Player, PLAYER_STATE_RESOURCE_GOLD, GetPlayerState(unit.Player, PLAYER_STATE_RESOURCE_GOLD) + 400)
         CreateGoldText(400, unit.Entity)
+        DisplayTextToPlayer(self.Owner.Player, 0, 0, "|cFF00FF00您的贪婪已经叠满，获得了400金币!|r")
         --self:SetCharges(count)
         --[[   if (PlayerInfo:IsHelp(unit.Player)) then
             SetPlayerState(unit.Player, PLAYER_STATE_RESOURCE_GOLD, GetPlayerState(unit.Player, PLAYER_STATE_RESOURCE_GOLD) - 200)
@@ -37,7 +38,7 @@ function item:OnKill(dieUnit)
         local p = GetJ_Player(unit.Player)
         p.I003Count = p.I003Count + 1
         if (p.I003Count == 6) then
-            local newItem = CreateItem(GetId("I0B3"), unit:X(), unit:Y())
+            local newItem = CreateItem(GetId("IA03"), unit:X(), unit:Y())
             UnitAddItem(unit.Entity, newItem)
         end
     end

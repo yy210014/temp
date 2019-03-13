@@ -1,6 +1,5 @@
 local item = Items["残破的火焰之心"]
 item.Timer = nil
-item.Count = 0
 local mArt1 = "Abilities\\Spells\\Other\\ImmolationRed\\ImmolationRedTarget.mdl"
 
 function item:OnAdd()
@@ -33,9 +32,9 @@ end
 
 
 function item:OnKill(dieUnit)
-    self.Count = self.Count + 1
-    SetItemCharges(self.Entity, self.Count)
-    if (self.Count >= 200) then
+    local count = self:GetCharges() + 1
+    self:SetCharges(count)
+    if (count >= 200) then
         RemoveItem(self.Entity)
         SetPlayerState(
         self.Owner.Player,

@@ -64,6 +64,7 @@ function mt:CheckJFItem()
     if (self.GuildName == "小黄鸡内测专属") then
         local item = LoadStr(Jglobals.udg_table, self.Id + 1, mMapItem[6][1])
         if (item ~= nil and item ~= "" and DecodeBase64(item) == mMapItem[6][2]) then
+            AddPlayerTechResearched(self.Entity, mMapItem[6][3], 1)
         else
             AddPlayerTechResearched(self.Entity, mMapItem[6][3], 1)
             SaveStr(Jglobals.udg_table, self.Id + 1, mMapItem[6][1], EncodeBase64(mMapItem[6][2]))

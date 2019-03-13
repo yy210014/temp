@@ -24,6 +24,7 @@ function item:OnKill(dieUnit)
         SetPlayerState(unit.Player, PLAYER_STATE_RESOURCE_GOLD, GetPlayerState(unit.Player, PLAYER_STATE_RESOURCE_GOLD) + 3000)
         CreateGoldText(3000, unit.Entity)
         self:SetCharges(count)
-        DisplayTextToPlayer(self.Owner.Player, 0, 0, "您的巨贪已经叠满，获得了3000金币!")
+        DisplayTextToPlayer(self.Owner.Player, 0, 0, "|cFF00FF00您的巨贪已经叠满，获得了3000金币!|r")
+        RemoveItem(self.Entity)
     end
 end

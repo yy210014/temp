@@ -1,8 +1,8 @@
 globals
 //globals from BzAPI:
 constant boolean LIBRARY_BzAPI=true
-trigger array BzAPI__DamageEventQueue
-integer BzAPI__DamageEventNumber= 0
+trigger array BzAPI___DamageEventQueue
+integer BzAPI___DamageEventNumber= 0
 //endglobals from BzAPI
 //globals from DzAPI:
 constant boolean LIBRARY_DzAPI=true
@@ -30,10 +30,10 @@ real yd_MapMaxX= 0
 real yd_MapMinX= 0
 real yd_MapMaxY= 0
 real yd_MapMinY= 0
-string array YDWEBase__yd_PlayerColor
-trigger array YDWEBase__AbilityCastingOverEventQueue
-integer array YDWEBase__AbilityCastingOverEventType
-integer YDWEBase__AbilityCastingOverEventNumber= 0
+string array YDWEBase___yd_PlayerColor
+trigger array YDWEBase___AbilityCastingOverEventQueue
+integer array YDWEBase___AbilityCastingOverEventType
+integer YDWEBase___AbilityCastingOverEventNumber= 0
 //endglobals from YDWEBase
 //globals from YDWEGetItemOfTypeFromUnitBJNull:
 constant boolean LIBRARY_YDWEGetItemOfTypeFromUnitBJNull=true
@@ -642,7 +642,7 @@ native EXBlendButtonIcon takes string a, string b, string c returns boolean
 
 //library DzAPI ends
 //library YDTriggerSaveLoadSystem:
-    function YDTriggerSaveLoadSystem__Init takes nothing returns nothing
+    function YDTriggerSaveLoadSystem___Init takes nothing returns nothing
             set YDHT=InitHashtable()
         set YDLOC=InitHashtable()
     endfunction
@@ -1247,11 +1247,11 @@ endfunction
 function YDWESyStemAbilityCastingOverTriggerAction takes unit hero,integer index returns nothing
  local integer i= 0
     loop
-        exitwhen i >= YDWEBase__AbilityCastingOverEventNumber
-        if YDWEBase__AbilityCastingOverEventType[i] == index then
+        exitwhen i >= YDWEBase___AbilityCastingOverEventNumber
+        if YDWEBase___AbilityCastingOverEventType[i] == index then
             set bj_lastAbilityCastingUnit=hero
-			if YDWEBase__AbilityCastingOverEventQueue[i] != null and TriggerEvaluate(YDWEBase__AbilityCastingOverEventQueue[i]) and IsTriggerEnabled(YDWEBase__AbilityCastingOverEventQueue[i]) then
-				call TriggerExecute(YDWEBase__AbilityCastingOverEventQueue[i])
+			if YDWEBase___AbilityCastingOverEventQueue[i] != null and TriggerEvaluate(YDWEBase___AbilityCastingOverEventQueue[i]) and IsTriggerEnabled(YDWEBase___AbilityCastingOverEventQueue[i]) then
+				call TriggerExecute(YDWEBase___AbilityCastingOverEventQueue[i])
 			endif
 		endif
         set i=i + 1
@@ -1261,9 +1261,9 @@ endfunction
 //YDWE技能捕捉事件 
 //===========================================================================  
 function YDWESyStemAbilityCastingOverRegistTrigger takes trigger trg,integer index returns nothing
-	set YDWEBase__AbilityCastingOverEventQueue[YDWEBase__AbilityCastingOverEventNumber]=trg
-	set YDWEBase__AbilityCastingOverEventType[YDWEBase__AbilityCastingOverEventNumber]=index
-	set YDWEBase__AbilityCastingOverEventNumber=YDWEBase__AbilityCastingOverEventNumber + 1
+	set YDWEBase___AbilityCastingOverEventQueue[YDWEBase___AbilityCastingOverEventNumber]=trg
+	set YDWEBase___AbilityCastingOverEventType[YDWEBase___AbilityCastingOverEventNumber]=index
+	set YDWEBase___AbilityCastingOverEventNumber=YDWEBase___AbilityCastingOverEventNumber + 1
 endfunction 
 //===========================================================================
 //系统函数完善
@@ -1300,7 +1300,7 @@ endfunction
 //unitpool bj_lastCreatedPool=null
 //unit bj_lastPoolAbstractedUnit=null
 function YDWEGetPlayerColorString takes player p,string s returns string
-    return YDWEBase__yd_PlayerColor[GetHandleId(GetPlayerColor(p))] + s + "|r"
+    return YDWEBase___yd_PlayerColor[GetHandleId(GetPlayerColor(p))] + s + "|r"
 endfunction
 //===========================================================================
 //===========================================================================
@@ -1347,22 +1347,22 @@ function InitializeYD takes nothing returns nothing
 	set yd_MapMaxX=GetCameraBoundMaxX() + GetCameraMargin(CAMERA_MARGIN_RIGHT)
 	set yd_MapMaxY=GetCameraBoundMaxY() + GetCameraMargin(CAMERA_MARGIN_TOP)
 	
-    set YDWEBase__yd_PlayerColor[0]="|cFFFF0303"
-    set YDWEBase__yd_PlayerColor[1]="|cFF0042FF"
-    set YDWEBase__yd_PlayerColor[2]="|cFF1CE6B9"
-    set YDWEBase__yd_PlayerColor[3]="|cFF540081"
-    set YDWEBase__yd_PlayerColor[4]="|cFFFFFC01"
-    set YDWEBase__yd_PlayerColor[5]="|cFFFE8A0E"
-    set YDWEBase__yd_PlayerColor[6]="|cFF20C000"
-    set YDWEBase__yd_PlayerColor[7]="|cFFE55BB0"
-    set YDWEBase__yd_PlayerColor[8]="|cFF959697"
-    set YDWEBase__yd_PlayerColor[9]="|cFF7EBFF1"
-    set YDWEBase__yd_PlayerColor[10]="|cFF106246"
-    set YDWEBase__yd_PlayerColor[11]="|cFF4E2A04"
-    set YDWEBase__yd_PlayerColor[12]="|cFF282828"
-    set YDWEBase__yd_PlayerColor[13]="|cFF282828"
-    set YDWEBase__yd_PlayerColor[14]="|cFF282828"
-    set YDWEBase__yd_PlayerColor[15]="|cFF282828"
+    set YDWEBase___yd_PlayerColor[0]="|cFFFF0303"
+    set YDWEBase___yd_PlayerColor[1]="|cFF0042FF"
+    set YDWEBase___yd_PlayerColor[2]="|cFF1CE6B9"
+    set YDWEBase___yd_PlayerColor[3]="|cFF540081"
+    set YDWEBase___yd_PlayerColor[4]="|cFFFFFC01"
+    set YDWEBase___yd_PlayerColor[5]="|cFFFE8A0E"
+    set YDWEBase___yd_PlayerColor[6]="|cFF20C000"
+    set YDWEBase___yd_PlayerColor[7]="|cFFE55BB0"
+    set YDWEBase___yd_PlayerColor[8]="|cFF959697"
+    set YDWEBase___yd_PlayerColor[9]="|cFF7EBFF1"
+    set YDWEBase___yd_PlayerColor[10]="|cFF106246"
+    set YDWEBase___yd_PlayerColor[11]="|cFF4E2A04"
+    set YDWEBase___yd_PlayerColor[12]="|cFF282828"
+    set YDWEBase___yd_PlayerColor[13]="|cFF282828"
+    set YDWEBase___yd_PlayerColor[14]="|cFF282828"
+    set YDWEBase___yd_PlayerColor[15]="|cFF282828"
     //=================显示版本=====================
     call YDWEVersion_Init()
 endfunction
@@ -1405,11 +1405,11 @@ endfunction
 //library YDWEYDWEJapiScript ends
 //===========================================================================
 // 
-// 召唤师联盟TD内测版1.27
+// 召唤师联盟TD1.0
 // 
 //   Warcraft III map script
 //   Generated by the Warcraft III World Editor
-//   Date: Tue Mar 12 18:30:45 2019
+//   Date: Tue Mar 12 20:41:08 2019
 //   Map Author: 渣康传奇
 // 
 //===========================================================================
@@ -3704,17 +3704,17 @@ function Trig_BuyItemActions takes nothing returns nothing
  set ydl_localvar_step=ydl_localvar_step + 3
  call SaveInteger(YDLOC, GetHandleId(GetTriggeringTrigger()), 0xCFDE6C76, ydl_localvar_step)
  call SaveInteger(YDLOC, GetHandleId(GetTriggeringTrigger()), 0xECE825E7, ydl_localvar_step)
+    call SaveUnitHandle(YDLOC, GetHandleId(GetTriggeringTrigger()) * ydl_localvar_step, 0xC303079D, udg_SelectedHeros[GetPlayerId(DzGetTriggerSyncPlayer())])
     call SaveInteger(YDLOC, GetHandleId(GetTriggeringTrigger()) * ydl_localvar_step, 0x6F96F2D2, S2I(SubString(DzGetTriggerSyncData(), 0, 10)))
     call SaveInteger(YDLOC, GetHandleId(GetTriggeringTrigger()) * ydl_localvar_step, 0xE7A3603E, S2I(SubString(DzGetTriggerSyncData(), 11, 12)))
     call SaveInteger(YDLOC, GetHandleId(GetTriggeringTrigger()) * ydl_localvar_step, 0x019ECA7A, S2I(SubString(DzGetTriggerSyncData(), 13, 14)))
     call SaveInteger(YDLOC, GetHandleId(GetTriggeringTrigger()) * ydl_localvar_step, 0xB1AA3700, S2I(SubString(DzGetTriggerSyncData(), 15, 16)))
-    call SaveInteger(YDLOC, GetHandleId(GetTriggeringTrigger()) * ydl_localvar_step, 0x183A9461, S2I(EXExecuteScript("(require'jass.slk').item[" + I2S(LoadInteger(YDLOC, GetHandleId(GetTriggeringTrigger()) * ydl_localvar_step, 0x6F96F2D2)) + "].goldcost")))
-    if ( ( GetPlayerState(DzGetTriggerSyncPlayer(), PLAYER_STATE_RESOURCE_GOLD) < LoadInteger(YDLOC, GetHandleId(GetTriggeringTrigger()) * ydl_localvar_step, 0x183A9461) ) ) then
+    call SaveInteger(YDLOC, GetHandleId(GetTriggeringTrigger()) * ydl_localvar_step, 0x183A9461, S2I(SubString(DzGetTriggerSyncData(), 17, StringLength(DzGetTriggerSyncData()))))
+    if ( ( ( GetPlayerState(DzGetTriggerSyncPlayer(), PLAYER_STATE_RESOURCE_GOLD) < LoadInteger(YDLOC, GetHandleId(GetTriggeringTrigger()) * ydl_localvar_step, 0x183A9461) ) or ( LoadInteger(YDLOC, GetHandleId(GetTriggeringTrigger()) * ydl_localvar_step, 0x183A9461) <= 0 ) ) ) then
         call FlushChildHashtable(YDLOC, GetHandleId(GetTriggeringTrigger()) * ydl_localvar_step)
         return
     else
     endif
-    call SaveUnitHandle(YDLOC, GetHandleId(GetTriggeringTrigger()) * ydl_localvar_step, 0xC303079D, udg_SelectedHeros[GetPlayerId(DzGetTriggerSyncPlayer())])
     call SetPlayerStateBJ(DzGetTriggerSyncPlayer(), PLAYER_STATE_RESOURCE_GOLD, ( ( GetPlayerState(DzGetTriggerSyncPlayer(), PLAYER_STATE_RESOURCE_GOLD) ) - ( LoadInteger(YDLOC, GetHandleId(GetTriggeringTrigger()) * ydl_localvar_step, 0x183A9461) ) ))
     call DisableTrigger(gg_trg_DropItem)
     call SaveInteger(YDLOC, GetHandleId(GetTriggeringTrigger()) * ydl_localvar_step, 0xBEC6909A, 0)
@@ -4484,7 +4484,7 @@ function InitCustomPlayerSlots takes nothing returns nothing
     call SetPlayerController(Player(11), MAP_CONTROL_COMPUTER)
 endfunction
 function InitCustomTeams takes nothing returns nothing
-    // Force: TRIGSTR_031
+    // Force: TRIGSTR_027
     call SetPlayerTeam(Player(0), 0)
     call SetPlayerState(Player(0), PLAYER_STATE_ALLIED_VICTORY, 1)
     call SetPlayerTeam(Player(1), 0)
@@ -4519,7 +4519,7 @@ function InitCustomTeams takes nothing returns nothing
     call SetPlayerAllianceStateVisionBJ(Player(3), Player(0), true)
     call SetPlayerAllianceStateVisionBJ(Player(3), Player(1), true)
     call SetPlayerAllianceStateVisionBJ(Player(3), Player(2), true)
-    // Force: TRIGSTR_032
+    // Force: TRIGSTR_028
     call SetPlayerTeam(Player(8), 1)
     call SetPlayerState(Player(8), PLAYER_STATE_ALLIED_VICTORY, 1)
     call SetPlayerTeam(Player(9), 1)
@@ -4594,7 +4594,7 @@ function main takes nothing returns nothing
     call CreateAllUnits()
     call InitBlizzard()
 
-call ExecuteFunc("YDTriggerSaveLoadSystem__Init")
+call ExecuteFunc("YDTriggerSaveLoadSystem___Init")
 call ExecuteFunc("InitializeYD")
 
     call InitGlobals()

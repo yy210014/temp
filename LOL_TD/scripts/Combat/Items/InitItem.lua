@@ -74,5 +74,7 @@ require "scripts.Combat.Items.IB07"
 
 --
 require "scripts.Combat.Items.jf00"
-require "scripts.Combat.Items.I0B3"
+require "scripts.Combat.Items.IA03"
+require "scripts.Combat.Items.IA88"
+
 

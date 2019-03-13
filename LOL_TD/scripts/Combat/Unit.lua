@@ -389,39 +389,52 @@ function Unit:Destroy(destroy)
     self.IsDying = true
     if (destroy) then
         --释放内存
-        for i = #self.Buffs, 1, -1 do
-            table.remove(self.Buffs, i)
+        if (self.Buffs ~= nil) then
+            for i = #self.Buffs, 1, -1 do
+                table.remove(self.Buffs, i)
+            end
+            self.Buffs = nil
         end
-        self.Buffs = nil
-        for i = #self.Skills, 1, -1 do
-            self.Skills[i]:OnFinish()
-            table.remove(self.Skills, i)
+        if (self.Skills ~= nil) then
+            for i = #self.Skills, 1, -1 do
+                self.Skills[i]:OnFinish()
+                table.remove(self.Skills, i)
+            end
+            self.Skills = nil
         end
-        self.Skills = nil
-        for i = #self.Items, 1, -1 do
-            self.Items[i]:OnRemove()
-            table.remove(self.Items, i)
+        if (self.Items ~= nil) then
+            for i = #self.Items, 1, -1 do
+                self.Items[i]:OnRemove()
+                table.remove(self.Items, i)
+            end
+            self.Items = nil
         end
-        self.Items = nil
-        for i = #self.Emitters, 1, -1 do
-            self.Emitters[i]:Disable()
-            table.remove(self.Emitters, i)
+        if (self.Emitters ~= nil) then
+            for i = #self.Emitters, 1, -1 do
+                self.Emitters[i]:Disable()
+                table.remove(self.Emitters, i)
+            end
+            self.Emitters = nil
         end
-        self.Emitters = nil
-
-        for i = #self.Texts, 1, -1 do
-            table.remove(self.Texts, i)
+        if (self.Texts ~= nil) then
+            for i = #self.Texts, 1, -1 do
+                table.remove(self.Texts, i)
+            end
+            self.Texts = nil
         end
-        self.Texts = nil
-        for i = #self.Combs, 1, -1 do
-            table.remove(self.Combs, i)
+        if (self.Combs ~= nil) then
+            for i = #self.Combs, 1, -1 do
+                table.remove(self.Combs, i)
+            end
+            self.Combs = nil
         end
-        self.Combs = nil
-        for i = #self.Attribute, 1, -1 do
-            table.remove(self.Attribute, i)
+        if (self.Attribute ~= nil) then
+            for i = #self.Attribute, 1, -1 do
+                table.remove(self.Attribute, i)
+            end
+            self.Attribute = nil
         end
         self.Locomotion = nil
-        self.Attribute = nil
         self.Player = nil
         self.Effect = nil
         if (self.Entity ~= nil) then

@@ -6,7 +6,7 @@ local mArt = "Abilities\\Spells\\Undead\\OrbOfDeath\\OrbOfDeathMissile.mdl"
 local mArt2 = "Abilities\\Spells\\Other\\Stampede\\StampedeMissileDeath.mdl"
 
 local mSpeed = 16
-local mMaxDistance = 800
+local mMaxDistance = 900
 local mDamages1 = { 150, 300, 450, 600, 750, 900 }
 local mDamages2 = { 1, 1.3, 1.6, 1.9, 2.2, 2.5 }
 
@@ -39,7 +39,7 @@ skill.OnPathUpdate = function(dummy)
     AssetsManager.OverlapCircle(
     dummy:X(),
     dummy:Y(),
-    150,
+    200,
     function(unit)
         if (IsInTable(unit, dummy.Skill.DamageList) == -1) then
             --特效

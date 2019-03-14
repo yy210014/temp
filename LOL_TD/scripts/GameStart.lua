@@ -331,7 +331,10 @@ function GameStart.AnyUnitDeath(killUnit, dieUnit)
     if (IsUnitType(dieUnit.Entity, UNIT_TYPE_HERO)) then
         if (MonsterRefresh.GetCurWaveIndex() == 57) then
             if (Game.GetLevel() <= 1) then
-                AllWavesDie()
+                if (dieUnit.Id == GetId("UM56")) then
+                    Game.Win()
+                    return
+                end
             else
                 if (dieUnit.Id == GetId("UM56")) then
                     if (AddKillBossCount() >= PlayerInfo:Count()) then

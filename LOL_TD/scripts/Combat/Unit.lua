@@ -141,12 +141,16 @@ end
 function Unit:AddItem(entity)
     local item = Item:New(self, entity)
     self.Items[#self.Items + 1] = item
-    Item.ItemUniquenessList(self, item)
+    if (Item.ItemUniquenessList(self, item)) then
+        return
+    end
     Item.ItemOverlay(self, item)
     Item.ItemCompound(self)
     item:OnAdd()
     return item
 end
+
+--魔域主播公会
 
 function Unit:AddEmitter(name)
     local emitter = Emitter:New(self, name)

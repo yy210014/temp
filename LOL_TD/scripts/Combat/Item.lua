@@ -82,17 +82,21 @@ function Item.HasItem(unit, itemId, list)
 end
 
 function Item.ItemUniquenessList(unit, item)
+    local isRemove = false
     if (mItemUniquenessList[ID2Str(item.Id)] ~= nil) then
         unit:IterateItems(
         function(v)
             if item.Id == v.Id and v ~= item then
                 DisplayTextToPlayer(unit.Player, 0, 0, "|cffffcc00该装备最多只能携带一件！|r")
+                item:OnAdd()
                 UnitRemoveItem(unit.Entity, item.Entity)
+                isRemove = true
                 return
             end
         end
         )
     end
+    return isRemove
 end
 
 function Item.ItemOverlay(unit, item)

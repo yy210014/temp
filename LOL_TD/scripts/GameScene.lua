@@ -42,12 +42,18 @@ local function InitPlayerResource()
 end
 
 local function InitPlayerUnit()
+    local rectPoints = {
+        GetRectCenter(Jglobals.gg_rct_yeguai1),
+        GetRectCenter(Jglobals.gg_rct_yeguai2),
+        GetRectCenter(Jglobals.gg_rct_yeguai3),
+        GetRectCenter(Jglobals.gg_rct_yeguai4)
+    }
     for i = 0, 3 do
         if
         (GetPlayerController(Player(i)) == MAP_CONTROL_USER and
         GetPlayerSlotState(Player(i)) == PLAYER_SLOT_STATE_PLAYING)
         then
-            PlayerInfo:New(Player(i))
+            local newPlayer = PlayerInfo:New(Player(i))
             local p = GetStartLocationLoc(GetPlayerStartLocation(Player(i)))
             Worke[i] = AssetsManager.LoadUnitAtLoc(Player(i), "ug00", p)
             --[[ if GetLocalPlayer() == Player(i) then
@@ -69,9 +75,7 @@ local function InitPlayerUnit()
             --UnitAddItem(Worke[i].Entity, CreateItem(GetId("IH42"), Worke[i]:X(), Worke[i]:Y()))
             --UnitAddItem(Worke[i].Entity, CreateItem(GetId("IH43"), Worke[i]:X(), Worke[i]:Y()))
             Worke[i]:LearnedSkill(GetId("lqfl"))
-            PlayerInfo:IteratePlayer(function(p)
-                p:CheckJFItem()
-            end)
+            newPlayer:CheckJFItem()
             Worke[i]:LearnedSkill(GetId("cb01"))
             Worke[i]:LearnedSkill(GetId("cb02"))
             Worke[i]:LearnedSkill(GetId("cb03"))
@@ -86,8 +90,26 @@ local function InitPlayerUnit()
             Worke[i]:LearnedSkill(GetId("pf02"))
             --Worke[i]:LearnedSkill(GetId("pf03"))
             Worke[i]:LearnedSkill(GetId("pf04"))
+
+            local tz = AssetsManager.LoadUnitAtLoc(Player(i), "uw09", rectPoints[i + 1])
+            tz.CurSkill = tz:AddSkill("A01" .. math.random(1, 3))
+            local abilityCode = EXGetUnitAbility(tz.Entity, tz.CurSkill.Id)
+            EXSetAbilityState(abilityCode, ABILITY_STATE_COOLDOWN, 60)
+            tz.TZCount = 0
+            local timer = CreateTimer()
+            TimerStart(timer, 360, true, function()
+                if (tz.CurSkill ~= nil) then
+                    tz:RemoveSkill(tz.CurSkill.Id)
+                end
+                tz.CurSkill = tz:AddSkill("A01" .. math.random(1, 3))
+                local abilityCode = EXGetUnitAbility(tz.Entity, tz.CurSkill.Id)
+                EXSetAbilityState(abilityCode, ABILITY_STATE_COOLDOWN, 1)
+                DisplayTextToPlayer(tz.Player, 0, 0, "|cffffcc00新的野怪已经抵达战场，可通过野怪挑战商店进行挑战!|r")
+            end
+            )
         end
     end
+    rectPoints = nil
 end
 
 function GameScene.OnGameStart()

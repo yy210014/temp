@@ -96,6 +96,10 @@ require "scripts.Combat.Skills.AH73"
 require "scripts.Combat.Skills.AH90"
 require "scripts.Combat.Skills.AH91"
 require "scripts.Combat.Skills.AH92"
+--ez
+--require "scripts.Combat.Skills.AH93"
+--require "scripts.Combat.Skills.AH94"
+--require "scripts.Combat.Skills.AH95"
 --远古巨龙
 require "scripts.Combat.Skills.AH93"
 
@@ -131,6 +135,9 @@ require "scripts.Combat.Skills.AU10"
 require "scripts.Combat.Skills.A008"
 --闪现
 require "scripts.Combat.Skills.A009"
+--红蓝buff
+require "scripts.Combat.Skills.A014"
+require "scripts.Combat.Skills.A015"
 
 --
 require "scripts.Combat.Skills.cb01"
@@ -138,3 +145,4 @@ require "scripts.Combat.Skills.gh01"
 require "scripts.Combat.Skills.pf01"
 require "scripts.Combat.Skills.lqzs"
 require "scripts.Combat.Skills.vip0"
+require "scripts.Combat.Skills.tzyg"

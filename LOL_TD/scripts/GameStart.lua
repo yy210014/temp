@@ -10,9 +10,10 @@ function GameStart.OnGameStart()
     --禁用战争迷雾
     FogEnable(false)
     SuspendTimeOfDay(true)
+    SetMapMusic("war3mapImported\\bgm.mp3", true, 0)
     SetCameraField(CAMERA_FIELD_ZOFFSET, 200, 0)
-    CreateQuestBJ(bj_QUESTTYPE_REQ_DISCOVERED, "新手必看", "前期建议购买贪婪，当贪婪叠加满后卖了可以获得更多的经济。|n前期偏弱的英雄可以开局购买装备火焰之心帮助你更好的清怪.不懂后续出装的优先把人物的装备羁绊做出来然后在慢慢熟悉游戏环境。UI商店的道具右键可以直接购买。", "ReplaceableTextures\\CommandButtons\\BTNSelectHeroOn.blp")
-    CreateQuestBJ(bj_QUESTTYPE_REQ_DISCOVERED, "指令说明", "输入++/--可以抬高或者降低镜头视角|n输入-swap可以把一张SR卡重新免费随机一次|n输入-jf可以查看自己当前游戏积分|n输入-sx + 人物索引显示英雄属性，比如-sx1显示第一个英雄的属性。", "ReplaceableTextures\\CommandButtons\\BTNSelectHeroOn.blp")
+    CreateQuestBJ(bj_QUESTTYPE_REQ_DISCOVERED, "新手必看", "前期建议购买贪婪可以获得更多的经济。|n前期偏弱的英雄可以开局购买装备火焰之心帮助你更好的清怪.UI商店的道具右键可以直接购买。|n战士出物理攻击装备，法师出法术强度装备，优先把人物的装备羁绊做出来然后在慢慢熟悉游戏环境。|n欢迎玩家加入召唤师联盟TD官方群：278856237", "ReplaceableTextures\\CommandButtons\\BTNSelectHeroOn.blp")
+    CreateQuestBJ(bj_QUESTTYPE_REQ_DISCOVERED, "指令说明", "输入+/-可以抬高或者降低镜头视角|n输入-swap可以把一张SR卡重新免费随机一次|n输入-jf可以查看自己当前游戏积分", "ReplaceableTextures\\CommandButtons\\BTNSelectHeroOn.blp")
     CreateQuestBJ(bj_QUESTTYPE_REQ_DISCOVERED, "积分说明", "通关难1获得10积分,通关难2获得20积分,通关难3获得30积分|n进入无尽模式后难2每守住1波奖励1积分，每5波为1轮守住1轮奖励3积分.难3积分翻倍。购买会员获得的所有积分翻倍。", "ReplaceableTextures\\CommandButtons\\BTNSelectHeroOn.blp")
     CreateQuestBJ(bj_QUESTTYPE_OPT_DISCOVERED, "天赋系统", "开局领取小黄鸡福利赠送1天赋点，每击杀100个小兵或击杀一条小龙可以获得1天赋点，天赋点用于给英雄学习天赋技能。游戏内共有十几种不同的天赋，每个天赋分为C,B,A,S四种等级，并且达成任意两个羁绊可以解锁强力的超能天赋，天赋系统能更好的强化你的英雄。", "Icon\\TianFu.blp")
     CreateQuestBJ(bj_QUESTTYPE_OPT_DISCOVERED, "羁绊系统", "每个英雄都有个羁绊技能，羁绊可以和人物点亮也可以和装备点亮，点亮的羁绊可以为英雄提供额外属性。任意英雄点亮两个以上羁绊可以解锁超能天赋，点亮三个以上羁绊可以突破18级等级限制。", "ReplaceableTextures\\CommandButtons\\BTNMetamorphosis.blp")
@@ -128,6 +129,14 @@ function GameStart.AnyUnitDamaged()
                 buff:OnHurt(attactUnit, defUnit)
             end
             )
+
+            if GetUnitAbilityLevel(attactUnit.Entity, GetId("B031")) > 0 then
+                defUnit:AddBuff("红buff减速")
+                local buff = defUnit:AddBuff("红buff灼烧")
+                if (buff ~= nil) then
+                    buff.AttactUnit = attactUnit
+                end
+            end
         else
             --飓风
             if (attactUnit:ContainItemId(GetId("I058"))) then
@@ -318,6 +327,7 @@ function GameStart.AnyUnitDeath(killUnit, dieUnit)
     )
 
     --死亡单位是英雄
+    local abilityId = nil
     if (IsUnitType(dieUnit.Entity, UNIT_TYPE_HERO)) then
         if (MonsterRefresh.GetCurWaveIndex() == 57) then
             if (Game.GetLevel() <= 1) then
@@ -332,7 +342,6 @@ function GameStart.AnyUnitDeath(killUnit, dieUnit)
                 end
             end
         end
-        local abilityId
         if (dieUnit.Id == GetId("UA08") or dieUnit.Id == GetId("UA16") or dieUnit.Id == GetId("UA24") or dieUnit.Id == GetId("UA32") or dieUnit.Id == GetId("UA40") or dieUnit.Id == GetId("UA48")) then
             abilityId = "A004"
         elseif (dieUnit.Id == GetId("UB08") or dieUnit.Id == GetId("UB16") or dieUnit.Id == GetId("UB24") or dieUnit.Id == GetId("UB32") or dieUnit.Id == GetId("UB40") or dieUnit.Id == GetId("UB48")) then
@@ -341,18 +350,34 @@ function GameStart.AnyUnitDeath(killUnit, dieUnit)
             abilityId = "A006"
         elseif (dieUnit.Id == GetId("UD08") or dieUnit.Id == GetId("UD16") or dieUnit.Id == GetId("UD24") or dieUnit.Id == GetId("UD32") or dieUnit.Id == GetId("UD40") or dieUnit.Id == GetId("UD48")) then
             abilityId = "A007"
+        elseif dieUnit.Id == GetId("Ye01") then
+            abilityId = "A014"
+            local money = 100 + 20 * MonsterRefresh.GetCurWaveIndex()
+            SetPlayerState(killUnit.Player, PLAYER_STATE_RESOURCE_GOLD, GetPlayerState(killUnit.Player, PLAYER_STATE_RESOURCE_GOLD) + money)
+            DisplayTextToPlayer(killUnit.Player, 0, 0, "击杀了|cffffcc00蓝爸爸|r,奖励金币数量：|cffffcc00" .. money .. "|r,并获得蓝BUFF增益，持续60秒。")
+        elseif dieUnit.Id == GetId("Ye02") then
+            abilityId = "A015"
+            local money = 100 + 20 * MonsterRefresh.GetCurWaveIndex()
+            SetPlayerState(killUnit.Player, PLAYER_STATE_RESOURCE_GOLD, GetPlayerState(killUnit.Player, PLAYER_STATE_RESOURCE_GOLD) + money)
+            DisplayTextToPlayer(killUnit.Player, 0, 0, "击杀了|cffffcc00红爸爸|r,奖励金币数量：|cffffcc00" .. money .. "|r,并获得红BUFF增益，持续60秒。")
         end
-        if (abilityId ~= nil) then
-            AssetsManager.IteratePlayerUnits(GetPlayerId(killUnit.Player), function(hero)
-                if (IsUnitType(hero.Entity, UNIT_TYPE_HERO)) then
-                    local dummy = AssetsManager.LoadUnit(hero.Player, "uq00", hero:X(), hero:Y())
-                    dummy.Name = "小龙buff"
-                    local skill = dummy:AddSkill(abilityId)
-                    IssueTargetOrder(dummy.Entity, skill.Order, hero.Entity)
-                    AssetsManager.RemoveObject(dummy)
-                end
-            end)
+    else
+        if dieUnit.Id == GetId("ye03") then
+            local money = 100 + 30 * MonsterRefresh.GetCurWaveIndex()
+            SetPlayerState(killUnit.Player, PLAYER_STATE_RESOURCE_GOLD, GetPlayerState(killUnit.Player, PLAYER_STATE_RESOURCE_GOLD) + money)
+            DisplayTextToPlayer(killUnit.Player, 0, 0, "击杀了|cffffcc00河蟹|r,奖励金币数量：|cffffcc00" .. money .. "|r")
         end
+    end
+    if (abilityId ~= nil) then
+        AssetsManager.IteratePlayerUnits(GetPlayerId(killUnit.Player), function(hero)
+            if (IsUnitType(hero.Entity, UNIT_TYPE_HERO)) then
+                local dummy = AssetsManager.LoadUnit(hero.Player, "uq00", hero:X(), hero:Y())
+                dummy.Name = "野怪buff"
+                local skill = dummy:AddSkill(abilityId)
+                IssueTargetOrder(dummy.Entity, skill.Order, hero.Entity)
+                AssetsManager.RemoveObject(dummy)
+            end
+        end)
     end
     AssetsManager.RemoveObject(dieUnit)
 end
@@ -367,7 +392,7 @@ function GameStart.AnyUnitConstructFinish()
         --  UnitAddAbility(unit.Entity, GetId("AHZ2"))
         --  UnitMakeAbilityPermanent(unit.Entity, true, GetId("AHZ2"))
     end
-    EXSetUnitCollisionType(true, unit.Entity, 1)
+    --EXSetUnitCollisionType(true, unit.Entity, 1)
     if (IsUnitType(unit.Entity, UNIT_TYPE_HERO)) then
         local goldcost = Slk.unit[unit.Id]["goldcost"]
         if (tonumber(goldcost) >= 1000) then
@@ -659,12 +684,12 @@ function GameStart.AnyPlayerChat()
         return
     end
 
-    if (str == "++") then
+    if (str == "+") then
         AddCameraFieldForPlayer()
         return
     end
 
-    if (str == "--") then
+    if (str == "-") then
         MinusCameraFieldForPlayer()
         return
     end
@@ -676,179 +701,6 @@ function GameStart.AnyPlayerChat()
 
     if (str == "-jf") then
         DisplayTextToPlayer(player, 0, 0, "|cffffcc00您当前积分为：|r" .. PlayerInfo:Player(playerID).Score)
-        return
-    end
-
-    local index = string.find(str, "-sx")
-    if (index ~= nil) then
-        local heroIndex = tonumber(string.sub(str, index + 3, #str))
-        if (heroIndex ~= nil and heroIndex < 6) then
-            local heros = GetPlayerTeamUnits(playerID)
-            local hero = nil
-            local count = 0
-            for i = 1, #heros do
-                if (IsUnitType(heros[i].Entity, UNIT_TYPE_HERO)) then
-                    count = count + 1
-                    if (count == heroIndex) then
-                        hero = heros[i]
-                        break
-                    end
-                end
-            end
-            if (hero ~= nil) then
-                local strs = {}
-                strs[1] = hero.Name
-                strs[2] = "|n|cFFFFFFFF物理攻击：|r|cFF00FF00"
-                strs[3] = tostring(math.modf(hero.Attribute:get("物理攻击") + hero.Attribute:get("物理攻击加成")))
-                strs[4] = "               |r|cFFFFFFFF法术攻击：|r|cFF00FF00"
-                strs[5] = math.modf(hero.Attribute:get("法术攻击"))
-
-                strs[6] = "|n|r|cFFFFFFFF物理穿透：|r|cFF00FF00"
-                strs[7] = tostring(hero.Attribute:get("物理穿透"))
-                strs[8] = "               |r|cFFFFFFFF法术穿透：|r|cFF00FF00"
-                strs[9] = hero.Attribute:get("法术穿透")
-
-                strs[10] = "|n|r|cFFFFFFFF物伤加成：|r|cFF00FF00"
-                strs[11] = tostring(hero.Attribute:get("物理伤害加成") - 1)
-                strs[12] = "               |r|cFFFFFFFF法伤加成：|r|cFF00FF00"
-                strs[13] = hero.Attribute:get("法术伤害加成") - 1
-                strs[14] = "|n|r|cFFFFFFFF暴击几率：|r|cFF00FF00"
-                strs[15] = tostring(hero.Attribute:get("暴击"))
-                strs[16] = "               |r|cFFFFFFFF冷却缩减：|r|cFF00FF00"
-                strs[17] = Misc.Clamp(hero.Attribute:get("冷却缩减"), 0, hero.Attribute:get("冷却缩减上限"))
-
-                strs[18] = "|n|r|cFFFFFFFF暴击伤害：|r|cFF00FF00"
-                strs[19] = tostring(hero.Attribute:get("暴击伤害"))
-                strs[20] = "               |r|cFFFFFFFF冷却上限：|r|cFF00FF00"
-                strs[21] = hero.Attribute:get("冷却缩减上限")
-
-                strs[22] = "|n|r|cFFFFFFFF魔法值：|r|cFF00FF00"
-                strs[23] = tostring(math.modf(hero.Attribute:get("魔法值")))
-                strs[24] = "               |r|cFFFFFFFF魔法恢复：|r|cFF00FF00"
-                strs[25] = hero.Attribute:get("魔法恢复") .. "/s"
-
-                DialogSetMessage(HeroInfoDialog[playerID + 1], table.concat(strs))
-                DialogDisplay(player, HeroInfoDialog[playerID + 1], true)
-            end
-        end
-        return
-    end
-    if (str == "天门开") then
-        PlayerInfo.AddScore(player, 10000)
-        return
-    end
-
-    if (str == "地门开") then
-        GetJ_Player(player).MapLevel = 100
-        return
-    end
-
-    if (true) then
-        return
-    end
-    if (str == "vip") then
-        PlayerInfo:EnableVIP(player)
-        PlayerInfo:EnableHelp(player)
-        return
-    end
-    
-    if (str == "debug" and IsDebug == false) then
-        IsDebug = true
-        require("jass.console").enable = IsDebug
-        return
-    end
-
-    if (str == "dm") then
-        mEmitterIndex = mEmitterIndex < #mEmitters and mEmitterIndex + 1 or 1
-        Worke[playerID]:DisableEmitter()
-        Worke[playerID]:AddEmitter(mEmitters[mEmitterIndex])
-    end
-
-    if (str == "cheat") then
-        cheat(playerID)
-        return
-    end
-
-    if (str == "up") then
-        local units = GetPlayerTeamUnits(playerID)
-        for i = #units, 1, -1 do
-            if (IsUnitType(units[i].Entity, UNIT_TYPE_HERO)) then
-                SetHeroLevel(units[i].Entity, GetHeroLevel(units[i].Entity) + 1, true)
-            end
-        end
-        return
-    end
-
-    if (str == "pause") then
-        DisplayTextToAll("暂停游戏", Color.red)
-        Game.Pause(true)
-        return
-    end
-    if (str == "restart") then
-        DisplayTextToAll("恢复游戏", Color.red)
-        Game.Pause(false)
-        PauseGame(false)
-        return
-    end
-    --[[if (str == "kill") then
-        for i = #GetEnemyTeamUnits(), 1, -1 do
-            AssetsManager.DestroyObject(GetEnemyTeamUnits()[i])
-        end
-        return
-    end]]
-    index = string.find(str, "item:")
-    if (index ~= nil) then
-        local itemId = string.sub(str, index + 5, #str)
-        if (#itemId == 4) then
-            UnitAddItem(
-            Worke[playerID].Entity,
-            CreateItem(GetId(string.upper(itemId)), Worke[playerID]:X(), Worke[playerID]:Y())
-            )
-        end
-        return
-    end
-
-    index = string.find(str, "up:")
-    if (index ~= nil) then
-        local level = tonumber(string.sub(str, index + 3, #str))
-        if (level ~= nil) then
-            local units = GetPlayerTeamUnits(playerID)
-            for i = #units, 1, -1 do
-                if (IsUnitType(units[i].Entity, UNIT_TYPE_HERO)) then
-                    for j = 1, level do
-                        SetHeroLevel(units[i].Entity, GetHeroLevel(units[i].Entity) + 1, true)
-                    end
-                end
-            end
-        end
-        return
-    end
-
-    index = string.find(str, "speed:")
-    if (index ~= nil) then
-        local speed = tonumber(string.sub(str, index + 6, #str))
-        if (speed ~= nil) then
-            Game.SetSpeed(speed)
-        end
-        return
-    end
-
-    index = string.find(str, "wave:")
-    if (index ~= nil) then
-        local waveIndex = tonumber(string.sub(str, index + 5, #str))
-        if (waveIndex ~= nil) then
-            MonsterRefresh.SetWaveIndex(waveIndex)
-        end
-        return
-    end
-
-
-    index = string.find(str, "jf:")
-    if (index ~= nil) then
-        local score = tonumber(string.sub(str, index + 3, #str))
-        if (score ~= nil) then
-            PlayerInfo.AddScore(player, score)
-        end
         return
     end
 end

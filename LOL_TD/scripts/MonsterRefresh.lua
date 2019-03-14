@@ -200,7 +200,7 @@ function DelayPush()
         if (Game.GetLevel() == 1) then
             TimerDialogSetTitle(mDelayPushTimerDialog, "最终BOSS")
             for i = 0, 3 do
-                DisplayTextToPlayer(Player(i), 0, 0, "|cFFFF0000Warning|r" .. " - 最终BOSS即将来袭，击杀全部Boss即可通关！")
+                DisplayTextToPlayer(Player(i), 0, 0, "|cFFFF0000Warning|r" .. " - 最终BOSS即将来袭，击杀全部Boss即可通关！(作者提示：地图中间12点方向商店可以购买传送阵用于传送英雄快速击杀BOSS)")
             end
             return
         else
@@ -359,6 +359,7 @@ function EndLessComing()
             PlayerInfo.AddScore(player.Entity, Game.GetLevel() * 10)
             DisplayTextToPlayer(player.Entity, 0, 0, "|cffffcc00恭喜你们开启了无尽关卡!所有进入无尽模式的玩家获得" .. (Game.GetLevel() * 10) .. "点游戏积分!|r")
         end
+        AssetsManager.DestroyObject(player.TiaoZhan)
     end)
     local enemyTeamUnits = GetEnemyTeamUnits()
     for j = 1, #enemyTeamUnits do

@@ -356,8 +356,8 @@ function EndLessComing()
     function(player)
         if (player.IsWatch == false) then
             SetPlayerState(player.Entity, PLAYER_STATE_RESOURCE_GOLD, GetPlayerState(player.Entity, PLAYER_STATE_RESOURCE_GOLD) + money)
-            PlayerInfo.AddScore(player.Entity, Game.GetLevel() * 10)
-            DisplayTextToPlayer(player.Entity, 0, 0, "|cffffcc00恭喜你们开启了无尽关卡!所有进入无尽模式的玩家获得" .. (Game.GetLevel() * 10) .. "点游戏积分!|r")
+            local score = PlayerInfo.AddScore(player.Entity, Game.GetLevel() * 10)
+            DisplayTextToPlayer(player.Entity, 0, 0, "|cffffcc00恭喜你们开启了无尽关卡!所有进入无尽模式的玩家获得" .. score .. "点游戏积分!|r")
         end
         if (player.TiaoZhan ~= nil) then
             AssetsManager.DestroyObject(player.TiaoZhan)
@@ -482,8 +482,8 @@ function WavesClear()
             PlayerInfo:IteratePlayer(
             function(player)
                 if (player.IsWatch == false) then
-                    DisplayTextToPlayer(player.Entity, 0, 0, "|cffffcc00成功守住了一轮无尽，奖励3点积分|r")
-                    PlayerInfo.AddScore(player.Entity, 3)
+                    local score = PlayerInfo.AddScore(player.Entity, 3)
+                    DisplayTextToPlayer(player.Entity, 0, 0, "|cffffcc00成功守住了一轮无尽，奖励" .. score .. "点积分|r")
                 end
             end)
         end

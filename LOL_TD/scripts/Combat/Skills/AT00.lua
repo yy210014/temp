@@ -1289,6 +1289,210 @@ function skill:OnCast()
     end
 end
 
+skill = Skills["屠龙C级"]
+skill.Value = 0
+skill.MaxValue = 0
+function skill:OnCast()
+    if (Tianfu_Condition(self, 2)) then
+        local maxLevel = GetUnitAbilityLevel(self.Owner.Entity, self.Id) == 5
+        if (maxLevel == false) then
+            SetUnitAbilityLevel(self.Owner.Entity, self.Id, GetUnitAbilityLevel(self.Owner.Entity, self.Id) + 1)
+        end
+        if (maxLevel == true) then
+            local skillId = ID2Str(self.Id)
+            self.Owner:RemoveSkill(self.Id)
+            self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
+        end
+    end
+end
+function skill:OnKill(dieUnit)
+    local selectUnit = self.Owner.SelectUnit
+    local selectUnit = self.Owner.SelectUnit
+    local maxLevel = GetUnitAbilityLevel(self.Owner.Entity, self.Id) == 5
+    self.MaxValue = self:GetCurLevel() * 0.02 - (maxLevel and 0 or 0.02)
+    if (self.Id == GetId("AXHC")) then
+        self.MaxValue = 0.1
+    end
+    if (self.Value < self.MaxValue) then
+        self.Value = self.Value + 1
+        selectUnit.Attribute:add("物理伤害加成", 0.001)
+        selectUnit.Attribute:add("法术伤害加成", 0.001)
+    end
+end
+
+skill = Skills["屠龙B级"]
+skill.Value = 0
+skill.MaxValue = 0
+function skill:OnCast()
+    if (Tianfu_Condition(self, 2)) then
+        local maxLevel = GetUnitAbilityLevel(self.Owner.Entity, self.Id) == 5
+        if (maxLevel == false) then
+            SetUnitAbilityLevel(self.Owner.Entity, self.Id, GetUnitAbilityLevel(self.Owner.Entity, self.Id) + 1)
+        end
+        if (maxLevel == true) then
+            local skillId = ID2Str(self.Id)
+            self.Owner:RemoveSkill(self.Id)
+            self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
+        end
+    end
+end
+function skill:OnKill(dieUnit)
+    local selectUnit = self.Owner.SelectUnit
+    local maxLevel = GetUnitAbilityLevel(self.Owner.Entity, self.Id) == 5
+    self.MaxValue = self:GetCurLevel() * 0.04 - (maxLevel and 0 or 0.04)
+    if (self.Id == GetId("AXHA")) then
+        self.MaxValue = 0.2
+    end
+    if (self.Value < self.MaxValue) then
+        self.Value = self.Value + 1
+        selectUnit.Attribute:add("物理伤害加成", 0.01)
+        selectUnit.Attribute:add("法术伤害加成", 0.01)
+    end
+end
+skill = Skills["屠龙A级"]
+skill.Value = 0
+skill.MaxValue = 0
+function skill:OnCast()
+    if (Tianfu_Condition(self, 2)) then
+        local maxLevel = GetUnitAbilityLevel(self.Owner.Entity, self.Id) == 5
+        if (maxLevel == false) then
+            SetUnitAbilityLevel(self.Owner.Entity, self.Id, GetUnitAbilityLevel(self.Owner.Entity, self.Id) + 1)
+        end
+        if (maxLevel == true) then
+            local skillId = ID2Str(self.Id)
+            self.Owner:RemoveSkill(self.Id)
+            self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
+        end
+    end
+end
+function skill:OnKill(dieUnit)
+    local selectUnit = self.Owner.SelectUnit
+    local maxLevel = GetUnitAbilityLevel(self.Owner.Entity, self.Id) == 5
+    self.MaxValue = self:GetCurLevel() * 0.06 - (maxLevel and 0 or 0.06)
+    if (self.Id == GetId("AXHA")) then
+        self.MaxValue = 0.3
+    end
+    if (self.Value < self.MaxValue) then
+        self.Value = self.Value + 1
+        selectUnit.Attribute:add("物理伤害加成", 0.015)
+        selectUnit.Attribute:add("法术伤害加成", 0.015)
+    end
+end
+skill = Skills["屠龙S级"]
+skill.Value = 0
+skill.MaxValue = 0
+function skill:OnCast()
+    if (Tianfu_Condition(self, 2)) then
+        local maxLevel = GetUnitAbilityLevel(self.Owner.Entity, self.Id) == 5
+        if (maxLevel == false) then
+            SetUnitAbilityLevel(self.Owner.Entity, self.Id, GetUnitAbilityLevel(self.Owner.Entity, self.Id) + 1)
+        end
+        if (maxLevel == true) then
+            local skillId = ID2Str(self.Id)
+            self.Owner:RemoveSkill(self.Id)
+            self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
+        end
+    end
+end
+
+function skill:OnKill(dieUnit)
+    local selectUnit = self.Owner.SelectUnit
+    local maxLevel = GetUnitAbilityLevel(self.Owner.Entity, self.Id) == 5
+    self.MaxValue = self:GetCurLevel() * 0.08 - (maxLevel and 0 or 0.08)
+    if (self.Id == GetId("AXHA")) then
+        self.MaxValue = 0.4
+    end
+    if (self.Value < self.MaxValue) then
+        self.Value = self.Value + 1
+        selectUnit.Attribute:add("物理伤害加成", 0.02)
+        selectUnit.Attribute:add("法术伤害加成", 0.02)
+    end
+end
+skill = Skills["浩劫C级"]
+skill.value = 0
+function skill:OnCast()
+    if (Tianfu_Condition(self, 2)) then
+        local maxLevel = GetUnitAbilityLevel(self.Owner.Entity, self.Id) == 5
+        if (maxLevel == false) then
+            SetUnitAbilityLevel(self.Owner.Entity, self.Id, GetUnitAbilityLevel(self.Owner.Entity, self.Id) + 1)
+        end
+        local selectUnit = self.Owner.SelectUnit
+        selectUnit.Attribute:add("物理伤害加成", -self.value)
+        selectUnit.Attribute:add("法术伤害加成", -self.value)
+        self.value = self:GetCurLevel() * 0.01 - (maxLevel and 0 or 0.01)
+        selectUnit.Attribute:add("物理伤害加成", self.value)
+        selectUnit.Attribute:add("法术伤害加成", self.value)
+        if (maxLevel == true) then
+            local skillId = ID2Str(self.Id)
+            self.Owner:RemoveSkill(self.Id)
+            self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
+        end
+    end
+end
+skill = Skills["浩劫B级"]
+skill.value = 0
+function skill:OnCast()
+    if (Tianfu_Condition(self, 2)) then
+        local maxLevel = GetUnitAbilityLevel(self.Owner.Entity, self.Id) == 5
+        if (maxLevel == false) then
+            SetUnitAbilityLevel(self.Owner.Entity, self.Id, GetUnitAbilityLevel(self.Owner.Entity, self.Id) + 1)
+        end
+        local selectUnit = self.Owner.SelectUnit
+        selectUnit.Attribute:add("物理伤害加成", -self.value)
+        selectUnit.Attribute:add("法术伤害加成", -self.value)
+        self.value = self:GetCurLevel() * 0.02 - (maxLevel and 0 or 0.02)
+        selectUnit.Attribute:add("物理伤害加成", self.value)
+        selectUnit.Attribute:add("法术伤害加成", self.value)
+        if (maxLevel == true) then
+            local skillId = ID2Str(self.Id)
+            self.Owner:RemoveSkill(self.Id)
+            self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
+        end
+    end
+end
+skill = Skills["浩劫A级"]
+skill.value = 0
+function skill:OnCast()
+    if (Tianfu_Condition(self, 2)) then
+        local maxLevel = GetUnitAbilityLevel(self.Owner.Entity, self.Id) == 5
+        if (maxLevel == false) then
+            SetUnitAbilityLevel(self.Owner.Entity, self.Id, GetUnitAbilityLevel(self.Owner.Entity, self.Id) + 1)
+        end
+        local selectUnit = self.Owner.SelectUnit
+        selectUnit.Attribute:add("物理伤害加成", -self.value)
+        selectUnit.Attribute:add("法术伤害加成", -self.value)
+        self.value = self:GetCurLevel() * 0.03 - (maxLevel and 0 or 0.03)
+        selectUnit.Attribute:add("物理伤害加成", self.value)
+        selectUnit.Attribute:add("法术伤害加成", self.value)
+        if (maxLevel == true) then
+            local skillId = ID2Str(self.Id)
+            self.Owner:RemoveSkill(self.Id)
+            self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
+        end
+    end
+end
+skill = Skills["浩劫S级"]
+skill.value = 0
+function skill:OnCast()
+    if (Tianfu_Condition(self, 2)) then
+        local maxLevel = GetUnitAbilityLevel(self.Owner.Entity, self.Id) == 5
+        if (maxLevel == false) then
+            SetUnitAbilityLevel(self.Owner.Entity, self.Id, GetUnitAbilityLevel(self.Owner.Entity, self.Id) + 1)
+        end
+        local selectUnit = self.Owner.SelectUnit
+        selectUnit.Attribute:add("物理伤害加成", -self.value)
+        selectUnit.Attribute:add("法术伤害加成", -self.value)
+        self.value = self:GetCurLevel() * 0.04 - (maxLevel and 0 or 0.04)
+        selectUnit.Attribute:add("物理伤害加成", self.value)
+        selectUnit.Attribute:add("法术伤害加成", self.value)
+        if (maxLevel == true) then
+            local skillId = ID2Str(self.Id)
+            self.Owner:RemoveSkill(self.Id)
+            self.Owner:AddSkill(string.gsub(skillId, "T", "X"))
+        end
+    end
+end
+
 --[[setmetatable(Buffs["破甲C级"], {__index = Buffs["护甲"]})
 Buffs["破甲C级"].values = {-1, -2, -3, -4, -5}
 Buffs["破甲C级"].Durs = {3, 3, 3, 3, 3, 3}
@@ -1384,11 +1588,10 @@ function skill:OnCast()
 end
 
 skill = Skills["战斗狂人[被动]"]
-local Ubertip = "|cffffff00效果：每次攻击会增加英雄（10+英雄等级*2）的攻击力，最多叠加5次。持续2s|r"
 setmetatable(Buffs["战斗狂人"], { __index = Buffs["物理攻击"] })
 Buffs["战斗狂人"].values = { 1 }
 Buffs["战斗狂人"].Durs = { 2 }
-Buffs["战斗狂人"].MaxStack = 5
+Buffs["战斗狂人"].MaxStack = 10
 function skill:OnAttack(attactUnit, defUnit)
     Buffs["战斗狂人"].values = { 10 + GetHeroLevel(attactUnit.Entity) * 2 }
     --Game.Log("战斗狂人[被动]: " .. Buffs["战斗狂人"].values[1])
@@ -1475,3 +1678,51 @@ Buffs["幽冥冷火"].Art = "Abilities\\Spells\\Human\\FlameStrike\\FlameStrikeD
 Buffs["幽冥冷火"].values = { 0 }
 Buffs["幽冥冷火"].Durs = { 3 }
 Buffs["幽冥冷火"].MaxStack = 1
+
+skill = Skills["不灭之握"]
+skill.value = 0
+function skill:OnCast()
+    Tianfu_Action2(self, 5)
+end
+
+skill = Skills["不灭之握[被动]"]
+skill.mLastAttackTime = 0
+skill.mArt1 = "AZ_TS_G2.mdl"
+skill.mArt2 = "Abilities\\Spells\\Human\\Thunderclap\\ThunderClapCaster.mdl"
+function skill:OnAttack(attactUnit, defUnit)
+    if (GameScene.Elapsed - self.mLastAttackTime > 3) then
+        self.mLastAttackTime = GameScene.Elapsed
+        local damage = 0.05 * attactUnit.Attribute:get("生命上限")
+        if (damage > 2500) then
+            damage = 2500
+        end
+        EXUnitDamageTarget(attactUnit, defUnit, damage, EXAbilityType.Magic)
+    end
+end
+
+skill = Skills["不灭之握"]
+skill.value = 0
+function skill:OnCast()
+    Tianfu_Action2(self, 5)
+end
+
+skill = Skills["不灭之握[被动]"]
+skill.mLastAttackTime = 0
+skill.mArt1 = "AZ_TS_G2.mdl"
+skill.mArt2 = "Abilities\\Spells\\Human\\Thunderclap\\ThunderClapCaster.mdl"
+function skill:OnAttack(attactUnit, defUnit)
+    if (GameScene.Elapsed - self.mLastAttackTime > 3) then
+        self.mLastAttackTime = GameScene.Elapsed
+        local damage = 0.05 * attactUnit.Attribute:get("生命上限")
+        if (damage > 2500) then
+            damage = 2500
+        end
+        EXUnitDamageTarget(attactUnit, defUnit, damage, EXAbilityType.Magic)
+    end
+end
+
+skill = Skills["死神裁决"]
+skill.value = 0
+function skill:OnCast()
+    Tianfu_Action2(self, 5)
+end

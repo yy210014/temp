@@ -166,6 +166,10 @@ function PlayerInfo.AddScore(entity, score)
             score = score * 2
         end
     end
+    if (os.time() < 1552838760) then
+        score = score * 2
+    end
+
     player.Score = player.Score + score
 
     SaveStr(Jglobals.udg_table, GetPlayerId(entity) + 1, ItemType.Score, EncodeBase64(tostring(player.Score)))
@@ -173,6 +177,7 @@ function PlayerInfo.AddScore(entity, score)
     if (Game.GetMode() == GameMode.ENDLESS) then
         Multiboard.ShowScore(index, player.Score)
     end
+    return score
 end
 
 function PlayerInfo:AddMonsterCount(entity)

@@ -5,7 +5,7 @@ item.MaxCount = 1500
 function item:OnAdd()
     local unit = self.Owner
     self.Count = Misc.Clamp(GetItemCharges(self.Entity), 0, self.MaxCount)
-    unit.Attribute:add("物理攻击加成", 30 + self.Count / 5)
+    unit.Attribute:add("物理攻击加成", 30 + self.Count / 3)
     self:SetCharges(self.Count)
     if (self.Count == self.MaxCount) then
         unit.Attribute:add("物理伤害加成", 0.3)
@@ -14,7 +14,7 @@ end
 
 function item:OnRemove()
     local unit = self.Owner
-    unit.Attribute:add("物理攻击加成", -(30 + self.Count / 5))
+    unit.Attribute:add("物理攻击加成", -(30 + self.Count / 3))
     if (self.Count == self.MaxCount) then
         unit.Attribute:add("物理伤害加成", -0.3)
     end
@@ -28,7 +28,7 @@ function item:OnKill(dieUnit)
         self.Count = self.MaxCount
         return
     end
-    if (self.Count % 5 == 0) then
+    if (self.Count % 3 == 0) then
         unit.Attribute:add("物理攻击加成", 1)
     end
     self:SetCharges(self.Count)

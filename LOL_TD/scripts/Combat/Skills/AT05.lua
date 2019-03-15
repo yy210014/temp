@@ -10,6 +10,7 @@ function skill:Initialize()
         --    {"ATCA", "ATCB", "ATCC", "ATCS"}, --杀怪加钱点
         { "ATDA", "ATDB", "ATDC", "ATDS" }, --每杀1个怪加1点物理攻击（最高100点）
         { "ATFA", "ATFB", "ATFC", "ATFS" }, --物理穿透和法术穿透
+        { "ATIA", "ATIB", "ATIC", "ATIS" }, --浩劫
         --{ "ATGA", "ATGB", "ATGC", "ATGS" } --破甲
 
         --物理伤害
@@ -19,7 +20,8 @@ function skill:Initialize()
         { "ATBA", "ATBB", "ATBC", "ATBS" }, --技能冷却缩减
         --    {"ATCA", "ATCB", "ATCC", "ATCS"}, --杀怪加钱点
         { "ATEA", "ATEB", "ATEC", "ATES" }, --每杀1个怪加1点法术攻击（最高100点）
-        { "ATFA", "ATFB", "ATFC", "ATFS" } --物理穿透和法术穿透
+        { "ATFA", "ATFB", "ATFC", "ATFS" }, --物理穿透和法术穿透
+        { "ATIA", "ATIB", "ATIC", "ATIS" }, --浩劫
 
         --法术伤害
     }
@@ -31,7 +33,8 @@ function skill:Initialize()
         --   {"ATCA", "ATCB", "ATCC", "ATCS"}, --杀怪加钱点
         { "ATDA", "ATDB", "ATDC", "ATDS" }, --每杀1个怪加1点物理攻击（最高100点）
         { "ATEA", "ATEB", "ATEC", "ATES" }, --每杀1个怪加1点法术攻击（最高100点）
-        { "ATFA", "ATFB", "ATFC", "ATFS" } --物理穿透和法术穿透
+        { "ATFA", "ATFB", "ATFC", "ATFS" }, --物理穿透和法术穿透
+        { "ATIA", "ATIB", "ATIC", "ATIS" }, --浩劫
     }
     owner.Init2 = true
 end

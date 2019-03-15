@@ -199,6 +199,13 @@ function GameStart.AnyUnitDamaged()
         damage = damage * attactUnit.Attribute:get("法术伤害加成")
     end
 
+    --死神裁决
+    if GetUnitAbilityLevel(attactUnit.Entity, GetId("AT6Z")) > 0 then
+        if (defUnit.Attribute:get("生命") < defUnit.Attribute:get("生命上限") * 0.5) then
+            damage = damage + damage * 0.35
+        end
+    end
+
     if GetUnitAbilityLevel(attactUnit.Entity, GetId("Aloc")) > 0 then
         EXSetEventDamage(0)
         GameStart.AnyDummyDamaged(attactUnit, defUnit)
@@ -538,6 +545,32 @@ end
 function GameStart.AnyUnitSpellEffect()
     local spellUnit = GetJ_PlayerUnits(GetSpellAbilityUnit())
     local abilityId = GetSpellAbilityId()
+
+    --破败之刃
+    if (abilityId == GetId("A016")) then
+        local target = GetJ_EnemyUnits(GetSpellTargetUnit())
+        if (target == nil) then
+            Game.LogError("破败之刃-丢失目标")
+            return
+        end
+        EXUnitDamageTarget(spellUnit, target, 1000, EXAbilityType.Magic)
+        spellUnit:AddBuff("破败之刃加速")
+        target:AddBuff("破败之刃减速")
+        return
+    end
+
+    --小弯刀
+    if (abilityId == GetId("A018")) then
+        local target = GetJ_EnemyUnits(GetSpellTargetUnit())
+        if (target == nil) then
+            Game.LogError("小弯刀-丢失目标")
+            return
+        end
+        EXUnitDamageTarget(spellUnit, target, 500, EXAbilityType.Magic)
+        target:AddBuff("小弯刀")
+        return
+    end
+
     if (spellUnit == nil) then
         Game.LogError("技能:" .. GetObjectName(abilityId) .. "发动效果,丢失单位:" .. GetUnitName(GetSpellAbilityUnit()))
         return
@@ -704,6 +737,11 @@ function GameStart.AnyPlayerChat()
 
     if (str == "-jf") then
         DisplayTextToPlayer(player, 0, 0, "|cffffcc00您当前积分为：|r" .. PlayerInfo:Player(playerID).Score)
+        return
+    end
+
+    if (str == "debug") then
+        require("jass.console").enable = IsDebug
         return
     end
 end

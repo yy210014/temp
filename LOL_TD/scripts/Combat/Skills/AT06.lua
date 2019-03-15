@@ -1,19 +1,24 @@
 local skill = Skills["超能天赋随机"]
 skill.AdList = {
     "AT1Z", --战斗狂人
+    "AT2Z", --雷霆万钧
     "AT3Z", --血虐狂暴
-    "AT2Z" --雷霆万钧
+    "AT6Z", --死神裁决
+    "AT7Z" --不灭之握
 }
 skill.ApList = {
     "AT2Z", --雷霆万钧
     "AT4Z", --符文法剑
-    "AT5Z" --幽冥冷火
+    "AT5Z", --幽冥冷火
+    "AT6Z" --死神裁决
 }
 skill.AdNApList = {
     "AT1Z", --战斗狂人
     "AT2Z", --雷霆万钧
     "AT4Z", --符文法剑
-    "AT5Z" --幽冥冷火
+    "AT5Z", --幽冥冷火
+    "AT6Z", --死神裁决
+    "AT7Z" --不灭之握
 }
 
 function skill:OnCast()

@@ -10,7 +10,7 @@ local mDamages2 = { 0.7, 0.8, 0.9, 1, 1.1, 1.2 }
 local mArt = "Abilities\\Spells\\Other\\Stampede\\StampedeMissileDeath.mdl"
 
 setmetatable(Buffs["灵魂镣铐"], { __index = Buffs["移速"] })
-Buffs["灵魂镣铐"].values = {-0.25, -0.3, -0.35, -0.4, -0.45, -0.5 }
+Buffs["灵魂镣铐"].values = {-0.3, -0.3, -0.3, -0.3, -0.3, -0.3 }
 Buffs["灵魂镣铐"].Durs = { 5, 5, 5, 5, 5, 5 }
 
 skill.Action = function(self, dt)
@@ -24,12 +24,12 @@ skill.Action = function(self, dt)
         self:OnFinish()
         return
     end
-
     local spellUnit = self.Owner
     for i = #self.DamageList, 1, -1 do
         local unit = self.DamageList[i][1]
         local lightning = self.DamageList[i][2]
-        if (unit.IsDying == false) then
+        local dist = DistanceBetweenUnits(spellUnit.Entity, unit.Entity)
+        if (unit.IsDying == false and dist <= 1200) then
             MoveLightningEx(lightning, false, spellUnit:X(), spellUnit:Y(), spellUnit:Z() + 60, unit:X(), unit:Y(), unit:Z() + 60)
         else
             DestroyLightning(lightning)
@@ -45,7 +45,8 @@ skill.Action = function(self, dt)
         for i = #self.DamageList, 1, -1 do
             local unit = self.DamageList[i][1]
             local lightning = self.DamageList[i][2]
-            if (unit.IsDying == false) then
+            local dist = DistanceBetweenUnits(spellUnit.Entity, unit.Entity)
+            if (unit.IsDying == false and dist <= 1200) then
                 --特效
                 DestroyEffect(AddSpecialEffectTarget(mArt, unit.Entity, "chest"))
                 EXUnitDamageTarget(self.Owner, unit, damage, EXAbilityType.Magic_Ability)

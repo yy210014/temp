@@ -1,6 +1,6 @@
 local skill = Skills["痛苦腐蚀"]
 skill.SkillType = 3
-skill.Interval = 0.5
+skill.Interval = 1
 skill.IntervalDt = 0
 skill.Duration = 5.5
 local mDamageRange = 450

@@ -9,14 +9,12 @@ function item:OnAdd()
     local unit = self.Owner
     unit.Attribute:add("法术攻击", 150)
     unit.Attribute:add("魔法上限", 400)
-    unit.Attribute:add("冷却缩减", 0.1)
 end
 
 function item:OnRemove()
     local unit = self.Owner
     unit.Attribute:add("法术攻击", -150)
     unit.Attribute:add("魔法上限", -400)
-    unit.Attribute:add("冷却缩减", -0.1)
 end
 
 function item:OnSkillDamage(defUnit)

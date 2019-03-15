@@ -137,18 +137,26 @@ local function DestroyEnemyObject(unit, destroy)
 end
 
 function AssetsManager.RemoveObject(unit)
-    if (unit.FactionId == PlayerTeamFactionId) then
-        DestroyPlayerObject(unit, false)
+    if (unit ~= nil) then
+        if (unit.FactionId == PlayerTeamFactionId) then
+            DestroyPlayerObject(unit, false)
+        else
+            DestroyEnemyObject(unit, false)
+        end
     else
-        DestroyEnemyObject(unit, false)
+        Game.LogError("RemoveObject:单位为null")
     end
 end
 
 function AssetsManager.DestroyObject(unit)
-    if (unit.FactionId == PlayerTeamFactionId) then
-        DestroyPlayerObject(unit, true)
+    if (unit ~= nil) then
+        if (unit.FactionId == PlayerTeamFactionId) then
+            DestroyPlayerObject(unit, true)
+        else
+            DestroyEnemyObject(unit, true)
+        end
     else
-        DestroyEnemyObject(unit, true)
+        Game.LogError("DestroyObject:单位为null")
     end
 end
 

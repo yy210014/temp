@@ -359,7 +359,9 @@ function EndLessComing()
             PlayerInfo.AddScore(player.Entity, Game.GetLevel() * 10)
             DisplayTextToPlayer(player.Entity, 0, 0, "|cffffcc00恭喜你们开启了无尽关卡!所有进入无尽模式的玩家获得" .. (Game.GetLevel() * 10) .. "点游戏积分!|r")
         end
-        AssetsManager.DestroyObject(player.TiaoZhan)
+        if (player.TiaoZhan ~= nil) then
+            AssetsManager.DestroyObject(player.TiaoZhan)
+        end
     end)
     local enemyTeamUnits = GetEnemyTeamUnits()
     for j = 1, #enemyTeamUnits do

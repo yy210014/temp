@@ -105,7 +105,7 @@ local function InitPlayerUnit()
                 local abilityCode = EXGetUnitAbility(tz.Entity, tz.CurSkill.Id)
                 EXSetAbilityState(abilityCode, ABILITY_STATE_COOLDOWN, 1)
                 DisplayTextToPlayer(tz.Player, 0, 0, "|cffffcc00新的野怪已经抵达战场，可通过野怪挑战商店进行挑战!|r")
-                PingMinimap(tz:X(), tz:Y(), 5)
+                PingMinimap(tz:X(), tz:Y(), 15)
             end
             )
         end

@@ -26,6 +26,10 @@ skill.OnPathEnd = function(dummy)
     local self = dummy.Skill
     local ap = owner.Attribute:get("法术攻击")
     local damage = mDamages1[self:GetCurLevel()] + ap * mDamages2[self:GetCurLevel()]
+    local comb = owner:GetComb("炸弹人-帽子")
+    if (comb ~= nil and comb.Enable) then
+        damage = damage + damage * 0.5
+    end
     AssetsManager.OverlapCircle(
     dummy:X(),
     dummy:Y(),

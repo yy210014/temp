@@ -625,11 +625,11 @@ function comb:OnDisable()
     self.Owner.Attribute:add("法术穿透", -0.3)
 end
 
-comb = Combs["炸弹人-大圣杯"]
+comb = Combs["炸弹人-帽子"]
 comb.Ubertip = [[
--大圣杯
- 羁绊需求：炸弹人+大圣杯
- 羁绊效果：增加炸弹人“弹跳炸弹”技能伤害50%|n
+-帽子
+ 羁绊需求：炸弹人+帽子
+ 羁绊效果：增加炸弹人“地狱火炮”技能伤害50%|n
 ]]
 
 function comb:HerosId()
@@ -637,7 +637,7 @@ function comb:HerosId()
 end
 
 function comb:Conditions()
-    return (UnitHasItemOfTypeBJ(self.Owner.Entity, GetId("I071")) == true)
+    return (UnitHasItemOfTypeBJ(self.Owner.Entity, GetId("I073")) == true)
 end
 
 function comb:OnEnable()
@@ -646,10 +646,10 @@ end
 function comb:OnDisable()
 end
 
-comb = Combs["炸弹人-巫术法杖"]
+comb = Combs["炸弹人-法穿棒"]
 comb.Ubertip = [[
--巫术法杖
- 羁绊需求：炸弹人+巫术法杖
+-法穿棒
+ 羁绊需求：炸弹人+法穿棒
  羁绊效果：增加炸弹人30%的法术穿透|n
 ]]
 
@@ -658,7 +658,7 @@ function comb:HerosId()
 end
 
 function comb:Conditions()
-    return (UnitHasItemOfTypeBJ(self.Owner.Entity, GetId("I064")) == true)
+    return (UnitHasItemOfTypeBJ(self.Owner.Entity, GetId("I069")) == true)
 end
 
 function comb:OnEnable()
@@ -1042,8 +1042,8 @@ function AddComb(unit)
         unit:AddComb(setmetatable({}, { __index = Combs["堕天使-痛苦面具"] }))
     elseif (id == "炸弹人") then --炸弹人
         unit:AddComb(setmetatable({}, { __index = Combs["炮火联盟-炸弹人"] }))
-        unit:AddComb(setmetatable({}, { __index = Combs["炸弹人-大圣杯"] }))
-        unit:AddComb(setmetatable({}, { __index = Combs["炸弹人-巫术法杖"] }))
+        unit:AddComb(setmetatable({}, { __index = Combs["炸弹人-帽子"] }))
+        unit:AddComb(setmetatable({}, { __index = Combs["炸弹人-法穿棒"] }))
     elseif (id == "冰女") then --冰女
         unit:AddComb(setmetatable({}, { __index = Combs["冰雪之冠-冰女"] }))
         unit:AddComb(setmetatable({}, { __index = Combs["冰女-鬼书"] }))

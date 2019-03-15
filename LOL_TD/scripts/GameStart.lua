@@ -200,7 +200,7 @@ function GameStart.AnyUnitDamaged()
     end
 
     --死神裁决
-    if GetUnitAbilityLevel(attactUnit.Entity, GetId("AT6Z")) > 0 then
+    if GetUnitAbilityLevel(attactUnit.Entity, GetId("AX6Z")) > 0 then
         if (defUnit.Attribute:get("生命") < defUnit.Attribute:get("生命上限") * 0.5) then
             damage = damage + damage * 0.35
         end

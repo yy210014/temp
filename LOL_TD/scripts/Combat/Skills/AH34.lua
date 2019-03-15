@@ -2,7 +2,7 @@ local skill = Skills["弹跳炸弹"]
 skill.SkillType = 2
 local mDamages1 = { 200, 400, 600, 800, 1000, 1200 }
 local mDamages2 = { 1, 1.4, 1.8, 2.2, 2.6, 3 }
-local mDamageRange = 350
+local mDamageRange = 450
 --local mArt = "Abilities\\Weapons\\Mortar\\MortarMissile.mdl"
 local mArt = "BombMissile.mdl"
 local mExplosion = "Abilities\\Spells\\Other\\Incinerate\\FireLordDeathExplode.mdl"
@@ -26,10 +26,6 @@ skill.OnPathEnd = function(dummy)
     local self = dummy.Skill
     local ap = owner.Attribute:get("法术攻击")
     local damage = mDamages1[self:GetCurLevel()] + ap * mDamages2[self:GetCurLevel()]
-    local comb = owner:GetComb("炸弹人-大圣杯")
-    if (comb ~= nil and comb.Enable) then
-        damage = damage + damage * 0.5
-    end
     AssetsManager.OverlapCircle(
     dummy:X(),
     dummy:Y(),

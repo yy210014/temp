@@ -7,7 +7,7 @@ Game.DamageFactor = 0.06 --伤害因子
 local mGameLevel = 0
 local mGameSpeed = 1
 
-IsDebug = true
+IsDebug = false
 local mIsPause = false
 console.enable = IsDebug
 function Game.Log(text)

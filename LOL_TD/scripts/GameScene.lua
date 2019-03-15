@@ -92,6 +92,7 @@ local function InitPlayerUnit()
             Worke[i]:LearnedSkill(GetId("pf04"))
 
             local tz = AssetsManager.LoadUnitAtLoc(Player(i), "uw09", rectPoints[i + 1])
+            newPlayer.TiaoZhan = tz
             tz.CurSkill = tz:AddSkill("A01" .. math.random(1, 3))
             local abilityCode = EXGetUnitAbility(tz.Entity, tz.CurSkill.Id)
             EXSetAbilityState(abilityCode, ABILITY_STATE_COOLDOWN, 60)

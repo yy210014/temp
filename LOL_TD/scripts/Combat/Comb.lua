@@ -354,6 +354,77 @@ function comb:OnDisable()
     self.Owner.Attribute:add("物理伤害加成", -0.5)
 end
 
+comb = Combs["两小无猜-小炮"]
+comb.Ubertip = [[
+-两小无猜
+ 羁绊需求：小炮(SR)+提百万(SR)
+ 羁绊效果：增加小炮50%物理伤害加成
+          增加提百万50%法术伤害加成|n
+]]
+
+function comb:HerosId()
+    return { "小炮", "提百万" }
+end
+
+function comb:Conditions()
+    return testA(self, self:HerosId())
+end
+
+function comb:OnEnable()
+    self.Owner.Attribute:add("物理伤害加成", 0.5)
+end
+
+function comb:OnDisable()
+    self.Owner.Attribute:add("物理伤害加成", -0.5)
+end
+
+comb = Combs["两小无猜-提百万"]
+comb.Ubertip = [[
+-两小无猜
+ 羁绊需求：小炮(SR)+提百万(SR)
+ 羁绊效果：增加小炮50%物理伤害加成
+          增加提百万50%法术伤害加成|n
+]]
+
+function comb:HerosId()
+    return { "小炮", "提百万" }
+end
+
+function comb:Conditions()
+    return testA(self, self:HerosId())
+end
+
+function comb:OnEnable()
+    self.Owner.Attribute:add("法术伤害加成", 0.5)
+end
+
+function comb:OnDisable()
+    self.Owner.Attribute:add("法术伤害加成", -0.5)
+end
+
+comb = Combs["郎才女貌"]
+comb.Ubertip = [[
+-郎才女貌
+ 羁绊需求：EZ(SR)+光辉(SR)
+ 羁绊效果：增加EZXX
+          增加光辉50%法术伤害加成|n
+]]
+
+function comb:HerosId()
+    return { "EZ", "光辉" }
+end
+
+function comb:Conditions()
+    return testA(self, self:HerosId())
+end
+
+function comb:OnEnable()
+    self.Owner.Attribute:add("物理伤害加成", 0.5)
+end
+
+function comb:OnDisable()
+    self.Owner.Attribute:add("物理伤害加成", -0.5)
+end
 
 comb = Combs["皇子-大九头蛇"]
 comb.Ubertip = [[
@@ -579,29 +650,6 @@ function comb:OnDisable()
     self.Owner.Attribute:add("暴击伤害", -0.5)
 end
 
-comb = Combs["大天使-羊刀"]
-comb.Ubertip = [[
--羊刀
- 羁绊需求：大天使+羊刀
- 羁绊效果：增加大天使30%的物理穿透|n
-]]
-
-function comb:HerosId()
-    return { self.Owner.Id }
-end
-
-function comb:Conditions()
-    return (UnitHasItemOfTypeBJ(self.Owner.Entity, GetId("I090")) == true)
-end
-
-function comb:OnEnable()
-    self.Owner.Attribute:add("物理穿透", 0.3)
-end
-
-function comb:OnDisable()
-    self.Owner.Attribute:add("物理穿透", -0.3)
-end
-
 comb = Combs["大天使-纳什之牙"]
 comb.Ubertip = [[
 -纳什之牙
@@ -623,6 +671,29 @@ end
 
 function comb:OnDisable()
     self.Owner.Attribute:add("法术穿透", -0.3)
+end
+
+comb = Combs["大天使-羊刀"]
+comb.Ubertip = [[
+-羊刀
+ 羁绊需求：大天使+羊刀
+ 羁绊效果：增加大天使30%的物理穿透|n
+]]
+
+function comb:HerosId()
+    return { self.Owner.Id }
+end
+
+function comb:Conditions()
+    return (UnitHasItemOfTypeBJ(self.Owner.Entity, GetId("I090")) == true)
+end
+
+function comb:OnEnable()
+    self.Owner.Attribute:add("物理穿透", 0.3)
+end
+
+function comb:OnDisable()
+    self.Owner.Attribute:add("物理穿透", -0.3)
 end
 
 comb = Combs["炸弹人-帽子"]
@@ -1028,6 +1099,96 @@ function comb:OnDisable()
     SetPlayerState(self.Owner.Player, PLAYER_STATE_RESOURCE_FOOD_CAP, 100)
 end
 
+comb = Combs["提百万-纳什之牙"]
+comb.Ubertip = [[
+-纳什之牙
+ 羁绊需求：提百万+纳什之牙
+ 羁绊效果：中毒状态伤害+100%|n
+]]
+
+function comb:HerosId()
+    return { self.Owner.Id }
+end
+
+function comb:Conditions()
+    return (UnitHasItemOfTypeBJ(self.Owner.Entity, GetId("I083")) == true)
+end
+
+function comb:OnEnable()
+end
+
+function comb:OnDisable()
+end
+
+comb = Combs["提百万-羊刀"]
+comb.Ubertip = [[
+-羊刀
+ 羁绊需求：提百万+羊刀
+ 羁绊效果：增加提百万15%的双穿透|n
+]]
+
+function comb:HerosId()
+    return { self.Owner.Id }
+end
+
+function comb:Conditions()
+    return (UnitHasItemOfTypeBJ(self.Owner.Entity, GetId("I090")) == true)
+end
+
+function comb:OnEnable()
+    self.Owner.Attribute:add("物理穿透", 0.15)
+    self.Owner.Attribute:add("法术穿透", 0.15)
+end
+
+function comb:OnDisable()
+    self.Owner.Attribute:add("物理穿透", -0.15)
+    self.Owner.Attribute:add("法术穿透", -0.15)
+end
+
+comb = Combs["提百万-冰杖"]
+comb.Ubertip = [[
+-冰杖
+ 羁绊需求：提百万+冰杖
+ 羁绊效果：中毒状态伤害+100%|n
+]]
+
+function comb:HerosId()
+    return { self.Owner.Id }
+end
+
+function comb:Conditions()
+    return (UnitHasItemOfTypeBJ(self.Owner.Entity, GetId("I096")) == true)
+end
+
+function comb:OnEnable()
+end
+
+function comb:OnDisable()
+end
+
+comb = Combs["提百万-痛苦面具"]
+comb.Ubertip = [[
+-痛苦面具
+ 羁绊需求：提百万+痛苦面具
+ 羁绊效果：增加提百万30%法术穿透|n
+]]
+
+function comb:HerosId()
+    return { self.Owner.Id }
+end
+
+function comb:Conditions()
+    return (UnitHasItemOfTypeBJ(self.Owner.Entity, GetId("I100")) == true)
+end
+
+function comb:OnEnable()
+    self.Owner.Attribute:add("法术穿透", 0.3)
+end
+
+function comb:OnDisable()
+    self.Owner.Attribute:add("法术穿透", -0.3)
+end
+
 function AddComb(unit)
     local id = unit.ProperName
     local newComb = {}
@@ -1082,6 +1243,7 @@ function AddComb(unit)
         unit:AddComb(setmetatable({}, { __index = Combs["剑圣-无尽"] }))
     elseif (id == "小炮") then --小炮
         unit:AddComb(setmetatable({}, { __index = Combs["炮火联盟-小炮"] }))
+        unit:AddComb(setmetatable({}, { __index = Combs["两小无猜-小炮"] }))
         unit:AddComb(setmetatable({}, { __index = Combs["小炮-电刀"] }))
         unit:AddComb(setmetatable({}, { __index = Combs["小炮-无尽"] }))
     elseif (id == "寒冰") then --寒冰
@@ -1093,6 +1255,17 @@ function AddComb(unit)
         unit:AddComb(setmetatable({}, { __index = Combs["师徒二人"] }))
         unit:AddComb(setmetatable({}, { __index = Combs["齐天大圣-三相"] }))
         unit:AddComb(setmetatable({}, { __index = Combs["齐天大圣-吸蓝刀"] }))
+    elseif (id == "提百万") then --提百万
+        unit:AddComb(setmetatable({}, { __index = Combs["两小无猜-提百万"] }))
+        if (math.random(1, 2) == 1) then
+            unit:AddComb(setmetatable({}, { __index = Combs["提百万-纳什之牙"] }))
+            unit:AddComb(setmetatable({}, { __index = Combs["提百万-羊刀"] }))
+        else
+            unit:AddComb(setmetatable({}, { __index = Combs["提百万-冰杖"] }))
+            unit:AddComb(setmetatable({}, { __index = Combs["提百万-痛苦面具"] }))
+        end
+    elseif (id == "EZ") then
+        unit:AddComb(setmetatable({}, { __index = Combs["郎才女貌"] }))
     elseif (id == "风女" or id == "琴女" or id == "日女" or id == "时光老头" or id == "牛头") then
         unit:AddComb(setmetatable({}, { __index = Combs["5个辅助"] }))
         --  elseif (id == "水蜉蝣龙" or id == "土蜉蝣龙" or id == "火蜉蝣龙" or id == "风蜉蝣龙") then 

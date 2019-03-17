@@ -110,7 +110,14 @@ function PlayerInfo:New(entity)
                 SaveStr(Jglobals.udg_table, GetPlayerId(entity) + 1, ItemType.Score, "")
                 TimerStart(Jglobals.udg_jfTimer, 0.01, false, nil)
             else
-                newPlayer.Score = score
+                if (score < 0) then
+                    DisplayTextToPlayer(entity, 0, 0, "|cFFFF0000游戏积分为负，积分清零！|r")
+                    newPlayer.Score = 0
+                    SaveStr(Jglobals.udg_table, GetPlayerId(entity) + 1, ItemType.Score, "")
+                    TimerStart(Jglobals.udg_jfTimer, 0.01, false, nil)
+                else
+                    newPlayer.Score = score
+                end
             end
         end
     end
@@ -159,15 +166,16 @@ function PlayerInfo.AddScore(entity, score)
     local index = GetPlayerId(entity) + 1
     local player = GetJ_Player(entity)
     if (score > 0) then
+        --加分写在下面！！！
         if (Game.GetMode() == GameMode.ENDLESS and Game.GetLevel() == 3) then
             score = score * 2
         end
         if (player.IsVIP) then
             score = score * 2
         end
-    end
-    if (os.time() < 1552838760) then
-        score = score * 2
+        if (os.time() < 1552838760) then
+            score = score * 2
+        end
     end
 
     player.Score = player.Score + score

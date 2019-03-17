@@ -1293,7 +1293,7 @@ skill = Skills["屠龙C级"]
 skill.Value = 0
 skill.MaxValue = 0
 function skill:OnCast()
-    if (Tianfu_Condition(self, 2)) then
+    if (Tianfu_Condition(self, 1)) then
         local maxLevel = GetUnitAbilityLevel(self.Owner.Entity, self.Id) == 5
         if (maxLevel == false) then
             SetUnitAbilityLevel(self.Owner.Entity, self.Id, GetUnitAbilityLevel(self.Owner.Entity, self.Id) + 1)
@@ -1305,18 +1305,21 @@ function skill:OnCast()
         end
     end
 end
+
 function skill:OnKill(dieUnit)
-    local selectUnit = self.Owner.SelectUnit
+  --[[  if (IsUnitType(dieUnit.Entity, UNIT_TYPE_HERO) == false or dieUnit.Id == GetId("Ye01") or dieUnit.Id == GetId("Ye02")) then
+        return
+    end]]
     local selectUnit = self.Owner.SelectUnit
     local maxLevel = GetUnitAbilityLevel(self.Owner.Entity, self.Id) == 5
     self.MaxValue = self:GetCurLevel() * 0.02 - (maxLevel and 0 or 0.02)
     if (self.Id == GetId("AXHC")) then
         self.MaxValue = 0.1
     end
-    if (self.Value < self.MaxValue) then
-        self.Value = self.Value + 1
-        selectUnit.Attribute:add("物理伤害加成", 0.001)
-        selectUnit.Attribute:add("法术伤害加成", 0.001)
+    if (self.Value <= self.MaxValue) then
+        self.Value = self.Value + 0.005
+        selectUnit.Attribute:add("物理伤害加成", 0.005)
+        selectUnit.Attribute:add("法术伤害加成", 0.005)
     end
 end
 
@@ -1324,7 +1327,7 @@ skill = Skills["屠龙B级"]
 skill.Value = 0
 skill.MaxValue = 0
 function skill:OnCast()
-    if (Tianfu_Condition(self, 2)) then
+    if (Tianfu_Condition(self, 1)) then
         local maxLevel = GetUnitAbilityLevel(self.Owner.Entity, self.Id) == 5
         if (maxLevel == false) then
             SetUnitAbilityLevel(self.Owner.Entity, self.Id, GetUnitAbilityLevel(self.Owner.Entity, self.Id) + 1)
@@ -1340,11 +1343,11 @@ function skill:OnKill(dieUnit)
     local selectUnit = self.Owner.SelectUnit
     local maxLevel = GetUnitAbilityLevel(self.Owner.Entity, self.Id) == 5
     self.MaxValue = self:GetCurLevel() * 0.04 - (maxLevel and 0 or 0.04)
-    if (self.Id == GetId("AXHA")) then
+    if (self.Id == GetId("AXHB")) then
         self.MaxValue = 0.2
     end
-    if (self.Value < self.MaxValue) then
-        self.Value = self.Value + 1
+    if (self.Value <= self.MaxValue) then
+        self.Value = self.Value + 0.01
         selectUnit.Attribute:add("物理伤害加成", 0.01)
         selectUnit.Attribute:add("法术伤害加成", 0.01)
     end
@@ -1353,7 +1356,7 @@ skill = Skills["屠龙A级"]
 skill.Value = 0
 skill.MaxValue = 0
 function skill:OnCast()
-    if (Tianfu_Condition(self, 2)) then
+    if (Tianfu_Condition(self, 1)) then
         local maxLevel = GetUnitAbilityLevel(self.Owner.Entity, self.Id) == 5
         if (maxLevel == false) then
             SetUnitAbilityLevel(self.Owner.Entity, self.Id, GetUnitAbilityLevel(self.Owner.Entity, self.Id) + 1)
@@ -1372,8 +1375,8 @@ function skill:OnKill(dieUnit)
     if (self.Id == GetId("AXHA")) then
         self.MaxValue = 0.3
     end
-    if (self.Value < self.MaxValue) then
-        self.Value = self.Value + 1
+    if (self.Value <= self.MaxValue) then
+        self.Value = self.Value + 0.015
         selectUnit.Attribute:add("物理伤害加成", 0.015)
         selectUnit.Attribute:add("法术伤害加成", 0.015)
     end
@@ -1382,7 +1385,7 @@ skill = Skills["屠龙S级"]
 skill.Value = 0
 skill.MaxValue = 0
 function skill:OnCast()
-    if (Tianfu_Condition(self, 2)) then
+    if (Tianfu_Condition(self, 1)) then
         local maxLevel = GetUnitAbilityLevel(self.Owner.Entity, self.Id) == 5
         if (maxLevel == false) then
             SetUnitAbilityLevel(self.Owner.Entity, self.Id, GetUnitAbilityLevel(self.Owner.Entity, self.Id) + 1)
@@ -1399,11 +1402,11 @@ function skill:OnKill(dieUnit)
     local selectUnit = self.Owner.SelectUnit
     local maxLevel = GetUnitAbilityLevel(self.Owner.Entity, self.Id) == 5
     self.MaxValue = self:GetCurLevel() * 0.08 - (maxLevel and 0 or 0.08)
-    if (self.Id == GetId("AXHA")) then
+    if (self.Id == GetId("AXHS")) then
         self.MaxValue = 0.4
     end
-    if (self.Value < self.MaxValue) then
-        self.Value = self.Value + 1
+    if (self.Value <= self.MaxValue) then
+        self.Value = self.Value + 0.02
         selectUnit.Attribute:add("物理伤害加成", 0.02)
         selectUnit.Attribute:add("法术伤害加成", 0.02)
     end

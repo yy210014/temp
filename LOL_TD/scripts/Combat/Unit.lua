@@ -23,6 +23,7 @@ local mHeroRegenManaList = {
     [GetId("UH25")] = { 2.4, 0.1, GetId("pf05") }, --寒冰
     [GetId("UH23")] = { 2.4, 0.1 }, --小炮
     [GetId("UH13")] = { 1.6, 0.2 }, --大天使
+    [GetId("UH31")] = { 1.6, 0.2 }, --EZ
 
     --ap
     [GetId("UH02")] = { 3, 0.2 }, --堕天使
@@ -30,6 +31,7 @@ local mHeroRegenManaList = {
     [GetId("UH03")] = { 3, 0.2 }, --炸弹人
     [GetId("UH06")] = { 3, 0.2 }, --冰女
     [GetId("UH01")] = { 3, 0.2 }, --光辉
+    [GetId("UH29")] = { 3, 0.2 }, --提百万
     --辅助
     [GetId("UH35")] = { 3, 0.2 }, --风女
     [GetId("UH36")] = { 3, 0.2 }, --琴女

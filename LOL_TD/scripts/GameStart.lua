@@ -68,6 +68,18 @@ function GameStart.AnyDummyDamaged(attactUnit, defUnit)
         EXUnitDamageTarget(spellUnit, defUnit, damage, EXAbilityType.Magic_Ability)
     end
 
+    if GetUnitTypeId(attactUnit.Entity) == GetId("uq13") then
+        mDamages1 = { 80, 120, 180, 240, 300, 360 }
+        mDamages2 = { 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 }
+        local spellUnit = attactUnit.Owner
+        local self = attactUnit.Skill
+        defUnit:AddBuff("蘑菇减少移速", self:GetCurLevel())
+        local buf = defUnit:AddBuff("蘑菇毒", self:GetCurLevel())
+        if (buf ~= nil) then
+            buf.AttactUnit = spellUnit
+        end
+     end
+
     mDamages1 = nil
     mDamages2 = nil
 end
@@ -741,7 +753,7 @@ function GameStart.AnyPlayerChat()
     end
 
     if (str == "debug") then
-        require("jass.console").enable = IsDebug
+        require("jass.console").enable = true
         return
     end
 end

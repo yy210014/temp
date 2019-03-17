@@ -143,13 +143,13 @@ function GameScene.OnGameUpdate(dt)
     local id = GetPlayerId(GetLocalPlayer()) + 1
     if mSelectedUnit[id] ~= nil and mSelectedUnit[id].Attribute ~= nil and mSelectedUnit[id].Attribute:get("生命") > 0 then
         Jglobals.udg_Attribute[0] = tostring(math.ceil(mSelectedUnit[id].Attribute:get("法术攻击")))
-        Jglobals.udg_Attribute[1] = tostring(math.ceil(mSelectedUnit[id].Attribute:get("物理穿透") * 100)) .. "%"
-        Jglobals.udg_Attribute[2] = tostring(math.ceil(mSelectedUnit[id].Attribute:get("法术穿透") * 100)) .. "%"
-        Jglobals.udg_Attribute[3] = tostring(math.ceil(mSelectedUnit[id].Attribute:get("物理伤害加成") * 100) - 100) .. "%"
-        Jglobals.udg_Attribute[4] = tostring(math.ceil(mSelectedUnit[id].Attribute:get("法术伤害加成") * 100) - 100) .. "%"
-        Jglobals.udg_Attribute[5] = tostring(math.ceil(mSelectedUnit[id].Attribute:get("暴击") * 100)) .. "%"
-        Jglobals.udg_Attribute[6] = tostring(math.ceil(Misc.Clamp(mSelectedUnit[id].Attribute:get("冷却缩减"), 0, mSelectedUnit[id].Attribute:get("冷却缩减上限")) * 100)) .. "%"
-        Jglobals.udg_Attribute[7] = tostring(math.ceil(mSelectedUnit[id].Attribute:get("暴击伤害") * 100)) .. "%"
+        Jglobals.udg_Attribute[1] = tostring(string.format("%.0f", mSelectedUnit[id].Attribute:get("物理穿透") * 100)) .. "%"
+        Jglobals.udg_Attribute[2] = tostring(string.format("%.0f", mSelectedUnit[id].Attribute:get("法术穿透") * 100)) .. "%"
+        Jglobals.udg_Attribute[3] = tostring(string.format("%.1f", mSelectedUnit[id].Attribute:get("物理伤害加成") * 100)) - 100 .. "%"
+        Jglobals.udg_Attribute[4] = tostring(string.format("%.1f", mSelectedUnit[id].Attribute:get("法术伤害加成") * 100)) - 100 .. "%"
+        Jglobals.udg_Attribute[5] = tostring(string.format("%.0f", mSelectedUnit[id].Attribute:get("暴击") * 100)) .. "%"
+        Jglobals.udg_Attribute[6] = tostring(Misc.Clamp(mSelectedUnit[id].Attribute:get("冷却缩减"), 0, mSelectedUnit[id].Attribute:get("冷却缩减上限") * 100)) .. "%"
+        Jglobals.udg_Attribute[7] = tostring(string.format("%.0f", mSelectedUnit[id].Attribute:get("暴击伤害") * 100)) .. "%"
         Jglobals.udg_Attribute[8] = string.format("%.2f", mSelectedUnit[id].Attribute:get("攻击速度"))
         --tostring(mSelectedUnit[id].Attribute:get("攻击速度")), 1, 4)
         Jglobals.udg_Attribute[9] = "+" .. tostring(math.ceil(mSelectedUnit[id].Attribute:get("魔法恢复")))

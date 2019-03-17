@@ -28,6 +28,12 @@ skill.Action = function(self, dt)
         self.IntervalDt = self.Interval
         local spellUnit = self.Owner
         local comb = spellUnit:GetComb("正义兄妹-草丛伦")
+        --伤害
+        local ad = spellUnit.Attribute:get("物理攻击") + spellUnit.Attribute:get("物理攻击加成")
+        local damage = mDamages1[self:GetCurLevel()] + ad * mDamages2[self:GetCurLevel()]
+        if (comb ~= nil and comb.Enable) then
+            damage = damage * 2
+        end
         AssetsManager.OverlapCircle(
         spellUnit:X(),
         spellUnit:Y(),
@@ -38,15 +44,7 @@ skill.Action = function(self, dt)
             AddSpecialEffectTarget(
             "Abilities\\Spells\\Other\\Stampede\\StampedeMissileDeath.mdl",
             unit.Entity,
-            "chest"
-            )
-            )
-            --伤害
-            local ad = spellUnit.Attribute:get("物理攻击") + spellUnit.Attribute:get("物理攻击加成")
-            local damage = mDamages1[self:GetCurLevel()] + ad * mDamages2[self:GetCurLevel()]
-            if (comb ~= nil and comb.Enable) then
-                damage = damage + damage * 1
-            end
+            "chest"))
             EXUnitDamageTarget(spellUnit, unit, damage, EXAbilityType.Physics_Ability)
         end
         )

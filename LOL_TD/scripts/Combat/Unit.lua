@@ -540,7 +540,7 @@ function Unit:OnLevelUp()
         ad = 8
         self.Attribute:add("魔法上限", 80)
     else
-        ad = 15
+        ad = 18
         self.Attribute:add("魔法上限", 50)
     end
     --火柴人

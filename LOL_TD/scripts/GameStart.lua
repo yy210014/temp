@@ -159,6 +159,11 @@ function GameStart.AnyUnitDamaged()
                     damage = damage * 0.5
                 end
             end
+            --提莫E
+            local ah72 = attactUnit:GetSkill(GetId("AH72"))
+            if (ah72 ~= nil) then
+                ah72:OnAttack(attactUnit, defUnit, isCritDamage)
+            end
         end
     else
         if (EXGetAttackType() == EXAbilityType.Magic) then

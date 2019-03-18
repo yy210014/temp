@@ -1693,28 +1693,7 @@ skill.mLastAttackTime = 0
 skill.mArt1 = "AZ_TS_G2.mdl"
 skill.mArt2 = "Abilities\\Spells\\Human\\Thunderclap\\ThunderClapCaster.mdl"
 function skill:OnAttack(attactUnit, defUnit)
-    if (GameScene.Elapsed - self.mLastAttackTime > 3) then
-        self.mLastAttackTime = GameScene.Elapsed
-        local damage = 0.05 * attactUnit.Attribute:get("生命上限")
-        if (damage > 2500) then
-            damage = 2500
-        end
-        EXUnitDamageTarget(attactUnit, defUnit, damage, EXAbilityType.Magic)
-    end
-end
-
-skill = Skills["不灭之握"]
-skill.value = 0
-function skill:OnCast()
-    Tianfu_Action2(self, 5)
-end
-
-skill = Skills["不灭之握[被动]"]
-skill.mLastAttackTime = 0
-skill.mArt1 = "AZ_TS_G2.mdl"
-skill.mArt2 = "Abilities\\Spells\\Human\\Thunderclap\\ThunderClapCaster.mdl"
-function skill:OnAttack(attactUnit, defUnit)
-    if (GameScene.Elapsed - self.mLastAttackTime > 3) then
+    if (GameScene.Elapsed - self.mLastAttackTime > 1) then
         self.mLastAttackTime = GameScene.Elapsed
         local damage = 0.05 * attactUnit.Attribute:get("生命上限")
         if (damage > 2500) then

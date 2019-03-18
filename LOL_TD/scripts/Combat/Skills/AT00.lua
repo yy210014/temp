@@ -1307,16 +1307,16 @@ function skill:OnCast()
 end
 
 function skill:OnKill(dieUnit)
-  --[[  if (IsUnitType(dieUnit.Entity, UNIT_TYPE_HERO) == false or dieUnit.Id == GetId("Ye01") or dieUnit.Id == GetId("Ye02")) then
+    --[[  if (IsUnitType(dieUnit.Entity, UNIT_TYPE_HERO) == false or dieUnit.Id == GetId("Ye01") or dieUnit.Id == GetId("Ye02")) then
         return
     end]]
     local selectUnit = self.Owner.SelectUnit
     local maxLevel = GetUnitAbilityLevel(self.Owner.Entity, self.Id) == 5
     self.MaxValue = self:GetCurLevel() * 0.02 - (maxLevel and 0 or 0.02)
     if (self.Id == GetId("AXHC")) then
-        self.MaxValue = 0.1
+        self.MaxValue = 5 * 0.02
     end
-    if (self.Value <= self.MaxValue) then
+    if (self.Value < self.MaxValue) then
         self.Value = self.Value + 0.005
         selectUnit.Attribute:add("物理伤害加成", 0.005)
         selectUnit.Attribute:add("法术伤害加成", 0.005)
@@ -1346,7 +1346,7 @@ function skill:OnKill(dieUnit)
     if (self.Id == GetId("AXHB")) then
         self.MaxValue = 0.2
     end
-    if (self.Value <= self.MaxValue) then
+    if (self.Value < self.MaxValue) then
         self.Value = self.Value + 0.01
         selectUnit.Attribute:add("物理伤害加成", 0.01)
         selectUnit.Attribute:add("法术伤害加成", 0.01)
@@ -1375,7 +1375,7 @@ function skill:OnKill(dieUnit)
     if (self.Id == GetId("AXHA")) then
         self.MaxValue = 0.3
     end
-    if (self.Value <= self.MaxValue) then
+    if (self.Value < self.MaxValue) then
         self.Value = self.Value + 0.015
         selectUnit.Attribute:add("物理伤害加成", 0.015)
         selectUnit.Attribute:add("法术伤害加成", 0.015)
@@ -1405,7 +1405,7 @@ function skill:OnKill(dieUnit)
     if (self.Id == GetId("AXHS")) then
         self.MaxValue = 0.4
     end
-    if (self.Value <= self.MaxValue) then
+    if (self.Value < self.MaxValue) then
         self.Value = self.Value + 0.02
         selectUnit.Attribute:add("物理伤害加成", 0.02)
         selectUnit.Attribute:add("法术伤害加成", 0.02)

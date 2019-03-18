@@ -1028,7 +1028,7 @@ function comb:OnEnable()
 end
 
 function comb:OnDisable()
-    self.Owner.Attribute:add("物理穿透", 0.3)
+    self.Owner.Attribute:add("物理穿透", -0.3)
 end
 
 comb = Combs["齐天大圣-吸蓝刀"]

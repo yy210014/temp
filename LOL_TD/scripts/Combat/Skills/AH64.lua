@@ -16,14 +16,14 @@ function skill:OnCast()
     DestroyEffect(AddSpecialEffect("AZ_xiaonajia01_D.mdl", spellUnit:X(), spellUnit:Y()))
 
     local comb = GetUnitAbilityLevel(spellUnit.Entity, GetId("AH75")) > 0
+    local ap = spellUnit.Attribute:get("法术攻击")
+    local damage = mDamages1[self:GetCurLevel()] + ap * mDamages2[self:GetCurLevel()]
     AssetsManager.OverlapCircle(
     spellUnit:X(),
     spellUnit:Y(),
     mRange,
     function(unit)
         unit:AddBuff("冰霜之环", comb and self:GetCurLevel() + 1 or self:GetCurLevel())
-        local ap = spellUnit.Attribute:get("法术攻击")
-        local damage = mDamages1[self:GetCurLevel()] + ap * mDamages2[self:GetCurLevel()]
         EXUnitDamageTarget(spellUnit, unit, damage, EXAbilityType.Magic_Ability)
     end
     )

@@ -29,7 +29,7 @@ function buff.Action(self, dt)
         if ((comb1 ~= nil and comb1.Enable) or (comb2 ~= nil and comb2.Enable)) then
             damage = damage * 2
         end
-        EXUnitDamageTarget(attactUnit, owner, damage, EXAbilityType.Magic)
+        EXUnitDamageTarget(attactUnit, owner, damage, EXAbilityType.Magic_Ability)
     end
 end
 
@@ -38,6 +38,7 @@ function skill:OnCast()
     local dummy = AssetsManager.LoadUnit(spellUnit.Player, "uq13", GetSpellTargetX(), GetSpellTargetY())
     dummy.Owner = self.Owner
     dummy.Skill = self
+    UnitApplyTimedLife(dummy.Entity, 'BHwe', 60)
 end
 
 function skill:OnRemove()

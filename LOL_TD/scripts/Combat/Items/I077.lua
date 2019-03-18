@@ -32,7 +32,7 @@ function item:OnKill(dieUnit)
         unit.Attribute:add("法术攻击", 1)
     end
     self:SetCharges(self.Count)
-    unit.Attribute:add("魔法值", 10)
+    --unit.Attribute:add("魔法值", 10)
     if (self.Count == self.MaxCount) then
         unit.Attribute:add("法术伤害加成", 0.3)
     end

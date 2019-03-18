@@ -148,7 +148,7 @@ function GameScene.OnGameUpdate(dt)
         Jglobals.udg_Attribute[3] = tostring(string.format("%.1f", mSelectedUnit[id].Attribute:get("物理伤害加成") * 100)) - 100 .. "%"
         Jglobals.udg_Attribute[4] = tostring(string.format("%.1f", mSelectedUnit[id].Attribute:get("法术伤害加成") * 100)) - 100 .. "%"
         Jglobals.udg_Attribute[5] = tostring(string.format("%.0f", mSelectedUnit[id].Attribute:get("暴击") * 100)) .. "%"
-        Jglobals.udg_Attribute[6] = tostring(Misc.Clamp(mSelectedUnit[id].Attribute:get("冷却缩减"), 0, mSelectedUnit[id].Attribute:get("冷却缩减上限") * 100)) .. "%"
+        Jglobals.udg_Attribute[6] = tostring(math.ceil(Misc.Clamp(mSelectedUnit[id].Attribute:get("冷却缩减"), 0, mSelectedUnit[id].Attribute:get("冷却缩减上限")) * 100)) .. "%"
         Jglobals.udg_Attribute[7] = tostring(string.format("%.0f", mSelectedUnit[id].Attribute:get("暴击伤害") * 100)) .. "%"
         Jglobals.udg_Attribute[8] = string.format("%.2f", mSelectedUnit[id].Attribute:get("攻击速度"))
         --tostring(mSelectedUnit[id].Attribute:get("攻击速度")), 1, 4)
